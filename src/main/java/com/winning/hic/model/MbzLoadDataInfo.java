@@ -115,13 +115,13 @@ public class MbzLoadDataInfo extends BaseDomain implements Serializable {
      * 备注: 数据发生时间
      * 默认值：无
      */
-    private java.sql.Timestamp fssj;
+    private Timestamp fssj;
     /**
      * 字段名：CQRQ
      * 备注: 抽取时间
      * 默认值：(getdate())
      */
-    private java.sql.Timestamp cqrq;
+    private Timestamp cqrq;
     /**
      * 必填项符合率
      */
@@ -445,7 +445,7 @@ public class MbzLoadDataInfo extends BaseDomain implements Serializable {
      * get方法
      * 备注: 数据发生时间
      */
-    public java.sql.Timestamp getFssj() {
+    public Timestamp getFssj() {
 
         return fssj;
     }
@@ -455,7 +455,7 @@ public class MbzLoadDataInfo extends BaseDomain implements Serializable {
      * set方法
      * 备注: 数据发生时间
      */
-    public void setFssj(java.sql.Timestamp fssj) {
+    public void setFssj(Timestamp fssj) {
         this.fssj = fssj;
     }
 
@@ -464,7 +464,7 @@ public class MbzLoadDataInfo extends BaseDomain implements Serializable {
      * get方法
      * 备注: 抽取时间
      */
-    public java.sql.Timestamp getCqrq() {
+    public Timestamp getCqrq() {
 
         return cqrq;
     }
@@ -474,7 +474,7 @@ public class MbzLoadDataInfo extends BaseDomain implements Serializable {
      * set方法
      * 备注: 抽取时间
      */
-    public void setCqrq(java.sql.Timestamp cqrq) {
+    public void setCqrq(Timestamp cqrq) {
         this.cqrq = cqrq;
     }
 

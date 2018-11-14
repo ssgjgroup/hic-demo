@@ -3,12 +3,10 @@ package com.winning.hic.service.impl;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;  
+import java.util.List;
 
+import com.winning.hic.dao.cmdatacenter.MbzAutomateSetDao;
 import com.winning.hic.model.MbzAutomateSet;
-
-import com.winning.hic.dao.data.MbzAutomateSetDao;
-
 import com.winning.hic.service.MbzAutomateSetService;
 
 

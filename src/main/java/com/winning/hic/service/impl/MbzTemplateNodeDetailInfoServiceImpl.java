@@ -4,12 +4,10 @@ import com.winning.hic.model.NodeTree;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;  
+import java.util.List;
 
-import com.winning.hic.model.MbzTemplateNodeDetailInfo;  
-
-import com.winning.hic.dao.data.MbzTemplateNodeDetailInfoDao;  
-
+import com.winning.hic.dao.cmdatacenter.MbzTemplateNodeDetailInfoDao;
+import com.winning.hic.model.MbzTemplateNodeDetailInfo;
 import com.winning.hic.service.MbzTemplateNodeDetailInfoService;  
 
 

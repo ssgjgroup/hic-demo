@@ -1,6 +1,6 @@
 package com.winning.hic.service.impl;
 
-import com.winning.hic.dao.data.MbzDataErrorDao;
+import com.winning.hic.dao.cmdatacenter.MbzDataErrorDao;
 import com.winning.hic.model.MbzDataError;
 import com.winning.hic.service.MbzDataErrorService;
 import org.springframework.beans.factory.annotation.Autowired;

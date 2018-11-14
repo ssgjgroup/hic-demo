@@ -1,8 +1,11 @@
 package com.winning.hic.job;
 
-import com.winning.hic.base.utils.DateUtil;
-import com.winning.hic.model.MbzDataCheck;
-import com.winning.hic.service.Facade;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +13,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import com.winning.hic.base.utils.DateUtil;
+import com.winning.hic.model.MbzDataCheck;
+import com.winning.hic.service.Facade;
 
 /**
  * @author chensj

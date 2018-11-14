@@ -151,7 +151,7 @@
 
         $simple_table.bootstrapTable({
             url: ctx + 'handDataCheckTable/list?isAutomate=1',
-            height: $(window).height(),
+            height: $(window).height() - 100,
             striped: true,
             toolbar: '#simple_toolbar',
             sidePagination: 'client',
@@ -180,7 +180,9 @@
                 {
                     field: 'dataCount',
                     width: '10%',
-                    title: '病历总数'
+                    title: '病历总数',
+                    align: 'center',
+
                 },
                 {
                     field: 'errorDesc',

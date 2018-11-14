@@ -1,21 +1,62 @@
 package com.winning.hic.controller;
 
-import com.winning.hic.base.Constants;
-import com.winning.hic.base.utils.PercentUtil;
-import com.winning.hic.model.*;
-import com.winning.hic.model.support.Row;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.winning.hic.base.Constants;
+import com.winning.hic.base.utils.PercentUtil;
+import com.winning.hic.model.HlhtBlgyJbjkxx;
+import com.winning.hic.model.HlhtBlgyWssjzy;
+import com.winning.hic.model.HlhtCyxjCyxj;
+import com.winning.hic.model.HlhtMjzblJzlgbl;
+import com.winning.hic.model.HlhtMjzblMjzbl;
+import com.winning.hic.model.HlhtMjzcfXycf;
+import com.winning.hic.model.HlhtMjzcfZycf;
+import com.winning.hic.model.HlhtRyjlJbxx;
+import com.winning.hic.model.HlhtRyjlRcyjl;
+import com.winning.hic.model.HlhtRyjlRyswjl;
+import com.winning.hic.model.HlhtZcjlPgc;
+import com.winning.hic.model.HlhtZcjlYdfm;
+import com.winning.hic.model.HlhtZlczjlMzshfsjl;
+import com.winning.hic.model.HlhtZlczjlMzsqfsjl;
+import com.winning.hic.model.HlhtZlczjlSxjl;
+import com.winning.hic.model.HlhtZlczjlYbssjl;
+import com.winning.hic.model.HlhtZlczjlZljl;
+import com.winning.hic.model.HlhtZqgzxxBwztzs;
+import com.winning.hic.model.HlhtZqgzxxMzzqtys;
+import com.winning.hic.model.HlhtZqgzxxQtzqtys;
+import com.winning.hic.model.HlhtZqgzxxSstys;
+import com.winning.hic.model.HlhtZqgzxxSxzltys;
+import com.winning.hic.model.HlhtZqgzxxTsjczltys;
+import com.winning.hic.model.HlhtZybcjlCyjl;
+import com.winning.hic.model.HlhtZybcjlHzjl;
+import com.winning.hic.model.HlhtZybcjlJdxj;
+import com.winning.hic.model.HlhtZybcjlJjbjl;
+import com.winning.hic.model.HlhtZybcjlQjjl;
+import com.winning.hic.model.HlhtZybcjlRcbcjl;
+import com.winning.hic.model.HlhtZybcjlScbcjl;
+import com.winning.hic.model.HlhtZybcjlShscbcjl;
+import com.winning.hic.model.HlhtZybcjlSjyscfjl;
+import com.winning.hic.model.HlhtZybcjlSqtl;
+import com.winning.hic.model.HlhtZybcjlSqxj;
+import com.winning.hic.model.HlhtZybcjlSwbltljl;
+import com.winning.hic.model.HlhtZybcjlSwjl;
+import com.winning.hic.model.HlhtZybcjlYnbltljl;
+import com.winning.hic.model.HlhtZybcjlZkjl;
+import com.winning.hic.model.HlhtZzyjlZzyjl;
+import com.winning.hic.model.MbzDataColumn;
+import com.winning.hic.model.MbzLoadDataInfo;
+import com.winning.hic.model.support.Row;
+
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * Created with IntelliJ IDEA.

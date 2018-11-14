@@ -96,7 +96,7 @@ public abstract class BaseDomain implements Serializable {
         this.blmc = blmc;
     }
 
-    private java.sql.Timestamp fssj;
+    private Timestamp fssj;
 
     public Timestamp getFssj() {
         return fssj;

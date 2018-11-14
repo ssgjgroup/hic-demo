@@ -1,15 +1,13 @@
 package com.winning.hic.service.impl;
 
-import com.winning.hic.dao.cisdb.EmrMxmcmlkDao;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-import com.winning.hic.model.EmrMbk;  
-
-import com.winning.hic.dao.cisdb.EmrMbkDao;
-
+import com.winning.hic.dao.hdw.EmrMbkDao;
+import com.winning.hic.dao.hdw.EmrMxmcmlkDao;
+import com.winning.hic.model.EmrMbk;
 import com.winning.hic.service.EmrMbkService;  
 
 

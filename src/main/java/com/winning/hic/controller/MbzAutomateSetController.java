@@ -1,13 +1,14 @@
 package com.winning.hic.controller;
 
-import com.winning.hic.base.Constants;
-import com.winning.hic.model.MbzAutomateSet;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.winning.hic.base.Constants;
+import com.winning.hic.model.MbzAutomateSet;
 
 /**
  * @author chensj

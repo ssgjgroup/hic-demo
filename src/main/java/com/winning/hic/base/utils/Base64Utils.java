@@ -1,14 +1,13 @@
 package com.winning.hic.base.utils;
 
-import com.alibaba.fastjson.JSONObject;
-import org.apache.commons.codec.binary.Base64;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.zip.Inflater;
 import java.util.zip.InflaterInputStream;
+
+import org.apache.commons.codec.binary.Base64;
 
 /**
  * 编码

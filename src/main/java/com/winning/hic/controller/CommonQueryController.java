@@ -1,14 +1,16 @@
 package com.winning.hic.controller;
 
-import com.winning.hic.base.Constants;
-import com.winning.hic.model.MbzDictInfo;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.winning.hic.base.Constants;
+import com.winning.hic.model.MbzDictInfo;
+
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * Created with IntelliJ IDEA.

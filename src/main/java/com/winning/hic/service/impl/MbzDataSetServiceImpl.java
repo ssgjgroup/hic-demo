@@ -1,7 +1,8 @@
 package com.winning.hic.service.impl;
 
 import com.winning.hic.base.utils.StringUtil;
-import com.winning.hic.dao.cisdb.EmrQtbljlkDao;
+import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
+import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.model.EmrQtbljlk;
 import com.winning.hic.model.NodeTree;
 import org.springframework.stereotype.Service;
@@ -10,9 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;  
 
 import com.winning.hic.model.MbzDataSet;
-
-import com.winning.hic.dao.data.MbzDataSetDao;
-
 import com.winning.hic.service.MbzDataSetService;
 
 

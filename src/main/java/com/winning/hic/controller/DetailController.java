@@ -1,19 +1,19 @@
 package com.winning.hic.controller;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.winning.hic.base.Constants;
 import com.winning.hic.base.utils.DomUtils;
 import com.winning.hic.model.EmrMbk;
 import com.winning.hic.model.MbzDataListSet;
 import com.winning.hic.model.MbzDictInfo;
 import com.winning.hic.model.MbzTemplateNodeDetailInfo;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/detail")

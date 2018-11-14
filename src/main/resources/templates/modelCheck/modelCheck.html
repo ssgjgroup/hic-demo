@@ -21,11 +21,25 @@
     <!--<link rel="stylesheet" th:href="@{/assets/css/ace-rtl.min.css}"/>-->
     <!--<link rel="stylesheet" th:href="@{/assets/css/ace-skins.min.css}"/>-->
     <link rel="shortcut icon" th:href="@{/img/logo.ico}"/>
+    <style>
+        html,body {
+            height: 100%;
+        }
 
+        .form-group, .btn {
+            margin-right: 15px;
+        }
+
+        .main-container {
+            height: 100%;
+            padding-top: 15px;
+        }
+
+    </style>
 </head>
 
 <body>
-<div class="main-container" style="margin: 10px 0px;">
+<div class="main-container">
 
     <div class="row" style="margin:0px;">
         <div class="col-sm-12">
@@ -186,7 +200,7 @@
         $table.bootstrapTable({
             url: ctx + 'modelCheck/list',
             method: "GET",
-            height: $(window).height(),
+            height: $(window).height() - 100,
             striped: true,
             queryParams: queryParams,
             toolbar: '#treegrid_toolbar',
@@ -333,7 +347,7 @@
          */
         $simple_table.bootstrapTable({
             url: ctx + 'modelCheck/singleModelCheckList',
-            height: $(window).height(),
+            height: $(window).height() - 100,
             queryParams: queryModelParams,
             striped: true,
             toolbar: '#simple_toolbar',

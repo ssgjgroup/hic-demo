@@ -1,4 +1,4 @@
-/*
+package com.winning.hic;/*
 package com.winning.hic;
 
 import org.junit.Test;

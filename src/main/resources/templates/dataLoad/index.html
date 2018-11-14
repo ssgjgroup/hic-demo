@@ -26,6 +26,9 @@
 
 
     <style>
+        html, body {
+            height: 100%;
+        }
         .input-length{
             width: 150px;
         }
@@ -48,12 +51,22 @@
         div.card-views div.card-view span.value {
             width: 400px;
         }
+        .main-container {
+            padding-top: 10px;
+            height: 100%;
+        }
+        .form-group, .btn {
+            margin-right: 15px;
+        }
+        #profile .fixed-table-container {
+            padding-bottom: 40px !important;
+        }
     </style>
 
 </head>
 
 <body>
-<div class="main-container" style="margin: 10px 0px;">
+<div class="main-container">
 
     <div class="row" style="margin:0px;">
         <div class="col-sm-12">
@@ -303,8 +316,8 @@
 
         $simple_table.bootstrapTable({
             url: ctx + 'handDataCheckTable/list?isAutomate=0',
-            height: $(window).height(),
-            striped: true,
+            height: $(window).height() - 200,
+            striped: false,
             toolbar: '#simple_toolbar',
             sidePagination: 'client',
             idField: 'id',
@@ -332,7 +345,8 @@
                 {
                     field: 'dataCount',
                     width: '10%',
-                    title: '病历总数'
+                    title: '病历总数',
+                    align: 'center',
                 },
                 {
                     field: 'errorDesc',
@@ -345,7 +359,7 @@
 
         $table.bootstrapTable({
             url: ctx + 'dataList/loadList',
-            height: 600,
+            height: $(window).height() - 100,
             method:'get',
             striped: false,
             pagination: true,                   // 是否显示分页（*）

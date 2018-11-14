@@ -4,12 +4,10 @@ import com.winning.hic.model.support.ColumnInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;  
+import java.util.List;
 
-import com.winning.hic.model.MbzDataColumn;  
-
-import com.winning.hic.dao.data.MbzDataColumnDao;
-
+import com.winning.hic.dao.cmdatacenter.MbzDataColumnDao;
+import com.winning.hic.model.MbzDataColumn;
 import com.winning.hic.service.MbzDataColumnService;  
 
 

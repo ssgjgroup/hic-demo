@@ -1,6 +1,6 @@
 package com.winning.hic.service.impl;
 
-import com.winning.hic.dao.cisdb.EmrQtbljlkDao;
+import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.model.EmrQtbljlk;
 import com.winning.hic.service.EmrQtbljlkService;
 import org.springframework.beans.factory.annotation.Autowired;

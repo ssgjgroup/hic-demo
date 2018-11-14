@@ -5,10 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+import com.winning.hic.dao.cmdatacenter.MbzModelCheckDao;
 import com.winning.hic.model.MbzModelCheck;
-
-import com.winning.hic.dao.data.MbzModelCheckDao;
-
 import com.winning.hic.service.MbzModelCheckService;
 
 

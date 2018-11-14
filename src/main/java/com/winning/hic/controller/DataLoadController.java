@@ -1,7 +1,9 @@
 package com.winning.hic.controller;
 
-import com.winning.hic.model.MbzDataCheck;
-import com.winning.hic.model.MbzDictInfo;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -9,9 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.winning.hic.model.MbzDataCheck;
+import com.winning.hic.model.MbzDictInfo;
 
 @Controller
 public class DataLoadController extends BaseController {

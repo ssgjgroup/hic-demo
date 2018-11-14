@@ -249,7 +249,5 @@ public final class DateUtil {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-
     }
 }

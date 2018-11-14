@@ -1,22 +1,23 @@
 package com.winning.hic.controller;
 
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.winning.hic.base.Constants;
 import com.winning.hic.base.utils.Base64Utils;
 import com.winning.hic.base.utils.DomUtils;
 import com.winning.hic.base.utils.XmlUtil;
 import com.winning.hic.model.MbzDataCheck;
 import com.winning.hic.model.MbzTemplateNodeDetailInfo;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * Created with IntelliJ IDEA.

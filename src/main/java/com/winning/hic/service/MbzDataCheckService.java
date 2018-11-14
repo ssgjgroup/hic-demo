@@ -28,7 +28,7 @@ public interface MbzDataCheckService {
 
     public List<MbzDataCheck> getMbzDataCheckPageList(MbzDataCheck mbzDataCheck);
 
-    public void createMbzDataCheckNum(int count,int emr_count,int sourceType,MbzDataCheck entity);
+    public void createMbzDataCheckNum(int count, int emr_count, int sourceType, MbzDataCheck entity);
 
     public void removeMbzDataCheckList(MbzDataCheck mbzDataCheck);
 

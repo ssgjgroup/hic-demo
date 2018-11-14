@@ -33,9 +33,18 @@
     <link rel="stylesheet" th:href="@{/assets/layer/mobile/need/layer.css}"/>
 
     <style>
+        html, body {
+            height: 100%;
+        }
+        .main-container {
+            height: 100%;
+            padding-top: 10px;
+        }
         .tree-container{
-            height: 500px;
-            overflow: scroll;
+            height: 390px;
+            overflow: auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
         .table-align{
             table-layout:fixed;/* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
@@ -47,12 +56,42 @@
         .input-length{
             width: 150px;
         }
+        .tabbable {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            bottom: 0;
+            left: 15px;
+        }
+        #myTab {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            z-index: 3;
+        }
+        #toolbar {
+            height: 30px;
+            margin-bottom: 10px;
+        }
+        #toolbar>div {
+            padding: 0;
+        }
+        #tabContent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding-top: 50px;
+        }
+
     </style>
 </head>
 <body>
-<div class="main-container" style="margin: 10px 0px;">
-    <div class="row" style="margin:0px;">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="main-container">
+    <div style="height: 100%">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height: 100%">
             <div class="tabbable">
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active">
@@ -69,7 +108,7 @@
                 </ul>
                 <div class="tab-content" id="tabContent">
                     <div id="config" class="tab-pane in active">
-                            <div class="row" id="toolbar">
+                            <div id="toolbar">
                                 <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
                                     <div class="input-group">
                                         <span class="input-group-addon">数据集</span>
@@ -107,30 +146,29 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 tree-container">
-                                    <p>互利互通数据集</p>
-                                    <div id="dataTree" class="ztree ">
-                                    </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                                    <p style="font-size: 22px; font-weight: 800">互利互通数据集</p>
+                                    <div id="dataTree" class="ztree tree-container"></div>
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 tree-container">
-                                    <div style="line-height: 400px;margin: 0px 120px;">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 tree-container" style="border:none;">
+                                    <div style="line-height: 390px; text-align: center;">
                                         <button id="addOrModify" type="button" class="btn btn-primary" style="width: 100px;">保存</button>
                                     </div>
 
                                 </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 tree-container">
-                                    <p>病历导航树</p>
-                                    <div id="templateTree" class="ztree ">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                                    <p style="font-size: 22px; font-weight: 800">病历导航树</p>
+                                    <div id="templateTree" class="ztree tree-container">
                                     </div>
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" style="margin-top: 15px">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                     <p class="help-block"> 备注：会诊记录由会诊申请（B-B211）和会诊答复（B-B211）组成，
+                                    <p class="help-block"> 备注：会诊记录由会诊申请（B-B211）和会诊答复（B-B211）组成，
                                         转科记录由转出记录（B-8405）和转入记录（B-8408）组成
                                      </p>
                                 </div>
@@ -347,9 +385,9 @@
     //页面初始化
     function initWindow(){
         //页面大小响应布局
-        $(window).width((window.parent.document.getElementById("coniframe").width -12)+'px');
-        $(window).height((window.parent.document.getElementById("coniframe").height -12)+'px');
-        $('#tabContent').height($(window).height() - 100+'px')
+        // $(window).width((window.parent.document.getElementById("coniframe").width -12)+'px');
+        // $(window).height((window.parent.document.getElementById("coniframe").height -12)+'px');
+        // $('#tabContent').height($(window).height() - 300+'px')
         //行内操作初始化
 //        $.fn.editable.defaults.mode = 'inline';
     }
@@ -703,7 +741,7 @@
 
         $table.bootstrapTable({
             url:ctx + 'basic/plist',
-            height: 700, //表格占高
+            height: $(window).height() - 100, //表格占高
             striped: true,
             method: 'GET', // 请求方法
             cache: false,  // 是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -724,8 +762,7 @@
             uniqueId: "id",                 // 每一行的唯一标识，一般为主键列
             cardView: false,                    // 是否显示详细视图
             detailView: true,                  // 是否显示父子表
-            toolbar: '#btntoolbar',
-            toolbarAlign: 'right',
+
             paginationPreText: '上一页',
             paginationNextText: '下一页',
             paginationLoop: false, //分页条无限循环的功能

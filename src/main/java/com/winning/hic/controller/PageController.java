@@ -1,25 +1,21 @@
 package com.winning.hic.controller;
 
-import com.winning.hic.base.Constants;
-import com.winning.hic.base.utils.Base64Utils;
-import com.winning.hic.base.utils.DateUtil;
-import com.winning.hic.model.MbzAutomateSet;
-import com.winning.hic.model.MbzDictInfo;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
-import io.swagger.annotations.ApiOperation;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.winning.hic.base.utils.DateUtil;
+import com.winning.hic.model.MbzAutomateSet;
+import com.winning.hic.model.MbzDictInfo;
+
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * Created with IntelliJ IDEA.

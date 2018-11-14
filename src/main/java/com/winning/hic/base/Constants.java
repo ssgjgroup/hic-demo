@@ -18,39 +18,21 @@ public class Constants {
      */
     public static final String DATABASE_PREFIX = "database";
     /**
-     * CISDB_DATA 接口包名
+     * hdw 接口包名
      */
-    public static final String CISDB_DATA_PACKAGE = "com.winning.hic.dao.data";
+    public static final String HDW_PACKAGE = "com.winning.hic.dao.hdw";
     /**
-     * CISDB_DATA mapper.xml文件的位置
+     * hdw mapper.xml文件的位置
      */
-    public static final String CISDB_DATA_MAPPER_LOCATION = "classpath:mapper/data/*.xml";
+    public static final String HDW_MAPPER_LOCATION = "classpath:mapper/hdw/*.xml";
     /**
-     * CISDB 接口包名
+     * hdw 接口包名
      */
-    public static final String CISDB_PACKAGE = "com.winning.hic.dao.cisdb";
+    public static final String CM_DATACENTER_PACKAGE = "com.winning.hic.dao.cmdatacenter";
     /**
-     * CISDB mapper.xml文件的位置
+     * cm_datacenter mapper.xml文件的位置
      */
-    public static final String CISDB_MAPPER_LOCATION = "classpath:mapper/cisdb/*.xml";
-    /**
-     * CISDB 接口包名
-     */
-    public static final String MZ_CISDB_PACKAGE = "com.winning.hic.dao.mz";
-    /**
-     * CISDB mapper.xml文件的位置
-     */
-    public static final String MZ_CISDB_MAPPER_LOCATION = "classpath:mapper/mz/*.xml";
-
-    /**
-     * this4 接口包名
-     */
-    public static final String THIS_PACKAGE = "com.winning.hic.dao.his";
-    /**
-     * this4 mapper.xml文件的位置
-     */
-    public static final String THIS_MAPPER_LOCATION = "classpath:mapper/his/*.xml";
-
+    public static final String CM_DATACENTER_MAPPER_LOCATION = "classpath:mapper/cmdatacenter/*.xml";
     /**
      * 平台 接口包名
      */

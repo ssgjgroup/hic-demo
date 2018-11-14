@@ -1,6 +1,7 @@
 package com.winning.hic.job;
 
-import com.winning.hic.base.utils.DateUtil;
+import java.util.Date;
+
 import org.quartz.Trigger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,8 +12,7 @@ import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
 import org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
-import java.util.Date;
-import java.util.List;
+import com.winning.hic.base.utils.DateUtil;
 
 /**
  * @author chensj

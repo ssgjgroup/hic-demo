@@ -1,21 +1,21 @@
 package com.winning.hic;
 
-import com.winning.hic.base.utils.ConfigUtils;
-import org.mybatis.spring.annotation.MapperScan;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.mybatis.spring.annotation.MapperScan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.winning.hic.base.utils.ConfigUtils;
+
 @SpringBootApplication
-@MapperScan({"com.winning.hic.model","com.winning.hic.dao.cisdb","com.winning.hic.dao.data","com.winning.hic.dao.his","com.winning.hic.dao.platform"})
+@MapperScan({"com.winning.hic.model","com.winning.hic.dao.cmdatacenter","com.winning.hic.dao.hdw"})
 @EnableTransactionManagement
 public class HicApplication {
 
