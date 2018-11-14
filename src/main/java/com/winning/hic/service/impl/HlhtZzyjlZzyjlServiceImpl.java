@@ -119,7 +119,7 @@ public class HlhtZzyjlZzyjlServiceImpl implements  HlhtZzyjlZzyjlService {
                 //2.根据首次病程去找到对应的病人病历
                 EmrQtbljlk qtbljlk = new EmrQtbljlk();
                 qtbljlk.setBldm(dataListSet.getModelCode());
-                qtbljlk.setYxjl(1);
+                qtbljlk.setYxjl((short)1);
                 qtbljlk.getMap().put("startDate",t.getMap().get("startDate"));
                 qtbljlk.getMap().put("endDate",t.getMap().get("endDate"));
                 qtbljlk.getMap().put("syxh",t.getMap().get("syxh"));
@@ -159,7 +159,7 @@ public class HlhtZzyjlZzyjlServiceImpl implements  HlhtZzyjlZzyjlService {
                         mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                                 Long.parseLong(Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE),
                                 emrQtbljlk.getQtbljlxh(),emrQtbljlk.getBlmc(),emrQtbljlk.getSyxh()+"",
-                                new Timestamp(DateUtil.parse(emrQtbljlk.getFssj(),DateUtil.PATTERN_19).getTime()),
+                                emrQtbljlk.getFssj(),
                                 entity.getPatid(),entity.getZyh(),entity.getHzxm(),entity.getXbmc(),entity.getXbdm(),
                                 "NA","NA", "NA","NA", entity.getSfzhm(), PercentUtil.getPercent(Long.parseLong(Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE), entity, 1),
                                 PercentUtil.getPercent(Long.parseLong(Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE), entity, 0)));

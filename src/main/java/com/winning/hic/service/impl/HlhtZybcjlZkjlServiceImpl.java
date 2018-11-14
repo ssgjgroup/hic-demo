@@ -182,7 +182,7 @@ public class HlhtZybcjlZkjlServiceImpl implements  HlhtZybcjlZkjlService {
                         }else{ //转入记录
                             //找出对应的转出记录，update它的值
                             EmrQtbljlk qt = new EmrQtbljlk();
-                            qt.setCjsj( sdf.format(obj.getCjsj()));
+                            qt.setCjsj( obj.getCjsj());
                             qt.setSyxh(Integer.parseInt(obj.getSyxh()));
                             String yjlxh = emrQtbljlkDao.selectEmrQtbljlkId(qt);
                             HlhtZybcjlZkjl zkjl = new HlhtZybcjlZkjl();
