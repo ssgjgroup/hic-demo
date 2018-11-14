@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.winning.hic.dao.hdw.DcRyjlRyswjlRyzyzdDao">
+
+    <resultMap id="dcRyjlRyswjlRyzyzdResultForList" type="com.winning.hic.model.DcRyjlRyswjlRyzyzd">
+         <result column="xh" property="xh" jdbcType="NUMERIC" />
+         <result column="yljgdm" property="yljgdm" jdbcType="VARCHAR" />
+         <result column="yjlxh" property="yjlxh" jdbcType="VARCHAR" />
+         <result column="zyjlxh" property="zyjlxh" jdbcType="VARCHAR" />
+         <result column="rzzybmmc" property="rzzybmmc" jdbcType="VARCHAR" />
+         <result column="rzzybmdm" property="rzzybmdm" jdbcType="VARCHAR" />
+         <result column="rzzyzhmc" property="rzzyzhmc" jdbcType="VARCHAR" />
+         <result column="rzzyzhdm" property="rzzyzhdm" jdbcType="VARCHAR" />
+         <result column="sys_id" property="sysId" jdbcType="VARCHAR" />
+         <result column="gxsj" property="gxsj" jdbcType="TIMESTAMP" />
+         <result column="sjcqsj" property="sjcqsj" jdbcType="TIMESTAMP" />
+         <result column="pcxh" property="pcxh" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <resultMap id="dcRyjlRyswjlRyzyzdResult" type="com.winning.hic.model.DcRyjlRyswjlRyzyzd" extends="dcRyjlRyswjlRyzyzdResultForList">
+
+    </resultMap>
+
+    <sql id="sql-dcRyjlRyswjlRyzyzd">
+        <if test="(xh != null )"> and t.xh = #{xh} </if>
+        <if test="(yljgdm != null )"> and t.yljgdm = #{yljgdm} </if>
+        <if test="(yjlxh != null )"> and t.yjlxh = #{yjlxh} </if>
+        <if test="(zyjlxh != null )"> and t.zyjlxh = #{zyjlxh} </if>
+        <if test="(rzzybmmc != null )"> and t.rzzybmmc = #{rzzybmmc} </if>
+        <if test="(rzzybmdm != null )"> and t.rzzybmdm = #{rzzybmdm} </if>
+        <if test="(rzzyzhmc != null )"> and t.rzzyzhmc = #{rzzyzhmc} </if>
+        <if test="(rzzyzhdm != null )"> and t.rzzyzhdm = #{rzzyzhdm} </if>
+        <if test="(sysId != null )"> and t.sys_id = #{sysId} </if>
+        <if test="(gxsj != null )"> and t.gxsj = #{gxsj} </if>
+        <if test="(sjcqsj != null )"> and t.sjcqsj = #{sjcqsj} </if>
+        <if test="(pcxh != null )"> and t.pcxh = #{pcxh} </if>
+    </sql>
+
+    <insert id="insertDcRyjlRyswjlRyzyzd" parameterType="com.winning.hic.model.DcRyjlRyswjlRyzyzd">
+        <selectKey resultType="String"  order="BEFORE"  keyProperty="id">SELECT CAST(NEWID() AS VARCHAR(36)) AS ID</selectKey>
+        INSERT INTO DC_RYJL_RYSWJL_RYZYZD
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="(xh != null )"> xh , </if>
+            <if test="(yljgdm != null )"> yljgdm , </if>
+            <if test="(yjlxh != null )"> yjlxh , </if>
+            <if test="(zyjlxh != null )"> zyjlxh , </if>
+            <if test="(rzzybmmc != null )"> rzzybmmc , </if>
+            <if test="(rzzybmdm != null )"> rzzybmdm , </if>
+            <if test="(rzzyzhmc != null )"> rzzyzhmc , </if>
+            <if test="(rzzyzhdm != null )"> rzzyzhdm , </if>
+            <if test="(sysId != null )"> sys_id , </if>
+            <if test="(gxsj != null )"> gxsj , </if>
+            <if test="(sjcqsj != null )"> sjcqsj , </if>
+            <if test="(pcxh != null )"> pcxh , </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="(xh != null )">#{xh , jdbcType= NUMERIC },  </if>
+            <if test="(yljgdm != null )">#{yljgdm , jdbcType= VARCHAR },  </if>
+            <if test="(yjlxh != null )">#{yjlxh , jdbcType= VARCHAR },  </if>
+            <if test="(zyjlxh != null )">#{zyjlxh , jdbcType= VARCHAR },  </if>
+            <if test="(rzzybmmc != null )">#{rzzybmmc , jdbcType= VARCHAR },  </if>
+            <if test="(rzzybmdm != null )">#{rzzybmdm , jdbcType= VARCHAR },  </if>
+            <if test="(rzzyzhmc != null )">#{rzzyzhmc , jdbcType= VARCHAR },  </if>
+            <if test="(rzzyzhdm != null )">#{rzzyzhdm , jdbcType= VARCHAR },  </if>
+            <if test="(sysId != null )">#{sysId , jdbcType= VARCHAR },  </if>
+            <if test="(gxsj != null )">#{gxsj , jdbcType= TIMESTAMP },  </if>
+            <if test="(sjcqsj != null )">#{sjcqsj , jdbcType= TIMESTAMP },  </if>
+            <if test="(pcxh != null )">#{pcxh , jdbcType= VARCHAR },  </if>
+        </trim>
+    </insert>
+
+    <update id="updateDcRyjlRyswjlRyzyzd" parameterType="com.winning.hic.model.DcRyjlRyswjlRyzyzd">
+        UPDATE DC_RYJL_RYSWJL_RYZYZD
+        <set>
+            <trim suffixOverrides=",">
+                <if test="(xh != null )"> xh = #{xh , jdbcType= NUMERIC }, </if>
+                <if test="(yljgdm != null )"> yljgdm = #{yljgdm , jdbcType= VARCHAR }, </if>
+                <if test="(yjlxh != null )"> yjlxh = #{yjlxh , jdbcType= VARCHAR }, </if>
+                <if test="(zyjlxh != null )"> zyjlxh = #{zyjlxh , jdbcType= VARCHAR }, </if>
+                <if test="(rzzybmmc != null )"> rzzybmmc = #{rzzybmmc , jdbcType= VARCHAR }, </if>
+                <if test="(rzzybmdm != null )"> rzzybmdm = #{rzzybmdm , jdbcType= VARCHAR }, </if>
+                <if test="(rzzyzhmc != null )"> rzzyzhmc = #{rzzyzhmc , jdbcType= VARCHAR }, </if>
+                <if test="(rzzyzhdm != null )"> rzzyzhdm = #{rzzyzhdm , jdbcType= VARCHAR }, </if>
+                <if test="(sysId != null )"> sys_id = #{sysId , jdbcType= VARCHAR }, </if>
+                <if test="(gxsj != null )"> gxsj = #{gxsj , jdbcType= TIMESTAMP }, </if>
+                <if test="(sjcqsj != null )"> sjcqsj = #{sjcqsj , jdbcType= TIMESTAMP }, </if>
+                <if test="(pcxh != null )"> pcxh = #{pcxh , jdbcType= VARCHAR }, </if>
+            </trim>
+        </set>
+        <where>
+            <if test=" and (map.pks != null and map.size > 0)">
+                and () in
+                <foreach item="item" collection="map.pks" open="(" separator="," close=")"> #{item}</foreach>
+            </if>
+        </where>
+    </update>
+
+    <delete id="deleteDcRyjlRyswjlRyzyzd" parameterType="com.winning.hic.model.DcRyjlRyswjlRyzyzd">
+        delete from  DC_RYJL_RYSWJL_RYZYZD
+        <where>
+            <if test=" and (map.pks != null and map.size > 0)">
+                and () in
+                <foreach item="item" collection="map.pks" open="(" separator="," close=")"> #{item}</foreach>
+            </if>
+        </where>
+    </delete>
+
+
+    <select id="selectDcRyjlRyswjlRyzyzd" resultMap="dcRyjlRyswjlRyzyzdResult" parameterType="com.winning.hic.model.DcRyjlRyswjlRyzyzd">
+        SELECT * FROM DC_RYJL_RYSWJL_RYZYZD t
+        <where>
+            <include refid="sql-dcRyjlRyswjlRyzyzd" />
+        </where>
+    </select>
+
+    <select id="selectDcRyjlRyswjlRyzyzdList" resultMap="dcRyjlRyswjlRyzyzdResultForList" parameterType="com.winning.hic.model.DcRyjlRyswjlRyzyzd">
+        SELECT
+        <if test="row.count != null and row.count != ''"> top ${row.count} </if>
+        * FROM DC_RYJL_RYSWJL_RYZYZD t
+        <where>
+            <include refid="sql-dcRyjlRyswjlRyzyzd" />
+        </where>
+        ORDER BY  ASC
+    </select>
+
+    <select id="selectDcRyjlRyswjlRyzyzdCount" resultType="int" parameterType="com.winning.hic.model.DcRyjlRyswjlRyzyzd">
+        select count(1) from  DC_RYJL_RYSWJL_RYZYZD t
+        <where>
+            <include refid="sql-dcRyjlRyswjlRyzyzd" />
+        </where>
+    </select>
+
+    <select id="selectDcRyjlRyswjlRyzyzdPageList" resultMap="dcRyjlRyswjlRyzyzdResult" parameterType="com.winning.hic.model.DcRyjlRyswjlRyzyzd">
+        SELECT * FROM (
+        SELECT t.* ,
+        ROW_NUMBER() OVER ( ORDER BY  DESC ) AS _RN
+        FROM DC_RYJL_RYSWJL_RYZYZD t
+        <where>
+            <include refid="sql-dcRyjlRyswjlRyzyzd" />
+        </where>
+        <!-- order by  asc -->
+        ) TEMP_TABLE WHERE _RN BETWEEN  #{row.first} + 1 AND #{row.first} + #{row.count}
+    </select>
+
+
+</mapper>

@@ -1,69 +1,8 @@
 package com.winning.hic.service.impl;
 
+import com.winning.hic.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import com.winning.hic.service.EmrHzsqdjlkService;
-import com.winning.hic.service.EmrMbkService;
-import com.winning.hic.service.EmrMbmxkService;
-import com.winning.hic.service.EmrMxmcmlkService;
-import com.winning.hic.service.EmrQtbljlkService;
-import com.winning.hic.service.Facade;
-import com.winning.hic.service.HlhtBlgyJbjkxxService;
-import com.winning.hic.service.HlhtBlgyWssjzyService;
-import com.winning.hic.service.HlhtCyxjCyxjService;
-import com.winning.hic.service.HlhtMjzblJzlgblService;
-import com.winning.hic.service.HlhtMjzblMjzblService;
-import com.winning.hic.service.HlhtMjzcfXycfService;
-import com.winning.hic.service.HlhtMjzcfZycfService;
-import com.winning.hic.service.HlhtRyjlJbxxService;
-import com.winning.hic.service.HlhtRyjlRcyjlService;
-import com.winning.hic.service.HlhtRyjlRyswjlService;
-import com.winning.hic.service.HlhtZcjlPgcService;
-import com.winning.hic.service.HlhtZcjlYdfmService;
-import com.winning.hic.service.HlhtZlczjlMzshfsjlService;
-import com.winning.hic.service.HlhtZlczjlMzsqfsjlService;
-import com.winning.hic.service.HlhtZlczjlSxjlService;
-import com.winning.hic.service.HlhtZlczjlYbssjlService;
-import com.winning.hic.service.HlhtZlczjlZljlService;
-import com.winning.hic.service.HlhtZqgzxxBwztzsService;
-import com.winning.hic.service.HlhtZqgzxxMzzqtysService;
-import com.winning.hic.service.HlhtZqgzxxQtzqtysService;
-import com.winning.hic.service.HlhtZqgzxxSstysService;
-import com.winning.hic.service.HlhtZqgzxxSxzltysService;
-import com.winning.hic.service.HlhtZqgzxxTsjczltysService;
-import com.winning.hic.service.HlhtZybcjlCyjlService;
-import com.winning.hic.service.HlhtZybcjlHzjlService;
-import com.winning.hic.service.HlhtZybcjlJdxjService;
-import com.winning.hic.service.HlhtZybcjlJjbjlService;
-import com.winning.hic.service.HlhtZybcjlQjjlService;
-import com.winning.hic.service.HlhtZybcjlRcbcjlService;
-import com.winning.hic.service.HlhtZybcjlScbcjlService;
-import com.winning.hic.service.HlhtZybcjlShscbcjlService;
-import com.winning.hic.service.HlhtZybcjlSjyscfjlService;
-import com.winning.hic.service.HlhtZybcjlSqtlService;
-import com.winning.hic.service.HlhtZybcjlSqxjService;
-import com.winning.hic.service.HlhtZybcjlSwbltljlService;
-import com.winning.hic.service.HlhtZybcjlSwjlService;
-import com.winning.hic.service.HlhtZybcjlYnbltljlService;
-import com.winning.hic.service.HlhtZybcjlZkjlService;
-import com.winning.hic.service.HlhtZzyjlZzyjlService;
-import com.winning.hic.service.MbzAutomateSetService;
-import com.winning.hic.service.MbzDataCheckService;
-import com.winning.hic.service.MbzDataColumnService;
-import com.winning.hic.service.MbzDataErrorService;
-import com.winning.hic.service.MbzDataListSetService;
-import com.winning.hic.service.MbzDataSetService;
-import com.winning.hic.service.MbzDataTemplateConfigService;
-import com.winning.hic.service.MbzDatabasesListService;
-import com.winning.hic.service.MbzDictInfoService;
-import com.winning.hic.service.MbzLoadDataInfoService;
-import com.winning.hic.service.MbzLogService;
-import com.winning.hic.service.MbzModelCheckService;
-import com.winning.hic.service.MbzTemplateNodeDetailInfoService;
-import com.winning.hic.service.OutpJzjlkService;
-import com.winning.hic.service.OutpOrderService;
-import com.winning.hic.service.OutpOrderitemService;
 
 /**
  * @author chensj
@@ -498,4 +437,104 @@ public class FacadeImpl implements Facade {
     public MbzTemplateNodeDetailInfoService getMbzTemplateNodeDetailInfoService(){
         return mbzTemplateNodeDetailInfoService;
     }
+
+    @Autowired
+    DcRyjlRcyjlService dcRyjlRcyjlService;
+
+    @Autowired
+    DcRyjlRcyjlCyxyzdService dcRyjlRcyjlCyxyzdService;
+
+    @Autowired
+    DcRyjlRcyjlCyzyzdService dcRyjlRcyjlCyzyzdService;
+
+    @Autowired
+    DcRyjlRcyjlRyxyzdService dcRyjlRcyjlRyxyzdService;
+
+    @Autowired
+    DcRyjlRcyjlRyzyzdService dcRyjlRcyjlRyzyzdService;
+
+    @Autowired
+    DcRyjlRcyjlZyszgcjgService dcRyjlRcyjlZyszgcjgService;
+
+    @Autowired
+    DcRyjlRyswjlService dcRyjlRyswjlService;
+
+    @Autowired
+    DcRyjlRyswjlRyxyzdService dcRyjlRyswjlRyxyzdService;
+
+    @Autowired
+    DcRyjlRyswjlRyzyzdService dcRyjlRyswjlRyzyzdService;
+
+    @Autowired
+    DcRyjlRyswjlSwxyzdService dcRyjlRyswjlSwxyzdService;
+
+    @Autowired
+    DcRyjlRyswjlSwzyzdService dcRyjlRyswjlSwzyzdService;
+
+    @Autowired
+    DcRyjlRyswjlZyszgcjgService dcRyjlRyswjlZyszgcjgService;
+
+    @Autowired
+    DcZqgzxxBwztzsService dcZqgzxxBwztzsService;
+
+    @Autowired
+    DcZqgzxxBwztzsJbzdService dcZqgzxxBwztzsJbzdService;
+
+
+    public DcRyjlRcyjlService getDcRyjlRcyjlService(){
+        return dcRyjlRcyjlService;
+    }
+
+    public DcRyjlRcyjlCyxyzdService getDcRyjlRcyjlCyxyzdService(){
+        return dcRyjlRcyjlCyxyzdService;
+    }
+
+    public DcRyjlRcyjlCyzyzdService getDcRyjlRcyjlCyzyzdService(){
+        return dcRyjlRcyjlCyzyzdService;
+    }
+
+    public DcRyjlRcyjlRyxyzdService getDcRyjlRcyjlRyxyzdService(){
+        return dcRyjlRcyjlRyxyzdService;
+    }
+
+    public DcRyjlRcyjlRyzyzdService getDcRyjlRcyjlRyzyzdService(){
+        return dcRyjlRcyjlRyzyzdService;
+    }
+
+    public DcRyjlRcyjlZyszgcjgService getDcRyjlRcyjlZyszgcjgService(){
+        return dcRyjlRcyjlZyszgcjgService;
+    }
+
+    public DcRyjlRyswjlService getDcRyjlRyswjlService(){
+        return dcRyjlRyswjlService;
+    }
+
+    public DcRyjlRyswjlRyxyzdService getDcRyjlRyswjlRyxyzdService(){
+        return dcRyjlRyswjlRyxyzdService;
+    }
+
+    public DcRyjlRyswjlRyzyzdService getDcRyjlRyswjlRyzyzdService(){
+        return dcRyjlRyswjlRyzyzdService;
+    }
+
+    public DcRyjlRyswjlSwxyzdService getDcRyjlRyswjlSwxyzdService(){
+        return dcRyjlRyswjlSwxyzdService;
+    }
+
+    public DcRyjlRyswjlSwzyzdService getDcRyjlRyswjlSwzyzdService(){
+        return dcRyjlRyswjlSwzyzdService;
+    }
+
+    public DcRyjlRyswjlZyszgcjgService getDcRyjlRyswjlZyszgcjgService(){
+        return dcRyjlRyswjlZyszgcjgService;
+    }
+
+    public DcZqgzxxBwztzsService getDcZqgzxxBwztzsService(){
+        return dcZqgzxxBwztzsService;
+    }
+
+    public DcZqgzxxBwztzsJbzdService getDcZqgzxxBwztzsJbzdService(){
+        return dcZqgzxxBwztzsJbzdService;
+    }
+
 }

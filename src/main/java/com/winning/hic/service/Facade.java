@@ -128,4 +128,32 @@ public interface Facade {
     MbzLoadDataInfoService getMbzLoadDataInfoService();
 
     MbzTemplateNodeDetailInfoService getMbzTemplateNodeDetailInfoService();
+
+    DcRyjlRcyjlService getDcRyjlRcyjlService();
+
+    DcRyjlRcyjlCyxyzdService getDcRyjlRcyjlCyxyzdService();
+
+    DcRyjlRcyjlCyzyzdService getDcRyjlRcyjlCyzyzdService();
+
+    DcRyjlRcyjlRyxyzdService getDcRyjlRcyjlRyxyzdService();
+
+    DcRyjlRcyjlRyzyzdService getDcRyjlRcyjlRyzyzdService();
+
+    DcRyjlRcyjlZyszgcjgService getDcRyjlRcyjlZyszgcjgService();
+
+    DcRyjlRyswjlService getDcRyjlRyswjlService();
+
+    DcRyjlRyswjlRyxyzdService getDcRyjlRyswjlRyxyzdService();
+
+    DcRyjlRyswjlRyzyzdService getDcRyjlRyswjlRyzyzdService();
+
+    DcRyjlRyswjlSwxyzdService getDcRyjlRyswjlSwxyzdService();
+
+    DcRyjlRyswjlSwzyzdService getDcRyjlRyswjlSwzyzdService();
+
+    DcRyjlRyswjlZyszgcjgService getDcRyjlRyswjlZyszgcjgService();
+
+    DcZqgzxxBwztzsService getDcZqgzxxBwztzsService();
+
+    DcZqgzxxBwztzsJbzdService getDcZqgzxxBwztzsJbzdService();
 }
