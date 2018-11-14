@@ -4,14 +4,21 @@
 <mapper namespace="com.winning.hic.dao.hdw.EmrMxmcmlkDao">
 
     <resultMap id="emrMxmcmlkResultForList" type="com.winning.hic.model.EmrMxmcmlk">
-         <result column="MLDM" property="mldm" jdbcType="VARCHAR" />
-         <result column="MLMC" property="mlmc" jdbcType="VARCHAR" />
-         <result column="PY" property="py" jdbcType="VARCHAR" />
-         <result column="WB" property="wb" jdbcType="VARCHAR" />
-         <result column="SJDM" property="sjdm" jdbcType="VARCHAR" />
-         <result column="MLCC" property="mlcc" jdbcType="INTEGER" />
-         <result column="YXJL" property="yxjl" jdbcType="SMALLINT" />
-         <result column="MEMO" property="memo" jdbcType="VARCHAR" />
+         <result column="yljgdm" property="yljgdm" jdbcType="VARCHAR" />
+         <result column="mxmcmlkkey" property="mxmcmlkkey" jdbcType="NUMERIC" />
+         <result column="mldm" property="mldm" jdbcType="VARCHAR" />
+         <result column="mlmc" property="mlmc" jdbcType="VARCHAR" />
+         <result column="py" property="py" jdbcType="VARCHAR" />
+         <result column="wb" property="wb" jdbcType="VARCHAR" />
+         <result column="sjdm" property="sjdm" jdbcType="VARCHAR" />
+         <result column="mlcc" property="mlcc" jdbcType="INTEGER" />
+         <result column="yxjl" property="yxjl" jdbcType="SMALLINT" />
+         <result column="memo" property="memo" jdbcType="VARCHAR" />
+         <result column="iscurrent" property="iscurrent" jdbcType="BIT" />
+         <result column="gxrq" property="gxrq" jdbcType="TIMESTAMP" />
+         <result column="sys_id" property="sysId" jdbcType="VARCHAR" />
+         <result column="lsnid" property="lsnid" jdbcType="BIGINT" />
+         <result column="isdelete" property="isdelete" jdbcType="VARCHAR" />
     </resultMap>
 
     <resultMap id="emrMxmcmlkResult" type="com.winning.hic.model.EmrMxmcmlk" extends="emrMxmcmlkResultForList">
@@ -19,38 +26,60 @@
     </resultMap>
 
     <sql id="sql-emrMxmcmlk">
-        <if test="(mldm != null and mldm != '')"> and t.MLDM = #{mldm} </if>
-        <if test="(mlmc != null and mlmc != '')"> and t.MLMC = #{mlmc} </if>
-        <if test="(py != null and py != '')"> and t.PY = #{py} </if>
-        <if test="(wb != null and wb != '')"> and t.WB = #{wb} </if>
-        <if test="(sjdm != null and sjdm != '')"> and t.SJDM = #{sjdm} </if>
-        <if test="(mlcc != null and mlcc != '')"> and t.MLCC = #{mlcc} </if>
-        <if test="(yxjl != null )"> and t.YXJL = #{yxjl} </if>
-        <if test="(memo != null and memo != '')"> and t.MEMO = #{memo} </if>
+        <if test="(yljgdm != null )"> and t.yljgdm = #{yljgdm} </if>
+        <if test="(mxmcmlkkey != null )"> and t.mxmcmlkkey = #{mxmcmlkkey} </if>
+        <if test="(mldm != null )"> and t.mldm = #{mldm} </if>
+        <if test="(mlmc != null )"> and t.mlmc = #{mlmc} </if>
+        <if test="(py != null )"> and t.py = #{py} </if>
+        <if test="(wb != null )"> and t.wb = #{wb} </if>
+        <if test="(sjdm != null )"> and t.sjdm = #{sjdm} </if>
+        <if test="(mlcc != null )"> and t.mlcc = #{mlcc} </if>
+        <if test="(yxjl != null )"> and t.yxjl = #{yxjl} </if>
+        <if test="(memo != null )"> and t.memo = #{memo} </if>
+        <if test="(iscurrent != null )"> and t.iscurrent = #{iscurrent} </if>
+        <if test="(gxrq != null )"> and t.gxrq = #{gxrq} </if>
+        <if test="(sysId != null )"> and t.sys_id = #{sysId} </if>
+        <if test="(lsnid != null )"> and t.lsnid = #{lsnid} </if>
+        <if test="(isdelete != null )"> and t.isdelete = #{isdelete} </if>
     </sql>
 
     <insert id="insertEmrMxmcmlk" parameterType="com.winning.hic.model.EmrMxmcmlk">
+        <selectKey resultType="String"  order="BEFORE"  keyProperty="id">SELECT CAST(NEWID() AS VARCHAR(36)) AS ID</selectKey>
         INSERT INTO EMR_MXMCMLK
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="(mldm != null and mldm != '')"> MLDM , </if>
-            <if test="(mlmc != null and mlmc != '')"> MLMC , </if>
-            <if test="(py != null and py != '')"> PY , </if>
-            <if test="(wb != null and wb != '')"> WB , </if>
-            <if test="(sjdm != null and sjdm != '')"> SJDM , </if>
-            <if test="(mlcc != null and mlcc != '')"> MLCC , </if>
-            <if test="(yxjl != null )"> YXJL , </if>
-            <if test="(memo != null and memo != '')"> MEMO , </if>
+            <if test="(yljgdm != null )"> yljgdm , </if>
+            <if test="(mxmcmlkkey != null )"> mxmcmlkkey , </if>
+            <if test="(mldm != null )"> mldm , </if>
+            <if test="(mlmc != null )"> mlmc , </if>
+            <if test="(py != null )"> py , </if>
+            <if test="(wb != null )"> wb , </if>
+            <if test="(sjdm != null )"> sjdm , </if>
+            <if test="(mlcc != null )"> mlcc , </if>
+            <if test="(yxjl != null )"> yxjl , </if>
+            <if test="(memo != null )"> memo , </if>
+            <if test="(iscurrent != null )"> iscurrent , </if>
+            <if test="(gxrq != null )"> gxrq , </if>
+            <if test="(sysId != null )"> sys_id , </if>
+            <if test="(lsnid != null )"> lsnid , </if>
+            <if test="(isdelete != null )"> isdelete , </if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="(mldm != null and mldm != '')"> #{mldm , jdbcType= VARCHAR },  </if>
-            <if test="(mlmc != null and mlmc != '')"> #{mlmc , jdbcType= VARCHAR },  </if>
-            <if test="(py != null and py != '')"> #{py , jdbcType= VARCHAR },  </if>
-            <if test="(wb != null and wb != '')"> #{wb , jdbcType= VARCHAR },  </if>
-            <if test="(sjdm != null and sjdm != '')"> #{sjdm , jdbcType= VARCHAR },  </if>
-            <if test="(mlcc != null and mlcc != '')"> #{mlcc , jdbcType= INTEGER },  </if>
-            <if test="(yxjl != null )"> #{yxjl , jdbcType= SMALLINT },  </if>
-            <if test="(memo != null and memo != '')"> #{memo , jdbcType= VARCHAR },  </if>
+            <if test="(yljgdm != null )">#{yljgdm , jdbcType= VARCHAR },  </if>
+            <if test="(mxmcmlkkey != null )">#{mxmcmlkkey , jdbcType= NUMERIC },  </if>
+            <if test="(mldm != null )">#{mldm , jdbcType= VARCHAR },  </if>
+            <if test="(mlmc != null )">#{mlmc , jdbcType= VARCHAR },  </if>
+            <if test="(py != null )">#{py , jdbcType= VARCHAR },  </if>
+            <if test="(wb != null )">#{wb , jdbcType= VARCHAR },  </if>
+            <if test="(sjdm != null )">#{sjdm , jdbcType= VARCHAR },  </if>
+            <if test="(mlcc != null )">#{mlcc , jdbcType= INTEGER },  </if>
+            <if test="(yxjl != null )">#{yxjl , jdbcType= SMALLINT },  </if>
+            <if test="(memo != null )">#{memo , jdbcType= VARCHAR },  </if>
+            <if test="(iscurrent != null )">#{iscurrent , jdbcType= BIT },  </if>
+            <if test="(gxrq != null )">#{gxrq , jdbcType= TIMESTAMP },  </if>
+            <if test="(sysId != null )">#{sysId , jdbcType= VARCHAR },  </if>
+            <if test="(lsnid != null )">#{lsnid , jdbcType= BIGINT },  </if>
+            <if test="(isdelete != null )">#{isdelete , jdbcType= VARCHAR },  </if>
         </trim>
     </insert>
 
@@ -58,20 +87,27 @@
         UPDATE EMR_MXMCMLK
         <set>
             <trim suffixOverrides=",">
-                <if test="(mldm != null and mldm != '')"> MLDM , </if>
-                <if test="(mlmc != null and mlmc != '')"> MLMC , </if>
-                <if test="(py != null and py != '')"> PY , </if>
-                <if test="(wb != null and wb != '')"> WB , </if>
-                <if test="(sjdm != null and sjdm != '')"> SJDM , </if>
-                <if test="(mlcc != null and mlcc != '')"> MLCC , </if>
-                <if test="(yxjl != null )"> YXJL , </if>
-                <if test="(memo != null and memo != '')"> MEMO , </if>
+                <if test="(yljgdm != null )"> yljgdm = #{yljgdm , jdbcType= VARCHAR }, </if>
+                <if test="(mxmcmlkkey != null )"> mxmcmlkkey = #{mxmcmlkkey , jdbcType= NUMERIC }, </if>
+                <if test="(mldm != null )"> mldm = #{mldm , jdbcType= VARCHAR }, </if>
+                <if test="(mlmc != null )"> mlmc = #{mlmc , jdbcType= VARCHAR }, </if>
+                <if test="(py != null )"> py = #{py , jdbcType= VARCHAR }, </if>
+                <if test="(wb != null )"> wb = #{wb , jdbcType= VARCHAR }, </if>
+                <if test="(sjdm != null )"> sjdm = #{sjdm , jdbcType= VARCHAR }, </if>
+                <if test="(mlcc != null )"> mlcc = #{mlcc , jdbcType= INTEGER }, </if>
+                <if test="(yxjl != null )"> yxjl = #{yxjl , jdbcType= SMALLINT }, </if>
+                <if test="(memo != null )"> memo = #{memo , jdbcType= VARCHAR }, </if>
+                <if test="(iscurrent != null )"> iscurrent = #{iscurrent , jdbcType= BIT }, </if>
+                <if test="(gxrq != null )"> gxrq = #{gxrq , jdbcType= TIMESTAMP }, </if>
+                <if test="(sysId != null )"> sys_id = #{sysId , jdbcType= VARCHAR }, </if>
+                <if test="(lsnid != null )"> lsnid = #{lsnid , jdbcType= BIGINT }, </if>
+                <if test="(isdelete != null )"> isdelete = #{isdelete , jdbcType= VARCHAR }, </if>
             </trim>
         </set>
         <where>
-            <if test="(mldm != null and mldm != '')"> and MLDM = #{ mldm }   </if>
-            <if test="(mldm !=null or mldm!='') and (map.pks != null and map.pks != '')">
-                and (MLDM) in
+            <if test="(mldm != null and mldm != '')"> and mldm = #{mldm}   </if>
+            <if test=" mldm != null and (map.pks != null and map.size > 0)">
+                and (mldm) in
                 <foreach item="item" collection="map.pks" open="(" separator="," close=")"> #{item}</foreach>
             </if>
         </where>
@@ -80,9 +116,9 @@
     <delete id="deleteEmrMxmcmlk" parameterType="com.winning.hic.model.EmrMxmcmlk">
         delete from  EMR_MXMCMLK
         <where>
-            <if test="(mldm != null and mldm != '')"> and MLDM = #{ mldm }   </if>
-            <if test="(mldm !=null or mldm!='') and (map.pks != null and map.pks != '')">
-                and (MLDM) in
+            <if test="(mldm != null and mldm != '')"> and mldm = #{mldm}   </if>
+            <if test=" and (map.pks != null and map.size > 0)">
+                and (mldm) in
                 <foreach item="item" collection="map.pks" open="(" separator="," close=")"> #{item}</foreach>
             </if>
         </where>
@@ -103,7 +139,7 @@
         <where>
             <include refid="sql-emrMxmcmlk" />
         </where>
-        ORDER BY t.MLDM DESC
+        ORDER BY t.mldm ASC
     </select>
 
     <select id="selectEmrMxmcmlkCount" resultType="int" parameterType="com.winning.hic.model.EmrMxmcmlk">
@@ -116,12 +152,12 @@
     <select id="selectEmrMxmcmlkPageList" resultMap="emrMxmcmlkResult" parameterType="com.winning.hic.model.EmrMxmcmlk">
         SELECT * FROM (
         SELECT t.* ,
-        ROW_NUMBER() OVER ( ORDER BY t.MLDM DESC ) AS _RN
+        ROW_NUMBER() OVER ( ORDER BY t.mldm DESC ) AS _RN
         FROM EMR_MXMCMLK t
         <where>
             <include refid="sql-emrMxmcmlk" />
         </where>
-        <!-- order by t.MLDM asc -->
+        <!-- order by  asc -->
         ) TEMP_TABLE WHERE _RN BETWEEN  #{row.first} + 1 AND #{row.first} + #{row.count}
     </select>
 
@@ -129,7 +165,7 @@
         SELECT t.*, 1 NUM FROM EMR_MXMCMLK t
         <where>
             <if test="(mldm !=null or mldm!='') and (map.mbCodeList != null and map.mbCodeList.size > 0 )">
-                and (mldm) in
+                and (t.mldm) in
                 <foreach item="item" collection="map.mbCodeList" open="(" separator="," close=")"> #{item}</foreach>
             </if>
         </where>
@@ -138,13 +174,14 @@
 
     <select id="selectEmrMxmcmlkFirstChildList" resultMap="emrMxmcmlkResult" parameterType="com.winning.hic.model.EmrMxmcmlk">
         SELECT
-         A.MLDM,A.MLMC,LEFT(A.MLDM,LEN(A.MLDM)-2) SJDM,
-          (SELECT COUNT(1) FROM DBO.EMR_MBK C
-        LEFT JOIN EMR_KSMBDY B ON C.MBDM = B.MBDM WHERE C.MXFLDM =A.MLDM AND (C.GRMBBZ = 0 OR C.GRMBBZ IS NULL) AND B.KSDM IS NOT NULL ) NUM
-        FROM DBO.EMR_MXMCMLK A WHERE LEFT(A.MLDM,LEN(A.MLDM)-2) = #{MLDM}
+               a.mldm,a.mlmc,left(a.mldm,len(a.mldm)-2) sjdm,
+               (SELECT COUNT(1) FROM EMR_MBK c
+                 LEFT JOIN EMR_KSMBDY b on c.mbdm = b.mbdm where c.mxfldm =a.mldm and (c.grmbbz = 0 or c.grmbbz is null) and b.ksdm is not null ) NUM
+        FROM EMR_MXMCMLK a where left(a.mldm,len(a.mldm)-2) = #{mldm}
         UNION
-        SELECT A.MBDM MLDM,A.MBMC+'{'+A.MBMS+'}',A.MXFLDM SJDM, 0 NUM FROM DBO.EMR_MBK A
-        LEFT JOIN EMR_KSMBDY B ON A.MBDM = B.MBDM
-        WHERE  A.MXFLDM=#{MLDM} AND (A.GRMBBZ = 0 OR A.GRMBBZ IS NULL) AND B.KSDM IS NOT NULL
+        SELECT a.mbdm mldm,a.mbmc+'{'+a.mbms+'}',a.mxfldm sjdm, 0 NUM FROM EMR_MBK a
+        LEFT JOIN EMR_KSMBDY b on a.mbdm = b.mbdm
+        where  a.mxfldm=#{mldm} and (a.grmbbz = 0 or a.grmbbz is null) and b.ksdm is not null
     </select>
+
 </mapper>

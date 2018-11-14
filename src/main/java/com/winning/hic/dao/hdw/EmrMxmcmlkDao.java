@@ -2,10 +2,9 @@ package com.winning.hic.dao.hdw;
 
 
 
-import java.util.List;
+import java.util.List;  
 
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataAccessException;  
 
 import com.winning.hic.model.EmrMxmcmlk;  
 
@@ -13,11 +12,11 @@ import com.winning.hic.model.EmrMxmcmlk;
 
 import org.springframework.stereotype.Repository;
 /**
-* @author chensj
-* @title DAO接口
-* @email chensj@163.com
-* @package com.winning.hic.dao
-* @date 2018-05-23 09:05:13
+* @author HLHT
+* @title 模型名称目录库DAO接口
+* @email Winning Health
+* @package com.winning.hic.dao.hdw
+* @date 2018-19-14 17:19:02
 */
 @Repository
 public interface EmrMxmcmlkDao {
@@ -39,5 +38,4 @@ public interface EmrMxmcmlkDao {
     List<EmrMxmcmlk> selectEmrMxmcmlkParentList(EmrMxmcmlk emrMxmcmlk);
 
     List<EmrMxmcmlk> selectEmrMxmcmlkFirstChildList(EmrMxmcmlk mxmcmlk);
-
 }
