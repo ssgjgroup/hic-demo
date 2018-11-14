@@ -1,0 +1,259 @@
+<!--
+   Created with IntelliJ IDEA.
+   Description: 数据初始化
+   User: LENOVO
+   Date: 2018-07-25
+   Time: 13:17
+ -->
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>数据初始化</title>
+    <meta name="keywords" content="Winning Health CIS 互联互通工具"/>
+    <meta name="description" content="Winning Health CIS 互联互通工具"/>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap-table.min.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap/css/jquery.treegrid.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap/bootstrap3-editable/css/bootstrap-editable.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap/bootstrap-treeview/bootstrap-treeview.min.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/google-font/google.fonts.css}"/>
+    <link rel="stylesheet" th:href="@{/bootstrap/toastr/css/toastr.min.css}"/>
+    <link rel="shortcut icon" th:href="@{/img/logo.ico}"/>
+    <script th:src="@{/assets/js/ace-extra.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/assets/ztree/css/zTreeStyle/zTreeStyle.css}">
+    <link rel="stylesheet" th:href="@{/summernote/summernote.css}">
+    <style>
+        .tree-container{
+            height: 500px;
+            overflow: scroll;
+        }
+        .table-align{
+            table-layout:fixed;/* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+            font-size:12px;
+        }
+    </style>
+</head>
+<body>
+<div class="main-container" style="margin: 10px 0px;">
+    <div class="row" style="margin:0px;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" >
+                <div id="summernote"></div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <div style="line-height: 400px;margin: 0px 100px;">
+                    <button id="parseBlnr" type="button" class="btn btn-primary" style="width: 100px;">转换</button>
+                </div>
+
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" >
+                <div id="summernote1"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--[if !IE]> -->
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery-2.2.4.min.js}"></script>
+<!-- <![endif]-->
+<!--[if IE]>
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery-1.12.4.min.js}"></script>
+<![endif]-->
+<!--bootstrap-->
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap-table.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap-table-zh-CN.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/bootstrap3-editable/js/bootstrap-editable.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap-table-editable.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap-table-treegrid.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery.treegrid.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/bootstrap-treeview/bootstrap-treeview.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/toastr/js/toastr.min.js}"></script>
+<!--ace-->
+<script type="text/javascript" th:src="@{/assets/js/ace-elements.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/ace.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/ace-extra.min.js}"></script>
+<script th:src="@{/assets/ztree/js/jquery.ztree.core.min.js}"></script>
+<script th:src="@{/assets/ztree/js/jquery.ztree.exedit.min.js}"></script>
+<script th:src="@{/assets/ztree/js/jquery.ztree.excheck.min.js}"></script>
+<script th:src="@{/assets/ztree/js/jquery.ztree.exhide.min.js}"></script>
+<script th:src="@{/summernote/summernote.min.js}"></script>
+<script th:src="@{/summernote/lang/summernote-zh-CN.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    var ctx = /*[[@{/}]]*/'';
+    $(function(){
+        //toastr 插件全局配置
+        toastr.options.positionClass = 'toast-top-center';
+        toastr.options.timeOut = 30;
+        toastr.options.extendedTimeOut = 60;
+
+        $('#summernote').summernote({
+            placeholder: '请输入需要转换的病历内容', //提示名称
+            tabsize: 2,
+            height: 800,
+            minHeight: 50,             // 编辑器最小的高度
+            maxHeight: 800,             // 编辑器最大的高度
+            focus: true,               // 初始化完成后立即获取焦点
+            lang: 'zh-CN',             //中文支持
+            //自定义参数
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']], //样式
+                ['font', ['strikethrough', 'superscript', 'subscript']], //标记 上标、下标、删除线
+                ['fontsize', ['fontsize']], //字体大小
+                ['color', ['color']], //字体颜色
+                ['para', ['ul', 'ol', 'paragraph']], //列表
+                ['height', ['height']], //设置行高
+            ]
+        });
+        $('#summernote1').summernote({
+            placeholder: '', //提示名称
+            tabsize: 2,
+            height: 800,
+            minHeight: 50,             // 编辑器最小的高度
+            maxHeight: 800,             // 编辑器最大的高度
+            focus: true,               // 初始化完成后立即获取焦点
+            lang: 'zh-CN',             //中文支持
+            //自定义参数
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']], //样式
+                ['font', ['strikethrough', 'superscript', 'subscript']], //标记 上标、下标、删除线
+                ['fontsize', ['fontsize']], //字体大小
+                ['color', ['color']], //字体颜色
+                ['para', ['ul', 'ol', 'paragraph']], //列表
+                ['height', ['height']], //设置行高
+            ]
+        });
+
+        $('#parseBlnr').on('click',function(){
+            var markupStr = $('#summernote').summernote('code');
+            $('#summernote1').summernote('insertText','');
+            markupStr = markupStr.replace("<p><br></p>","");
+            if(markupStr === '' || markupStr.length < 0 ){
+                toastr.info('请输入病历内容');
+                return false;
+            }
+            $.ajax({
+                url: ctx + 'blnr/parse',
+                async: false,
+                type: "post",
+                cache:false,
+                dataType: 'json',
+                data: {'blnr':markupStr},
+                success: function (data, status) {
+                    toastr.info('转换成功');
+                 //   console.log(formatXml(data.data));
+                    $('#summernote1').summernote('insertText',data.data);
+                },error:function (response) {
+                    toastr.error(response.responseText);
+                }
+            });
+        });
+    });
+
+    function format(strs){
+            //声明left变量用于存放html标签中左尖括号（‘<’）位置
+            var left=null;
+            //声明right变量用于存放html标签中右尖括号（‘<’）位置
+            var right=null;
+            //声明str变量，用于存放格式化后的代码字符串
+            var str='';
+            //存放html代码所进所用的空格
+            var blank='\t';
+            //存放若干个blank变量，用于控制代码缩进的深度
+            var fmt=[];
+            //对需要格式化的代码字符串进行遍历
+            for(var i=0;i<strs.length;i++){
+                //发现左尖括号后将其位置记录在left变量上
+                if(strs[i]=='<'){
+                    left=i;
+                }else if(strs[i]=='>'){
+                    //发现右尖括号后将其记录在right变量上
+                    right=i;
+                }
+                //当做尖括号右尖括号都记录了一个位置后，说明二者之间的内容为代码的一行
+                if(typeof left=='number'&&typeof right=='number'){
+                    //判断字符串左尖括号后是否为‘/’，如果满足，表明该行代码为双标签的闭合标签
+                    if(strs[left+1]=='/'){
+                        //对数组中的空格做出栈，确保代码缩进正确
+                        fmt.pop();
+                        //将该行代码放入str变量中
+                        str+=fmt.join('')+strs.slice(left,right+1);
+                        //判断字符串右尖括号前一位是否为‘/’，如满足，表明该标签为严格闭合的单标签
+                    }else if(strs[right-1]=='/'){
+                        str+=fmt.join('')+strs.slice(left,right+1);
+                        //判断字符串开头是否包含input/imig/hr/br/link/meta等字母，用于屏蔽非严格未闭合的单标签
+                    }else if(strs.slice(left,right).search(/\<input|\<img|\<hr|\<br|\<link|\<meta/)!=-1){
+                        str+=fmt.join('')+strs.slice(left,right+1);
+                        //对双标签的左标签进行的操作
+                    }else{
+                        str+=fmt.join('')+strs.slice(left,right+1);
+                        //向数组中堆入一个空格，确保下一行双标签的左标签的缩进正确
+                        fmt.push(blank);
+                    }
+                    //对right位置后的字符串进行遍历
+                    for(var j=right;j<strs.length;j++){
+                        //查找right位置后，第一个左尖括号的位置，二者之间的内容即为代码中的文本内容
+                        if(strs[j]=='<'){
+                            //去掉文本中多余的空格
+                            var s=strs.slice(right+1,j).replace(/\s*/g,'');
+                            if(s){
+                                //当文本中去掉空格后任然有内容，则将文本拼入str变量进行存储
+                                str+=s;
+                            }
+                            break;
+                        }
+                    }
+                    //每次获得一次左右尖括号的位置后，即得到了一行代码，为代码做换行处理
+                    str+='\n';
+                    //重置left、right的值，用于for循环的下次存储做右尖括号的位置
+                    left=null;
+                    right=null;
+                }
+
+            }
+            //返回得到的格式化完成的html代码字符串
+            return str;
+        }
+
+
+
+
+//格式化xml
+ /*   function formatXml(str){
+        //去除输入框中xmll两端的空格。 
+        str = str.replace(/^\s+|\s+$/g,"");
+        var source = new ActiveXObject("Msxml2.DOMDocument");
+        //装载数据 
+        source.async = false;
+        source.loadXML(str);     
+        // 装载样式单  
+        var stylesheet = new ActiveXObject("Msxml2.DOMDocument");  
+        stylesheet.async = false;  
+        stylesheet.resolveExternals = false;  
+        stylesheet.load(path+"/XlsTmpl/temp/format.xsl");    
+        // 创建结果对象  
+        var result = new ActiveXObject("Msxml2.DOMDocument");  
+        result.async = false;    
+        // 把解析结果放到结果对象中方法1  
+        source.transformNodeToObject(stylesheet, result);  
+        if(result.xml==''||result.xml==null){
+            toastr.error('xml报文格式错误，请检查');
+            return false; 
+        } 
+        var finalStr = "<?xml version=\"1.0\" encoding=\"UTF-8\"?> \n" +result.xml; 
+        return finalStr;
+    }*/
+
+</script>
+</body>
+</html>

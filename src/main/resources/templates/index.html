@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Winning Health CIS 互联互通工具</title>
+    <meta name="keywords" content="Winning Health CIS 互联互通工具"/>
+    <meta name="description" content="Winning Health CIS 互联互通工具"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link th:href="@{/assets/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/assets/css/font-awesome.min.css}"/>
+    <!--[if IE 7]>
+    <link rel="stylesheet" th:href="@{/assets/css/font-awesome-ie7.min.css}"/>
+    <![endif]-->
+    <link rel="stylesheet" th:href="@{/assets/google-font/google.fonts.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/ace.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/ace-rtl.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/ace-skins.min.css}"/>
+    <link rel="shortcut icon" th:href="@{/img/logo.ico}"/>
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" th:href="@{/assets/css/ace-ie.min.css}"/>
+    <![endif]-->
+    <script th:src="@{/assets/js/ace-extra.min.js}"></script>
+    <!--[if lt IE 9]>
+    <script th:src="@{/assets/js/html5shiv.js}"></script>
+    <script th:src="@{/assets/js/respond.min.js}"></script>
+    <![endif]-->
+    <style type="text/css">
+        .footer{
+            position: absolute;
+            bottom: 0px;
+            margin-left: 190px;
+            /*box-shadow:0px 0px 3px rgba(179,179,179,.75);*/
+        }
+
+        .bg-color{
+            background: #323841;
+        }
+        .nav-list>li{
+            border-bottom:0px;
+        }
+        .nav-list>li.active:after{
+            border: 0px;
+        }
+        .nav-list>li>a{
+            background: #323841;
+            color: #FFF;
+        }
+        .nav-list>li>a.active{
+            background: #09b1b9;
+        }
+        .nav-list>li>a.active>span{
+            color: white;
+        }
+        .nav-list>li.active>a,
+
+        .nav-list>li.active>a:active{
+            background: #09b1b9;
+            color: #000;
+        }
+        .nav-list li.active>a:after{
+            border-right-color:#fff;
+        }
+        .nav-list>li.active>a,
+        .nav-list>li.active>a:hover,
+        .nav-list>li.active>a:focus,
+        .nav-list>li.active>a:active{
+            color: #000;
+        }
+        .nav-list>li>a:hover,
+        .nav-list>li>a:focus{
+            background: #ffb174;
+            color:#000;
+        }
+    </style>
+</head>
+<body>
+<div class="navbar navbar-default bg-color" id="navbar">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('navbar', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="navbar-container" id="navbar-container">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>
+                    <img th:src="@{/img/logo.ico}">
+                    Winning Health CIS 互联互通工具
+                </small>
+            </a>
+        </div>
+
+        <div class="navbar-header pull-right" role="navigation">
+        </div>
+    </div>
+</div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <div class="sidebar" id="sidebar" >
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('sidebar', 'fixed')
+                } catch (e) {
+                }
+            </script>
+            <ul class="nav nav-list" id="navList" >
+                <li class="active">
+                    <a th:href="@{init/initData}" >
+                        <i class="icon-dashboard"></i>
+                        <span class="menu-text"> 数据初始化 </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a th:href="@{modelCheck/index}" >
+                        <i class="icon-text-width"></i>
+                        <span class="menu-text"> 模 板 校 验 </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a th:href="@{dataLoad/index}" >
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 数 据 抽 取 </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a th:href="@{dataCheck/index}" >
+                        <i class="icon-list"></i>
+                        <span class="menu-text"> 数 据 监 控 </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a th:href="@{logger/index}" >
+                        <i class="icon-edit"></i>
+                        <span class="menu-text"> 日 志 查 看 </span>
+                    </a>
+
+                </li>
+
+                <li>
+                    <a th:href="@{config/index}" >
+                        <i class="icon-cog"></i>
+                        <span class="menu-text"> 工 具 配 置 </span>
+                    </a>
+
+                </li>
+
+            </ul>
+
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left"
+                   data-icon2="icon-double-angle-right"></i>
+            </div>
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('sidebar', 'collapsed')
+                } catch (e) {
+                }
+            </script>
+        </div>
+        <div class="main-content">
+            <div class="page-content" style="padding-left: 0px;padding-top:0px;border-top: 0px;">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <iframe id="coniframe" class="embed-responsive-item"
+                            frameborder="0">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="ace-settings-container" id="ace-settings-container">
+            <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+                <i class="icon-cog bigger-150"></i>
+            </div>
+
+            <div class="ace-settings-box" id="ace-settings-box">
+                <div>
+                    <div class="pull-left">
+                        <select id="skin-colorpicker" class="hide">
+                            <option data-skin="default" value="#438EB9">#438EB9</option>
+                            <option data-skin="skin-1" value="#222A2D">#222A2D</option>
+                            <option data-skin="skin-2" value="#C6487E">#C6487E</option>
+                            <option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+                        </select>
+                    </div>
+                    <span>&nbsp; 选择皮肤</span>
+                </div>
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar"/>
+                    <label class="lbl" for="ace-settings-navbar"> 固定导航条</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar"/>
+                    <label class="lbl" for="ace-settings-sidebar"> 固定滑动条</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs"/>
+                    <label class="lbl" for="ace-settings-breadcrumbs">固定面包屑</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"/>
+                    <label class="lbl" for="ace-settings-rtl">切换到左边</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container"/>
+                    <label class="lbl" for="ace-settings-add-container">
+                        切换窄屏
+                        <b></b>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--[if !IE]> -->
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery-2.2.4.min.js}"></script>
+<!-- <![endif]-->
+<!--[if IE]>
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery-1.12.4.min.js}"></script>
+<![endif]-->
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<!--[if lte IE 8]>
+<script th:src="@{/assets/js/excanvas.min.js}"></script>
+<![endif]-->
+<script th:src="@{/assets/js/ace-elements.min.js}"></script>
+<script th:src="@{/assets/js/ace.min.js}"></script>
+<script th:inline="javascript"  type="text/javascript">
+    var ctx = /*[[@{/}]]*/'';
+</script>
+<script type="text/javascript">
+    $(function () {
+        //页面切换焦点改变
+        $('#navList>li').on('click',function () {
+            $(this).addClass('active')
+                .siblings('li')
+                .removeClass('active');
+        });
+        //计算iframe的宽度和高度，并将高度与宽度作为主容器的高度与宽度
+        var windowHeight = $(window).height();
+        var widowWidth = $(window).width();
+        $('#coniframe').attr('height',(windowHeight - 100)+'px');
+        $('#coniframe').attr('width',(widowWidth - 192)+'px');
+        $('#coniframe').attr('src',ctx+'init/initData');
+        $('#navList li a').on('click',function(e){
+            e.preventDefault();
+            var src = $(this).attr('href');
+            $('#coniframe').attr('src',ctx+src);
+        });
+
+        $('#sidebar-collapse').on('click',function (a,b,c,d) {
+            console.log(a);
+            console.log(a.target.className);
+            console.log(a.toElement.className);
+            console.log(d);
+            var targetName = a.target.className;
+            var iframeWidth = $('#coniframe').attr('width');
+            var iframeWidthNum = iframeWidth.substring(0,iframeWidth.lastIndexOf("px"));
+            iframeWidth = parseInt(iframeWidthNum);
+            console.log($('#coniframe').attr('width'));
+            if(targetName === 'icon-double-angle-right'){
+                $('#coniframe').attr('width',(iframeWidth+140)+'px');
+            }else{
+                $('#coniframe').attr('width',(iframeWidth-140)+'px');
+            }
+        })
+    })
+</script>
+</body>
+</html>
+
