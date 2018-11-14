@@ -1,19 +1,10 @@
 package com.winning.hic.model;
 
-import java.math.BigDecimal; 
-import java.math.BigDecimal; 
-import java.math.BigDecimal; 
-import java.math.BigDecimal; 
-import java.math.BigDecimal; 
-import java.math.BigDecimal; 
-import java.math.BigDecimal; 
-import java.math.BigDecimal; 
-import java.math.BigDecimal; 
-import java.io.Serializable; 
+import org.apache.ibatis.type.Alias;
 
-import org.apache.ibatis.type.Alias; 
-
-import com.winning.hic.model.BaseDomain;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
 
 
 
@@ -21,8 +12,8 @@ import com.winning.hic.model.BaseDomain;
  * @author HLHT
  * @title 
  * @email Winning Health
- * @package com.winning.hic.model
- * @date 2018-42-21 09:42:26
+ * @package com.winning.isc.model
+ * @date 2018-27-14 16:27:38
  */
 @Alias("outpOrderitem")
 public class OutpOrderitem extends BaseDomain implements Serializable {
@@ -30,510 +21,516 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
     private static final long serialVersionUID = -1L;
 
     /**
-     * 字段名：XH
+     * 字段名：yljgdm
+     * 备注: 
+     * 默认值：无
+     */
+    private String yljgdm;
+    /**
+     * 字段名：xh
      * 备注: 
      * 默认值：无
      */
     private Long xh;
     /**
-     * 字段名：CFXH
+     * 字段名：cfxh
      * 备注: 
      * 默认值：无
      */
     private Long cfxh;
     /**
-     * 字段名：CD_IDM
+     * 字段名：cd_idm
      * 备注: 
      * 默认值：无
      */
     private Integer cdIdm;
     /**
-     * 字段名：GG_IDM
+     * 字段名：gg_idm
      * 备注: 
      * 默认值：无
      */
     private Integer ggIdm;
     /**
-     * 字段名：EKBZ
+     * 字段名：ekbz
      * 备注: 
      * 默认值：无
      */
     private Boolean ekbz;
     /**
-     * 字段名：DXMDM
+     * 字段名：dxmdm
      * 备注: 
      * 默认值：无
      */
     private String dxmdm;
     /**
-     * 字段名：DXMMC
+     * 字段名：dxmmc
      * 备注: 
      * 默认值：无
      */
     private String dxmmc;
     /**
-     * 字段名：YPDM
+     * 字段名：ypdm
      * 备注: 
      * 默认值：无
      */
     private String ypdm;
     /**
-     * 字段名：LCXMDM
+     * 字段名：lcxmdm
      * 备注: 
      * 默认值：无
      */
     private String lcxmdm;
     /**
-     * 字段名：YPMC
+     * 字段名：ypmc
      * 备注: 
      * 默认值：无
      */
     private String ypmc;
     /**
-     * 字段名：YPGG
+     * 字段名：ypgg
      * 备注: 
      * 默认值：无
      */
     private String ypgg;
     /**
-     * 字段名：YPDW
+     * 字段名：ypdw
      * 备注: 
      * 默认值：无
      */
     private String ypdw;
     /**
-     * 字段名：YPXS
+     * 字段名：ypxs
      * 备注: 
      * 默认值：无
      */
     private BigDecimal ypxs;
     /**
-     * 字段名：YKXS
+     * 字段名：ykxs
      * 备注: 
      * 默认值：无
      */
     private BigDecimal ykxs;
     /**
-     * 字段名：MZDW
+     * 字段名：mzdw
      * 备注: 
      * 默认值：无
      */
     private String mzdw;
     /**
-     * 字段名：MZXS
+     * 字段名：mzxs
      * 备注: 
      * 默认值：无
      */
     private BigDecimal mzxs;
     /**
-     * 字段名：GGDW
+     * 字段名：ggdw
      * 备注: 
      * 默认值：无
      */
     private String ggdw;
     /**
-     * 字段名：GGXS
+     * 字段名：ggxs
      * 备注: 
      * 默认值：无
      */
     private BigDecimal ggxs;
     /**
-     * 字段名：ZXDW
+     * 字段名：zxdw
      * 备注: 
      * 默认值：无
      */
     private String zxdw;
     /**
-     * 字段名：JXDM
+     * 字段名：jxdm
      * 备注: 
      * 默认值：无
      */
     private String jxdm;
     /**
-     * 字段名：JXMC
+     * 字段名：jxmc
      * 备注: 
      * 默认值：无
      */
     private String jxmc;
     /**
-     * 字段名：YLSJ
+     * 字段名：ylsj
      * 备注: 
      * 默认值：无
      */
     private BigDecimal ylsj;
     /**
-     * 字段名：YPFJ
+     * 字段名：ypfj
      * 备注: 
      * 默认值：无
      */
     private BigDecimal ypfj;
     /**
-     * 字段名：YPYF
+     * 字段名：ypyf
      * 备注: 
      * 默认值：无
      */
     private String ypyf;
     /**
-     * 字段名：YPYFMC
+     * 字段名：ypyfmc
      * 备注: 
      * 默认值：无
      */
     private String ypyfmc;
     /**
-     * 字段名：PCDM
+     * 字段名：pcdm
      * 备注: 
      * 默认值：无
      */
     private String pcdm;
     /**
-     * 字段名：PCMC
+     * 字段名：pcmc
      * 备注: 
      * 默认值：无
      */
     private String pcmc;
     /**
-     * 字段名：YPJL
+     * 字段名：ypjl
      * 备注: 
      * 默认值：无
      */
     private BigDecimal ypjl;
     /**
-     * 字段名：JLDW
+     * 字段名：jldw
      * 备注: 
      * 默认值：无
      */
     private String jldw;
     /**
-     * 字段名：DWLB
+     * 字段名：dwlb
      * 备注: 
      * 默认值：无
      */
     private Integer dwlb;
     /**
-     * 字段名：TS
+     * 字段名：ts
      * 备注: 
-     * 默认值：((1))
+     * 默认值：无
      */
     private Integer ts;
     /**
-     * 字段名：YFLDSL
+     * 字段名：yfldsl
      * 备注: 
      * 默认值：无
      */
     private Integer yfldsl;
     /**
-     * 字段名：LDLX
+     * 字段名：ldlx
      * 备注: 
      * 默认值：无
      */
     private String ldlx;
     /**
-     * 字段名：LDXH
+     * 字段名：ldxh
      * 备注: 
      * 默认值：无
      */
     private String ldxh;
     /**
-     * 字段名：YPSL
+     * 字段名：ypsl
      * 备注: 
      * 默认值：无
      */
     private BigDecimal ypsl;
     /**
-     * 字段名：CYTS
+     * 字段名：cyts
      * 备注: 
-     * 默认值：((1))
+     * 默认值：无
      */
     private Integer cyts;
     /**
-     * 字段名：SHBZ
+     * 字段名：shbz
      * 备注: 
      * 默认值：无
      */
     private Boolean shbz;
     /**
-     * 字段名：ZBZ
+     * 字段名：zbz
      * 备注: 
      * 默认值：无
      */
     private Integer zbz;
     /**
-     * 字段名：MZDM
+     * 字段名：mzdm
      * 备注: 
      * 默认值：无
      */
     private String mzdm;
     /**
-     * 字段名：MZMC
+     * 字段名：mzmc
      * 备注: 
      * 默认值：无
      */
     private String mzmc;
     /**
-     * 字段名：FZXH
+     * 字段名：fzxh
      * 备注: 
      * 默认值：无
      */
     private Long fzxh;
     /**
-     * 字段名：PSBZ
+     * 字段名：psbz
      * 备注: 
      * 默认值：无
      */
     private Boolean psbz;
     /**
-     * 字段名：ZBBZ
+     * 字段名：zbbz
      * 备注: 
      * 默认值：无
      */
     private Boolean zbbz;
     /**
-     * 字段名：JJBZ
+     * 字段名：jjbz
      * 备注: 
      * 默认值：无
      */
     private Integer jjbz;
     /**
-     * 字段名：JLZT
+     * 字段名：jlzt
      * 备注: 
      * 默认值：无
      */
     private Boolean jlzt;
     /**
-     * 字段名：YBSPBZ
+     * 字段名：ybspbz
      * 备注: 
      * 默认值：无
      */
     private Integer ybspbz;
     /**
-     * 字段名：YBJZBZ
+     * 字段名：ybjzbz
      * 备注: 
      * 默认值：无
      */
     private Boolean ybjzbz;
     /**
-     * 字段名：MZLYBZ
+     * 字段名：mzlybz
      * 备注: 
-     * 默认值：((0))
+     * 默认值：无
      */
     private Integer mzlybz;
     /**
-     * 字段名：MEMO
+     * 字段名：memo
      * 备注: 
      * 默认值：无
      */
     private String memo;
     /**
-     * 字段名：LJDYXH
+     * 字段名：ljdyxh
      * 备注: 
      * 默认值：无
      */
     private Long ljdyxh;
     /**
-     * 字段名：XZ
+     * 字段名：xz
      * 备注: 
-     * 默认值：((2))
+     * 默认值：无
      */
     private Integer xz;
     /**
-     * 字段名：KZGGDWXH
+     * 字段名：kzggdwxh
      * 备注: 
      * 默认值：无
      */
     private Long kzggdwxh;
     /**
-     * 字段名：TSDYBZ
+     * 字段名：tsdybz
      * 备注: 
      * 默认值：无
      */
     private Integer tsdybz;
     /**
-     * 字段名：KSSKZBZ
+     * 字段名：ksskzbz
      * 备注: 
      * 默认值：无
      */
     private Integer ksskzbz;
     /**
-     * 字段名：BBZL
+     * 字段名：bbzl
      * 备注: 
      * 默认值：无
      */
     private String bbzl;
     /**
-     * 字段名：MRJLDWBZ
+     * 字段名：mrjldwbz
      * 备注: 
      * 默认值：无
      */
     private Integer mrjldwbz;
     /**
-     * 字段名：ZFBZ
+     * 字段名：zfbz
      * 备注: 
      * 默认值：无
      */
     private Boolean zfbz;
     /**
-     * 字段名：JLSM
+     * 字段名：jlsm
      * 备注: 
      * 默认值：无
      */
     private String jlsm;
     /**
-     * 字段名：PSYPDM
+     * 字段名：psypdm
      * 备注: 
      * 默认值：无
      */
     private String psypdm;
     /**
-     * 字段名：YBJYB
+     * 字段名：ybjyb
      * 备注: 
      * 默认值：无
      */
     private Integer ybjyb;
     /**
-     * 字段名：LSBZ
+     * 字段名：lsbz
      * 备注: 
      * 默认值：无
      */
     private Boolean lsbz;
     /**
-     * 字段名：TZSJ
+     * 字段名：tzsj
      * 备注: 
      * 默认值：无
      */
-    private String tzsj;
+    private Date tzsj;
     /**
-     * 字段名：CQCFMXXH
+     * 字段名：cqcfmxxh
      * 备注: 
      * 默认值：无
      */
     private Long cqcfmxxh;
     /**
-     * 字段名：OLDXH
+     * 字段名：oldxh
      * 备注: 
      * 默认值：无
      */
     private Long oldxh;
     /**
-     * 字段名：GDZLXMXH
+     * 字段名：gdzlxmxh
      * 备注: 
      * 默认值：无
      */
     private Long gdzlxmxh;
     /**
-     * 字段名：CJRQ
+     * 字段名：cjrq
      * 备注: 
      * 默认值：无
      */
     private String cjrq;
     /**
-     * 字段名：YBBZ
+     * 字段名：ybbz
      * 备注: 
      * 默认值：无
      */
     private Boolean ybbz;
     /**
-     * 字段名：TFBZ
+     * 字段名：tfbz
      * 备注: 
      * 默认值：无
      */
     private Boolean tfbz;
     /**
-     * 字段名：CJLQM
+     * 字段名：cjlqm
      * 备注: 
      * 默认值：无
      */
     private Integer cjlqm;
     /**
-     * 字段名：GFLDLB
+     * 字段名：mbbz
      * 备注: 
      * 默认值：无
      */
-    private Integer gfldlb;
+    private Boolean mbbz;
     /**
-     * 字段名：DS
+     * 字段名：isNew
      * 备注: 
      * 默认值：无
      */
-    private Integer ds;
+    private Boolean isnew;
     /**
-     * 字段名：CSYY
+     * 字段名：gxrqtimestr
      * 备注: 
      * 默认值：无
      */
-    private String csyy;
+    private String gxrqtimestr;
     /**
-     * 字段名：MEMOINFO
+     * 字段名：timetempstr
      * 备注: 
      * 默认值：无
      */
-    private String memoinfo;
+    private byte[] timetempstr;
     /**
-     * 字段名：LDSQDMXXH
+     * 字段名：createtime
      * 备注: 
-     * 默认值：无
+     * 默认值：(getdate())
      */
-    private Long ldsqdmxxh;
+    private Date createtime;
     /**
-     * 字段名：WZKFDM
+     * 字段名：timetemp
      * 备注: 
      * 默认值：无
      */
-    private String wzkfdm;
+    private byte[] timetemp;
     /**
-     * 字段名：WZDM
+     * 字段名：gxrq
      * 备注: 
      * 默认值：无
      */
-    private String wzdm;
+    private Date gxrq;
     /**
-     * 字段名：WZKFMC
+     * 字段名：sys_id
      * 备注: 
      * 默认值：无
      */
-    private String wzkfmc;
+    private String sysId;
     /**
-     * 字段名：WZBM
+     * 字段名：lsnid
      * 备注: 
      * 默认值：无
      */
-    private String wzbm;
+    private Long lsnid;
     /**
-     * 字段名：TSCFXH
+     * 字段名：isdelete
      * 备注: 
      * 默认值：无
      */
-    private String tscfxh;
+    private String isdelete;
     /**
-     * 字段名：TSQKSM
+     * 字段名：timetempstr_cdc
      * 备注: 
      * 默认值：无
      */
-    private String tsqksm;
-    /**
-     * 字段名：TFYXBZ
-     * 备注: 
-     * 默认值：无
-     */
-    private String tfyxbz;
-    /**
-     * 字段名：BGSYBZ
-     * 备注: 
-     * 默认值：无
-     */
-    private Integer bgsybz;
-    /**
-     * 字段名：TFSL
-     * 备注: 
-     * 默认值：无
-     */
-    private BigDecimal tfsl;
+    private byte[] timetempstrCdc;
 
     public OutpOrderitem (){
 
     }
 
    /**
-   * 字段名：XH
+   * 字段名：yljgdm
+   * get方法
+   * 备注: 
+   */
+   public String getYljgdm(){
+
+        return yljgdm;
+   }
+
+   /**
+   * 字段名：yljgdm
+   * set方法
+   * 备注: 
+   */
+   public void setYljgdm(String yljgdm){
+        this.yljgdm = yljgdm;
+   }
+   /**
+   * 字段名：xh
    * get方法
    * 备注: 
    */
@@ -543,7 +540,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：XH
+   * 字段名：xh
    * set方法
    * 备注: 
    */
@@ -551,7 +548,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.xh = xh;
    }
    /**
-   * 字段名：CFXH
+   * 字段名：cfxh
    * get方法
    * 备注: 
    */
@@ -561,7 +558,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：CFXH
+   * 字段名：cfxh
    * set方法
    * 备注: 
    */
@@ -569,7 +566,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.cfxh = cfxh;
    }
    /**
-   * 字段名：CD_IDM
+   * 字段名：cd_idm
    * get方法
    * 备注: 
    */
@@ -579,7 +576,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：CD_IDM
+   * 字段名：cd_idm
    * set方法
    * 备注: 
    */
@@ -587,7 +584,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.cdIdm = cdIdm;
    }
    /**
-   * 字段名：GG_IDM
+   * 字段名：gg_idm
    * get方法
    * 备注: 
    */
@@ -597,7 +594,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：GG_IDM
+   * 字段名：gg_idm
    * set方法
    * 备注: 
    */
@@ -605,7 +602,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ggIdm = ggIdm;
    }
    /**
-   * 字段名：EKBZ
+   * 字段名：ekbz
    * get方法
    * 备注: 
    */
@@ -615,7 +612,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：EKBZ
+   * 字段名：ekbz
    * set方法
    * 备注: 
    */
@@ -623,7 +620,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ekbz = ekbz;
    }
    /**
-   * 字段名：DXMDM
+   * 字段名：dxmdm
    * get方法
    * 备注: 
    */
@@ -633,7 +630,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：DXMDM
+   * 字段名：dxmdm
    * set方法
    * 备注: 
    */
@@ -641,7 +638,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.dxmdm = dxmdm;
    }
    /**
-   * 字段名：DXMMC
+   * 字段名：dxmmc
    * get方法
    * 备注: 
    */
@@ -651,7 +648,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：DXMMC
+   * 字段名：dxmmc
    * set方法
    * 备注: 
    */
@@ -659,7 +656,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.dxmmc = dxmmc;
    }
    /**
-   * 字段名：YPDM
+   * 字段名：ypdm
    * get方法
    * 备注: 
    */
@@ -669,7 +666,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YPDM
+   * 字段名：ypdm
    * set方法
    * 备注: 
    */
@@ -677,7 +674,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ypdm = ypdm;
    }
    /**
-   * 字段名：LCXMDM
+   * 字段名：lcxmdm
    * get方法
    * 备注: 
    */
@@ -687,7 +684,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：LCXMDM
+   * 字段名：lcxmdm
    * set方法
    * 备注: 
    */
@@ -695,7 +692,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.lcxmdm = lcxmdm;
    }
    /**
-   * 字段名：YPMC
+   * 字段名：ypmc
    * get方法
    * 备注: 
    */
@@ -705,7 +702,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YPMC
+   * 字段名：ypmc
    * set方法
    * 备注: 
    */
@@ -713,7 +710,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ypmc = ypmc;
    }
    /**
-   * 字段名：YPGG
+   * 字段名：ypgg
    * get方法
    * 备注: 
    */
@@ -723,7 +720,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YPGG
+   * 字段名：ypgg
    * set方法
    * 备注: 
    */
@@ -731,7 +728,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ypgg = ypgg;
    }
    /**
-   * 字段名：YPDW
+   * 字段名：ypdw
    * get方法
    * 备注: 
    */
@@ -741,7 +738,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YPDW
+   * 字段名：ypdw
    * set方法
    * 备注: 
    */
@@ -749,7 +746,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ypdw = ypdw;
    }
    /**
-   * 字段名：YPXS
+   * 字段名：ypxs
    * get方法
    * 备注: 
    */
@@ -759,7 +756,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YPXS
+   * 字段名：ypxs
    * set方法
    * 备注: 
    */
@@ -767,7 +764,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ypxs = ypxs;
    }
    /**
-   * 字段名：YKXS
+   * 字段名：ykxs
    * get方法
    * 备注: 
    */
@@ -777,7 +774,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YKXS
+   * 字段名：ykxs
    * set方法
    * 备注: 
    */
@@ -785,7 +782,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ykxs = ykxs;
    }
    /**
-   * 字段名：MZDW
+   * 字段名：mzdw
    * get方法
    * 备注: 
    */
@@ -795,7 +792,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：MZDW
+   * 字段名：mzdw
    * set方法
    * 备注: 
    */
@@ -803,7 +800,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.mzdw = mzdw;
    }
    /**
-   * 字段名：MZXS
+   * 字段名：mzxs
    * get方法
    * 备注: 
    */
@@ -813,7 +810,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：MZXS
+   * 字段名：mzxs
    * set方法
    * 备注: 
    */
@@ -821,7 +818,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.mzxs = mzxs;
    }
    /**
-   * 字段名：GGDW
+   * 字段名：ggdw
    * get方法
    * 备注: 
    */
@@ -831,7 +828,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：GGDW
+   * 字段名：ggdw
    * set方法
    * 备注: 
    */
@@ -839,7 +836,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ggdw = ggdw;
    }
    /**
-   * 字段名：GGXS
+   * 字段名：ggxs
    * get方法
    * 备注: 
    */
@@ -849,7 +846,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：GGXS
+   * 字段名：ggxs
    * set方法
    * 备注: 
    */
@@ -857,7 +854,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ggxs = ggxs;
    }
    /**
-   * 字段名：ZXDW
+   * 字段名：zxdw
    * get方法
    * 备注: 
    */
@@ -867,7 +864,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：ZXDW
+   * 字段名：zxdw
    * set方法
    * 备注: 
    */
@@ -875,7 +872,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.zxdw = zxdw;
    }
    /**
-   * 字段名：JXDM
+   * 字段名：jxdm
    * get方法
    * 备注: 
    */
@@ -885,7 +882,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：JXDM
+   * 字段名：jxdm
    * set方法
    * 备注: 
    */
@@ -893,7 +890,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.jxdm = jxdm;
    }
    /**
-   * 字段名：JXMC
+   * 字段名：jxmc
    * get方法
    * 备注: 
    */
@@ -903,7 +900,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：JXMC
+   * 字段名：jxmc
    * set方法
    * 备注: 
    */
@@ -911,7 +908,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.jxmc = jxmc;
    }
    /**
-   * 字段名：YLSJ
+   * 字段名：ylsj
    * get方法
    * 备注: 
    */
@@ -921,7 +918,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YLSJ
+   * 字段名：ylsj
    * set方法
    * 备注: 
    */
@@ -929,7 +926,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ylsj = ylsj;
    }
    /**
-   * 字段名：YPFJ
+   * 字段名：ypfj
    * get方法
    * 备注: 
    */
@@ -939,7 +936,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YPFJ
+   * 字段名：ypfj
    * set方法
    * 备注: 
    */
@@ -947,7 +944,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ypfj = ypfj;
    }
    /**
-   * 字段名：YPYF
+   * 字段名：ypyf
    * get方法
    * 备注: 
    */
@@ -957,7 +954,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YPYF
+   * 字段名：ypyf
    * set方法
    * 备注: 
    */
@@ -965,7 +962,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ypyf = ypyf;
    }
    /**
-   * 字段名：YPYFMC
+   * 字段名：ypyfmc
    * get方法
    * 备注: 
    */
@@ -975,7 +972,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YPYFMC
+   * 字段名：ypyfmc
    * set方法
    * 备注: 
    */
@@ -983,7 +980,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ypyfmc = ypyfmc;
    }
    /**
-   * 字段名：PCDM
+   * 字段名：pcdm
    * get方法
    * 备注: 
    */
@@ -993,7 +990,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：PCDM
+   * 字段名：pcdm
    * set方法
    * 备注: 
    */
@@ -1001,7 +998,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.pcdm = pcdm;
    }
    /**
-   * 字段名：PCMC
+   * 字段名：pcmc
    * get方法
    * 备注: 
    */
@@ -1011,7 +1008,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：PCMC
+   * 字段名：pcmc
    * set方法
    * 备注: 
    */
@@ -1019,7 +1016,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.pcmc = pcmc;
    }
    /**
-   * 字段名：YPJL
+   * 字段名：ypjl
    * get方法
    * 备注: 
    */
@@ -1029,7 +1026,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YPJL
+   * 字段名：ypjl
    * set方法
    * 备注: 
    */
@@ -1037,7 +1034,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ypjl = ypjl;
    }
    /**
-   * 字段名：JLDW
+   * 字段名：jldw
    * get方法
    * 备注: 
    */
@@ -1047,7 +1044,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：JLDW
+   * 字段名：jldw
    * set方法
    * 备注: 
    */
@@ -1055,7 +1052,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.jldw = jldw;
    }
    /**
-   * 字段名：DWLB
+   * 字段名：dwlb
    * get方法
    * 备注: 
    */
@@ -1065,7 +1062,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：DWLB
+   * 字段名：dwlb
    * set方法
    * 备注: 
    */
@@ -1073,7 +1070,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.dwlb = dwlb;
    }
    /**
-   * 字段名：TS
+   * 字段名：ts
    * get方法
    * 备注: 
    */
@@ -1083,7 +1080,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：TS
+   * 字段名：ts
    * set方法
    * 备注: 
    */
@@ -1091,7 +1088,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ts = ts;
    }
    /**
-   * 字段名：YFLDSL
+   * 字段名：yfldsl
    * get方法
    * 备注: 
    */
@@ -1101,7 +1098,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YFLDSL
+   * 字段名：yfldsl
    * set方法
    * 备注: 
    */
@@ -1109,7 +1106,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.yfldsl = yfldsl;
    }
    /**
-   * 字段名：LDLX
+   * 字段名：ldlx
    * get方法
    * 备注: 
    */
@@ -1119,7 +1116,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：LDLX
+   * 字段名：ldlx
    * set方法
    * 备注: 
    */
@@ -1127,7 +1124,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ldlx = ldlx;
    }
    /**
-   * 字段名：LDXH
+   * 字段名：ldxh
    * get方法
    * 备注: 
    */
@@ -1137,7 +1134,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：LDXH
+   * 字段名：ldxh
    * set方法
    * 备注: 
    */
@@ -1145,7 +1142,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ldxh = ldxh;
    }
    /**
-   * 字段名：YPSL
+   * 字段名：ypsl
    * get方法
    * 备注: 
    */
@@ -1155,7 +1152,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YPSL
+   * 字段名：ypsl
    * set方法
    * 备注: 
    */
@@ -1163,7 +1160,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ypsl = ypsl;
    }
    /**
-   * 字段名：CYTS
+   * 字段名：cyts
    * get方法
    * 备注: 
    */
@@ -1173,7 +1170,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：CYTS
+   * 字段名：cyts
    * set方法
    * 备注: 
    */
@@ -1181,7 +1178,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.cyts = cyts;
    }
    /**
-   * 字段名：SHBZ
+   * 字段名：shbz
    * get方法
    * 备注: 
    */
@@ -1191,7 +1188,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：SHBZ
+   * 字段名：shbz
    * set方法
    * 备注: 
    */
@@ -1199,7 +1196,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.shbz = shbz;
    }
    /**
-   * 字段名：ZBZ
+   * 字段名：zbz
    * get方法
    * 备注: 
    */
@@ -1209,7 +1206,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：ZBZ
+   * 字段名：zbz
    * set方法
    * 备注: 
    */
@@ -1217,7 +1214,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.zbz = zbz;
    }
    /**
-   * 字段名：MZDM
+   * 字段名：mzdm
    * get方法
    * 备注: 
    */
@@ -1227,7 +1224,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：MZDM
+   * 字段名：mzdm
    * set方法
    * 备注: 
    */
@@ -1235,7 +1232,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.mzdm = mzdm;
    }
    /**
-   * 字段名：MZMC
+   * 字段名：mzmc
    * get方法
    * 备注: 
    */
@@ -1245,7 +1242,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：MZMC
+   * 字段名：mzmc
    * set方法
    * 备注: 
    */
@@ -1253,7 +1250,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.mzmc = mzmc;
    }
    /**
-   * 字段名：FZXH
+   * 字段名：fzxh
    * get方法
    * 备注: 
    */
@@ -1263,7 +1260,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：FZXH
+   * 字段名：fzxh
    * set方法
    * 备注: 
    */
@@ -1271,7 +1268,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.fzxh = fzxh;
    }
    /**
-   * 字段名：PSBZ
+   * 字段名：psbz
    * get方法
    * 备注: 
    */
@@ -1281,7 +1278,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：PSBZ
+   * 字段名：psbz
    * set方法
    * 备注: 
    */
@@ -1289,7 +1286,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.psbz = psbz;
    }
    /**
-   * 字段名：ZBBZ
+   * 字段名：zbbz
    * get方法
    * 备注: 
    */
@@ -1299,7 +1296,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：ZBBZ
+   * 字段名：zbbz
    * set方法
    * 备注: 
    */
@@ -1307,7 +1304,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.zbbz = zbbz;
    }
    /**
-   * 字段名：JJBZ
+   * 字段名：jjbz
    * get方法
    * 备注: 
    */
@@ -1317,7 +1314,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：JJBZ
+   * 字段名：jjbz
    * set方法
    * 备注: 
    */
@@ -1325,7 +1322,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.jjbz = jjbz;
    }
    /**
-   * 字段名：JLZT
+   * 字段名：jlzt
    * get方法
    * 备注: 
    */
@@ -1335,7 +1332,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：JLZT
+   * 字段名：jlzt
    * set方法
    * 备注: 
    */
@@ -1343,7 +1340,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.jlzt = jlzt;
    }
    /**
-   * 字段名：YBSPBZ
+   * 字段名：ybspbz
    * get方法
    * 备注: 
    */
@@ -1353,7 +1350,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YBSPBZ
+   * 字段名：ybspbz
    * set方法
    * 备注: 
    */
@@ -1361,7 +1358,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ybspbz = ybspbz;
    }
    /**
-   * 字段名：YBJZBZ
+   * 字段名：ybjzbz
    * get方法
    * 备注: 
    */
@@ -1371,7 +1368,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YBJZBZ
+   * 字段名：ybjzbz
    * set方法
    * 备注: 
    */
@@ -1379,7 +1376,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ybjzbz = ybjzbz;
    }
    /**
-   * 字段名：MZLYBZ
+   * 字段名：mzlybz
    * get方法
    * 备注: 
    */
@@ -1389,7 +1386,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：MZLYBZ
+   * 字段名：mzlybz
    * set方法
    * 备注: 
    */
@@ -1397,7 +1394,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.mzlybz = mzlybz;
    }
    /**
-   * 字段名：MEMO
+   * 字段名：memo
    * get方法
    * 备注: 
    */
@@ -1407,7 +1404,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：MEMO
+   * 字段名：memo
    * set方法
    * 备注: 
    */
@@ -1415,7 +1412,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.memo = memo;
    }
    /**
-   * 字段名：LJDYXH
+   * 字段名：ljdyxh
    * get方法
    * 备注: 
    */
@@ -1425,7 +1422,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：LJDYXH
+   * 字段名：ljdyxh
    * set方法
    * 备注: 
    */
@@ -1433,7 +1430,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ljdyxh = ljdyxh;
    }
    /**
-   * 字段名：XZ
+   * 字段名：xz
    * get方法
    * 备注: 
    */
@@ -1443,7 +1440,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：XZ
+   * 字段名：xz
    * set方法
    * 备注: 
    */
@@ -1451,7 +1448,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.xz = xz;
    }
    /**
-   * 字段名：KZGGDWXH
+   * 字段名：kzggdwxh
    * get方法
    * 备注: 
    */
@@ -1461,7 +1458,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：KZGGDWXH
+   * 字段名：kzggdwxh
    * set方法
    * 备注: 
    */
@@ -1469,7 +1466,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.kzggdwxh = kzggdwxh;
    }
    /**
-   * 字段名：TSDYBZ
+   * 字段名：tsdybz
    * get方法
    * 备注: 
    */
@@ -1479,7 +1476,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：TSDYBZ
+   * 字段名：tsdybz
    * set方法
    * 备注: 
    */
@@ -1487,7 +1484,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.tsdybz = tsdybz;
    }
    /**
-   * 字段名：KSSKZBZ
+   * 字段名：ksskzbz
    * get方法
    * 备注: 
    */
@@ -1497,7 +1494,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：KSSKZBZ
+   * 字段名：ksskzbz
    * set方法
    * 备注: 
    */
@@ -1505,7 +1502,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ksskzbz = ksskzbz;
    }
    /**
-   * 字段名：BBZL
+   * 字段名：bbzl
    * get方法
    * 备注: 
    */
@@ -1515,7 +1512,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：BBZL
+   * 字段名：bbzl
    * set方法
    * 备注: 
    */
@@ -1523,7 +1520,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.bbzl = bbzl;
    }
    /**
-   * 字段名：MRJLDWBZ
+   * 字段名：mrjldwbz
    * get方法
    * 备注: 
    */
@@ -1533,7 +1530,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：MRJLDWBZ
+   * 字段名：mrjldwbz
    * set方法
    * 备注: 
    */
@@ -1541,7 +1538,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.mrjldwbz = mrjldwbz;
    }
    /**
-   * 字段名：ZFBZ
+   * 字段名：zfbz
    * get方法
    * 备注: 
    */
@@ -1551,7 +1548,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：ZFBZ
+   * 字段名：zfbz
    * set方法
    * 备注: 
    */
@@ -1559,7 +1556,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.zfbz = zfbz;
    }
    /**
-   * 字段名：JLSM
+   * 字段名：jlsm
    * get方法
    * 备注: 
    */
@@ -1569,7 +1566,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：JLSM
+   * 字段名：jlsm
    * set方法
    * 备注: 
    */
@@ -1577,7 +1574,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.jlsm = jlsm;
    }
    /**
-   * 字段名：PSYPDM
+   * 字段名：psypdm
    * get方法
    * 备注: 
    */
@@ -1587,7 +1584,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：PSYPDM
+   * 字段名：psypdm
    * set方法
    * 备注: 
    */
@@ -1595,7 +1592,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.psypdm = psypdm;
    }
    /**
-   * 字段名：YBJYB
+   * 字段名：ybjyb
    * get方法
    * 备注: 
    */
@@ -1605,7 +1602,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YBJYB
+   * 字段名：ybjyb
    * set方法
    * 备注: 
    */
@@ -1613,7 +1610,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ybjyb = ybjyb;
    }
    /**
-   * 字段名：LSBZ
+   * 字段名：lsbz
    * get方法
    * 备注: 
    */
@@ -1623,7 +1620,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：LSBZ
+   * 字段名：lsbz
    * set方法
    * 备注: 
    */
@@ -1631,25 +1628,25 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.lsbz = lsbz;
    }
    /**
-   * 字段名：TZSJ
+   * 字段名：tzsj
    * get方法
    * 备注: 
    */
-   public String getTzsj(){
+   public Date getTzsj(){
 
         return tzsj;
    }
 
    /**
-   * 字段名：TZSJ
+   * 字段名：tzsj
    * set方法
    * 备注: 
    */
-   public void setTzsj(String tzsj){
+   public void setTzsj(Date tzsj){
         this.tzsj = tzsj;
    }
    /**
-   * 字段名：CQCFMXXH
+   * 字段名：cqcfmxxh
    * get方法
    * 备注: 
    */
@@ -1659,7 +1656,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：CQCFMXXH
+   * 字段名：cqcfmxxh
    * set方法
    * 备注: 
    */
@@ -1667,7 +1664,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.cqcfmxxh = cqcfmxxh;
    }
    /**
-   * 字段名：OLDXH
+   * 字段名：oldxh
    * get方法
    * 备注: 
    */
@@ -1677,7 +1674,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：OLDXH
+   * 字段名：oldxh
    * set方法
    * 备注: 
    */
@@ -1685,7 +1682,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.oldxh = oldxh;
    }
    /**
-   * 字段名：GDZLXMXH
+   * 字段名：gdzlxmxh
    * get方法
    * 备注: 
    */
@@ -1695,7 +1692,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：GDZLXMXH
+   * 字段名：gdzlxmxh
    * set方法
    * 备注: 
    */
@@ -1703,7 +1700,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.gdzlxmxh = gdzlxmxh;
    }
    /**
-   * 字段名：CJRQ
+   * 字段名：cjrq
    * get方法
    * 备注: 
    */
@@ -1713,7 +1710,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：CJRQ
+   * 字段名：cjrq
    * set方法
    * 备注: 
    */
@@ -1721,7 +1718,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.cjrq = cjrq;
    }
    /**
-   * 字段名：YBBZ
+   * 字段名：ybbz
    * get方法
    * 备注: 
    */
@@ -1731,7 +1728,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：YBBZ
+   * 字段名：ybbz
    * set方法
    * 备注: 
    */
@@ -1739,7 +1736,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.ybbz = ybbz;
    }
    /**
-   * 字段名：TFBZ
+   * 字段名：tfbz
    * get方法
    * 备注: 
    */
@@ -1749,7 +1746,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：TFBZ
+   * 字段名：tfbz
    * set方法
    * 备注: 
    */
@@ -1757,7 +1754,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.tfbz = tfbz;
    }
    /**
-   * 字段名：CJLQM
+   * 字段名：cjlqm
    * get方法
    * 备注: 
    */
@@ -1767,7 +1764,7 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
    }
 
    /**
-   * 字段名：CJLQM
+   * 字段名：cjlqm
    * set方法
    * 备注: 
    */
@@ -1775,256 +1772,202 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.cjlqm = cjlqm;
    }
    /**
-   * 字段名：GFLDLB
+   * 字段名：mbbz
    * get方法
    * 备注: 
    */
-   public Integer getGfldlb(){
+   public Boolean getMbbz(){
 
-        return gfldlb;
+        return mbbz;
    }
 
    /**
-   * 字段名：GFLDLB
+   * 字段名：mbbz
    * set方法
    * 备注: 
    */
-   public void setGfldlb(Integer gfldlb){
-        this.gfldlb = gfldlb;
+   public void setMbbz(Boolean mbbz){
+        this.mbbz = mbbz;
    }
    /**
-   * 字段名：DS
+   * 字段名：isNew
    * get方法
    * 备注: 
    */
-   public Integer getDs(){
+   public Boolean getIsnew(){
 
-        return ds;
+        return isnew;
    }
 
    /**
-   * 字段名：DS
+   * 字段名：isNew
    * set方法
    * 备注: 
    */
-   public void setDs(Integer ds){
-        this.ds = ds;
+   public void setIsnew(Boolean isnew){
+        this.isnew = isnew;
    }
    /**
-   * 字段名：CSYY
+   * 字段名：gxrqtimestr
    * get方法
    * 备注: 
    */
-   public String getCsyy(){
+   public String getGxrqtimestr(){
 
-        return csyy;
+        return gxrqtimestr;
    }
 
    /**
-   * 字段名：CSYY
+   * 字段名：gxrqtimestr
    * set方法
    * 备注: 
    */
-   public void setCsyy(String csyy){
-        this.csyy = csyy;
+   public void setGxrqtimestr(String gxrqtimestr){
+        this.gxrqtimestr = gxrqtimestr;
    }
    /**
-   * 字段名：MEMOINFO
+   * 字段名：timetempstr
    * get方法
    * 备注: 
    */
-   public String getMemoinfo(){
+   public byte[] getTimetempstr(){
 
-        return memoinfo;
+        return timetempstr;
    }
 
    /**
-   * 字段名：MEMOINFO
+   * 字段名：timetempstr
    * set方法
    * 备注: 
    */
-   public void setMemoinfo(String memoinfo){
-        this.memoinfo = memoinfo;
+   public void setTimetempstr(byte[] timetempstr){
+        this.timetempstr = timetempstr;
    }
    /**
-   * 字段名：LDSQDMXXH
+   * 字段名：createtime
    * get方法
    * 备注: 
    */
-   public Long getLdsqdmxxh(){
+   public Date getCreatetime(){
 
-        return ldsqdmxxh;
+        return createtime;
    }
 
    /**
-   * 字段名：LDSQDMXXH
+   * 字段名：createtime
    * set方法
    * 备注: 
    */
-   public void setLdsqdmxxh(Long ldsqdmxxh){
-        this.ldsqdmxxh = ldsqdmxxh;
+   public void setCreatetime(Date createtime){
+        this.createtime = createtime;
    }
    /**
-   * 字段名：WZKFDM
+   * 字段名：timetemp
    * get方法
    * 备注: 
    */
-   public String getWzkfdm(){
+   public byte[] getTimetemp(){
 
-        return wzkfdm;
+        return timetemp;
    }
 
    /**
-   * 字段名：WZKFDM
+   * 字段名：timetemp
    * set方法
    * 备注: 
    */
-   public void setWzkfdm(String wzkfdm){
-        this.wzkfdm = wzkfdm;
+   public void setTimetemp(byte[] timetemp){
+        this.timetemp = timetemp;
    }
    /**
-   * 字段名：WZDM
+   * 字段名：gxrq
    * get方法
    * 备注: 
    */
-   public String getWzdm(){
+   public Date getGxrq(){
 
-        return wzdm;
+        return gxrq;
    }
 
    /**
-   * 字段名：WZDM
+   * 字段名：gxrq
    * set方法
    * 备注: 
    */
-   public void setWzdm(String wzdm){
-        this.wzdm = wzdm;
+   public void setGxrq(Date gxrq){
+        this.gxrq = gxrq;
    }
    /**
-   * 字段名：WZKFMC
+   * 字段名：sys_id
    * get方法
    * 备注: 
    */
-   public String getWzkfmc(){
+   public String getSysId(){
 
-        return wzkfmc;
+        return sysId;
    }
 
    /**
-   * 字段名：WZKFMC
+   * 字段名：sys_id
    * set方法
    * 备注: 
    */
-   public void setWzkfmc(String wzkfmc){
-        this.wzkfmc = wzkfmc;
+   public void setSysId(String sysId){
+        this.sysId = sysId;
    }
    /**
-   * 字段名：WZBM
+   * 字段名：lsnid
    * get方法
    * 备注: 
    */
-   public String getWzbm(){
+   public Long getLsnid(){
 
-        return wzbm;
+        return lsnid;
    }
 
    /**
-   * 字段名：WZBM
+   * 字段名：lsnid
    * set方法
    * 备注: 
    */
-   public void setWzbm(String wzbm){
-        this.wzbm = wzbm;
+   public void setLsnid(Long lsnid){
+        this.lsnid = lsnid;
    }
    /**
-   * 字段名：TSCFXH
+   * 字段名：isdelete
    * get方法
    * 备注: 
    */
-   public String getTscfxh(){
+   public String getIsdelete(){
 
-        return tscfxh;
+        return isdelete;
    }
 
    /**
-   * 字段名：TSCFXH
+   * 字段名：isdelete
    * set方法
    * 备注: 
    */
-   public void setTscfxh(String tscfxh){
-        this.tscfxh = tscfxh;
+   public void setIsdelete(String isdelete){
+        this.isdelete = isdelete;
    }
    /**
-   * 字段名：TSQKSM
+   * 字段名：timetempstr_cdc
    * get方法
    * 备注: 
    */
-   public String getTsqksm(){
+   public byte[] getTimetempstrCdc(){
 
-        return tsqksm;
+        return timetempstrCdc;
    }
 
    /**
-   * 字段名：TSQKSM
+   * 字段名：timetempstr_cdc
    * set方法
    * 备注: 
    */
-   public void setTsqksm(String tsqksm){
-        this.tsqksm = tsqksm;
-   }
-   /**
-   * 字段名：TFYXBZ
-   * get方法
-   * 备注: 
-   */
-   public String getTfyxbz(){
-
-        return tfyxbz;
-   }
-
-   /**
-   * 字段名：TFYXBZ
-   * set方法
-   * 备注: 
-   */
-   public void setTfyxbz(String tfyxbz){
-        this.tfyxbz = tfyxbz;
-   }
-   /**
-   * 字段名：BGSYBZ
-   * get方法
-   * 备注: 
-   */
-   public Integer getBgsybz(){
-
-        return bgsybz;
-   }
-
-   /**
-   * 字段名：BGSYBZ
-   * set方法
-   * 备注: 
-   */
-   public void setBgsybz(Integer bgsybz){
-        this.bgsybz = bgsybz;
-   }
-   /**
-   * 字段名：TFSL
-   * get方法
-   * 备注: 
-   */
-   public BigDecimal getTfsl(){
-
-        return tfsl;
-   }
-
-   /**
-   * 字段名：TFSL
-   * set方法
-   * 备注: 
-   */
-   public void setTfsl(BigDecimal tfsl){
-        this.tfsl = tfsl;
+   public void setTimetempstrCdc(byte[] timetempstrCdc){
+        this.timetempstrCdc = timetempstrCdc;
    }
 
 }

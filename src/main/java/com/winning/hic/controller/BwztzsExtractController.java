@@ -43,7 +43,7 @@ public class BwztzsExtractController extends BaseController {
         for (MbzDataListSet dataListSet : dataListSets) {
             EmrQtbljlk qtbljlk = new EmrQtbljlk();
             qtbljlk.setBldm(dataListSet.getModelCode());
-            qtbljlk.setYxjl(1);
+            qtbljlk.setYxjl((short)1);
             //2.根据模板代码去找到对应的病人病历
             List<HlhtZqgzxxBwztzs> hlhtZqgzxxBwztzsListFromBaseData = getFacade().getHlhtZqgzxxBwztzsService().getHlhtZqgzxxBwztzsListFromBaseData(qtbljlk);
             if (hlhtZqgzxxBwztzsListFromBaseData != null) {
