@@ -15,8 +15,8 @@ import org.springframework.stereotype.Repository;
 * @author HLHT
 * @title DAO接口
 * @email Winning Health
-* @package com.winning.hic.dao
-* @date 2018-03-10 10:03:19
+* @package com.winning.hic.dao.hdw
+* @date 2018-11-14 17:11:40
 */
 @Repository
 public interface EmrHzsqdjlkDao {
@@ -36,5 +36,4 @@ public interface EmrHzsqdjlkDao {
     public List<EmrHzsqdjlk> selectEmrHzsqdjlkPageList(EmrHzsqdjlk emrHzsqdjlk) throws DataAccessException;
 
     public List<EmrHzsqdjlk> selectEmrHzsqdjlkList2(EmrHzsqdjlk emrHzsqdjlk) throws DataAccessException;
-
 }
