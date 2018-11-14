@@ -157,8 +157,8 @@ public class HlhtCyxjCyxjServiceImpl implements  HlhtCyxjCyxjService {
                         for (int i = 0; str.length > i; i++) {
                             if (!"".equals(str[i].toString())) {
                                 if (o.equals(str[i].trim().charAt(0))) {
-                                    bmdm = bmdm + str[i] + " ";
-                                    bm = bm + str2[i] + " ";
+                                    bmdm = bmdm + str[i] + "  ";
+                                    bm = bm + str2[i] + "  " ;
                                 }
                             }
                         }
@@ -183,8 +183,8 @@ public class HlhtCyxjCyxjServiceImpl implements  HlhtCyxjCyxjService {
                         for (int i = 0; str.length > i; i++) {
                             if (!"".equals(str[i].toString())) {
                                 if (!o.equals(str[i].trim().charAt(0))) {
-                                    bmdm = bmdm + str[i] + " ";
-                                    bm = bm + str2[i] + " ";
+                                    bmdm = bmdm + str[i] + "  ";
+                                    bm = bm + str2[i] + "  ";
                                 }
                             }
                         }
@@ -210,8 +210,8 @@ public class HlhtCyxjCyxjServiceImpl implements  HlhtCyxjCyxjService {
                         for (int i = 0; str.length > i; i++) {
                             if (!"".equals(str[i].toString())) {
                                 if (o.equals(str[i].trim().charAt(0))) {
-                                    bmdm = bmdm + str[i] + " ";
-                                    bm = bm + str2[i] + " ";
+                                    bmdm = bmdm + str[i] + "  ";
+                                    bm = bm + str2[i] + "  ";
                                 }
                             }
                         }
@@ -236,8 +236,8 @@ public class HlhtCyxjCyxjServiceImpl implements  HlhtCyxjCyxjService {
                         for (int i = 0; str.length > i; i++) {
                             if (!"".equals(str[i].toString())) {
                                 if (!o.equals(str[i].charAt(0))) {
-                                    bmdm = bmdm + str[i] + " ";
-                                    bm = bm + str2[i] + " ";
+                                    bmdm = bmdm + str[i] + "  ";
+                                    bm = bm + str2[i] + "  ";
                                 }
                             }
                         }

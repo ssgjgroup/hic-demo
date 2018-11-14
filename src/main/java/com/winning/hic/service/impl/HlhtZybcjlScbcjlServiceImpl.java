@@ -162,8 +162,8 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
                         for (int i=0;str.length>i;i++){
                             if(!"".equals(str[i].toString())){
                                 if(o.equals(str[i].charAt(0))){
-                                    bmdm = bmdm+str[i]+"※";
-                                    bm = bm+str2[i]+"※";
+                                    bmdm = bmdm+str[i]+"§§";
+                                    bm = bm+str2[i]+"§§";
                                 }
                             }
 
@@ -190,8 +190,8 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
                         for (int i = 0; str.length > i; i++) {
                             if(!"".equals(str[i].toString())){
                                 if (!o.equals(str[i].trim().charAt(0))) {
-                                    bmdm += str[i] + " ";
-                                    bm +=str2[i] + " ";
+                                    bmdm += str[i] + "§§";
+                                    bm +=str2[i] + "§§";
                                 }
                             }
 
@@ -228,11 +228,11 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
                                     Character o=new Character('B');//病
                                     if(str[i].trim().length() > 0) {
                                         if (o.equals(str[i].trim().charAt(0))) {
-                                            zybmdm = zybmdm + str[i] + " ";             //存入病
-                                            zybm = zybm + str2[i] + " ";                //存入病
+                                            zybmdm = zybmdm + str[i] + "§§";             //存入病
+                                            zybm = zybm + str2[i] + "§§";                //存入病
                                         } else {
-                                            zhbmdm = zhbmdm + str[i] + " ";             //症候
-                                            zhbm = zhbm + str2[i] + " ";
+                                            zhbmdm = zhbmdm + str[i] + "§§";             //症候
+                                            zhbm = zhbm + str2[i] + "§§";
                                         }
                                     }
                                 }
