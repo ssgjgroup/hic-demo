@@ -6,60 +6,45 @@ package com.whb.es.test;
  */
 public class SplitString {
 	public static void main(String[] args) {
-		String bmz = "DC_ZYBCJL_SQTL";
-		String bzds = "xh             |      numeric(12)    _      identity(1 1)/* 序号  */,\n" +
-				"    yljgdm         |      varchar(20)    _      not null/* 医疗机构代码  */,\n" +
-				"    jzlsh          |      varchar(64)    _      not null/* 就诊流水号 */,\n" +
-				"    patid          |      varchar(64)    _      not null/* 患者patid */,\n" +
-				"    zyh            |      varchar(64)    _      not null/* 住院号标识 */,\n" +
-				"    yjlxh          |      varchar(64)    _      not null/* 源记录序号 */,\n" +
-				"    ksdm           |      varchar(10)    _      not null/* 科室代码 */,\n" +
-				"    ksmc           |      varchar(50)    _      not null/* 科室名称 */,\n" +
-				"    bqdm           |      varchar(10)    _      not null/* 病区代码 */,\n" +
-				"    bqmc           |      varchar(50)    _      not null/* 病区名称 */,\n" +
-				"    bfh            |      varchar(10)    _      not null/* 病房号 */,\n" +
-				"    bfmc           |      varchar(50)    _      not null/* 病房名称 */,\n" +
-				"    bch            |      varchar(10)    _      not null/* 病床号 */,\n" +
-				"    hzxm           |      varchar(50)    _      not null/* 患者姓名 */,\n" +
-				"    sfzhm          |      varchar(18)    _      not null/* 患者身份证号标识 */,\n" +
-				"    xbdm           |      varchar(2)     _      not null/* 性别代码 */,\n" +
-				"    xbmc           |      varchar(16)    _      not null/* 性别名称 */,\n" +
-				"    nls            |      numeric(3)     _      not null/* 年龄（岁） */,\n" +
-				"    nly            |      varchar(8)     _      null/* 年龄（月） */,\n" +
-				"    tlrq           |      datetime       _      not null/* 讨论日期时间 */,\n" +
-				"    tldd           |      varchar(50)    _      not null/* 讨论地点 */,\n" +
-				"    zcrbm          |      varchar(100)   _      not null/* 主持人工号 */,\n" +
-				"    zcrxm          |      varchar(500)   _      not null/* 主持人姓名 */,\n" +
-				"    tlrybm         |      varchar(100)   _      not null/* 参加讨论人员工号 */,\n" +
-				"    cjtlmd         |      varchar(500)   _      not null/* 参加讨论人员名单 */,\n" +
-				"    zyzwlbdm       |      varchar(4)     _      not null/* 专业技术职务类别代码 */,\n" +
-				"    zyzwlbmc       |      varchar(50)    _      not null/* 专业技术职务类别名称 */,\n" +
-				"    ryrq           |      datetime       _      not null/* 入院日期时间 */,\n" +
-				"    ssczmc         |      varchar(128)   _      not null/* 拟实施手术及操作名称 */,\n" +
-				"    ssczbm         |      varchar(64)    _      not null/* 拟实施手术及操作编码 */,\n" +
-				"    ssmbbwdm       |      varchar(64)    _      not null/* 拟实施手术目标部位代码 */,\n" +
-				"    ssbwmc         |      varchar(128)   _      not null/* 拟实施手术目标部位名称 */,\n" +
-				"    ssczrq         |      datetime       _      not null/* 拟实施手术及操作日期时间 */,\n" +
-				"    mzffdm         |      varchar(64)    _      not null/* 拟实施麻醉方法代码 */,\n" +
-				"    mzffmc         |      varchar(128)   _      not null/* 拟实施麻醉方法名称 */,\n" +
-				"    ssyd           |      nvarchar(200)  _      not null/* 手术要点 */,\n" +
-				"    sqzb           |      nvarchar(1000) _      not null/* 术前准备 */,\n" +
-				"    sszz           |      nvarchar(500)  _      not null/* 手术指征 */,\n" +
-				"    ssfa           |      nvarchar(1000) _      not null/* 手术方案 */,\n" +
-				"    zysx           |      nvarchar(1000) _      not null/* 注意事项 */,\n" +
-				"    tlyj           |      nvarchar(2000) _      not null/* 讨论意见 */,\n" +
-				"    tljl           |      nvarchar(2000) _      not null/* 讨论结论 */,\n" +
-				"    sszbm          |      varchar(20)    _      null/* 手术者工号 */,\n" +
-				"    sszqm          |      varchar(50)    _      null/* 手术者签名 */,\n" +
-				"    mzysbm         |      varchar(20)    _      null/* 麻醉医师工号 */,\n" +
-				"    mzsqm          |      varchar(50)    _      null/* 麻醉医师签名 */,\n" +
-				"    ysbm           |      varchar(20)    _      not null/* 签名人工号 */,\n" +
-				"    ysqm           |      varchar(50)    _      not null/* 签名人姓名 */,\n" +
-				"    qmrq           |      datetime       _      not null/* 签名日期时间 */,";
+		String bmz = "DC_ZYBCJL_SJYSCFJL";
+		String bzds = " xh            |       numeric(12)      _    identity(1 1)/* 序号  */,\n" +
+				"    yljgdm        |       varchar(20)      _    not null/* 医疗机构代码  */,\n" +
+				"    jzlsh         |       varchar(64)      _    not null/* 就诊流水号 */,\n" +
+				"    patid         |       varchar(64)      _    not null/* 患者patid */,\n" +
+				"    zyh           |       varchar(64)      _    not null/* 住院号标识 */,\n" +
+				"    yjlxh         |       varchar(64)      _    not null/* 源记录序号 */,\n" +
+				"    ksdm          |       varchar(10)      _    not null/* 科室代码 */,\n" +
+				"    ksmc          |       varchar(50)      _    not null/* 科室名称 */,\n" +
+				"    bqdm          |       varchar(10)      _    not null/* 病区代码 */,\n" +
+				"    bqmc          |       varchar(50)      _    not null/* 病区名称 */,\n" +
+				"    bfh           |       varchar(10)      _    not null/* 病房号 */,\n" +
+				"    bfmc          |       varchar(64)      _    not null/* 病房名称 */,\n" +
+				"    bch           |       varchar(10)      _    not null/* 病床号 */,\n" +
+				"    cfrq          |       datetime         _    not null/* 查房日期时间 */,\n" +
+				"    hzxm          |       varchar(50)      _    not null/* 患者姓名 */,\n" +
+				"    sfzhm         |       varchar(18)      _    not null/* 患者身份证号标识 */,\n" +
+				"    csrq          |       date             _    not null/* 出生日期 */,\n" +
+				"    xbdm          |       varchar(2)       _    not null/* 性别代码 */,\n" +
+				"    xbmc          |       varchar(16)      _    not null/* 性别说明 */,\n" +
+				"    nls           |       numeric(3)       _    not null/* 年龄（岁） */,\n" +
+				"    nly           |       varchar(8)       _    null/* 年龄（月） */,\n" +
+				"    cfjl          |       nvarchar(2000)   _    not null/* 查房记录 */,\n" +
+				"    bzlzms        |       nvarchar(1000)   _    null/* 辨证论治详细描述 */,\n" +
+				"    yznr          |       nvarchar(1000)   _    null/* 医嘱内容 */,\n" +
+				"    zyjzff        |       nvarchar(100)    _    null/* 中药煎煮方法 */,\n" +
+				"    zyyyff        |       nvarchar(100)    _    null/* 中药用药方法 */,\n" +
+				"    yljh          |       nvarchar(2000)   _    not null/* 诊疗计划 */,\n" +
+				"    jlrbm         |       varchar(20)      _    not null/* 记录人工号 */,\n" +
+				"    jlrqm         |       varchar(50)      _    not null/* 记录人签名 */,\n" +
+				"    zzysbm        |       varchar(20)      _    not null/* 主治医师工号 */,\n" +
+				"    zzysqm        |       varchar(50)      _    not null/* 主治医师签名 */,\n" +
+				"    zrysbm        |       varchar(20)      _    not null/* 主任医师工号 */,\n" +
+				"    zrysqm        |       varchar(50)      _    not null/* 主任医师签名 */,\n" +
+				"    qmrq          |       datetime         _    not null/* 签名日期时间 */,";
 		String [] bzd = bzds.trim().split(",");
-		String createHlhtTemp = "select * into #"+bmz.replace("DC_", "HLHT_") +" from " + bmz.replace("DC_", "HLHT_")+" where STATUS = 0;\r\n";
+		String createHlhtTemp = "-- 创建临时表 \n select * into #"+bmz.replace("DC_", "HLHT_") +" from " + bmz.replace("DC_", "HLHT_")+" where STATUS = 0;\n";
 		System.out.println(createHlhtTemp);
-		String create_tempTable = "create table #"+ bmz +"( \r\n";
+		String create_tempTable = "-- 主表操作 \n create table #"+ bmz +"( \r\n";
 		for (int i = 0; i < bzd.length; i++) {
 			create_tempTable = create_tempTable + bzd[i].replace("_","").replace("|", "").toString() + ",";
 		}

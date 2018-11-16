@@ -10,13 +10,12 @@ import java.util.List;
  */
 public class SplitStrings {
 	public static void main(String[] args) {
-		String bmz = "DC_ZYBCJL_SQTL_SQZD";
-		String bzds = " xh            |       numeric(12)      _    identity(1 1)/* 序号  */,\n" +
-				"    yljgdm        |       varchar(20)      _    not null/* 医疗机构代码  */,\n" +
-				"    yjlxh         |       varchar(64)      _    not null/* 源记录序号 */,\n" +
-				"    zyjlxh        |       varchar(64)      _    null/* 主表原纪录序号 */,\n" +
-				"    sqzdbm        |       varchar(64)      _    not null/* 术前诊断编码 */,\n" +
-				"    sqzdmc        |       varchar(128)     _    not null/* 术前诊断名称 */,";
+		String bmz = "DC_ZYBCJL_SJYSCFJL_ZYSZGCJG";
+		String bzds = "    xh           |        numeric(12)      _    identity(1 1)/* 序号  */,\n" +
+				"    yljgdm       |        varchar(20)      _    not null/* 医疗机构代码  */,\n" +
+				"    yjlxh        |        varchar(64)      _    not null/* 源记录序号 */,\n" +
+				"    zyjlxh       |        varchar(64)      _    not null/* 主源记录序号 */,\n" +
+				"    zyszgcjg     |        nvarchar(1000)   _    null/* 中医“四诊”观察结果 */,";
 		String [] bzd = bzds.trim().split(",");
 		String create_tempTable = "create table #"+ bmz +"( \r\n";
 		for (int i = 0; i < bzd.length; i++) {
