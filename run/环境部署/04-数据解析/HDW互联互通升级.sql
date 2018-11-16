@@ -3604,7 +3604,7 @@ where id = object_id('DC_RYJL_JBXX') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RCYJL     入院记录－24小时内入出院记录                                                                                                  */
+ /* DC_RYJL_RCYJL     入院记录－24小时内入出院记录    OK                                                                                                */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
@@ -3678,7 +3678,7 @@ where id = object_id('DC_RYJL_RCYJL') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RCYJL_CYXYZD     入院记录－24小时内入出院记录_出院西医诊断                                                                                                  */
+ /* DC_RYJL_RCYJL_CYXYZD     入院记录－24小时内入出院记录_出院西医诊断  ok                                                                                                */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
@@ -3707,7 +3707,7 @@ where id = object_id('DC_RYJL_RCYJL_CYXYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RCYJL_CYZYZD     入院记录－24小时内入出院记录_出院中医诊断                                                                                                  */
+ /* DC_RYJL_RCYJL_CYZYZD     入院记录－24小时内入出院记录_出院中医诊断   ok                                                                                               */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
@@ -3738,7 +3738,7 @@ where id = object_id('DC_RYJL_RCYJL_CYZYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RCYJL_RYXYZD     入院记录－24小时内入出院记录_入院西医诊断                                                                                                  */
+ /* DC_RYJL_RCYJL_RYXYZD     入院记录－24小时内入出院记录_入院西医诊断  ok                                                                                                */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
@@ -3767,7 +3767,7 @@ where id = object_id('DC_RYJL_RCYJL_RYXYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RCYJL_RYZYZD     入院记录－24小时内入出院记录_入院中医诊断                                                                                                  */
+ /* DC_RYJL_RCYJL_RYZYZD     入院记录－24小时内入出院记录_入院中医诊断    OK                                                                                              */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
@@ -3798,7 +3798,7 @@ where id = object_id('DC_RYJL_RCYJL_RYZYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RCYJL_ZYSZGCJG     入院记录－24小时内入出院记录_中医四诊观察结果                                                                                                  */
+ /* DC_RYJL_RCYJL_ZYSZGCJG     入院记录－24小时内入出院记录_中医四诊观察结果  ok                                                                                                */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
@@ -3892,7 +3892,7 @@ where id = object_id('DC_RYJL_RYSWJL') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RYSWJL_RYXYZD     入院记录 — 24小时内入院死亡记录_入院西医诊断                                                                                                  */
+ /* DC_RYJL_RYSWJL_RYXYZD     入院记录 — 24小时内入院死亡记录_入院西医诊断   OK                                                                                              */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
@@ -3921,7 +3921,7 @@ where id = object_id('DC_RYJL_RYSWJL_RYXYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RYSWJL_RYZYZD     入院记录 — 24小时内入院死亡记录_入院中医诊断                                                                                                  */
+ /* DC_RYJL_RYSWJL_RYZYZD     入院记录 — 24小时内入院死亡记录_入院中医诊断  OK                                                                                                */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
@@ -3952,7 +3952,7 @@ where id = object_id('DC_RYJL_RYSWJL_RYZYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RYSWJL_SWXYZD     入院记录 — 24小时内入院死亡记录_死亡西医诊断                                                                                                  */
+ /* DC_RYJL_RYSWJL_SWXYZD     入院记录 — 24小时内入院死亡记录_死亡西医诊断  OK                                                                                               */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
@@ -3964,7 +3964,7 @@ where id = object_id('DC_RYJL_RYSWJL_SWXYZD') )
     zyjlxh               varchar(64)          null/* 主表原纪录序号 */,
     szxyzdmc             varchar(128)         not null/* 死亡诊断-西医诊断名称 */,
     szxyzdbm             varchar(64)          not null/* 死亡诊断-西医诊断编码 */,
-    
+
    
     
     
@@ -3981,7 +3981,7 @@ where id = object_id('DC_RYJL_RYSWJL_SWXYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RYSWJL_SWZYZD     入院记录 — 24小时内入院死亡记录_死亡中医诊断                                                                                                  */
+ /* DC_RYJL_RYSWJL_SWZYZD     入院记录 — 24小时内入院死亡记录_死亡中医诊断   OK                                                                                               */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
@@ -4012,7 +4012,7 @@ where id = object_id('DC_RYJL_RYSWJL_SWZYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RYSWJL_ZYSZGCJG     入院记录 — 24小时内入院死亡记录_中医四诊观察结果                                                                                                  */
+ /* DC_RYJL_RYSWJL_ZYSZGCJG     入院记录 — 24小时内入院死亡记录_中医四诊观察结果 OK                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
@@ -7326,54 +7326,54 @@ go
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SHSCBCJL') )
  create table  DC_ZYBCJL_SHSCBCJL (    
-    xh                   numeric(12)          identity(1, 1)/* 序号  */,
-    yljgdm               varchar(20)          not null/* 医疗机构代码  */,
-    jzlsh                varchar(64)          not null/* 就诊流水号 */,
-    patid                varchar(64)          not null/* 患者patid */,
-    zyh                  varchar(64)          not null/* 住院号标识 */,
-    yjlxh                varchar(64)          not null/* 源记录序号 */,
-    ksdm                 varchar(10)          not null/* 科室代码 */,
-    ksmc                 varchar(50)          not null/* 科室名称 */,
-    bqdm                 varchar(10)          not null/* 病区代码 */,
-    bqmc                 varchar(50)          not null/* 病区名称 */,
-    bfh                  varchar(10)          not null/* 病房号 */,
-    bfmc                 varchar(50)          not null/* 病房名称 */,
-    bch                  varchar(10)          not null/* 病床号 */,
-    hzxm                 varchar(50)          not null/* 患者姓名 */,
-    birth                datetime             not null/* 患者出生日期 */,
-    lxdh                 varchar(50)          not null/* 联系电话 */,
-    hyzkdm               varchar(20)          not null/* 患者婚姻状况代码 */,
-    hyzk                 varchar(50)          not null/* 患者婚姻状况 */,
-    mzdm                 varchar(20)          not null/* 民族代码 */,
-    mz                   varchar(50)          not null/* 民族 */,
-    hkszd                varchar(50)          null/* 户口所在地 */,
-    csdz                 varchar(500)         null/* 出生地址 */,
-    gzdw                 varchar(50)          null/* 工作单位名称 */,
-    gzdwdz               varchar(500)         null/* 工作地点 */,
-    gzdwdh               varchar(70)          null/* 工作单位电话 */,
-    jgd                  varchar(50)          null/* 籍贯地 */,
-    sfzhm                varchar(18)          not null/* 患者身份证号标识 */,
-    xbdm                 varchar(2)           not null/* 性别代码 */,
-    xbmc                 varchar(16)          not null/* 性别名称 */,
-    nls                  numeric(3)           not null/* 年龄（岁） */,
-    nly                  varchar(8)           null/* 年龄（月） */,
-    jlrq                 datetime             not null/* 记录日期时间 */,
-    ssczbm               varchar(64)          not null/* 手术及操作编码 */,
-    ssmc                 varchar(128)         not null/* 手术名称 */,
-    ssmbbwdm             varchar(64)          not null/* 手术目标部位编码 */,
-    ssbwmc               varchar(128)         not null/* 手术目标部位名称 */,
-    ssrq                 datetime             not null/* 手术日期时间 */,
-    mzffdm               varchar(64)          not null/* 麻醉方法代码 */,
-    mzffmc               varchar(128)         not null/* 麻醉方法名称 */,
-    ssgc                 nvarchar(2000)       not null/* 手术过程 */,
-    zdyjdm               nvarchar(1000)       not null/* 诊断依据编码 */,
-    zdyj                 nvarchar(1000)       not null/* 诊断依据名称 */,
-    zysx                 nvarchar(1000)       null/* 注意事项 */,
-    ysbm                 varchar(20)          not null/* 签名人工号 */,
-    ysqm                 varchar(50)          not null/* 签名人姓名 */,
-    qmrq                 datetime             not null/* 签名日期时间 */,
-    jzkssj               datetime             not null/* (入院)就诊开始时间 */,
-    jzjssj               datetime             not null/* (出院)就诊结束时间 */,
+    xh            |       numeric(12)      _    identity(1 1)/* 序号  */,
+    yljgdm        |       varchar(20)      _    not null/* 医疗机构代码  */,
+    jzlsh         |       varchar(64)      _    not null/* 就诊流水号 */,
+    patid         |       varchar(64)      _    not null/* 患者patid */,
+    zyh           |       varchar(64)      _    not null/* 住院号标识 */,
+    yjlxh         |       varchar(64)      _    not null/* 源记录序号 */,
+    ksdm          |       varchar(10)      _    not null/* 科室代码 */,
+    ksmc          |       varchar(50)      _    not null/* 科室名称 */,
+    bqdm          |       varchar(10)      _    not null/* 病区代码 */,
+    bqmc          |       varchar(50)      _    not null/* 病区名称 */,
+    bfh           |       varchar(10)      _    not null/* 病房号 */,
+    bfmc          |       varchar(50)      _    not null/* 病房名称 */,
+    bch           |       varchar(10)      _    not null/* 病床号 */,
+    hzxm          |       varchar(50)      _    not null/* 患者姓名 */,
+    birth         |       datetime         _    not null/* 患者出生日期 */,
+    lxdh          |       varchar(50)      _    not null/* 联系电话 */,
+    hyzkdm        |       varchar(20)      _    not null/* 患者婚姻状况代码 */,
+    hyzk          |       varchar(50)      _    not null/* 患者婚姻状况 */,
+    mzdm          |       varchar(20)      _    not null/* 民族代码 */,
+    mz            |       varchar(50)      _    not null/* 民族 */,
+    hkszd         |       varchar(50)      _    null/* 户口所在地 */,
+    csdz          |       varchar(500)     _    null/* 出生地址 */,
+    gzdw          |       varchar(50)      _    null/* 工作单位名称 */,
+    gzdwdz        |       varchar(500)     _    null/* 工作地点 */,
+    gzdwdh        |       varchar(70)      _    null/* 工作单位电话 */,
+    jgd           |       varchar(50)      _    null/* 籍贯地 */,
+    sfzhm         |       varchar(18)      _    not null/* 患者身份证号标识 */,
+    xbdm          |       varchar(2)       _    not null/* 性别代码 */,
+    xbmc          |       varchar(16)      _    not null/* 性别名称 */,
+    nls           |       numeric(3)       _    not null/* 年龄（岁） */,
+    nly           |       varchar(8)       _    null/* 年龄（月） */,
+    jlrq          |       datetime         _    not null/* 记录日期时间 */,
+    ssczbm        |       varchar(64)      _    not null/* 手术及操作编码 */,
+    ssmc          |       varchar(128)     _    not null/* 手术名称 */,
+    ssmbbwdm      |       varchar(64)      _    not null/* 手术目标部位编码 */,
+    ssbwmc        |       varchar(128)     _    not null/* 手术目标部位名称 */,
+    ssrq          |       datetime         _    not null/* 手术日期时间 */,
+    mzffdm        |       varchar(64)      _    not null/* 麻醉方法代码 */,
+    mzffmc        |       varchar(128)     _    not null/* 麻醉方法名称 */,
+    ssgc          |       nvarchar(2000)   _    not null/* 手术过程 */,
+    zdyjdm        |       nvarchar(1000)   _    not null/* 诊断依据编码 */,
+    zdyj          |       nvarchar(1000)   _    not null/* 诊断依据名称 */,
+    zysx          |       nvarchar(1000)   _    null/* 注意事项 */,
+    ysbm          |       varchar(20)      _    not null/* 签名人工号 */,
+    ysqm          |       varchar(50)      _    not null/* 签名人姓名 */,
+    qmrq          |       datetime         _    not null/* 签名日期时间 */,
+    jzkssj        |       datetime         _    not null/* (入院)就诊开始时间 */,
+    jzjssj        |       datetime         _    not null/* (出院)就诊结束时间 */,
     
    
     
@@ -7606,12 +7606,12 @@ where id = object_id('DC_ZYBCJL_SQTL_SQZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SQXJ     住院病程记录－术前小结                                                                                                  */
+ /* DC_ZYBCJL_SQXJ     住院病程记录－术前小结            OK                                                                                      */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SQXJ') )
- create table  DC_ZYBCJL_SQXJ (    
+ create table  DC_ZYBCJL_SQXJ (
     xh                   numeric(12)          identity(1, 1)/* 序号  */,
     yljgdm               varchar(20)          not null/* 医疗机构代码  */,
     jzlsh                varchar(64)          not null/* 就诊流水号 */,
@@ -7673,7 +7673,7 @@ where id = object_id('DC_ZYBCJL_SQXJ') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SQXJ_GMS     住院病程记录－术前小结_过敏史                                                                                                  */
+ /* DC_ZYBCJL_SQXJ_GMS     住院病程记录－术前小结_过敏史    OK                                                                                              */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
@@ -7701,7 +7701,7 @@ where id = object_id('DC_ZYBCJL_SQXJ_GMS') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SQXJ_SQZD     住院病程记录－术前小结_术前诊断                                                                                                  */
+ /* DC_ZYBCJL_SQXJ_SQZD     住院病程记录－术前小结_术前诊断    OK                                                                                              */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 

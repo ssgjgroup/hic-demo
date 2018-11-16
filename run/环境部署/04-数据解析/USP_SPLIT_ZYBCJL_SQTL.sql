@@ -1,35 +1,33 @@
 /**
  * @author chensj
- * @title  住院病程记录－术前小结
+ * @title  住院病程记录－术前讨论
  * @email chensj@winning.com.cn
  * @date: 2018-11-16 10:33
- * exec USP_SPLIT_ZYBCJL_SQXJ '12345678','  '
+ * exec USP_SPLIT_ZYBCJL_SQTL '12345678','  '
  */
-CREATE PROCEDURE [dbo].[USP_SPLIT_ZYBCJL_SQXJ]
+alter PROCEDURE [dbo].[USP_SPLIT_ZYBCJL_SQTL]
     @yljgdm varchar(20), --医疗机构代码
     @regex  varchar(20)  --分割符
 as
   begin
-    if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_ZYBCJL_SQXJ'))
-      drop table #DC_ZYBCJL_SQXJ
-    if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#HLHT_ZYBCJL_SQXJ'))
-      drop table #HLHT_ZYBCJL_SQXJ
-    if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_ZYBCJL_SQXJ_GMS'))
-      drop table #DC_ZYBCJL_SQXJ_GMS
-    if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_ZYBCJL_SQXJ_SQZD'))
-      drop table #DC_ZYBCJL_SQXJ_SQZD
+    if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_ZYBCJL_SQTL'))
+      drop table #DC_ZYBCJL_SQTL
+    if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#HLHT_ZYBCJL_SQTL'))
+      drop table #HLHT_ZYBCJL_SQTL
+    if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_ZYBCJL_SQTL_SQZD'))
+      drop table #DC_ZYBCJL_SQTL_SQZD
 
     declare @error int
-    -- 住院病程记录－术前小结_过敏史
-    declare @yjlxh as nvarchar(max), @gms as nvarchar(max)
-    -- 住院病程记录－术前小结_术前诊断
+    -- 住院病程记录－术前讨论
+    declare @yjlxh as nvarchar(max)
+    -- 住院病程记录－术前讨论_术前诊断
     declare @sqzdbm as nvarchar(max), @sqzdmc as nvarchar(max)
     set @error = 0
     begin tran  --申明事务
     --创建临时表
-    SELECT * INTO #HLHT_ZYBCJL_SQXJ FROM HLHT_ZYBCJL_SQXJ WHERE STATUS = 0
+    SELECT * INTO #HLHT_ZYBCJL_SQTL FROM HLHT_ZYBCJL_SQTL WHERE STATUS = 0
     --主表操作
-    create table #DC_ZYBCJL_SQXJ (
+    create table #DC_ZYBCJL_SQTL (
       xh         numeric(12) identity (1, 1)/* 序号  */,
       yljgdm     varchar(20)    not null/* 医疗机构代码  */,
       jzlsh      varchar(64)    not null/* 就诊流水号 */,
@@ -49,30 +47,35 @@ as
       xbmc       varchar(16)    not null/* 性别名称 */,
       nls        numeric(3)     not null/* 年龄（岁） */,
       nly        varchar(8)     null/* 年龄（月） */,
-      xjrq       datetime       not null/* 小结日期时间 */,
-      blzy       nvarchar(200)  not null/* 病历摘要 */,
-      zdyjdm     varchar(100)   not null/* 诊断依据代码 */,
-      zdyj       nvarchar(1000) not null/* 诊断依据名称 */,
-      gmsbz      char(1)        not null/* 过敏史标志 */,
-      fzjcjg     nvarchar(1000) not null/* 辅助检查结果 */,
-      sssyz      nvarchar(100)  not null/* 手术适应证 */,
-      ssjjz      nvarchar(100)  not null/* 手术禁忌症 */,
-      sszz       nvarchar(500)  not null/* 手术指征 */,
-      hzyj       nvarchar(2000) null/* 会诊意见 */,
-      ssczbm     varchar(64)    not null/* 拟实施手术及操作编码 */,
+      tlrq       datetime       not null/* 讨论日期时间 */,
+      tldd       varchar(50)    not null/* 讨论地点 */,
+      zcrbm      varchar(100)   not null/* 主持人工号 */,
+      zcrxm      varchar(500)   not null/* 主持人姓名 */,
+      tlrybm     varchar(100)   not null/* 参加讨论人员工号 */,
+      cjtlmd     varchar(500)   not null/* 参加讨论人员名单 */,
+      zyzwlbdm   varchar(4)     not null/* 专业技术职务类别代码 */,
+      zyzwlbmc   varchar(50)    not null/* 专业技术职务类别名称 */,
+      ryrq       datetime       not null/* 入院日期时间 */,
       ssczmc     varchar(128)   not null/* 拟实施手术及操作名称 */,
+      ssczbm     varchar(64)    not null/* 拟实施手术及操作编码 */,
       ssmbbwdm   varchar(64)    not null/* 拟实施手术目标部位代码 */,
       ssbwmc     varchar(128)   not null/* 拟实施手术目标部位名称 */,
       ssczrq     datetime       not null/* 拟实施手术及操作日期时间 */,
       mzffdm     varchar(64)    not null/* 拟实施麻醉方法代码 */,
       mzffmc     varchar(128)   not null/* 拟实施麻醉方法名称 */,
-      zysx       nvarchar(1000) not null/* 注意事项 */,
       ssyd       nvarchar(200)  not null/* 手术要点 */,
       sqzb       nvarchar(1000) not null/* 术前准备 */,
-      sszbm      varchar(20)    not null/* 手术者工号 */,
-      sszqm      varchar(50)    not null/* 手术者签名 */,
-      ysbm       varchar(20)    null/* 签名人工号 */,
-      ysqm       varchar(50)    null/* 签名人姓名 */,
+      sszz       nvarchar(500)  not null/* 手术指征 */,
+      ssfa       nvarchar(1000) not null/* 手术方案 */,
+      zysx       nvarchar(1000) not null/* 注意事项 */,
+      tlyj       nvarchar(2000) not null/* 讨论意见 */,
+      tljl       nvarchar(2000) not null/* 讨论结论 */,
+      sszbm      varchar(20)    null/* 手术者工号 */,
+      sszqm      varchar(50)    null/* 手术者签名 */,
+      mzysbm     varchar(20)    null/* 麻醉医师工号 */,
+      mzsqm      varchar(50)    null/* 麻醉医师签名 */,
+      ysbm       varchar(20)    not null/* 签名人工号 */,
+      ysqm       varchar(50)    not null/* 签名人姓名 */,
       qmrq       datetime       not null/* 签名日期时间 */,
       isNew      bit            NULL,
       createtime datetime       NULL,
@@ -81,7 +84,8 @@ as
       lsnid      bigint         NULL,
       isdelete   varchar(8)     NULL
     )
-    insert into #DC_ZYBCJL_SQXJ
+
+    insert into #DC_ZYBCJL_SQTL
     select @yljgdm,
            CONVERT(varchar(64), jzlsh),
            CONVERT(varchar(64), patid),
@@ -100,28 +104,33 @@ as
            CONVERT(varchar(16), xbmc),
            CONVERT(numeric(3), nls),
            CONVERT(varchar(8), nly),
-           CONVERT(datetime, xjrq),
-           CONVERT(nvarchar(200), blzy),
-           CONVERT(varchar(100), zdyjdm),
-           CONVERT(nvarchar(1000), zdyj),
-           CONVERT(char(1), gmsbz),
-           CONVERT(nvarchar(1000), fzjcjg),
-           CONVERT(nvarchar(100), sssyz),
-           CONVERT(nvarchar(100), ssjjz),
-           CONVERT(nvarchar(500), sszz),
-           CONVERT(nvarchar(2000), hzyj),
-           CONVERT(varchar(64), ssczbm),
+           CONVERT(datetime, tlrq),
+           CONVERT(varchar(50), tldd),
+           CONVERT(varchar(100), zcrbm),
+           CONVERT(varchar(500), zcrxm),
+           CONVERT(varchar(100), tlrybm),
+           CONVERT(varchar(500), cjtlmd),
+           CONVERT(varchar(4), zyzwlbdm),
+           CONVERT(varchar(50), zyzwlbmc),
+           CONVERT(datetime, ryrq),
            CONVERT(varchar(128), ssczmc),
+           CONVERT(varchar(64), ssczbm),
            CONVERT(varchar(64), ssmbbwdm),
            CONVERT(varchar(128), ssbwmc),
            CONVERT(datetime, ssczrq),
            CONVERT(varchar(64), mzffdm),
            CONVERT(varchar(128), mzffmc),
-           CONVERT(nvarchar(1000), zysx),
            CONVERT(nvarchar(200), ssyd),
            CONVERT(nvarchar(1000), sqzb),
+           CONVERT(nvarchar(500), sszz),
+           CONVERT(nvarchar(1000), ssfa),
+           CONVERT(nvarchar(1000), zysx),
+           CONVERT(nvarchar(2000), tlyj),
+           CONVERT(nvarchar(2000), tljl),
            CONVERT(varchar(20), sszbm),
            CONVERT(varchar(50), sszqm),
+           CONVERT(varchar(20), mzysbm),
+           CONVERT(varchar(50), mzsqm),
            CONVERT(varchar(20), ysbm),
            CONVERT(varchar(50), ysqm),
            CONVERT(datetime, qmrq),
@@ -131,9 +140,10 @@ as
            'EMR',
            0,
            '0'
-    from #HLHT_ZYBCJL_SQXJ
-    Merge Into DC_ZYBCJL_SQXJ _target
-    using #DC_ZYBCJL_SQXJ _source
+    from #HLHT_ZYBCJL_SQTL
+
+    Merge Into DC_ZYBCJL_SQTL _target
+    using #DC_ZYBCJL_SQTL _source
     on (_target.yjlxh = _source.yjlxh)
     When Matched Then
       Update set
@@ -155,104 +165,65 @@ as
         _target.xbmc     = _source.xbmc,
         _target.nls      = _source.nls,
         _target.nly      = _source.nly,
-        _target.xjrq     = _source.xjrq,
-        _target.blzy     = _source.blzy,
-        _target.zdyjdm   = _source.zdyjdm,
-        _target.zdyj     = _source.zdyj,
-        _target.gmsbz    = _source.gmsbz,
-        _target.fzjcjg   = _source.fzjcjg,
-        _target.sssyz    = _source.sssyz,
-        _target.ssjjz    = _source.ssjjz,
-        _target.sszz     = _source.sszz,
-        _target.hzyj     = _source.hzyj,
-        _target.ssczbm   = _source.ssczbm,
+        _target.tlrq     = _source.tlrq,
+        _target.tldd     = _source.tldd,
+        _target.zcrbm    = _source.zcrbm,
+        _target.zcrxm    = _source.zcrxm,
+        _target.tlrybm   = _source.tlrybm,
+        _target.cjtlmd   = _source.cjtlmd,
+        _target.zyzwlbdm = _source.zyzwlbdm,
+        _target.zyzwlbmc = _source.zyzwlbmc,
+        _target.ryrq     = _source.ryrq,
         _target.ssczmc   = _source.ssczmc,
+        _target.ssczbm   = _source.ssczbm,
         _target.ssmbbwdm = _source.ssmbbwdm,
         _target.ssbwmc   = _source.ssbwmc,
         _target.ssczrq   = _source.ssczrq,
         _target.mzffdm   = _source.mzffdm,
         _target.mzffmc   = _source.mzffmc,
-        _target.zysx     = _source.zysx,
         _target.ssyd     = _source.ssyd,
         _target.sqzb     = _source.sqzb,
+        _target.sszz     = _source.sszz,
+        _target.ssfa     = _source.ssfa,
+        _target.zysx     = _source.zysx,
+        _target.tlyj     = _source.tlyj,
+        _target.tljl     = _source.tljl,
         _target.sszbm    = _source.sszbm,
         _target.sszqm    = _source.sszqm,
+        _target.mzysbm   = _source.mzysbm,
+        _target.mzsqm    = _source.mzsqm,
         _target.ysbm     = _source.ysbm,
         _target.ysqm     = _source.ysqm,
         _target.qmrq     = _source.qmrq,
         _target.gxrq     = getdate()
     When Not Matched By Target Then
-      Insert (yljgdm, jzlsh, patid, zyh, yjlxh, ksdm, ksmc, bqdm, bqmc, bfh, bfmc, bch, hzxm, sfzhm, xbdm, xbmc, nls, nly, xjrq, blzy, zdyjdm, zdyj, gmsbz, fzjcjg, sssyz, ssjjz, sszz, hzyj, ssczbm, ssczmc, ssmbbwdm, ssbwmc, ssczrq, mzffdm, mzffmc, zysx, ssyd, sqzb, sszbm, sszqm, ysbm, ysqm, qmrq, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      Insert (yljgdm, jzlsh, patid, zyh, yjlxh, ksdm, ksmc, bqdm, bqmc, bfh, bfmc, bch, hzxm, sfzhm, xbdm, xbmc, nls, nly, tlrq, tldd, zcrbm, zcrxm, tlrybm, cjtlmd, zyzwlbdm, zyzwlbmc, ryrq, ssczmc, ssczbm, ssmbbwdm, ssbwmc, ssczrq, mzffdm, mzffmc, ssyd, sqzb, sszz, ssfa, zysx, tlyj, tljl, sszbm, sszqm, mzysbm, mzsqm, ysbm, ysqm, qmrq, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
       values (_source.yljgdm, _source.jzlsh, _source.patid, _source.zyh, _source.yjlxh, _source.ksdm, _source.ksmc,
                               _source.bqdm, _source.bqmc, _source.bfh, _source.bfmc, _source.bch, _source.hzxm,
                                                                                      _source.sfzhm, _source.xbdm,
                                                                                      _source.xbmc, _source.nls,
-                                                                                     _source.nly, _source.xjrq,
-                                                                                     _source.blzy, _source.zdyjdm,
-        _source.zdyj, _source.gmsbz, _source.fzjcjg, _source.sssyz, _source.ssjjz, _source.sszz, _source.hzyj,
-        _source.ssczbm, _source.ssczmc, _source.ssmbbwdm, _source.ssbwmc, _source.ssczrq, _source.mzffdm,
-                                                          _source.mzffmc, _source.zysx, _source.ssyd, _source.sqzb,
-                                                          _source.sszbm, _source.sszqm, _source.ysbm, _source.ysqm,
-              _source.qmrq, _source.isNew, _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid,
-              _source.isdelete);
-    drop table #DC_ZYBCJL_SQXJ
+                                                                                     _source.nly, _source.tlrq,
+                                                                                     _source.tldd, _source.zcrbm,
+        _source.zcrxm, _source.tlrybm, _source.cjtlmd, _source.zyzwlbdm, _source.zyzwlbmc, _source.ryrq, _source.ssczmc,
+        _source.ssczbm, _source.ssmbbwdm, _source.ssbwmc, _source.ssczrq, _source.mzffdm, _source.mzffmc, _source.ssyd,
+                                                          _source.sqzb, _source.sszz, _source.ssfa, _source.zysx,
+                                                          _source.tlyj, _source.tljl, _source.sszbm, _source.sszqm,
+                                                                                      _source.mzysbm, _source.mzsqm,
+                                                                                      _source.ysbm, _source.ysqm,
+                                                                                      _source.qmrq, _source.isNew,
+                                                                                      _source.createtime, _source.gxrq,
+              _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_ZYBCJL_SQTL
     --申明游标为,需要加时间范围
-    declare order_cursor cursor for (select yjlxh, gms, sqzdbm, sqzdmc from #HLHT_ZYBCJL_SQXJ)
+    declare order_cursor cursor for (select yjlxh, sqzdbm, sqzdmc from #HLHT_ZYBCJL_SQTL)
     --打开游标--
     open order_cursor
     --开始循环游标变量--
-    fetch next from order_cursor into @yjlxh, @gms, @sqzdbm, @sqzdmc
+    fetch next from order_cursor
+    into @yjlxh, @sqzdbm, @sqzdmc
     while @@FETCH_STATUS = 0 --返回被 FETCH语句执行的最后游标的状态--
       begin
-        --住院病程记录－术前小结_过敏史
-        create table #DC_ZYBCJL_SQXJ_GMS (
-          xh         numeric(12) identity (1, 1)/* 序号  */,
-          yljgdm     varchar(20)    not null/* 医疗机构代码  */,
-          yjlxh      varchar(64)    not null/* 源记录序号 */,
-          zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
-          gms        nvarchar(1000) null/* 过敏史 */,
-          isNew      bit            NULL,
-          createtime datetime       NULL,
-          gxrq       datetime       NOT NULL,
-          sys_id     varchar(50)    NOT NULL,
-          lsnid      bigint         NULL,
-          isdelete   varchar(8)     NULL
-        )
-        insert into #DC_ZYBCJL_SQXJ_GMS (yljgdm, yjlxh, zyjlxh, gms, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(a.id))),
-               @yjlxh,
-               a.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select * from (values (1, @gms))t (id, value)) a
-        Merge Into DC_ZYBCJL_SQXJ_GMS _target
-        using #DC_ZYBCJL_SQXJ_GMS _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then Update set
-          _target.yljgdm     = _source.yljgdm,
-          _target.yjlxh      = _source.yjlxh,
-          _target.zyjlxh     = _source.zyjlxh,
-          _target.gms        = _source.gms,
-          _target.isNew      = _source.isNew,
-          _target.gxrq       = _source.gxrq,
-          _target.createtime = _source.createtime,
-          _target.lsnid      = _source.lsnid,
-          _target.isdelete   = _source.isdelete,
-          _target.sys_id     = _source.sys_id
-        When Not Matched By Target Then Insert
-        (yljgdm, yjlxh, zyjlxh, gms, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-        values
-        (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.gms, _source.isNew, _source.createtime,
-         _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_ZYBCJL_SQXJ_GMS
-
-        --住院病程记录－术前小结_术前诊断
-        create table #DC_ZYBCJL_SQXJ_SQZD (
+        create table #DC_ZYBCJL_SQTL_SQZD (
           xh         numeric(12) identity (1, 1)/* 序号  */,
           yljgdm     varchar(20)  not null/* 医疗机构代码  */,
           yjlxh      varchar(64)  not null/* 源记录序号 */,
@@ -267,7 +238,7 @@ as
           isdelete   varchar(8)   NULL
         )
 
-        insert into #DC_ZYBCJL_SQXJ_SQZD
+        insert into #DC_ZYBCJL_SQTL_SQZD
         select @yljgdm,
                ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
                @yjlxh,
@@ -281,10 +252,11 @@ as
                '0'
         from (select id, value from [dbo].[f_splitString](@sqzdbm, @regex)) _0,
              (select id, value from [dbo].[f_splitString](@sqzdmc, @regex)) _1
-        where _0.id = _1.id
+        where 1 = 1
+          and _0.id = _1.id
 
-        Merge Into DC_ZYBCJL_SQXJ_SQZD _target
-        using #DC_ZYBCJL_SQXJ_SQZD _source
+        Merge Into DC_ZYBCJL_SQTL_SQZD _target
+        using #DC_ZYBCJL_SQTL_SQZD _source
         on (_target.yjlxh = _source.yjlxh)
         When Matched Then
           Update set
@@ -298,11 +270,11 @@ as
           Insert (yljgdm, yjlxh, zyjlxh, sqzdbm, sqzdmc, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
           values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.sqzdbm, _source.sqzdmc, _source.isNew,
             _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_ZYBCJL_SQXJ_SQZD
-
-        UPDATE A SET A.STATUS = 1 FROM HLHT_ZYBCJL_SQXJ A WHERE A.yjlxh = @yjlxh;
+        drop table #DC_ZYBCJL_SQTL_SQZD
+        UPDATE A SET A.STATUS = 1 FROM HLHT_ZYBCJL_SQTL A WHERE A.yjlxh = @yjlxh;
         set @error = @error + @@ERROR   --记录每次运行sql后是否正确，0正确
-        fetch next from order_cursor into @yjlxh, @gms, @sqzdbm, @sqzdmc   --转到下一个游标
+        fetch next from order_cursor
+        into @yjlxh, @sqzdbm, @sqzdmc   --转到下一个游标
       end
     if @error = 0
       begin
@@ -314,7 +286,7 @@ as
         close order_cursor  --关闭游标
         deallocate order_cursor  --关闭游标
       end
-    drop table #HLHT_ZYBCJL_SQXJ
+    drop table #HLHT_ZYBCJL_SQTL
     close order_cursor  --关闭游标
     deallocate order_cursor --释放游标
   end

@@ -10,13 +10,13 @@ import java.util.List;
  */
 public class SplitStrings {
 	public static void main(String[] args) {
-		String bmz = "DC_ZYBCJL_SHSCBCJL_SHZD";
-		String bzds = "    xh               |    numeric(12)      _    identity(1 1)/* 序号  */,\r\n" + 
-				"    yljgdm           |    varchar(20)      _    not null/* 医疗机构代码  */,\r\n" + 
-				"    yjlxh            |    varchar(64)      _    not null/* 源记录序号 */,\r\n" + 
-				"    zyjlxh           |    varchar(64)      _    null/* 主表原纪录序号 */,\r\n" + 
-				"    shzdmc           |    varchar(128)     _    not null/* 术后诊断名称 */,\r\n" + 
-				"    shzdbm           |    varchar(64)      _    not null/* 术后诊断编码 */";
+		String bmz = "DC_ZYBCJL_SQTL_SQZD";
+		String bzds = " xh            |       numeric(12)      _    identity(1 1)/* 序号  */,\n" +
+				"    yljgdm        |       varchar(20)      _    not null/* 医疗机构代码  */,\n" +
+				"    yjlxh         |       varchar(64)      _    not null/* 源记录序号 */,\n" +
+				"    zyjlxh        |       varchar(64)      _    null/* 主表原纪录序号 */,\n" +
+				"    sqzdbm        |       varchar(64)      _    not null/* 术前诊断编码 */,\n" +
+				"    sqzdmc        |       varchar(128)     _    not null/* 术前诊断名称 */,";
 		String [] bzd = bzds.trim().split(",");
 		String create_tempTable = "create table #"+ bmz +"( \r\n";
 		for (int i = 0; i < bzd.length; i++) {
@@ -38,7 +38,7 @@ public class SplitStrings {
 		List temp2 = new ArrayList();
 		for(int i = 2; i < bzd1.length; i++) {
 			String [] st = bzd1[i].toString().split("\\|");
-			String [] strs = new String [] {"xh","yljgdm","yjlxh","zyjlxh"};
+			String [] strs = new String [] {"xh","yljgdm","yjlxh","zyjlxh"}; //需要的时候增加
 			List<String> list1 = Arrays.asList(strs);
 //			System.out.println("22222"+st[0].split("_")[0].toString());
 			if(!list1.contains(st[0].split("_")[0].toString().trim())) {
@@ -61,13 +61,13 @@ public class SplitStrings {
 			}
 		}
 		System.out.printf(insert_tempTalbe.toString() + sb2.toString());
-		String aere = "    where ";
+		String aere = "    where 1=1 ";
 //		for (int i = 0; i < temp2.size(); i++) {
 			for(int j = 1; j < temp2.size(); j++) {
 				if(j == temp2.size() - 1) {
-					aere = aere + "_"+"0.id = "+ "_"+j+".id"; 
+					aere = aere + " and _"+"0.id = "+ "_"+j+".id";
 				}else {
-					aere = aere + "_"+"0.id = "+ "_"+j+".id,";
+					aere = aere + " and _"+"0.id = "+ "_"+j+".id and ";
 				}
 			}
 //		}

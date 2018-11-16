@@ -7,6 +7,8 @@ as
 
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_ZYBCJL_SHSCBCJL'))
       drop table #DC_ZYBCJL_SHSCBCJL
+    if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#HLHT_ZYBCJL_SHSCBCJL'))
+      drop table #HLHT_ZYBCJL_SHSCBCJL
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_ZYBCJL_SHSCBCJL_SHZD'))
       drop table #DC_ZYBCJL_SHSCBCJL_SHZD
 
@@ -15,6 +17,8 @@ as
     declare @yjlxh as nvarchar(max), @shzdbm as nvarchar(max), @shzdmc as nvarchar(max)
     set @error = 0
     begin tran  --申明事务
+    --创建临时表
+    SELECT * INTO  #HLHT_ZYBCJL_SHSCBCJL  FROM HLHT_ZYBCJL_SHSCBCJL WHERE STATUS = 0
     --住院病程记录－术后首次病程记录
     create table #DC_ZYBCJL_SHSCBCJL (
       xh         numeric(12) identity (1, 1)/* 序号  */,
@@ -127,8 +131,7 @@ as
            'EMR',
            0,
            '0'
-    from HLHT_ZYBCJL_SHSCBCJL
-    where STATUS = 0
+    from #HLHT_ZYBCJL_SHSCBCJL
 
     Merge Into DC_ZYBCJL_SHSCBCJL _target
     using #DC_ZYBCJL_SHSCBCJL _source
@@ -204,9 +207,7 @@ as
 
     --申明游标为,需要加时间范围
     declare order_cursor cursor for (select yjlxh, shzdbm, shzdmc
-                                     from [HLHT_ZYBCJL_SHSCBCJL]
-                                     where 1 = 1
-                                       and STATUS = '0')
+                                     from #HLHT_ZYBCJL_SHSCBCJL)
     --打开游标--
     open order_cursor
     --开始循环游标变量--
@@ -263,7 +264,7 @@ as
             _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
         drop table #DC_ZYBCJL_SHSCBCJL_SHZD
 
-        UPDATE A SET A.STATUS = 1 FROM HLHT_ZYBCJL_SHSCBCJL where STATUS = 0;
+        UPDATE HLHT_ZYBCJL_SHSCBCJL SET STATUS = 1 where STATUS = 0;
 
         set @error = @error + @@ERROR   --记录每次运行sql后是否正确，0正确
         fetch next from order_cursor
@@ -279,6 +280,7 @@ as
         close order_cursor  --关闭游标
         deallocate order_cursor --释放游标
       end
+    drop table #HLHT_ZYBCJL_SHSCBCJL
     close order_cursor  --关闭游标
     deallocate order_cursor --释放游标
   end

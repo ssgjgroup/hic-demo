@@ -5,6 +5,8 @@ as
   begin
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_RYJL_RCYJL'))
       drop table #DC_RYJL_RCYJL
+    if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#HLHT_RYJL_RCYJL'))
+      drop table #HLHT_RYJL_RCYJL
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_RYJL_RCYJL_ZYSZGCJG'))
       drop table #DC_RYJL_RCYJL_ZYSZGCJG
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_RYJL_RCYJL_CYXYZD'))
@@ -15,8 +17,21 @@ as
       drop table #DC_RYJL_RCYJL_RYXYZD
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_RYJL_RCYJL_RYZYZD'))
       drop table #DC_RYJL_RCYJL_RYZYZD
-
-
+    declare @error int
+    -- 入院记录－24小时内入出院记录_中医四诊观察结果
+    declare @yjlxh as nvarchar(max), @zyszgcjg as nvarchar(max)
+    -- 入院记录－24小时内入出院记录_入院中医诊断
+    declare @rzzybmmc as nvarchar(max), @rzzybmdm as nvarchar(max), @rzzyzhmc as nvarchar(max), @rzzyzhdm as nvarchar(max)
+    -- 入院记录－24小时内入出院记录_入院西医诊断
+    declare @rzxyzdmc as nvarchar(max), @rzxzzdbm as nvarchar(max)
+    -- 入院记录－24小时内入出院记录_出院中医诊断
+    declare @czzybmmc as nvarchar(max), @czzybmdm as nvarchar(max), @czzyzhmc as nvarchar(max), @czzyzhdm as nvarchar(max)
+    -- 入院记录－24小时内入出院记录_出院西医诊断
+    declare @czxyzdmc as nvarchar(max), @czxyzdbm as nvarchar(max)
+    set @error = 0
+    begin tran  --申明事务
+    --创建临时表
+    SELECT * INTO  #HLHT_RYJL_RCYJL  FROM HLHT_RYJL_RCYJL WHERE STATUS = 0
     --主表操作
     create table #DC_RYJL_RCYJL (
       xh         numeric(12) identity (1, 1)/* 序号  */,
@@ -77,7 +92,6 @@ as
       lsnid      bigint         NULL,
       isdelete   varchar(8)     NULL
     )
-
     insert into #DC_RYJL_RCYJL
     select @yljgdm,
            CONVERT(varchar(64), jzlsh),
@@ -135,7 +149,7 @@ as
            'EMR',
            0,
            '0'
-    from HLHT_RYJL_RCYJL
+    from #HLHT_RYJL_RCYJL
 
     Merge Into DC_RYJL_RCYJL _target
     using #DC_RYJL_RCYJL _source
@@ -213,19 +227,6 @@ as
               _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
     drop table #DC_RYJL_RCYJL
 
-    declare @error int
-    -- 入院记录－24小时内入出院记录_中医四诊观察结果
-    declare @yjlxh as nvarchar(max), @zyszgcjg as nvarchar(max)
-    -- 入院记录－24小时内入出院记录_入院中医诊断
-    declare @rzzybmmc as nvarchar(max), @rzzybmdm as nvarchar(max), @rzzyzhmc as nvarchar(max), @rzzyzhdm as nvarchar(max)
-    -- 入院记录－24小时内入出院记录_入院西医诊断
-    declare @rzxyzdmc as nvarchar(max), @rzxzzdbm as nvarchar(max)
-    -- 入院记录－24小时内入出院记录_出院中医诊断
-    declare @czzybmmc as nvarchar(max), @czzybmdm as nvarchar(max), @czzyzhmc as nvarchar(max), @czzyzhdm as nvarchar(max)
-    -- 入院记录－24小时内入出院记录_出院西医诊断
-    declare @czxyzdmc as nvarchar(max), @czxyzdbm as nvarchar(max)
-    set @error = 0
-    begin tran  --申明事务
     --申明游标为,需要加时间范围
     declare order_cursor cursor for (select yjlxh,
                                             zyszgcjg,
@@ -241,8 +242,7 @@ as
                                             czzyzhdm,
                                             czxyzdmc,
                                             czxyzdbm
-                                     from [dbo].[HLHT_RYJL_RCYJL]
-                                     where STATUS = 0)
+                                     from #HLHT_RYJL_RCYJL)
     --打开游标--
     open order_cursor
     --开始循环游标变量--
@@ -537,6 +537,7 @@ as
         close order_cursor  --关闭游标
         deallocate order_cursor  --关闭游标
       end
+    drop table #HLHT_RYJL_RCYJL
     close order_cursor  --关闭游标
     deallocate order_cursor --释放游标
   end
