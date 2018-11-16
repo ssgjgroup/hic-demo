@@ -10,12 +10,19 @@ import java.util.List;
  */
 public class SplitStrings {
 	public static void main(String[] args) {
-		String bmz = "DC_BLGY_JBJKXX_YFJZS";
-		String bzds = " xh          |         numeric(12)     _     identity(1 1)/* 序号 */,\n" +
-				"    yljgdm      |         varchar(20)     _     not null/* 医疗机构代码 */,\n" +
-				"    yjlxh       |         varchar(64)     _     not null/* 源记录序号 */,\n" +
-				"    zyjlxh      |         varchar(64)     _     null/* 主表原纪录序号 */,\n" +
-				"    yfjzs       |         nvarchar(1000)  _     not null/* 预防接种史 */,";
+		String bmz = "DC_MJZBL_JZLGBL_SSCZ";
+		String bzds = " xh           |        numeric(12)     _    identity(1 1)/* 序号  */,\n" +
+				"    yljgdm       |        varchar(20)     _    not null/* 医疗机构代码  */,\n" +
+				"    yjlxh        |        varchar(64)     _    not null/* 源记录序号 */,\n" +
+				"    zyjlxh       |        varchar(64)     _    null/* 主表原纪录序号 */,\n" +
+				"    ssjczbm      |        varchar(64)     _    null/* 手术及操作编码 */,\n" +
+				"    ssjczmc      |        varchar(128)    _    null/* 手术及操作名称 */,\n" +
+				"    ssmbbwbm     |        varchar(100)    _    null/* 手术及操作目标部位编码 */,\n" +
+				"    ssmbbw       |        varchar(500)    _    null/* 手术及操作目标部位名称 */,\n" +
+				"    jrwdm        |        varchar(100)    _    null/* 介入物代码 */,\n" +
+				"    jrwmc        |        varchar(500)    _    null/* 介入物名称 */,\n" +
+				"    ssjczff      |        nvarchar(2000)  _    null/* 手术及操作方法 */,\n" +
+				"    ssjczcs      |        varchar(3)      _    null/* 手术及操作次数 */,";
 		String [] bzd = bzds.trim().split(",");
 		String create_tempTable = "create table #"+ bmz +"( \r\n";
 		for (int i = 0; i < bzd.length; i++) {
