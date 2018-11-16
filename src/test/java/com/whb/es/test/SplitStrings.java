@@ -10,27 +10,27 @@ import java.util.List;
  */
 public class SplitStrings {
 	public static void main(String[] args) {
-		String bmz = "DC_ZYBCJL_SJYSCFJL_ZYSZGCJG";
-		String bzds = "    xh           |        numeric(12)      _    identity(1 1)/* 序号  */,\n" +
-				"    yljgdm       |        varchar(20)      _    not null/* 医疗机构代码  */,\n" +
-				"    yjlxh        |        varchar(64)      _    not null/* 源记录序号 */,\n" +
-				"    zyjlxh       |        varchar(64)      _    not null/* 主源记录序号 */,\n" +
-				"    zyszgcjg     |        nvarchar(1000)   _    null/* 中医“四诊”观察结果 */,";
+		String bmz = "DC_BLGY_JBJKXX_YFJZS";
+		String bzds = " xh          |         numeric(12)     _     identity(1 1)/* 序号 */,\n" +
+				"    yljgdm      |         varchar(20)     _     not null/* 医疗机构代码 */,\n" +
+				"    yjlxh       |         varchar(64)     _     not null/* 源记录序号 */,\n" +
+				"    zyjlxh      |         varchar(64)     _     null/* 主表原纪录序号 */,\n" +
+				"    yfjzs       |         nvarchar(1000)  _     not null/* 预防接种史 */,";
 		String [] bzd = bzds.trim().split(",");
 		String create_tempTable = "create table #"+ bmz +"( \r\n";
 		for (int i = 0; i < bzd.length; i++) {
 			create_tempTable = create_tempTable + bzd[i].replace("_","").replace("|", "").toString() + ",";
 		}
 		create_tempTable = create_tempTable + "\r\n" +
-				"    isNew               bit                  NULL,\r\n" + 
-				"    createtime          datetime             NULL,\r\n" + 
-				"    gxrq                datetime             NOT NULL,\r\n" + 
-				"    sys_id              varchar(50)          NOT NULL,\r\n" + 
-				"    lsnid               bigint               NULL,\r\n" + 
+				"    isNew               bit                  NULL,\r\n" +
+				"    createtime          datetime             NULL,\r\n" +
+				"    gxrq                datetime             NOT NULL,\r\n" +
+				"    sys_id              varchar(50)          NOT NULL,\r\n" +
+				"    lsnid               bigint               NULL,\r\n" +
 				"    isdelete            varchar(8)           NULL";
 		create_tempTable = create_tempTable + "\r\n" + ")" + "\r\n";
 		System.out.println(create_tempTable);
-		
+
 		String insert_tempTalbe = "insert into #"+ bmz + "\r\n" + "select @yljgdm,ltrim(rtrim(@yjlxh))+ltrim(rtrim(Str(_0.id))), @yjlxh,";
 		String [] bzd1 = bzds.trim().replace(" ","").split(",");
 		StringBuffer sb1 = new StringBuffer();
@@ -66,14 +66,14 @@ public class SplitStrings {
 				if(j == temp2.size() - 1) {
 					aere = aere + " and _"+"0.id = "+ "_"+j+".id";
 				}else {
-					aere = aere + " and _"+"0.id = "+ "_"+j+".id and ";
+					aere = aere + " _"+"0.id = "+ "_"+j+".id and ";
 				}
 			}
 //		}
 		System.out.println(aere.trim() + "\r\n");
-		String mergeInto = "Merge Into "+bmz+" _target\r\n" + 
-				"using #"+bmz+" _source\r\n" + 
-				"on(_target.yjlxh = _source.yjlxh)\r\n" + 
+		String mergeInto = "Merge Into "+bmz+" _target\r\n" +
+				"using #"+bmz+" _source\r\n" +
+				"on(_target.yjlxh = _source.yjlxh)\r\n" +
 				" When Matched Then\r\n" +
 				"  Update set \r\n";
 		String [] bzd2 = bzds.trim().replace(" ","").split(",");
@@ -103,11 +103,11 @@ public class SplitStrings {
 		mergeInto2 = mergeInto2 + "_source.isNew,_source.createtime,_source.gxrq,_source.sys_id,_source.lsnid,_source.isdelete);\r\n" + "drop table #" + bmz;
 		System.out.println(mergeInto2.toString());
 		mergeInto = mergeInto;
-		
+
 		insert_tempTalbe = "select ";
 		String aa = "aa.bb.cc.dd";
 //		String [] cd = aa.split('.');
 //		System.out.println(cd.length);
-		
+
 	}
 }
