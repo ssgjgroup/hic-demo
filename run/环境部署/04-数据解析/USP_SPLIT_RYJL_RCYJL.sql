@@ -1,8 +1,16 @@
-﻿alter PROCEDURE [dbo].[USP_SPLIT_RYJL_RCYJL]
+﻿USE [HOSPITAL_DW]
+GO
+/****** Object:  StoredProcedure [dbo].[USP_SPLIT_RYJL_RCYJL]    Script Date: 2018/11/19 9:25:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[USP_SPLIT_RYJL_RCYJL]
     @yljgdm varchar(20), --医疗机构代码
     @regex  varchar(20)  --分割符
 as
   begin
+    ----------------------------入院记录－24小时内入出院记录---------------------------------
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_RYJL_RCYJL'))
       drop table #DC_RYJL_RCYJL
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#HLHT_RYJL_RCYJL'))
@@ -17,21 +25,8 @@ as
       drop table #DC_RYJL_RCYJL_RYXYZD
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_RYJL_RCYJL_RYZYZD'))
       drop table #DC_RYJL_RCYJL_RYZYZD
-    declare @error int
-    -- 入院记录－24小时内入出院记录_中医四诊观察结果
-    declare @yjlxh as nvarchar(max), @zyszgcjg as nvarchar(max)
-    -- 入院记录－24小时内入出院记录_入院中医诊断
-    declare @rzzybmmc as nvarchar(max), @rzzybmdm as nvarchar(max), @rzzyzhmc as nvarchar(max), @rzzyzhdm as nvarchar(max)
-    -- 入院记录－24小时内入出院记录_入院西医诊断
-    declare @rzxyzdmc as nvarchar(max), @rzxzzdbm as nvarchar(max)
-    -- 入院记录－24小时内入出院记录_出院中医诊断
-    declare @czzybmmc as nvarchar(max), @czzybmdm as nvarchar(max), @czzyzhmc as nvarchar(max), @czzyzhdm as nvarchar(max)
-    -- 入院记录－24小时内入出院记录_出院西医诊断
-    declare @czxyzdmc as nvarchar(max), @czxyzdbm as nvarchar(max)
-    set @error = 0
-    begin tran  --申明事务
     --创建临时表
-    SELECT * INTO  #HLHT_RYJL_RCYJL  FROM HLHT_RYJL_RCYJL WHERE STATUS = 0
+    SELECT * INTO  #HLHT_RYJL_RCYJL  FROM HLHT_RYJL_RCYJL WHERE STATUS = '0'
     --主表操作
     create table #DC_RYJL_RCYJL (
       xh         numeric(12) identity (1, 1)/* 序号  */,
@@ -226,318 +221,229 @@ as
                                                                                        _source.zrysqm, _source.isNew,
               _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
     drop table #DC_RYJL_RCYJL
+    --入院记录－24小时内入出院记录_中医四诊观察结果
+    create table #DC_RYJL_RCYJL_ZYSZGCJG (
+      xh         numeric(12) identity (1, 1)/* 序号  */,
+      yljgdm     varchar(20)    not null/* 医疗机构代码  */,
+      yjlxh      varchar(64)    not null/* 源记录序号 */,
+      zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
+      zyszgcjg   nvarchar(1000) null/* 中医“四诊”观察结果 */,
+      isNew      bit            NULL,
+      createtime datetime       NULL,
+      gxrq       datetime       NOT NULL,
+      sys_id     varchar(50)    NOT NULL,
+      lsnid      bigint         NULL,
+      isdelete   varchar(8)     NULL
+    )
+    insert into #DC_RYJL_RCYJL_ZYSZGCJG
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_RYJL_RCYJL as a
+           CROSS APPLY dbo.fn_com_split_ext(a.zyszgcjg, @regex) _0
 
-    --申明游标为,需要加时间范围
-    declare order_cursor cursor for (select yjlxh,
-                                            zyszgcjg,
-                                            rzzybmmc,
-                                            rzzybmdm,
-                                            rzzyzhmc,
-                                            rzzyzhdm,
-                                            rzxyzdmc,
-                                            rzxzzdbm,
-                                            czzybmmc,
-                                            czzybmdm,
-                                            czzyzhmc,
-                                            czzyzhdm,
-                                            czxyzdmc,
-                                            czxyzdbm
-                                     from #HLHT_RYJL_RCYJL)
-    --打开游标--
-    open order_cursor
-    --开始循环游标变量--
-    fetch next from order_cursor
-    into @yjlxh, @zyszgcjg, @rzzybmmc, @rzzybmdm, @rzzyzhmc, @rzzyzhdm, @rzxyzdmc, @rzxzzdbm, @czzybmmc, @czzybmdm, @czzyzhmc, @czzyzhdm, @czxyzdmc, @czxyzdbm
-    while @@FETCH_STATUS = 0 --返回被 FETCH语句执行的最后游标的状态--
-      begin
-        --入院记录－24小时内入出院记录_中医四诊观察结果
-        create table #DC_RYJL_RCYJL_ZYSZGCJG (
-          xh         numeric(12) identity (1, 1)/* 序号  */,
-          yljgdm     varchar(20)    not null/* 医疗机构代码  */,
-          yjlxh      varchar(64)    not null/* 源记录序号 */,
-          zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
-          zyszgcjg   nvarchar(1000) null/* 中医“四诊”观察结果 */,
-          isNew      bit            NULL,
-          createtime datetime       NULL,
-          gxrq       datetime       NOT NULL,
-          sys_id     varchar(50)    NOT NULL,
-          lsnid      bigint         NULL,
-          isdelete   varchar(8)     NULL
-        )
-        insert into #DC_RYJL_RCYJL_ZYSZGCJG (yljgdm,
-                                             yjlxh,
-                                             zyjlxh,
-                                             zyszgcjg,
-                                             isNew,
-                                             createtime,
-                                             gxrq,
-                                             sys_id,
-                                             lsnid,
-                                             isdelete)
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(a.id))),
-               @yjlxh,
-               a.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select * from (values (1, @zyszgcjg))t (id, value)) a
-        Merge Into DC_RYJL_RCYJL_ZYSZGCJG _target
-        using #DC_RYJL_RCYJL_ZYSZGCJG _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then Update set
-          _target.yljgdm     = _source.yljgdm,
-          _target.yjlxh      = _source.yjlxh,
-          _target.zyjlxh     = _source.zyjlxh,
-          _target.zyszgcjg   = _source.zyszgcjg,
-          _target.isNew      = _source.isNew,
-          _target.gxrq       = _source.gxrq,
-          _target.createtime = _source.createtime,
-          _target.lsnid      = _source.lsnid,
-          _target.isdelete   = _source.isdelete,
-          _target.sys_id     = _source.sys_id
-        When Not Matched By Target Then Insert
-        (yljgdm, yjlxh, zyjlxh, zyszgcjg, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-        values
-        (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.zyszgcjg, _source.isNew, _source.createtime,
-         _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_RYJL_RCYJL_ZYSZGCJG
+    Merge Into DC_RYJL_RCYJL_ZYSZGCJG _target
+    using #DC_RYJL_RCYJL_ZYSZGCJG _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then Update set
+      _target.yljgdm     = _source.yljgdm,
+      _target.yjlxh      = _source.yjlxh,
+      _target.zyjlxh     = _source.zyjlxh,
+      _target.zyszgcjg   = _source.zyszgcjg,
+      _target.isNew      = _source.isNew,
+      _target.gxrq       = _source.gxrq,
+      _target.createtime = _source.createtime,
+      _target.lsnid      = _source.lsnid,
+      _target.isdelete   = _source.isdelete,
+      _target.sys_id     = _source.sys_id
+    When Not Matched By Target Then Insert
+    (yljgdm, yjlxh, zyjlxh, zyszgcjg, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+    values
+    (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.zyszgcjg, _source.isNew, _source.createtime,
+     _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_RYJL_RCYJL_ZYSZGCJG
 
-        --入院记录－24小时内入出院记录_入院中医诊断
-        create table #DC_RYJL_RCYJL_RYZYZD (
-          xh         numeric(12) identity (1, 1)/* 序号  */,
-          yljgdm     varchar(20)  not null/* 医疗机构代码  */,
-          yjlxh      varchar(64)  not null/* 源记录序号 */,
-          zyjlxh     varchar(64)  null/* 主表原纪录序号 */,
-          rzzybmmc   varchar(128) null/* 入院诊断-中医病名名称 */,
-          rzzybmdm   varchar(64)  null/* 入院诊断-中医病名代码 */,
-          rzzyzhmc   varchar(128) null/* 入院诊断-中医证候名称 */,
-          rzzyzhdm   varchar(64)  null/* 入院诊断-中医证候代码 */,
-          isNew      bit          NULL,
-          createtime datetime     NULL,
-          gxrq       datetime     NOT NULL,
-          sys_id     varchar(50)  NOT NULL,
-          lsnid      bigint       NULL,
-          isdelete   varchar(8)   NULL
-        )
-        insert into #DC_RYJL_RCYJL_RYZYZD
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               _1.value,
-               _2.value,
-               _3.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@rzzybmmc, @regex)) _0,
-             (select id, value from [dbo].[f_splitString](@rzzybmdm, @regex)) _1,
-             (select id, value from [dbo].[f_splitString](@rzzyzhmc, @regex)) _2,
-             (select id, value from [dbo].[f_splitString](@rzzyzhdm, @regex)) _3
-        where _0.id = _1.id
-          and _0.id = _2.id
-          and _0.id = _3.id
+    --入院记录－24小时内入出院记录_入院中医诊断
+    create table #DC_RYJL_RCYJL_RYZYZD (
+      xh         numeric(12) identity (1, 1)/* 序号  */,
+      yljgdm     varchar(20)  not null/* 医疗机构代码  */,
+      yjlxh      varchar(64)  not null/* 源记录序号 */,
+      zyjlxh     varchar(64)  null/* 主表原纪录序号 */,
+      rzzybmmc   varchar(128) null/* 入院诊断-中医病名名称 */,
+      rzzybmdm   varchar(64)  null/* 入院诊断-中医病名代码 */,
+      rzzyzhmc   varchar(128) null/* 入院诊断-中医证候名称 */,
+      rzzyzhdm   varchar(64)  null/* 入院诊断-中医证候代码 */,
+      isNew      bit          NULL,
+      createtime datetime     NULL,
+      gxrq       datetime     NOT NULL,
+      sys_id     varchar(50)  NOT NULL,
+      lsnid      bigint       NULL,
+      isdelete   varchar(8)   NULL
+    )
+    insert into #DC_RYJL_RCYJL_RYZYZD
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,_1.value,_2.value,_3.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_RYJL_RCYJL as a
+           CROSS APPLY dbo.fn_com_split_ext(a.rzzybmmc, @regex) _0
+           CROSS APPLY dbo.fn_com_split_ext(a.rzzybmdm, @regex) _1
+           CROSS APPLY dbo.fn_com_split_ext(a.rzzyzhmc, @regex) _2
+           CROSS APPLY dbo.fn_com_split_ext(a.rzzyzhdm, @regex) _3
+    where 1 = 1 and _0.id = _1.id and _0.id = _2.id and _0.id = _3.id
 
-        Merge Into DC_RYJL_RCYJL_RYZYZD _target
-        using #DC_RYJL_RCYJL_RYZYZD _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm   = _source.yljgdm,
-            _target.yjlxh    = _source.yjlxh,
-            _target.zyjlxh   = _source.zyjlxh,
-            _target.rzzybmmc = _source.rzzybmmc,
-            _target.rzzybmdm = _source.rzzybmdm,
-            _target.rzzyzhmc = _source.rzzyzhmc,
-            _target.rzzyzhdm = _source.rzzyzhdm,
-            _target.gxrq     = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, rzzybmmc, rzzybmdm, rzzyzhmc, rzzyzhdm, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.rzzybmmc, _source.rzzybmdm, _source.rzzyzhmc,
-                                  _source.rzzyzhdm, _source.isNew, _source.createtime, _source.gxrq, _source.sys_id,
-                  _source.lsnid, _source.isdelete);
-        drop table #DC_RYJL_RCYJL_RYZYZD
+    Merge Into DC_RYJL_RCYJL_RYZYZD _target
+    using #DC_RYJL_RCYJL_RYZYZD _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm   = _source.yljgdm,
+        _target.yjlxh    = _source.yjlxh,
+        _target.zyjlxh   = _source.zyjlxh,
+        _target.rzzybmmc = _source.rzzybmmc,
+        _target.rzzybmdm = _source.rzzybmdm,
+        _target.rzzyzhmc = _source.rzzyzhmc,
+        _target.rzzyzhdm = _source.rzzyzhdm,
+        _target.gxrq     = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, rzzybmmc, rzzybmdm, rzzyzhmc, rzzyzhdm, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.rzzybmmc, _source.rzzybmdm, _source.rzzyzhmc,
+                              _source.rzzyzhdm, _source.isNew, _source.createtime, _source.gxrq, _source.sys_id,
+              _source.lsnid, _source.isdelete);
+    drop table #DC_RYJL_RCYJL_RYZYZD
 
-        -- 入院记录－24小时内入出院记录_入院西医诊断
-        create table #DC_RYJL_RCYJL_RYXYZD (
-          xh         numeric(12) identity (1, 1)/* 序号  */,
-          yljgdm     varchar(20)  not null/* 医疗机构代码  */,
-          yjlxh      varchar(64)  not null/* 源记录序号 */,
-          zyjlxh     varchar(64)  null/* 主表原纪录序号 */,
-          rzxyzdmc   varchar(128) not null/* 入院诊断-西医诊断名称 */,
-          rzxzzdbm   varchar(64)  not null/* 入院诊断-西医诊断编码 */,
-          isNew      bit          NULL,
-          createtime datetime     NULL,
-          gxrq       datetime     NOT NULL,
-          sys_id     varchar(50)  NOT NULL,
-          lsnid      bigint       NULL,
-          isdelete   varchar(8)   NULL
-        )
+    -- 入院记录－24小时内入出院记录_入院西医诊断
+    create table #DC_RYJL_RCYJL_RYXYZD (
+      xh         numeric(12) identity (1, 1)/* 序号  */,
+      yljgdm     varchar(20)  not null/* 医疗机构代码  */,
+      yjlxh      varchar(64)  not null/* 源记录序号 */,
+      zyjlxh     varchar(64)  null/* 主表原纪录序号 */,
+      rzxyzdmc   varchar(128) not null/* 入院诊断-西医诊断名称 */,
+      rzxzzdbm   varchar(64)  not null/* 入院诊断-西医诊断编码 */,
+      isNew      bit          NULL,
+      createtime datetime     NULL,
+      gxrq       datetime     NOT NULL,
+      sys_id     varchar(50)  NOT NULL,
+      lsnid      bigint       NULL,
+      isdelete   varchar(8)   NULL
+    )
 
-        insert into #DC_RYJL_RCYJL_RYXYZD
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               _1.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@rzxyzdmc, @regex)) _0,
-             (select id, value from [dbo].[f_splitString](@rzxzzdbm, @regex)) _1
-        where _0.id = _1.id
+    insert into #DC_RYJL_RCYJL_RYXYZD
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,_1.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_RYJL_RCYJL as a
+           CROSS APPLY dbo.fn_com_split_ext(a.rzxyzdmc, @regex) _0
+           CROSS APPLY dbo.fn_com_split_ext(a.rzxzzdbm, @regex) _1
+    where 1 = 1 and _0.id = _1.id
 
-        Merge Into DC_RYJL_RCYJL_RYXYZD _target
-        using #DC_RYJL_RCYJL_RYXYZD _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm   = _source.yljgdm,
-            _target.yjlxh    = _source.yjlxh,
-            _target.zyjlxh   = _source.zyjlxh,
-            _target.rzxyzdmc = _source.rzxyzdmc,
-            _target.rzxzzdbm = _source.rzxzzdbm,
-            _target.gxrq     = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, rzxyzdmc, rzxzzdbm, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.rzxyzdmc, _source.rzxzzdbm, _source.isNew,
-            _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_RYJL_RCYJL_RYXYZD
+    Merge Into DC_RYJL_RCYJL_RYXYZD _target
+    using #DC_RYJL_RCYJL_RYXYZD _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm   = _source.yljgdm,
+        _target.yjlxh    = _source.yjlxh,
+        _target.zyjlxh   = _source.zyjlxh,
+        _target.rzxyzdmc = _source.rzxyzdmc,
+        _target.rzxzzdbm = _source.rzxzzdbm,
+        _target.gxrq     = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, rzxyzdmc, rzxzzdbm, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.rzxyzdmc, _source.rzxzzdbm, _source.isNew,
+        _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_RYJL_RCYJL_RYXYZD
 
-        --入院记录－24小时内入出院记录_出院中医诊断
-        create table #DC_RYJL_RCYJL_CYZYZD (
-          xh         numeric(12) identity (1, 1)/* 序号  */,
-          yljgdm     varchar(20)  not null/* 医疗机构代码  */,
-          yjlxh      varchar(64)  not null/* 源记录序号 */,
-          zyjlxh     varchar(64)  null/* 主表原纪录序号 */,
-          czzybmmc   varchar(128) not null/* 出院诊断-中医病名名称 */,
-          czzybmdm   varchar(64)  not null/* 出院诊断-中医病名代码 */,
-          czzyzhmc   varchar(128) not null/* 出院诊断-中医证候名称 */,
-          czzyzhdm   varchar(64)  not null/* 出院诊断-中医证候代码 */,
-          isNew      bit          NULL,
-          createtime datetime     NULL,
-          gxrq       datetime     NOT NULL,
-          sys_id     varchar(50)  NOT NULL,
-          lsnid      bigint       NULL,
-          isdelete   varchar(8)   NULL
-        )
+    --入院记录－24小时内入出院记录_出院中医诊断
+    create table #DC_RYJL_RCYJL_CYZYZD (
+      xh         numeric(12) identity (1, 1)/* 序号  */,
+      yljgdm     varchar(20)  not null/* 医疗机构代码  */,
+      yjlxh      varchar(64)  not null/* 源记录序号 */,
+      zyjlxh     varchar(64)  null/* 主表原纪录序号 */,
+      czzybmmc   varchar(128) not null/* 出院诊断-中医病名名称 */,
+      czzybmdm   varchar(64)  not null/* 出院诊断-中医病名代码 */,
+      czzyzhmc   varchar(128) not null/* 出院诊断-中医证候名称 */,
+      czzyzhdm   varchar(64)  not null/* 出院诊断-中医证候代码 */,
+      isNew      bit          NULL,
+      createtime datetime     NULL,
+      gxrq       datetime     NOT NULL,
+      sys_id     varchar(50)  NOT NULL,
+      lsnid      bigint       NULL,
+      isdelete   varchar(8)   NULL
+    )
 
-        insert into #DC_RYJL_RCYJL_CYZYZD
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               _1.value,
-               _2.value,
-               _3.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@czzybmmc, @regex)) _0,
-             (select id, value from [dbo].[f_splitString](@czzybmdm, @regex)) _1,
-             (select id, value from [dbo].[f_splitString](@czzyzhmc, @regex)) _2,
-             (select id, value from [dbo].[f_splitString](@czzyzhdm, @regex)) _3
-        where _0.id = _1.id
-          and _0.id = _2.id
-          and _0.id = _3.id
+    insert into #DC_RYJL_RCYJL_CYZYZD
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,_1.value,_2.value,_3.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_RYJL_RCYJL as a
+           CROSS APPLY dbo.fn_com_split_ext(a.czzybmmc, @regex) _0
+           CROSS APPLY dbo.fn_com_split_ext(a.czzybmdm, @regex) _1
+           CROSS APPLY dbo.fn_com_split_ext(a.czzyzhmc, @regex) _2
+           CROSS APPLY dbo.fn_com_split_ext(a.czzyzhdm, @regex) _3
+    where 1 = 1 and _0.id = _1.id and _0.id = _2.id and _0.id = _3.id
 
-        Merge Into DC_RYJL_RCYJL_CYZYZD _target
-        using #DC_RYJL_RCYJL_CYZYZD _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm   = _source.yljgdm,
-            _target.yjlxh    = _source.yjlxh,
-            _target.zyjlxh   = _source.zyjlxh,
-            _target.czzybmmc = _source.czzybmmc,
-            _target.czzybmdm = _source.czzybmdm,
-            _target.czzyzhmc = _source.czzyzhmc,
-            _target.czzyzhdm = _source.czzyzhdm,
-            _target.gxrq     = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, czzybmmc, czzybmdm, czzyzhmc, czzyzhdm, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.czzybmmc, _source.czzybmdm, _source.czzyzhmc,
-                                  _source.czzyzhdm, _source.isNew, _source.createtime, _source.gxrq, _source.sys_id,
-                  _source.lsnid, _source.isdelete);
-        drop table #DC_RYJL_RCYJL_CYZYZD
+    Merge Into DC_RYJL_RCYJL_CYZYZD _target
+    using #DC_RYJL_RCYJL_CYZYZD _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm   = _source.yljgdm,
+        _target.yjlxh    = _source.yjlxh,
+        _target.zyjlxh   = _source.zyjlxh,
+        _target.czzybmmc = _source.czzybmmc,
+        _target.czzybmdm = _source.czzybmdm,
+        _target.czzyzhmc = _source.czzyzhmc,
+        _target.czzyzhdm = _source.czzyzhdm,
+        _target.gxrq     = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, czzybmmc, czzybmdm, czzyzhmc, czzyzhdm, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.czzybmmc, _source.czzybmdm, _source.czzyzhmc,
+                              _source.czzyzhdm, _source.isNew, _source.createtime, _source.gxrq, _source.sys_id,
+              _source.lsnid, _source.isdelete);
+    drop table #DC_RYJL_RCYJL_CYZYZD
 
-        --入院记录－24小时内入出院记录_出院西医诊断
-        create table #DC_RYJL_RCYJL_CYXYZD (
-          xh         numeric(12) identity (1, 1)/* 序号  */,
-          yljgdm     varchar(20)  not null/* 医疗机构代码  */,
-          yjlxh      varchar(64)  not null/* 源记录序号 */,
-          zyjlxh     varchar(64)  null/* 主表原纪录序号 */,
-          czxyzdmc   varchar(128) not null/* 出院诊断-西医诊断名称 */,
-          czxyzdbm   varchar(64)  not null/* 出院诊断-西医诊断编码 */,
-          isNew      bit          NULL,
-          createtime datetime     NULL,
-          gxrq       datetime     NOT NULL,
-          sys_id     varchar(50)  NOT NULL,
-          lsnid      bigint       NULL,
-          isdelete   varchar(8)   NULL
-        )
-        insert into #DC_RYJL_RCYJL_CYXYZD
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               _1.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@czxyzdmc, @regex)) _0,
-             (select id, value from [dbo].[f_splitString](@czxyzdbm, @regex)) _1
-        where _0.id = _1.id
+    --入院记录－24小时内入出院记录_出院西医诊断
+    create table #DC_RYJL_RCYJL_CYXYZD (
+      xh         numeric(12) identity (1, 1)/* 序号  */,
+      yljgdm     varchar(20)  not null/* 医疗机构代码  */,
+      yjlxh      varchar(64)  not null/* 源记录序号 */,
+      zyjlxh     varchar(64)  null/* 主表原纪录序号 */,
+      czxyzdmc   varchar(128) not null/* 出院诊断-西医诊断名称 */,
+      czxyzdbm   varchar(64)  not null/* 出院诊断-西医诊断编码 */,
+      isNew      bit          NULL,
+      createtime datetime     NULL,
+      gxrq       datetime     NOT NULL,
+      sys_id     varchar(50)  NOT NULL,
+      lsnid      bigint       NULL,
+      isdelete   varchar(8)   NULL
+    )
+    insert into #DC_RYJL_RCYJL_CYXYZD
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,_1.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_RYJL_RCYJL as a
+           CROSS APPLY dbo.fn_com_split_ext(a.czxyzdmc, @regex) _0
+           CROSS APPLY dbo.fn_com_split_ext(a.czxyzdbm, @regex) _1
+    where 1 = 1 and _0.id = _1.id
 
-        Merge Into DC_RYJL_RCYJL_CYXYZD _target
-        using #DC_RYJL_RCYJL_CYXYZD _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm   = _source.yljgdm,
-            _target.yjlxh    = _source.yjlxh,
-            _target.zyjlxh   = _source.zyjlxh,
-            _target.czxyzdmc = _source.czxyzdmc,
-            _target.czxyzdbm = _source.czxyzdbm,
-            _target.gxrq     = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, czxyzdmc, czxyzdbm, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.czxyzdmc, _source.czxyzdbm, _source.isNew,
-            _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_RYJL_RCYJL_CYXYZD
+    Merge Into DC_RYJL_RCYJL_CYXYZD _target
+    using #DC_RYJL_RCYJL_CYXYZD _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm   = _source.yljgdm,
+        _target.yjlxh    = _source.yjlxh,
+        _target.zyjlxh   = _source.zyjlxh,
+        _target.czxyzdmc = _source.czxyzdmc,
+        _target.czxyzdbm = _source.czxyzdbm,
+        _target.gxrq     = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, czxyzdmc, czxyzdbm, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.czxyzdmc, _source.czxyzdbm, _source.isNew,
+        _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_RYJL_RCYJL_CYXYZD
 
-        UPDATE A SET A.STATUS=1  FROM HLHT_RYJL_RCYJL A WHERE A.yjlxh = @yjlxh;
-        set @error = @error + @@ERROR   --记录每次运行sql后是否正确，0正确
-        fetch next from order_cursor
-        into @yjlxh, @zyszgcjg, @rzzybmmc, @rzzybmdm, @rzzyzhmc, @rzzyzhdm, @rzxyzdmc, @rzxzzdbm, @czzybmmc, @czzybmdm, @czzyzhmc, @czzyzhdm, @czxyzdmc, @czxyzdbm   --转到下一个游标
-      end
-    if @error = 0
-      begin
-        commit tran   --提交事务
-      end
-    else
-      begin
-        rollback tran --回滚事务
-        close order_cursor  --关闭游标
-        deallocate order_cursor  --关闭游标
-      end
+    UPDATE A SET A.STATUS = '1'  FROM HLHT_RYJL_RCYJL A,#HLHT_RYJL_RCYJL B WHERE A.yjlxh = B.yjlxh;
+
     drop table #HLHT_RYJL_RCYJL
-    close order_cursor  --关闭游标
-    deallocate order_cursor --释放游标
   end

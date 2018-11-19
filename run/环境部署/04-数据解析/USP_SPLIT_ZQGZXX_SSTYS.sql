@@ -1,3 +1,10 @@
+USE [HOSPITAL_DW]
+GO
+/****** Object:  StoredProcedure [dbo].[USP_SPLIT_ZQGZXX_SSTYS]    Script Date: 2018/11/19 9:26:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 /**
  * @author chensj
  * @title  知情告知信息－手术同意书
@@ -18,17 +25,8 @@ as
       drop table #DC_ZQGZXX_SSTYS_NSSSS
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_ZQGZXX_SSTYS_SQZD'))
       drop table #DC_ZQGZXX_SSTYS_SQZD
-    declare @error int
-    -- 知情告知信息－手术同意书
-    declare @yjlxh as nvarchar(max)
-    --知情告知信息－手术同意书_拟实施手术
-    declare @nssbm as nvarchar(max), @nssczmc as nvarchar(max), @nssrq as datetime, @sszz as nvarchar(max), @ssjjz as nvarchar(max), @ssfs as nvarchar(max), @nmzdm as nvarchar(max), @nmzffmc as nvarchar(max), @sqzb as nvarchar(max)
-    --知情告知信息－手术同意书_术前诊断
-    declare @sqzd as nvarchar(max), @sqzdmc as nvarchar(max)
-    set @error = 0
-    begin tran  --申明事务
     -- 创建临时表
-    select * into #HLHT_ZQGZXX_SSTYS from HLHT_ZQGZXX_SSTYS where STATUS = 0;
+    select * into #HLHT_ZQGZXX_SSTYS from HLHT_ZQGZXX_SSTYS where STATUS = '0';
     -- 主表操作
     create table #DC_ZQGZXX_SSTYS (
       xh         numeric(12) identity (1, 1)/* 序号  */,
@@ -185,179 +183,114 @@ as
                                                              _source.createtime, _source.gxrq, _source.sys_id,
               _source.lsnid, _source.isdelete);
     drop table #DC_ZQGZXX_SSTYS
+    --知情告知信息－手术同意书_拟实施手术
+    create table #DC_ZQGZXX_SSTYS_NSSSS (
+      xh         numeric(12) identity (1, 1)/* 序号  */,
+      yljgdm     varchar(20)    not null/* 医疗机构代码  */,
+      yjlxh      varchar(64)    not null/* 源记录序号 */,
+      zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
+      nssbm      varchar(64)    not null/* 拟实施手术及操作编码 */,
+      nssczmc    varchar(128)   not null/* 拟实施手术及操作名称 */,
+      nssrq      datetime       not null/* 拟实施手术及操作日期时间 */,
+      sszz       nvarchar(500)  not null/* 手术指征 */,
+      ssjjz      nvarchar(100)  not null/* 手术禁忌症 */,
+      ssfs       varchar(30)    not null/* 手术方式 */,
+      nmzdm      varchar(2)     not null/* 拟实施麻醉方法代码 */,
+      nmzffmc    varchar(30)    not null/* 拟实施麻醉方法名称 */,
+      sqzb       nvarchar(1000) not null/* 术前准备 */,
+      isNew      bit            NULL,
+      createtime datetime       NULL,
+      gxrq       datetime       NOT NULL,
+      sys_id     varchar(50)    NOT NULL,
+      lsnid      bigint         NULL,
+      isdelete   varchar(8)     NULL
+    )
 
-    --申明游标为,需要加时间范围
-    declare order_cursor cursor for (select yjlxh,
-                                            nssbm,
-                                            nssczmc,
-                                            nssrq,
-                                            sszz,
-                                            ssjjz,
-                                            ssfs,
-                                            nmzdm,
-                                            nmzffmc,
-                                            sqzb,
-                                            sqzd,
-                                            sqzdmc
-                                     from #HLHT_ZQGZXX_SSTYS)
-    --打开游标--
-    open order_cursor
-    --开始循环游标变量--
-    fetch next from order_cursor
-    into @yjlxh, @nssbm, @nssczmc, @nssrq, @sszz, @ssjjz, @ssfs, @nmzdm, @nmzffmc, @sqzb, @sqzd, @sqzdmc
-    while @@FETCH_STATUS = 0 --返回被 FETCH语句执行的最后游标的状态--
-      begin
-        --知情告知信息－手术同意书_拟实施手术
-        create table #DC_ZQGZXX_SSTYS_NSSSS (
-          xh         numeric(12) identity (1, 1)/* 序号  */,
-          yljgdm     varchar(20)    not null/* 医疗机构代码  */,
-          yjlxh      varchar(64)    not null/* 源记录序号 */,
-          zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
-          nssbm      varchar(64)    not null/* 拟实施手术及操作编码 */,
-          nssczmc    varchar(128)   not null/* 拟实施手术及操作名称 */,
-          nssrq      datetime       not null/* 拟实施手术及操作日期时间 */,
-          sszz       nvarchar(500)  not null/* 手术指征 */,
-          ssjjz      nvarchar(100)  not null/* 手术禁忌症 */,
-          ssfs       varchar(30)    not null/* 手术方式 */,
-          nmzdm      varchar(2)     not null/* 拟实施麻醉方法代码 */,
-          nmzffmc    varchar(30)    not null/* 拟实施麻醉方法名称 */,
-          sqzb       nvarchar(1000) not null/* 术前准备 */,
-          isNew      bit            NULL,
-          createtime datetime       NULL,
-          gxrq       datetime       NOT NULL,
-          sys_id     varchar(50)    NOT NULL,
-          lsnid      bigint         NULL,
-          isdelete   varchar(8)     NULL
-        )
+    insert into #DC_ZQGZXX_SSTYS_NSSSS
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,_1.value,_2.value,_3.value,_4.value,
+           _5.value,_6.value,_7.value,_8.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_ZQGZXX_SSTYS as a
+           CROSS APPLY dbo.fn_com_split_ext(a.nssbm, @regex) _0
+           CROSS APPLY dbo.fn_com_split_ext(a.nssczmc, @regex) _1
+           CROSS APPLY dbo.fn_com_split_ext(a.nssrq, @regex) _2
+           CROSS APPLY dbo.fn_com_split_ext(a.sszz, @regex) _3
+           CROSS APPLY dbo.fn_com_split_ext(a.ssjjz, @regex) _4
+           CROSS APPLY dbo.fn_com_split_ext(a.ssfs, @regex) _5
+           CROSS APPLY dbo.fn_com_split_ext(a.nmzdm, @regex) _6
+           CROSS APPLY dbo.fn_com_split_ext(a.nmzffmc, @regex) _7
+           CROSS APPLY dbo.fn_com_split_ext(a.sqzb, @regex) _8
+    where 1 = 1 and _0.id = _1.id and _0.id = _2.id and _0.id = _3.id and _0.id = _4.id and _0.id = _5.id
+      and _0.id = _6.id and _0.id = _7.id and _0.id = _8.id
 
-        insert into #DC_ZQGZXX_SSTYS_NSSSS
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               _1.value,
-               convert(datetime,_2.value),
-               _3.value,
-               _4.value,
-               _5.value,
-               _6.value,
-               _7.value,
-               _8.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@nssbm, @regex)) _0,
-             (select id, value from [dbo].[f_splitString](@nssczmc, @regex)) _1,
-             (select id, value from [dbo].[f_splitString](convert(varchar(100),@nssrq,120), @regex)) _2,  --datetime 转换varchar
-             (select id, value from [dbo].[f_splitString](@sszz, @regex)) _3,
-             (select id, value from [dbo].[f_splitString](@ssjjz, @regex)) _4,
-             (select id, value from [dbo].[f_splitString](@ssfs, @regex)) _5,
-             (select id, value from [dbo].[f_splitString](@nmzdm, @regex)) _6,
-             (select id, value from [dbo].[f_splitString](@nmzffmc, @regex)) _7,
-             (select id, value from [dbo].[f_splitString](@sqzb, @regex)) _8
-        where 1 = 1
-          and _0.id = _1.id
-          and _0.id = _2.id
-          and _0.id = _3.id
-          and _0.id = _4.id
-          and _0.id = _5.id
-          and _0.id = _6.id
-          and _0.id = _7.id
-          and _0.id = _8.id
+    Merge Into DC_ZQGZXX_SSTYS_NSSSS _target
+    using #DC_ZQGZXX_SSTYS_NSSSS _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm  = _source.yljgdm,
+        _target.yjlxh   = _source.yjlxh,
+        _target.zyjlxh  = _source.zyjlxh,
+        _target.nssbm   = _source.nssbm,
+        _target.nssczmc = _source.nssczmc,
+        _target.nssrq   = _source.nssrq,
+        _target.sszz    = _source.sszz,
+        _target.ssjjz   = _source.ssjjz,
+        _target.ssfs    = _source.ssfs,
+        _target.nmzdm   = _source.nmzdm,
+        _target.nmzffmc = _source.nmzffmc,
+        _target.sqzb    = _source.sqzb,
+        _target.gxrq    = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, nssbm, nssczmc, nssrq, sszz, ssjjz, ssfs, nmzdm, nmzffmc, sqzb, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values
+      (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.nssbm, _source.nssczmc, _source.nssrq, _source.sszz,
+                       _source.ssjjz, _source.ssfs, _source.nmzdm, _source.nmzffmc, _source.sqzb, _source.isNew,
+       _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_ZQGZXX_SSTYS_NSSSS
+    --知情告知信息－手术同意书_术前诊断
+    create table #DC_ZQGZXX_SSTYS_SQZD (
+      xh         numeric(12) identity (1, 1)/* 序号  */,
+      yljgdm     varchar(20)  not null/* 医疗机构代码  */,
+      yjlxh      varchar(64)  not null/* 源记录序号 */,
+      zyjlxh     varchar(64)  null/* 主表原纪录序号 */,
+      sqzd       varchar(64)  not null/* 术前诊断编码 */,
+      sqzdmc     varchar(128) not null/* 术前诊断名称 */,
+      isNew      bit          NULL,
+      createtime datetime     NULL,
+      gxrq       datetime     NOT NULL,
+      sys_id     varchar(50)  NOT NULL,
+      lsnid      bigint       NULL,
+      isdelete   varchar(8)   NULL
+    )
 
-        Merge Into DC_ZQGZXX_SSTYS_NSSSS _target
-        using #DC_ZQGZXX_SSTYS_NSSSS _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm  = _source.yljgdm,
-            _target.yjlxh   = _source.yjlxh,
-            _target.zyjlxh  = _source.zyjlxh,
-            _target.nssbm   = _source.nssbm,
-            _target.nssczmc = _source.nssczmc,
-            _target.nssrq   = _source.nssrq,
-            _target.sszz    = _source.sszz,
-            _target.ssjjz   = _source.ssjjz,
-            _target.ssfs    = _source.ssfs,
-            _target.nmzdm   = _source.nmzdm,
-            _target.nmzffmc = _source.nmzffmc,
-            _target.sqzb    = _source.sqzb,
-            _target.gxrq    = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, nssbm, nssczmc, nssrq, sszz, ssjjz, ssfs, nmzdm, nmzffmc, sqzb, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values
-          (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.nssbm, _source.nssczmc, _source.nssrq, _source.sszz,
-                           _source.ssjjz, _source.ssfs, _source.nmzdm, _source.nmzffmc, _source.sqzb, _source.isNew,
-           _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_ZQGZXX_SSTYS_NSSSS
-        --知情告知信息－手术同意书_术前诊断
-        create table #DC_ZQGZXX_SSTYS_SQZD (
-          xh         numeric(12) identity (1, 1)/* 序号  */,
-          yljgdm     varchar(20)  not null/* 医疗机构代码  */,
-          yjlxh      varchar(64)  not null/* 源记录序号 */,
-          zyjlxh     varchar(64)  null/* 主表原纪录序号 */,
-          sqzd       varchar(64)  not null/* 术前诊断编码 */,
-          sqzdmc     varchar(128) not null/* 术前诊断名称 */,
-          isNew      bit          NULL,
-          createtime datetime     NULL,
-          gxrq       datetime     NOT NULL,
-          sys_id     varchar(50)  NOT NULL,
-          lsnid      bigint       NULL,
-          isdelete   varchar(8)   NULL
-        )
+    insert into #DC_ZQGZXX_SSTYS_SQZD
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,_1.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_ZQGZXX_SSTYS as a
+           CROSS APPLY dbo.fn_com_split_ext(a.sqzd, @regex) _0
+           CROSS APPLY dbo.fn_com_split_ext(a.sqzdmc, @regex) _1
+    where 1 = 1 and _0.id = _1.id
 
-        insert into #DC_ZQGZXX_SSTYS_SQZD
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               _1.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@sqzd, @regex)) _0,
-             (select id, value from [dbo].[f_splitString](@sqzdmc, @regex)) _1
-        where 1 = 1
-          and _0.id = _1.id
+    Merge Into DC_ZQGZXX_SSTYS_SQZD _target
+    using #DC_ZQGZXX_SSTYS_SQZD _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm = _source.yljgdm,
+        _target.yjlxh  = _source.yjlxh,
+        _target.zyjlxh = _source.zyjlxh,
+        _target.sqzd   = _source.sqzd,
+        _target.sqzdmc = _source.sqzdmc,
+        _target.gxrq   = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, sqzd, sqzdmc, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.sqzd, _source.sqzdmc, _source.isNew,
+        _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_ZQGZXX_SSTYS_SQZD
 
-        Merge Into DC_ZQGZXX_SSTYS_SQZD _target
-        using #DC_ZQGZXX_SSTYS_SQZD _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm = _source.yljgdm,
-            _target.yjlxh  = _source.yjlxh,
-            _target.zyjlxh = _source.zyjlxh,
-            _target.sqzd   = _source.sqzd,
-            _target.sqzdmc = _source.sqzdmc,
-            _target.gxrq   = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, sqzd, sqzdmc, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.sqzd, _source.sqzdmc, _source.isNew,
-            _source.createtime, _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_ZQGZXX_SSTYS_SQZD
-
-        UPDATE A SET A.STATUS = 1 FROM HLHT_ZQGZXX_SSTYS A WHERE A.yjlxh = @yjlxh;
-        set @error = @error + @@ERROR   --记录每次运行sql后是否正确，0正确
-        fetch next from order_cursor into @yjlxh, @nssbm, @nssczmc, @nssrq, @sszz, @ssjjz, @ssfs, @nmzdm, @nmzffmc, @sqzb, @sqzd, @sqzdmc  --转到下一个游标
-      end
-    if @error = 0
-      begin
-        commit tran   --提交事务
-      end
-    else
-      begin
-        rollback tran --回滚事务
-        close order_cursor  --关闭游标
-        deallocate order_cursor  --关闭游标
-      end
+    UPDATE A SET A.STATUS='1'  FROM HLHT_ZQGZXX_SSTYS A,#HLHT_ZQGZXX_SSTYS B WHERE A.yjlxh = B.yjlxh;
     drop table #HLHT_ZQGZXX_SSTYS
-    close order_cursor  --关闭游标
-    deallocate order_cursor --释放游标
   end

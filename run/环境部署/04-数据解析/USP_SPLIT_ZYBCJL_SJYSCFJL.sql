@@ -1,12 +1,19 @@
+USE [HOSPITAL_DW]
+GO
+/****** Object:  StoredProcedure [dbo].[USP_SPLIT_ZYBCJL_SJYSCFJL]    Script Date: 2018/11/19 9:26:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 /**
  * @author chensj
  * @title  住院病程记录－上级医师查房记录
  * @email chensj@winning.com.cn
- * @package 
+ * @package
  * @date: 2018-11-16 12:15
  * exec USP_SPLIT_ZYBCJL_SJYSCFJL '12345678','  '
  */
-create PROCEDURE [dbo].[USP_SPLIT_ZYBCJL_SJYSCFJL]
+ALTER PROCEDURE [dbo].[USP_SPLIT_ZYBCJL_SJYSCFJL]
     @yljgdm varchar(20), --医疗机构代码
     @regex  varchar(20)  --分割符
 as
@@ -24,7 +31,7 @@ as
     set @error = 0
     begin tran  --申明事务
     -- 创建临时表
-    select * into #HLHT_ZYBCJL_SJYSCFJL from HLHT_ZYBCJL_SJYSCFJL where STATUS = 0;
+    select * into #HLHT_ZYBCJL_SJYSCFJL from HLHT_ZYBCJL_SJYSCFJL where STATUS = '0';
     -- 主表操作
     create table #DC_ZYBCJL_SJYSCFJL (
       xh         numeric(12) identity (1, 1)/* 序号  */,
@@ -68,6 +75,7 @@ as
       lsnid      bigint         NULL,
       isdelete   varchar(8)     NULL
     )
+
     insert into #DC_ZYBCJL_SJYSCFJL
     select @yljgdm,
            CONVERT(varchar(64), jzlsh),
@@ -109,6 +117,7 @@ as
            0,
            '0'
     from #HLHT_ZYBCJL_SJYSCFJL
+
     Merge Into DC_ZYBCJL_SJYSCFJL _target
     using #DC_ZYBCJL_SJYSCFJL _source
     on (_target.yjlxh = _source.yjlxh)
@@ -184,6 +193,7 @@ as
           lsnid      bigint         NULL,
           isdelete   varchar(8)     NULL
         )
+
         insert into #DC_ZYBCJL_SJYSCFJL_ZYSZGCJG
         select @yljgdm,
                ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
@@ -197,6 +207,7 @@ as
                '0'
         from (select * from (values (1, @zyszgcjg))t (id, value)) _0
         where 1 = 1
+
         Merge Into DC_ZYBCJL_SJYSCFJL_ZYSZGCJG _target
         using #DC_ZYBCJL_SJYSCFJL_ZYSZGCJG _source
         on (_target.yjlxh = _source.yjlxh)
@@ -213,7 +224,7 @@ as
                   _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
         drop table #DC_ZYBCJL_SJYSCFJL_ZYSZGCJG
 
-        UPDATE A SET A.STATUS = 1 FROM HLHT_ZYBCJL_SJYSCFJL A WHERE A.yjlxh = @yjlxh;
+        UPDATE A SET A.STATUS = '1' FROM HLHT_ZYBCJL_SJYSCFJL A WHERE A.yjlxh = @yjlxh;
         set @error = @error + @@ERROR   --记录每次运行sql后是否正确，0正确
         fetch next from order_cursor
         into @yjlxh, @zyszgcjg   --转到下一个游标
@@ -225,6 +236,7 @@ as
     else
       begin
         rollback tran --回滚事务
+        drop table #HLHT_ZYBCJL_SJYSCFJL
         close order_cursor  --关闭游标
         deallocate order_cursor  --关闭游标
       end

@@ -1,3 +1,10 @@
+USE [HOSPITAL_DW]
+GO
+/****** Object:  StoredProcedure [dbo].[USP_SPLIT_BLGY_JBJKXX]    Script Date: 2018/11/19 9:24:56 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 /**
  * @author chensj
  * @title 病历概要 — 基本健康信息
@@ -5,7 +12,7 @@
  * @package  exec USP_SPLIT_BLGY_JBJKXX '12345678','  '
  * @date: 2018-11-16 12:41
  */
-alter procedure [dbo].[USP_SPLIT_BLGY_JBJKXX]
+ALTER procedure [dbo].[USP_SPLIT_BLGY_JBJKXX]
     @yljgdm varchar(20), --医疗机构代码
     @regex  varchar(20)  --分割符
 as
@@ -29,15 +36,8 @@ as
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_BLGY_JBJKXX_YFJZS'))
       drop table #DC_BLGY_JBJKXX_YFJZS
 
-    declare @error int
-    --病历概要 — 基本健康信息
-    declare @yjlxh as nvarchar(max)
-    --病历概要 — 基本健康信息_传染病史 过敏史 疾病史  家族史 手术史 婚育史 预防接种史
-    declare @crbs as nvarchar(max), @gms as nvarchar(max), @jbs as nvarchar(max), @jzs as nvarchar(max), @sss as nvarchar(max), @hys as nvarchar(max), @yfjzs as nvarchar(max)
-    set @error = 0
-    begin tran  --申明事务
     -- 创建临时表
-    select * into #HLHT_BLGY_JBJKXX from HLHT_BLGY_JBJKXX where STATUS = 0;
+    select * into #HLHT_BLGY_JBJKXX from HLHT_BLGY_JBJKXX where STATUS = '0';
     -- 主表操作
     create table #DC_BLGY_JBJKXX (
       xh         numeric(12) identity (1, 1)/* 序号 */,
@@ -129,339 +129,276 @@ as
                                                                                       _source.isNew, _source.createtime,
               _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
     drop table #DC_BLGY_JBJKXX
-    --申明游标为,需要加时间范围
-    declare order_cursor cursor for (select yjlxh, crbs, gms, jbs, jzs, sss, hys, yfjzs from #HLHT_BLGY_JBJKXX)
-    --打开游标--
-    open order_cursor
-    --开始循环游标变量--
-    fetch next from order_cursor
-    into @yjlxh, @crbs, @gms, @jbs, @jzs, @sss, @hys, @yfjzs
-    while @@FETCH_STATUS = 0 --返回被 FETCH语句执行的最后游标的状态--
-      begin
-        -- 病历概要 — 基本健康信息_传染病史
-        create table #DC_BLGY_JBJKXX_CRBS (
-          xh         numeric(12) identity (1, 1)/* 序号 */,
-          yljgdm     varchar(20)    not null/* 医疗机构代码 */,
-          yjlxh      varchar(64)    not null/* 源记录序号 */,
-          zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
-          crbs       nvarchar(1000) not null/* 传染病史 */,
-          isNew      bit            NULL,
-          createtime datetime       NULL,
-          gxrq       datetime       NOT NULL,
-          sys_id     varchar(50)    NOT NULL,
-          lsnid      bigint         NULL,
-          isdelete   varchar(8)     NULL
-        )
-        insert into #DC_BLGY_JBJKXX_CRBS
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@crbs, @regex)) _0
-        where 1 = 1
-        Merge Into DC_BLGY_JBJKXX_CRBS _target
-        using #DC_BLGY_JBJKXX_CRBS _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm = _source.yljgdm,
-            _target.yjlxh  = _source.yjlxh,
-            _target.zyjlxh = _source.zyjlxh,
-            _target.crbs   = _source.crbs,
-            _target.gxrq   = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, crbs, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values
-          (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.crbs, _source.isNew, _source.createtime, _source.gxrq,
-           _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_BLGY_JBJKXX_CRBS
-        -- 病历概要 — 基本健康信息_过敏史
-        create table #DC_BLGY_JBJKXX_GMS (
-          xh         numeric(12) identity (1, 1)/* 序号 */,
-          yljgdm     varchar(20)    not null/* 医疗机构代码 */,
-          yjlxh      varchar(64)    not null/* 源记录序号 */,
-          zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
-          gms        nvarchar(1000) not null/* 过敏史 */,
-          isNew      bit            NULL,
-          createtime datetime       NULL,
-          gxrq       datetime       NOT NULL,
-          sys_id     varchar(50)    NOT NULL,
-          lsnid      bigint         NULL,
-          isdelete   varchar(8)     NULL
-        )
-        insert into #DC_BLGY_JBJKXX_GMS
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@gms, @regex)) _0
-        where 1 = 1
-        Merge Into DC_BLGY_JBJKXX_GMS _target
-        using #DC_BLGY_JBJKXX_GMS _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm = _source.yljgdm,
-            _target.yjlxh  = _source.yjlxh,
-            _target.zyjlxh = _source.zyjlxh,
-            _target.gms    = _source.gms,
-            _target.gxrq   = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, gms, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values
-          (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.gms, _source.isNew, _source.createtime, _source.gxrq,
-           _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_BLGY_JBJKXX_GMS
-        -- 病历概要 — 基本健康信息_疾病史
-        create table #DC_BLGY_JBJKXX_JBS (
-          xh         numeric(12) identity (1, 1)/* 序号 */,
-          yljgdm     varchar(20)    not null/* 医疗机构代码 */,
-          yjlxh      varchar(64)    not null/* 源记录序号 */,
-          zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
-          jbs        nvarchar(1000) not null/* 疾病史（含外伤） */,
-          isNew      bit            NULL,
-          createtime datetime       NULL,
-          gxrq       datetime       NOT NULL,
-          sys_id     varchar(50)    NOT NULL,
-          lsnid      bigint         NULL,
-          isdelete   varchar(8)     NULL
-        )
-        insert into #DC_BLGY_JBJKXX_JBS
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@jbs, @regex)) _0
-        where 1 = 1
-        Merge Into DC_BLGY_JBJKXX_JBS _target
-        using #DC_BLGY_JBJKXX_JBS _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm = _source.yljgdm,
-            _target.yjlxh  = _source.yjlxh,
-            _target.zyjlxh = _source.zyjlxh,
-            _target.jbs    = _source.jbs,
-            _target.gxrq   = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, jbs, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values
-          (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.jbs, _source.isNew, _source.createtime, _source.gxrq,
-           _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_BLGY_JBJKXX_JBS
-        -- 病历概要 — 基本健康信息_家族史
-        create table #DC_BLGY_JBJKXX_JZ_JZS (
-          xh         numeric(12) identity (1, 1)/* 序号 */,
-          yljgdm     varchar(20)    not null/* 医疗机构代码 */,
-          yjlxh      varchar(64)    not null/* 源记录序号 */,
-          zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
-          jzs        nvarchar(1000) not null/* 家族史 */,
-          isNew      bit            NULL,
-          createtime datetime       NULL,
-          gxrq       datetime       NOT NULL,
-          sys_id     varchar(50)    NOT NULL,
-          lsnid      bigint         NULL,
-          isdelete   varchar(8)     NULL
-        )
-        insert into #DC_BLGY_JBJKXX_JZ_JZS
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@jzs, @regex)) _0
-        where 1 = 1
-        Merge Into DC_BLGY_JBJKXX_JZ_JZS _target
-        using #DC_BLGY_JBJKXX_JZ_JZS _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm = _source.yljgdm,
-            _target.yjlxh  = _source.yjlxh,
-            _target.zyjlxh = _source.zyjlxh,
-            _target.jzs    = _source.jzs,
-            _target.gxrq   = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, jzs, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values
-          (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.jzs, _source.isNew, _source.createtime, _source.gxrq,
-           _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_BLGY_JBJKXX_JZ_JZS
-        -- 病历概要 — 基本健康信息_手术史
-        create table #DC_BLGY_JBJKXX_SSS (
-          xh         numeric(12) identity (1, 1)/* 序号 */,
-          yljgdm     varchar(20)    not null/* 医疗机构代码 */,
-          yjlxh      varchar(64)    not null/* 源记录序号 */,
-          zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
-          sss        nvarchar(1000) not null/* 手术史 */,
-          isNew      bit            NULL,
-          createtime datetime       NULL,
-          gxrq       datetime       NOT NULL,
-          sys_id     varchar(50)    NOT NULL,
-          lsnid      bigint         NULL,
-          isdelete   varchar(8)     NULL
-        )
 
-        insert into #DC_BLGY_JBJKXX_SSS
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@sss, @regex)) _0
-        where 1 = 1
+    -- 病历概要 — 基本健康信息_传染病史
+    create table #DC_BLGY_JBJKXX_CRBS (
+      xh         numeric(12) identity (1, 1)/* 序号 */,
+      yljgdm     varchar(20)    not null/* 医疗机构代码 */,
+      yjlxh      varchar(64)    not null/* 源记录序号 */,
+      zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
+      crbs       nvarchar(1000) not null/* 传染病史 */,
+      isNew      bit            NULL,
+      createtime datetime       NULL,
+      gxrq       datetime       NOT NULL,
+      sys_id     varchar(50)    NOT NULL,
+      lsnid      bigint         NULL,
+      isdelete   varchar(8)     NULL
+    )
+    insert into #DC_BLGY_JBJKXX_CRBS
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_BLGY_JBJKXX as a
+           CROSS APPLY dbo.fn_com_split_ext(a.crbs, @regex) _0
 
-        Merge Into DC_BLGY_JBJKXX_SSS _target
-        using #DC_BLGY_JBJKXX_SSS _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm = _source.yljgdm,
-            _target.yjlxh  = _source.yjlxh,
-            _target.zyjlxh = _source.zyjlxh,
-            _target.sss    = _source.sss,
-            _target.gxrq   = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, sss, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values
-          (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.sss, _source.isNew, _source.createtime, _source.gxrq,
-           _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_BLGY_JBJKXX_SSS
+    Merge Into DC_BLGY_JBJKXX_CRBS _target
+    using #DC_BLGY_JBJKXX_CRBS _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm = _source.yljgdm,
+        _target.yjlxh  = _source.yjlxh,
+        _target.zyjlxh = _source.zyjlxh,
+        _target.crbs   = _source.crbs,
+        _target.gxrq   = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, crbs, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values
+      (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.crbs, _source.isNew, _source.createtime, _source.gxrq,
+       _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_BLGY_JBJKXX_CRBS
+    -- 病历概要 — 基本健康信息_过敏史
+    create table #DC_BLGY_JBJKXX_GMS (
+      xh         numeric(12) identity (1, 1)/* 序号 */,
+      yljgdm     varchar(20)    not null/* 医疗机构代码 */,
+      yjlxh      varchar(64)    not null/* 源记录序号 */,
+      zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
+      gms        nvarchar(1000) not null/* 过敏史 */,
+      isNew      bit            NULL,
+      createtime datetime       NULL,
+      gxrq       datetime       NOT NULL,
+      sys_id     varchar(50)    NOT NULL,
+      lsnid      bigint         NULL,
+      isdelete   varchar(8)     NULL
+    )
+    insert into #DC_BLGY_JBJKXX_GMS
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_BLGY_JBJKXX as a
+           CROSS APPLY dbo.fn_com_split_ext(a.gms, @regex) _0
 
-        -- 病历概要 — 基本健康信息_婚育史
-        create table #DC_BLGY_JBJKXX_HYS (
-          xh         numeric(12) identity (1, 1)/* 序号 */,
-          yljgdm     varchar(20)    not null/* 医疗机构代码 */,
-          yjlxh      varchar(64)    not null/* 源记录序号 */,
-          zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
-          hys        nvarchar(1000) not null/* 婚育史 */,
-          isNew      bit            NULL,
-          createtime datetime       NULL,
-          gxrq       datetime       NOT NULL,
-          sys_id     varchar(50)    NOT NULL,
-          lsnid      bigint         NULL,
-          isdelete   varchar(8)     NULL
-        )
+    Merge Into DC_BLGY_JBJKXX_GMS _target
+    using #DC_BLGY_JBJKXX_GMS _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm = _source.yljgdm,
+        _target.yjlxh  = _source.yjlxh,
+        _target.zyjlxh = _source.zyjlxh,
+        _target.gms    = _source.gms,
+        _target.gxrq   = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, gms, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values
+      (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.gms, _source.isNew, _source.createtime, _source.gxrq,
+       _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_BLGY_JBJKXX_GMS
+    -- 病历概要 — 基本健康信息_疾病史
+    create table #DC_BLGY_JBJKXX_JBS (
+      xh         numeric(12) identity (1, 1)/* 序号 */,
+      yljgdm     varchar(20)    not null/* 医疗机构代码 */,
+      yjlxh      varchar(64)    not null/* 源记录序号 */,
+      zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
+      jbs        nvarchar(1000) not null/* 疾病史（含外伤） */,
+      isNew      bit            NULL,
+      createtime datetime       NULL,
+      gxrq       datetime       NOT NULL,
+      sys_id     varchar(50)    NOT NULL,
+      lsnid      bigint         NULL,
+      isdelete   varchar(8)     NULL
+    )
+    insert into #DC_BLGY_JBJKXX_JBS
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_BLGY_JBJKXX as a
+           CROSS APPLY dbo.fn_com_split_ext(a.jbs, @regex) _0
+    where 1 = 1
 
-        insert into #DC_BLGY_JBJKXX_HYS
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@hys, @regex)) _0
-        where 1 = 1
+    Merge Into DC_BLGY_JBJKXX_JBS _target
+    using #DC_BLGY_JBJKXX_JBS _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm = _source.yljgdm,
+        _target.yjlxh  = _source.yjlxh,
+        _target.zyjlxh = _source.zyjlxh,
+        _target.jbs    = _source.jbs,
+        _target.gxrq   = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, jbs, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values
+      (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.jbs, _source.isNew, _source.createtime, _source.gxrq,
+       _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_BLGY_JBJKXX_JBS
+    -- 病历概要 — 基本健康信息_家族史
+    create table #DC_BLGY_JBJKXX_JZ_JZS (
+      xh         numeric(12) identity (1, 1)/* 序号 */,
+      yljgdm     varchar(20)    not null/* 医疗机构代码 */,
+      yjlxh      varchar(64)    not null/* 源记录序号 */,
+      zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
+      jzs        nvarchar(1000) not null/* 家族史 */,
+      isNew      bit            NULL,
+      createtime datetime       NULL,
+      gxrq       datetime       NOT NULL,
+      sys_id     varchar(50)    NOT NULL,
+      lsnid      bigint         NULL,
+      isdelete   varchar(8)     NULL
+    )
+    insert into #DC_BLGY_JBJKXX_JZ_JZS
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_BLGY_JBJKXX as a
+           CROSS APPLY dbo.fn_com_split_ext(a.jzs, @regex) _0
+    where 1 = 1
 
-        Merge Into DC_BLGY_JBJKXX_HYS _target
-        using #DC_BLGY_JBJKXX_HYS _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm = _source.yljgdm,
-            _target.yjlxh  = _source.yjlxh,
-            _target.zyjlxh = _source.zyjlxh,
-            _target.hys    = _source.hys,
-            _target.gxrq   = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, hys, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values
-          (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.hys, _source.isNew, _source.createtime, _source.gxrq,
-           _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_BLGY_JBJKXX_HYS
+    Merge Into DC_BLGY_JBJKXX_JZ_JZS _target
+    using #DC_BLGY_JBJKXX_JZ_JZS _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm = _source.yljgdm,
+        _target.yjlxh  = _source.yjlxh,
+        _target.zyjlxh = _source.zyjlxh,
+        _target.jzs    = _source.jzs,
+        _target.gxrq   = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, jzs, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values
+      (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.jzs, _source.isNew, _source.createtime, _source.gxrq,
+       _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_BLGY_JBJKXX_JZ_JZS
+    -- 病历概要 — 基本健康信息_手术史
+    create table #DC_BLGY_JBJKXX_SSS (
+      xh         numeric(12) identity (1, 1)/* 序号 */,
+      yljgdm     varchar(20)    not null/* 医疗机构代码 */,
+      yjlxh      varchar(64)    not null/* 源记录序号 */,
+      zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
+      sss        nvarchar(1000) not null/* 手术史 */,
+      isNew      bit            NULL,
+      createtime datetime       NULL,
+      gxrq       datetime       NOT NULL,
+      sys_id     varchar(50)    NOT NULL,
+      lsnid      bigint         NULL,
+      isdelete   varchar(8)     NULL
+    )
 
-        -- 病历概要 — 基本健康信息_预防接种史
-        create table #DC_BLGY_JBJKXX_YFJZS (
-          xh         numeric(12) identity (1, 1)/* 序号 */,
-          yljgdm     varchar(20)    not null/* 医疗机构代码 */,
-          yjlxh      varchar(64)    not null/* 源记录序号 */,
-          zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
-          yfjzs      nvarchar(1000) not null/* 预防接种史 */,
-          isNew      bit            NULL,
-          createtime datetime       NULL,
-          gxrq       datetime       NOT NULL,
-          sys_id     varchar(50)    NOT NULL,
-          lsnid      bigint         NULL,
-          isdelete   varchar(8)     NULL
-        )
+    insert into #DC_BLGY_JBJKXX_SSS
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_BLGY_JBJKXX as a
+           CROSS APPLY dbo.fn_com_split_ext(a.sss, @regex) _0
+    where 1 = 1
 
-        insert into #DC_BLGY_JBJKXX_YFJZS
-        select @yljgdm,
-               ltrim(rtrim(@yjlxh)) + ltrim(rtrim(Str(_0.id))),
-               @yjlxh,
-               _0.value,
-               1,
-               getdate(),
-               getdate(),
-               'EMR',
-               0,
-               '0'
-        from (select id, value from [dbo].[f_splitString](@yfjzs, @regex)) _0
-        where 1 = 1
+    Merge Into DC_BLGY_JBJKXX_SSS _target
+    using #DC_BLGY_JBJKXX_SSS _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm = _source.yljgdm,
+        _target.yjlxh  = _source.yjlxh,
+        _target.zyjlxh = _source.zyjlxh,
+        _target.sss    = _source.sss,
+        _target.gxrq   = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, sss, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values
+      (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.sss, _source.isNew, _source.createtime, _source.gxrq,
+       _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_BLGY_JBJKXX_SSS
 
-        Merge Into DC_BLGY_JBJKXX_YFJZS _target
-        using #DC_BLGY_JBJKXX_YFJZS _source
-        on (_target.yjlxh = _source.yjlxh)
-        When Matched Then
-          Update set
-            _target.yljgdm = _source.yljgdm,
-            _target.yjlxh  = _source.yjlxh,
-            _target.zyjlxh = _source.zyjlxh,
-            _target.yfjzs  = _source.yfjzs,
-            _target.gxrq   = getdate()
-        When Not Matched By Target Then
-          Insert (yljgdm, yjlxh, zyjlxh, yfjzs, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
-          values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.yfjzs, _source.isNew, _source.createtime,
-                  _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
-        drop table #DC_BLGY_JBJKXX_YFJZS
-        UPDATE A SET A.STATUS = 1 FROM HLHT_BLGY_JBJKXX A WHERE A.yjlxh = @yjlxh;
-        set @error = @error + @@ERROR   --记录每次运行sql后是否正确，0正确
-        fetch next from order_cursor
-        into @yjlxh, @crbs, @gms, @jbs, @jzs, @sss, @hys, @yfjzs --转到下一个游标
-      end
-    if @error = 0
-      begin
-        commit tran   --提交事务
-      end
-    else
-      begin
-        rollback tran --回滚事务
-        close order_cursor  --关闭游标
-        deallocate order_cursor  --关闭游标
-      end
+    -- 病历概要 — 基本健康信息_婚育史
+    create table #DC_BLGY_JBJKXX_HYS (
+      xh         numeric(12) identity (1, 1)/* 序号 */,
+      yljgdm     varchar(20)    not null/* 医疗机构代码 */,
+      yjlxh      varchar(64)    not null/* 源记录序号 */,
+      zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
+      hys        nvarchar(1000) not null/* 婚育史 */,
+      isNew      bit            NULL,
+      createtime datetime       NULL,
+      gxrq       datetime       NOT NULL,
+      sys_id     varchar(50)    NOT NULL,
+      lsnid      bigint         NULL,
+      isdelete   varchar(8)     NULL
+    )
+
+    insert into #DC_BLGY_JBJKXX_HYS
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_BLGY_JBJKXX as a
+           CROSS APPLY dbo.fn_com_split_ext(a.hys, @regex) _0
+    where 1 = 1
+
+    Merge Into DC_BLGY_JBJKXX_HYS _target
+    using #DC_BLGY_JBJKXX_HYS _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm = _source.yljgdm,
+        _target.yjlxh  = _source.yjlxh,
+        _target.zyjlxh = _source.zyjlxh,
+        _target.hys    = _source.hys,
+        _target.gxrq   = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, hys, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values
+      (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.hys, _source.isNew, _source.createtime, _source.gxrq,
+       _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_BLGY_JBJKXX_HYS
+
+    -- 病历概要 — 基本健康信息_预防接种史
+    create table #DC_BLGY_JBJKXX_YFJZS (
+      xh         numeric(12) identity (1, 1)/* 序号 */,
+      yljgdm     varchar(20)    not null/* 医疗机构代码 */,
+      yjlxh      varchar(64)    not null/* 源记录序号 */,
+      zyjlxh     varchar(64)    null/* 主表原纪录序号 */,
+      yfjzs      nvarchar(1000) not null/* 预防接种史 */,
+      isNew      bit            NULL,
+      createtime datetime       NULL,
+      gxrq       datetime       NOT NULL,
+      sys_id     varchar(50)    NOT NULL,
+      lsnid      bigint         NULL,
+      isdelete   varchar(8)     NULL
+    )
+
+    insert into #DC_BLGY_JBJKXX_YFJZS
+    select
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,1,getdate(),getdate(),'EMR',0,'0'
+    from
+         #HLHT_BLGY_JBJKXX as a
+           CROSS APPLY dbo.fn_com_split_ext(a.yfjzs, @regex) _0
+    where 1 = 1
+
+    Merge Into DC_BLGY_JBJKXX_YFJZS _target
+    using #DC_BLGY_JBJKXX_YFJZS _source
+    on (_target.yjlxh = _source.yjlxh)
+    When Matched Then
+      Update set
+        _target.yljgdm = _source.yljgdm,
+        _target.yjlxh  = _source.yjlxh,
+        _target.zyjlxh = _source.zyjlxh,
+        _target.yfjzs  = _source.yfjzs,
+        _target.gxrq   = getdate()
+    When Not Matched By Target Then
+      Insert (yljgdm, yjlxh, zyjlxh, yfjzs, isNew, createtime, gxrq, sys_id, lsnid, isdelete)
+      values (_source.yljgdm, _source.yjlxh, _source.zyjlxh, _source.yfjzs, _source.isNew, _source.createtime,
+              _source.gxrq, _source.sys_id, _source.lsnid, _source.isdelete);
+    drop table #DC_BLGY_JBJKXX_YFJZS
+    UPDATE A SET A.STATUS = '1' FROM HLHT_BLGY_JBJKXX A,#HLHT_BLGY_JBJKXX B WHERE A.yjlxh = B.yjlxh;
+
     drop table #HLHT_BLGY_JBJKXX
-    close order_cursor  --关闭游标
-    deallocate order_cursor --释放游标
   end
