@@ -1,9 +1,12 @@
 package com.winning.hic.service.impl;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.base.SplitParamsConstants;
+import com.winning.hic.base.utils.*;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,12 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.base.utils.Base64Utils;
-import com.winning.hic.base.utils.HicHelper;
-import com.winning.hic.base.utils.PercentUtil;
-import com.winning.hic.base.utils.ReflectUtil;
-import com.winning.hic.base.utils.StringUtil;
-import com.winning.hic.base.utils.XmlUtil;
 import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
@@ -268,6 +265,8 @@ public class HlhtRyjlRyswjlServiceImpl implements  HlhtRyjlRyswjlService {
                         obj.setSzzyzhmc(bm);
                     }
                 }
+
+                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.RYJL_RYSWJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                 this.createHlhtRyjlRyswjl(obj);
                 //插入日志
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(

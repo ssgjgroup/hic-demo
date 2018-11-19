@@ -2,10 +2,13 @@ package com.winning.hic.service.impl;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.base.SplitParamsConstants;
+import com.winning.hic.base.utils.*;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,11 +17,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.base.utils.Base64Utils;
-import com.winning.hic.base.utils.HicHelper;
-import com.winning.hic.base.utils.PercentUtil;
-import com.winning.hic.base.utils.ReflectUtil;
-import com.winning.hic.base.utils.XmlUtil;
 import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
@@ -143,6 +141,7 @@ public class HlhtZqgzxxSxzltysServiceImpl implements HlhtZqgzxxSxzltysService {
                     String sxblhg = obj.getSxblhg().replaceAll("\\d+","0");
                     obj.setSxblhg(sxblhg);
                     logger.info("Model:{}", obj);
+                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZQGZXX_SXZLTYS),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.hlhtZqgzxxSxzltysDao.insertHlhtZqgzxxSxzltys(obj);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZQGZXX_SXZLTYS_SOURCE_TYPE),

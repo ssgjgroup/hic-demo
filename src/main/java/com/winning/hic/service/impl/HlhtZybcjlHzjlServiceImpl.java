@@ -1,19 +1,17 @@
 package com.winning.hic.service.impl;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.base.SplitParamsConstants;
+import com.winning.hic.base.utils.*;
 import org.dom4j.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.base.utils.Base64Utils;
-import com.winning.hic.base.utils.HicHelper;
-import com.winning.hic.base.utils.PercentUtil;
-import com.winning.hic.base.utils.ReflectUtil;
-import com.winning.hic.base.utils.XmlUtil;
 import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.CommonQueryDao;
@@ -151,6 +149,7 @@ public class HlhtZybcjlHzjlServiceImpl implements  HlhtZybcjlHzjlService {
                             try {
                                 Document document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                                 obj = (HlhtZybcjlHzjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
+                                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_HZJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -164,6 +163,7 @@ public class HlhtZybcjlHzjlServiceImpl implements  HlhtZybcjlHzjlService {
                                 entity = this.getHlhtZybcjlHzjl(entity);
                                 if(entity != null){
                                     entity = (HlhtZybcjlHzjl) HicHelper.initModelValue(mbzDataSetList, document, entity, paramTypeMap);
+                                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_HZJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                                     this.modifyHlhtZybcjlHzjl(entity);
                                 }
 

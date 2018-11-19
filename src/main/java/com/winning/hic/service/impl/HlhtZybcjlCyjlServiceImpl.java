@@ -1,10 +1,13 @@
 package com.winning.hic.service.impl;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.base.SplitParamsConstants;
+import com.winning.hic.base.utils.*;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,11 +16,6 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.base.utils.Base64Utils;
-import com.winning.hic.base.utils.HicHelper;
-import com.winning.hic.base.utils.PercentUtil;
-import com.winning.hic.base.utils.ReflectUtil;
-import com.winning.hic.base.utils.XmlUtil;
 import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
@@ -184,6 +182,9 @@ public class HlhtZybcjlCyjlServiceImpl implements HlhtZybcjlCyjlService {
                             obj.setCzzyzhmc(bm);
                         }
                     }
+
+
+                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_CYJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.hlhtZybcjlCyjlDao.insertHlhtZybcjlCyjl(obj);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZYBCJL_CYJL_SOURCE_TYPE),
