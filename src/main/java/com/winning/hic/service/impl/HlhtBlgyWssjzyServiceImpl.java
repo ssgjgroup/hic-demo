@@ -87,9 +87,6 @@ public class HlhtBlgyWssjzyServiceImpl implements  HlhtBlgyWssjzyService {
         wssjzy.getMap().put("startDate",entity.getMap().get("startDate"));
         wssjzy.getMap().put("endDate",entity.getMap().get("endDate"));
         wssjzy.getMap().put("syxh",entity.getMap().get("syxh"));
-//        List<HlhtBlgyWssjzy> hlhtBlgyWssjzyZyList= this.commonQueryDao.selectBlgyWssjzyZyList(wssjzy);
-//        List<HlhtBlgyWssjzy> hlhtBlgyWssjzyMzList= this.mzCommonQueryDao.selectBlgyWssjzyMzList(wssjzy);
-//        hlhtBlgyWssjzyZyList.addAll(hlhtBlgyWssjzyMzList);
         List<HlhtBlgyWssjzy> hlhtBlgyWssjzyZyList =hlhtBlgyWssjzyDao.selectInitHlhtBlgyWssjzyListByProc(wssjzy);
         for (HlhtBlgyWssjzy obj : hlhtBlgyWssjzyZyList) {
             //清除历史数据
@@ -125,24 +122,5 @@ public class HlhtBlgyWssjzyServiceImpl implements  HlhtBlgyWssjzyService {
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(hlhtBlgyWssjzyZyList.size(),real_count,Integer.parseInt(Constants.WN_BLGY_WSSJZY_SOURCE_TYPE),entity);
         return null;
-
-//             //this.mzCommonQueryDao.insertHlhtBlgyWssjzyAll(wssjzy);
-//        //插入数据集中
-//        int emr_count =0;//病历数量
-//        int real_count=0;//实际数量
-//        HlhtBlgyWssjzy entity2 = new HlhtBlgyWssjzy();
-//        List<HlhtBlgyWssjzy> hlhtBlgyWssjzyList = this.hlhtBlgyWssjzyDao.selectHlhtBlgyWssjzyList(entity2);
-//        emr_count = hlhtBlgyWssjzyList.size();
-//        real_count = hlhtBlgyWssjzyList.size();
-//        //1.病历总数 2.抽取的病历数量 3.子集类型
-//        this.mbzDataCheckService.createMbzDataCheckNum(emr_count,real_count,Integer.parseInt(Constants.WN_BLGY_WSSJZY_SOURCE_TYPE));
-//        //插入日志
-////        mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
-////                Long.parseLong(Constants.WN_BLGY_WSSJZY_SOURCE_TYPE),
-////                Long.parseLong(obj.getYjlxh()),"卫生事件摘要","NA",obj.getCfklrq(),
-////                obj.getPatid(),obj.getMjzh(),obj.getHzxm(),obj.getXbmc(),obj.getXbdm(),
-////                "NA","NA", "NA","NA", obj.getSfzhm()));
-
-
     }
 }

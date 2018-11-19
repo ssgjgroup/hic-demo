@@ -276,57 +276,6 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
 
 
                     }
-
-
-//                            //鉴别诊断-中医病名编码、名称
-//                            if(!"NA".equals(entity.getJzzybmdm())){
-//                                String bmdm="";
-//                                String bm="";
-//                                String[] str=entity.getJzzybmdm().split(",");
-//                                String[] str2=entity.getJzzybmmc().split("、");
-//                                Character o=new Character('B');
-//                                for (int i=0;str.length>i;i++){
-//                                    if(o.equals(str[i].charAt(0))){
-//                                        bmdm = bmdm+str[i]+" ";
-//                                        bm = bm+str2[i]+" ";
-//                                    }
-//                                }
-//                                if(StringUtils.isEmpty(bmdm)){
-//                                    entity.setJzzybmdm("NA");
-//                                }else{
-//                                    entity.setJzzybmdm(bmdm);
-//                                }
-//                                if(StringUtils.isEmpty(bm)){
-//                                    entity.setJzzybmmc("NA");
-//                                }else{
-//                                    entity.setJzzybmmc(bm);
-//                                }
-//                            }
-//                            //鉴别诊断-中医证候编码、名称
-//                            if(!"NA".equals(entity.getJzzyzhbm())){
-//                                String bmdm="";
-//                                String bm="";
-//                                String[] str=entity.getJzzyzhbm().split(",");
-//                                String[] str2=entity.getJzzyzhmc().split("、");
-//                                Character o=new Character('B');
-//                                for (int i=0;str.length>i;i++){
-//                                    if(!o.equals(str[i].charAt(0))){
-//                                        bmdm = bmdm+str[i]+" ";
-//                                        bm = bm+str2[i]+" ";
-//                                    }
-//                                }
-//                                if(StringUtils.isEmpty(bmdm)){
-//                                    entity.setJzzyzhbm("NA");
-//                                }else{
-//                                    entity.setJzzyzhbm(bmdm);
-//                                }
-//                                if(StringUtils.isEmpty(bm)){
-//                                    entity.setJzzyzhmc("NA");
-//                                }else{
-//                                    entity.setJzzyzhmc(bm);
-//                                }
-//                            }
-
                     this.createHlhtZybcjlScbcjl(obj);
                     //插入日志
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
