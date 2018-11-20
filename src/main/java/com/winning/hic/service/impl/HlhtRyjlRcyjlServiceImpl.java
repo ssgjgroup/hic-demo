@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,12 +46,9 @@ public class HlhtRyjlRcyjlServiceImpl implements  HlhtRyjlRcyjlService {
     @Autowired
     private CommonQueryDao commonQueryDao;
     @Autowired
-    private MbzDataListSetService mbzDataListSetService;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetService mbzDataSetService;
-    @Autowired
-    private EmrQtbljlkService emrQtbljlkService;
-
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
     @Autowired
@@ -119,6 +117,8 @@ public class HlhtRyjlRcyjlServiceImpl implements  HlhtRyjlRcyjlService {
         ryjlRcyjl.getMap().put("startDate",entity.getMap().get("startDate"));
         ryjlRcyjl.getMap().put("endDate",entity.getMap().get("endDate"));
         ryjlRcyjl.getMap().put("syxh",entity.getMap().get("syxh"));
+        ryjlRcyjl.getMap().put("yljgdm",entity.getMap().get("yljgdm"));
+        ryjlRcyjl.getMap().put("regex",entity.getMap().get("regex"));
         List<HlhtRyjlRcyjl> hlhtRyjlRcyjlList = this.hlhtRyjlRcyjlDao.selectHlhtRyjlRcyjlListByProc(ryjlRcyjl);
 
         if(hlhtRyjlRcyjlList != null && hlhtRyjlRcyjlList.size() > 0){
@@ -274,6 +274,7 @@ public class HlhtRyjlRcyjlServiceImpl implements  HlhtRyjlRcyjlService {
 
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.RYJL_RCYJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                 this.createHlhtRyjlRcyjl(obj);
+                splitTableDao.selectAnmrRyjlRcyjlSplitByProc(ryjlRcyjl);
                 //插入日志
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                         Long.parseLong(Constants.WN_RYJL_RCYJL_SOURCE_TYPE),

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,12 +47,9 @@ public class HlhtZqgzxxMzzqtysServiceImpl implements HlhtZqgzxxMzzqtysService {
     @Autowired
     private CommonQueryDao commonQueryDao;
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
-
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
 
     @Autowired
     private HlhtZqgzxxMzzqtysDao hlhtZqgzxxMzzqtysDao;
@@ -116,7 +114,8 @@ public class HlhtZqgzxxMzzqtysServiceImpl implements HlhtZqgzxxMzzqtysService {
         hlhtZqgzxxMzzqtysTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtZqgzxxMzzqtysTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtZqgzxxMzzqtysTemp.getMap().put("syxh", t.getMap().get("syxh"));
-
+        hlhtZqgzxxMzzqtysTemp.getMap().put("yljgdm",t.getMap().get("yljgdm"));
+        hlhtZqgzxxMzzqtysTemp.getMap().put("regex",t.getMap().get("regex"));
         //2.根据模板代码去找到对应的病人病历
         List<HlhtZqgzxxMzzqtys> hlhtZqgzxxMzzqtysList = this.hlhtZqgzxxMzzqtysDao.selectHlhtZqgzxxMzzqtysListByProc(hlhtZqgzxxMzzqtysTemp);
 
@@ -144,6 +143,7 @@ public class HlhtZqgzxxMzzqtysServiceImpl implements HlhtZqgzxxMzzqtysService {
                     obj = (HlhtZqgzxxMzzqtys) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                     logger.info("Model:{}", obj);
                     this.hlhtZqgzxxMzzqtysDao.insertHlhtZqgzxxMzzqtys(obj);
+                    this.splitTableDao.selectAnmrZqgzxxMzzqtysSplitByProc(hlhtZqgzxxMzzqtysTemp);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZQGZXX_MZZQTYS_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",

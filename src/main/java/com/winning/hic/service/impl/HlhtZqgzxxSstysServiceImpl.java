@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,13 +44,9 @@ public class HlhtZqgzxxSstysServiceImpl implements HlhtZqgzxxSstysService {
     @Autowired
     private HlhtZqgzxxSstysDao hlhtZqgzxxSstysDao;
     @Autowired
-    private CommonQueryDao commonQueryDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
-    @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
     @Autowired
@@ -114,7 +111,8 @@ public class HlhtZqgzxxSstysServiceImpl implements HlhtZqgzxxSstysService {
         hlht.getMap().put("startDate",entity.getMap().get("startDate"));
         hlht.getMap().put("endDate",entity.getMap().get("endDate"));
         hlht.getMap().put("syxh",entity.getMap().get("syxh"));
-
+        hlht.getMap().put("yljgdm", entity.getMap().get("yljgdm"));
+        hlht.getMap().put("regex", entity.getMap().get("regex"));
         List<HlhtZqgzxxSstys> list = this.hlhtZqgzxxSstysDao.selectHlhtZqgzxxSstysListByProc(hlht);
         if(list != null && list.size() > 0){
             emr_count = emr_count+list.size();
@@ -142,6 +140,7 @@ public class HlhtZqgzxxSstysServiceImpl implements HlhtZqgzxxSstysService {
 
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZQGZXX_SSTYS),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                 this.createHlhtZqgzxxSstys(obj);
+                this.splitTableDao.selectAnmrZqgzxxSstysSplitByProc(hlht);
                 //插入日志
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                         Long.parseLong(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE),

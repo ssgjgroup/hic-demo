@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,10 +18,7 @@ import com.winning.hic.base.utils.PercentUtil;
 import com.winning.hic.base.utils.ReflectUtil;
 import com.winning.hic.base.utils.XmlUtil;
 import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
-import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
-import com.winning.hic.dao.hdw.CommonQueryDao;
-import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtZcjlPgcDao;
 import com.winning.hic.model.HlhtZcjlPgc;
 import com.winning.hic.model.MbzDataCheck;
@@ -49,13 +47,7 @@ public class HlhtZcjlPgcServiceImpl implements  HlhtZcjlPgcService {
     @Autowired
     private MbzDataListSetDao mbzDataListSetDao;
     @Autowired
-    private MbzDataSetDao mbzDataSetDao;
-
-    @Autowired
-    private CommonQueryDao commonQueryDao;
-
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
+    private SplitTableDao splitTableDao;
 
     @Autowired
     private MbzDataSetService mbzDataSetService;
@@ -123,6 +115,8 @@ public class HlhtZcjlPgcServiceImpl implements  HlhtZcjlPgcService {
                 onePgc.getMap().put("startDate",t.getMap().get("startDate"));
                 onePgc.getMap().put("endDate",t.getMap().get("endDate"));
                 onePgc.getMap().put("syxh",t.getMap().get("syxh"));
+                onePgc.getMap().put("yljgdm",t.getMap().get("yljgdm"));
+                onePgc.getMap().put("regex",t.getMap().get("regex"));
                 List<HlhtZcjlPgc> hlhtZcjlPgcs = this.hlhtZcjlPgcDao.selectHlhtZcjlPgcListByProc(onePgc);
                 if(hlhtZcjlPgcs != null){
                     for(HlhtZcjlPgc obj:hlhtZcjlPgcs){
@@ -148,6 +142,7 @@ public class HlhtZcjlPgcServiceImpl implements  HlhtZcjlPgcService {
                         logger.info("Model:{}", obj);
 
                         this.createHlhtZcjlPgc(obj);
+                        this.splitTableDao.selectAnmrZcjlPgcSplitByProc(onePgc);
                         //插入日志
                         mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                                 Long.parseLong(Constants.WN_ZCJL_PGC_SOURCE_TYPE),

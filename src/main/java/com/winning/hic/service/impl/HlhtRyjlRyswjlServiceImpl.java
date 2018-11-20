@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,11 +46,9 @@ public class HlhtRyjlRyswjlServiceImpl implements  HlhtRyjlRyswjlService {
     @Autowired
     private CommonQueryDao commonQueryDao;
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
     @Autowired
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
 
@@ -112,7 +111,8 @@ public class HlhtRyjlRyswjlServiceImpl implements  HlhtRyjlRyswjlService {
         hlht.getMap().put("startDate",entity.getMap().get("startDate"));
         hlht.getMap().put("endDate",entity.getMap().get("endDate"));
         hlht.getMap().put("syxh",entity.getMap().get("syxh"));
-
+        hlht.getMap().put("yljgdm",entity.getMap().get("yljgdm"));
+        hlht.getMap().put("regex",entity.getMap().get("regex"));
         List<HlhtRyjlRyswjl> list = this.hlhtRyjlRyswjlDao.selectHlhtRyjlRyswjlListByProc(hlht);
 
         if(list != null && list.size() > 0){
@@ -268,6 +268,7 @@ public class HlhtRyjlRyswjlServiceImpl implements  HlhtRyjlRyswjlService {
 
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.RYJL_RYSWJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                 this.createHlhtRyjlRyswjl(obj);
+                this.splitTableDao.selectAnmrRyjlRyswjlSplitByProc(hlht);
                 //插入日志
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                         Long.parseLong(Constants.WN_RYJL_RYSWJL_SOURCE_TYPE),

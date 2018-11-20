@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,13 +49,7 @@ public class HlhtMjzblMjzblServiceImpl implements  HlhtMjzblMjzblService {
     @Autowired
     private MbzDataListSetDao mbzDataListSetDao;
     @Autowired
-    private MbzDataSetDao mbzDataSetDao;
-
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
-
-    @Autowired
-    private MZCommonQueryDao mzCommonQueryDao;
+    private SplitTableDao SplitTableDao;
 
     @Autowired
     private MbzDataSetService mbzDataSetService;
@@ -121,6 +116,8 @@ public class HlhtMjzblMjzblServiceImpl implements  HlhtMjzblMjzblService {
                 oneMjzbl.getMap().put("startDate",t.getMap().get("startDate"));
                 oneMjzbl.getMap().put("endDate",t.getMap().get("endDate"));
                 oneMjzbl.getMap().put("syxh",t.getMap().get("syxh"));
+                oneMjzbl.getMap().put("yljgdm",t.getMap().get("yljgdm"));
+                oneMjzbl.getMap().put("regex",t.getMap().get("regex"));
                 List<HlhtMjzblMjzbl> hlhtMjzblMjzbls = this.hlhtMjzblMjzblDao.selectHlhtMjzblMjzblListByProc(oneMjzbl);
             if (hlhtMjzblMjzbls != null) {
                 emr_count = emr_count + hlhtMjzblMjzbls.size();
@@ -145,6 +142,7 @@ public class HlhtMjzblMjzblServiceImpl implements  HlhtMjzblMjzblService {
                     obj.setGmsbz(StringUtil.isEmptyOrNull(obj.getGms())? "F" : "T" );
                     ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.MJZBL_MJZBL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.createHlhtMjzblMjzbl(obj);                    //插入日志
+                    this.SplitTableDao.selectAnmrMjzblMjzblSplitByProc(oneMjzbl);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_MJZBL_MJZBL_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(),  "NA",

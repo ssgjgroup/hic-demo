@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,15 +46,12 @@ public class HlhtZqgzxxBwztzsServiceImpl implements HlhtZqgzxxBwztzsService {
     private CommonQueryDao commonQueryDao;
 
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
 
     @Autowired
     private HlhtZqgzxxBwztzsDao hlhtZqgzxxBwztzsDao;
-
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
 
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
@@ -108,6 +106,8 @@ public class HlhtZqgzxxBwztzsServiceImpl implements HlhtZqgzxxBwztzsService {
         hlhtZqgzxxBwztzsTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtZqgzxxBwztzsTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtZqgzxxBwztzsTemp.getMap().put("syxh", t.getMap().get("syxh"));
+        hlhtZqgzxxBwztzsTemp.getMap().put("yljgdm",t.getMap().get("yljgdm"));
+        hlhtZqgzxxBwztzsTemp.getMap().put("regex",t.getMap().get("regex"));
 
         //2.根据模板代码去找到对应的病人病历
         List<HlhtZqgzxxBwztzs> hlhtZqgzxxBwztzsList = this.hlhtZqgzxxBwztzsDao.selectHlhtZqgzxxBwztzsListByProc(hlhtZqgzxxBwztzsTemp);
@@ -137,6 +137,7 @@ public class HlhtZqgzxxBwztzsServiceImpl implements HlhtZqgzxxBwztzsService {
                     logger.info("Model:{}", obj);
                     ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZQGZXX_BWZTZS),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.hlhtZqgzxxBwztzsDao.insertHlhtZqgzxxBwztzs(obj);
+                    this.splitTableDao.selectAnmrZqgzxxBwztzsSplitByProc(hlhtZqgzxxBwztzsTemp);
                     //插入日志
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZQGZXX_BWZTZS_SOURCE_TYPE),

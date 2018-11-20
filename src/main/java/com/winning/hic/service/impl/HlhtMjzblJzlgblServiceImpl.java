@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,9 +54,7 @@ public class HlhtMjzblJzlgblServiceImpl implements  HlhtMjzblJzlgblService {
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
-    @Autowired
-    private MZEmrQtbljlkDao emrQtbljlkDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDictInfoDao mbzDictInfoDao;
 
@@ -146,6 +145,8 @@ public class HlhtMjzblJzlgblServiceImpl implements  HlhtMjzblJzlgblService {
         hlht.getMap().put("startDate",entity.getMap().get("startDate"));
         hlht.getMap().put("endDate",entity.getMap().get("endDate"));
         hlht.getMap().put("syxh",entity.getMap().get("syxh"));
+        hlht.getMap().put("yljgdm",entity.getMap().get("yljgdm"));
+        hlht.getMap().put("regex",entity.getMap().get("regex"));
 
         List<HlhtMjzblJzlgbl> list = this.hlhtMjzblJzlgblDao.selectHlhtMjzblJzlgblListByProc(hlht);
         if(list != null && list.size() > 0){
@@ -234,6 +235,7 @@ public class HlhtMjzblJzlgblServiceImpl implements  HlhtMjzblJzlgblService {
                     }
                 }
                 this.createHlhtMjzblJzlgbl(obj);
+                this.splitTableDao.selectAnmrMjzblJzlgblSplitByProc(hlht);
                 //插入日志
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                         Long.parseLong(Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE),

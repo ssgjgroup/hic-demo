@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,12 +50,9 @@ public class HlhtZcjlYdfmServiceImpl implements HlhtZcjlYdfmService {
     @Autowired
     private CommonQueryDao commonQueryDao;
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
-
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
     @Autowired
     private HlhtZcjlYdfmDao hlhtZcjlYdfmDao;
     @Autowired
@@ -117,6 +115,8 @@ public class HlhtZcjlYdfmServiceImpl implements HlhtZcjlYdfmService {
         hlhtZcjlYdfmTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtZcjlYdfmTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtZcjlYdfmTemp.getMap().put("syxh", t.getMap().get("syxh"));
+        hlhtZcjlYdfmTemp.getMap().put("yljgdm",t.getMap().get("yljgdm"));
+        hlhtZcjlYdfmTemp.getMap().put("regex",t.getMap().get("regex"));
         List<HlhtZcjlYdfm> hlhtZcjlYdfms = this.hlhtZcjlYdfmDao.selectHlhtZcjlYdfmListByProc(hlhtZcjlYdfmTemp);
         if (hlhtZcjlYdfms != null) {
             emr_count = emr_count + hlhtZcjlYdfms.size();
@@ -142,6 +142,7 @@ public class HlhtZcjlYdfmServiceImpl implements HlhtZcjlYdfmService {
                     obj = (HlhtZcjlYdfm) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                     logger.info("Model:{}", obj);
                     this.hlhtZcjlYdfmDao.insertHlhtZcjlYdfm(obj);
+                    this.splitTableDao.selectAnmrZcjlYdfmSplitByProc(hlhtZcjlYdfmTemp);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZCJL_YDFM_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",

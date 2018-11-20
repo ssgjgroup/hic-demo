@@ -9,6 +9,7 @@ import java.util.Map;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,12 +46,9 @@ public class HlhtZqgzxxSxzltysServiceImpl implements HlhtZqgzxxSxzltysService {
     @Autowired
     private CommonQueryDao commonQueryDao;
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
-
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
     @Autowired
     private HlhtZqgzxxSxzltysDao hlhtZqgzxxSxzltysDao;
     @Autowired
@@ -113,6 +111,8 @@ public class HlhtZqgzxxSxzltysServiceImpl implements HlhtZqgzxxSxzltysService {
         hlhtZqgzxxSxzltysTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtZqgzxxSxzltysTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtZqgzxxSxzltysTemp.getMap().put("syxh", t.getMap().get("syxh"));
+        hlhtZqgzxxSxzltysTemp.getMap().put("yljgdm", t.getMap().get("yljgdm"));
+        hlhtZqgzxxSxzltysTemp.getMap().put("regex", t.getMap().get("regex"));
         //2.根据模板代码去找到对应的病人病历
         List<HlhtZqgzxxSxzltys> hlhtZqgzxxSxzltysList = this.hlhtZqgzxxSxzltysDao.selectHlhtZqgzxxSxzltysListByProc(hlhtZqgzxxSxzltysTemp);
 
@@ -143,6 +143,7 @@ public class HlhtZqgzxxSxzltysServiceImpl implements HlhtZqgzxxSxzltysService {
                     logger.info("Model:{}", obj);
                     ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZQGZXX_SXZLTYS),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.hlhtZqgzxxSxzltysDao.insertHlhtZqgzxxSxzltys(obj);
+                    this.splitTableDao.selectAnmrZqgzxxSxzltysSplitByProc(hlhtZqgzxxSxzltysTemp);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZQGZXX_SXZLTYS_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,7 @@ public class HlhtBlgyJbjkxxServiceImpl implements  HlhtBlgyJbjkxxService {
     @Autowired
     private HlhtBlgyJbjkxxDao hlhtBlgyJbjkxxDao;
     @Autowired
-    private CommonQueryDao commonQueryDao;
-    @Autowired
-    private MZCommonQueryDao mzCommonQueryDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
     @Autowired
@@ -83,6 +82,8 @@ public class HlhtBlgyJbjkxxServiceImpl implements  HlhtBlgyJbjkxxService {
         jbjkxx.getMap().put("startDate",entity.getMap().get("startDate"));
         jbjkxx.getMap().put("endDate",entity.getMap().get("endDate"));
         jbjkxx.getMap().put("syxh",entity.getMap().get("syxh"));
+        jbjkxx.getMap().put("yljgdm",entity.getMap().get("yljgdm"));
+        jbjkxx.getMap().put("regex",entity.getMap().get("regex"));
         jbjkxx.getMap().put("sourceType","1");
         List<HlhtBlgyJbjkxx> jbjkxxListMZ = hlhtBlgyJbjkxxDao.selectHlhtBlgyJbjkxxListByProc(jbjkxx);
         jbjkxx.getMap().put("sourceType","2");
@@ -103,7 +104,7 @@ public class HlhtBlgyJbjkxxServiceImpl implements  HlhtBlgyJbjkxxService {
             logger.info("Model:{}", obj);
             //创建新的数据
             this.hlhtBlgyJbjkxxDao.insertHlhtBlgyJbjkxx(obj);
-
+            this.splitTableDao.selectAnmrBlgyJbjkxxSplitByProc(jbjkxx);
             //插入日志
             mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                     Long.parseLong(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE),

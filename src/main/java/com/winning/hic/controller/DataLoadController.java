@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.base.SplitParamsConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -56,12 +57,17 @@ public class DataLoadController extends BaseController {
     @RequestMapping("/dataLoad/startLoad")
     @ResponseBody
     public Map<String, Object> startLoad(String startDate, String endDate, Integer data_set, String syxh) {
+        MbzDictInfo temp = new MbzDictInfo();
+        temp.setDictCode("hospitalInfoNo");
+        temp = getFacade().getMbzDictInfoService().getMbzDictInfo(temp);
         //数据抽取
         Map<String, Object> result = new HashMap<String, Object>();
         MbzDataCheck entity = new MbzDataCheck();
         entity.getMap().put("startDate", startDate);
         entity.getMap().put("endDate", endDate);
         entity.getMap().put("syxh", syxh);
+        entity.getMap().put("yljgdm",temp.getDictLabel());
+        entity.getMap().put("regex", SplitParamsConstants.SPECIAL_SPLIT_FLAG);
         entity.setIsAutomate(0);
         entity.setSourceType(data_set);
         try {
