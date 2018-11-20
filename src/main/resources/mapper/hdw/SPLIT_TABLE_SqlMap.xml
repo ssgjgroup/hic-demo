@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.winning.hic.dao.hdw.SplitTableDao">
+
+    <select id="selectAnmrBlgyJbjkxxSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_BLGY_JBJKXX #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrCyxjCyxjSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_CYXJ_CYXJ #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrMjzblJzlgblSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_MJZBL_JZLGBL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrMjzblMjzblSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_MJZBL_MJZBL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrRyjlJbxxSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_RYJL_JBXX #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrRyjlRcyjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_RYJL_RCYJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrRyjlRyswjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_RYJL_RYSWJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZcjlPgcSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZCJL_PGC #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZcjlYdfmSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZCJL_YDFM #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZlczjlSxjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZLCZJL_SXJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZlczjlYbssjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZLCZJL_YBSSJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZlczjlZljlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZLCZJL_ZLJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZqgzxxBwztzsSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZQGZXX_BWZTZS #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZqgzxxMzzqtysSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZQGZXX_MZZQTYS #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZqgzxxQtzqtysSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZQGZXX_QTZQTYS #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZqgzxxSstysSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZQGZXX_SSTYS #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZqgzxxSxzltysSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZQGZXX_SXZLTYS #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZqgzxxTsjczltysSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZQGZXX_TSJCZLTYS #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlCyjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_CYJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlHzjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_HZJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlJdxjSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_JDXJ #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlJjbjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_JJBJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlQjjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_QJJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlRcbcjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_RCBCJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlScbcjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_SCBCJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlShscbcjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_SHSCBCJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlSjyscfjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_SJYSCFJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlSqtlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_SQTL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlSqxjSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_SQXJ #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlSwbltljlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_SWBLTLJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlSwjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_SWJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlYnbltljlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_YNBLTLJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZybcjlZkjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZYBCJL_ZKJL #{map.yljgdm}, #{map.regex}
+    </select>
+
+    <select id="selectAnmrZzyjlZzyjlSplitByProc" statementType="CALLABLE">
+        exec USP_SPLIT_ZZYJL_ZZYJL #{map.yljgdm}, #{map.regex}
+    </select>
+</mapper>
