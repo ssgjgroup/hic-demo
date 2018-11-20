@@ -3,6 +3,9 @@ package com.winning.hic.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.winning.hic.model.support.Row;
+import io.swagger.annotations.ApiImplicitParams;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,6 +35,39 @@ public class CommonQueryController extends BaseController {
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("status", Constants.SUCCESS);
         result.put("data", getFacade().getMbzDictInfoService().getMbzDictInfoList(dictInfo));
+        return result;
+    }
+
+    @ApiOperation(value = "/common/ptList",notes = "加载显示CIS子集病历代码信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam( name = "字典代码(dictCode)",value = "dictInfo",required = true,
+                    dataType = "MbzDictInfo"),
+            @ApiImplicitParam( name = "分页参数",value = "row",required = true,
+                    dataType = "Row")
+        }
+    )
+    @GetMapping(value = "/common/ptList")
+    public Map<String, Object> getBldmListForCIS(MbzDictInfo dictInfo, Row row){
+        dictInfo.setDictCode("platformTableName");
+        dictInfo.setRow(row);
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("status", Constants.SUCCESS);
+        result.put("total", getFacade().getMbzDictInfoService().getMbzDictInfoCount(dictInfo));
+        result.put("rows", getFacade().getMbzDictInfoService().getMbzDictInfoPageList(dictInfo));
+        return result;
+    }
+
+    @ApiOperation(value = "/common/saveOrUpdate",notes = "修改CIS子集病历代码信息")
+    @ApiImplicitParams({
+            @ApiImplicitParam( name = "字典代码(dictCode)",value = "dictInfo",required = true,
+                    dataType = "MbzDictInfo")
+    }
+    )
+    @PostMapping(value = "/common/saveOrUpdate")
+    public Map<String, Object> saveOrUpdateBldm(MbzDictInfo dictInfo){
+        getFacade().getMbzDictInfoService().modifyMbzDictInfo(dictInfo);
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("status", Constants.SUCCESS);
         return result;
     }
 }

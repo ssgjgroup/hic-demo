@@ -1,0 +1,193 @@
+<!--
+   Created with IntelliJ IDEA.
+   Description: 配置信息
+   User: LENOVO
+   Date: 2018-11-20
+   Time: 12:50
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width,initial-scale=1.0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>CIS数据子集配置</title>
+    <meta name="keywords" content="Winning Health CIS 互联互通工具"/>
+    <meta name="description" content="Winning Health CIS 互联互通工具"/>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap-table.min.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap/css/jquery.treegrid.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap/bootstrap3-editable/css/bootstrap-editable.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap/bootstrap-treeview/bootstrap-treeview.min.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/google-font/google.fonts.css}"/>
+    <link rel="stylesheet" th:href="@{/bootstrap/toastr/css/toastr.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/iconfont/iconfont.css}"/>
+    <link rel="shortcut icon" th:href="@{/img/logo.ico}"/>
+    <script th:src="@{/assets/js/ace-extra.min.js}"></script>
+    <style>
+        .table-align {
+            table-layout:fixed !important;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body class="container">
+    <table id="dataTable" class="table-align"></table>
+</body>
+<!--[if !IE]> -->
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery-2.2.4.min.js}"></script>
+<!-- <![endif]-->
+<!--[if IE]>
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery-1.12.4.min.js}"></script>
+<![endif]-->
+<!--bootstrap-->
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap-table.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap-table-zh-CN.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/bootstrap3-editable/js/bootstrap-editable.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap-table-editable.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap-table-treegrid.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery.treegrid.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/bootstrap-treeview/bootstrap-treeview.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/toastr/js/toastr.min.js}"></script>
+<!--ace-->
+<script type="text/javascript" th:src="@{/assets/js/ace-elements.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/ace.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/ace-extra.min.js}"></script>
+<script th:src="@{/assets/ztree/js/jquery.ztree.core.min.js}"></script>
+<script th:src="@{/assets/ztree/js/jquery.ztree.exedit.min.js}"></script>
+<script th:src="@{/assets/ztree/js/jquery.ztree.excheck.min.js}"></script>
+<script th:src="@{/assets/ztree/js/jquery.ztree.exhide.min.js}"></script>
+<script th:src="@{/assets/common.js}"></script>
+<script th:src="@{/assets/layer/layer.js}"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    var ctx = /*[[@{/}]]*/'';
+    /*后台查询参数封装*/
+    function queryParams(params) {
+        var param = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+            count: params.limit,    // 每页显示条数
+            first: params.offset,   // 显示条数
+            sort: params.sort,      // 排序列名
+            order: params.order,     // 排位命令（desc，asc）
+        };
+        return param;
+    }
+    $(function () {
+        var $table = $('#dataTable');
+        $table.bootstrapTable({
+            url: ctx + 'common/ptList',
+            method: "GET",
+            height: $(window).height(),
+            queryParams: queryParams,
+            // toolbar: '#toolbar',
+            cache: false,  // 是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            pagination: true,                   // 是否显示分页（*）
+            sidePagination: "server",           // 分页方式：client客户端分页，server服务端分页（*）
+            pageNumber: 1,                      // 初始化加载第一页，默认第一页,并记录
+            pageSize: 15,                     // 每页的记录行数（*）
+            pageList: [15, 30, 50, 100],        // 可供选择的每页的行数（*）
+            showPaginationSwitch: false,			//显示 数据条数选择框
+            search: false,                      // 是否显示表格搜索
+            strictSearch: true,
+            minimumCountColumns: 2,             // 最少允许的列数
+            clickToSelect: true,                // 是否启用点击选中行
+            sortName: 'id',
+            toolbarAlign: 'left',
+            paginationPreText: '上一页',
+            paginationNextText: '下一页',
+            paginationLoop: false, //分页条无限循环的功能
+            singleSelect: true,
+            columns:[
+                {
+                    field: 'dictCode',
+                    width: '20%',
+                    align: 'center',
+                    title: '子集编码',
+                },
+                {
+                    field: 'dictValue',
+                    width: '20%',
+                    align: 'center',
+                    title: '子集顺序'
+                },
+                {
+                    field: 'dictLabel',
+                    width: '20%',
+                    align: 'center',
+                    title: '子集名称'
+                },
+                {
+                    field: 'dictDesc',
+                    width: '20%',
+                    align: 'center',
+                    title: '数据子集'
+                },
+                {
+                    field: 'pyCode',
+                    width: '20%',
+                    align: 'center',
+                    title: '病历编码',
+                    editable: {
+                        emptytext:'-',
+                        type: 'text',
+                        title: '病历编码'
+                    }
+                },
+                {
+                    field: 'status',
+                    width: '20%',
+                    align: 'center',
+                    title:'是否使用',
+                    editable: {
+                        emptytext:'-',
+                        type: 'select',
+                        title: '是否使用',
+                        source:[
+                            {value:"0",text:"不使用"},
+                            {value:"1",text:"使用"}
+                        ]
+                    }
+                }
+            ]
+        });
+
+        $table.on('editable-save.bs.table',function (event, field, row, $el) {
+            console.log(row);
+            console.log(field);
+            console.log(row+'.'+field);
+            var param = {
+                dictCode:row.dictCode,
+                dictValue:row.dictValue,
+                pyCode:row.pyCode == null ? '' : row.pyCode,
+                status:row.status
+            };
+            // console.log(param);
+            $.ajax({
+                url: ctx + "common/saveOrUpdate",
+                data: param,
+                type: "post",
+                dataType: 'json',
+                async: false,
+                cache: false,
+                success: function (result,status) {
+                    if(status === 'success'){
+                        layer.msg('数据提交成功!', {icon: 6, time: 2500});
+                    }
+                },
+                error: function (response) {
+                    console.log(response.responseText);
+                    layer.msg(response.responseText, {icon: 5, time: 2500});
+                },
+                complete: function () {
+                }
+            });
+        });
+    })
+</script>
+</html>

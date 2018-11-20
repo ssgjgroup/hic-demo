@@ -101,5 +101,11 @@ public class PageController extends BaseController {
         return "init/demo";
     }
 
+    @ApiOperation(value = "页面跳转",notes = "子集配置页面")
+    @GetMapping(value = "/config")
+    public String goToConfigPage(){
+        return "init/config";
+    }
+
 
 }

@@ -60,7 +60,7 @@
                 <if test="(dictLabel != null)">DICT_LABEL = #{dictLabel , jdbcType= VARCHAR },</if>
                 <if test="(dictSort != null and dictSort != '')">DICT_SORT = #{dictSort , jdbcType= VARCHAR },</if>
                 <if test="(dictDesc != null and dictDesc != '')">DICT_DESC = #{dictDesc , jdbcType= VARCHAR },</if>
-                <if test="(pyCode != null and pyCode != '')">PY_CODE = #{pyCode , jdbcType= VARCHAR },</if>
+                <if test="(pyCode != null )">PY_CODE = #{pyCode , jdbcType= VARCHAR },</if>
                 <if test="(status != null )">STATUS = #{status , jdbcType= VARCHAR },</if>
             </trim>
         </set>
@@ -116,7 +116,7 @@
             parameterType="com.winning.hic.model.MbzDictInfo">
         SELECT * FROM (
         SELECT t.* ,
-        ROW_NUMBER() OVER ( ORDER BY t.DICT_CODE,t.DICT_VALUE DESC ) AS _RN
+        ROW_NUMBER() OVER ( ORDER BY t.DICT_CODE,convert(int,t.DICT_VALUE) asc ) AS _RN
         FROM MBZ_DICT_INFO t
         <where>
             <include refid="sql-mbzDictInfo"/>
