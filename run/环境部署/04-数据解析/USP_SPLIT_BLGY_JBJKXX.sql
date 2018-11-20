@@ -31,8 +31,8 @@ as
       drop table #DC_BLGY_JBJKXX_JZ_JZS
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_BLGY_JBJKXX_HYS'))
       drop table #DC_BLGY_JBJKXX_HYS
-    if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_BLGY_JBJKXX_SYS'))
-      drop table #DC_BLGY_JBJKXX_SYS
+    if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_BLGY_JBJKXX_SSS'))
+      drop table #DC_BLGY_JBJKXX_SSS
     if exists(select 1 from tempdb..sysobjects where id = object_id('tempdb..#DC_BLGY_JBJKXX_YFJZS'))
       drop table #DC_BLGY_JBJKXX_YFJZS
 

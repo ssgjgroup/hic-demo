@@ -208,13 +208,13 @@ as
 
     insert into #DC_ZQGZXX_SSTYS_NSSSS
     select
-           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,_1.value,_2.value,_3.value,_4.value,
+           @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,_0.value,_1.value, convert(datetime,_2.value),_3.value,_4.value,
            _5.value,_6.value,_7.value,_8.value,1,getdate(),getdate(),'EMR',0,'0'
     from
          #HLHT_ZQGZXX_SSTYS as a
            CROSS APPLY dbo.fn_com_split_ext(a.nssbm, @regex) _0
            CROSS APPLY dbo.fn_com_split_ext(a.nssczmc, @regex) _1
-           CROSS APPLY dbo.fn_com_split_ext(a.nssrq, @regex) _2
+           CROSS APPLY dbo.fn_com_split_ext(convert(varchar(100),a.nssrq,120), @regex) _2
            CROSS APPLY dbo.fn_com_split_ext(a.sszz, @regex) _3
            CROSS APPLY dbo.fn_com_split_ext(a.ssjjz, @regex) _4
            CROSS APPLY dbo.fn_com_split_ext(a.ssfs, @regex) _5
