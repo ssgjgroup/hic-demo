@@ -100,7 +100,7 @@
     </sql>
 
     <insert id="insertHlhtZybcjlSwjl" parameterType="com.winning.hic.model.HlhtZybcjlSwjl">
-        INSERT INTO HLHT_ZYBCJL_SWJL
+        INSERT INTO ANMR_ZYBCJL_SWJL
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="(yjlxh != null )">yjlxh ,</if>
             <if test="(jzlsh != null )">jzlsh ,</if>
@@ -191,7 +191,7 @@
     </insert>
 
     <update id="updateHlhtZybcjlSwjl" parameterType="com.winning.hic.model.HlhtZybcjlSwjl">
-        UPDATE HLHT_ZYBCJL_SWJL
+        UPDATE ANMR_ZYBCJL_SWJL
         <set>
             <trim suffixOverrides=",">
                 <if test="(yjlxh != null )">yjlxh = #{yjlxh , jdbcType= VARCHAR },</if>
@@ -247,7 +247,7 @@
     </update>
 
     <delete id="deleteHlhtZybcjlSwjl" parameterType="com.winning.hic.model.HlhtZybcjlSwjl">
-        delete from HLHT_ZYBCJL_SWJL
+        delete from ANMR_ZYBCJL_SWJL
         <where>
             <if test="(yjlxh != null )">and yjlxh = #{yjlxh , jdbcType= VARCHAR }</if>
             <if test="(yjlxh == null or yjlxh == '') and (map.pks != null and map.pks.size > 0)">
@@ -258,14 +258,14 @@
     </delete>
 
     <delete id="deleteHlhtZybcjlSwjlByYjlxh" parameterType="com.winning.hic.model.HlhtZybcjlSwjl">
-        delete from HLHT_ZYBCJL_SWJL
+        delete from ANMR_ZYBCJL_SWJL
         WHERE yjlxh = #{yjlxh}
     </delete>
 
 
     <select id="selectHlhtZybcjlSwjl" resultMap="hlhtZybcjlSwjlResult"
             parameterType="com.winning.hic.model.HlhtZybcjlSwjl">
-        SELECT * FROM HLHT_ZYBCJL_SWJL t
+        SELECT * FROM ANMR_ZYBCJL_SWJL t
         <where>
             <include refid="sql-hlhtZybcjlSwjl"/>
         </where>
@@ -275,7 +275,7 @@
             parameterType="com.winning.hic.model.HlhtZybcjlSwjl">
         SELECT
         <if test="row.count != null and row.count != ''">top ${row.count}</if>
-        * FROM HLHT_ZYBCJL_SWJL t
+        * FROM ANMR_ZYBCJL_SWJL t
         <where>
             <include refid="sql-hlhtZybcjlSwjl"/>
         </where>
@@ -283,7 +283,7 @@
     </select>
 
     <select id="selectHlhtZybcjlSwjlCount" resultType="int" parameterType="com.winning.hic.model.HlhtZybcjlSwjl">
-        select count(1) from HLHT_ZYBCJL_SWJL t
+        select count(1) from ANMR_ZYBCJL_SWJL t
         <where>
             <include refid="sql-hlhtZybcjlSwjl"/>
         </where>
@@ -294,7 +294,7 @@
         SELECT * FROM (
         SELECT t.* ,
        ROW_NUMBER() OVER ( ORDER BY t.yjlxh DESC ) AS _RN
-        FROM HLHT_ZYBCJL_SWJL t
+        FROM ANMR_ZYBCJL_SWJL t
         <where>
             <include refid="sql-hlhtZybcjlSwjl"/>
         </where>
@@ -304,7 +304,7 @@
 
     <select id="selectHlhtZybcjlSwjlListByProc" resultMap="hlhtZybcjlSwjlResult" statementType="CALLABLE"
             parameterType="com.winning.hic.model.HlhtZybcjlSwjl">
-        exec USP_HLHT_ZYBCJL_SWJL_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+        exec USP_GETMR_ZYBCJL_SWJL #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
     </select>
 
 

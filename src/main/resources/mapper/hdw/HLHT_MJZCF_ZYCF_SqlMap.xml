@@ -379,11 +379,11 @@
 
     <!--存储过程-->
     <select id="selectHlhtMjzcfZycfListByProc" resultMap="hlhtMjzcfZycfResult" statementType="CALLABLE">
-        exec USP_HLHT_MJZCF_ZYCF_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+        exec USP_GETMR_MJZCF_ZYCF #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
     </select>
     <!--存储过程-->
     <select id="selectHlhtMjzcfZycfListProcForYear" resultMap="hlhtMjzcfZycfResult" statementType="CALLABLE">
-        exec USP_HLHT_MJZCF_ZYCF_YEAR_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+        exec USP_GETMR_MJZCF_ZYCF_YEAR #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
     </select>
 
 </mapper>

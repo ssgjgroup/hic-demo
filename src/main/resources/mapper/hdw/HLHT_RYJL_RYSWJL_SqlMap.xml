@@ -388,7 +388,7 @@
 
     <!--存储过程-->
     <select id="selectHlhtRyjlRyswjlListByProc" resultMap="hlhtRyjlRyswjlResult" statementType="CALLABLE">
-       exec USP_HLHT_RYJL_RYSWJL_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+       exec USP_GETMR_RYJL_RYSWJL #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
     </select>
 
 </mapper>

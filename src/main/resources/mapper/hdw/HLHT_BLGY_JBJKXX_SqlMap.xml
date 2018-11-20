@@ -226,7 +226,7 @@
 
     <!--存储过程-->
     <select id="selectHlhtBlgyJbjkxxListByProc" resultMap="hlhtBlgyJbjkxxResult" statementType="CALLABLE">
-       exec USP_HLHT_BLGY_JBJKXX_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+       exec USP_GETMR_BLGY_JBJKXX #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
     </select>
 
 </mapper>

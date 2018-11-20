@@ -609,7 +609,7 @@
 
     <select id="selectHlhtZcjlPgcListByProc" resultMap="hlhtZcjlPgcResult"
         statementType="CALLABLE">
-        exec USP_HLHT_ZCJL_PGC_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+        exec USP_GETMR_ZCJL_PGC_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
 
        </select>
 

@@ -1,0 +1,1 @@
+select 'sp_rename  '''+name+''','''+substring(name,1,4)+'GETMR_'+replace(substring(name,10,len(name)),'_DATA','') +''',''object'';'  from sysobjects where name like 'USP_HLHT%' and xtype='P';

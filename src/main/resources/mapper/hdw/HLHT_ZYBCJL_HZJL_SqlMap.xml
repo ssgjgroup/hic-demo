@@ -366,7 +366,7 @@
 
     <select id="selecthlhtZybcjlHzjlListByProc" resultMap="hlhtZybcjlHzjlResult"
         statementType="CALLABLE">
-        exec USP_HLHT_ZYBCJL_HZJL_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+        exec USP_GETMR_ZYBCJL_HZJL_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
 
     </select>
 

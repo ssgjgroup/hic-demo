@@ -125,7 +125,7 @@
 
     <insert id="insertHlhtZybcjlSqtl" parameterType="com.winning.hic.model.HlhtZybcjlSqtl">
 
-        INSERT INTO HLHT_ZYBCJL_SQTL
+        INSERT INTO ANMR_ZYBCJL_SQTL
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="(yjlxh != null )">yjlxh ,</if>
             <if test="(jzlsh != null )">jzlsh ,</if>
@@ -240,7 +240,7 @@
     </insert>
 
     <update id="updateHlhtZybcjlSqtl" parameterType="com.winning.hic.model.HlhtZybcjlSqtl">
-        UPDATE HLHT_ZYBCJL_SQTL
+        UPDATE ANMR_ZYBCJL_SQTL
         <set>
             <trim suffixOverrides=",">
                 <if test="(yjlxh != null )">yjlxh = #{yjlxh , jdbcType= VARCHAR },</if>
@@ -308,7 +308,7 @@
     </update>
 
     <delete id="deleteHlhtZybcjlSqtl" parameterType="com.winning.hic.model.HlhtZybcjlSqtl">
-        delete from HLHT_ZYBCJL_SQTL
+        delete from ANMR_ZYBCJL_SQTL
         <where>
             <if test="(yjlxh != null )">and yjlxh = #{yjlxh , jdbcType= VARCHAR }</if>
             <if test="(yjlxh == null or yjlxh == '') and (map.pks != null and map.pks.size > 0)">
@@ -321,7 +321,7 @@
 
     <select id="selectHlhtZybcjlSqtl" resultMap="hlhtZybcjlSqtlResult"
             parameterType="com.winning.hic.model.HlhtZybcjlSqtl">
-        SELECT * FROM HLHT_ZYBCJL_SQTL t
+        SELECT * FROM ANMR_ZYBCJL_SQTL t
         <where>
             <include refid="sql-hlhtZybcjlSqtl"/>
         </where>
@@ -331,7 +331,7 @@
             parameterType="com.winning.hic.model.HlhtZybcjlSqtl">
         SELECT
         <if test="row.count != null and row.count != ''">top ${row.count}</if>
-        * FROM HLHT_ZYBCJL_SQTL t
+        * FROM ANMR_ZYBCJL_SQTL t
         <where>
             <include refid="sql-hlhtZybcjlSqtl"/>
         </where>
@@ -360,7 +360,7 @@
 
     <!--存储过程-->
     <select id="selectHlhtZybcjlSqtlListByProc" resultMap="hlhtZybcjlSqtlResult" statementType="CALLABLE">
-       exec USP_HLHT_ZYBCJL_SQTL_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+       exec USP_GETMR_ZYBCJL_SQTL #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
     </select>
 
 </mapper>

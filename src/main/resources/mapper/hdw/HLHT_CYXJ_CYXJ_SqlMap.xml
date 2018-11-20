@@ -503,7 +503,7 @@
     
     <select id="selectHlhtCyxjCyxjListByProc" resultMap="hlhtCyxjCyxjResult"
         statementType="CALLABLE">
-        exec USP_HLHT_CYXJ_CYXJ_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+        exec USP_GETMR_CYXJ_CYXJ_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
 
     </select>
     
