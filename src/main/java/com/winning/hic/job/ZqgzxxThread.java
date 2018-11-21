@@ -3,40 +3,43 @@ package com.winning.hic.job;
 import com.winning.hic.model.MbzDataCheck;
 import com.winning.hic.service.*;
 import com.winning.hic.service.impl.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 入出院记录线程
  */
 public class ZqgzxxThread extends Thread {
-    private MbzDataCheck entity;
 
-    public ZqgzxxThread(MbzDataCheck entity) {
+    private static final Logger logger = LoggerFactory.getLogger(ZqgzxxThread.class);
+    private MbzDataCheck entity;
+    private Facade facade;
+
+    public ZqgzxxThread(MbzDataCheck entity, Facade facade) {
         this.entity = entity;
+        this.facade = facade;
     }
 
     @Override
     public void run() {
-        HlhtZqgzxxBwztzsService hlhtRyjlRcyjlService = new HlhtZqgzxxBwztzsServiceImpl();
-        HlhtZqgzxxMzzqtysService hlhtZqgzxxMzzqtysService = new HlhtZqgzxxMzzqtysServiceImpl();
-        HlhtZqgzxxQtzqtysService hlhtZqgzxxQtzqtysService = new HlhtZqgzxxQtzqtysServiceImpl();
-        HlhtZqgzxxSstysService hlhtZqgzxxSstysService = new HlhtZqgzxxSstysServiceImpl();
-        HlhtZqgzxxSxzltysService hlhtZqgzxxSxzltysService = new HlhtZqgzxxSxzltysServiceImpl();
-        HlhtZqgzxxTsjczltysService hlhtZqgzxxTsjczltysService = new HlhtZqgzxxTsjczltysServiceImpl();
+        logger.info("ZqgzxxThread 数据抽取开始>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         try {
             //3. 病危（重）通知书*  --陈枫
-            hlhtRyjlRcyjlService.interfaceHlhtZqgzxxBwztzs(entity);
+            facade.getHlhtZqgzxxBwztzsService().interfaceHlhtZqgzxxBwztzs(entity);
             //18.麻醉知情同意书表* --陈枫
-            hlhtZqgzxxMzzqtysService.interfaceHlhtZqgzxxMzzqtys(entity);
+            facade.getHlhtZqgzxxMzzqtysService().interfaceHlhtZqgzxxMzzqtys(entity);
             //19.其他知情告知同意书*  --陈蒯
-            hlhtZqgzxxQtzqtysService.interfaceHlhtZqgzxxQtzqtys(entity);
+            facade.getHlhtZqgzxxQtzqtysService().interfaceHlhtZqgzxxQtzqtys(entity);
             //24.手术知情同意书表*--陈世杰
-            hlhtZqgzxxSstysService.interfaceHlhtZqgzxxSstys(entity);
+            facade.getHlhtZqgzxxSstysService().interfaceHlhtZqgzxxSstys(entity);
             //25.输血治疗同意书表* -- 陈枫
-            hlhtZqgzxxSxzltysService.interfaceHlhtZqgzxxSxzltys(entity);
+            facade.getHlhtZqgzxxSxzltysService().interfaceHlhtZqgzxxSxzltys(entity);
             //29.特殊检查及特殊治疗同意书* --陈世杰
-            hlhtZqgzxxTsjczltysService.interfaceHlhtZqgzxxTsjczltys(entity);
+            facade.getHlhtZqgzxxTsjczltysService().interfaceHlhtZqgzxxTsjczltys(entity);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        logger.info("ZqgzxxThread 数据抽取结束<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     }
 }
