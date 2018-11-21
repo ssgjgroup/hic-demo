@@ -1,12 +1,11 @@
 package com.winning.hic.model;
 
 import java.util.Date; 
-import java.util.Date; 
 import java.io.Serializable; 
 
-import org.apache.ibatis.type.Alias; 
-
 import com.winning.hic.model.BaseDomain;
+
+import org.apache.ibatis.type.Alias; 
 
 
 
@@ -15,10 +14,12 @@ import com.winning.hic.model.BaseDomain;
  * @title 
  * @email Winning Health
  * @package com.winning.hic.model
- * @date 2018-19-21 11:19:22
+ * @date 2018-12-21 16:12:42
  */
 @Alias("mbzOperateLog")
 public class MbzOperateLog extends BaseDomain implements Serializable {
+
+    private static final long serialVersionUID = -1L;
 
     /**
      * 字段名：id
@@ -68,6 +69,18 @@ public class MbzOperateLog extends BaseDomain implements Serializable {
      * 默认值：无
      */
     private Integer status;
+    /**
+     * 字段名：operate_count
+     * 备注: 抽取数量
+     * 默认值：无
+     */
+    private Integer operateCount;
+    /**
+     * 字段名：sum_count
+     * 备注: 数据总数
+     * 默认值：无
+     */
+    private Integer sumCount;
 
     public MbzOperateLog (){
 
@@ -216,6 +229,42 @@ public class MbzOperateLog extends BaseDomain implements Serializable {
    */
    public void setStatus(Integer status){
         this.status = status;
+   }
+   /**
+   * 字段名：operate_count
+   * get方法
+   * 备注: 抽取数量
+   */
+   public Integer getOperateCount(){
+
+        return operateCount;
+   }
+
+   /**
+   * 字段名：operate_count
+   * set方法
+   * 备注: 抽取数量
+   */
+   public void setOperateCount(Integer operateCount){
+        this.operateCount = operateCount;
+   }
+   /**
+   * 字段名：sum_count
+   * get方法
+   * 备注: 数据总数
+   */
+   public Integer getSumCount(){
+
+        return sumCount;
+   }
+
+   /**
+   * 字段名：sum_count
+   * set方法
+   * 备注: 数据总数
+   */
+   public void setSumCount(Integer sumCount){
+        this.sumCount = sumCount;
    }
 
 }

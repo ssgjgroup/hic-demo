@@ -1,12 +1,15 @@
 package com.winning.hic.service.impl;
 
-import com.winning.hic.dao.cmdatacenter.MbzOperateLogDao;
-import com.winning.hic.model.MbzOperateLog;
-import com.winning.hic.service.MbzOperateLogService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
+import java.util.List;  
+
+import com.winning.hic.model.MbzOperateLog;  
+
+import com.winning.hic.dao.cmdatacenter.MbzOperateLogDao;  
+
+import com.winning.hic.service.MbzOperateLogService;  
 
 
 /**
@@ -14,7 +17,7 @@ import java.util.List;
 * @title MBZ_OPERATE_LOG
 * @email Winning Health
 * @package com.winning.hic.service.impl
-* @date 2018-19-21 11:19:22
+* @date 2018-12-21 16:12:42
 */
 @Service
 public class MbzOperateLogServiceImpl implements  MbzOperateLogService {

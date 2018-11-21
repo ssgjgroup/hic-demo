@@ -65,9 +65,11 @@ public class DataExtractAscept {
         long start = System.currentTimeMillis();
         try {
 
-            Object obj = ((ProceedingJoinPoint) joinPoint).proceed();
+            MbzDataCheck check = (MbzDataCheck)((ProceedingJoinPoint) joinPoint).proceed();
             log.setUpdateTime(new Date());
             log.setStatus(1);
+            log.setOperateCount(check.getRealCount());
+            log.setSumCount(check.getDataCount());
             mbzOperateLogService.modifyMbzOperateLog(log);
         } catch (Throwable throwable) {
             throwable.printStackTrace();
