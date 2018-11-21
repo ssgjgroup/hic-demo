@@ -585,10 +585,11 @@
             return false;
         }
         //loading层
-        var index = layer.load(1, {
-            shade: [0.5, '#E0E0E0'] //0.1透明度的白色背景
-        });
+        // var index = layer.load(1, {
+        //     shade: [0.5, '#E0E0E0'] //0.1透明度的白色背景
+        // });
 
+        layer.msg('数据开始抽取!', {icon: 6, time: 2500});
         $.ajax({
             type: "POST",
             url:"startLoad",
@@ -599,12 +600,12 @@
             error: function(request) {
             },
             success: function(data) {
-                if(data.success=='1'){
-                    $simple_table.bootstrapTable('refresh');
-                }else{
-                    toastr.warning("抽取失败");
-                }
-                layer.close(index);
+                // if(data.success=='1'){
+                //     $simple_table.bootstrapTable('refresh');
+                // }else{
+                //     toastr.warning("抽取失败");
+                // }
+                // layer.close(index);
             }
         });
     });
