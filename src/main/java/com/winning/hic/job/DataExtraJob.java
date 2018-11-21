@@ -129,13 +129,13 @@ public class DataExtraJob {
             //非病历抽取
             //36.基本健康信息表* --陈世杰
             List<MbzDataCheck> mbzDataCheck36 = facade.getHlhtBlgyJbjkxxService().interfaceHlhtBlgyJbjkxx(entity);
-            //38.西药处方记录表* --陈世杰
-            List<MbzDataCheck> mbzDataCheck38 = facade.getHlhtMjzcfXycfService().interfaceHlhtMjzcfXycf(entity);
-            //39.中药处方记录表* --陈枫
-            List<MbzDataCheck> mbzDataChecks39 = facade.getHlhtMjzcfZycfService().interfaceHlhtMjzcfZycf(entity);
-            //37.卫生事件摘要表* --陈蒯
-            MbzDataCheck mbzDataCheck37 = facade.getHlhtBlgyWssjzyService().interfaceHlhtBlgyWssjzy(entity);
-            facade.getHlhtZybcjlScbcjlService().selectAllHandleQuery();
+//            //38.西药处方记录表* --陈世杰
+//            List<MbzDataCheck> mbzDataCheck38 = facade.getHlhtMjzcfXycfService().interfaceHlhtMjzcfXycf(entity);
+//            //39.中药处方记录表* --陈枫
+//            List<MbzDataCheck> mbzDataChecks39 = facade.getHlhtMjzcfZycfService().interfaceHlhtMjzcfZycf(entity);
+//            //37.卫生事件摘要表* --陈蒯
+//            MbzDataCheck mbzDataCheck37 = facade.getHlhtBlgyWssjzyService().interfaceHlhtBlgyWssjzy(entity);
+//            facade.getHlhtZybcjlScbcjlService().selectAllHandleQuery();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
