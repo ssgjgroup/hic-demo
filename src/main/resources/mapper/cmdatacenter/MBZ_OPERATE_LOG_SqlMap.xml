@@ -67,7 +67,6 @@
         UPDATE MBZ_OPERATE_LOG
         <set>
             <trim suffixOverrides=",">
-                <if test="(id != null )"> id = #{id , jdbcType= BIGINT }, </if>
                 <if test="(setName != null )"> set_name = #{setName , jdbcType= VARCHAR }, </if>
                 <if test="(startDate != null )"> start_date = #{startDate , jdbcType= VARCHAR }, </if>
                 <if test="(endDate != null )"> end_date = #{endDate , jdbcType= VARCHAR }, </if>
@@ -127,7 +126,7 @@
     <select id="selectMbzOperateLogPageList" resultMap="mbzOperateLogResult" parameterType="com.winning.hic.model.MbzOperateLog">
         SELECT * FROM (
         SELECT t.* ,
-        ROW_NUMBER() OVER ( ORDER BY t.id DESC ) AS _RN
+        ROW_NUMBER() OVER ( ORDER BY t.create_time DESC ) AS _RN
         FROM MBZ_OPERATE_LOG t
         <where>
             <include refid="sql-mbzOperateLog" />
