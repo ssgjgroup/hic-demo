@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.winning.hic.dao.cmdatacenter.MbzOperateLogDao">
+
+    <resultMap id="mbzOperateLogResultForList" type="com.winning.hic.model.MbzOperateLog">
+         <result column="id" property="id" jdbcType="BIGINT" />
+         <result column="set_name" property="setName" jdbcType="VARCHAR" />
+         <result column="start_date" property="startDate" jdbcType="VARCHAR" />
+         <result column="end_date" property="endDate" jdbcType="VARCHAR" />
+         <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+         <result column="type" property="type" jdbcType="INTEGER" />
+         <result column="status" property="status" jdbcType="INTEGER" />
+    </resultMap>
+
+    <resultMap id="mbzOperateLogResult" type="com.winning.hic.model.MbzOperateLog" extends="mbzOperateLogResultForList">
+
+    </resultMap>
+
+    <sql id="sql-mbzOperateLog">
+        <if test="(id != null )"> and t.id = #{id} </if>
+        <if test="(setName != null )"> and t.set_name = #{setName} </if>
+        <if test="(startDate != null )"> and t.start_date = #{startDate} </if>
+        <if test="(endDate != null )"> and t.end_date = #{endDate} </if>
+        <if test="(createTime != null )"> and t.create_time = #{createTime} </if>
+        <if test="(updateTime != null )"> and t.update_time = #{updateTime} </if>
+        <if test="(type != null )"> and t.type = #{type} </if>
+        <if test="(status != null )"> and t.status = #{status} </if>
+    </sql>
+
+    <insert id="insertMbzOperateLog" parameterType="com.winning.hic.model.MbzOperateLog">
+        INSERT INTO MBZ_OPERATE_LOG
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="(id != null )"> id , </if>
+            <if test="(setName != null )"> set_name , </if>
+            <if test="(startDate != null )"> start_date , </if>
+            <if test="(endDate != null )"> end_date , </if>
+            <if test="(createTime != null )"> create_time , </if>
+            <if test="(updateTime != null )"> update_time , </if>
+            <if test="(type != null )"> type , </if>
+            <if test="(status != null )"> status , </if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="(id != null )">#{id , jdbcType= BIGINT },  </if>
+            <if test="(setName != null )">#{setName , jdbcType= VARCHAR },  </if>
+            <if test="(startDate != null )">#{startDate , jdbcType= VARCHAR },  </if>
+            <if test="(endDate != null )">#{endDate , jdbcType= VARCHAR },  </if>
+            <if test="(createTime != null )">#{createTime , jdbcType= TIMESTAMP },  </if>
+            <if test="(updateTime != null )">#{updateTime , jdbcType= TIMESTAMP },  </if>
+            <if test="(type != null )">#{type , jdbcType= INTEGER },  </if>
+            <if test="(status != null )">#{status , jdbcType= INTEGER },  </if>
+        </trim>
+    </insert>
+
+    <update id="updateMbzOperateLog" parameterType="com.winning.hic.model.MbzOperateLog">
+        UPDATE MBZ_OPERATE_LOG
+        <set>
+            <trim suffixOverrides=",">
+                <if test="(id != null )"> id = #{id , jdbcType= BIGINT }, </if>
+                <if test="(setName != null )"> set_name = #{setName , jdbcType= VARCHAR }, </if>
+                <if test="(startDate != null )"> start_date = #{startDate , jdbcType= VARCHAR }, </if>
+                <if test="(endDate != null )"> end_date = #{endDate , jdbcType= VARCHAR }, </if>
+                <if test="(createTime != null )"> create_time = #{createTime , jdbcType= TIMESTAMP }, </if>
+                <if test="(updateTime != null )"> update_time = #{updateTime , jdbcType= TIMESTAMP }, </if>
+                <if test="(type != null )"> type = #{type , jdbcType= INTEGER }, </if>
+                <if test="(status != null )"> status = #{status , jdbcType= INTEGER }, </if>
+            </trim>
+        </set>
+        <where>
+            <if test="(id != null )"> and id = #{ id, jdbcType= BIGINT }   </if>-->
+            <if test="(id !=null ) and (map.pks != null and map.size > 0)">
+                and (id) in
+                <foreach item="item" collection="map.pks" open="(" separator="," close=")"> #{item}</foreach>
+            </if>
+        </where>
+    </update>
+
+    <delete id="deleteMbzOperateLog" parameterType="com.winning.hic.model.MbzOperateLog">
+        delete from  MBZ_OPERATE_LOG
+        <where>
+        <if test="(id != null )"> and id = #{ id }   </if>
+            <if test="(id !=null ) and (map.pks != null and map.size > 0)">
+                and (id) in
+                <foreach item="item" collection="map.pks" open="(" separator="," close=")"> #{item}</foreach>
+            </if>
+        </where>
+    </delete>
+
+
+    <select id="selectMbzOperateLog" resultMap="mbzOperateLogResult" parameterType="com.winning.hic.model.MbzOperateLog">
+        SELECT * FROM MBZ_OPERATE_LOG t
+        <where>
+            <include refid="sql-mbzOperateLog" />
+        </where>
+    </select>
+
+    <select id="selectMbzOperateLogList" resultMap="mbzOperateLogResultForList" parameterType="com.winning.hic.model.MbzOperateLog">
+        SELECT
+        <if test="row.count != null and row.count != ''"> top ${row.count} </if>
+        * FROM MBZ_OPERATE_LOG t
+        <where>
+            <include refid="sql-mbzOperateLog" />
+        </where>
+        ORDER BY t.id ASC
+    </select>
+
+    <select id="selectMbzOperateLogCount" resultType="int" parameterType="com.winning.hic.model.MbzOperateLog">
+        select count(1) from  MBZ_OPERATE_LOG t
+        <where>
+            <include refid="sql-mbzOperateLog" />
+        </where>
+    </select>
+
+    <select id="selectMbzOperateLogPageList" resultMap="mbzOperateLogResult" parameterType="com.winning.hic.model.MbzOperateLog">
+        SELECT * FROM (
+        SELECT t.* ,
+        ROW_NUMBER() OVER ( ORDER BY t.id DESC ) AS _RN
+        FROM MBZ_OPERATE_LOG t
+        <where>
+            <include refid="sql-mbzOperateLog" />
+        </where>
+        <!-- order by t.id asc -->
+        ) TEMP_TABLE WHERE _RN BETWEEN  #{row.first} + 1 AND #{row.first} + #{row.count}
+    </select>
+
+
+</mapper>

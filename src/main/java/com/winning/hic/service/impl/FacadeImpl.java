@@ -438,4 +438,16 @@ public class FacadeImpl implements Facade {
         return mbzTemplateNodeDetailInfoService;
     }
 
+    @Autowired
+    MbzOperateLogService mbzOperateLogService;
+
+    @Override
+    public MbzOperateLogService getMbzOperateLogService() {
+        return mbzOperateLogService;
+    }
+
+
+
+
+
 }
