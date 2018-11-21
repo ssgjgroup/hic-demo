@@ -1,9 +1,6 @@
 package com.winning.hic.service.impl;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
@@ -87,10 +84,10 @@ public class HlhtZqgzxxSstysServiceImpl implements HlhtZqgzxxSstysService {
      * @return
      */
     @Override
-    public List<MbzDataCheck> interfaceHlhtZqgzxxSstys(MbzDataCheck entity) throws Exception {
-        List<MbzDataCheck> dataChecks = null;
-        int emr_count =0;//病历数量
-        int real_count=0;//实际数量
+    public MbzDataCheck interfaceHlhtZqgzxxSstys(MbzDataCheck entity) throws Exception {
+        int emr_count = 0;//病历数量
+        int real_count = 0;//实际数量
+       //实际数量
 
         //配置接口表字段配置信息
         MbzDataSet mbzDataSet = new MbzDataSet();
@@ -107,16 +104,16 @@ public class HlhtZqgzxxSstysServiceImpl implements HlhtZqgzxxSstysService {
         Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZqgzxxSstys.class);
 
         HlhtZqgzxxSstys hlht = new HlhtZqgzxxSstys();
-        hlht.getMap().put("sourceType",Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE);
-        hlht.getMap().put("startDate",entity.getMap().get("startDate"));
-        hlht.getMap().put("endDate",entity.getMap().get("endDate"));
-        hlht.getMap().put("syxh",entity.getMap().get("syxh"));
+        hlht.getMap().put("sourceType", Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE);
+        hlht.getMap().put("startDate", entity.getMap().get("startDate"));
+        hlht.getMap().put("endDate", entity.getMap().get("endDate"));
+        hlht.getMap().put("syxh", entity.getMap().get("syxh"));
         hlht.getMap().put("yljgdm", entity.getMap().get("yljgdm"));
         hlht.getMap().put("regex", entity.getMap().get("regex"));
         List<HlhtZqgzxxSstys> list = this.hlhtZqgzxxSstysDao.selectHlhtZqgzxxSstysListByProc(hlht);
-        if(list != null && list.size() > 0){
-            emr_count = emr_count+list.size();
-            for(HlhtZqgzxxSstys obj:list){
+        if (list != null && list.size() > 0) {
+            emr_count = emr_count + list.size();
+            for (HlhtZqgzxxSstys obj : list) {
                 //获取接口数据
                 HlhtZqgzxxSstys oldObj = new HlhtZqgzxxSstys();
                 oldObj.setYjlxh(String.valueOf(obj.getYjlxh()));
@@ -125,39 +122,41 @@ public class HlhtZqgzxxSstysServiceImpl implements HlhtZqgzxxSstysService {
                 Document document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 //System.out.println(Base64Utils.unzipEmrXml(emrQtbljlk.getBlnr()));
                 //判断是否存在重复,存在则删除，重新新增
-                if(oldObj != null ){
+                if (oldObj != null) {
                     //初始化数据
-                    HlhtZqgzxxSstys oldRcyjl  = new HlhtZqgzxxSstys();
+                    HlhtZqgzxxSstys oldRcyjl = new HlhtZqgzxxSstys();
                     oldRcyjl.setYjlxh(String.valueOf(obj.getYjlxh()));
                     this.removeHlhtZqgzxxSstys(oldRcyjl);
                     //清除日志
-                    Map<String,Object> param = new HashMap<>();
-                    param.put("SOURCE_ID",obj.getYjlxh());
-                    param.put("SOURCE_TYPE",Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE);
+                    Map<String, Object> param = new HashMap<>();
+                    param.put("SOURCE_ID", obj.getYjlxh());
+                    param.put("SOURCE_TYPE", Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE);
                     mbzLoadDataInfoDao.deleteMbzLoadDataInfoBySourceIdAndSourceType(param);
                 }
-                obj = (HlhtZqgzxxSstys) HicHelper.initModelValue(mbzDataSetList,document,obj,paramTypeMap);
+                obj = (HlhtZqgzxxSstys) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
 
-                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZQGZXX_SSTYS),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZQGZXX_SSTYS), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                 this.createHlhtZqgzxxSstys(obj);
                 this.splitTableDao.selectAnmrZqgzxxSstysSplitByProc(hlht);
                 //插入日志
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                         Long.parseLong(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE),
-                        Long.parseLong(obj.getYjlxh()),obj.getBlmc(),obj.getSyxh()+"",
-                         obj.getFssj(),
-                        obj.getPatid(),obj.getZyh(),obj.getHzxm(),obj.getXbmc(),obj.getXbdm(),
-                        obj.getKsmc(),obj.getKsdm(), obj.getBqmc(),obj.getBqdm(), obj.getSfzhm(),
+                        Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
+                        obj.getFssj(),
+                        obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
+                        obj.getKsmc(), obj.getKsdm(), obj.getBqmc(), obj.getBqdm(), obj.getSfzhm(),
                         PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE), obj, 1),
                         PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE), obj, 0)));
                 real_count++;
             }
-        }else{
-            logger.info("接口数据集:{}无相关的病历信息或者未配置结果集，请先书写病历信息或配置结果集",mbzDataSet.getRecordName());
+        } else {
+            logger.info("接口数据集:{}无相关的病历信息或者未配置结果集，请先书写病历信息或配置结果集", mbzDataSet.getRecordName());
         }
         //1.病历总数 2.抽取的病历数量 3.子集类型
-        this.mbzDataCheckService.createMbzDataCheckNum(emr_count,real_count,Integer.parseInt(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE),entity);
-
-        return dataChecks;
+        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE), entity);
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
+        return mbzDataCheck;
     }
 }

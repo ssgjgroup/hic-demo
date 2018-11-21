@@ -36,5 +36,5 @@ public interface HlhtZybcjlSqxjService {
      * @param entity
      * @return
      */
-    public List<MbzDataCheck> interfaceHlhtZybcjlSqxj(MbzDataCheck entity) throws Exception;
+    public MbzDataCheck interfaceHlhtZybcjlSqxj(MbzDataCheck entity) throws Exception;
 }

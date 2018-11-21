@@ -1,6 +1,7 @@
 package com.winning.hic.service.impl;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,14 +24,14 @@ import com.winning.hic.service.MbzDataCheckService;
 
 
 /**
-* @author HLHT
-* @title HLHT_BLGY_JBJKXX
-* @email Winning Health
-* @package com.winning.hic.service.impl
-* @date 2018-28-31 16:28:56
-*/
+ * @author HLHT
+ * @title HLHT_BLGY_JBJKXX
+ * @email Winning Health
+ * @package com.winning.hic.service.impl
+ * @date 2018-28-31 16:28:56
+ */
 @Service
-public class HlhtBlgyJbjkxxServiceImpl implements  HlhtBlgyJbjkxxService {
+public class HlhtBlgyJbjkxxServiceImpl implements HlhtBlgyJbjkxxService {
 
     private final Logger logger = LoggerFactory.getLogger(HlhtBlgyJbjkxxServiceImpl.class);
     @Autowired
@@ -42,49 +43,49 @@ public class HlhtBlgyJbjkxxServiceImpl implements  HlhtBlgyJbjkxxService {
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
 
-    public int createHlhtBlgyJbjkxx(HlhtBlgyJbjkxx hlhtBlgyJbjkxx){
+    public int createHlhtBlgyJbjkxx(HlhtBlgyJbjkxx hlhtBlgyJbjkxx) {
         return this.hlhtBlgyJbjkxxDao.insertHlhtBlgyJbjkxx(hlhtBlgyJbjkxx);
     }
 
-    public int modifyHlhtBlgyJbjkxx(HlhtBlgyJbjkxx hlhtBlgyJbjkxx){
+    public int modifyHlhtBlgyJbjkxx(HlhtBlgyJbjkxx hlhtBlgyJbjkxx) {
         return this.hlhtBlgyJbjkxxDao.updateHlhtBlgyJbjkxx(hlhtBlgyJbjkxx);
     }
 
-    public int removeHlhtBlgyJbjkxx(HlhtBlgyJbjkxx hlhtBlgyJbjkxx){
+    public int removeHlhtBlgyJbjkxx(HlhtBlgyJbjkxx hlhtBlgyJbjkxx) {
         return this.hlhtBlgyJbjkxxDao.deleteHlhtBlgyJbjkxx(hlhtBlgyJbjkxx);
     }
 
-    public HlhtBlgyJbjkxx getHlhtBlgyJbjkxx(HlhtBlgyJbjkxx hlhtBlgyJbjkxx){
+    public HlhtBlgyJbjkxx getHlhtBlgyJbjkxx(HlhtBlgyJbjkxx hlhtBlgyJbjkxx) {
         return this.hlhtBlgyJbjkxxDao.selectHlhtBlgyJbjkxx(hlhtBlgyJbjkxx);
     }
 
-    public int getHlhtBlgyJbjkxxCount(HlhtBlgyJbjkxx hlhtBlgyJbjkxx){
-        return (Integer)this.hlhtBlgyJbjkxxDao.selectHlhtBlgyJbjkxxCount(hlhtBlgyJbjkxx);
+    public int getHlhtBlgyJbjkxxCount(HlhtBlgyJbjkxx hlhtBlgyJbjkxx) {
+        return (Integer) this.hlhtBlgyJbjkxxDao.selectHlhtBlgyJbjkxxCount(hlhtBlgyJbjkxx);
     }
 
-    public List<HlhtBlgyJbjkxx> getHlhtBlgyJbjkxxList(HlhtBlgyJbjkxx hlhtBlgyJbjkxx){
+    public List<HlhtBlgyJbjkxx> getHlhtBlgyJbjkxxList(HlhtBlgyJbjkxx hlhtBlgyJbjkxx) {
         return this.hlhtBlgyJbjkxxDao.selectHlhtBlgyJbjkxxList(hlhtBlgyJbjkxx);
     }
 
-    public List<HlhtBlgyJbjkxx> getHlhtBlgyJbjkxxPageList(HlhtBlgyJbjkxx hlhtBlgyJbjkxx){
+    public List<HlhtBlgyJbjkxx> getHlhtBlgyJbjkxxPageList(HlhtBlgyJbjkxx hlhtBlgyJbjkxx) {
         return this.hlhtBlgyJbjkxxDao.selectHlhtBlgyJbjkxxPageList(hlhtBlgyJbjkxx);
     }
 
     @Override
-    public List<MbzDataCheck> interfaceHlhtBlgyJbjkxx(MbzDataCheck entity) throws Exception {
-        List<MbzDataCheck> dataCheckList = null;
-        int emr_count =0;//病历数量
-        int real_count=0;//实际数量
+    public MbzDataCheck interfaceHlhtBlgyJbjkxx(MbzDataCheck entity) throws Exception {
+
+        int emr_count = 0;//病历数量
+        int real_count = 0;//实际数量        //实际数量
 
         HlhtBlgyJbjkxx jbjkxx = new HlhtBlgyJbjkxx();
-        jbjkxx.getMap().put("startDate",entity.getMap().get("startDate"));
-        jbjkxx.getMap().put("endDate",entity.getMap().get("endDate"));
-        jbjkxx.getMap().put("syxh",entity.getMap().get("syxh"));
-        jbjkxx.getMap().put("yljgdm",entity.getMap().get("yljgdm"));
-        jbjkxx.getMap().put("regex",entity.getMap().get("regex"));
-        jbjkxx.getMap().put("sourceType","1");
+        jbjkxx.getMap().put("startDate", entity.getMap().get("startDate"));
+        jbjkxx.getMap().put("endDate", entity.getMap().get("endDate"));
+        jbjkxx.getMap().put("syxh", entity.getMap().get("syxh"));
+        jbjkxx.getMap().put("yljgdm", entity.getMap().get("yljgdm"));
+        jbjkxx.getMap().put("regex", entity.getMap().get("regex"));
+        jbjkxx.getMap().put("sourceType", "1");
         List<HlhtBlgyJbjkxx> jbjkxxListMZ = hlhtBlgyJbjkxxDao.selectHlhtBlgyJbjkxxListByProc(jbjkxx);
-        jbjkxx.getMap().put("sourceType","2");
+        jbjkxx.getMap().put("sourceType", "2");
         List<HlhtBlgyJbjkxx> jbjkxxList = hlhtBlgyJbjkxxDao.selectHlhtBlgyJbjkxxListByProc(jbjkxx);
         jbjkxxList.addAll(jbjkxxListMZ);
         emr_count = jbjkxxList.size();
@@ -94,9 +95,9 @@ public class HlhtBlgyJbjkxxServiceImpl implements  HlhtBlgyJbjkxxService {
             tempJbxx.setYjlxh(obj.getYjlxh());
             this.hlhtBlgyJbjkxxDao.deleteHlhtBlgyJbjkxx(tempJbxx);
             //清除日志
-            Map<String,Object> param = new HashMap<>();
-            param.put("SOURCE_ID",obj.getYjlxh());
-            param.put("SOURCE_TYPE",Constants.WN_BLGY_JBJKXX_SOURCE_TYPE);
+            Map<String, Object> param = new HashMap<>();
+            param.put("SOURCE_ID", obj.getYjlxh());
+            param.put("SOURCE_TYPE", Constants.WN_BLGY_JBJKXX_SOURCE_TYPE);
             mbzLoadDataInfoDao.deleteMbzLoadDataInfoBySourceIdAndSourceType(param);
 
             logger.info("Model:{}", obj);
@@ -106,15 +107,18 @@ public class HlhtBlgyJbjkxxServiceImpl implements  HlhtBlgyJbjkxxService {
             //插入日志
             mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                     Long.parseLong(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE),
-                    Long.parseLong(obj.getYjlxh()),"基本健康信息表",obj.getSyxh()+"",new Timestamp(obj.getGxsj().getTime()),
-                    obj.getPatid(),obj.getZyh(),obj.getHzxm(),obj.getXbmc(),obj.getXbdm(),
-                    "NA","NA","NA","NA", obj.getSfzhm(),
+                    Long.parseLong(obj.getYjlxh()), "基本健康信息表", obj.getSyxh() + "", new Timestamp(obj.getGxsj().getTime()),
+                    obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
+                    "NA", "NA", "NA", "NA", obj.getSfzhm(),
                     PercentUtil.getPercent(Long.parseLong(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE), obj, 1),
                     PercentUtil.getPercent(Long.parseLong(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE), obj, 0)));
             real_count++;
         }
         //1.病历总数 2.抽取的病历数量 3.子集类型
-        this.mbzDataCheckService.createMbzDataCheckNum(jbjkxxList.size(),real_count,Integer.parseInt(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE),entity);
-        return dataCheckList;
+        this.mbzDataCheckService.createMbzDataCheckNum(jbjkxxList.size(), real_count, Integer.parseInt(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE), entity);
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
+        return mbzDataCheck;
     }
 }

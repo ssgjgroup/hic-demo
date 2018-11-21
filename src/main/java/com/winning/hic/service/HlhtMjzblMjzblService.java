@@ -29,5 +29,5 @@ public interface HlhtMjzblMjzblService {
 
     public List<HlhtMjzblMjzbl> getHlhtMjzblMjzblPageList(HlhtMjzblMjzbl hlhtMjzblMjzbl);
 
-    public List<MbzDataCheck> interfaceHlhtMjzblMjzbl(MbzDataCheck entity);
+    public MbzDataCheck interfaceHlhtMjzblMjzbl(MbzDataCheck entity);
 }

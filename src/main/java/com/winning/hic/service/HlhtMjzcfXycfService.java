@@ -29,7 +29,7 @@ public interface HlhtMjzcfXycfService {
 
     public List<HlhtMjzcfXycf> getHlhtMjzcfXycfPageList(HlhtMjzcfXycf hlhtMjzcfXycf);
 
-    List<MbzDataCheck> interfaceHlhtMjzcfXycf(MbzDataCheck entity) throws Exception;
+    MbzDataCheck interfaceHlhtMjzcfXycf(MbzDataCheck entity) throws Exception;
 
 
 }

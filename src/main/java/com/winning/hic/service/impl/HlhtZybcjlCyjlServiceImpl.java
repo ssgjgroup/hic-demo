@@ -1,10 +1,7 @@
 package com.winning.hic.service.impl;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
@@ -87,9 +84,9 @@ public class HlhtZybcjlCyjlServiceImpl implements HlhtZybcjlCyjlService {
     }
 
     @Override
-    public List<MbzDataCheck> interfaceHlhtZybcjlCyjl(MbzDataCheck t) {
+    public MbzDataCheck interfaceHlhtZybcjlCyjl(MbzDataCheck t) {
         //执行过程信息记录
-        List<MbzDataCheck> mbzDataChecks = null;
+
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
 
@@ -183,7 +180,7 @@ public class HlhtZybcjlCyjlServiceImpl implements HlhtZybcjlCyjlService {
                     }
 
 
-                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_CYJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_CYJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.hlhtZybcjlCyjlDao.insertHlhtZybcjlCyjl(obj);
                     this.splitTableDao.selectAnmrZybcjlCyjlSplitByProc(hlhtZybcjlCyjlTemp);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
@@ -202,9 +199,12 @@ public class HlhtZybcjlCyjlServiceImpl implements HlhtZybcjlCyjlService {
             }
         }
         //1.病历总数 2.抽取的病历数量 3.子集类型
-        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZYBCJL_CYJL_SOURCE_TYPE),t);
+        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZYBCJL_CYJL_SOURCE_TYPE), t);
 
-        return mbzDataChecks;
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
+        return mbzDataCheck;
     }
 
     @Override

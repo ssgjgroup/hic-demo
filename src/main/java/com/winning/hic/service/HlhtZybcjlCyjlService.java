@@ -30,7 +30,7 @@ public interface HlhtZybcjlCyjlService {
 
     public List<HlhtZybcjlCyjl> getHlhtZybcjlCyjlPageList(HlhtZybcjlCyjl hlhtZybcjlCyjl);
 
-    List<MbzDataCheck> interfaceHlhtZybcjlCyjl(MbzDataCheck entity);
+    MbzDataCheck interfaceHlhtZybcjlCyjl(MbzDataCheck entity);
 
     public void deleteHlhtZybcjlCyjlByYjlxh(HlhtZybcjlCyjl hlhtZybcjlCyjl);
 

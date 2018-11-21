@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * @author chensj
- * @title
+ * @title CIS 数据集 表名、字典值、中文名映射关系
  * @email chensj@winning.com.cn
  * @package com.winning.hic.base.config
  * @date: 2018-11-21 14:45

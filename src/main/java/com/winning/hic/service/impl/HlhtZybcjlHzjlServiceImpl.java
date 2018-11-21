@@ -1,9 +1,6 @@
 package com.winning.hic.service.impl;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
@@ -26,14 +23,14 @@ import com.winning.hic.service.MbzDataSetService;
 
 
 /**
-* @author HLHT
-* @title HLHT_ZYBCJL_HZJL
-* @email Winning Health
-* @package com.winning.hic.service.impl
-* @date 2018-33-31 16:33:23
-*/
+ * @author HLHT
+ * @title HLHT_ZYBCJL_HZJL
+ * @email Winning Health
+ * @package com.winning.hic.service.impl
+ * @date 2018-33-31 16:33:23
+ */
 @Service
-public class HlhtZybcjlHzjlServiceImpl implements  HlhtZybcjlHzjlService {
+public class HlhtZybcjlHzjlServiceImpl implements HlhtZybcjlHzjlService {
 
     @Autowired
     private HlhtZybcjlHzjlDao hlhtZybcjlHzjlDao;
@@ -53,31 +50,31 @@ public class HlhtZybcjlHzjlServiceImpl implements  HlhtZybcjlHzjlService {
     @Autowired
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
 
-    public int createHlhtZybcjlHzjl(HlhtZybcjlHzjl hlhtZybcjlHzjl){
+    public int createHlhtZybcjlHzjl(HlhtZybcjlHzjl hlhtZybcjlHzjl) {
         return this.hlhtZybcjlHzjlDao.insertHlhtZybcjlHzjl(hlhtZybcjlHzjl);
     }
 
-    public int modifyHlhtZybcjlHzjl(HlhtZybcjlHzjl hlhtZybcjlHzjl){
+    public int modifyHlhtZybcjlHzjl(HlhtZybcjlHzjl hlhtZybcjlHzjl) {
         return this.hlhtZybcjlHzjlDao.updateHlhtZybcjlHzjl(hlhtZybcjlHzjl);
     }
 
-    public int removeHlhtZybcjlHzjl(HlhtZybcjlHzjl hlhtZybcjlHzjl){
+    public int removeHlhtZybcjlHzjl(HlhtZybcjlHzjl hlhtZybcjlHzjl) {
         return this.hlhtZybcjlHzjlDao.deleteHlhtZybcjlHzjl(hlhtZybcjlHzjl);
     }
 
-    public HlhtZybcjlHzjl getHlhtZybcjlHzjl(HlhtZybcjlHzjl hlhtZybcjlHzjl){
+    public HlhtZybcjlHzjl getHlhtZybcjlHzjl(HlhtZybcjlHzjl hlhtZybcjlHzjl) {
         return this.hlhtZybcjlHzjlDao.selectHlhtZybcjlHzjl(hlhtZybcjlHzjl);
     }
 
-    public int getHlhtZybcjlHzjlCount(HlhtZybcjlHzjl hlhtZybcjlHzjl){
-        return (Integer)this.hlhtZybcjlHzjlDao.selectHlhtZybcjlHzjlCount(hlhtZybcjlHzjl);
+    public int getHlhtZybcjlHzjlCount(HlhtZybcjlHzjl hlhtZybcjlHzjl) {
+        return (Integer) this.hlhtZybcjlHzjlDao.selectHlhtZybcjlHzjlCount(hlhtZybcjlHzjl);
     }
 
-    public List<HlhtZybcjlHzjl> getHlhtZybcjlHzjlList(HlhtZybcjlHzjl hlhtZybcjlHzjl){
+    public List<HlhtZybcjlHzjl> getHlhtZybcjlHzjlList(HlhtZybcjlHzjl hlhtZybcjlHzjl) {
         return this.hlhtZybcjlHzjlDao.selectHlhtZybcjlHzjlList(hlhtZybcjlHzjl);
     }
 
-    public List<HlhtZybcjlHzjl> getHlhtZybcjlHzjlPageList(HlhtZybcjlHzjl hlhtZybcjlHzjl){
+    public List<HlhtZybcjlHzjl> getHlhtZybcjlHzjlPageList(HlhtZybcjlHzjl hlhtZybcjlHzjl) {
         return this.hlhtZybcjlHzjlDao.selectHlhtZybcjlHzjlPageList(hlhtZybcjlHzjl);
     }
 
@@ -86,36 +83,36 @@ public class HlhtZybcjlHzjlServiceImpl implements  HlhtZybcjlHzjlService {
     }
 
     @Override
-    public List<MbzDataCheck> interfaceHlhtZybcjlHzjl(MbzDataCheck t) {
+    public MbzDataCheck interfaceHlhtZybcjlHzjl(MbzDataCheck t) {
         //执行过程信息记录
-        List<MbzDataCheck> mbzDataChecks = null;
-        int emr_count =0;//病历数量
-        int real_count=0;//实际数量
+
+        int emr_count = 0;//病历数量
+        int real_count = 0;//实际数量        //实际数量
         MbzDataSet mbzDataSet = new MbzDataSet();
         mbzDataSet.setSourceType(Constants.WN_ZYBCJL_HZJL_SOURCE_TYPE);
         mbzDataSet.setPId(Long.parseLong(Constants.WN_ZYBCJL_HZJL_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = mbzDataSetService.getMbzDataSetList(mbzDataSet);
-        try{
+        try {
             //获取首次病程的对象集合
             Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZybcjlHzjl.class);
             //for(MbzDataListSet dataListSet :dataListSets){
-                //2.根据首次病程去找到对应的病人病历
+            //2.根据首次病程去找到对应的病人病历
             HlhtZybcjlHzjl oneHzjl = new HlhtZybcjlHzjl();
             oneHzjl.getMap().put("sourceType", Constants.WN_ZYBCJL_HZJL_SOURCE_TYPE);
-            oneHzjl.getMap().put("startDate",t.getMap().get("startDate"));
-            oneHzjl.getMap().put("endDate",t.getMap().get("endDate"));
-            oneHzjl.getMap().put("syxh",t.getMap().get("syxh"));
+            oneHzjl.getMap().put("startDate", t.getMap().get("startDate"));
+            oneHzjl.getMap().put("endDate", t.getMap().get("endDate"));
+            oneHzjl.getMap().put("syxh", t.getMap().get("syxh"));
             oneHzjl.getMap().put("yljgdm", t.getMap().get("yljgdm"));
             oneHzjl.getMap().put("regex", t.getMap().get("regex"));
 
             List<HlhtZybcjlHzjl> hlhtZybcjlHzjls = this.hlhtZybcjlHzjlDao.selecthlhtZybcjlHzjlListByProc(oneHzjl);
-            if(hlhtZybcjlHzjls != null){
-                for(HlhtZybcjlHzjl obj:hlhtZybcjlHzjls){
+            if (hlhtZybcjlHzjls != null) {
+                for (HlhtZybcjlHzjl obj : hlhtZybcjlHzjls) {
                     //判断属于哪一种单据（1.申请单 2.答复单）
                     EmrHzsqdjlk s_hzsqdjlk = new EmrHzsqdjlk();
-                    s_hzsqdjlk.getMap().put("entity_param",obj.getYjlxh());
-                    List<EmrHzsqdjlk> hzsqdjlk_list=emrHzsqdjlkDao.selectEmrHzsqdjlkList2(s_hzsqdjlk);
-                    if(hzsqdjlk_list.size()>0 && hzsqdjlk_list !=null) {
+                    s_hzsqdjlk.getMap().put("entity_param", obj.getYjlxh());
+                    List<EmrHzsqdjlk> hzsqdjlk_list = emrHzsqdjlkDao.selectEmrHzsqdjlkList2(s_hzsqdjlk);
+                    if (hzsqdjlk_list.size() > 0 && hzsqdjlk_list != null) {
                         if (String.valueOf(hzsqdjlk_list.get(0).getQtbljlxh()).equals(obj.getYjlxh())) { //会诊申请单 insert
                             emr_count++;
                             HlhtZybcjlHzjl scbcjl = new HlhtZybcjlHzjl();
@@ -137,7 +134,7 @@ public class HlhtZybcjlHzjlServiceImpl implements  HlhtZybcjlHzjlService {
                             try {
                                 Document document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                                 obj = (HlhtZybcjlHzjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
-                                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_HZJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_HZJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -150,9 +147,9 @@ public class HlhtZybcjlHzjlServiceImpl implements  HlhtZybcjlHzjlService {
                                 HlhtZybcjlHzjl entity = new HlhtZybcjlHzjl();
                                 entity.setYjlxh(String.valueOf(hzsqdjlk_list.get(0).getQtbljlxh()));
                                 entity = this.getHlhtZybcjlHzjl(entity);
-                                if(entity != null){
+                                if (entity != null) {
                                     entity = (HlhtZybcjlHzjl) HicHelper.initModelValue(mbzDataSetList, document, entity, paramTypeMap);
-                                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_HZJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_HZJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                                     this.splitTableDao.selectAnmrZybcjlHzjlSplitByProc(obj);
                                     this.modifyHlhtZybcjlHzjl(entity);
                                 }
@@ -175,14 +172,17 @@ public class HlhtZybcjlHzjlServiceImpl implements  HlhtZybcjlHzjlService {
                 }
             }
             //1.病历总数 2.抽取的病历数量 3.子集类型
-            this.mbzDataCheckService.createMbzDataCheckNum(emr_count,real_count,Integer.parseInt(Constants.WN_ZYBCJL_HZJL_SOURCE_TYPE),t);
+            this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZYBCJL_HZJL_SOURCE_TYPE), t);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
 
-        return null;
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
+        return mbzDataCheck;
     }
 
 

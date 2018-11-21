@@ -31,5 +31,5 @@ public interface HlhtZqgzxxSstysService {
 
     public List<HlhtZqgzxxSstys> getHlhtZqgzxxSstysPageList(HlhtZqgzxxSstys hlhtZqgzxxSstys);
 
-    public List<MbzDataCheck> interfaceHlhtZqgzxxSstys(MbzDataCheck entity) throws Exception;
+    public MbzDataCheck interfaceHlhtZqgzxxSstys(MbzDataCheck entity) throws Exception;
 }

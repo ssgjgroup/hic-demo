@@ -37,5 +37,5 @@ public interface HlhtRyjlRcyjlService {
      */
     public HlhtRyjlRcyjl getInitHlhtRyjlRcyjlData(HlhtRyjlRcyjl rcyjl);
 
-    public List<MbzDataCheck> interfaceHlhtRyjlRcyjl(MbzDataCheck entity) throws Exception;
+    public MbzDataCheck interfaceHlhtRyjlRcyjl(MbzDataCheck entity) throws Exception;
 }

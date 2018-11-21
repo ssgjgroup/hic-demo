@@ -1,10 +1,7 @@
 package com.winning.hic.service.impl;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
@@ -109,9 +106,9 @@ public class HlhtZybcjlSwjlServiceImpl implements HlhtZybcjlSwjlService {
     }
 
     @Override
-    public List<MbzDataCheck> interfaceHlhtZybcjlSwjl(MbzDataCheck t) {
+    public MbzDataCheck interfaceHlhtZybcjlSwjl(MbzDataCheck t) {
         //执行过程信息记录
-        List<MbzDataCheck> mbzDataChecks = null;
+
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
 
@@ -120,7 +117,7 @@ public class HlhtZybcjlSwjlServiceImpl implements HlhtZybcjlSwjlService {
         mbzDataSet.setPId(Long.parseLong(Constants.WN_ZYBCJL_SWJL_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = this.mbzDataSetDao.selectMbzDataSetList(mbzDataSet);
         HlhtZybcjlSwjl hlhtZybcjlSwjlTemp = new HlhtZybcjlSwjl();
-        hlhtZybcjlSwjlTemp.getMap().put("sourceType",Constants.WN_ZYBCJL_SWJL_SOURCE_TYPE);
+        hlhtZybcjlSwjlTemp.getMap().put("sourceType", Constants.WN_ZYBCJL_SWJL_SOURCE_TYPE);
         hlhtZybcjlSwjlTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtZybcjlSwjlTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtZybcjlSwjlTemp.getMap().put("syxh", t.getMap().get("syxh"));
@@ -151,15 +148,15 @@ public class HlhtZybcjlSwjlServiceImpl implements HlhtZybcjlSwjlService {
                 try {
                     obj = (HlhtZybcjlSwjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                     logger.info("Model:{}", obj);
-                    obj.setRyzdbm(obj.getRyzdbm() == null ? "NA" :obj.getRyzdbm().replace("西医诊断：", "").trim());
-                    obj.setRyzdbm(obj.getRyzdbm() == null ? "NA" :obj.getRyzdbm().replace("中医诊断：", "").trim());
-                    obj.setRyzdmc(obj.getRyzdmc() == null ? "NA" :obj.getRyzdmc().replace("西医诊断：", "").trim());
-                    obj.setRyzdmc(obj.getRyzdmc() == null ? "NA" :obj.getRyzdmc().replace("中医诊断：", "").trim());
-                    obj.setSwzdbm(obj.getSwzdbm() == null ? "NA" :obj.getSwzdbm().replace("西医诊断：", "").trim());
-                    obj.setSwzdbm(obj.getSwzdbm() == null ? "NA" :obj.getSwzdbm().replace("中医诊断：", "").trim());
-                    obj.setSwzdmc(obj.getSwzdmc() == null ? "NA" :obj.getSwzdmc().replace("西医诊断：", "").trim());
-                    obj.setSwzdmc(obj.getSwzdmc() == null ? "NA" :obj.getSwzdmc().replace("中医诊断：", "").trim());
-                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_SWJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                    obj.setRyzdbm(obj.getRyzdbm() == null ? "NA" : obj.getRyzdbm().replace("西医诊断：", "").trim());
+                    obj.setRyzdbm(obj.getRyzdbm() == null ? "NA" : obj.getRyzdbm().replace("中医诊断：", "").trim());
+                    obj.setRyzdmc(obj.getRyzdmc() == null ? "NA" : obj.getRyzdmc().replace("西医诊断：", "").trim());
+                    obj.setRyzdmc(obj.getRyzdmc() == null ? "NA" : obj.getRyzdmc().replace("中医诊断：", "").trim());
+                    obj.setSwzdbm(obj.getSwzdbm() == null ? "NA" : obj.getSwzdbm().replace("西医诊断：", "").trim());
+                    obj.setSwzdbm(obj.getSwzdbm() == null ? "NA" : obj.getSwzdbm().replace("中医诊断：", "").trim());
+                    obj.setSwzdmc(obj.getSwzdmc() == null ? "NA" : obj.getSwzdmc().replace("西医诊断：", "").trim());
+                    obj.setSwzdmc(obj.getSwzdmc() == null ? "NA" : obj.getSwzdmc().replace("中医诊断：", "").trim());
+                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_SWJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.hlhtZybcjlSwjlDao.insertHlhtZybcjlSwjl(obj);
                     this.splitTableDao.selectAnmrZybcjlSwjlSplitByProc(hlhtZybcjlSwjlTemp);
                     //插入日志
@@ -179,8 +176,11 @@ public class HlhtZybcjlSwjlServiceImpl implements HlhtZybcjlSwjlService {
             }
         }
         //1.病历总数 2.抽取的病历数量 3.子集类型
-        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZYBCJL_SWJL_SOURCE_TYPE),t);
-        return mbzDataChecks;
+        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZYBCJL_SWJL_SOURCE_TYPE), t);
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
+        return mbzDataCheck;
     }
 
 

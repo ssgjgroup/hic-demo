@@ -29,5 +29,5 @@ public interface HlhtBlgyJbjkxxService {
 
     public List<HlhtBlgyJbjkxx> getHlhtBlgyJbjkxxPageList(HlhtBlgyJbjkxx hlhtBlgyJbjkxx);
 
-    List<MbzDataCheck> interfaceHlhtBlgyJbjkxx(MbzDataCheck entity) throws Exception;
+    MbzDataCheck interfaceHlhtBlgyJbjkxx(MbzDataCheck entity) throws Exception;
 }

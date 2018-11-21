@@ -35,14 +35,14 @@ import com.winning.hic.service.MbzDataCheckService;
 
 
 /**
-* @author HLHT
-* @title HLHT_MJZBL_JZLGBL
-* @email Winning Health
-* @package com.winning.hic.service.impl
-* @date 2018-29-31 16:29:33
-*/
+ * @author HLHT
+ * @title HLHT_MJZBL_JZLGBL
+ * @email Winning Health
+ * @package com.winning.hic.service.impl
+ * @date 2018-29-31 16:29:33
+ */
 @Service
-public class HlhtMjzblJzlgblServiceImpl implements  HlhtMjzblJzlgblService {
+public class HlhtMjzblJzlgblServiceImpl implements HlhtMjzblJzlgblService {
 
     private static final Logger logger = LoggerFactory.getLogger(HlhtMjzblJzlgblServiceImpl.class);
     @Autowired
@@ -61,39 +61,39 @@ public class HlhtMjzblJzlgblServiceImpl implements  HlhtMjzblJzlgblService {
     @Autowired
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
 
-    public int createHlhtMjzblJzlgbl(HlhtMjzblJzlgbl hlhtMjzblJzlgbl){
+    public int createHlhtMjzblJzlgbl(HlhtMjzblJzlgbl hlhtMjzblJzlgbl) {
         return this.hlhtMjzblJzlgblDao.insertHlhtMjzblJzlgbl(hlhtMjzblJzlgbl);
     }
 
-    public int modifyHlhtMjzblJzlgbl(HlhtMjzblJzlgbl hlhtMjzblJzlgbl){
+    public int modifyHlhtMjzblJzlgbl(HlhtMjzblJzlgbl hlhtMjzblJzlgbl) {
         return this.hlhtMjzblJzlgblDao.updateHlhtMjzblJzlgbl(hlhtMjzblJzlgbl);
     }
 
-    public int removeHlhtMjzblJzlgbl(HlhtMjzblJzlgbl hlhtMjzblJzlgbl){
+    public int removeHlhtMjzblJzlgbl(HlhtMjzblJzlgbl hlhtMjzblJzlgbl) {
         return this.hlhtMjzblJzlgblDao.deleteHlhtMjzblJzlgbl(hlhtMjzblJzlgbl);
     }
 
-    public HlhtMjzblJzlgbl getHlhtMjzblJzlgbl(HlhtMjzblJzlgbl hlhtMjzblJzlgbl){
+    public HlhtMjzblJzlgbl getHlhtMjzblJzlgbl(HlhtMjzblJzlgbl hlhtMjzblJzlgbl) {
         return this.hlhtMjzblJzlgblDao.selectHlhtMjzblJzlgbl(hlhtMjzblJzlgbl);
     }
 
-    public int getHlhtMjzblJzlgblCount(HlhtMjzblJzlgbl hlhtMjzblJzlgbl){
-        return (Integer)this.hlhtMjzblJzlgblDao.selectHlhtMjzblJzlgblCount(hlhtMjzblJzlgbl);
+    public int getHlhtMjzblJzlgblCount(HlhtMjzblJzlgbl hlhtMjzblJzlgbl) {
+        return (Integer) this.hlhtMjzblJzlgblDao.selectHlhtMjzblJzlgblCount(hlhtMjzblJzlgbl);
     }
 
-    public List<HlhtMjzblJzlgbl> getHlhtMjzblJzlgblList(HlhtMjzblJzlgbl hlhtMjzblJzlgbl){
+    public List<HlhtMjzblJzlgbl> getHlhtMjzblJzlgblList(HlhtMjzblJzlgbl hlhtMjzblJzlgbl) {
         return this.hlhtMjzblJzlgblDao.selectHlhtMjzblJzlgblList(hlhtMjzblJzlgbl);
     }
 
-    public List<HlhtMjzblJzlgbl> getHlhtMjzblJzlgblPageList(HlhtMjzblJzlgbl hlhtMjzblJzlgbl){
+    public List<HlhtMjzblJzlgbl> getHlhtMjzblJzlgblPageList(HlhtMjzblJzlgbl hlhtMjzblJzlgbl) {
         return this.hlhtMjzblJzlgblDao.selectHlhtMjzblJzlgblPageList(hlhtMjzblJzlgbl);
     }
 
     @Override
-    public List<MbzDataCheck> interfaceHlhtMjzblJzlgbl(MbzDataCheck entity) throws Exception {
-        List<MbzDataCheck> dataChecks = null;
-        int emr_count =0;//病历数量
-        int real_count=0;//实际数量
+    public MbzDataCheck interfaceHlhtMjzblJzlgbl(MbzDataCheck entity) throws Exception {
+
+        int emr_count = 0;//病历数量
+        int real_count = 0;//实际数量         //实际数量
 
         MbzDictInfo nameDict = new MbzDictInfo();
         nameDict.setDictCode("hospitalInfoName");
@@ -121,35 +121,35 @@ public class HlhtMjzblJzlgblServiceImpl implements  HlhtMjzblJzlgblService {
         Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtMjzblJzlgbl.class);
 
         String[] bcCode = {"jzlgbcjl"};
-        String[] syCode = {"hzqxdm","hzqxmc"};
+        String[] syCode = {"hzqxdm", "hzqxmc"};
         List<MbzDataSet> bcDataSetList = new ArrayList<>();
         List<MbzDataSet> syDataSetList = new ArrayList<>();
         for (MbzDataSet dataSet : mbzDataSetList) {
-            for (int i = 0; i < bcCode.length ; i++) {
-                if(bcCode[i].equals(dataSet.getPyCode())){
+            for (int i = 0; i < bcCode.length; i++) {
+                if (bcCode[i].equals(dataSet.getPyCode())) {
                     bcDataSetList.add(dataSet);
                 }
             }
 
-            for (int i = 0; i < syCode.length ; i++) {
-                if(syCode[i].equals(dataSet.getPyCode())){
+            for (int i = 0; i < syCode.length; i++) {
+                if (syCode[i].equals(dataSet.getPyCode())) {
                     syDataSetList.add(dataSet);
                 }
             }
         }
 
         HlhtMjzblJzlgbl hlht = new HlhtMjzblJzlgbl();
-        hlht.getMap().put("sourceType",Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE);
-        hlht.getMap().put("startDate",entity.getMap().get("startDate"));
-        hlht.getMap().put("endDate",entity.getMap().get("endDate"));
-        hlht.getMap().put("syxh",entity.getMap().get("syxh"));
-        hlht.getMap().put("yljgdm",entity.getMap().get("yljgdm"));
-        hlht.getMap().put("regex",entity.getMap().get("regex"));
+        hlht.getMap().put("sourceType", Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE);
+        hlht.getMap().put("startDate", entity.getMap().get("startDate"));
+        hlht.getMap().put("endDate", entity.getMap().get("endDate"));
+        hlht.getMap().put("syxh", entity.getMap().get("syxh"));
+        hlht.getMap().put("yljgdm", entity.getMap().get("yljgdm"));
+        hlht.getMap().put("regex", entity.getMap().get("regex"));
 
         List<HlhtMjzblJzlgbl> list = this.hlhtMjzblJzlgblDao.selectHlhtMjzblJzlgblListByProc(hlht);
-        if(list != null && list.size() > 0){
-            emr_count = emr_count+list.size();
-            for(HlhtMjzblJzlgbl obj:list){
+        if (list != null && list.size() > 0) {
+            emr_count = emr_count + list.size();
+            for (HlhtMjzblJzlgbl obj : list) {
                 //获取接口数据
                 HlhtMjzblJzlgbl oldObj = new HlhtMjzblJzlgbl();
                 oldObj.setYjlxh(String.valueOf(obj.getYjlxh()));
@@ -159,24 +159,24 @@ public class HlhtMjzblJzlgblServiceImpl implements  HlhtMjzblJzlgblService {
                 Document bcDocument = null;
                 Document syDocument = null;
                 //判断是否存在重复,存在则删除，重新新增
-                if(oldObj != null ){
+                if (oldObj != null) {
                     //初始化数据
-                    HlhtMjzblJzlgbl oldRcyjl  = new HlhtMjzblJzlgbl();
+                    HlhtMjzblJzlgbl oldRcyjl = new HlhtMjzblJzlgbl();
                     oldRcyjl.setYjlxh(String.valueOf(obj.getYjlxh()));
                     this.removeHlhtMjzblJzlgbl(oldRcyjl);
                     //清除日志
-                    Map<String,Object> param = new HashMap<>();
-                    param.put("SOURCE_ID",obj.getYjlxh());
-                    param.put("SOURCE_TYPE",Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE);
+                    Map<String, Object> param = new HashMap<>();
+                    param.put("SOURCE_ID", obj.getYjlxh());
+                    param.put("SOURCE_TYPE", Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE);
                     mbzLoadDataInfoDao.deleteMbzLoadDataInfoBySourceIdAndSourceType(param);
                 }
-                obj = (HlhtMjzblJzlgbl) HicHelper.initModelValue(mbzDataSetList,document,obj,paramTypeMap);
+                obj = (HlhtMjzblJzlgbl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
 
 
                 new ArrayList<>();
-                Map<String,Object> param = new HashMap<>();
-                param.put("syxh",obj.getSyxh());
-                param.put("keyWord","急诊留观病程记录");
+                Map<String, Object> param = new HashMap<>();
+                param.put("syxh", obj.getSyxh());
+                param.put("keyWord", "急诊留观病程记录");
                 //病程记录
                 List<EmrQtbljlk> bcEmrQtbljlks = this.hlhtCommonQueryDao.selectEmrQtbljlkListByProcForMZ(param);
                 if (bcEmrQtbljlks.size() >= 1) {
@@ -187,8 +187,8 @@ public class HlhtMjzblJzlgblServiceImpl implements  HlhtMjzblJzlgblService {
                 }
 
                 //留观首页
-                param.put("syxh",obj.getSyxh());
-                param.put("keyWord","急诊留观病历首页");
+                param.put("syxh", obj.getSyxh());
+                param.put("keyWord", "急诊留观病历首页");
                 List<EmrQtbljlk> syEmrQtbljlks = this.hlhtCommonQueryDao.selectEmrQtbljlkListByProcForMZ(param);
                 if (syEmrQtbljlks.size() >= 1) {
                     syDocument = XmlUtil.getDocument(Base64Utils.unzipEmrXml(syEmrQtbljlks.get(0).getBlnr()));
@@ -198,38 +198,38 @@ public class HlhtMjzblJzlgblServiceImpl implements  HlhtMjzblJzlgblService {
                 }
                 obj.setZzjgdm(codeDict.getDictLabel());
                 obj.setZzjgmc(nameDict.getDictLabel());
-                if(obj.getGms().contains("否认") || obj.getGms().contains("不详") || obj.getGms().contains("NA") ){
+                if (obj.getGms().contains("否认") || obj.getGms().contains("不详") || obj.getGms().contains("NA")) {
                     String value = "";
-                    if(obj.getGms().contains("否认") || obj.getGms().contains("不详")){
+                    if (obj.getGms().contains("否认") || obj.getGms().contains("不详")) {
                         value = obj.getGms() + "药物过敏史";
-                    }else{
+                    } else {
                         value = "否认药物过敏史";
                     }
                     obj.setGms(value);
                     obj.setGmsbz("F");
-                } else{
+                } else {
                     String value = obj.getGms() + "药物过敏史";
                     obj.setGms(value);
                     obj.setGmsbz("T");
                 }
                 String hzqx = obj.getHzqxmc();
-                if(!"NA".equals(hzqx)){
-                    if(hzqx.startsWith("出观去向： ")){
+                if (!"NA".equals(hzqx)) {
+                    if (hzqx.startsWith("出观去向： ")) {
                         hzqx = hzqx.substring("出观去向： ".length());
                     }
-                    hzqx = hzqx.replaceAll(" +","");
-                    Map<String,String> hzqxMap = StringUtil.resolveStringToMap(hzqx);
-                    if(hzqxMap.size() > 0){
+                    hzqx = hzqx.replaceAll(" +", "");
+                    Map<String, String> hzqxMap = StringUtil.resolveStringToMap(hzqx);
+                    if (hzqxMap.size() > 0) {
                         StringBuilder code = new StringBuilder();
                         StringBuilder value = new StringBuilder();
                         for (String s : hzqxMap.keySet()) {
-                            if(s.startsWith("1")){
-                                code.append(s.substring(1)+",");
-                                value.append(hzqxMap.get(s)+",");
+                            if (s.startsWith("1")) {
+                                code.append(s.substring(1) + ",");
+                                value.append(hzqxMap.get(s) + ",");
                             }
                         }
-                        obj.setHzqxmc(value.toString().substring(0,value.length()-1));
-                        obj.setHzqxdm(code.toString().substring(0,code.length()-1));
+                        obj.setHzqxmc(value.toString().substring(0, value.length() - 1));
+                        obj.setHzqxdm(code.toString().substring(0, code.length() - 1));
                     }
                 }
                 this.createHlhtMjzblJzlgbl(obj);
@@ -237,20 +237,22 @@ public class HlhtMjzblJzlgblServiceImpl implements  HlhtMjzblJzlgblService {
                 //插入日志
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                         Long.parseLong(Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE),
-                        Long.parseLong(obj.getYjlxh()), obj.getBlmc(),obj.getSyxh()+"",
+                        Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
                         obj.getFssj(),
-                        obj.getPatid(),obj.getZyh(),obj.getHzxm(),obj.getXbmc(),obj.getXbdm(),
-                        obj.getKsmc(),obj.getKsdm(),"NA","NA", obj.getSfzhm(),
+                        obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
+                        obj.getKsmc(), obj.getKsdm(), "NA", "NA", obj.getSfzhm(),
                         PercentUtil.getPercent(Long.parseLong(Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE), obj, 1),
                         PercentUtil.getPercent(Long.parseLong(Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE), obj, 0)));
                 real_count++;
             }
-        }else{
-            logger.info("接口数据集:{}无相关的病历信息或者未配置结果集，请先书写病历信息或配置结果集",mbzDataSet.getRecordName());
+        } else {
+            logger.info("接口数据集:{}无相关的病历信息或者未配置结果集，请先书写病历信息或配置结果集", mbzDataSet.getRecordName());
         }
         //1.病历总数 2.抽取的病历数量 3.子集类型
-        this.mbzDataCheckService.createMbzDataCheckNum(emr_count,real_count,Integer.parseInt(Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE),entity);
-
-        return dataChecks;
+        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE), entity);
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
+        return mbzDataCheck;
     }
 }

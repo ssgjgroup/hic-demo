@@ -65,7 +65,7 @@ public class DataExtractAscept {
         long start = System.currentTimeMillis();
         try {
 
-            ((ProceedingJoinPoint) joinPoint).proceed();
+            Object obj = ((ProceedingJoinPoint) joinPoint).proceed();
             log.setUpdateTime(new Date());
             log.setStatus(1);
             mbzOperateLogService.modifyMbzOperateLog(log);

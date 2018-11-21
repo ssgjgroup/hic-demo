@@ -84,9 +84,9 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
     }
 
     @Override
-    public List<MbzDataCheck> interfaceHlhtRyjlJbxx(MbzDataCheck t) {
+    public MbzDataCheck interfaceHlhtRyjlJbxx(MbzDataCheck t) {
         //执行过程信息记录
-        List<MbzDataCheck> mbzDataChecks = null;
+
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
 
@@ -126,8 +126,8 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
         hlhtRyjlJbxxTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtRyjlJbxxTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtRyjlJbxxTemp.getMap().put("syxh", t.getMap().get("syxh"));
-        hlhtRyjlJbxxTemp.getMap().put("yljgdm",t.getMap().get("yljgdm"));
-        hlhtRyjlJbxxTemp.getMap().put("regex",t.getMap().get("regex"));
+        hlhtRyjlJbxxTemp.getMap().put("yljgdm", t.getMap().get("yljgdm"));
+        hlhtRyjlJbxxTemp.getMap().put("regex", t.getMap().get("regex"));
         //2.根据模板代码去找到对应的病人病历
         List<HlhtRyjlJbxx> hlhtRyjlJbxxList = this.hlhtRyjlJbxxDao.selectHlhtRyjlJbxxListByProc(hlhtRyjlJbxxTemp);
 
@@ -313,13 +313,13 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
                     String qzxyzdmc = obj.getQzxyzdmc() == null ? "NA" : obj.getQzxyzdmc();
                     if (!"NA".equals(qzxyzdbm)) {
                         int index = qzxyzdbm.indexOf("西医诊断");
-                        if(index>=0) {
+                        if (index >= 0) {
                             qzxyzdbm = qzxyzdbm.substring(index + 4).trim();
                         }
                     }
                     if (!"NA".equals(qzxyzdmc)) {
                         int index = qzxyzdmc.indexOf("西医诊断");
-                        if(index>=0){
+                        if (index >= 0) {
                             qzxyzdmc = qzxyzdmc.substring(index + 4).trim();
                         }
                     }
@@ -388,7 +388,7 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
                             obj.setQzzyzhmc(bm);
                         }
                     }
-                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.RYJL_JBXX),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.RYJL_JBXX), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.hlhtRyjlJbxxDao.insertHlhtRyjlJbxx(obj);
                     this.splitTableDao.selectAnmrRyjlJbxxSplitByProc(hlhtRyjlJbxxTemp);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
@@ -408,7 +408,10 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_RYJL_JBXX_SOURCE_TYPE), t);
 
-        return mbzDataChecks;
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
+        return mbzDataCheck;
     }
 
     @Override

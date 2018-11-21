@@ -1,10 +1,7 @@
 package com.winning.hic.service.impl;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
@@ -92,9 +89,10 @@ public class HlhtZlczjlSxjlServiceImpl implements HlhtZlczjlSxjlService {
     }
 
     @Override
-    public List<MbzDataCheck> interfaceHlhtZlczjlSxjl(MbzDataCheck t) {
+    public MbzDataCheck interfaceHlhtZlczjlSxjl(MbzDataCheck t) {
         //执行过程信息记录
-        List<MbzDataCheck> mbzDataChecks = null;
+
+        ;
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
 
@@ -103,12 +101,12 @@ public class HlhtZlczjlSxjlServiceImpl implements HlhtZlczjlSxjlService {
         mbzDataSet.setPId(Long.parseLong(Constants.WN_ZLCZJL_SXJL_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = this.mbzDataSetDao.selectMbzDataSetList(mbzDataSet);
         HlhtZlczjlSxjl hlhtZlczjlSxjlTemp = new HlhtZlczjlSxjl();
-        hlhtZlczjlSxjlTemp.getMap().put("sourceType",Constants.WN_ZLCZJL_SXJL_SOURCE_TYPE);
+        hlhtZlczjlSxjlTemp.getMap().put("sourceType", Constants.WN_ZLCZJL_SXJL_SOURCE_TYPE);
         hlhtZlczjlSxjlTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtZlczjlSxjlTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtZlczjlSxjlTemp.getMap().put("syxh", t.getMap().get("syxh"));
-        hlhtZlczjlSxjlTemp.getMap().put("yljgdm",t.getMap().get("yljgdm"));
-        hlhtZlczjlSxjlTemp.getMap().put("regex",t.getMap().get("regex"));
+        hlhtZlczjlSxjlTemp.getMap().put("yljgdm", t.getMap().get("yljgdm"));
+        hlhtZlczjlSxjlTemp.getMap().put("regex", t.getMap().get("regex"));
         //2.根据模板代码去找到对应的病人病历
         List<HlhtZlczjlSxjl> hlhtZlczjlSxjls = this.hlhtZlczjlSxjlDao.selectHlhtZlczjlSxjlListByProc(hlhtZlczjlSxjlTemp);
         if (hlhtZlczjlSxjls != null) {
@@ -134,7 +132,7 @@ public class HlhtZlczjlSxjlServiceImpl implements HlhtZlczjlSxjlService {
                 try {
                     obj = (HlhtZlczjlSxjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                     logger.info("Model:{}", obj);
-                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZLCZJL_SXJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZLCZJL_SXJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.hlhtZlczjlSxjlDao.insertHlhtZlczjlSxjl(obj);
                     this.splitTableDao.selectAnmrZlczjlSxjlSplitByProc(hlhtZlczjlSxjlTemp);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
@@ -154,8 +152,11 @@ public class HlhtZlczjlSxjlServiceImpl implements HlhtZlczjlSxjlService {
             }
         }
         //1.病历总数 2.抽取的病历数量 3.子集类型
-        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZLCZJL_SXJL_SOURCE_TYPE),t);
+        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZLCZJL_SXJL_SOURCE_TYPE), t);
 
-        return mbzDataChecks;
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
+        return mbzDataCheck;
     }
 }

@@ -31,5 +31,5 @@ public interface HlhtZybcjlSqtlService {
 
     public List<HlhtZybcjlSqtl> getHlhtZybcjlSqtlPageList(HlhtZybcjlSqtl hlhtZybcjlSqtl);
 
-    List<MbzDataCheck> interfaceHlhtZybcjlSqtl(MbzDataCheck entity) throws Exception;
+    MbzDataCheck interfaceHlhtZybcjlSqtl(MbzDataCheck entity) throws Exception;
 }

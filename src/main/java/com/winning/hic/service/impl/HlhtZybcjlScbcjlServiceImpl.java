@@ -1,5 +1,6 @@
 package com.winning.hic.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +26,6 @@ import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.HlhtZybcjlScbcjlDao;
 import com.winning.hic.model.HlhtZybcjlScbcjl;
 import com.winning.hic.model.MbzDataCheck;
-import com.winning.hic.model.MbzDataListSet;
 import com.winning.hic.model.MbzDataSet;
 import com.winning.hic.model.MbzLoadDataInfo;
 import com.winning.hic.service.HlhtZybcjlScbcjlService;
@@ -34,14 +34,14 @@ import com.winning.hic.service.MbzDataSetService;
 
 
 /**
-* @author HLHT
-* @title HLHT_ZYBCJL_SCBCJL
-* @email Chen Kuai
-* @package com.winning.hic.service.impl
-* @date 2018-8-1 16:34:02
-*/
+ * @author HLHT
+ * @title HLHT_ZYBCJL_SCBCJL
+ * @email Chen Kuai
+ * @package com.winning.hic.service.impl
+ * @date 2018-8-1 16:34:02
+ */
 @Service
-public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
+public class HlhtZybcjlScbcjlServiceImpl implements HlhtZybcjlScbcjlService {
     private final Logger logger = LoggerFactory.getLogger(HlhtZybcjlScbcjlServiceImpl.class);
 
     @Autowired
@@ -57,53 +57,53 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
     @Autowired
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
 
-    public int createHlhtZybcjlScbcjl(HlhtZybcjlScbcjl hlhtZybcjlScbcjl){
+    public int createHlhtZybcjlScbcjl(HlhtZybcjlScbcjl hlhtZybcjlScbcjl) {
         return this.hlhtZybcjlScbcjlDao.insertHlhtZybcjlScbcjl(hlhtZybcjlScbcjl);
     }
 
-    public int modifyHlhtZybcjlScbcjl(HlhtZybcjlScbcjl hlhtZybcjlScbcjl){
+    public int modifyHlhtZybcjlScbcjl(HlhtZybcjlScbcjl hlhtZybcjlScbcjl) {
         return this.hlhtZybcjlScbcjlDao.updateHlhtZybcjlScbcjl(hlhtZybcjlScbcjl);
     }
 
-    public int removeHlhtZybcjlScbcjl(HlhtZybcjlScbcjl hlhtZybcjlScbcjl){
+    public int removeHlhtZybcjlScbcjl(HlhtZybcjlScbcjl hlhtZybcjlScbcjl) {
         return this.hlhtZybcjlScbcjlDao.deleteHlhtZybcjlScbcjl(hlhtZybcjlScbcjl);
     }
 
-    public HlhtZybcjlScbcjl getHlhtZybcjlScbcjl(HlhtZybcjlScbcjl hlhtZybcjlScbcjl){
+    public HlhtZybcjlScbcjl getHlhtZybcjlScbcjl(HlhtZybcjlScbcjl hlhtZybcjlScbcjl) {
         return this.hlhtZybcjlScbcjlDao.selectHlhtZybcjlScbcjl(hlhtZybcjlScbcjl);
     }
 
-    public int getHlhtZybcjlScbcjlCount(HlhtZybcjlScbcjl hlhtZybcjlScbcjl){
-        return (Integer)this.hlhtZybcjlScbcjlDao.selectHlhtZybcjlScbcjlCount(hlhtZybcjlScbcjl);
+    public int getHlhtZybcjlScbcjlCount(HlhtZybcjlScbcjl hlhtZybcjlScbcjl) {
+        return (Integer) this.hlhtZybcjlScbcjlDao.selectHlhtZybcjlScbcjlCount(hlhtZybcjlScbcjl);
     }
 
-    public List<HlhtZybcjlScbcjl> getHlhtZybcjlScbcjlList(HlhtZybcjlScbcjl hlhtZybcjlScbcjl){
+    public List<HlhtZybcjlScbcjl> getHlhtZybcjlScbcjlList(HlhtZybcjlScbcjl hlhtZybcjlScbcjl) {
         return this.hlhtZybcjlScbcjlDao.selectHlhtZybcjlScbcjlList(hlhtZybcjlScbcjl);
     }
 
-    public List<HlhtZybcjlScbcjl> getHlhtZybcjlScbcjlPageList(HlhtZybcjlScbcjl hlhtZybcjlScbcjl){
+    public List<HlhtZybcjlScbcjl> getHlhtZybcjlScbcjlPageList(HlhtZybcjlScbcjl hlhtZybcjlScbcjl) {
         return this.hlhtZybcjlScbcjlDao.selectHlhtZybcjlScbcjlPageList(hlhtZybcjlScbcjl);
     }
 
 
     @Override
-    public MbzDataCheck interfaceHlhtZybcjlScbcjl(MbzDataCheck t){
+    public MbzDataCheck interfaceHlhtZybcjlScbcjl(MbzDataCheck t) {
 
         //执行过程信息记录
-        MbzDataCheck mbzDataCheck = new MbzDataCheck();
-        int emr_count =0;//病历数量
-        int real_count=0;//实际数量
+        int emr_count = 0;//病历数量
+        int real_count = 0;//实际数量
+
         MbzDataSet mbzDataSet = new MbzDataSet();
         mbzDataSet.setSourceType(Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE);
         mbzDataSet.setPId(Long.parseLong(Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = mbzDataSetService.getMbzDataSetList(mbzDataSet);
-        try{
+        try {
             //获取首次病程的对象集合
             HlhtZybcjlScbcjl oneScbcjl = new HlhtZybcjlScbcjl();
             oneScbcjl.getMap().put("sourceType", Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE);
-            oneScbcjl.getMap().put("startDate",t.getMap().get("startDate"));
-            oneScbcjl.getMap().put("endDate",t.getMap().get("endDate"));
-            oneScbcjl.getMap().put("syxh",t.getMap().get("syxh"));
+            oneScbcjl.getMap().put("startDate", t.getMap().get("startDate"));
+            oneScbcjl.getMap().put("endDate", t.getMap().get("endDate"));
+            oneScbcjl.getMap().put("syxh", t.getMap().get("syxh"));
             oneScbcjl.getMap().put("yljgdm", t.getMap().get("yljgdm"));
             oneScbcjl.getMap().put("regex", t.getMap().get("regex"));
 
@@ -116,9 +116,9 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
                     temp.setYjlxh(obj.getYjlxh());
                     this.removeHlhtZybcjlScbcjl(temp);
                     //清除日志
-                    Map<String,Object> param = new HashMap<>();
-                    param.put("SOURCE_ID",obj.getYjlxh());
-                    param.put("SOURCE_TYPE",Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE);
+                    Map<String, Object> param = new HashMap<>();
+                    param.put("SOURCE_ID", obj.getYjlxh());
+                    param.put("SOURCE_TYPE", Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE);
                     mbzLoadDataInfoDao.deleteMbzLoadDataInfoBySourceIdAndSourceType(param);
 
                     //3.xml文件解析 获取病历信息
@@ -127,93 +127,93 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
                         document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
 
 
-                    Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZybcjlScbcjl.class);
-                    obj = (HlhtZybcjlScbcjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
-                    logger.info("Model:{}", obj);
+                        Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZybcjlScbcjl.class);
+                        obj = (HlhtZybcjlScbcjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
+                        logger.info("Model:{}", obj);
 
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                     //汉字编码转正常
-                    obj.setCzxyzdbm(mbzDataSetService.getEmrBrzdqkCtoE(obj.getCzxyzdbm(),obj.getSyxh()));
+                    obj.setCzxyzdbm(mbzDataSetService.getEmrBrzdqkCtoE(obj.getCzxyzdbm(), obj.getSyxh()));
                     //obj.setJzxyzdbm(mbzDataSetService.getEmrBrzdqkCtoE(obj.getJzxyzdbm(),obj.getSyxh()));
 
                     //初步诊断-中医病名代码、名称处理
-                    if(!"NA".equals(obj.getCzzybmdm())&& StringUtil.isChineseTo(obj.getCzzyzhdm())){
-                        String bmdm="";
-                        String bm="";
-                        String[] str=obj.getCzzybmdm().split("  ");
-                        String[] str2=obj.getCzzybm().split("  ");
-                        Character o=new Character('B');
+                    if (!"NA".equals(obj.getCzzybmdm()) && StringUtil.isChineseTo(obj.getCzzyzhdm())) {
+                        String bmdm = "";
+                        String bm = "";
+                        String[] str = obj.getCzzybmdm().split("  ");
+                        String[] str2 = obj.getCzzybm().split("  ");
+                        Character o = new Character('B');
                         //modify whb
-                        for (int i=0;str.length>i;i++){
-                            if(!"".equals(str[i].toString())){
-                                if(o.equals(str[i].charAt(0))){
-                                    bmdm = bmdm+str[i]+"§§";
-                                    bm = bm+str2[i]+"§§";
+                        for (int i = 0; str.length > i; i++) {
+                            if (!"".equals(str[i].toString())) {
+                                if (o.equals(str[i].charAt(0))) {
+                                    bmdm = bmdm + str[i] + "§§";
+                                    bm = bm + str2[i] + "§§";
                                 }
                             }
 
                         }
-                        if(StringUtils.isEmpty(bmdm)){
+                        if (StringUtils.isEmpty(bmdm)) {
                             obj.setCzzybmdm("NA");
-                        }else{
+                        } else {
                             obj.setCzzybmdm(bmdm);
                         }
-                        if(StringUtils.isEmpty(bm)){
+                        if (StringUtils.isEmpty(bm)) {
                             obj.setCzzybm("NA");
-                        }else{
+                        } else {
                             obj.setCzzybm(bm);
                         }
                     }
 
                     //初步诊断-中医证候代码
-                    if(!"NA".equals(obj.getCzzyzhdm()) && StringUtil.isChineseTo(obj.getCzzyzhdm())){
-                        String bmdm="";
-                        String bm="";
-                        String[] str=obj.getCzzyzhdm().split("  ");
-                        String[] str2=obj.getCzzyzh().split("  ");
-                        Character o=new Character('B');
+                    if (!"NA".equals(obj.getCzzyzhdm()) && StringUtil.isChineseTo(obj.getCzzyzhdm())) {
+                        String bmdm = "";
+                        String bm = "";
+                        String[] str = obj.getCzzyzhdm().split("  ");
+                        String[] str2 = obj.getCzzyzh().split("  ");
+                        Character o = new Character('B');
                         for (int i = 0; str.length > i; i++) {
-                            if(!"".equals(str[i].toString())){
+                            if (!"".equals(str[i].toString())) {
                                 if (!o.equals(str[i].trim().charAt(0))) {
                                     bmdm += str[i] + "§§";
-                                    bm +=str2[i] + "§§";
+                                    bm += str2[i] + "§§";
                                 }
                             }
 
                         }
 
-                        if(StringUtils.isEmpty(bmdm)){
+                        if (StringUtils.isEmpty(bmdm)) {
                             obj.setCzzyzhdm("NA");
-                        }else{
+                        } else {
                             obj.setCzzyzhdm(bmdm);
                         }
-                        if(StringUtils.isEmpty(bm)){
+                        if (StringUtils.isEmpty(bm)) {
                             obj.setCzzyzh("NA");
-                        }else{
+                        } else {
                             obj.setCzzyzh(bm);
                         }
                     }
                     //鉴别诊断-西医诊断编码
-                    if(!"NA".equals(obj.getJzxyzdbm()) && StringUtil.isChineseTo(obj.getJzxyzdbm())){
-                        String xybmdm="";//西医编码
-                        String xybm="";//西医名称
-                        String zybmdm="";//中医编码
-                        String zybm="";//中医名称
-                        String zhbmdm="";//中医症候编码
-                        String zhbm="";//中医症候名称
-                        String[] str=obj.getJzzybmdm().split(",");
-                        String[] str2=obj.getJzzybmmc().split("、");
+                    if (!"NA".equals(obj.getJzxyzdbm()) && StringUtil.isChineseTo(obj.getJzxyzdbm())) {
+                        String xybmdm = "";//西医编码
+                        String xybm = "";//西医名称
+                        String zybmdm = "";//中医编码
+                        String zybm = "";//中医名称
+                        String zhbmdm = "";//中医症候编码
+                        String zhbm = "";//中医症候名称
+                        String[] str = obj.getJzzybmdm().split(",");
+                        String[] str2 = obj.getJzzybmmc().split("、");
                         //区分西医、中医
-                        if(str.length>0){
-                            for (int i=0;str.length>i;i++){
-                                if(str[i].contains(".")){ //西医
-                                    xybmdm= xybmdm + str[i]+" ";
-                                    xybm = xybm + str2[i]+" ";
-                                }else{
-                                    Character o=new Character('B');//病
-                                    if(str[i].trim().length() > 0) {
+                        if (str.length > 0) {
+                            for (int i = 0; str.length > i; i++) {
+                                if (str[i].contains(".")) { //西医
+                                    xybmdm = xybmdm + str[i] + " ";
+                                    xybm = xybm + str2[i] + " ";
+                                } else {
+                                    Character o = new Character('B');//病
+                                    if (str[i].trim().length() > 0) {
                                         if (o.equals(str[i].trim().charAt(0))) {
                                             zybmdm = zybmdm + str[i] + "§§";             //存入病
                                             zybm = zybm + str2[i] + "§§";                //存入病
@@ -227,39 +227,38 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
                         }
 
                         //鉴别诊断-西医病名编码、名称
-                        if(StringUtils.isEmpty(xybmdm)){
+                        if (StringUtils.isEmpty(xybmdm)) {
                             obj.setJzxyzdbm("NA");
-                        }else{
+                        } else {
                             obj.setJzxyzdbm(xybmdm);
                         }
-                        if(StringUtils.isEmpty(xybm)){
+                        if (StringUtils.isEmpty(xybm)) {
                             obj.setJzxyzdmc("NA");
-                        }else{
+                        } else {
                             obj.setJzxyzdmc(xybm);
                         }
                         //鉴别诊断-中医病名编码、名称
-                        if(StringUtils.isEmpty(zybmdm)){
+                        if (StringUtils.isEmpty(zybmdm)) {
                             obj.setJzzybmdm("NA");
-                        }else{
+                        } else {
                             obj.setJzzybmdm(zybmdm);
                         }
-                        if(StringUtils.isEmpty(zybm)){
+                        if (StringUtils.isEmpty(zybm)) {
                             obj.setJzzybmmc("NA");
-                        }else{
+                        } else {
                             obj.setJzzybmmc(zybm);
                         }
                         //鉴别诊断-中医症候编码、名称
-                        if(StringUtils.isEmpty(zhbmdm)){
+                        if (StringUtils.isEmpty(zhbmdm)) {
                             obj.setJzzyzhbm("NA");
-                        }else{
+                        } else {
                             obj.setJzzyzhbm(zhbmdm);
                         }
-                        if(StringUtils.isEmpty(zhbm)){
+                        if (StringUtils.isEmpty(zhbm)) {
                             obj.setJzzyzhmc("NA");
-                        }else{
+                        } else {
                             obj.setJzzyzhmc(zhbm);
                         }
-
 
 
                     }
@@ -270,8 +269,8 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
                             Long.parseLong(Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
                             obj.getFssj(),
-                            obj.getPatid(),obj.getZyh(),obj.getHzxm(),obj.getXbmc(),obj.getXbdm(),
-                            obj.getKsmc(),obj.getKsdm(), obj.getBqmc(),obj.getBqdm(), obj.getSfzhm(), PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE), obj, 1),
+                            obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
+                            obj.getKsmc(), obj.getKsdm(), obj.getBqmc(), obj.getBqdm(), obj.getSfzhm(), PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE), obj, 0)));
                     real_count++;
 
@@ -279,32 +278,33 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
 
             }
             //1.病历总数 2.抽取的病历数量 3.子集类型
-            this.mbzDataCheckService.createMbzDataCheckNum(hlhtZybcjlScbcjls.size(),real_count,Integer.parseInt(Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE),t);
-        }catch (Exception e){
+            this.mbzDataCheckService.createMbzDataCheckNum(hlhtZybcjlScbcjls.size(), real_count, Integer.parseInt(Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE), t);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
-
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
         return mbzDataCheck;
     }
 
-    public String setBmAll(String a,String b){
+    public String setBmAll(String a, String b) {
 
         return null;
 
     }
 
     public static void main(String[] args) {
-        String ss ="E56.901";
-        boolean isContain =ss.contains(".");
+        String ss = "E56.901";
+        boolean isContain = ss.contains(".");
 
-        String pattern ="\\w{3,}\\.\\+";
+        String pattern = "\\w{3,}\\.\\+";
         Pattern r = Pattern.compile(pattern);
         Matcher m = r.matcher(ss);
 
         boolean isMatch = r.matcher(ss).matches();
-        System.out.println("isMatch="+ isMatch );
-        System.out.println("isContain="+ isContain );
+        System.out.println("isMatch=" + isMatch);
+        System.out.println("isContain=" + isContain);
 
     }
 

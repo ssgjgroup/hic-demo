@@ -2,6 +2,7 @@ package com.winning.hic.service.impl;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -98,9 +99,9 @@ public class HlhtZybcjlRcbcjlServiceImpl implements HlhtZybcjlRcbcjlService {
     }
 
     @Override
-    public List<MbzDataCheck> interfaceHlhtZybcjlRcbcjl(MbzDataCheck t) throws Exception {
+    public MbzDataCheck interfaceHlhtZybcjlRcbcjl(MbzDataCheck t) throws Exception {
         //执行过程信息记录
-        List<MbzDataCheck> mbzDataChecks = null;
+
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
 
@@ -109,7 +110,7 @@ public class HlhtZybcjlRcbcjlServiceImpl implements HlhtZybcjlRcbcjlService {
         mbzDataSet.setPId(Long.parseLong(Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = this.mbzDataSetDao.selectMbzDataSetList(mbzDataSet);
         HlhtZybcjlRcbcjl hlhtZybcjlRcbcjlTemp = new HlhtZybcjlRcbcjl();
-        hlhtZybcjlRcbcjlTemp.getMap().put("sourceType",Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE);
+        hlhtZybcjlRcbcjlTemp.getMap().put("sourceType", Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE);
         hlhtZybcjlRcbcjlTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtZybcjlRcbcjlTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtZybcjlRcbcjlTemp.getMap().put("syxh", t.getMap().get("syxh"));
@@ -159,8 +160,11 @@ public class HlhtZybcjlRcbcjlServiceImpl implements HlhtZybcjlRcbcjlService {
             }
         }
         //1.病历总数 2.抽取的病历数量 3.子集类型
-        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE),t);
+        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE), t);
 
-        return mbzDataChecks;
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
+        return mbzDataCheck;
     }
 }

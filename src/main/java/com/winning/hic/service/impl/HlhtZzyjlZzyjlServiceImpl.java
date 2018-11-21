@@ -2,10 +2,7 @@ package com.winning.hic.service.impl;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
@@ -27,14 +24,14 @@ import com.winning.hic.service.MbzDataSetService;
 
 
 /**
-* @author HLHT
-* @title HLHT_ZZYJL_ZZYJL
-* @email Winning Health
-* @package com.winning.hic.service.impl
-* @date 2018-35-31 16:35:09
-*/
+ * @author HLHT
+ * @title HLHT_ZZYJL_ZZYJL
+ * @email Winning Health
+ * @package com.winning.hic.service.impl
+ * @date 2018-35-31 16:35:09
+ */
 @Service
-public class HlhtZzyjlZzyjlServiceImpl implements  HlhtZzyjlZzyjlService {
+public class HlhtZzyjlZzyjlServiceImpl implements HlhtZzyjlZzyjlService {
 
     @Autowired
     private HlhtZzyjlZzyjlDao HlhtZzyjlZzyjlDao;
@@ -56,31 +53,31 @@ public class HlhtZzyjlZzyjlServiceImpl implements  HlhtZzyjlZzyjlService {
     @Autowired
     private SplitTableDao splitTableDao;
 
-    public int createHlhtZzyjlZzyjl(HlhtZzyjlZzyjl HlhtZzyjlZzyjl){
+    public int createHlhtZzyjlZzyjl(HlhtZzyjlZzyjl HlhtZzyjlZzyjl) {
         return this.HlhtZzyjlZzyjlDao.insertHlhtZzyjlZzyjl(HlhtZzyjlZzyjl);
     }
 
-    public int modifyHlhtZzyjlZzyjl(HlhtZzyjlZzyjl HlhtZzyjlZzyjl){
+    public int modifyHlhtZzyjlZzyjl(HlhtZzyjlZzyjl HlhtZzyjlZzyjl) {
         return this.HlhtZzyjlZzyjlDao.updateHlhtZzyjlZzyjl(HlhtZzyjlZzyjl);
     }
 
-    public int removeHlhtZzyjlZzyjl(HlhtZzyjlZzyjl HlhtZzyjlZzyjl){
+    public int removeHlhtZzyjlZzyjl(HlhtZzyjlZzyjl HlhtZzyjlZzyjl) {
         return this.HlhtZzyjlZzyjlDao.deleteHlhtZzyjlZzyjl(HlhtZzyjlZzyjl);
     }
 
-    public HlhtZzyjlZzyjl getHlhtZzyjlZzyjl(HlhtZzyjlZzyjl HlhtZzyjlZzyjl){
+    public HlhtZzyjlZzyjl getHlhtZzyjlZzyjl(HlhtZzyjlZzyjl HlhtZzyjlZzyjl) {
         return this.HlhtZzyjlZzyjlDao.selectHlhtZzyjlZzyjl(HlhtZzyjlZzyjl);
     }
 
-    public int getHlhtZzyjlZzyjlCount(HlhtZzyjlZzyjl HlhtZzyjlZzyjl){
-        return (Integer)this.HlhtZzyjlZzyjlDao.selectHlhtZzyjlZzyjlCount(HlhtZzyjlZzyjl);
+    public int getHlhtZzyjlZzyjlCount(HlhtZzyjlZzyjl HlhtZzyjlZzyjl) {
+        return (Integer) this.HlhtZzyjlZzyjlDao.selectHlhtZzyjlZzyjlCount(HlhtZzyjlZzyjl);
     }
 
-    public List<HlhtZzyjlZzyjl> getHlhtZzyjlZzyjlList(HlhtZzyjlZzyjl HlhtZzyjlZzyjl){
+    public List<HlhtZzyjlZzyjl> getHlhtZzyjlZzyjlList(HlhtZzyjlZzyjl HlhtZzyjlZzyjl) {
         return this.HlhtZzyjlZzyjlDao.selectHlhtZzyjlZzyjlList(HlhtZzyjlZzyjl);
     }
 
-    public List<HlhtZzyjlZzyjl> getHlhtZzyjlZzyjlPageList(HlhtZzyjlZzyjl HlhtZzyjlZzyjl){
+    public List<HlhtZzyjlZzyjl> getHlhtZzyjlZzyjlPageList(HlhtZzyjlZzyjl HlhtZzyjlZzyjl) {
         return this.HlhtZzyjlZzyjlDao.selectHlhtZzyjlZzyjlPageList(HlhtZzyjlZzyjl);
     }
 
@@ -89,18 +86,18 @@ public class HlhtZzyjlZzyjlServiceImpl implements  HlhtZzyjlZzyjlService {
     }
 
     @Override
-    public List<MbzDataCheck> interfaceHlhtZzyjlZzyjl(MbzDataCheck t) {
+    public MbzDataCheck interfaceHlhtZzyjlZzyjl(MbzDataCheck t) {
         //执行过程信息记录
-        List<MbzDataCheck> mbzDataChecks = null;
-        int emr_count =0;//病历数量
-        int real_count=0;//实际数量
+
+        int emr_count = 0;//病历数量
+        int real_count = 0;//实际数量        //实际数量
 
         MbzDataSet mbzDataSet = new MbzDataSet();
         mbzDataSet.setSourceType(Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE);
         mbzDataSet.setPId(Long.parseLong(Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = mbzDataSetService.getMbzDataSetList(mbzDataSet);
 
-        try{
+        try {
             //获取首次病程的对象集合
             Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZzyjlZzyjl.class);
             HlhtZzyjlZzyjl hlht = new HlhtZzyjlZzyjl();
@@ -112,7 +109,7 @@ public class HlhtZzyjlZzyjlServiceImpl implements  HlhtZzyjlZzyjlService {
             hlht.getMap().put("regex", t.getMap().get("regex"));
 
             List<HlhtZzyjlZzyjl> hlhtZzyjlZzyjls = this.HlhtZzyjlZzyjlDao.selectHlhtZzyjlZzyjlListByProc(hlht);
-            if(hlhtZzyjlZzyjls != null ){
+            if (hlhtZzyjlZzyjls != null) {
                 emr_count = emr_count + hlhtZzyjlZzyjls.size();
                 for (HlhtZzyjlZzyjl obj : hlhtZzyjlZzyjls) {
                     //清库
@@ -142,7 +139,7 @@ public class HlhtZzyjlZzyjlServiceImpl implements  HlhtZzyjlZzyjlService {
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
                             obj.getFssj(),
                             obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
-                            "NA","NA",  "NA","NA", obj.getSfzhm(), PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_QTZQTYS_SOURCE_TYPE), obj, 1),
+                            "NA", "NA", "NA", "NA", obj.getSfzhm(), PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_QTZQTYS_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE), obj, 0)));
                     real_count++;
 
@@ -150,14 +147,17 @@ public class HlhtZzyjlZzyjlServiceImpl implements  HlhtZzyjlZzyjlService {
             }
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         //1.病历总数 2.抽取的病历数量 3.子集类型
-        this.mbzDataCheckService.createMbzDataCheckNum(emr_count,real_count,Integer.parseInt(Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE),t);
+        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE), t);
 
-        return mbzDataChecks;
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
+        return mbzDataCheck;
     }
 
 

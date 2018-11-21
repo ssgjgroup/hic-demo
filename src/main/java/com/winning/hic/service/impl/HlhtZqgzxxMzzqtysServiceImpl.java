@@ -1,6 +1,7 @@
 package com.winning.hic.service.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -99,9 +100,9 @@ public class HlhtZqgzxxMzzqtysServiceImpl implements HlhtZqgzxxMzzqtysService {
     }
 
     @Override
-    public List<MbzDataCheck> interfaceHlhtZqgzxxMzzqtys(MbzDataCheck t) {
+    public MbzDataCheck interfaceHlhtZqgzxxMzzqtys(MbzDataCheck t) {
         //执行过程信息记录
-        List<MbzDataCheck> mbzDataChecks = null;
+
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
 
@@ -110,12 +111,12 @@ public class HlhtZqgzxxMzzqtysServiceImpl implements HlhtZqgzxxMzzqtysService {
         mbzDataSet.setPId(Long.parseLong(Constants.WN_ZQGZXX_MZZQTYS_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = this.mbzDataSetDao.selectMbzDataSetList(mbzDataSet);
         HlhtZqgzxxMzzqtys hlhtZqgzxxMzzqtysTemp = new HlhtZqgzxxMzzqtys();
-        hlhtZqgzxxMzzqtysTemp.getMap().put("sourceType",Constants.WN_ZQGZXX_MZZQTYS_SOURCE_TYPE);
+        hlhtZqgzxxMzzqtysTemp.getMap().put("sourceType", Constants.WN_ZQGZXX_MZZQTYS_SOURCE_TYPE);
         hlhtZqgzxxMzzqtysTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtZqgzxxMzzqtysTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtZqgzxxMzzqtysTemp.getMap().put("syxh", t.getMap().get("syxh"));
-        hlhtZqgzxxMzzqtysTemp.getMap().put("yljgdm",t.getMap().get("yljgdm"));
-        hlhtZqgzxxMzzqtysTemp.getMap().put("regex",t.getMap().get("regex"));
+        hlhtZqgzxxMzzqtysTemp.getMap().put("yljgdm", t.getMap().get("yljgdm"));
+        hlhtZqgzxxMzzqtysTemp.getMap().put("regex", t.getMap().get("regex"));
         //2.根据模板代码去找到对应的病人病历
         List<HlhtZqgzxxMzzqtys> hlhtZqgzxxMzzqtysList = this.hlhtZqgzxxMzzqtysDao.selectHlhtZqgzxxMzzqtysListByProc(hlhtZqgzxxMzzqtysTemp);
 
@@ -161,7 +162,10 @@ public class HlhtZqgzxxMzzqtysServiceImpl implements HlhtZqgzxxMzzqtysService {
             }
         }
         //1.病历总数 2.抽取的病历数量 3.子集类型
-        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZQGZXX_MZZQTYS_SOURCE_TYPE),t);
-        return mbzDataChecks;
+        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZQGZXX_MZZQTYS_SOURCE_TYPE), t);
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
+        return mbzDataCheck;
     }
 }

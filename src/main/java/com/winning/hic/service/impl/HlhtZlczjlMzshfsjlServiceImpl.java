@@ -1,6 +1,7 @@
 package com.winning.hic.service.impl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -108,9 +109,9 @@ public class HlhtZlczjlMzshfsjlServiceImpl implements HlhtZlczjlMzshfsjlService 
     }
 
     @Override
-    public List<MbzDataCheck> interfaceHlhtZlczjlMzshfsjl(MbzDataCheck t) {
+    public MbzDataCheck interfaceHlhtZlczjlMzshfsjl(MbzDataCheck t) {
         //执行过程信息记录
-        List<MbzDataCheck> mbzDataChecks = null;
+
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
 
@@ -119,7 +120,7 @@ public class HlhtZlczjlMzshfsjlServiceImpl implements HlhtZlczjlMzshfsjlService 
         mbzDataSet.setPId(Long.parseLong(Constants.WN_ZLCZJL_MZSHFSJL_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = this.mbzDataSetDao.selectMbzDataSetList(mbzDataSet);
         HlhtZlczjlMzshfsjl hlhtZlczjlMzshfsjlTemp = new HlhtZlczjlMzshfsjl();
-        hlhtZlczjlMzshfsjlTemp.getMap().put("sourceType",Constants.WN_ZLCZJL_MZSHFSJL_SOURCE_TYPE);
+        hlhtZlczjlMzshfsjlTemp.getMap().put("sourceType", Constants.WN_ZLCZJL_MZSHFSJL_SOURCE_TYPE);
         hlhtZlczjlMzshfsjlTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtZlczjlMzshfsjlTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtZlczjlMzshfsjlTemp.getMap().put("syxh", t.getMap().get("syxh"));
@@ -165,8 +166,11 @@ public class HlhtZlczjlMzshfsjlServiceImpl implements HlhtZlczjlMzshfsjlService 
             }
         }
         //1.病历总数 2.抽取的病历数量 3.子集类型
-        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZLCZJL_MZSHFSJL_SOURCE_TYPE),t);
-        return mbzDataChecks;
+        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZLCZJL_MZSHFSJL_SOURCE_TYPE), t);
+        MbzDataCheck mbzDataCheck = new MbzDataCheck();
+        mbzDataCheck.setDataCount(emr_count);
+        mbzDataCheck.setRealCount(real_count);
+        return mbzDataCheck;
     }
 
     @Override
