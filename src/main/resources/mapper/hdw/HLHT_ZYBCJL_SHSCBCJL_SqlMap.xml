@@ -355,7 +355,7 @@
     </select>
     <!--存储过程-->
     <select id="selectHlhtZybcjlShscbcjlListByProc" resultMap="hlhtZybcjlShscbcjlResult" statementType="CALLABLE">
-       exec USP_ANMR_ZYBCJL_SHSCBCJL #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+       exec USP_GETMR_ZYBCJL_SHSCBCJL #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
     </select>
 
 </mapper>

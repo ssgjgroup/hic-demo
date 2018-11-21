@@ -149,4 +149,22 @@
     </select>
 
 
+    <select id="selectMbzDataCheckHandPageList" resultMap="mbzDataCheckResult" parameterType="com.winning.hic.model.MbzDataCheck">
+        SELECT * FROM (
+        SELECT
+        t.SOURCE_TYPE,
+        i.DICT_LABEL AS SOURCE_NAME,
+        t.REAL_COUNT,
+        t.DATA_COUNT,
+        t.ERROR_DESC,
+        ROW_NUMBER() OVER ( ORDER BY t.SOURCE_TYPE ASC ) AS _RN
+        FROM MBZ_DATA_CHECK t
+        LEFT JOIN MBZ_DICT_INFO i ON t.SOURCE_TYPE = i.DICT_VALUE
+        WHERE i.DICT_CODE = 'platformTableName'
+        <if test="(isAutomate != null)">and t.IS_AUTOMATE = #{isAutomate}</if>
+        <!-- order by t.ID asc -->
+        ) TEMP_TABLE WHERE _RN BETWEEN  #{row.first} + 1 AND #{row.first} + #{row.count}
+    </select>
+
+
 </mapper>
