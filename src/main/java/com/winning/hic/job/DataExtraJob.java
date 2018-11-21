@@ -61,12 +61,14 @@ public class DataExtraJob {
         entity.getMap().put("yljgdm", temp.getDictLabel());
         entity.getMap().put("regex", SplitParamsConstants.SPECIAL_SPLIT_FLAG);
         //抽取线程
-        new MjzblThread(entity).start();
-        new OtherThread(entity).start();
-        new RyjlThread(entity).start();
-        new ZqgzxxThread(entity).start();
-        new ZybcjlThread(entity).start();
-        new ZybcThread(entity).start();
+
+        new MjzblThread(entity,facade).start();
+        logger.info("正在抽取>>>>>>>>>>>>>>>>>>>>>>>>>>>MjzblThread");
+        new OtherThread(entity,facade).start();
+        new RyjlThread(entity,facade).start();
+        new ZqgzxxThread(entity,facade).start();
+        new ZybcjlThread(entity,facade).start();
+        new ZybcThread(entity,facade).start();
 
     }
 }

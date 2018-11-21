@@ -6,6 +6,8 @@ import com.winning.hic.service.HlhtRyjlRcyjlService;
 import com.winning.hic.service.HlhtRyjlRyswjlService;
 import com.winning.hic.service.impl.HlhtRyjlRcyjlServiceImpl;
 import com.winning.hic.service.impl.HlhtRyjlRyswjlServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import springfox.documentation.swagger.readers.operation.OperationNotesReader;
@@ -14,23 +16,31 @@ import springfox.documentation.swagger.readers.operation.OperationNotesReader;
  * 入出院记录线程
  */
 public class RyjlThread extends Thread {
+    private static final Logger logger = LoggerFactory.getLogger(RyjlThread.class);
+
     private MbzDataCheck entity;
 
-    public RyjlThread(MbzDataCheck entity) {
+    private Facade facade;
+
+    public RyjlThread(MbzDataCheck entity, Facade facade) {
         this.entity = entity;
+        this.facade = facade;
     }
 
     @Override
     public void run() {
-        HlhtRyjlRcyjlService hlhtRyjlRcyjlService = new HlhtRyjlRcyjlServiceImpl();
-        HlhtRyjlRyswjlService hlhtRyjlRyswjlService = new HlhtRyjlRyswjlServiceImpl();
+        logger.info("启动线程>>>>>>>>>>>>>>>>>>>>>>>>>>>>>RyjlThread");
+
         try {
             //1. 24h内入出院记录  --陈世杰
-            hlhtRyjlRcyjlService.interfaceHlhtRyjlRcyjl(entity);
+            facade.getHlhtRyjlRcyjlService().interfaceHlhtRyjlRcyjl(entity);
             //2. 24h内入院死亡记录*  -- 陈世杰
-            hlhtRyjlRyswjlService.interfaceHlhtRyjlRyswjl(entity);
+            facade.getHlhtRyjlRyswjlService().interfaceHlhtRyjlRyswjl(entity);
         } catch (Exception e) {
             e.printStackTrace();
         }
+        logger.info("线程结束>>>>>>>>>>>>>>>>>>>>>>>>>>>>>RyjlThread");
+
     }
+
 }
