@@ -94,9 +94,9 @@ public class DataExtraJob {
             //15.死亡记录数据集表*  --陈枫
             MbzDataCheck mbzDataChecks15 = facade.getHlhtZybcjlSwjlService().interfaceHlhtZybcjlSwjl(entity);
             //16.麻醉术前访视记录表(由手麻系统处理）* --陈枫（暂时不处理）
-            MbzDataCheck mbzDataChecks16 = facade.getHlhtZlczjlMzsqfsjlService().interfaceHlhtZlczjlMzsqfsjl(entity);
+            //MbzDataCheck mbzDataChecks16 = facade.getHlhtZlczjlMzsqfsjlService().interfaceHlhtZlczjlMzsqfsjl(entity);
             //17.麻醉术后访视记录表(由手麻系统处理)*   --陈枫（暂时不处理）
-            MbzDataCheck mbzDataChecks17 = facade.getHlhtZlczjlMzshfsjlService().interfaceHlhtZlczjlMzshfsjl(entity);
+            //MbzDataCheck mbzDataChecks17 = facade.getHlhtZlczjlMzshfsjlService().interfaceHlhtZlczjlMzshfsjl(entity);
             //18.麻醉知情同意书表* --陈枫
             MbzDataCheck mbzDataChecks18 = facade.getHlhtZqgzxxMzzqtysService().interfaceHlhtZqgzxxMzzqtys(entity);
             //19.其他知情告知同意书*  --陈蒯
