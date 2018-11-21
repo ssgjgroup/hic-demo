@@ -22,8 +22,8 @@ import java.util.Date;
 @WebFilter(urlPatterns = "/*", filterName = "logFilter")
 public class LogFilter implements Filter {
     private Log log = LogFactory.getLog(this.getClass());
-    @Autowired
-    private MbzLogService mbzLogService;
+//    @Autowired
+//    private MbzLogService mbzLogService;
     private String filterName;
 
     @Override
@@ -39,27 +39,27 @@ public class LogFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         //获取操作内容
         String url = request.getRequestURI().toString();
-        if (!url.contains(".")) {
-            MbzLog mbzLog = new MbzLog();
-            Date date=new Date();
-            Timestamp timestamp=new Timestamp(date.getTime());
-            mbzLog.setOperatorTime(timestamp);
-            JSONObject jsonObject = new JSONObject();
-            String ip = LogUtil.getRequestIp(request);
-            String param = LogUtil.getParam(request);
-            int status = response.getStatus();
-            String method = request.getMethod();
-            int port = request.getServerPort();
-            request.getServerPort();
-            jsonObject.put("ip", ip);
-            jsonObject.put("port", port);
-            jsonObject.put("url", url);
-            jsonObject.put("param", JSONObject.parseObject(param));
-            jsonObject.put("method", method);
-            jsonObject.put("status", status);
-            mbzLog.setContent(jsonObject.toJSONString());
-            mbzLogService.createMbzLog(mbzLog);
-        }
+//        if (!url.contains(".")) {
+//            MbzLog mbzLog = new MbzLog();
+//            Date date=new Date();
+//            Timestamp timestamp=new Timestamp(date.getTime());
+//            mbzLog.setOperatorTime(timestamp);
+//            JSONObject jsonObject = new JSONObject();
+//            String ip = LogUtil.getRequestIp(request);
+//            String param = LogUtil.getParam(request);
+//            int status = response.getStatus();
+//            String method = request.getMethod();
+//            int port = request.getServerPort();
+//            request.getServerPort();
+//            jsonObject.put("ip", ip);
+//            jsonObject.put("port", port);
+//            jsonObject.put("url", url);
+//            jsonObject.put("param", JSONObject.parseObject(param));
+//            jsonObject.put("method", method);
+//            jsonObject.put("status", status);
+//            mbzLog.setContent(jsonObject.toJSONString());
+//            mbzLogService.createMbzLog(mbzLog);
+//        }
         filterChain.doFilter(request, response);
     }
 
