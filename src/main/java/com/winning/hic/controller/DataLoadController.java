@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.base.Constants;
 import com.winning.hic.base.SplitParamsConstants;
+import com.winning.hic.model.support.Row;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -355,15 +357,26 @@ public class DataLoadController extends BaseController {
         return result;
     }
 
+//    @RequestMapping("/handDataCheckTable/list")
+//    @ResponseBody
+//    public List<MbzDataCheck> handDataLoad(int isAutomate) {
+//        //Map<String, Object> result = new HashMap<String, Object>();
+//        MbzDataCheck entity = new MbzDataCheck();
+//        entity.setIsAutomate(isAutomate);
+//        List<MbzDataCheck> mbzDataCheckList = super.getFacade().getMbzDataCheckService().getMbzDataCheckHandList(entity);
+//        //result.put("mbzDataCheckList",mbzDataCheckList);
+//        return mbzDataCheckList;
+//    }
+
     @RequestMapping("/handDataCheckTable/list")
     @ResponseBody
-    public List<MbzDataCheck> handDataLoad(int isAutomate) {
-        //Map<String, Object> result = new HashMap<String, Object>();
-        MbzDataCheck entity = new MbzDataCheck();
-        entity.setIsAutomate(isAutomate);
-        List<MbzDataCheck> mbzDataCheckList = super.getFacade().getMbzDataCheckService().getMbzDataCheckHandList(entity);
-        //result.put("mbzDataCheckList",mbzDataCheckList);
-        return mbzDataCheckList;
+    public Map<String, Object> handDataLoadInfoList(MbzDataCheck check, Row row){
+        check.setRow(row);
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("total", getFacade().getMbzDataCheckService().getMbzDataCheckCount(check));
+        result.put("status", Constants.SUCCESS);
+        result.put("rows",getFacade().getMbzDataCheckService().getMbzDataCheckHandPageList(check));
+        return result;
     }
 
 

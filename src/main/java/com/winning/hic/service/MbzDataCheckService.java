@@ -33,4 +33,6 @@ public interface MbzDataCheckService {
     public void removeMbzDataCheckList(MbzDataCheck mbzDataCheck);
 
     public List<MbzDataCheck> getMbzDataCheckHandList(MbzDataCheck entity);
+
+    public List<MbzDataCheck> getMbzDataCheckHandPageList(MbzDataCheck entity);
 }

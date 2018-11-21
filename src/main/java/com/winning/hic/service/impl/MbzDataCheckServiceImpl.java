@@ -74,5 +74,10 @@ public class MbzDataCheckServiceImpl implements  MbzDataCheckService {
         return this.mbzDataCheckDao.selectMbzDataCheckHandList(entity);
     }
 
+    @Override
+    public List<MbzDataCheck> getMbzDataCheckHandPageList(MbzDataCheck entity) {
+        return this.mbzDataCheckDao.selectMbzDataCheckHandPageList(entity);
+    }
+
 
 }
