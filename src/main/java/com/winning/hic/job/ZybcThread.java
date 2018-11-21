@@ -3,55 +3,52 @@ package com.winning.hic.job;
 import com.winning.hic.model.MbzDataCheck;
 import com.winning.hic.service.*;
 import com.winning.hic.service.impl.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 入出院记录线程
  */
 public class ZybcThread extends Thread {
+    private static final Logger logger = LoggerFactory.getLogger(ZybcThread.class);
     private MbzDataCheck entity;
+    private Facade facade;
 
-    public ZybcThread(MbzDataCheck entity) {
+    public ZybcThread(MbzDataCheck entity, Facade facade) {
         this.entity = entity;
+        this.facade = facade;
     }
 
     @Override
     public void run() {
-        HlhtZybcjlCyjlService hlhtZybcjlCyjlService = new HlhtZybcjlCyjlServiceImpl();
-        HlhtZybcjlScbcjlService hlhtZybcjlScbcjlService = new HlhtZybcjlScbcjlServiceImpl();
-        HlhtZybcjlRcbcjlService hlhtZybcjlRcbcjlService = new HlhtZybcjlRcbcjlServiceImpl();
-        HlhtZybcjlJjbjlService hlhtZybcjlJjbjlService = new HlhtZybcjlJjbjlServiceImpl();
-        HlhtZybcjlJdxjService hlhtZybcjlJdxjService = new HlhtZybcjlJdxjServiceImpl();
-        HlhtZybcjlQjjlService hlhtZybcjlQjjlService = new HlhtZybcjlQjjlServiceImpl();
-        HlhtZybcjlShscbcjlService hlhtZybcjlShscbcjlService = new HlhtZybcjlShscbcjlServiceImpl();
-        HlhtZybcjlSqxjService hlhtZybcjlSqxjService = new HlhtZybcjlSqxjServiceImpl();
-        HlhtZybcjlSqtlService hlhtZybcjlSqtlService = new HlhtZybcjlSqtlServiceImpl();
-        HlhtZybcjlSwbltljlService hlhtZybcjlSwbltljlService = new HlhtZybcjlSwbltljlServiceImpl();
-        HlhtZybcjlSwjlService hlhtZybcjlSwjlService = new HlhtZybcjlSwjlServiceImpl();
+        logger.info("ZybcThread 数据抽取开始>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         try {
             //4.出院记录数据集表* --陈枫
-            hlhtZybcjlCyjlService.interfaceHlhtZybcjlCyjl(entity);
+            facade.getHlhtZybcjlCyjlService().interfaceHlhtZybcjlCyjl(entity);
             //6.首次病程记录表* --陈蒯
-            hlhtZybcjlScbcjlService.interfaceHlhtZybcjlScbcjl(entity);
+            facade.getHlhtZybcjlScbcjlService().interfaceHlhtZybcjlScbcjl(entity);
             //7.日常病程记录数据集表*  --陈枫
-            hlhtZybcjlRcbcjlService.interfaceHlhtZybcjlRcbcjl(entity);
+            facade.getHlhtZybcjlRcbcjlService().interfaceHlhtZybcjlRcbcjl(entity);
             //8.交接班记录数据集表(医院一般不在病历里面写交接班记录，CIS有一个交接班的功能)*    --陈蒯（暂时不处理）
-            hlhtZybcjlJjbjlService.interfaceHlhtZybcjlJjbjl(entity);
+            facade.getHlhtZybcjlJjbjlService().interfaceHlhtZybcjlJjbjl(entity);
             //9.--阶段小结数据集表*   --陈蒯
-            hlhtZybcjlJdxjService.interfaceHlhtZybcjlJdxj(entity);
+            facade.getHlhtZybcjlJdxjService().interfaceHlhtZybcjlJdxj(entity);
             //10.抢救记录数据集表*  --陈蒯
-            hlhtZybcjlQjjlService.interfaceHlhtZybcjlQjjl(entity);
+            facade.getHlhtZybcjlQjjlService().interfaceHlhtZybcjlQjjl(entity);
             //11.术后首次病程记录数据集表* --- 陈世杰
-            hlhtZybcjlShscbcjlService.interfaceHlhtZybcjlShscbcjl(entity);
+            facade.getHlhtZybcjlShscbcjlService().interfaceHlhtZybcjlShscbcjl(entity);
             //12.术前小结数据集表* --- 陈世杰
-            hlhtZybcjlSqxjService.interfaceHlhtZybcjlSqxj(entity);
+            facade.getHlhtZybcjlSqxjService().interfaceHlhtZybcjlSqxj(entity);
             //13.术前讨论数据集表*   --陈世杰
-            hlhtZybcjlSqtlService.interfaceHlhtZybcjlSqtl(entity);
+            facade.getHlhtZybcjlSqtlService().interfaceHlhtZybcjlSqtl(entity);
             //14.死亡病历讨论记录数据集表* --陈世杰
-            hlhtZybcjlSwbltljlService.interfaceHlhtZybcjlSwbltljl(entity);
+            facade.getHlhtZybcjlSwbltljlService().interfaceHlhtZybcjlSwbltljl(entity);
             //15.死亡记录数据集表*  --陈枫
-            hlhtZybcjlSwjlService.interfaceHlhtZybcjlSwjl(entity);
+            facade.getHlhtZybcjlSwjlService().interfaceHlhtZybcjlSwjl(entity);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        logger.info("ZybcThread 数据抽取结束<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
     }
 }
