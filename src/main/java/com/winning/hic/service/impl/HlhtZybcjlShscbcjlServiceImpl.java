@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,13 +43,9 @@ public class HlhtZybcjlShscbcjlServiceImpl implements  HlhtZybcjlShscbcjlService
     @Autowired
     private HlhtZybcjlShscbcjlDao hlhtZybcjlShscbcjlDao;
     @Autowired
-    private CommonQueryDao commonQueryDao;
-    @Autowired
-    private EmrQtbljlkService emrQtbljlkService;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetService mbzDataSetService;
-    @Autowired
-    private MbzDataListSetService mbzDataListSetService;
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
     @Autowired
@@ -100,7 +97,8 @@ public class HlhtZybcjlShscbcjlServiceImpl implements  HlhtZybcjlShscbcjlService
         hlht.getMap().put("startDate",entity.getMap().get("startDate"));
         hlht.getMap().put("endDate",entity.getMap().get("endDate"));
         hlht.getMap().put("syxh",entity.getMap().get("syxh"));
-
+        hlht.getMap().put("yljgdm", entity.getMap().get("yljgdm"));
+        hlht.getMap().put("regex", entity.getMap().get("regex"));
         List<HlhtZybcjlShscbcjl> list = this.hlhtZybcjlShscbcjlDao.selectHlhtZybcjlShscbcjlListByProc(hlht);
         if(list != null && list.size() > 0) {
             emr_count = emr_count + list.size();
@@ -127,6 +125,7 @@ public class HlhtZybcjlShscbcjlServiceImpl implements  HlhtZybcjlShscbcjlService
                 obj = (HlhtZybcjlShscbcjl) HicHelper.initModelValue(mbzDataSetList,document,obj,paramTypeMap);
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_SHSCBCJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                 this.createHlhtZybcjlShscbcjl(obj);
+                this.splitTableDao.selectAnmrZybcjlShscbcjlSplitByProc(hlht);
                 //插入日志
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                         Long.parseLong(Constants.WN_ZYBCJL_SHSCBCJL_SOURCE_TYPE),

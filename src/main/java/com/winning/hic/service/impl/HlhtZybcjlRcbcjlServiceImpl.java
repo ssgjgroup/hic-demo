@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +20,7 @@ import com.winning.hic.base.utils.HicHelper;
 import com.winning.hic.base.utils.PercentUtil;
 import com.winning.hic.base.utils.ReflectUtil;
 import com.winning.hic.base.utils.XmlUtil;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
+
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.CommonQueryDao;
@@ -47,12 +48,9 @@ public class HlhtZybcjlRcbcjlServiceImpl implements HlhtZybcjlRcbcjlService {
     @Autowired
     private CommonQueryDao commonQueryDao;
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
-
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
     @Autowired
     private HlhtZybcjlRcbcjlDao hlhtZybcjlRcbcjlDao;
 
@@ -115,6 +113,9 @@ public class HlhtZybcjlRcbcjlServiceImpl implements HlhtZybcjlRcbcjlService {
         hlhtZybcjlRcbcjlTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtZybcjlRcbcjlTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtZybcjlRcbcjlTemp.getMap().put("syxh", t.getMap().get("syxh"));
+        hlhtZybcjlRcbcjlTemp.getMap().put("yljgdm", t.getMap().get("yljgdm"));
+        hlhtZybcjlRcbcjlTemp.getMap().put("regex", t.getMap().get("regex"));
+
         //2.根据模板代码去找到对应的病人病历
         List<HlhtZybcjlRcbcjl> hlhtZybcjlRcbcjlList = this.hlhtZybcjlRcbcjlDao.selectHlhtZybcjlRcbcjlByProc(hlhtZybcjlRcbcjlTemp);
         if (hlhtZybcjlRcbcjlList != null) {
@@ -144,6 +145,7 @@ public class HlhtZybcjlRcbcjlServiceImpl implements HlhtZybcjlRcbcjlService {
                 }
                 logger.info("Model:{}", obj);
                 this.hlhtZybcjlRcbcjlDao.insertHlhtZybcjlRcbcjl(obj);
+                this.splitTableDao.selectAnmrZybcjlRcbcjlSplitByProc(hlhtZybcjlRcbcjlTemp);
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                         Long.parseLong(Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE),
                         Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",

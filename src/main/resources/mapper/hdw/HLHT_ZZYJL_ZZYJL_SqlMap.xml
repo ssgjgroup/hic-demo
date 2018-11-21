@@ -48,6 +48,7 @@
         <result column="zrjgksdm" property="zrjgksdm" jdbcType="VARCHAR"/>
         <result column="zrjgksmc" property="zrjgksmc" jdbcType="VARCHAR"/>
         <result column="gxsj" property="gxsj" jdbcType="TIMESTAMP"/>
+        <result column="syxh" property="syxh" jdbcType="VARCHAR"/>
     </resultMap>
 
     <resultMap id="hlhtZzyjlZzyjlResult" type="com.winning.hic.model.HlhtZzyjlZzyjl"
@@ -338,6 +339,11 @@
         WHERE  1=1
         <if test="(map.QTBLJLXH != null and map.QTBLJLXH != '') or map.QTBLJLXH == 0">and t.QTBLJLXH = (#{map.QTBLJLXH})</if>
 
+    </select>
+
+    <select id="selectHlhtZzyjlZzyjlListByProc" resultMap="hlhtZzyjlZzyjlResult"
+            statementType="CALLABLE">
+        exec USP_GETMR_ZZYJL_ZZYJL #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
     </select>
 
 

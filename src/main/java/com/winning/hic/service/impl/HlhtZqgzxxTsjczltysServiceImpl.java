@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,11 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
-import com.winning.hic.dao.hdw.CommonQueryDao;
-import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtZqgzxxTsjczltysDao;
 import com.winning.hic.model.HlhtZqgzxxTsjczltys;
 import com.winning.hic.model.MbzDataCheck;
@@ -42,13 +40,9 @@ public class HlhtZqgzxxTsjczltysServiceImpl implements  HlhtZqgzxxTsjczltysServi
     @Autowired
     private HlhtZqgzxxTsjczltysDao hlhtZqgzxxTsjczltysDao;
     @Autowired
-    private CommonQueryDao commonQueryDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
-    @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
     @Autowired
@@ -108,6 +102,8 @@ public class HlhtZqgzxxTsjczltysServiceImpl implements  HlhtZqgzxxTsjczltysServi
         hlht.getMap().put("startDate",entity.getMap().get("startDate"));
         hlht.getMap().put("endDate",entity.getMap().get("endDate"));
         hlht.getMap().put("syxh",entity.getMap().get("syxh"));
+        hlht.getMap().put("yljgdm", entity.getMap().get("yljgdm"));
+        hlht.getMap().put("regex", entity.getMap().get("regex"));
 
         List<HlhtZqgzxxTsjczltys> list = this.hlhtZqgzxxTsjczltysDao.selectHlhtZqgzxxTsjczltysListByProc(hlht);
         if(list != null && list.size() > 0) {
@@ -136,7 +132,7 @@ public class HlhtZqgzxxTsjczltysServiceImpl implements  HlhtZqgzxxTsjczltysServi
                 obj.setJczlxmmc(obj.getBlmc().replace("知情同意书",""));
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZQGZXX_TSJCZLTYS),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                 this.createHlhtZqgzxxTsjczltys(obj);
-
+                this.splitTableDao.selectAnmrZqgzxxTsjczltysSplitByProc(hlht);
                 //插入日志
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                         Long.parseLong(Constants.WN_ZQGZXX_TSJCZLTYS_SOURCE_TYPE),

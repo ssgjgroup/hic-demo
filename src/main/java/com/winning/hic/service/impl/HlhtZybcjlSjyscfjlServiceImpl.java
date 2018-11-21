@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +18,7 @@ import com.winning.hic.base.utils.HicHelper;
 import com.winning.hic.base.utils.PercentUtil;
 import com.winning.hic.base.utils.ReflectUtil;
 import com.winning.hic.base.utils.XmlUtil;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
+
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.EmrQtbljlkDao;
@@ -50,9 +51,7 @@ public class HlhtZybcjlSjyscfjlServiceImpl implements  HlhtZybcjlSjyscfjlService
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
     @Autowired
@@ -121,6 +120,8 @@ public class HlhtZybcjlSjyscfjlServiceImpl implements  HlhtZybcjlSjyscfjlService
         hlht.getMap().put("startDate",entity.getMap().get("startDate"));
         hlht.getMap().put("endDate",entity.getMap().get("endDate"));
         hlht.getMap().put("syxh",entity.getMap().get("syxh"));
+        hlht.getMap().put("yljgdm", entity.getMap().get("yljgdm"));
+        hlht.getMap().put("regex", entity.getMap().get("regex"));
 
 
         List<HlhtZybcjlSjyscfjl> list = this.hlhtZybcjlSjyscfjlDao.selectHlhtZybcjlSjyscfjlListByProc(hlht);
@@ -163,6 +164,7 @@ public class HlhtZybcjlSjyscfjlServiceImpl implements  HlhtZybcjlSjyscfjlService
                 }
 
                 this.createHlhtZybcjlSjyscfjl(obj);
+                this.splitTableDao.selectAnmrZybcjlSjyscfjlSplitByProc(hlht);
                 //插入日志
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                         Long.parseLong(Constants.WN_ZYBCJL_SJYSCFJL_SOURCE_TYPE),

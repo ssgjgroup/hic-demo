@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,11 +21,7 @@ import com.winning.hic.base.utils.PercentUtil;
 import com.winning.hic.base.utils.ReflectUtil;
 import com.winning.hic.base.utils.StringUtil;
 import com.winning.hic.base.utils.XmlUtil;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
-import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
-import com.winning.hic.dao.hdw.CommonQueryDao;
-import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtZybcjlScbcjlDao;
 import com.winning.hic.model.HlhtZybcjlScbcjl;
 import com.winning.hic.model.MbzDataCheck;
@@ -49,17 +46,8 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
 
     @Autowired
     private HlhtZybcjlScbcjlDao hlhtZybcjlScbcjlDao;
-
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
-    @Autowired
-    private MbzDataSetDao mbzDataSetDao;
-
-    @Autowired
-    private CommonQueryDao commonQueryDao;
-
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
+    private SplitTableDao splitTableDao;
 
     @Autowired
     private MbzDataSetService mbzDataSetService;
@@ -109,10 +97,6 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
         mbzDataSet.setSourceType(Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE);
         mbzDataSet.setPId(Long.parseLong(Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = mbzDataSetService.getMbzDataSetList(mbzDataSet);
-        //1.获取对应的首次病程的模板ID集合
-        MbzDataListSet mbzDataListSet = new MbzDataListSet();
-        mbzDataListSet.setSourceType(Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE);
-        List<MbzDataListSet> dataListSets = this.mbzDataListSetDao.selectMbzDataListSetList(mbzDataListSet);
         try{
             //获取首次病程的对象集合
             HlhtZybcjlScbcjl oneScbcjl = new HlhtZybcjlScbcjl();
@@ -120,6 +104,9 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
             oneScbcjl.getMap().put("startDate",t.getMap().get("startDate"));
             oneScbcjl.getMap().put("endDate",t.getMap().get("endDate"));
             oneScbcjl.getMap().put("syxh",t.getMap().get("syxh"));
+            oneScbcjl.getMap().put("yljgdm", t.getMap().get("yljgdm"));
+            oneScbcjl.getMap().put("regex", t.getMap().get("regex"));
+
             List<HlhtZybcjlScbcjl> hlhtZybcjlScbcjls = this.hlhtZybcjlScbcjlDao.selectHlhtZybcjlScbcjlListByProc(oneScbcjl);
 
             if (hlhtZybcjlScbcjls != null) {
@@ -277,6 +264,7 @@ public class HlhtZybcjlScbcjlServiceImpl implements  HlhtZybcjlScbcjlService {
 
                     }
                     this.createHlhtZybcjlScbcjl(obj);
+                    this.splitTableDao.selectAnmrZybcjlScbcjlSplitByProc(oneScbcjl);
                     //插入日志
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZYBCJL_SCBCJL_SOURCE_TYPE),

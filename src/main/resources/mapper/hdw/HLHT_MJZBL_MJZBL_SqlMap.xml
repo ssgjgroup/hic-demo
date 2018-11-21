@@ -140,7 +140,7 @@
 
     <insert id="insertHlhtMjzblMjzbl" parameterType="com.winning.hic.model.HlhtMjzblMjzbl">
 
-        INSERT INTO HLHT_MJZBL_MJZBL
+        INSERT INTO ANMR_MJZBL_MJZBL
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="(yjlxh != null )">yjlxh ,</if>
             <if test="(jzlsh != null )">jzlsh ,</if>
@@ -273,7 +273,7 @@
     </insert>
 
     <update id="updateHlhtMjzblMjzbl" parameterType="com.winning.hic.model.HlhtMjzblMjzbl">
-        UPDATE HLHT_MJZBL_MJZBL
+        UPDATE ANMR_MJZBL_MJZBL
         <set>
             <trim suffixOverrides=",">
                 <if test="(yjlxh != null )">yjlxh = #{yjlxh , jdbcType= VARCHAR },</if>
@@ -350,7 +350,7 @@
     </update>
 
     <delete id="deleteHlhtMjzblMjzbl" parameterType="com.winning.hic.model.HlhtMjzblMjzbl">
-        delete from HLHT_MJZBL_MJZBL
+        delete from ANMR_MJZBL_MJZBL
         <where>
             <if test="(yjlxh != null )">and yjlxh = #{yjlxh , jdbcType= VARCHAR }</if>
             <if test="(yjlxh == null or yjlxh == '') and (map.pks != null and map.pks.size > 0)">
@@ -363,7 +363,7 @@
 
     <select id="selectHlhtMjzblMjzbl" resultMap="hlhtMjzblMjzblResult"
             statementType="CALLABLE">
-        SELECT * FROM HLHT_MJZBL_MJZBL t
+        SELECT * FROM ANMR_MJZBL_MJZBL t
         <where>
             <include refid="sql-hlhtMjzblMjzbl"/>
         </where>
@@ -377,7 +377,7 @@
             parameterType="com.winning.hic.model.HlhtMjzblMjzbl">
         SELECT
         <if test="row.count != null and row.count != ''">top ${row.count}</if>
-        * FROM HLHT_MJZBL_MJZBL t
+        * FROM ANMR_MJZBL_MJZBL t
         <where>
             <include refid="sql-hlhtMjzblMjzbl"/>
         </where>
@@ -385,7 +385,7 @@
     </select>
 
     <select id="selectHlhtMjzblMjzblCount" resultType="int" parameterType="com.winning.hic.model.HlhtMjzblMjzbl">
-        select count(1) from HLHT_MJZBL_MJZBL t
+        select count(1) from ANMR_MJZBL_MJZBL t
         <where>
             <include refid="sql-hlhtMjzblMjzbl"/>
         </where>
@@ -396,7 +396,7 @@
         SELECT * FROM (
         SELECT t.* ,
        ROW_NUMBER() OVER ( ORDER BY t.yjlxh DESC ) AS _RN
-        FROM HLHT_MJZBL_MJZBL t
+        FROM ANMR_MJZBL_MJZBL t
         <where>
             <include refid="sql-hlhtMjzblMjzbl"/>
         </where>

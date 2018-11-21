@@ -18,7 +18,6 @@ import com.winning.hic.base.utils.HicHelper;
 import com.winning.hic.base.utils.PercentUtil;
 import com.winning.hic.base.utils.ReflectUtil;
 import com.winning.hic.base.utils.XmlUtil;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzDictInfoDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
@@ -49,8 +48,6 @@ public class HlhtZlczjlMzshfsjlServiceImpl implements HlhtZlczjlMzshfsjlService 
     private CommonQueryDao commonQueryDao;
     @Autowired
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
-    @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
     @Autowired

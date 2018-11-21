@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,9 +19,7 @@ import com.winning.hic.base.utils.HicHelper;
 import com.winning.hic.base.utils.PercentUtil;
 import com.winning.hic.base.utils.ReflectUtil;
 import com.winning.hic.base.utils.XmlUtil;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
-import com.winning.hic.dao.hdw.CommonQueryDao;
 import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtZybcjlZkjlDao;
 import com.winning.hic.model.EmrQtbljlk;
@@ -51,13 +50,10 @@ public class HlhtZybcjlZkjlServiceImpl implements  HlhtZybcjlZkjlService {
     private MbzDataSetService mbzDataSetService;
 
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
-
-    @Autowired
     private EmrQtbljlkDao emrQtbljlkDao;
 
     @Autowired
-    private CommonQueryDao commonQueryDao;
+    private SplitTableDao splitTableDao;
 
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
@@ -124,11 +120,6 @@ public class HlhtZybcjlZkjlServiceImpl implements  HlhtZybcjlZkjlService {
             }
         }
 
-        //1.获取对应的首次病程的模板ID集合
-        MbzDataListSet mbzDataListSet = new MbzDataListSet();
-        mbzDataListSet.setSourceType(Constants.WN_ZYBCJL_ZKJL_SOURCE_TYPE);
-        List<MbzDataListSet> dataListSets = this.mbzDataListSetDao.selectMbzDataListSetList2(mbzDataListSet);
-
         try{
             //获取首次病程的对象集合
             Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZybcjlZkjl.class);
@@ -139,6 +130,8 @@ public class HlhtZybcjlZkjlServiceImpl implements  HlhtZybcjlZkjlService {
                 oneZkjl.getMap().put("startDate",t.getMap().get("startDate"));
                 oneZkjl.getMap().put("endDate",t.getMap().get("endDate"));
                 oneZkjl.getMap().put("syxh",t.getMap().get("syxh"));
+                oneZkjl.getMap().put("yljgdm",t.getMap().get("yljgdm"));
+                oneZkjl.getMap().put("regex",t.getMap().get("regex"));
                 List<HlhtZybcjlZkjl> hlhtZybcjlZkjls = this.hlhtZybcjlZkjlDao.selectHlhtZybcjlZkjlListByProc(oneZkjl);
 
                 if(hlhtZybcjlZkjls != null){
@@ -169,6 +162,7 @@ public class HlhtZybcjlZkjlServiceImpl implements  HlhtZybcjlZkjlService {
                                 e.printStackTrace();
                             }
                             this.createHlhtZybcjlZkjl(obj);
+                            this.splitTableDao.selectAnmrZybcjlZkjlSplitByProc(oneZkjl);
                             //插入日志
                             mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                                     Long.parseLong(Constants.WN_ZYBCJL_ZKJL_SOURCE_TYPE),
@@ -203,6 +197,7 @@ public class HlhtZybcjlZkjlServiceImpl implements  HlhtZybcjlZkjlService {
                                     e.printStackTrace();
                                 }
                                 this.modifyHlhtZybcjlZkjl(zkjl);
+                                this.splitTableDao.selectAnmrZybcjlZkjlSplitByProc(oneZkjl);
                             }
 
                         }

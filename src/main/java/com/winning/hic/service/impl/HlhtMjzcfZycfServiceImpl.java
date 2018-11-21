@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import com.winning.hic.base.Constants;
 import com.winning.hic.base.utils.PercentUtil;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.CommonQueryDao;
@@ -40,8 +39,6 @@ public class HlhtMjzcfZycfServiceImpl implements HlhtMjzcfZycfService {
 
     @Autowired
     private CommonQueryDao commonQueryDao;
-    @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
     @Autowired
