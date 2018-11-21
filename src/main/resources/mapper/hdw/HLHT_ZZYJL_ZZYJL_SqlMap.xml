@@ -48,6 +48,7 @@
         <result column="zrjgksdm" property="zrjgksdm" jdbcType="VARCHAR"/>
         <result column="zrjgksmc" property="zrjgksmc" jdbcType="VARCHAR"/>
         <result column="gxsj" property="gxsj" jdbcType="TIMESTAMP"/>
+        <result column="syxh" property="syxh" jdbcType="VARCHAR"/>
     </resultMap>
 
     <resultMap id="hlhtZzyjlZzyjlResult" type="com.winning.hic.model.HlhtZzyjlZzyjl"
