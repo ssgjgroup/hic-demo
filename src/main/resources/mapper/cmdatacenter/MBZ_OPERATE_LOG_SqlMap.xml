@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.winning.hic.dao.cmdatacenter.MbzOperateLogDao">
+<mapper namespace="com.winning.hic.dao.MbzOperateLogDao">
 
     <resultMap id="mbzOperateLogResultForList" type="com.winning.hic.model.MbzOperateLog">
          <result column="id" property="id" jdbcType="BIGINT" />
@@ -30,6 +30,7 @@
     </sql>
 
     <insert id="insertMbzOperateLog" parameterType="com.winning.hic.model.MbzOperateLog">
+        <selectKey resultType="String"  order="BEFORE"  keyProperty="id">SELECT CAST(NEWID() AS VARCHAR(36)) AS ID</selectKey>
         INSERT INTO MBZ_OPERATE_LOG
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="(id != null )"> id , </if>

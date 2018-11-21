@@ -15,8 +15,8 @@ import org.springframework.stereotype.Repository;
 * @author HLHT
 * @title DAO接口
 * @email Winning Health
-* @package com.winning.hic.dao.cmdatacenter
-* @date 2018-28-21 11:28:16
+* @package com.winning.hic.dao
+* @date 2018-19-21 11:19:22
 */
 @Repository
 public interface MbzOperateLogDao {

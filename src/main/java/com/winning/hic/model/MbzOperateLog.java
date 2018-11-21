@@ -1,11 +1,12 @@
 package com.winning.hic.model;
 
 import java.util.Date; 
+import java.util.Date; 
 import java.io.Serializable; 
 
-import com.winning.hic.model.BaseDomain;
-
 import org.apache.ibatis.type.Alias; 
+
+import com.winning.hic.model.BaseDomain;
 
 
 
@@ -14,12 +15,10 @@ import org.apache.ibatis.type.Alias;
  * @title 
  * @email Winning Health
  * @package com.winning.hic.model
- * @date 2018-28-21 11:28:16
+ * @date 2018-19-21 11:19:22
  */
 @Alias("mbzOperateLog")
 public class MbzOperateLog extends BaseDomain implements Serializable {
-
-    private static final long serialVersionUID = -1L;
 
     /**
      * 字段名：id

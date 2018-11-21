@@ -10,7 +10,7 @@ import com.winning.hic.model.MbzOperateLog;
 * @title MBZ_OPERATE_LOG
 * @email Winning Health
 * @package com.winning.hic.service
-* @date 2018-28-21 11:28:16
+* @date 2018-19-21 11:19:22
 */
 public interface MbzOperateLogService {
 
