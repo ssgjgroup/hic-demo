@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import com.winning.hic.base.SplitParamsConstants;
+import com.winning.hic.model.MbzDictInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +51,15 @@ public class DataExtraJob {
 
 
     private void dataLoad(String startDate, String endDate) {
+        MbzDictInfo temp = new MbzDictInfo();
+        temp.setDictCode("hospitalInfoNo");
+        temp = facade.getMbzDictInfoService().getMbzDictInfo(temp);
         MbzDataCheck entity = new MbzDataCheck();
         entity.getMap().put("startDate", startDate);
         entity.getMap().put("endDate", endDate);
         entity.setIsAutomate(1);
+        entity.getMap().put("yljgdm",temp.getDictLabel());
+        entity.getMap().put("regex", SplitParamsConstants.SPECIAL_SPLIT_FLAG);
         try {
             //删除原来的检验结果
             facade.getMbzDataCheckService().removeMbzDataCheckList(entity);
