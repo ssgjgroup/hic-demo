@@ -310,7 +310,7 @@
     <!-- chenkuai 存储处理 -->
     <select id="selectHlhtZybcjlJjbjlListByProc" resultMap="hlhtZybcjlJjbjlResult" statementType="CALLABLE"
             parameterType="com.winning.hic.model.HlhtZybcjlJjbjl">
-        exec USP_GETMR_ZYBCJL_JJBJL_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+        exec USP_GETMR_ZYBCJL_JJBJL #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
     </select>
 
 

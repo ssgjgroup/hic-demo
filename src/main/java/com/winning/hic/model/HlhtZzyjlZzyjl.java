@@ -1083,4 +1083,14 @@ public class HlhtZzyjlZzyjl extends BaseDomain implements Serializable {
         this.gxsj = gxsj;
    }
 
+
+   private String syxh;
+
+    public String getSyxh() {
+        return syxh;
+    }
+
+    public void setSyxh(String syxh) {
+        this.syxh = syxh;
+    }
 }

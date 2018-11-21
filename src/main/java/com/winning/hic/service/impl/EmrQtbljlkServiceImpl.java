@@ -8,11 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
-
-
-
 /**
  * Coder AutoGenerator generate.
  *
@@ -24,7 +19,6 @@ public class EmrQtbljlkServiceImpl implements EmrQtbljlkService {
 
 	@Autowired
 	private EmrQtbljlkDao emrQtbljlkDao;
-
 
 	@Override
 	public Integer createEmrQtbljlk(EmrQtbljlk t) {

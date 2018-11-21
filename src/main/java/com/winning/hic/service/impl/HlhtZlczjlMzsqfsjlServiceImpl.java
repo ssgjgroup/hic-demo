@@ -18,11 +18,9 @@ import com.winning.hic.base.utils.HicHelper;
 import com.winning.hic.base.utils.PercentUtil;
 import com.winning.hic.base.utils.ReflectUtil;
 import com.winning.hic.base.utils.XmlUtil;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.CommonQueryDao;
-import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtZlczjlMzsqfsjlDao;
 import com.winning.hic.model.EmrQtbljlk;
 import com.winning.hic.model.HlhtZlczjlMzsqfsjl;
@@ -47,12 +45,7 @@ public class HlhtZlczjlMzsqfsjlServiceImpl implements HlhtZlczjlMzsqfsjlService 
     @Autowired
     private CommonQueryDao commonQueryDao;
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
-    @Autowired
     private MbzDataSetDao mbzDataSetDao;
-
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
     @Autowired
     private HlhtZlczjlMzsqfsjlDao hlhtZlczjlMzsqfsjlDao;
     @Autowired

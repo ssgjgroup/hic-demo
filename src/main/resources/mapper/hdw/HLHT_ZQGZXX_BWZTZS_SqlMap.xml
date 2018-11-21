@@ -274,7 +274,7 @@
 
     <select id="selectHlhtZqgzxxBwztzsListByProc" resultMap="hlhtZqgzxxBwztzsResult" statementType="CALLABLE"
                          parameterType="com.winning.hic.model.HlhtZqgzxxBwztzs">
-    exec USP_GETMR_ZQGZXX_BWZTZS_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+    exec USP_GETMR_ZQGZXX_BWZTZS #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
 </select>
 
 </mapper>

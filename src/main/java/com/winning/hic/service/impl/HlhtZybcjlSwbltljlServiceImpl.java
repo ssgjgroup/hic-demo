@@ -7,6 +7,7 @@ import java.util.Map;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
+
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.CommonQueryDao;
@@ -41,15 +42,10 @@ public class HlhtZybcjlSwbltljlServiceImpl implements  HlhtZybcjlSwbltljlService
     private static final Logger logger = LoggerFactory.getLogger(HlhtZybcjlSwbltljlServiceImpl.class);
     @Autowired
     private HlhtZybcjlSwbltljlDao hlhtZybcjlSwbltljlDao;
-
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
-    @Autowired
-    private CommonQueryDao commonQueryDao;
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
     @Autowired
@@ -107,7 +103,8 @@ public class HlhtZybcjlSwbltljlServiceImpl implements  HlhtZybcjlSwbltljlService
         hlht.getMap().put("startDate",entity.getMap().get("startDate"));
         hlht.getMap().put("endDate",entity.getMap().get("endDate"));
         hlht.getMap().put("syxh",entity.getMap().get("syxh"));
-
+        hlht.getMap().put("yljgdm", entity.getMap().get("yljgdm"));
+        hlht.getMap().put("regex", entity.getMap().get("regex"));
         List<HlhtZybcjlSwbltljl> list = this.hlhtZybcjlSwbltljlDao.selectHlhtZybcjlSwbltljlListByProc(hlht);
         if(list != null && list.size() > 0) {
             emr_count = emr_count + list.size();
@@ -187,6 +184,7 @@ public class HlhtZybcjlSwbltljlServiceImpl implements  HlhtZybcjlSwbltljlService
                 obj.setTlrybm(cjtlmd);
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_SWBLTLJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                 this.createHlhtZybcjlSwbltljl(obj);
+                this.splitTableDao.selectAnmrZybcjlSwbltljlSplitByProc(hlht);
                 //插入日志
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                         Long.parseLong(Constants.WN_ZYBCJL_SWBLTLJL_SOURCE_TYPE),

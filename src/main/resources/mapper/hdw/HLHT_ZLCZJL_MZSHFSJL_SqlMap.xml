@@ -336,7 +336,7 @@
 
     <select id="selectHlhtZlczjlMzshfsjlListByProc" resultMap="hlhtZlczjlMzshfsjlResult" statementType="CALLABLE"
             parameterType="com.winning.hic.model.HlhtZlczjlMzshfsjl">
-        exec USP_GETMR_ZLCZJL_MZSHFSJL_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+        exec USP_GETMR_ZLCZJL_MZSHFSJL #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
     </select>
 
 </mapper>

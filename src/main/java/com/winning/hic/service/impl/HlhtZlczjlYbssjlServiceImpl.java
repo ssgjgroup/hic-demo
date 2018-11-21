@@ -17,10 +17,7 @@ import com.winning.hic.base.utils.HicHelper;
 import com.winning.hic.base.utils.PercentUtil;
 import com.winning.hic.base.utils.ReflectUtil;
 import com.winning.hic.base.utils.XmlUtil;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
-import com.winning.hic.dao.hdw.CommonQueryDao;
-import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtZlczjlYbssjlDao;
 import com.winning.hic.model.HlhtZlczjlYbssjl;
 import com.winning.hic.model.MbzDataCheck;
@@ -49,9 +46,6 @@ public class HlhtZlczjlYbssjlServiceImpl implements  HlhtZlczjlYbssjlService {
 
     @Autowired
     private MbzDataSetService mbzDataSetService;
-
-    @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
 
     @Autowired
     private SplitTableDao splitTableDao;
@@ -104,10 +98,6 @@ public class HlhtZlczjlYbssjlServiceImpl implements  HlhtZlczjlYbssjlService {
         mbzDataSet.setSourceType(Constants.WN_ZLCZJL_YBSSJL_SOURCE_TYPE);
         mbzDataSet.setPId(Long.parseLong(Constants.WN_ZLCZJL_YBSSJL_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = mbzDataSetService.getMbzDataSetList(mbzDataSet);
-        //1.获取对应的首次病程的模板ID集合
-        MbzDataListSet mbzDataListSet = new MbzDataListSet();
-        mbzDataListSet.setSourceType(Constants.WN_ZLCZJL_YBSSJL_SOURCE_TYPE);
-        List<MbzDataListSet> dataListSets = this.mbzDataListSetDao.selectMbzDataListSetList(mbzDataListSet);
 
         try{
             //获取首次病程的对象集合

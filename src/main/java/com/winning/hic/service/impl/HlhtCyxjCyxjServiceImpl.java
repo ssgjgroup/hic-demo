@@ -16,14 +16,10 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
-import com.winning.hic.dao.hdw.CommonQueryDao;
-import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtCyxjCyxjDao;
 import com.winning.hic.model.HlhtCyxjCyxj;
 import com.winning.hic.model.MbzDataCheck;
-import com.winning.hic.model.MbzDataListSet;
 import com.winning.hic.model.MbzDataSet;
 import com.winning.hic.model.MbzLoadDataInfo;
 import com.winning.hic.service.HlhtCyxjCyxjService;
@@ -48,9 +44,6 @@ public class HlhtCyxjCyxjServiceImpl implements  HlhtCyxjCyxjService {
 
     @Autowired
     private MbzDataSetService mbzDataSetService;
-
-    @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
 
     @Autowired
     private SplitTableDao splitTableDao;
@@ -106,11 +99,6 @@ public class HlhtCyxjCyxjServiceImpl implements  HlhtCyxjCyxjService {
         mbzDataSet.setSourceType(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE);
         mbzDataSet.setPId(Long.parseLong(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = mbzDataSetService.getMbzDataSetList(mbzDataSet);
-        //1.获取对应的首次病程的模板ID集合
-        MbzDataListSet mbzDataListSet = new MbzDataListSet();
-        mbzDataListSet.setSourceType(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE);
-        List<MbzDataListSet> dataListSets = this.mbzDataListSetDao.selectMbzDataListSetList(mbzDataListSet);
-
         try{
             //获取首次病程的对象集合
             Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtCyxjCyxj.class);

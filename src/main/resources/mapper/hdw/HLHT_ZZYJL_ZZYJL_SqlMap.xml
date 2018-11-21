@@ -340,6 +340,11 @@
 
     </select>
 
+    <select id="selectHlhtZzyjlZzyjlListByProc" resultMap="hlhtZzyjlZzyjlResult"
+            statementType="CALLABLE">
+        exec USP_GETMR_ZZYJL_ZZYJL #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+    </select>
+
 
 
 

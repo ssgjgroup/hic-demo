@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,11 +17,9 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.CommonQueryDao;
-import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtZybcjlCyjlDao;
 import com.winning.hic.model.EmrQtbljlk;
 import com.winning.hic.model.HlhtZybcjlCyjl;
@@ -46,12 +45,9 @@ public class HlhtZybcjlCyjlServiceImpl implements HlhtZybcjlCyjlService {
     @Autowired
     private CommonQueryDao commonQueryDao;
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
-
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
 
     @Autowired
     private HlhtZybcjlCyjlDao hlhtZybcjlCyjlDao;
@@ -106,6 +102,9 @@ public class HlhtZybcjlCyjlServiceImpl implements HlhtZybcjlCyjlService {
         hlhtZybcjlCyjlTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtZybcjlCyjlTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtZybcjlCyjlTemp.getMap().put("syxh", t.getMap().get("syxh"));
+        hlhtZybcjlCyjlTemp.getMap().put("yljgdm", t.getMap().get("yljgdm"));
+        hlhtZybcjlCyjlTemp.getMap().put("regex", t.getMap().get("regex"));
+
         List<HlhtZybcjlCyjl> hlhtZybcjlCyjls = this.hlhtZybcjlCyjlDao.selectHlhtZybcjlCyjlListByProc(hlhtZybcjlCyjlTemp);
         if (hlhtZybcjlCyjls != null) {
             emr_count = emr_count + hlhtZybcjlCyjls.size();
@@ -186,6 +185,7 @@ public class HlhtZybcjlCyjlServiceImpl implements HlhtZybcjlCyjlService {
 
                     ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_CYJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.hlhtZybcjlCyjlDao.insertHlhtZybcjlCyjl(obj);
+                    this.splitTableDao.selectAnmrZybcjlCyjlSplitByProc(hlhtZybcjlCyjlTemp);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZYBCJL_CYJL_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",

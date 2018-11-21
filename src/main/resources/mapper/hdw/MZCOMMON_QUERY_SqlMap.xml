@@ -96,7 +96,7 @@
     <resultMap id="hlhtMjzblJzlgblResult" type="com.winning.hic.model.HlhtMjzblJzlgbl"
                extends="hlhtMjzblJzlgblResultForList">
     </resultMap>
-    <!--病历概要/基本健康信息 HLHT_BLGY_JBJKXX-->
+    <!--病历概要/基本健康信息 ANMR_BLGY_JBJKXX-->
     <resultMap id="hlhtBlgyJbjkxxResultForList" type="com.winning.hic.model.HlhtBlgyJbjkxx">
         <result column="yjlxh" property="yjlxh" jdbcType="VARCHAR"/>
         <result column="jzlsh" property="jzlsh" jdbcType="VARCHAR"/>
@@ -130,7 +130,7 @@
                extends="hlhtBlgyJbjkxxResultForList">
 
     </resultMap>
-    <!--门(急)诊处方/西药处方 HLHT_MJZCF_XYCF -->
+    <!--门(急)诊处方/西药处方 ANMR_MJZCF_XYCF -->
     <resultMap id="hlhtMjzcfXycfResultForList" type="com.winning.hic.model.HlhtMjzcfXycf">
         <result column="yjlxh" property="yjlxh" jdbcType="VARCHAR"/>
         <result column="jzlsh" property="jzlsh" jdbcType="VARCHAR"/>
@@ -381,7 +381,7 @@
         LEFT JOIN EMR_SYS_ZDFLMXK E ON B.XXDM = E.MXDM AND E.LBDM = '96'
         LEFT JOIN EMR_SYS_ZDFLMXK F ON B.RHJY = F.MXDM AND F.LBDM = '97'
         LEFT JOIN EMR_QTBLJLK G ON  G.SYXH = A.EMRXH AND G.MXFLDM LIKE 'B+9868%' AND G.YXJL = 1
-        LEFT JOIN CIS_HLHT.dbo.HLHT_MJZBL_JZLGBL H ON  G.QTBLJLXH = H.yjlxh
+        LEFT JOIN CIS_HLHT.dbo.ANMR_MJZBL_JZLGBL H ON  G.QTBLJLXH = H.yjlxh
         <where>
             <if test="map.startDate != null and map.startDate != ''">
                 and <![CDATA[CONVERT(date,substring(A.GHRQ,1,4)+'-'+substring(A.GHRQ,5,2)+'-'+substring(A.GHRQ,7,2))  >= #{map.startDate}]]>
@@ -393,7 +393,7 @@
         </where>
     </select>
 
-    <!--chensj 门(急)诊处方/西药处方 2018-8-16 16:21:45 HLHT_MJZCF_XYCF -->
+    <!--chensj 门(急)诊处方/西药处方 2018-8-16 16:21:45 ANMR_MJZCF_XYCF -->
     <select id="selectInitHlhtMjzcfXycf" parameterType="com.winning.hic.model.HlhtMjzcfXycf" resultMap="hlhtMjzcfXycfResult">
         SELECT
         ISNULL(CONVERT(VARCHAR,T1.XH),'NA')                                                                             AS yjlxh,
@@ -591,7 +591,7 @@
         FROM  OUTP_JZJLK T
         LEFT JOIN CIS_HLHT.dbo.MBZ_DICT_INFO i ON i.DICT_CODE = 'hospitalInfoName'
         LEFT JOIN CIS_HLHT.dbo.MBZ_DICT_INFO ii ON ii.DICT_CODE = 'hospitalInfoNo'
-        LEFT JOIN CIS_HLHT.dbo.HLHT_MJZCF_ZYCF zycf ON zycf.jzlsh = T.GHXH
+        LEFT JOIN CIS_HLHT.dbo.ANMR_MJZCF_ZYCF zycf ON zycf.jzlsh = T.GHXH
         WHERE T.JLZT='1' AND T.FZBZ >1
         <if test="map.startDate != null and map.startDate != ''">and <![CDATA[CONVERT(datetime,substring(T.GHRQ,1,4)+'-'+substring(T.GHRQ,5,2)+'-'+substring(T.GHRQ,7,2)+' '+substring(T.GHRQ,9,8)) >= #{map.startDate}]]>  </if>
         <if test="map.endDate != null and map.endDate != ''"> and <![CDATA[CONVERT(datetime,substring(T.GHRQ,1,4)+'-'+substring(T.GHRQ,5,2)+'-'+substring(T.GHRQ,7,2)+' '+substring(T.GHRQ,9,8)) <= #{map.endDate}]]>  </if>
@@ -604,7 +604,7 @@
 
     <!-- Chen,Kuai 2018年8月21日15:58:09  插入全部的数据 -->
     <insert id="insertHlhtBlgyWssjzyAll" parameterType="com.winning.hic.model.HlhtBlgyWssjzy">
-        INSERT INTO HLHT_BLGY_WSSJZY
+        INSERT INTO ANMR_BLGY_WSSJZY
         SELECT DISTINCT
         a.yjlxh,
         a.jzlsh,
@@ -705,7 +705,7 @@
         FROM  CISDB.dbo.OUTP_JZJLK T
         LEFT JOIN CIS_HLHT.dbo.MBZ_DICT_INFO i ON i.DICT_CODE = 'hospitalInfoName'
         LEFT JOIN CIS_HLHT.dbo.MBZ_DICT_INFO ii ON ii.DICT_CODE = 'hospitalInfoNo'
-        LEFT JOIN CIS_HLHT.dbo.HLHT_MJZCF_ZYCF zycf ON zycf.jzlsh = T.GHXH
+        LEFT JOIN CIS_HLHT.dbo.ANMR_MJZCF_ZYCF zycf ON zycf.jzlsh = T.GHXH
         WHERE T.JLZT='1' AND T.FZBZ >1
         <if test="map.startDate != null and map.startDate != ''">and <![CDATA[CONVERT(datetime,substring(T.GHRQ,1,4)+'-'+substring(T.GHRQ,5,2)+'-'+substring(T.GHRQ,7,2)+' '+substring(T.GHRQ,9,8)) >= #{map.startDate}]]>  </if>
         <if test="map.endDate != null and map.endDate != ''"> and <![CDATA[CONVERT(datetime,substring(T.GHRQ,1,4)+'-'+substring(T.GHRQ,5,2)+'-'+substring(T.GHRQ,7,2)+' '+substring(T.GHRQ,9,8)) <= #{map.endDate}]]>  </if>
@@ -762,8 +762,8 @@
         FROM CISDB.dbo.CPOE_BRSYK B
         LEFT JOIN CIS_HLHT.dbo.MBZ_DICT_INFO i ON i.DICT_CODE = 'hospitalInfoName'
         LEFT JOIN CIS_HLHT.dbo.MBZ_DICT_INFO ii ON ii.DICT_CODE = 'hospitalInfoNo'
-        LEFT JOIN CIS_HLHT.dbo.HLHT_RYJL_JBXX tt ON tt.jzlsh = B.SYXH
-        LEFT JOIN CIS_HLHT.dbo.HLHT_CYXJ_CYXJ cyxj ON cyxj.jzlsh = B.SYXH
+        LEFT JOIN CIS_HLHT.dbo.ANMR_RYJL_JBXX tt ON tt.jzlsh = B.SYXH
+        LEFT JOIN CIS_HLHT.dbo.ANMR_CYXJ_CYXJ cyxj ON cyxj.jzlsh = B.SYXH
         WHERE B.BRZT !=9
         <if test="map.startDate != null and map.startDate != ''"> and <![CDATA[CONVERT(datetime,substring(B.RYRQ,1,4)+'-'+substring(B.RYRQ,5,2)+'-'+substring(B.RYRQ,7,2)+' '+substring(B.RYRQ,9,8))>= #{map.startDate}]]>  </if>
         <if test="map.endDate != null and map.endDate != ''"> and <![CDATA[CONVERT(datetime,substring(B.RYRQ,1,4)+'-'+substring(B.RYRQ,5,2)+'-'+substring(B.RYRQ,7,2)+' '+substring(B.RYRQ,9,8))  <= #{map.endDate}]]>  </if>

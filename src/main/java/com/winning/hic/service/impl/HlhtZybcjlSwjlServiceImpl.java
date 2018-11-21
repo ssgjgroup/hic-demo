@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +17,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
+
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzDictInfoDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
@@ -47,11 +48,9 @@ public class HlhtZybcjlSwjlServiceImpl implements HlhtZybcjlSwjlService {
     @Autowired
     private CommonQueryDao commonQueryDao;
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
+    private SplitTableDao splitTableDao;
     @Autowired
     private MbzDataSetDao mbzDataSetDao;
-    @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
     @Autowired
     private MbzDictInfoDao mbzDictInfoDao;
     @Autowired
@@ -125,7 +124,8 @@ public class HlhtZybcjlSwjlServiceImpl implements HlhtZybcjlSwjlService {
         hlhtZybcjlSwjlTemp.getMap().put("startDate", t.getMap().get("startDate"));
         hlhtZybcjlSwjlTemp.getMap().put("endDate", t.getMap().get("endDate"));
         hlhtZybcjlSwjlTemp.getMap().put("syxh", t.getMap().get("syxh"));
-
+        hlhtZybcjlSwjlTemp.getMap().put("yljgdm", t.getMap().get("yljgdm"));
+        hlhtZybcjlSwjlTemp.getMap().put("regex", t.getMap().get("regex"));
         //2.根据模板代码去找到对应的病人病历
         List<HlhtZybcjlSwjl> hlhtZybcjlSwjlList = this.hlhtZybcjlSwjlDao.selectHlhtZybcjlSwjlListByProc(hlhtZybcjlSwjlTemp);
         if (hlhtZybcjlSwjlList != null) {
@@ -159,9 +159,9 @@ public class HlhtZybcjlSwjlServiceImpl implements HlhtZybcjlSwjlService {
                     obj.setSwzdbm(obj.getSwzdbm() == null ? "NA" :obj.getSwzdbm().replace("中医诊断：", "").trim());
                     obj.setSwzdmc(obj.getSwzdmc() == null ? "NA" :obj.getSwzdmc().replace("西医诊断：", "").trim());
                     obj.setSwzdmc(obj.getSwzdmc() == null ? "NA" :obj.getSwzdmc().replace("中医诊断：", "").trim());
-                    this.hlhtZybcjlSwjlDao.insertHlhtZybcjlSwjl(obj);
-
                     ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_SWJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                    this.hlhtZybcjlSwjlDao.insertHlhtZybcjlSwjl(obj);
+                    this.splitTableDao.selectAnmrZybcjlSwjlSplitByProc(hlhtZybcjlSwjlTemp);
                     //插入日志
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZYBCJL_SWJL_SOURCE_TYPE),

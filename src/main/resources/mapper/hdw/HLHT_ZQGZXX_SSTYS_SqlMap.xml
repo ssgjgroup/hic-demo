@@ -362,7 +362,7 @@
 
     <!--存储过程-->
     <select id="selectHlhtZqgzxxSstysListByProc" resultMap="hlhtZqgzxxSstysResult" statementType="CALLABLE">
-       exec USP_GETMR_ZQGZXX_SSTYS_DATA #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
+       exec USP_GETMR_ZQGZXX_SSTYS #{map.sourceType},#{map.startDate},#{map.endDate},#{map.syxh}
     </select>
 
 </mapper>

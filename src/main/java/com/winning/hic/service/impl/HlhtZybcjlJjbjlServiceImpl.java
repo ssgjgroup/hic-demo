@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,10 +18,7 @@ import com.winning.hic.base.utils.PercentUtil;
 import com.winning.hic.base.utils.ReflectUtil;
 import com.winning.hic.base.utils.StringUtil;
 import com.winning.hic.base.utils.XmlUtil;
-import com.winning.hic.dao.cmdatacenter.MbzDataListSetDao;
-import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
-import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtZybcjlJjbjlDao;
 import com.winning.hic.model.HlhtZybcjlJjbjl;
 import com.winning.hic.model.MbzDataCheck;
@@ -47,14 +45,10 @@ public class HlhtZybcjlJjbjlServiceImpl implements  HlhtZybcjlJjbjlService {
     private HlhtZybcjlJjbjlDao hlhtZybcjlJjbjlDao;
 
     @Autowired
-    private MbzDataListSetDao mbzDataListSetDao;
-    @Autowired
-    private MbzDataSetDao mbzDataSetDao;
-    @Autowired
     private MbzDataSetService mbzDataSetService;
 
     @Autowired
-    private EmrQtbljlkDao emrQtbljlkDao;
+    private SplitTableDao splitTableDao;
 
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
@@ -105,20 +99,17 @@ public class HlhtZybcjlJjbjlServiceImpl implements  HlhtZybcjlJjbjlService {
         mbzDataSet.setSourceType(Constants.WN_ZYBCJL_JJBJL_SOURCE_TYPE);
         mbzDataSet.setPId(Long.parseLong(Constants.WN_ZYBCJL_JJBJL_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = mbzDataSetService.getMbzDataSetList(mbzDataSet);
-        //1.获取对应的首次病程的模板ID集合
-        MbzDataListSet mbzDataListSet = new MbzDataListSet();
-        mbzDataListSet.setSourceType(Constants.WN_ZYBCJL_JJBJL_SOURCE_TYPE);
-        List<MbzDataListSet> dataListSets = this.mbzDataListSetDao.selectMbzDataListSetList(mbzDataListSet);
         try{
-
             Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZybcjlJjbjl.class);
-
             //获取首次病程的对象集合
             HlhtZybcjlJjbjl oneJjbjl = new HlhtZybcjlJjbjl();
             oneJjbjl.getMap().put("sourceType", Constants.WN_ZYBCJL_JJBJL_SOURCE_TYPE);
             oneJjbjl.getMap().put("startDate",t.getMap().get("startDate"));
             oneJjbjl.getMap().put("endDate",t.getMap().get("endDate"));
             oneJjbjl.getMap().put("syxh",t.getMap().get("syxh"));
+            oneJjbjl.getMap().put("yljgdm", t.getMap().get("yljgdm"));
+            oneJjbjl.getMap().put("regex", t.getMap().get("regex"));
+
             List<HlhtZybcjlJjbjl> hlhtZybcjlJjbjls = this.hlhtZybcjlJjbjlDao.selectHlhtZybcjlJjbjlListByProc(oneJjbjl);
                 emr_count = emr_count+hlhtZybcjlJjbjls.size();
                 if(hlhtZybcjlJjbjls != null){
@@ -145,6 +136,7 @@ public class HlhtZybcjlJjbjlServiceImpl implements  HlhtZybcjlJjbjlService {
                             }
                         }
                         this.createHlhtZybcjlJjbjl(obj);
+                        this.splitTableDao.selectAnmrZybcjlJjbjlSplitByProc(oneJjbjl);
                         mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                                 Long.parseLong(Constants.WN_ZYBCJL_JJBJL_SOURCE_TYPE),
                                 Long.parseLong(obj.getYjlxh()),obj.getBlmc(),obj.getSyxh(),obj.getJbsj(),

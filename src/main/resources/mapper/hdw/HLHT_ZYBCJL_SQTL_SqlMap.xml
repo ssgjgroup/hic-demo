@@ -339,7 +339,7 @@
     </select>
 
     <select id="selectHlhtZybcjlSqtlCount" resultType="int" parameterType="com.winning.hic.model.HlhtZybcjlSqtl">
-        select count(1) from HLHT_ZYBCJL_SQTL t
+        select count(1) from ANMR_ZYBCJL_SQTL t
         <where>
             <include refid="sql-hlhtZybcjlSqtl"/>
         </where>
@@ -350,7 +350,7 @@
         SELECT * FROM (
         SELECT t.* ,
        ROW_NUMBER() OVER ( ORDER BY t.yjlxh DESC ) AS _RN
-        FROM HLHT_ZYBCJL_SQTL t
+        FROM ANMR_ZYBCJL_SQTL t
         <where>
             <include refid="sql-hlhtZybcjlSqtl"/>
         </where>
