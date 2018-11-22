@@ -55,7 +55,21 @@ public class SplitParamsConstants {
             "qzzyzhmc",
             "qzzyzhdm",
             "qzxyzdmc",
-            "qzxyzdbm"
+            "qzxyzdbm",
+            "xzxyzdmc",
+            "xzxyzdbm",
+            "xzzybmmc",
+            "xzzybmdm",
+            "xzzyzhmc",
+            "xzzyzhdm",
+            "czxyzdmc",
+            "czxyzdbm",
+            "czzybmmc",
+            "czzybmdm",
+            "czzyzhmc",
+            "czzyzhdm",
+            "bzbm",
+            "bzmc"
     };
 
     /**
@@ -111,7 +125,10 @@ public class SplitParamsConstants {
     /**
      * 治疗记录
      */
-    public static final String[] ZLCZJL_ZLJL = {};
+    public static final String[] ZLCZJL_ZLJL = {
+            "jbzdbm",
+            "jbzd"
+    };
     /**
      * 病危（重）通知书
      */
@@ -158,7 +175,9 @@ public class SplitParamsConstants {
             "czzybmmc",
             "czzybmdm",
             "ryzdbm",
-            "ryzdmc"
+            "ryzdmc",
+            "czzyzhdm",
+            "czzyzhmc"
     };
     /**
      * 会诊记录
@@ -241,10 +260,10 @@ public class SplitParamsConstants {
      * 转（诊）院记录
      */
     public static final String[] ZZYJL_ZZYJL = {
-        "jbzdbm","jbzd"
+            "jbzdbm", "jbzd"
     };
     /**
-     *  住院病程记录－转科记录
+     * 住院病程记录－转科记录
      */
     public static final String[] ZYBCJL_ZKJL = {
             "rzxyzdbm",
