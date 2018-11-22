@@ -23,43 +23,62 @@
     <link rel="shortcut icon" th:href="@{/img/logo.ico}"/>
     <link rel="stylesheet" th:href="@{/bootstrap/toastr/css/toastr.min.css}"/>
     <link rel="stylesheet" th:href="@{/assets/layer/mobile/need/layer.css}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-timepicker.min.css}"/>
 
 
     <style>
         html, body {
             height: 100%;
         }
-        .input-length{
+
+        .input-length {
             width: 150px;
         }
-        .table-align{
-            white-space:nowrap;
-            overflow:hidden;
+
+        .table-align {
+            white-space: nowrap;
+            overflow: hidden;
         }
-        .table.table-hover > tr > td{
+
+        .table.table-hover > tr > td {
             height: 16px;
             max-height: 20px;
         }
 
-        .table-layout-fixed{
-            table-layout:fixed;/* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
-            font-size:12px;
+        .table-layout-fixed {
+            table-layout: fixed; /* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+            font-size: 12px;
         }
-        div.card-views > div.card-view >span.title {
+
+        div.card-views > div.card-view > span.title {
             width: 200px;
         }
+
         div.card-views div.card-view span.value {
             width: 400px;
         }
+
         .main-container {
             padding-top: 10px;
             height: 100%;
         }
+
         .form-group, .btn {
             margin-right: 15px;
         }
+
         #profile .fixed-table-container {
             padding-bottom: 40px !important;
+        }
+        .widget-box {
+            border-bottom: none;
+            margin-left: 10px;
+        }
+        #saveTime {
+            position: absolute;
+            right: -65px;
+            top: 0;
+            bottom: 0;
         }
     </style>
 
@@ -74,46 +93,48 @@
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active">
                         <a data-toggle="tab" href="#home">
-                            数据列表
+                            手动抽取
                         </a>
                     </li>
 
                     <li>
                         <a data-toggle="tab" href="#profile">
-                            手动抽取
+                            自动抽取
                         </a>
                     </li>
                 </ul>
 
                 <div class="tab-content">
                     <div id="home" class="tab-pane in active">
-                        <div id="listBar">
+                        <div id="simple_toolbar">
                             <form class="form-inline">
                                 <div class="form-group">
-                                    <label for="exampleInputName2">数据子集:</label>
-                                    <select class="form-control input-sm input-length" name="dataSet" id="dataSet" style="width: 200px;">
+                                    <label for="orgCode">医院代码</label>
+                                    <input type="text" class="form-control input-sm input-length" id="orgCode"
+                                           th:value="${orgCode}"
+                                           placeholder="请输入机构代码" style="width: 150px;"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="orgName">医院名称</label>
+                                    <input type="text" class="form-control input-sm input-length" id="orgName"
+                                           th:value="${orgName}"
+                                           placeholder="请输入机构名称" style="width: 150px;"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="orgName">数据子集</label>
+                                    <select class="form-control input-sm input-length" name="data_set" id="data_set"
+                                            style="width: 200px;">
                                         <option value="0">-----全部-----</option>
                                         <option th:each="list:${dataSet}" th:value="${list.dictValue}"
                                                 th:text="${list.dictLabel }"></option>
                                     </select>
                                 </div>
-                                <!--<div class="form-group">
-                                    <label >搜索条件</label>
-                                    <select class="form-control input-sm input-length" name="ssType" id="ssType" style="width: 100px;">
-                                        <option value="0">&#45;&#45;无&#45;&#45;</option>
-                                        <option value="1">病历号</option>
-                                        <option value="2">性别</option>
-                                        <option value="3">姓名</option>
-                                        <option value="4">PATID</option>
-                                    </select>
-                                    <input type="text" id="ssContent" name="ssContent" class="form-control input-sm input-length"
-                                           placeholder="请输入条件" style="width: 100px;"/>
-                                </div>-->
-
                                 <div class="form-group">
-                                    <label >开始日期</label>
+                                    <label>开始日期</label>
                                     <div class="input-group input-group-sm">
-                                        <input type="text" id="listStartDate" class="form-control hasDatepicker input-sm input-length" data-date-format="yyyy-mm-dd" style="width: 100px;"/>
+                                        <input type="text" id="startDate"
+                                               class="form-control hasDatepicker input-sm input-length"
+                                               data-date-format="yyyy-mm-dd" style="width: 100px;"/>
                                         <span class="input-group-addon">
                                                             <i class="fa fa-calendar bigger-110"></i>
                                                         </span>
@@ -122,57 +143,9 @@
                                 <div class="form-group">
                                     <label> 结束日期</label>
                                     <div class="input-group input-group-sm">
-                                        <input type="text" id="listEndDate" class="form-control hasDatepicker input-sm input-length" data-date-format="yyyy-mm-dd" style="width: 100px;">
-                                        <span class="input-group-addon">
-                                                            <i class="fa fa-calendar bigger-110"></i>
-                                                        </span>
-                                    </div>
-                                </div>
-
-                                <button id="loadData" type="button" class="btn btn-primary btn-sm">查看数据</button>
-                                <button id="loadResh" type="button" class="btn btn-primary btn-sm">概率刷新</button>
-
-                            </form>
-                        </div>
-                        <!--表格区域  -->
-                        <table id="treegrid_table" class="table table-hover table-align table-layout-fixed"></table>
-                    </div>
-
-                    <div id="profile" class="tab-pane">
-                        <div id="simple_toolbar">
-                            <form class="form-inline">
-
-                                <div class="form-group">
-                                    <label for="orgCode">医院代码</label>
-                                    <input type="text" class="form-control input-sm input-length" id="orgCode" th:value="${orgCode}"
-                                           placeholder="请输入机构代码" style="width: 150px;"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="orgName">医院名称</label>
-                                    <input type="text" class="form-control input-sm input-length" id="orgName" th:value="${orgName}"
-                                           placeholder="请输入机构名称" style="width: 150px;"/>
-                                </div>
-                                <div class="form-group">
-                                        <label for="orgName">数据子集</label>
-                                        <select class="form-control input-sm input-length" name="data_set" id="data_set" style="width: 200px;">
-                                            <option value="0">-----全部-----</option>
-                                            <option th:each="list:${dataSet}" th:value="${list.dictValue}"
-                                                    th:text="${list.dictLabel }"></option>
-                                        </select>
-                                </div>
-                                <div class="form-group">
-                                    <label >开始日期</label>
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" id="startDate" class="form-control hasDatepicker input-sm input-length" data-date-format="yyyy-mm-dd" style="width: 100px;"/>
-                                        <span class="input-group-addon">
-                                                            <i class="fa fa-calendar bigger-110"></i>
-                                                        </span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label> 结束日期</label>
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" id="endDate" class="form-control hasDatepicker input-sm input-length" data-date-format="yyyy-mm-dd" style="width: 100px;">
+                                        <input type="text" id="endDate"
+                                               class="form-control hasDatepicker input-sm input-length"
+                                               data-date-format="yyyy-mm-dd" style="width: 100px;">
                                         <span class="input-group-addon">
                                                             <i class="fa fa-calendar bigger-110"></i>
                                                         </span>
@@ -185,9 +158,38 @@
                                 </div>
                                 <button id="handDataLoad" type="button" class="btn btn-primary btn-sm">开始抽取</button>
                             </form>
-
                         </div>
                         <table id="simple_table"></table>
+                    </div>
+
+                    <div id="profile" class="tab-pane">
+                        <div id="listBar">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="widget-box">
+                                        <div class="widget-body" style="border:none">
+                                            <div class="widget-main">
+                                                <label for="timepicker1">数据库数据抽取时间</label>
+                                                <div class=" input-group bootstrap-timepicker"
+                                                     style="width: 80%; position: relative">
+                                                    <input id="timepicker1" type="text" class="form-control"
+                                                           th:value="${batchDate}"/>
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-clock-o bigger-110"></i>
+                                                    </span>
+                                                    <button type="button" class="btn btn-sm btn-success" id="saveTime">
+                                                        保存
+                                                        <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
+                                                    </button>
+                                                </div>
+                                                <p class="help-block" style="margin-top: 10px">如果抽取时间等于当前时间，说明未配置数据抽取时间</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table id="auto_table"></table>
                     </div>
 
                 </div>
@@ -204,12 +206,13 @@
                 </button>
                 <h4 class="modal-title" id="viewModalLabel">数据详细信息</h4>
             </div>
-            <div class="modal-body" style="overflow: auto; height: 500px;" >
+            <div class="modal-body" style="overflow: auto; height: 500px;">
                 <div class="container">
                     <div class="row">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
-                                <form class="form-horizontal col-lg-10 col-md-10 col-sm-10 col-xs-10" role="form" id="viewForm">
+                                <form class="form-horizontal col-lg-10 col-md-10 col-sm-10 col-xs-10" role="form"
+                                      id="viewForm">
                                 </form>
                             </div>
                         </div>
@@ -229,9 +232,7 @@
 
 <div class="modal fade" id="myModal">
     <div class="modal-dialog modal-sm">
-
-        <img alt="" th:src="@{/bootstrap/img/loading-sm.gif}" />
-
+        <img alt="" th:src="@{/bootstrap/img/loading-sm.gif}"/>
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
@@ -253,30 +254,27 @@
 <script th:src="@{/assets/js/ace.min.js}"></script>
 <script th:src="@{/assets/js/ace-extra.min.js}"></script>
 <script th:src="@{/assets/js/chosen.jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap-timepicker.min.js}"></script>
 <!--layer-->
 <script th:src="@{/assets/layer/layer.js}"></script>
 
 <script th:inline="javascript" type="text/javascript">
-
-
     var ctx = /*[[@{/}]]*/'';
-    // alert(ctx+'modelCheck/modelCheck');
-    var $table = $('#treegrid_table');
-    var $simple_table = $('#simple_table');
-    var $dataTable = $('#dataTable'); //详情数据表格
+    var $autoTable = $('#auto_table');
+    var $simpleTable = $('#simple_table');
     $(function () {
-        toastr.options= {
-            "closeButton":false,//显示关闭按钮
-            "debug":false,//启用debug
-            "positionClass":"toast-top-center",//弹出的位置
-            "showDuration":"300",//显示的时间
-            "hideDuration":"1000",//消失的时间
-            "timeOut":"5000",//停留的时间
-            "extendedTimeOut":"1000",//控制时间
-            "showEasing":"swing",//显示时的动画缓冲方式
-            "hideEasing":"linear",//消失时的动画缓冲方式
-            "showMethod":"fadeIn",//显示时的动画方式
-            "hideMethod":"fadeOut"//消失时的动画方式
+        toastr.options = {
+            "closeButton": false,//显示关闭按钮
+            "debug": false,//启用debug
+            "positionClass": "toast-top-center",//弹出的位置
+            "showDuration": "300",//显示的时间
+            "hideDuration": "1000",//消失的时间
+            "timeOut": "5000",//停留的时间
+            "extendedTimeOut": "1000",//控制时间
+            "showEasing": "swing",//显示时的动画缓冲方式
+            "hideEasing": "linear",//消失时的动画缓冲方式
+            "showMethod": "fadeIn",//显示时的动画方式
+            "hideMethod": "fadeOut"//消失时的动画方式
         };
         //机构代码和机构名称
         $("#orgCode").blur(function () {
@@ -304,14 +302,14 @@
             });
         });
         $('.hasDatepicker').datepicker({
-            autoclose:true,
-            language:"zh-CN",
+            autoclose: true,
+            language: "zh-CN",
             todayHighlight: true
-        }).next().on(ace.click_event, function(){
+        }).next().on(ace.click_event, function () {
             $(this).prev().focus();
         });
 
-        $simple_table.bootstrapTable({
+        $simpleTable.bootstrapTable({
             url: ctx + 'operate/list',
             height: $(window).height() - 200, //表格占高
             striped: true,
@@ -323,7 +321,7 @@
             sidePagination: "server",           // 分页方式：client客户端分页，server服务端分页（*）
             pageNumber: 1,                      // 初始化加载第一页，默认第一页,并记录
             pageSize: 15,                     // 每页的记录行数（*）
-            pageList: [15,20,50,100],        // 可供选择的每页的行数（*）
+            pageList: [15, 20, 50, 100],        // 可供选择的每页的行数（*）
             showPaginationSwitch: false,			//显示 数据条数选择框
             search: false,                      // 是否显示表格搜索
             strictSearch: true,
@@ -371,12 +369,12 @@
                     width: '20%',
                     align: 'center',
                     title: '抽取状态',
-                    formatter : function (value, row, index) {
+                    formatter: function (value, row, index) {
                         if (value == 0) {
                             return '<i style="color: blue;">抽取中</i>';
-                        }else if (value == 1) {
+                        } else if (value == 1) {
                             return '<i style="color: #333;">抽取完成</i>';
-                        }else{
+                        } else {
                             return '<i style="color: red;">抽取错误</i>';
                         }
                         return value;
@@ -386,9 +384,9 @@
                     field: 'operateCount',
                     title: '抽取数量',
                     width: '10%',
-                    formatter : function (value, row, index) {
-                        if (row['operateCount'] != row['sumCount'] ) {
-                            return '<i style="color: red;">'+row['operateCount']+'</i>';
+                    formatter: function (value, row, index) {
+                        if (row['operateCount'] != row['sumCount']) {
+                            return '<i style="color: red;">' + row['operateCount'] + '</i>';
                         }
                         return value;
                     },
@@ -403,11 +401,10 @@
             ],
         });
 
-
-        $table.bootstrapTable({
-            url: ctx + 'dataList/loadList',
-            height: $(window).height() - 100,
-            method:'get',
+        $autoTable.bootstrapTable({
+            url: ctx + 'operate/list',
+            height: $(window).height() - 250,
+            method: 'get',
             striped: false,
             pagination: true,                   // 是否显示分页（*）
             sortable: false,                     // 是否启用排序
@@ -415,7 +412,7 @@
             sidePagination: "server",           // 分页方式：client客户端分页，server服务端分页（*）
             pageNumber: 1,                      // 初始化加载第一页，默认第一页,并记录
             pageSize: 10,                     // 每页的记录行数（*）
-            pageList: [10,20,50,100],        // 可供选择的每页的行数（*）
+            pageList: [10, 20, 50, 100],        // 可供选择的每页的行数（*）
             showPaginationSwitch: false,			//显示 数据条数选择框
             search: false,                      // 是否显示表格搜索
             strictSearch: true,
@@ -433,154 +430,155 @@
             toolbar: '#listBar',
             toolbarAlign: 'left',
             queryParams: initQueryParam,
-            columns:[{
-                field: 'recordName',
-                title: '病历名称',
-                width: '250px',
-                align: 'center'
-            },{
-                field: 'syxh',
-                title: '首页序号',
-                width: '100px',
-                align: 'center'
-            },{
-                field: 'zyh',
-                title: '住院号',
-                width: '100px',
-                align: 'center'
-            },{
-                field: 'hzxm',
-                title: '姓名',
-                width: '70px',
-                align: 'center'
-            },{
-                field: 'xbmc',
-                title: '性别',
-                width: '50px',
-                align: 'center'
-            },{
-                field: 'ksmc',
-                title: '科室名称',
-                width: '150px',
-                align: 'center'
-            },{
-                field: 'bqmc',
-                title: '病区名称',
-                width: '100px',
-                align: 'center'
-            },{
-                field: 'sfzhm',
-                title: '身份证号码',
-                width: '150px',
-                align: 'center'
-            },{
-                field: 'percentsBt',
-                title: '必填率(%)',
-                width: '100px',
-                align: 'center'
-            },{
-                field: 'percentsAll',
-                title: '覆盖率(%)',
-                width: '100px',
-                align: 'center'
-            },{
-                field: 'cqrq',
-                title: '抽取日期',
-                width: '150px',
-                align: 'center',
-                formatter:function(value,row,index){
-                    return convertUTCToYYYYMMDDHHMMSS(value);
+            columns: [
+                {
+                    title: '序号',
+                    field: 'id',
+                    align: 'center',
+                    width: '10%',
+                },
+                {
+                    field: 'setName',
+                    width: '20%',
+                    align: 'center',
+                    title: '数据子集'
+                },
+                {
+                    field: 'startDate',
+                    width: '20%',
+                    align: 'center',
+                    title: '抽取开始时间'
+                },
+                {
+                    field: 'endDate',
+                    width: '20%',
+                    align: 'center',
+                    title: '抽取结束时间'
+                },
+                {
+                    field: 'status',
+                    width: '20%',
+                    align: 'center',
+                    title: '抽取状态',
+                    formatter: function (value, row, index) {
+                        if (value == 0) {
+                            return '<i style="color: blue;">抽取中</i>';
+                        } else if (value == 1) {
+                            return '<i style="color: #333;">抽取完成</i>';
+                        } else {
+                            return '<i style="color: red;">抽取错误</i>';
+                        }
+                        return value;
+                    }
+                },
+                {
+                    field: 'operateCount',
+                    title: '抽取数量',
+                    width: '10%',
+                    formatter: function (value, row, index) {
+                        if (row['operateCount'] != row['sumCount']) {
+                            return '<i style="color: red;">' + row['operateCount'] + '</i>';
+                        }
+                        return value;
+                    },
+                    align: 'center',
+                },
+                {
+                    field: 'sumCount',
+                    width: '10%',
+                    title: '病历总数',
+                    align: 'center',
                 }
-            },{
-                field: 'id',
-                title: '操作',
-                width: '150px',
-                align: 'center',
-                formatter:function(value,row,index){
-                    var add = '<span href="#" class="btn btn-default btn-xs" title="查看数据详情" ' +
-                        'onclick="openDetailWindow(\''+row.recordName+'\',\''+row.sourceId+'\',\''+row.sourceType+'\')">' +
-                        '详情</span> ';
-                    return add;
-                }
-            }]
+            ],
         });
 
+        setTimeout(function () {
+            $simpleTable.bootstrapTable('refresh');
+            $autoTable.bootstrapTable('refresh');
+        }, 20000);
 
-       setTimeout(function () {
-           $simple_table.bootstrapTable('refresh');
-       },20000);
+        $('#timepicker1').timepicker({
+            minuteStep: 1,
+            showSeconds: true,
+            showMeridian: false, // 24H
+            disableFocus: true,
+            icons: {
+                up: 'fa fa-chevron-up',
+                down: 'fa fa-chevron-down'
+            }
+        }).on('focus', function () {
+            $('#timepicker1').timepicker('showWidget');
+        }).next().on(ace.click_event, function () {
+            $(this).prev().focus();
+        });
+        $('#saveTime').on('click', function () {
+            var timeStr = $('#timepicker1').val();
+            var timeArr = timeStr.split(":");
+            console.log(timeStr);
+            console.log(timeArr);
+            if (timeArr[0] > 6 || timeArr[0] < 1) { //夜间1点到5点
+                toastr.error("数据抽取时间请定在夜间1点到5点之间");
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                async: false,
+                url: ctx + "autoSet/edit",
+                data: {'date': timeStr},
+                dataType: "json",
+                success: function (data, status) {
+                    console.log(data);
+                    console.log(status);
+                    if (status === 'success') {
+                        toastr.info('数据抽取时间更新成功!');
+                    }
+                },
+                error: function (response) {
+                    result = true;
+                    toastr.error(response.responseText);
+                }
+            });
+        });
     });
-
-    function initSimpleParam(params){
+    //初始化参数
+    function initSimpleParam(params) {
         var queryJson = {};
+        queryJson['type'] = 0;    // 手动抽取
         queryJson['count'] = params.limit;    // 每页显示条数
         queryJson['first'] = params.offset;   // 显示条数
         queryJson['sort'] = params.sort;      // 排序列名
         queryJson['order'] = params.order;     // 排位命令（desc，asc）
         return queryJson;
     }
-    //概率刷新
-    $("#loadResh").click(function(){
-        var dataSet_val = $("#dataSet").val();
-        if(dataSet_val == 0 ){
-            toastr.warning("请选择一个数据子集");
-            return false;
-        }
-        //loading层
-        var index = layer.load(1, {
-            shade: [0.5, '#E0E0E0'] //0.1透明度的白色背景
-        });
-        //提交数据
-        $.ajax({
-            type: "POST",
-            url:ctx + 'dataList/refreshPercent',
-            data:{sourceType:dataSet_val},
-            cache : false,
-            dataType:"json",
-            async: true,
-            error: function(request) {
-                layer.close(index);
-            },
-            success: function(data) {
-              $table.bootstrapTable('refresh');
-              layer.close(index);
-            }
-        });
-
-
-
-
-    });
 
     //手动抽取数据
-    $("#handDataLoad").click(function(){
-
-        var startDate =$("#startDate").val();
-        var endDate =$("#endDate").val();
-        var orgCode =$("#orgCode").val();
-        var orgName =$("#orgName").val();
-        var syxh =$("#syxh").val();
-        var data_set =$("#data_set").val();
-        if(orgCode ==null || orgCode ==''){
+    $("#handDataLoad").click(function () {
+        var startDate = $("#startDate").val();
+        var endDate = $("#endDate").val();
+        var orgCode = $("#orgCode").val();
+        var orgName = $("#orgName").val();
+        var syxh = $("#syxh").val();
+        var data_set = $("#data_set").val();
+        if (orgCode == null || orgCode == '') {
             toastr.warning("医院代码不能为空");
             return false;
         }
-        if(orgName ==null || orgName ==''){
+        if (orgName == null || orgName == '') {
             toastr.warning("医院名称不能为空");
             return false;
         }
 
-        if(startDate ==null || startDate ==''){
+        if (startDate == null || startDate == '') {
             toastr.warning('开始时间不能为空');
             return false;
         }
-        if(endDate ==null || endDate ==''){
+        if (endDate == null || endDate == '') {
             toastr.warning("结束时间不能为空");
             return false;
         }
-        startDate =startDate+" 00:00:00";
-        endDate =endDate+" 23:59:59";
-        if(startDate >= endDate ){
+        startDate = startDate + " 00:00:00";
+        endDate = endDate + " 23:59:59";
+        if (startDate >= endDate) {
             toastr.warning("开始时间不能大于结束时间");
             return false;
         }
@@ -592,14 +590,14 @@
         layer.msg('数据开始抽取!', {icon: 6, time: 2500});
         $.ajax({
             type: "POST",
-            url:"startLoad",
-            data:{startDate:startDate,endDate:endDate,data_set:data_set,syxh:syxh},
-            cache : false,
-            dataType:"json",
+            url: "startLoad",
+            data: {startDate: startDate, endDate: endDate, data_set: data_set, syxh: syxh},
+            cache: false,
+            dataType: "json",
             async: true,
-            error: function(request) {
+            error: function (request) {
             },
-            success: function(data) {
+            success: function (data) {
                 // if(data.success=='1'){
                 //     $simple_table.bootstrapTable('refresh');
                 // }else{
@@ -610,195 +608,18 @@
         });
     });
 
-
-    // 格式化类型
-    function typeFormatter(value, row, index) {
-        if (value === 'menu') {
-            return '菜单';
-        }
-        if (value === 'button') {
-            return '按钮';
-        }
-        if (value === 'api') {
-            return '接口';
-        }
-        return '-';
-    }
-
-
-    // 格式化状态
-    function statusFormatter(value, row, index) {
-        if (value === 0) {
-            //0：正确 1：错误
-            return '<i class="fa fa-check" style="color: #00B83F"></i>';
-        } else if(value === 1) {
-            return '<i class="fa fa-times" style="color: red"></i>';
-        }else{
-            return '';
-        }
-    }
-
-    /**
-     * 将UTC时间转换为YYYY-MM-DD HH:mm:SS格式
-     * @param value
-     */
-    function convertUTCToYYYYMMDDHHMMSS(value){
-        var date = new Date(value);
-        var time = '';
-        var year = date.getFullYear();
-        time += year+"-";
-        var mouth = date.getMonth()+1;
-        time += addSymbolForDate(mouth,"-");
-        var day = date.getDate();
-        time += addSymbolForDate(day," ");
-        var hour = date.getHours();
-        time += addSymbolForDate(hour,":");
-        var minutes = date.getMinutes();
-        time += addSymbolForDate(minutes,":");
-        var seconds = date.getSeconds();
-        time += addSymbolForDate(seconds,"");
-        return time;
-    }
-    /**
-     *@param value 时间的值
-     *@param symbol 添加的符号
-     */
-    function addSymbolForDate(value,symbol){
-        if(value >= 10){
-            return value+symbol;
-        }else{
-            return "0"+value+symbol;
-        }
-    }
-
     //===============================数据查看=============================================
-
-
     //初始化参数
-    function initQueryParam(params){
-        var startDate =$("#listStartDate").val();
-        var endDate =$("#listEndDate").val();
-        var sourceType = $("#dataSet").val();
-        var date = new Date();
-        var seperator1 = "-";
-        var month = date.getMonth() + 1;
-        var strDate = date.getDate();
-        if (month >= 1 && month <= 9) {
-            month = "0" + month;
-        }
-        if (strDate >= 0 && strDate <= 9) {
-            strDate = "0" + strDate;
-        }
-        var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
-        if(startDate ==null || startDate ==''){
-            $("#listStartDate").val(currentdate)
-            startDate = currentdate;
-        }
-        if(endDate ==null || endDate ==''){
-            $("#listEndDate").val(currentdate);
-            endDate = currentdate;
-        }
-        startDate =startDate+" 00:00:00";
-        endDate =endDate+" 23:59:59";
-        if(startDate >= endDate ){
-            toastr.warning("开始时间不能大于结束时间");
-            return false;
-        }
-        var count,first;
-        if(params){
-            count = params.limit;
-            first = params.offset;
-        }else{
-            count = 10;
-            first = 0;
-        }
-        var queryParam = {
-            startDate:startDate,
-            endDate:endDate,
-            sourceType:sourceType,
-            count:count,
-            first:first
-        };
-
-        return queryParam;
-    }
-    /* 查询数据*/
-    $('#loadData').on('click',function(e){
-        e.preventDefault();
-        $table.bootstrapTable('refresh', {pageNumber: 1});
-    });
-
-    $('#dataSet').on('change',function(){
-        $table.bootstrapTable('refresh', {pageNumber: 1,sourceType:$(this).val()});
-    });
-
-    /**
-     * 打开抽取的病历信息详情页
-     * @param recordName
-     * @param sourceId
-     * @param sourceType
-     */
-    function openDetailWindow(recordName,sourceId,sourceType){
-        $('#viewModalLabel').text(recordName+"详细信息");
-        $dataTable.bootstrapTable('destroy');
-        $('#sourceType').val(sourceType);
-        $('#sourceId').val(sourceId);
-        var param = {
-            sourceId:sourceId,
-            sourceType:sourceType
-        };
-        $.ajax({
-            url:  ctx + 'dataList/initColumns',
-            data: param,
-            type: "post",
-            dataType: 'json',
-            async: false,
-            cache: false,
-            success: function (data, status) {
-                if (status == 'success') {
-                    convertToForm(data);
-                }
-            },
-            error: function (response) {
-                toastr.error(response.responseText);
-            },
-            complete: function () {
-            }
-        });
+    function initQueryParam(params) {
+        var queryJson = {};
+        queryJson['type'] = 1;    // 自动抽取
+        queryJson['count'] = params.limit;    // 每页显示条数
+        queryJson['first'] = params.offset;   // 显示条数
+        queryJson['sort'] = params.sort;      // 排序列名
+        queryJson['order'] = params.order;     // 排位命令（desc，asc）
+        return queryJson;
     }
 
-
-    function convertToForm(data){
-        var obj = data.rows[0];
-        var content = "";
-        $('#viewForm').empty();
-        $.each(data.columns,function(index,value){
-            if(obj[value.field].length >= 30){
-                var rows = obj[value.field].length / 30 +1;
-                content += '<div class="form-group" id="'+value.field+'Label"> '+
-                    '<label class="col-sm-3 control-label" for="yzjddm">'+value.title+'</label> ' +
-                    '<div class="col-sm-6">'+
-                    '<textarea type="text" class="form-control" rows="'+rows+'" id="'+value.field+'" name="'+value.field+'" value="" readonly>'+obj[value.field]+'</textarea></div></div>'
-            }else{
-                var reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T+(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d/;
-                var regExp = new RegExp(reg);
-                if(regExp.test(obj[value.field])){
-                    content += '<div class="form-group" id="'+value.field+'Label"> '+
-                        '<label class="col-sm-3 control-label" for="yzjddm">'+value.title+'</label> ' +
-                        '<div class="col-sm-6">'+
-                        '<input type="text" class="form-control" id="'+value.field+'" name="'+value.field+'" value="'+convertUTCToYYYYMMDDHHMMSS(obj[value.field])+'" readonly></div></div>'
-                }else{
-                    content += '<div class="form-group" id="'+value.field+'Label"> '+
-                        '<label class="col-sm-3 control-label" for="yzjddm">'+value.title+'</label> ' +
-                        '<div class="col-sm-6">'+
-                        '<input type="text" class="form-control" id="'+value.field+'" name="'+value.field+'" value="'+obj[value.field]+'" readonly></div></div>'
-                }
-            }
-
-        });
-       $('#viewForm').append(content);
-        $('#viewModal').modal('show');
-    }
 </script>
 
 </html>

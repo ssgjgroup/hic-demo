@@ -86,7 +86,12 @@ public class PageController extends BaseController {
     }
     @ApiOperation(value = "页面跳转",notes = "跳转到数据校验")
     @GetMapping(value = "/dataCheck/index")
-    public String goToDataCheckPage(){
+    public String goToDataCheckPage(Model model){
+        MbzDictInfo temp2 = new MbzDictInfo();
+        temp2.setDictCode("platformTableName");
+        List<MbzDictInfo> dictList = super.getFacade().getMbzDictInfoService().getMbzDictInfoList(temp2);
+        resultMap.put("dataSet", dictList);
+        model.addAllAttributes(resultMap);
         return "dataCheck/index";
     }
     @ApiOperation(value = "页面跳转",notes = "跳转到日志查看")

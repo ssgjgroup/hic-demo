@@ -126,6 +126,7 @@ public class ExcelUtil {
      * @param cell
      * @return
      */
+    @SuppressWarnings("deprecation")
     public static Object getCellValue(Cell cell) {
         Object value = null;
         DecimalFormat df = new DecimalFormat("0");  //格式化number String字符

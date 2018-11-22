@@ -1,11 +1,14 @@
 package com.winning.hic.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.winning.hic.base.Constants;
 import com.winning.hic.base.SplitParamsConstants;
+import com.winning.hic.base.utils.DateUtil;
+import com.winning.hic.model.MbzAutomateSet;
 import com.winning.hic.model.support.Row;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,13 +32,15 @@ public class DataLoadController extends BaseController {
         String orgName = getFacade().getMbzDictInfoService().getMbzDictInfo(temp).getDictLabel();
         temp.setDictCode("hospitalInfoNo");
         String orgCode = getFacade().getMbzDictInfoService().getMbzDictInfo(temp).getDictLabel();
-        //获取数据子集
-        MbzDictInfo temp2 = new MbzDictInfo();
-        temp2.setDictCode("platformTableName");
-        List<MbzDictInfo> dictList = super.getFacade().getMbzDictInfoService().getMbzDictInfoList(temp2);
+        MbzAutomateSet automateSet = getFacade().getMbzAutomateSetService().getMbzAutomateSet(null);
+        if(automateSet == null){
+            resultMap.put("batchDate", DateUtil.format(new Date(),DateUtil.TIME_8));
+        }else{
+            resultMap.put("batchDate", automateSet.getBatchDate());
+        }
+        model.addAllAttributes(resultMap);
         resultMap.put("orgCode", orgCode);
         resultMap.put("orgName", orgName);
-        resultMap.put("dataSet", dictList);
         model.addAllAttributes(resultMap);
         return "dataLoad/index";
     }

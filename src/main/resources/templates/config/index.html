@@ -1,158 +1,257 @@
-<!DOCTYPE HTML>
-<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
-
+<!--
+   Created with IntelliJ IDEA.
+   Description: 配置信息
+   User: LENOVO
+   Date: 2018-11-20
+   Time: 12:50
+ -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width,initial-scale=1.0" name="viewport">
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
     <meta content="email=no" name="format-detection">
-    <title>模板校验</title>
-    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <title>CIS数据子集配置</title>
+    <meta name="keywords" content="Winning Health CIS 互联互通工具"/>
+    <meta name="description" content="Winning Health CIS 互联互通工具"/>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}" />
     <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap-table.min.css}">
     <link rel="stylesheet" th:href="@{/bootstrap/css/jquery.treegrid.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap/bootstrap3-editable/css/bootstrap-editable.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap/bootstrap-treeview/bootstrap-treeview.min.css}">
     <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
     <link rel="stylesheet" th:href="@{/assets/google-font/google.fonts.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/font-awesome/4.5.0/css/font-awesome.min.css}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/ace.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/bootstrap-timepicker.min.css}"/>
     <link rel="stylesheet" th:href="@{/bootstrap/toastr/css/toastr.min.css}"/>
-    <!--<link rel="stylesheet" th:href="@{/assets/css/ace-rtl.min.css}"/>-->
-    <!--<link rel="stylesheet" th:href="@{/assets/css/ace-skins.min.css}"/>-->
+    <link rel="stylesheet" th:href="@{/assets/iconfont/iconfont.css}"/>
     <link rel="shortcut icon" th:href="@{/img/logo.ico}"/>
+    <script th:src="@{/assets/js/ace-extra.min.js}"></script>
     <style>
-        .widget-box {
-            border-bottom: none;
-            margin-left: 10px;
+        html, body {
+            height: 100%;
         }
-        #saveTime {
-            position: absolute;
-            right: -65px;
-            top: 0;
-            bottom: 0;
+
+        .input-length {
+            width: 150px;
+        }
+
+        .table-align {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .table.table-hover > tr > td {
+            height: 16px;
+            max-height: 20px;
+        }
+
+        .table-layout-fixed {
+            table-layout: fixed; /* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+            font-size: 12px;
+        }
+
+        div.card-views > div.card-view > span.title {
+            width: 200px;
+        }
+
+        div.card-views div.card-view span.value {
+            width: 400px;
+        }
+
+        .main-container {
+            padding-top: 10px;
+            height: 100%;
+        }
+
+        .form-group, .btn {
+            margin-right: 15px;
         }
     </style>
 </head>
-
 <body>
-<div class="main-container" style="margin: 10px 0px; overflow: hidden">
+    <div class="main-container">
+        <div class="row" style="margin:0px;">
+            <div class="col-sm-12">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs" id="myTab">
+                        <li class="active">
+                            <a data-toggle="tab" href="#home">
+                                病历编码
+                            </a>
+                        </li>
 
-    <div class="row">
-        <div class="col-sm-8">
-            <div class="widget-box">
-                <!--<div class="widget-header">-->
-                <!--<h4 class="widget-title text-center"></h4>-->
-                <!--</div>-->
-                <div class="widget-body" style="border:none">
-                    <div class="widget-main">
-                        <label for="timepicker1">数据库数据抽取时间</label>
-                        <div class=" input-group bootstrap-timepicker" style="width: 80%; position: relative">
-                            <input id="timepicker1" type="text" class="form-control" th:value="${batchDate}"/>
-                            <span class="input-group-addon">
-                               <i class="fa fa-clock-o bigger-110"></i>
-							</span>
-                            <button type="button" class="btn btn-sm btn-success" id="saveTime">
-                                保存
-                                <i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
-                            </button>
+                       <!-- <li>
+                            <a data-toggle="tab" href="#profile">
+                                自动抽取
+                            </a>
+                        </li>-->
+                    </ul>
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane in active">
+                            <table id="dataTable" class="table-align"></table>
                         </div>
-
-                        <p class="help-block" style="margin-top: 10px">如果抽取时间等于当前时间，说明未配置数据抽取时间</p>
-
+                        <div id="profile" class="tab-pane">
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
-</div>
-<div class="col-sm-3"></div>
-<!--   <div class="col-sm-12">
-       <form class="form-inline">
-           <div class="form-group">
-               <label for="timepicker1">数据库定时抽取时间</label>
-               <div class="input-group bootstrap-timepicker">
-                   <input id="timepicker1" type="text" class="form-control" />
-                   <span class="input-group-addon">
-                       <i class="fa fa-clock-o bigger-110"></i>
-                   </span>
-               </div>
 
-           </div>
-       </form>
-   </div>-->
-</div>
-</div>
 </body>
-<!--[if IE]> -->
-<script th:src="@{/bootstrap/js/jquery-2.2.4.min.js}"></script>
-<!-- <![endif]-->
 <!--[if !IE]> -->
-<script th:src="@{/bootstrap/js/jquery-2.2.4.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery-2.2.4.min.js}"></script>
 <!-- <![endif]-->
-<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/bootstrap/js/bootstrap-table.min.js}"></script>
-<script th:src="@{/bootstrap/js/bootstrap-table-treegrid.min.js}"></script>
-<script th:src="@{/bootstrap/js/jquery.treegrid.min.js}"></script>
-<!--ace-->
-<script th:src="@{/assets/js/ace-elements.min.js}"></script>
-<script th:src="@{/assets/js/ace.min.js}"></script>
-<script th:src="@{/assets/js/ace-extra.min.js}"></script>
-<script th:src="@{/js/bootstrap-timepicker.min.js}"></script>
+<!--[if IE]>
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery-1.12.4.min.js}"></script>
+<![endif]-->
+<!--bootstrap-->
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap-table.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap-table-zh-CN.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/bootstrap3-editable/js/bootstrap-editable.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap-table-editable.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/bootstrap-table-treegrid.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/js/jquery.treegrid.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/bootstrap-treeview/bootstrap-treeview.min.js}"></script>
 <script type="text/javascript" th:src="@{/bootstrap/toastr/js/toastr.min.js}"></script>
-<script th:inline="javascript" type="text/javascript">
+<!--ace-->
+<script type="text/javascript" th:src="@{/assets/js/ace-elements.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/ace.min.js}"></script>
+<script type="text/javascript" th:src="@{/assets/js/ace-extra.min.js}"></script>
+<script th:src="@{/assets/ztree/js/jquery.ztree.core.min.js}"></script>
+<script th:src="@{/assets/ztree/js/jquery.ztree.exedit.min.js}"></script>
+<script th:src="@{/assets/ztree/js/jquery.ztree.excheck.min.js}"></script>
+<script th:src="@{/assets/ztree/js/jquery.ztree.exhide.min.js}"></script>
+<script th:src="@{/assets/common.js}"></script>
+<script th:src="@{/assets/layer/layer.js}"></script>
+
+<script type="text/javascript" th:inline="javascript">
     var ctx = /*[[@{/}]]*/'';
+    /*后台查询参数封装*/
+    function queryParams(params) {
+        var param = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+            count: params.limit,    // 每页显示条数
+            first: params.offset,   // 显示条数
+            sort: params.sort,      // 排序列名
+            order: params.order,     // 排位命令（desc，asc）
+        };
+        return param;
+    }
     $(function () {
-        toastr.options.positionClass = 'toast-top-center';
-        toastr.options.timeOut = 2000;
-        toastr.options.extendedTimeOut = 60;
-        $('#timepicker1').timepicker({
-            minuteStep: 1,
-            showSeconds: true,
-            showMeridian: false, // 24H
-            disableFocus: true,
-            icons: {
-                up: 'fa fa-chevron-up',
-                down: 'fa fa-chevron-down'
-            }
-        }).on('focus', function () {
-            $('#timepicker1').timepicker('showWidget');
-        }).next().on(ace.click_event, function () {
-            $(this).prev().focus();
+        var $table = $('#dataTable');
+        $table.bootstrapTable({
+            url: ctx + 'common/ptList',
+            method: "GET",
+            height: $(window).height()-55,
+            queryParams: queryParams,
+            cache: false,  // 是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            pagination: true,                   // 是否显示分页（*）
+            sidePagination: "server",           // 分页方式：client客户端分页，server服务端分页（*）
+            pageNumber: 1,                      // 初始化加载第一页，默认第一页,并记录
+            pageSize: 15,                     // 每页的记录行数（*）
+            pageList: [15, 30, 50, 100],        // 可供选择的每页的行数（*）
+            showPaginationSwitch: false,			//显示 数据条数选择框
+            search: false,                      // 是否显示表格搜索
+            strictSearch: true,
+            minimumCountColumns: 2,             // 最少允许的列数
+            clickToSelect: true,                // 是否启用点击选中行
+            sortName: 'id',
+            toolbarAlign: 'left',
+            paginationPreText: '上一页',
+            paginationNextText: '下一页',
+            paginationLoop: false, //分页条无限循环的功能
+            singleSelect: true,
+            columns:[
+                {
+                    field: 'dictCode',
+                    width: '20%',
+                    align: 'center',
+                    title: '子集编码',
+                },
+                {
+                    field: 'dictValue',
+                    width: '10%',
+                    align: 'center',
+                    title: '子集顺序'
+                },
+                {
+                    field: 'dictLabel',
+                    width: '20%',
+                    align: 'center',
+                    title: '子集名称'
+                },
+                {
+                    field: 'dictDesc',
+                    width: '20%',
+                    align: 'center',
+                    title: '数据子集'
+                },
+                {
+                    field: 'pyCode',
+                    width: '20%',
+                    align: 'center',
+                    title: '病历编码',
+                    editable: {
+                        emptytext:'-',
+                        type: 'text',
+                        title: '病历编码'
+                    }
+                },
+                {
+                    field: 'status',
+                    width: '20%',
+                    align: 'center',
+                    title:'是否使用',
+                    editable: {
+                        emptytext:'-',
+                        type: 'select',
+                        title: '是否使用',
+                        source:[
+                            {value:"0",text:"不使用"},
+                            {value:"1",text:"使用"}
+                        ]
+                    }
+                }
+            ]
         });
-        $('#saveTime').on('click', function () {
-            var timeStr = $('#timepicker1').val();
-            var timeArr = timeStr.split(":");
-            console.log(timeStr);
-            console.log(timeArr);
-            if (timeArr[0] > 6 || timeArr[0] < 1) { //夜间1点到5点
-                toastr.error("数据抽取时间请定在夜间1点到5点之间");
-                return;
-            }
+        $table.on('editable-save.bs.table',function (event, field, row, $el) {
+            console.log(row);
+            console.log(field);
+            console.log(row+'.'+field);
+            var param = {
+                dictCode:row.dictCode,
+                dictValue:row.dictValue,
+                pyCode:row.pyCode == null ? '' : row.pyCode,
+                status:row.status
+            };
+            // console.log(param);
             $.ajax({
-                type: "POST",
+                url: ctx + "common/saveOrUpdate",
+                data: param,
+                type: "post",
+                dataType: 'json',
                 async: false,
-                url: ctx + "autoSet/edit",
-                data: {'date': timeStr},
-                dataType: "json",
-                success: function (data, status) {
-                    console.log(data);
-                    console.log(status);
-                    if (status === 'success') {
-                        toastr.info('数据抽取时间更新成功!');
+                cache: false,
+                success: function (result,status) {
+                    if(status === 'success'){
+                        layer.msg('数据提交成功!', {icon: 6, time: 2500});
                     }
                 },
                 error: function (response) {
-                    result = true;
-                    toastr.error(response.responseText);
+                    console.log(response.responseText);
+                    layer.msg(response.responseText, {icon: 5, time: 2500});
+                },
+                complete: function () {
                 }
             });
         });
-    });
 
+
+
+    })
 </script>
-
 </html>

@@ -11,6 +11,7 @@ import org.mybatis.spring.boot.autoconfigure.SpringBootVFS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -29,17 +30,29 @@ import java.util.Properties;
 @Configuration
 @MapperScan(basePackages = Constants.CM_DATACENTER_PACKAGE, sqlSessionFactoryRef = "cmDataCenterdbSqlSessionFactory")
 public class CmDataCenterdbMyBatisConfig {
+
+
+    @Value("${cmDataCenterdb.datasource.url}")
+    private String url;
+    @Value("${cmDataCenterdb.datasource.username}")
+    private String username;
+    @Value("${cmDataCenterdb.datasource.password}")
+    private String password;
+    @Value("${cmDataCenterdb.datasource.driverClassName}")
+    private String driverClass;
+    @Value("${cmDataCenterdb.datasource.dbName}")
+    private String dbName;
+
     // 精确到 data 目录，以便跟其他数据源隔离
     private static final Logger logger = LoggerFactory.getLogger(CmDataCenterdbMyBatisConfig.class);
     @Bean(name = "cmDataCenterdb")
     @Primary
     public DataSource dataSource() throws SQLException {
-        Environment env = ConfigUtils.getEnvironment();
         DruidDataSource datasource = new DruidDataSource();
-        datasource.setUrl(env.getCMDATACENTERDB_URL());
-        datasource.setUsername(env.getCmDataCenterdbUsername());
-        datasource.setPassword(env.getCmDataCenterdbPassword());
-        datasource.setDriverClassName(Constants.DRIVE_CLASS_NAME);
+        datasource.setUrl(url);
+        datasource.setUsername(username);
+        datasource.setPassword(password);
+        datasource.setDriverClassName(driverClass);
         datasource.setInitialSize(5);
         datasource.setMinIdle(5);
         datasource.setMaxActive(20);
@@ -56,13 +69,13 @@ public class CmDataCenterdbMyBatisConfig {
         prop.setProperty("druid.stat.slowSqlMillis","5000");
         datasource.setConnectProperties(prop);
         datasource.setUseGlobalDataSourceStat(true);
-        datasource.setName(env.getCmDataCenterdbName());
+        datasource.setName(dbName);
         try {
             datasource.setFilters("stat,wall,log4j");
         } catch (SQLException e) {
-            logger.error("[{}] druid configuration initialization filter", env.getCmDataCenterdbName(),e);
+            logger.error("[{}] druid configuration initialization filter", dbName,e);
         }
-        logger.info("[{}] inited.",env.getCmDataCenterdbName());
+        logger.info("[{}] inited.",dbName);
         return datasource;
     }
 
