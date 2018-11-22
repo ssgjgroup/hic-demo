@@ -79,7 +79,14 @@ public class SplitParamsConstants {
     /**
      * 门（急）诊病历 — 急诊留观病历
      */
-    public static final String[] MJZBL_JZLGB = {};
+    public static final String[] MJZBL_JZLGB = {
+            "xyzdbm",
+            "xyzdmc",
+            "zybmdm",
+            "zybmmc",
+            "zyzhdm",
+            "zyzhmc"
+    };
     /**
      * 门急诊病历
      */
@@ -209,7 +216,11 @@ public class SplitParamsConstants {
      */
     public static final String[] ZYBCJL_SWBLTLJL = {
             "swzdbm",
-            "swzdmc"
+            "swzdmc",
+            "tlrybm",
+            "cjtlmd",
+            "zyzwlbdm", 
+            "zyzwlbmc"
     };
     /**
      * 死亡记录
