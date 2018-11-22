@@ -1,16 +1,9 @@
-package com.winning.hic.job;
+package com.winning.hic.job.thread;
 
 import com.winning.hic.model.MbzDataCheck;
 import com.winning.hic.service.Facade;
-import com.winning.hic.service.HlhtRyjlRcyjlService;
-import com.winning.hic.service.HlhtRyjlRyswjlService;
-import com.winning.hic.service.impl.HlhtRyjlRcyjlServiceImpl;
-import com.winning.hic.service.impl.HlhtRyjlRyswjlServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import springfox.documentation.swagger.readers.operation.OperationNotesReader;
 
 /**
  * 入出院记录线程

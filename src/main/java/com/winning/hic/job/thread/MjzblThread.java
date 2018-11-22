@@ -1,4 +1,4 @@
-package com.winning.hic.job;
+package com.winning.hic.job.thread;
 
 import com.winning.hic.model.MbzDataCheck;
 import com.winning.hic.service.*;
