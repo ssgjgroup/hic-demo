@@ -1,9 +1,7 @@
-package com.winning.hic.job;
+package com.winning.hic.job.thread;
 
-import com.winning.hic.aop.OperateLogAspect;
 import com.winning.hic.model.MbzDataCheck;
 import com.winning.hic.service.*;
-import com.winning.hic.service.impl.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

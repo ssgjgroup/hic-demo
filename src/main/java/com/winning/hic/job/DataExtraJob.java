@@ -1,13 +1,11 @@
 package com.winning.hic.job;
 
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
 import com.winning.hic.base.SplitParamsConstants;
+import com.winning.hic.base.utils.DateUtil;
+import com.winning.hic.job.thread.*;
+import com.winning.hic.model.MbzDataCheck;
 import com.winning.hic.model.MbzDictInfo;
+import com.winning.hic.service.Facade;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +13,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.stereotype.Component;
 
-import com.winning.hic.base.utils.DateUtil;
-import com.winning.hic.model.MbzDataCheck;
-import com.winning.hic.service.Facade;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author chensj
@@ -63,7 +60,6 @@ public class DataExtraJob {
         //抽取线程
 
         new MjzblThread(entity,facade).start();
-        logger.info("正在抽取>>>>>>>>>>>>>>>>>>>>>>>>>>>MjzblThread");
         new OtherThread(entity,facade).start();
         new RyjlThread(entity,facade).start();
         new ZqgzxxThread(entity,facade).start();
