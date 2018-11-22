@@ -3,22 +3,16 @@ package com.winning.hic.service.impl;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import com.winning.hic.base.SplitParamsConstants;
+import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.base.utils.Base64Utils;
-import com.winning.hic.base.utils.HicHelper;
-import com.winning.hic.base.utils.PercentUtil;
-import com.winning.hic.base.utils.ReflectUtil;
-import com.winning.hic.base.utils.XmlUtil;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtZybcjlZkjlDao;
@@ -160,6 +154,7 @@ public class HlhtZybcjlZkjlServiceImpl implements HlhtZybcjlZkjlService {
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
+                        ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_ZKJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                         this.createHlhtZybcjlZkjl(obj);
                         this.splitTableDao.selectAnmrZybcjlZkjlSplitByProc(oneZkjl);
                         //插入日志
@@ -195,6 +190,7 @@ public class HlhtZybcjlZkjlServiceImpl implements HlhtZybcjlZkjlService {
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
+                            ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_ZKJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                             this.modifyHlhtZybcjlZkjl(zkjl);
                             this.splitTableDao.selectAnmrZybcjlZkjlSplitByProc(oneZkjl);
                         }

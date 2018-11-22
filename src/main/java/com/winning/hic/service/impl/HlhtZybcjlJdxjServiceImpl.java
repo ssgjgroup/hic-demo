@@ -1,11 +1,10 @@
 package com.winning.hic.service.impl;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import com.winning.hic.base.SplitParamsConstants;
+import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
@@ -14,11 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.base.utils.Base64Utils;
-import com.winning.hic.base.utils.HicHelper;
-import com.winning.hic.base.utils.PercentUtil;
-import com.winning.hic.base.utils.ReflectUtil;
-import com.winning.hic.base.utils.XmlUtil;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.HlhtZybcjlJdxjDao;
 import com.winning.hic.model.HlhtZybcjlJdxj;
@@ -135,7 +129,7 @@ public class HlhtZybcjlJdxjServiceImpl implements HlhtZybcjlJdxjService {
                     Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZybcjlJdxj.class);
                     obj = (HlhtZybcjlJdxj) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                     logger.info("Model:{}", obj);
-
+                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_JDXJ),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.createHlhtZybcjlJdxj(obj);
                     this.splitTableDao.selectAnmrZybcjlJdxjSplitByProc(obj);
                     //插入日志

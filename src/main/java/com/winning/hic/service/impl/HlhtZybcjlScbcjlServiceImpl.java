@@ -1,12 +1,11 @@
 package com.winning.hic.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.winning.hic.base.SplitParamsConstants;
+import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
@@ -16,12 +15,6 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.base.utils.Base64Utils;
-import com.winning.hic.base.utils.HicHelper;
-import com.winning.hic.base.utils.PercentUtil;
-import com.winning.hic.base.utils.ReflectUtil;
-import com.winning.hic.base.utils.StringUtil;
-import com.winning.hic.base.utils.XmlUtil;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.HlhtZybcjlScbcjlDao;
 import com.winning.hic.model.HlhtZybcjlScbcjl;
@@ -262,6 +255,7 @@ public class HlhtZybcjlScbcjlServiceImpl implements HlhtZybcjlScbcjlService {
 
 
                     }
+                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_SCBCJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.createHlhtZybcjlScbcjl(obj);
                     this.splitTableDao.selectAnmrZybcjlScbcjlSplitByProc(oneScbcjl);
                     //插入日志

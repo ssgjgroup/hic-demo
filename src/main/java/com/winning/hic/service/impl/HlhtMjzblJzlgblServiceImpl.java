@@ -1,10 +1,9 @@
 package com.winning.hic.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import com.winning.hic.base.SplitParamsConstants;
+import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
 import org.dom4j.Document;
 import org.slf4j.Logger;
@@ -13,12 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.winning.hic.base.Constants;
-import com.winning.hic.base.utils.Base64Utils;
-import com.winning.hic.base.utils.HicHelper;
-import com.winning.hic.base.utils.PercentUtil;
-import com.winning.hic.base.utils.ReflectUtil;
-import com.winning.hic.base.utils.StringUtil;
-import com.winning.hic.base.utils.XmlUtil;
 import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzDictInfoDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
@@ -232,6 +225,7 @@ public class HlhtMjzblJzlgblServiceImpl implements HlhtMjzblJzlgblService {
                         obj.setHzqxdm(code.toString().substring(0, code.length() - 1));
                     }
                 }
+                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.MJZBL_JZLGB),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                 this.createHlhtMjzblJzlgbl(obj);
                 this.splitTableDao.selectAnmrMjzblJzlgblSplitByProc(hlht);
                 //插入日志
