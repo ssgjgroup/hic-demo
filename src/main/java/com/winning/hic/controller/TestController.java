@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.winning.hic.base.Constants;
@@ -190,11 +191,27 @@ public class TestController extends BaseController {
     }
 
     @PostMapping(value = "/blnr/parse")
+    @ResponseBody
     public Map<String, Object> parseBlnr(String blnr) throws Exception {
         blnr = blnr.substring(3);
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("status", Constants.SUCCESS);
         result.put("data", XmlUtil.format(Base64Utils.unzipEmrXml(blnr)));
+        return result;
+    }
+
+    /**
+     * 测试错误日志记录
+     * @param type
+     * @return
+     */
+    @GetMapping(value = "/test/error")
+    public Map<String, Object> testError(int type){
+        if(type == 1){
+            throw  new RuntimeException("这是一个错误信息");
+        }
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("status", Constants.SUCCESS);
         return result;
     }
 }
