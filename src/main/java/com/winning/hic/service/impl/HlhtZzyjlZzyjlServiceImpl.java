@@ -130,7 +130,7 @@ public class HlhtZzyjlZzyjlServiceImpl implements HlhtZzyjlZzyjlService {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
+                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZZYJL_ZZYJL),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.createHlhtZzyjlZzyjl(obj);
                     this.splitTableDao.selectAnmrZzyjlZzyjlSplitByProc(hlht);
                     //插入日志

@@ -10,73 +10,62 @@ import java.util.List;
  */
 public class SplitStrings {
 	public static void main(String[] args) {
-		String bmz = "DC_MJZBL_JZLGBL_SSCZ";
-		String bzds = " xh           |        numeric(12)     _    identity(1 1)/* 序号  */,\n" +
-				"    yljgdm       |        varchar(20)     _    not null/* 医疗机构代码  */,\n" +
-				"    yjlxh        |        varchar(64)     _    not null/* 源记录序号 */,\n" +
-				"    zyjlxh       |        varchar(64)     _    null/* 主表原纪录序号 */,\n" +
-				"    ssjczbm      |        varchar(64)     _    null/* 手术及操作编码 */,\n" +
-				"    ssjczmc      |        varchar(128)    _    null/* 手术及操作名称 */,\n" +
-				"    ssmbbwbm     |        varchar(100)    _    null/* 手术及操作目标部位编码 */,\n" +
-				"    ssmbbw       |        varchar(500)    _    null/* 手术及操作目标部位名称 */,\n" +
-				"    jrwdm        |        varchar(100)    _    null/* 介入物代码 */,\n" +
-				"    jrwmc        |        varchar(500)    _    null/* 介入物名称 */,\n" +
-				"    ssjczff      |        nvarchar(2000)  _    null/* 手术及操作方法 */,\n" +
-				"    ssjczcs      |        varchar(3)      _    null/* 手术及操作次数 */,";
+		String zb = "ANMR_MJZBL_JZLGBL";
+		String bmz = "DC_MJZBL_JZLGBL_CBZD";
+		String bzds = "  xh          |         numeric(12)     _     identity(1 1)/* 序号  */,\n" +
+				"    yljgdm      |         varchar(20)     _     not null/* 医疗机构代码  */,\n" +
+				"    yjlxh       |         varchar(64)     _     not null/* 源记录序号 */,\n" +
+				"    zyjlxh      |         varchar(64)     _     null/* 主表原纪录序号 */,\n" +
+				"    xyzdbm      |         varchar(64)     _     not null/* 初步诊断-西医诊断编码 */,\n" +
+				"    xyzdmc      |         varchar(128)    _     not null/* 初步诊断-西医诊断名称 */,\n" +
+				"    zybmdm      |         varchar(64)     _     not null/* 初步诊断-中医病名代码 */,\n" +
+				"    zybmmc      |         varchar(128)    _     not null/* 初步诊断-中医病名名称 */,\n" +
+				"    zyzhdm      |         varchar(64)     _     not null/* 初步诊断-中医证候代码 */,\n" +
+				"    zyzhmc      |         varchar(128)    _     not null/* 初步诊断-中医证候名称 */,";
 		String [] bzd = bzds.trim().split(",");
 		String create_tempTable = "create table #"+ bmz +"( \r\n";
 		for (int i = 0; i < bzd.length; i++) {
 			create_tempTable = create_tempTable + bzd[i].replace("_","").replace("|", "").toString() + ",";
 		}
 		create_tempTable = create_tempTable + "\r\n" +
-				"    isNew               bit                  NULL,\r\n" +
-				"    createtime          datetime             NULL,\r\n" +
-				"    gxrq                datetime             NOT NULL,\r\n" +
-				"    sys_id              varchar(50)          NOT NULL,\r\n" +
-				"    lsnid               bigint               NULL,\r\n" +
+				"    isNew               bit                  NULL,\r\n" + 
+				"    createtime          datetime             NULL,\r\n" + 
+				"    gxrq                datetime             NOT NULL,\r\n" + 
+				"    sys_id              varchar(50)          NOT NULL,\r\n" + 
+				"    lsnid               bigint               NULL,\r\n" + 
 				"    isdelete            varchar(8)           NULL";
 		create_tempTable = create_tempTable + "\r\n" + ")" + "\r\n";
 		System.out.println(create_tempTable);
-
-		String insert_tempTalbe = "insert into #"+ bmz + "\r\n" + "select @yljgdm,ltrim(rtrim(@yjlxh))+ltrim(rtrim(Str(_0.id))), @yjlxh,";
+		
+		String insert_tempTalbe = "insert into #"+ bmz + "\r\n" + "select \r\n   @yljgdm, a.yjlxh+ltrim(rtrim(Str(_0.id))), a.yjlxh,";
 		String [] bzd1 = bzds.trim().replace(" ","").split(",");
 		StringBuffer sb1 = new StringBuffer();
 		List temp2 = new ArrayList();
 		for(int i = 2; i < bzd1.length; i++) {
 			String [] st = bzd1[i].toString().split("\\|");
-			String [] strs = new String [] {"xh","yljgdm","yjlxh","zyjlxh"}; //需要的时候增加
+			String [] strs = new String [] {"xh","yljgdm","yjlxh","zyjlxh","jzlsh"};
 			List<String> list1 = Arrays.asList(strs);
-//			System.out.println("22222"+st[0].split("_")[0].toString());
 			if(!list1.contains(st[0].split("_")[0].toString().trim())) {
 				temp2.add(st[0].split("_")[0].toString());
 			}
-//			String awer = st[1].split("_")[0].toString();
-//			String awer1 = st[0].split("_")[0].toString();
-//			sb1.append("CONVERT(").append(awer).append(", \t").append(awer1).append("),\n");
 		}
 		for (int i = 0; i < temp2.size(); i++) {
 			sb1.append("_"+i+".value,");
 		}
-		insert_tempTalbe = insert_tempTalbe + sb1.toString() + "1,getdate(),getdate(),'EMR',0,'0' from " + "\r\n";
+		insert_tempTalbe = insert_tempTalbe + sb1.toString() + "1,getdate(),getdate(),'EMR',0,'0' \r\nfrom " + "\r\n" + "   #"+ zb +" as a\r\n";
 		StringBuffer sb2 = new StringBuffer();
 		for (int i = 0; i < temp2.size(); i++) {
-			if(i==temp2.size()-1) {
-				sb2.append("    (select id, value from [dbo].[f_splitString](@").append(temp2.get(i).toString().trim()).append(",@regex))").append(" _"+i+"\r\n");
-			}else {
-				sb2.append("    (select id, value from [dbo].[f_splitString](@").append(temp2.get(i).toString().trim()).append(",@regex))").append(" _"+i+",\r\n");
-			}
+			sb2.append("CROSS APPLY dbo.fn_com_split_ext(a.").append(temp2.get(i).toString().trim()).append(", ").append("@regex)").append(" _"+i+"\r\n");
 		}
 		System.out.printf(insert_tempTalbe.toString() + sb2.toString());
-		String aere = "    where 1=1 ";
-//		for (int i = 0; i < temp2.size(); i++) {
-			for(int j = 1; j < temp2.size(); j++) {
-				if(j == temp2.size() - 1) {
-					aere = aere + " and _"+"0.id = "+ "_"+j+".id";
-				}else {
-					aere = aere + " _"+"0.id = "+ "_"+j+".id and ";
-				}
+		String aere = "    where 1 = 1";
+		for(int j = 1; j < temp2.size(); j++) {
+			if(j == temp2.size() - 1) {
+				aere = aere + " and _"+"0.id = "+ "_"+j+".id"; 
+			}else {
+				aere = aere + " and _"+"0.id = "+ "_"+j+".id";
 			}
-//		}
+		}
 		System.out.println(aere.trim() + "\r\n");
 		String mergeInto = "Merge Into "+bmz+" _target\r\n" +
 				"using #"+bmz+" _source\r\n" +
@@ -109,12 +98,6 @@ public class SplitStrings {
 		}
 		mergeInto2 = mergeInto2 + "_source.isNew,_source.createtime,_source.gxrq,_source.sys_id,_source.lsnid,_source.isdelete);\r\n" + "drop table #" + bmz;
 		System.out.println(mergeInto2.toString());
-		mergeInto = mergeInto;
-
-		insert_tempTalbe = "select ";
-		String aa = "aa.bb.cc.dd";
-//		String [] cd = aa.split('.');
-//		System.out.println(cd.length);
-
+		
 	}
 }
