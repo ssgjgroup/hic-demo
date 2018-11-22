@@ -237,4 +237,70 @@ public class SplitParamsConstants {
     public static final String[] ZYBCJL_YNBLTLJL = {
 
     };
+    /**
+     * 转（诊）院记录
+     */
+    public static final String[] ZZYJL_ZZYJL = {
+        "jbzdbm","jbzd"
+    };
+    /**
+     *  住院病程记录－转科记录
+     */
+    public static final String[] ZYBCJL_ZKJL = {
+            "rzxyzdbm",
+            "rzxyzd",
+            "rzzybmdm",
+            "rzzybm",
+            "rzzyzhdm",
+            "rzzyzh",
+            "mqzdxyzdbm",
+            "mqzdxyzd",
+            "mqzdzybmdm",
+            "mqzdzybm",
+            "mqzdzyzhdm",
+            "mqzdzyzh"
+    };
+    /**
+     * 阶段小结
+     */
+    public static final String[] ZYBCJL_JDXJ = {
+            "mqzdxyzdbm",
+            "mqzdxyzd",
+            "mqzdzybmdm",
+            "mqzdzybm",
+            "mqzdzyzhdm",
+            "mqzdzyzh"
+    };
+    /**
+     * 交接班记录
+     */
+    public static final String[] ZYBCJL_JJBJL = {
+            "rzxyzdbm",
+            "rzxyzd",
+            "rzzybmdm",
+            "rzzybm",
+            "rzzyzhdm",
+            "rzzyzh",
+            "mqzdxyzdbm",
+            "mqzdxyzd",
+            "mqzdzybmdm",
+            "mqzdzybm",
+            "mqzdzyzhdm",
+            "mqzdzyzh"
+    };
+    public static final String[] ZYBCJL_SCBCJL = {
+            "czxyzdbm",
+            "czxyzd",
+            "czzybmdm",
+            "czzybm",
+            "czzyzhdm",
+            "czzyzh",
+            "jzxyzdbm",
+            "jzxyzdmc",
+            "jzzybmdm",
+            "jzzybmmc",
+            "jzzyzhbm",
+            "jzzyzhmc"
+    };
+
 }
