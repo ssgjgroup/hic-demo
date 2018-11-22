@@ -107,7 +107,12 @@ public class SplitParamsConstants {
     /**
      * 一般手术记录
      */
-    public static final String[] ZLCZJL_YBSSJL = {};
+    public static final String[] ZLCZJL_YBSSJL = {
+            "sqzdbm",
+            "sqzdmc",
+            "shzdbm",
+            "shzdmc"
+    };
     /**
      * 治疗记录
      */
