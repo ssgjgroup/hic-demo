@@ -84,21 +84,22 @@ public class PageController extends BaseController {
         model.addAllAttributes(resultMap);
         return "config/index";
     }
-    @ApiOperation(value = "页面跳转",notes = "跳转到数据校验")
+    @ApiOperation(value = "页面跳转",notes = "跳转到数据列表")
     @GetMapping(value = "/dataCheck/index")
     public String goToDataCheckPage(Model model){
         MbzDictInfo temp2 = new MbzDictInfo();
         temp2.setDictCode("platformTableName");
+        temp2.setStatus(1);
         List<MbzDictInfo> dictList = super.getFacade().getMbzDictInfoService().getMbzDictInfoList(temp2);
         resultMap.put("dataSet", dictList);
         model.addAllAttributes(resultMap);
         return "dataCheck/index";
     }
-    @ApiOperation(value = "页面跳转",notes = "跳转到日志查看")
-    @GetMapping(value = "/logger/index")
-    public String goToLoggerPage(){
-        return "logger/index";
-    }
+//    @ApiOperation(value = "页面跳转",notes = "跳转到日志查看")
+//    @GetMapping(value = "/logger/index")
+//    public String goToLoggerPage(){
+//        return "logger/index";
+//    }
 
     @ApiOperation(value = "页面跳转",notes = "跳转病历解析页面")
     @GetMapping(value = "/blnr")
@@ -106,11 +107,11 @@ public class PageController extends BaseController {
         return "init/demo";
     }
 
-    @ApiOperation(value = "页面跳转",notes = "子集配置页面")
-    @GetMapping(value = "/config")
-    public String goToConfigPage(){
-        return "init/config";
-    }
+//    @ApiOperation(value = "页面跳转",notes = "子集配置页面")
+//    @GetMapping(value = "/config")
+//    public String goToConfigPage(){
+//        return "init/config";
+//    }
 
 
 }

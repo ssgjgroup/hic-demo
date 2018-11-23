@@ -38,7 +38,11 @@ public class DataLoadController extends BaseController {
         }else{
             resultMap.put("batchDate", automateSet.getBatchDate());
         }
-        model.addAllAttributes(resultMap);
+        MbzDictInfo temp2 = new MbzDictInfo();
+        temp2.setDictCode("platformTableName");
+        temp2.setStatus(1);
+        List<MbzDictInfo> dictList = super.getFacade().getMbzDictInfoService().getMbzDictInfoList(temp2);
+        resultMap.put("dataSet", dictList);
         resultMap.put("orgCode", orgCode);
         resultMap.put("orgName", orgName);
         model.addAllAttributes(resultMap);
