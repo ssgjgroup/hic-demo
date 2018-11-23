@@ -770,89 +770,24 @@
             columns: [
                 {
                     field: 'recordName',
-                    title: '接口名称',
-                    align: 'left',
-                    width: '210px',
+                    title: '数据集名称',
+                    align: 'center',
+                    width: '20%',
                     formatter:function(value,row,index){
                         return '<span>'+value+'</span>';
                     }
                 },
                 {
-                    field: 'dataType',
-                    title: '类型',
+                    field: 'pyCode',
+                    title: '数据集表名',
                     align: 'center',
-                    width: '100px',
-                    formatter:function(value,row,index){
-                        if(row.pid === 0){
-                            return '';
-                        }
-                    }
+                    width: '20%'
                 },
                 {
-                    field: 'dtjddm',
+                    field: 'map.bldm',
                     align: 'center',
-                    title: '文件结构ID',
-                    width: '250px',
-                    formatter:function(value,row,index){
-                        if(row.pid === 0){
-                            return '';
-                        }
-                    }
-                },
-                {
-                    field: 'qrmbdm',
-                    align: 'center',
-                    title: '基础模板ID',
-                    width: '250px',
-                    formatter:function(value,row,index){
-                        if(row.pid === 0){
-                            return '';
-                        }
-                    }
-                },
-                {
-                    field: 'qrdxdm',
-                    align: 'center',
-                    title: '元数据ID',
-                    width: '250px',
-                    formatter:function(value,row,index){
-                        if(row.pid === 0){
-                            return '';
-                        }
-                    }
-                },
-                {
-                    field: 'yzjddm',
-                    align: 'center',
-                    title: '原子节点ID',
-                    width: '250px',
-                    formatter:function(value,row,index){
-                        if(row.pid === 0){
-                            return '';
-                        }
-                    }
-                },
-                {
-                    field: 'bt',
-                    align: 'center',
-                    title: '必选',
-                    width: '100px',
-                    formatter:function(value,row,index){
-                        if(row.pid === 0){
-                            return '';
-                        }
-                    }
-                },
-                {
-                    field: 'dictCode',
-                    align: 'center',
-                    title: '字典字段',
-                    width: '100px',
-                    formatter:function(value,row,index){
-                        if(row.pid === 0){
-                            return '';
-                        }
-                    }
+                    title: '病历编码',
+                    width: '20%'
                 }
             ],
             onExpandRow:function(index,row,$detail){

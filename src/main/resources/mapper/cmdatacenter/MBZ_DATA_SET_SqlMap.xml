@@ -21,7 +21,7 @@
     </resultMap>
 
     <resultMap id="mbzDataSetResult" type="com.winning.hic.model.MbzDataSet" extends="mbzDataSetResultForList">
-
+        <result column="bldm" property="map.bldm" jdbcType="VARCHAR" />
     </resultMap>
 
     <sql id="sql-mbzDataSet">
@@ -145,8 +145,10 @@
     <select id="selectMbzDataSetPageList" resultMap="mbzDataSetResult" parameterType="com.winning.hic.model.MbzDataSet">
         SELECT * FROM (
         SELECT t.* ,
+        t1.PY_CODE as bldm,
         ROW_NUMBER() OVER ( ORDER BY t.ID,t.RECORD_NAME ASC ) AS _RN
         FROM MBZ_DATA_SET t
+        left join MBZ_DICT_INFO t1 on t.SOURCE_TYPE = t1.DICT_VALUE and t1.DICT_CODE='platformTableName'
         <where>
             <include refid="sql-mbzDataSet" />
         </where>

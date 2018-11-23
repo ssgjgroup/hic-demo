@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.base.utils.XmlFormatter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -190,15 +191,7 @@ public class TestController extends BaseController {
         return result;
     }
 
-    @PostMapping(value = "/blnr/parse")
-    @ResponseBody
-    public Map<String, Object> parseBlnr(String blnr) throws Exception {
-        blnr = blnr.substring(3);
-        Map<String, Object> result = new HashMap<String, Object>();
-        result.put("status", Constants.SUCCESS);
-        result.put("data", XmlUtil.format(Base64Utils.unzipEmrXml(blnr)));
-        return result;
-    }
+
 
     /**
      * 测试错误日志记录
