@@ -24,4 +24,6 @@ logs/
 /dist/
 /nbdist/
 /.nb-gradle/
-/logs/
+logs/
+run/环境部署/03-程序/
+run/环境部署/04-数据解析/
