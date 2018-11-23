@@ -639,20 +639,22 @@
      * @param value
      */
     function convertUTCToYYYYMMDDHHMMSS(value){
-        var date = new Date(value);
         var time = '';
-        var year = date.getFullYear();
-        time += year+"-";
-        var mouth = date.getMonth()+1;
-        time += addSymbolForDate(mouth,"-");
-        var day = date.getDate();
-        time += addSymbolForDate(day," ");
-        var hour = date.getHours();
-        time += addSymbolForDate(hour,":");
-        var minutes = date.getMinutes();
-        time += addSymbolForDate(minutes,":");
-        var seconds = date.getSeconds();
-        time += addSymbolForDate(seconds,"");
+        if(value){
+            var date = new Date(value);
+            var year = date.getFullYear();
+            time += year+"-";
+            var mouth = date.getMonth()+1;
+            time += addSymbolForDate(mouth,"-");
+            var day = date.getDate();
+            time += addSymbolForDate(day," ");
+            var hour = date.getHours();
+            time += addSymbolForDate(hour,":");
+            var minutes = date.getMinutes();
+            time += addSymbolForDate(minutes,":");
+            var seconds = date.getSeconds();
+            time += addSymbolForDate(seconds,"");
+        }
         return time;
     }
     /**

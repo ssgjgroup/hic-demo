@@ -1,54 +1,54 @@
  /*========================================================================*/
- /* DC_BLGY_HZJBXX     ²¡Àú¸ÅÒª£­»¼Õß»ù±¾ĞÅÏ¢                                                                                                  */
+ /* DC_BLGY_HZJBXX     ç—…å†æ¦‚è¦ï¼æ‚£è€…åŸºæœ¬ä¿¡æ¯                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_HZJBXX') )
  create table  DC_BLGY_HZJBXX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    mjzh                 varchar(64)          not null/* ÃÅ¼±ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    jkdabh               varchar(17)          not null/* ³ÇÏç¾ÓÃñ½¡¿µµµ°¸±àºÅ */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤¼şºÅÂë */,
-    sfzjlb               varchar(2)           not null/* »¼ÕßÉí·İÖ¤¼şÀà±ğ´úÂë */,
-    sfzjlbmc             varchar(64)          not null/* »¼ÕßÉí·İÖ¤¼şÀà±ğÃû³Æ */,
-    jkkh                 varchar(18)          not null/* ½¡¿µ¿¨ºÅ */,
-    yblbdm               varchar(2)           not null/* Ò½ÁÆ±£ÏÕÀà±ğ´úÂë */,
-    yblbmc               varchar(50)          not null/* Ò½ÁÆ±£ÏÕÀà±ğÃû³Æ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    csrq                 date                 not null/* ³öÉúÈÕÆÚ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    hyzkdm               varchar(2)           not null/* »éÒö×´¿ö´úÂë */,
-    hyzkmc               varchar(32)          not null/* »éÒö×´¿öÃû³Æ */,
-    mz                   varchar(2)           not null/* Ãñ×å´úÂë */,
-    mzmc                 varchar(32)          not null/* Ãñ×å */,
-    zylb                 varchar(2)           null/* Ö°ÒµÀà±ğ´úÂë */,
-    zymc                 varchar(32)          null/* Ö°ÒµÀà±ğÃû³Æ */,
-    gzdw                 varchar(70)          not null/* ¹¤×÷µ¥Î»Ãû³Æ */,
-    gzdwhm               varchar(20)          not null/* ¹¤×÷µ¥Î»µç»°ºÅÂë */,
-    dzlbdm               varchar(2)           not null/* µØÖ·Àà±ğ´úÂë */,
-    dzlbmc               varchar(32)          not null/* µØÖ·Àà±ğÃû³Æ */,
-    dzsf                 varchar(70)          not null/* µØÖ·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    dzsq                 varchar(70)          not null/* µØÖ·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    dzx                  varchar(70)          not null/* µØÖ·-ÏØ£¨Çø£© */,
-    dzxz                 varchar(70)          not null/* µØÖ·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    dzc                  varchar(70)          not null/* µØÖ·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    dzmphm               varchar(70)          not null/* µØÖ·-ÃÅÅÆºÅÂë */,
-    yzbm                 varchar(6)           null/* ÓÊÕş±àÂë */,
-    hzdhhm               varchar(20)          null/* »¼Õßµç»°ºÅÂë */,
-    lxrxm                varchar(50)          null/* ÁªÏµÈËĞÕÃû */,
-    lxrhm                varchar(20)          null/* ÁªÏµÈËµç»°ºÅÂë */,
-    jdrqsj               datetime             not null/* ½¨µµÈÕÆÚÊ±¼ä */,
-    jdzzjgdm             varchar(10)          not null/* ½¨µµÒ½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    jdzzjgmc             varchar(70)          not null/* ½¨µµÒ½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    jdzbm                varchar(20)          not null/* ½¨µµÕß¹¤ºÅ */,
-    jdzxm                varchar(32)          not null/* ½¨µµÕßĞÕÃû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    mjzh                 varchar(64)          not null/* é—¨æ€¥è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    jkdabh               varchar(17)          not null/* åŸä¹¡å±…æ°‘å¥åº·æ¡£æ¡ˆç¼–å· */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯ä»¶å·ç  */,
+    sfzjlb               varchar(2)           not null/* æ‚£è€…èº«ä»½è¯ä»¶ç±»åˆ«ä»£ç  */,
+    sfzjlbmc             varchar(64)          not null/* æ‚£è€…èº«ä»½è¯ä»¶ç±»åˆ«åç§° */,
+    jkkh                 varchar(18)          not null/* å¥åº·å¡å· */,
+    yblbdm               varchar(2)           not null/* åŒ»ç–—ä¿é™©ç±»åˆ«ä»£ç  */,
+    yblbmc               varchar(50)          not null/* åŒ»ç–—ä¿é™©ç±»åˆ«åç§° */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    csrq                 date                 not null/* å‡ºç”Ÿæ—¥æœŸ */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    hyzkdm               varchar(2)           not null/* å©šå§»çŠ¶å†µä»£ç  */,
+    hyzkmc               varchar(32)          not null/* å©šå§»çŠ¶å†µåç§° */,
+    mz                   varchar(2)           not null/* æ°‘æ—ä»£ç  */,
+    mzmc                 varchar(32)          not null/* æ°‘æ— */,
+    zylb                 varchar(2)           null/* èŒä¸šç±»åˆ«ä»£ç  */,
+    zymc                 varchar(32)          null/* èŒä¸šç±»åˆ«åç§° */,
+    gzdw                 varchar(70)          not null/* å·¥ä½œå•ä½åç§° */,
+    gzdwhm               varchar(20)          not null/* å·¥ä½œå•ä½ç”µè¯å·ç  */,
+    dzlbdm               varchar(2)           not null/* åœ°å€ç±»åˆ«ä»£ç  */,
+    dzlbmc               varchar(32)          not null/* åœ°å€ç±»åˆ«åç§° */,
+    dzsf                 varchar(70)          not null/* åœ°å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    dzsq                 varchar(70)          not null/* åœ°å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    dzx                  varchar(70)          not null/* åœ°å€-å¿ï¼ˆåŒºï¼‰ */,
+    dzxz                 varchar(70)          not null/* åœ°å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    dzc                  varchar(70)          not null/* åœ°å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    dzmphm               varchar(70)          not null/* åœ°å€-é—¨ç‰Œå·ç  */,
+    yzbm                 varchar(6)           null/* é‚®æ”¿ç¼–ç  */,
+    hzdhhm               varchar(20)          null/* æ‚£è€…ç”µè¯å·ç  */,
+    lxrxm                varchar(50)          null/* è”ç³»äººå§“å */,
+    lxrhm                varchar(20)          null/* è”ç³»äººç”µè¯å·ç  */,
+    jdrqsj               datetime             not null/* å»ºæ¡£æ—¥æœŸæ—¶é—´ */,
+    jdzzjgdm             varchar(10)          not null/* å»ºæ¡£åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    jdzzjgmc             varchar(70)          not null/* å»ºæ¡£åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    jdzbm                varchar(20)          not null/* å»ºæ¡£è€…å·¥å· */,
+    jdzxm                varchar(32)          not null/* å»ºæ¡£è€…å§“å */,
    
    
     
@@ -75,37 +75,37 @@ end
 
 
 execute sp_addextendedproperty 'MS_Description',  
-   '²¡Àú¸ÅÒª£­»¼Õß»ù±¾ĞÅÏ¢ ', 
+   'ç—…å†æ¦‚è¦ï¼æ‚£è€…åŸºæœ¬ä¿¡æ¯ ', 
    'user', 'dbo', 'table', 'DC_BLGY_HZJBXX'
 go
 
 /*========================================================================*/
- /* DC_BLGY_JBJKXX     ²¡Àú¸ÅÒª ¡ª »ù±¾½¡¿µĞÅÏ¢                                                                                                  */
+ /* DC_BLGY_JBJKXX     ç—…å†æ¦‚è¦ â€” åŸºæœ¬å¥åº·ä¿¡æ¯                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_JBJKXX') )
  create table  DC_BLGY_JBJKXX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    mjzh                 varchar(64)          not null/* ÃÅ¼±ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤¼şºÅÂë */,
-    jkkh                 varchar(18)          not null/* ¾ÓÃñ½¡¿µ¿¨ºÅ */,
-    aboxxdm              varchar(4)           not null/* ABOÑªĞÍ´úÂë */,
-    aboxxmc              varchar(18)          not null/* ABOÑªĞÍÃû³Æ */,
-    rhxxdm               varchar(4)           not null/* RhÑªĞÍ´úÂë */,
-    rhxxmc               varchar(18)          not null/* RhÑªĞÍÃû³Æ */,
-    sxs                  nvarchar(1000)       not null/* ÊäÑªÊ· */,
-    grs                  nvarchar(1000)       not null/* ¸öÈËÊ· */,
-    yjs                  nvarchar(1000)       not null/* ÔÂ¾­Ê· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    mjzh                 varchar(64)          not null/* é—¨æ€¥è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯ä»¶å·ç  */,
+    jkkh                 varchar(18)          not null/* å±…æ°‘å¥åº·å¡å· */,
+    aboxxdm              varchar(4)           not null/* ABOè¡€å‹ä»£ç  */,
+    aboxxmc              varchar(18)          not null/* ABOè¡€å‹åç§° */,
+    rhxxdm               varchar(4)           not null/* Rhè¡€å‹ä»£ç  */,
+    rhxxmc               varchar(18)          not null/* Rhè¡€å‹åç§° */,
+    sxs                  nvarchar(1000)       not null/* è¾“è¡€å² */,
+    grs                  nvarchar(1000)       not null/* ä¸ªäººå² */,
+    yjs                  nvarchar(1000)       not null/* æœˆç»å² */,
    
    
     
@@ -123,17 +123,17 @@ where id = object_id('DC_BLGY_JBJKXX') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_JBJKXX_CRBS     ²¡Àú¸ÅÒª ¡ª »ù±¾½¡¿µĞÅÏ¢_´«È¾²¡Ê·                                                                                                  */
+ /* DC_BLGY_JBJKXX_CRBS     ç—…å†æ¦‚è¦ â€” åŸºæœ¬å¥åº·ä¿¡æ¯_ä¼ æŸ“ç—…å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_JBJKXX_CRBS') )
  create table  DC_BLGY_JBJKXX_CRBS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    crbs                  nvarchar(1000)       not null/* ´«È¾²¡Ê· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    crbs                  nvarchar(1000)       not null/* ä¼ æŸ“ç—…å² */,
    
    
     
@@ -151,17 +151,17 @@ where id = object_id('DC_BLGY_JBJKXX_CRBS') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_JBJKXX_GMS     ²¡Àú¸ÅÒª ¡ª »ù±¾½¡¿µĞÅÏ¢_¹ıÃôÊ·                                                                                                  */
+ /* DC_BLGY_JBJKXX_GMS     ç—…å†æ¦‚è¦ â€” åŸºæœ¬å¥åº·ä¿¡æ¯_è¿‡æ•å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_JBJKXX_GMS') )
  create table  DC_BLGY_JBJKXX_GMS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    gms                  nvarchar(1000)       not null/* ¹ıÃôÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    gms                  nvarchar(1000)       not null/* è¿‡æ•å² */,
    
    
     
@@ -179,17 +179,17 @@ where id = object_id('DC_BLGY_JBJKXX_GMS') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_JBJKXX_JBS     ²¡Àú¸ÅÒª ¡ª »ù±¾½¡¿µĞÅÏ¢_¼²²¡Ê·                                                                                                  */
+ /* DC_BLGY_JBJKXX_JBS     ç—…å†æ¦‚è¦ â€” åŸºæœ¬å¥åº·ä¿¡æ¯_ç–¾ç—…å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_JBJKXX_JBS') )
  create table  DC_BLGY_JBJKXX_JBS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jbs                  nvarchar(1000)       not null/* ¼²²¡Ê·£¨º¬ÍâÉË£© */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jbs                  nvarchar(1000)       not null/* ç–¾ç—…å²ï¼ˆå«å¤–ä¼¤ï¼‰ */,
    
    
     
@@ -207,17 +207,17 @@ where id = object_id('DC_BLGY_JBJKXX_JBS') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_JBJKXX_JZ_JZS     ²¡Àú¸ÅÒª ¡ª »ù±¾½¡¿µĞÅÏ¢_¼Ò×åÊ·                                                                                                  */
+ /* DC_BLGY_JBJKXX_JZ_JZS     ç—…å†æ¦‚è¦ â€” åŸºæœ¬å¥åº·ä¿¡æ¯_å®¶æ—å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_JBJKXX_JZ_JZS') )
  create table  DC_BLGY_JBJKXX_JZ_JZS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jzs                  nvarchar(1000)       not null/* ¼Ò×åÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jzs                  nvarchar(1000)       not null/* å®¶æ—å² */,
    
    
     
@@ -235,17 +235,17 @@ where id = object_id('DC_BLGY_JBJKXX_JZ_JZS') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_JBJKXX_SSS     ²¡Àú¸ÅÒª ¡ª »ù±¾½¡¿µĞÅÏ¢_ÊÖÊõÊ·                                                                                                  */
+ /* DC_BLGY_JBJKXX_SSS     ç—…å†æ¦‚è¦ â€” åŸºæœ¬å¥åº·ä¿¡æ¯_æ‰‹æœ¯å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_JBJKXX_SSS') )
  create table  DC_BLGY_JBJKXX_SSS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    sss                  nvarchar(1000)       not null/* ÊÖÊõÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    sss                  nvarchar(1000)       not null/* æ‰‹æœ¯å² */,
    
    
     
@@ -263,17 +263,17 @@ where id = object_id('DC_BLGY_JBJKXX_SSS') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_JBJKXX_SYS     ²¡Àú¸ÅÒª ¡ª »ù±¾½¡¿µĞÅÏ¢_»éÓıÊ·                                                                                                  */
+ /* DC_BLGY_JBJKXX_SYS     ç—…å†æ¦‚è¦ â€” åŸºæœ¬å¥åº·ä¿¡æ¯_å©šè‚²å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_JBJKXX_SYS') )
  create table  DC_BLGY_JBJKXX_HYS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    hys                  nvarchar(1000)       not null/* »éÓıÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    hys                  nvarchar(1000)       not null/* å©šè‚²å² */,
    
    
     
@@ -291,17 +291,17 @@ where id = object_id('DC_BLGY_JBJKXX_SYS') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_JBJKXX_YFJZS     ²¡Àú¸ÅÒª ¡ª »ù±¾½¡¿µĞÅÏ¢_Ô¤·À½ÓÖÖÊ·                                                                                                  */
+ /* DC_BLGY_JBJKXX_YFJZS     ç—…å†æ¦‚è¦ â€” åŸºæœ¬å¥åº·ä¿¡æ¯_é¢„é˜²æ¥ç§å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_JBJKXX_YFJZS') )
  create table  DC_BLGY_JBJKXX_YFJZS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    yfjzs                nvarchar(1000)       not null/* Ô¤·À½ÓÖÖÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    yfjzs                nvarchar(1000)       not null/* é¢„é˜²æ¥ç§å² */,
    
    
     
@@ -319,45 +319,45 @@ where id = object_id('DC_BLGY_JBJKXX_YFJZS') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_WSSJZY     ²¡Àú¸ÅÒª ¡ª ÎÀÉúÊÂ¼şÕªÒª                                                                                                  */
+ /* DC_BLGY_WSSJZY     ç—…å†æ¦‚è¦ â€” å«ç”Ÿäº‹ä»¶æ‘˜è¦                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_WSSJZY') )
  create table  DC_BLGY_WSSJZY (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤¼şºÅÂë */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    jmjkkh               varchar(18)          not null/* ¾ÓÃñ½¡¿µ¿¨ºÅ */,
-    zzjgdm               varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    zzjgmc               varchar(70)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    ksdm                 varchar(10)          not null/* Ò½ÁÆ»ú¹¹¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* Ò½ÁÆ»ú¹¹¿ÆÊÒÃû³Æ */,
-    hzlxdm               varchar(2)           not null/* »¼ÕßÀàĞÍ´úÂë */,
-    hzlxmc               varchar(50)          not null/* »¼ÕßÀàĞÍÃû³Æ */,
-    mjzh                 varchar(64)          not null/* ÃÅ¼±ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzrqsj               datetime             not null/* ¾ÍÕïÈÕÆÚÊ±¼ä */,
-    ryrqsj               datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    cyrqsj               datetime             not null/* ³öÔºÈÕÆÚÊ±¼ä */,
-    fbrqsj               datetime             not null/* ·¢²¡ÈÕÆÚÊ±¼ä */,
-    jzyy                 nvarchar(1000)       not null/* ¾ÍÕïÔ­Òò */,
-    qtxyzd               varchar(64)          null/* ÆäËûÎ÷Ò½Õï¶Ï±àÂë */,
-    qtxyzdmc             varchar(128)         null/* ÆäËûÎ÷Ò½Õï¶ÏÃû³Æ */,
-    qtyxcz               nvarchar(2000)       not null/* ÆäËûÒ½Ñ§´¦ÖÃ */,
-    gbsy                 varchar(32)          null/* ¸ù±¾ËÀÒò´úÂë */,
-    gbsymc               varchar(500)         null/* ¸ù±¾ËÀÒòÃû³Æ */,
-    zljg                 varchar(2)           null/* ÖÎÁÆ½á¹û´úÂë */,
-    zljgmc               varchar(20)          null/* ÖÎÁÆ½á¹ûÃû³Æ */,
-    zrysbm               varchar(20)          not null/* ÔğÈÎÒ½Ê¦¹¤ºÅ */,
-    zrys                 varchar(50)          not null/* ÔğÈÎÒ½Ê¦ĞÕÃû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯ä»¶å·ç  */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    jmjkkh               varchar(18)          not null/* å±…æ°‘å¥åº·å¡å· */,
+    zzjgdm               varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    zzjgmc               varchar(70)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    ksdm                 varchar(10)          not null/* åŒ»ç–—æœºæ„ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* åŒ»ç–—æœºæ„ç§‘å®¤åç§° */,
+    hzlxdm               varchar(2)           not null/* æ‚£è€…ç±»å‹ä»£ç  */,
+    hzlxmc               varchar(50)          not null/* æ‚£è€…ç±»å‹åç§° */,
+    mjzh                 varchar(64)          not null/* é—¨æ€¥è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzrqsj               datetime             not null/* å°±è¯Šæ—¥æœŸæ—¶é—´ */,
+    ryrqsj               datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    cyrqsj               datetime             not null/* å‡ºé™¢æ—¥æœŸæ—¶é—´ */,
+    fbrqsj               datetime             not null/* å‘ç—…æ—¥æœŸæ—¶é—´ */,
+    jzyy                 nvarchar(1000)       not null/* å°±è¯ŠåŸå›  */,
+    qtxyzd               varchar(64)          null/* å…¶ä»–è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    qtxyzdmc             varchar(128)         null/* å…¶ä»–è¥¿åŒ»è¯Šæ–­åç§° */,
+    qtyxcz               nvarchar(2000)       not null/* å…¶ä»–åŒ»å­¦å¤„ç½® */,
+    gbsy                 varchar(32)          null/* æ ¹æœ¬æ­»å› ä»£ç  */,
+    gbsymc               varchar(500)         null/* æ ¹æœ¬æ­»å› åç§° */,
+    zljg                 varchar(2)           null/* æ²»ç–—ç»“æœä»£ç  */,
+    zljgmc               varchar(20)          null/* æ²»ç–—ç»“æœåç§° */,
+    zrysbm               varchar(20)          not null/* è´£ä»»åŒ»å¸ˆå·¥å· */,
+    zrys                 varchar(50)          not null/* è´£ä»»åŒ»å¸ˆå§“å */,
    
    
     
@@ -375,22 +375,22 @@ where id = object_id('DC_BLGY_WSSJZY') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_WSSJZY_GYJW     ²¡Àú¸ÅÒª ¡ª ÎÀÉúÊÂ¼şÕªÒª_¹Ø¼üÒ©Îï                                                                                                  */
+ /* DC_BLGY_WSSJZY_GYJW     ç—…å†æ¦‚è¦ â€” å«ç”Ÿäº‹ä»¶æ‘˜è¦_å…³é”®è¯ç‰©                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_WSSJZY_GYJW') )
  create table  DC_BLGY_WSSJZY_GYJW (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    gjywdm               varchar(100)         not null/* ¹Ø¼üÒ©Îï´úÂë */,
-    gjywmc               varchar(500)         not null/* ¹Ø¼üÒ©ÎïÃû³Æ */,
-    gjywyf               nvarchar(100)        not null/* ¹Ø¼üÒ©ÎïÓÃ·¨ */,
-    ywblfy               nvarchar(100)        not null/* Ò©Îï²»Á¼·´Ó¦Çé¿ö */,
-    zysylb               varchar(2)           not null/* ÖĞÒ©Ê¹ÓÃÀà±ğ´úÂë */,
-    zysylbmc             varchar(18)          not null/* ÖĞÒ©Ê¹ÓÃÀà±ğÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    gjywdm               varchar(100)         not null/* å…³é”®è¯ç‰©ä»£ç  */,
+    gjywmc               varchar(500)         not null/* å…³é”®è¯ç‰©åç§° */,
+    gjywyf               nvarchar(100)        not null/* å…³é”®è¯ç‰©ç”¨æ³• */,
+    ywblfy               nvarchar(100)        not null/* è¯ç‰©ä¸è‰¯ååº”æƒ…å†µ */,
+    zysylb               varchar(2)           not null/* ä¸­è¯ä½¿ç”¨ç±»åˆ«ä»£ç  */,
+    zysylbmc             varchar(18)          not null/* ä¸­è¯ä½¿ç”¨ç±»åˆ«åç§° */,
    
    
     
@@ -408,18 +408,18 @@ where id = object_id('DC_BLGY_WSSJZY_GYJW') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_WSSJZY_SSCZ     ²¡Àú¸ÅÒª ¡ª ÎÀÉúÊÂ¼şÕªÒª_ÊÖÊõ²Ù×÷                                                                                                  */
+ /* DC_BLGY_WSSJZY_SSCZ     ç—…å†æ¦‚è¦ â€” å«ç”Ÿäº‹ä»¶æ‘˜è¦_æ‰‹æœ¯æ“ä½œ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_WSSJZY_SSCZ') )
  create table  DC_BLGY_WSSJZY_SSCZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ssjcz                varchar(64)          null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssjczmc              varchar(128)         null/* ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ssjcz                varchar(64)          null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssjczmc              varchar(128)         null/* æ‰‹æœ¯åŠæ“ä½œåç§° */,
    
    
     
@@ -437,20 +437,20 @@ where id = object_id('DC_BLGY_WSSJZY_SSCZ') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_WSSJZY_XYZD     ²¡Àú¸ÅÒª ¡ª ÎÀÉúÊÂ¼şÕªÒª_Î÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_BLGY_WSSJZY_XYZD     ç—…å†æ¦‚è¦ â€” å«ç”Ÿäº‹ä»¶æ‘˜è¦_è¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_WSSJZY_XYZD') )
  create table  DC_BLGY_WSSJZY_XYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    xyzd                 varchar(64)          not null/* Î÷Ò½Õï¶Ï±àÂë */,
-    xyzdmc               varchar(128)         not null/* Î÷Ò½Õï¶ÏÃû³Æ */,
-    zljg                 varchar(2)           null/* ÖÎÁÆ½á¹û´úÂë */,
-    zljgmc               varchar(20)          null/* ÖÎÁÆ½á¹ûÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    xyzd                 varchar(64)          not null/* è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    xyzdmc               varchar(128)         not null/* è¥¿åŒ»è¯Šæ–­åç§° */,
+    zljg                 varchar(2)           null/* æ²»ç–—ç»“æœä»£ç  */,
+    zljgmc               varchar(20)          null/* æ²»ç–—ç»“æœåç§° */,
    
     
     
@@ -467,22 +467,22 @@ where id = object_id('DC_BLGY_WSSJZY_XYZD') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_WSSJZY_ZYZD     ²¡Àú¸ÅÒª ¡ª ÎÀÉúÊÂ¼şÕªÒª_ÖĞÒ½Õï¶Ï                                                                                                  */
+ /* DC_BLGY_WSSJZY_ZYZD     ç—…å†æ¦‚è¦ â€” å«ç”Ÿäº‹ä»¶æ‘˜è¦_ä¸­åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_WSSJZY_ZYZD') )
  create table  DC_BLGY_WSSJZY_ZYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zybm                 varchar(64)          null/* ÖĞÒ½²¡Ãû´úÂë */,
-    zybmmc               varchar(128)         null/* ÖĞÒ½²¡ÃûÃû³Æ */,
-    zyzh                 varchar(64)          null/* ÖĞÒ½Ö¤ºò´úÂë */,
-    zyzhmc               varchar(128)         null/* ÖĞÒ½Ö¤ºòÃû³Æ */,
-    zljg                 varchar(2)           null/* ÖÎÁÆ½á¹û´úÂë */,
-    zljgmc               varchar(20)          null/* ÖÎÁÆ½á¹ûÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zybm                 varchar(64)          null/* ä¸­åŒ»ç—…åä»£ç  */,
+    zybmmc               varchar(128)         null/* ä¸­åŒ»ç—…ååç§° */,
+    zyzh                 varchar(64)          null/* ä¸­åŒ»è¯å€™ä»£ç  */,
+    zyzhmc               varchar(128)         null/* ä¸­åŒ»è¯å€™åç§° */,
+    zljg                 varchar(2)           null/* æ²»ç–—ç»“æœä»£ç  */,
+    zljgmc               varchar(20)          null/* æ²»ç–—ç»“æœåç§° */,
     
     
 	[isNew] [bit] NULL,
@@ -498,30 +498,30 @@ where id = object_id('DC_BLGY_WSSJZY_ZYZD') )
 go
 
 /*========================================================================*/
- /* DC_BLGY_YLFYJL     ²¡Àú¸ÅÒª ¡ª Ò½ÁÆ·ÑÓÃ¼ÇÂ¼                                                                                                  */
+ /* DC_BLGY_YLFYJL     ç—…å†æ¦‚è¦ â€” åŒ»ç–—è´¹ç”¨è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_BLGY_YLFYJL') )
  create table  DC_BLGY_YLFYJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    jkkh                 varchar(18)          not null/* ½¡¿µ¿¨ºÅ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤¼şºÅÂë */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    mjzh                 varchar(64)          not null/* ÃÅ¼±ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    ffdm                 varchar(2)           not null/* Ò½ÁÆ¸¶·Ñ·½Ê½´úÂë */,
-    fffs                 varchar(64)          not null/* Ò½ÁÆ¸¶·Ñ·½Ê½Ãû³Æ */,
-    mzfyje               numeric(8,2)         not null/* ÃÅÕï·ÑÓÃ½ğ¶î */,
-    zyfyje               numeric(10,2)        not null/* ×¡Ôº·ÑÓÃ½ğ¶î */,
-    grcdfy               numeric(10,2)        not null/* ¸öÈË³Ğµ£·ÑÓÃ½ğ¶î */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    jkkh                 varchar(18)          not null/* å¥åº·å¡å· */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯ä»¶å·ç  */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    mjzh                 varchar(64)          not null/* é—¨æ€¥è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    ffdm                 varchar(2)           not null/* åŒ»ç–—ä»˜è´¹æ–¹å¼ä»£ç  */,
+    fffs                 varchar(64)          not null/* åŒ»ç–—ä»˜è´¹æ–¹å¼åç§° */,
+    mzfyje               numeric(8,2)         not null/* é—¨è¯Šè´¹ç”¨é‡‘é¢ */,
+    zyfyje               numeric(10,2)        not null/* ä½é™¢è´¹ç”¨é‡‘é¢ */,
+    grcdfy               numeric(10,2)        not null/* ä¸ªäººæ‰¿æ‹…è´¹ç”¨é‡‘é¢ */,
    
    
     
@@ -548,84 +548,84 @@ end
 
 
 execute sp_addextendedproperty 'MS_Description',  
-   '²¡Àú¸ÅÒª ¡ª Ò½ÁÆ·ÑÓÃ¼ÇÂ¼ ', 
+   'ç—…å†æ¦‚è¦ â€” åŒ»ç–—è´¹ç”¨è®°å½• ', 
    'user', 'dbo', 'table', 'DC_BLGY_YLFYJL'
 go
 
 /*========================================================================*/
- /* DC_CYXJ_CYXJ     ³öÔºĞ¡½á£­³öÔºĞ¡½á                                                                                                  */
+ /* DC_CYXJ_CYXJ     å‡ºé™¢å°ç»“ï¼å‡ºé™¢å°ç»“                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_CYXJ_CYXJ') )
  create table  DC_CYXJ_CYXJ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zzjgdm               varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    zzjgmc               varchar(70)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    jkkh                 varchar(18)          not null/* ¾ÓÃñ½¡¿µ¿¨ºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    hyzkdm               varchar(2)           not null/* »éÒö×´¿ö´úÂë */,
-    hyzkmc               varchar(32)          not null/* »éÒö×´¿öÃû³Æ */,
-    zylbdm               varchar(2)           not null/* Ö°ÒµÀà±ğ´úÂë */,
-    zylbmc               varchar(32)          not null/* Ö°ÒµÀà±ğÃû³Æ */,
-    hzdhhm               varchar(20)          not null/* »¼Õßµç»°ºÅÂë */,
-    zzlbdm               varchar(2)           not null/* µØÖ·Àà±ğ´úÂë */,
-    zzlbmc               varchar(20)          not null/* µØÖ·Àà±ğÃû³Æ */,
-    dzsf                 varchar(70)          not null/* µØÖ·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    dzsq                 varchar(70)          not null/* µØÖ·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    dzx                  varchar(70)          not null/* µØÖ·-ÏØ£¨Çø£© */,
-    dzxz                 varchar(70)          not null/* µØÖ·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    dzc                  varchar(70)          not null/* µØÖ·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    dzmphm               varchar(70)          not null/* µØÖ·-ÃÅÅÆºÅÂë */,
-    yzbm                 varchar(6)           not null/* ÓÊÕş±àÂë */,
-    lxrxm                varchar(50)          not null/* ÁªÏµÈËĞÕÃû */,
-    lxrdhhm              varchar(20)          not null/* ÁªÏµÈËµç»°ºÅÂë */,
-    ryrq                 datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    cyrq                 datetime             not null/* ³öÔºÈÕÆÚÊ±¼ä */,
-    sjzyts               int                  not null/* Êµ¼Ê×¡ÔºÌìÊı */,
-    ryqk                 nvarchar(2000)       not null/* ÈëÔºÇé¿ö */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
-    ssqklbdm             char(1)              not null/* ÊÖÊõÇĞ¿ÚÀà±ğ´úÂë */,
-    ssqklbmc             varchar(20)          not null/* ÊÖÊõÇĞ¿ÚÀà±ğÃû³Æ */,
-    qkyhdjdm             char(1)              not null/* ÇĞ¿ÚÓúºÏµÈ¼¶´úÂë */,
-    qkyhdjmc             varchar(20)          not null/* ÇĞ¿ÚÓúºÏµÈ¼¶Ãû³Æ */,
-    ssczbm               varchar(64)          not null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssjczmc              varchar(128)         not null/* ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    ssczksrq             datetime             not null/* ÊÖÊõ¼°²Ù×÷¿ªÊ¼ÈÕÆÚÊ±¼ä */,
-    mzffdm               varchar(2)           not null/* Âé×í·½·¨´úÂë */,
-    mzffmc               varchar(30)          not null/* Âé×í·½·¨Ãû³Æ */,
-    ssgc                 nvarchar(200)        not null/* ÊÖÊõ¹ı³Ì */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨±àÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨Ãû³Æ */,
-    zyjzff               nvarchar(100)        null/* ÖĞÒ©¼åÖó·½·¨ */,
-    zyyyff               nvarchar(100)        null/* ÖĞÒ©ÓÃÒ©·½·¨ */,
-    zlgcms               nvarchar(2000)       not null/* ÕïÁÆ¹ı³ÌÃèÊö */,
-    cyqk                 nvarchar(2000)       not null/* ³öÔºÇé¿ö */,
-    cyzztz               nvarchar(1000)       not null/* ³öÔºÊ±Ö¢×´ÓëÌåÕ÷ */,
-    cyyz                 nvarchar(1000)       not null/* ³öÔºÒ½Öö */,
-    zljgdm               char(1)              not null/* ÖÎÁÆ½á¹û´úÂë */,
-    zljgmc               varchar(20)          not null/* ÖÎÁÆ½á¹ûÃû³Æ */,
-    zyysbm               varchar(20)          not null/* ×¡ÔºÒ½Ê¦¹¤ºÅ */,
-    zyysqm               varchar(50)          not null/* ×¡ÔºÒ½Ê¦Ç©Ãû */,
-    sjysbm               varchar(20)          not null/* ÉÏ¼¶Ò½Ê¦¹¤ºÅ */,
-    sjysqm               varchar(50)          not null/* ÉÏ¼¶Ò½Ê¦Ç©Ãû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å·æ ‡è¯† */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zzjgdm               varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    zzjgmc               varchar(70)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    jkkh                 varchar(18)          not null/* å±…æ°‘å¥åº·å¡å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    hyzkdm               varchar(2)           not null/* å©šå§»çŠ¶å†µä»£ç  */,
+    hyzkmc               varchar(32)          not null/* å©šå§»çŠ¶å†µåç§° */,
+    zylbdm               varchar(2)           not null/* èŒä¸šç±»åˆ«ä»£ç  */,
+    zylbmc               varchar(32)          not null/* èŒä¸šç±»åˆ«åç§° */,
+    hzdhhm               varchar(20)          not null/* æ‚£è€…ç”µè¯å·ç  */,
+    zzlbdm               varchar(2)           not null/* åœ°å€ç±»åˆ«ä»£ç  */,
+    zzlbmc               varchar(20)          not null/* åœ°å€ç±»åˆ«åç§° */,
+    dzsf                 varchar(70)          not null/* åœ°å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    dzsq                 varchar(70)          not null/* åœ°å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    dzx                  varchar(70)          not null/* åœ°å€-å¿ï¼ˆåŒºï¼‰ */,
+    dzxz                 varchar(70)          not null/* åœ°å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    dzc                  varchar(70)          not null/* åœ°å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    dzmphm               varchar(70)          not null/* åœ°å€-é—¨ç‰Œå·ç  */,
+    yzbm                 varchar(6)           not null/* é‚®æ”¿ç¼–ç  */,
+    lxrxm                varchar(50)          not null/* è”ç³»äººå§“å */,
+    lxrdhhm              varchar(20)          not null/* è”ç³»äººç”µè¯å·ç  */,
+    ryrq                 datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    cyrq                 datetime             not null/* å‡ºé™¢æ—¥æœŸæ—¶é—´ */,
+    sjzyts               int                  not null/* å®é™…ä½é™¢å¤©æ•° */,
+    ryqk                 nvarchar(2000)       not null/* å…¥é™¢æƒ…å†µ */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
+    ssqklbdm             char(1)              not null/* æ‰‹æœ¯åˆ‡å£ç±»åˆ«ä»£ç  */,
+    ssqklbmc             varchar(20)          not null/* æ‰‹æœ¯åˆ‡å£ç±»åˆ«åç§° */,
+    qkyhdjdm             char(1)              not null/* åˆ‡å£æ„ˆåˆç­‰çº§ä»£ç  */,
+    qkyhdjmc             varchar(20)          not null/* åˆ‡å£æ„ˆåˆç­‰çº§åç§° */,
+    ssczbm               varchar(64)          not null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssjczmc              varchar(128)         not null/* æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    ssczksrq             datetime             not null/* æ‰‹æœ¯åŠæ“ä½œå¼€å§‹æ—¥æœŸæ—¶é—´ */,
+    mzffdm               varchar(2)           not null/* éº»é†‰æ–¹æ³•ä»£ç  */,
+    mzffmc               varchar(30)          not null/* éº»é†‰æ–¹æ³•åç§° */,
+    ssgc                 nvarchar(200)        not null/* æ‰‹æœ¯è¿‡ç¨‹ */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ç¼–ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³•åç§° */,
+    zyjzff               nvarchar(100)        null/* ä¸­è¯ç…ç…®æ–¹æ³• */,
+    zyyyff               nvarchar(100)        null/* ä¸­è¯ç”¨è¯æ–¹æ³• */,
+    zlgcms               nvarchar(2000)       not null/* è¯Šç–—è¿‡ç¨‹æè¿° */,
+    cyqk                 nvarchar(2000)       not null/* å‡ºé™¢æƒ…å†µ */,
+    cyzztz               nvarchar(1000)       not null/* å‡ºé™¢æ—¶ç—‡çŠ¶ä¸ä½“å¾ */,
+    cyyz                 nvarchar(1000)       not null/* å‡ºé™¢åŒ»å˜± */,
+    zljgdm               char(1)              not null/* æ²»ç–—ç»“æœä»£ç  */,
+    zljgmc               varchar(20)          not null/* æ²»ç–—ç»“æœåç§° */,
+    zyysbm               varchar(20)          not null/* ä½é™¢åŒ»å¸ˆå·¥å· */,
+    zyysqm               varchar(50)          not null/* ä½é™¢åŒ»å¸ˆç­¾å */,
+    sjysbm               varchar(20)          not null/* ä¸Šçº§åŒ»å¸ˆå·¥å· */,
+    sjysqm               varchar(50)          not null/* ä¸Šçº§åŒ»å¸ˆç­¾å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
 
@@ -643,18 +643,18 @@ where id = object_id('DC_CYXJ_CYXJ') )
 go
 
 /*========================================================================*/
- /* DC_CYXJ_CYXJ_CYXYZD     ³öÔºĞ¡½á£­³öÔºĞ¡½á_³öÔºÎ÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_CYXJ_CYXJ_CYXYZD     å‡ºé™¢å°ç»“ï¼å‡ºé™¢å°ç»“_å‡ºé™¢è¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_CYXJ_CYXJ_CYXYZD') )
  create table  DC_CYXJ_CYXJ_CYXYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    czxyzdbm             varchar(64)          not null/* ³öÔºÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    czxyzd               varchar(128)         not null/* ³öÔºÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    czxyzdbm             varchar(64)          not null/* å‡ºé™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    czxyzd               varchar(128)         not null/* å‡ºé™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
     
    
     
@@ -672,18 +672,18 @@ where id = object_id('DC_CYXJ_CYXJ_CYXYZD') )
 go
 
 /*========================================================================*/
- /* DC_CYXJ_CYXJ_CYZYBH     ³öÔºĞ¡½á£­³öÔºĞ¡½á_³öÔºÖĞÒ½Ö¤ºò                                                                                                  */
+ /* DC_CYXJ_CYXJ_CYZYBH     å‡ºé™¢å°ç»“ï¼å‡ºé™¢å°ç»“_å‡ºé™¢ä¸­åŒ»è¯å€™                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_CYXJ_CYXJ_CYZYBH') )
  create table  DC_CYXJ_CYXJ_CYZYBH (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    czzyzhdm             varchar(64)          null/* ³öÔºÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    czzyzh               varchar(128)         null/* ³öÔºÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    czzyzhdm             varchar(64)          null/* å‡ºé™¢è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    czzyzh               varchar(128)         null/* å‡ºé™¢è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
     
    
     
@@ -701,18 +701,18 @@ where id = object_id('DC_CYXJ_CYXJ_CYZYBH') )
 go
 
 /*========================================================================*/
- /* DC_CYXJ_CYXJ_CYZYBM     ³öÔºĞ¡½á£­³öÔºĞ¡½á_³öÔºÖĞÒ½²¡Ãû                                                                                                  */
+ /* DC_CYXJ_CYXJ_CYZYBM     å‡ºé™¢å°ç»“ï¼å‡ºé™¢å°ç»“_å‡ºé™¢ä¸­åŒ»ç—…å                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_CYXJ_CYXJ_CYZYBM') )
  create table  DC_CYXJ_CYXJ_CYZYBM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    czzybmdm             varchar(64)          null/* ³öÔºÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    czzybm               varchar(128)         null/* ³öÔºÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    czzybmdm             varchar(64)          null/* å‡ºé™¢è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    czzybm               varchar(128)         null/* å‡ºé™¢è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
     
    
     
@@ -730,18 +730,18 @@ where id = object_id('DC_CYXJ_CYXJ_CYZYBM') )
 go
 
 /*========================================================================*/
- /* DC_CYXJ_CYXJ_RYXYZD     ³öÔºĞ¡½á£­³öÔºĞ¡½á_ÈëÔºÎ÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_CYXJ_CYXJ_RYXYZD     å‡ºé™¢å°ç»“ï¼å‡ºé™¢å°ç»“_å…¥é™¢è¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_CYXJ_CYXJ_RYXYZD') )
  create table  DC_CYXJ_CYXJ_RYXYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    rzxyzdbm             varchar(64)          not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    rzxyzd               varchar(128)         not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    rzxyzdbm             varchar(64)          not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    rzxyzd               varchar(128)         not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
     
    
     
@@ -759,18 +759,18 @@ where id = object_id('DC_CYXJ_CYXJ_RYXYZD') )
 go
 
 /*========================================================================*/
- /* DC_CYXJ_CYXJ_RYZYBM     ³öÔºĞ¡½á£­³öÔºĞ¡½á_ÈëÔºÖĞÒ½²¡Ãû                                                                                                  */
+ /* DC_CYXJ_CYXJ_RYZYBM     å‡ºé™¢å°ç»“ï¼å‡ºé™¢å°ç»“_å…¥é™¢ä¸­åŒ»ç—…å                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_CYXJ_CYXJ_RYZYBM') )
  create table  DC_CYXJ_CYXJ_RYZYBM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    rzzybmdm             varchar(64)          null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    rzzybm               varchar(128)         null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    rzzybmdm             varchar(64)          null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    rzzybm               varchar(128)         null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
     
    
     
@@ -788,18 +788,18 @@ where id = object_id('DC_CYXJ_CYXJ_RYZYBM') )
 go
 
 /*========================================================================*/
- /* DC_CYXJ_CYXJ_RYZYZH     ³öÔºĞ¡½á£­³öÔºĞ¡½á_ÈëÔºÖĞÒ½Ö¤ºò                                                                                                  */
+ /* DC_CYXJ_CYXJ_RYZYZH     å‡ºé™¢å°ç»“ï¼å‡ºé™¢å°ç»“_å…¥é™¢ä¸­åŒ»è¯å€™                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_CYXJ_CYXJ_RYZYZH') )
  create table  DC_CYXJ_CYXJ_RYZYZH (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    rzzyzhdm             varchar(64)          null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    rzzyzh               varchar(128)         null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    rzzyzhdm             varchar(64)          null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    rzzyzh               varchar(128)         null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
     
    
     
@@ -817,17 +817,17 @@ where id = object_id('DC_CYXJ_CYXJ_RYZYZH') )
 go
 
 /*========================================================================*/
- /* DC_CYXJ_CYXJ_YXFZJCJG     ³öÔºĞ¡½á£­³öÔºĞ¡½á_ÑôĞÔ¸¨Öú¼ì²é½á¹û                                                                                                  */
+ /* DC_CYXJ_CYXJ_YXFZJCJG     å‡ºé™¢å°ç»“ï¼å‡ºé™¢å°ç»“_é˜³æ€§è¾…åŠ©æ£€æŸ¥ç»“æœ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_CYXJ_CYXJ_YXFZJCJG') )
  create table  DC_CYXJ_CYXJ_YXFZJCJG (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    yxfzjcjg             nvarchar(1000)       null/* ÑôĞÔ¸¨Öú¼ì²é½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    yxfzjcjg             nvarchar(1000)       null/* é˜³æ€§è¾…åŠ©æ£€æŸ¥ç»“æœ */,
     
    
     
@@ -845,50 +845,50 @@ where id = object_id('DC_CYXJ_CYXJ_YXFZJCJG') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_BZBWHL     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ²¡ÖØ£¨²¡Î££©»¼Õß»¤Àí¼ÇÂ¼                                                                                                  */
+ /* DC_HLCZJL_BZBWHL     æŠ¤ç†æ“ä½œè®°å½• â€” ç—…é‡ï¼ˆç—…å±ï¼‰æ‚£è€…æŠ¤ç†è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_BZBWHL') )
  create table  DC_HLCZJL_BZBWHL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yexh                 varchar(64)          not null/* Ó¤¶ùĞòºÅ */,
-    zzjgdm               varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    zzjgmc               varchar(70)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    hldjdm               varchar(2)           not null/* »¤ÀíµÈ¼¶´úÂë */,
-    hldjmc               varchar(64)          not null/* »¤ÀíµÈ¼¶Ãû³Æ */,
-    hllxdm               varchar(2)           not null/* »¤ÀíÀàĞÍ´úÂë */,
-    hllxmc               varchar(64)          not null/* »¤ÀíÀàĞÍÃû³Æ */,
-    tzkg                 numeric(6,2)         not null/* ÌåÖØ£¨kg£© */,
-    tw                   numeric(4,1)         not null/* ÌåÎÂ£¨¡æ£© */,
-    xl                   numeric(3)           not null/* ĞÄÂÊ£¨´Î/min£© */,
-    hxpl                 numeric(3)           not null/* ºôÎüÆµÂÊ£¨´Î/min£© */,
-    ssy                  numeric(3)           not null/* ÊÕËõÑ¹£¨mmHg£© */,
-    szy                  numeric(3)           not null/* ÊæÕÅÑ¹£¨mmHg£© */,
-    xt                   numeric(4,1)         not null/* ÑªÌÇ¼ì²âÖµ£¨mmol/L£© */,
-    ysqkdm               varchar(2)           not null/* ÒûÊ³Çé¿ö´úÂë */,
-    ysqkmc               varchar(100)         not null/* ÒûÊ³Çé¿öÃû³Æ */,
-    hxjjhxm              varchar(20)          not null/* ºôÎü»ú¼à»¤ÏîÄ¿ */,
-    hsdm                 varchar(20)          not null/* »¤Ê¿¹¤ºÅ */,
-    hsqm                 varchar(50)          not null/* »¤Ê¿Ç©Ãû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yexh                 varchar(64)          not null/* å©´å„¿åºå· */,
+    zzjgdm               varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    zzjgmc               varchar(70)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    hldjdm               varchar(2)           not null/* æŠ¤ç†ç­‰çº§ä»£ç  */,
+    hldjmc               varchar(64)          not null/* æŠ¤ç†ç­‰çº§åç§° */,
+    hllxdm               varchar(2)           not null/* æŠ¤ç†ç±»å‹ä»£ç  */,
+    hllxmc               varchar(64)          not null/* æŠ¤ç†ç±»å‹åç§° */,
+    tzkg                 numeric(6,2)         not null/* ä½“é‡ï¼ˆkgï¼‰ */,
+    tw                   numeric(4,1)         not null/* ä½“æ¸©ï¼ˆâ„ƒï¼‰ */,
+    xl                   numeric(3)           not null/* å¿ƒç‡ï¼ˆæ¬¡/minï¼‰ */,
+    hxpl                 numeric(3)           not null/* å‘¼å¸é¢‘ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    ssy                  numeric(3)           not null/* æ”¶ç¼©å‹ï¼ˆmmHgï¼‰ */,
+    szy                  numeric(3)           not null/* èˆ’å¼ å‹ï¼ˆmmHgï¼‰ */,
+    xt                   numeric(4,1)         not null/* è¡€ç³–æ£€æµ‹å€¼ï¼ˆmmol/Lï¼‰ */,
+    ysqkdm               varchar(2)           not null/* é¥®é£Ÿæƒ…å†µä»£ç  */,
+    ysqkmc               varchar(100)         not null/* é¥®é£Ÿæƒ…å†µåç§° */,
+    hxjjhxm              varchar(20)          not null/* å‘¼å¸æœºç›‘æŠ¤é¡¹ç›® */,
+    hsdm                 varchar(20)          not null/* æŠ¤å£«å·¥å· */,
+    hsqm                 varchar(50)          not null/* æŠ¤å£«ç­¾å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -906,17 +906,17 @@ where id = object_id('DC_HLCZJL_BZBWHL') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_BZBWHL_GMS     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ²¡ÖØ£¨²¡Î££©»¼Õß»¤Àí¼ÇÂ¼_¹ıÃôÊ·                                                                                                  */
+ /* DC_HLCZJL_BZBWHL_GMS     æŠ¤ç†æ“ä½œè®°å½• â€” ç—…é‡ï¼ˆç—…å±ï¼‰æ‚£è€…æŠ¤ç†è®°å½•_è¿‡æ•å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_BZBWHL_GMS') )
  create table  DC_HLCZJL_BZBWHL_GMS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    gms                  varchar(1000)        null/* ¹ıÃôÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    gms                  varchar(1000)        null/* è¿‡æ•å² */,
     
    
     
@@ -934,19 +934,19 @@ where id = object_id('DC_HLCZJL_BZBWHL_GMS') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_BZBWHL_HLCZ     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ²¡ÖØ£¨²¡Î££©»¼Õß»¤Àí¼ÇÂ¼_»¤Àí²Ù×÷                                                                                                  */
+ /* DC_HLCZJL_BZBWHL_HLCZ     æŠ¤ç†æ“ä½œè®°å½• â€” ç—…é‡ï¼ˆç—…å±ï¼‰æ‚£è€…æŠ¤ç†è®°å½•_æŠ¤ç†æ“ä½œ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_BZBWHL_HLCZ') )
  create table  DC_HLCZJL_BZBWHL_HLCZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    hlczmc               varchar(100)         not null/* »¤Àí²Ù×÷Ãû³Æ */,
-    hlczxmlmmc           varchar(100)         not null/* »¤Àí²Ù×÷ÏîÄ¿ÀàÄ¿Ãû³Æ */,
-    hlczjg               varchar(1000)        not null/* »¤Àí²Ù×÷½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    hlczmc               varchar(100)         not null/* æŠ¤ç†æ“ä½œåç§° */,
+    hlczxmlmmc           varchar(100)         not null/* æŠ¤ç†æ“ä½œé¡¹ç›®ç±»ç›®åç§° */,
+    hlczjg               varchar(1000)        not null/* æŠ¤ç†æ“ä½œç»“æœ */,
     
    
     
@@ -964,18 +964,18 @@ where id = object_id('DC_HLCZJL_BZBWHL_HLCZ') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_BZBWHL_HLGC     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ²¡ÖØ£¨²¡Î££©»¼Õß»¤Àí¼ÇÂ¼_»¤Àí¹Û²ì                                                                                                  */
+ /* DC_HLCZJL_BZBWHL_HLGC     æŠ¤ç†æ“ä½œè®°å½• â€” ç—…é‡ï¼ˆç—…å±ï¼‰æ‚£è€…æŠ¤ç†è®°å½•_æŠ¤ç†è§‚å¯Ÿ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_BZBWHL_HLGC') )
  create table  DC_HLCZJL_BZBWHL_HLGC (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    hlgcxmmc             varchar(30)          not null/* »¤Àí¹Û²ìÏîÄ¿Ãû³Æ */,
-    hlgcjg               varchar(1000)        not null/* »¤Àí¹Û²ì½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    hlgcxmmc             varchar(30)          not null/* æŠ¤ç†è§‚å¯Ÿé¡¹ç›®åç§° */,
+    hlgcjg               varchar(1000)        not null/* æŠ¤ç†è§‚å¯Ÿç»“æœ */,
     
    
     
@@ -993,18 +993,18 @@ where id = object_id('DC_HLCZJL_BZBWHL_HLGC') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_BZBWHL_ZDXX     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ²¡ÖØ£¨²¡Î££©»¼Õß»¤Àí¼ÇÂ¼_Õï¶Ï                                                                                                  */
+ /* DC_HLCZJL_BZBWHL_ZDXX     æŠ¤ç†æ“ä½œè®°å½• â€” ç—…é‡ï¼ˆç—…å±ï¼‰æ‚£è€…æŠ¤ç†è®°å½•_è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_BZBWHL_ZDXX') )
  create table  DC_HLCZJL_BZBWHL_ZDXX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zdbm                 varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    zdmc                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zdbm                 varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    zdmc                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
     
    
     
@@ -1022,43 +1022,43 @@ where id = object_id('DC_HLCZJL_BZBWHL_ZDXX') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_CRL     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ³öÈëÁ¿¼ÇÂ¼                                                                                                  */
+ /* DC_HLCZJL_CRL     æŠ¤ç†æ“ä½œè®°å½• â€” å‡ºå…¥é‡è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_CRL') )
  create table  DC_HLCZJL_CRL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yexh                 varchar(64)          not null/* Ó¤¶ùĞòºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    birth                date                 not null/* »¼Õß³öÉúÈÕÆÚ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    tzkg                 numeric(6,2)         not null/* ÌåÖØ£¨kg£© */,
-    hldjdm               varchar(2)           not null/* »¤ÀíµÈ¼¶´úÂë */,
-    hldjmc               varchar(64)          not null/* »¤ÀíµÈ¼¶Ãû³Æ */,
-    hllxdm               varchar(2)           not null/* »¤ÀíÀàĞÍ´úÂë */,
-    hllxmc               varchar(64)          not null/* »¤ÀíÀàĞÍÃû³Æ */,
-    jlrqsj               datetime             not null/* ¼ÇÂ¼ÈÕÆÚÊ±¼ä */,
-    otbz                 char(1)              not null/* Å»ÍÂ±êÖ¾ */,
-    pnknbz               char(1)              not null/* ÅÅÄòÀ§ÄÑ±êÖ¾ */,
-    hsdm                 varchar(20)          not null/* »¤Ê¿¹¤ºÅ */,
-    hsqm                 varchar(50)          not null/* »¤Ê¿Ç©Ãû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yexh                 varchar(64)          not null/* å©´å„¿åºå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    birth                date                 not null/* æ‚£è€…å‡ºç”Ÿæ—¥æœŸ */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    tzkg                 numeric(6,2)         not null/* ä½“é‡ï¼ˆkgï¼‰ */,
+    hldjdm               varchar(2)           not null/* æŠ¤ç†ç­‰çº§ä»£ç  */,
+    hldjmc               varchar(64)          not null/* æŠ¤ç†ç­‰çº§åç§° */,
+    hllxdm               varchar(2)           not null/* æŠ¤ç†ç±»å‹ä»£ç  */,
+    hllxmc               varchar(64)          not null/* æŠ¤ç†ç±»å‹åç§° */,
+    jlrqsj               datetime             not null/* è®°å½•æ—¥æœŸæ—¶é—´ */,
+    otbz                 char(1)              not null/* å‘•åæ ‡å¿— */,
+    pnknbz               char(1)              not null/* æ’å°¿å›°éš¾æ ‡å¿— */,
+    hsdm                 varchar(20)          not null/* æŠ¤å£«å·¥å· */,
+    hsqm                 varchar(50)          not null/* æŠ¤å£«ç­¾å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
 
@@ -1076,20 +1076,20 @@ where id = object_id('DC_HLCZJL_CRL') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_CRL_HLCZ     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ³öÈëÁ¿¼ÇÂ¼_»¤Àí²Ù×÷                                                                                                  */
+ /* DC_HLCZJL_CRL_HLCZ     æŠ¤ç†æ“ä½œè®°å½• â€” å‡ºå…¥é‡è®°å½•_æŠ¤ç†æ“ä½œ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_CRL_HLCZ') )
  create table  DC_HLCZJL_CRL_HLCZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    hlczxmlmmc           varchar(100)         not null/* »¤Àí²Ù×÷ÏîÄ¿ÀàÄ¿Ãû³Æ */,
-    hlczdm               varchar(10)          not null/* »¤Àí²Ù×÷´úÂë */,
-    hlczmc               varchar(100)         not null/* »¤Àí²Ù×÷Ãû³Æ */,
-    hlczjg               varchar(1000)        not null/* »¤Àí²Ù×÷½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    hlczxmlmmc           varchar(100)         not null/* æŠ¤ç†æ“ä½œé¡¹ç›®ç±»ç›®åç§° */,
+    hlczdm               varchar(10)          not null/* æŠ¤ç†æ“ä½œä»£ç  */,
+    hlczmc               varchar(100)         not null/* æŠ¤ç†æ“ä½œåç§° */,
+    hlczjg               varchar(1000)        not null/* æŠ¤ç†æ“ä½œç»“æœ */,
     
    
 
@@ -1107,18 +1107,18 @@ where id = object_id('DC_HLCZJL_CRL_HLCZ') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_CRL_HLGC     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ³öÈëÁ¿¼ÇÂ¼_»¤Àí¹Û²ì                                                                                                  */
+ /* DC_HLCZJL_CRL_HLGC     æŠ¤ç†æ“ä½œè®°å½• â€” å‡ºå…¥é‡è®°å½•_æŠ¤ç†è§‚å¯Ÿ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_CRL_HLGC') )
  create table  DC_HLCZJL_CRL_HLGC (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    hlgcxmmc             varchar(64)          not null/* »¤Àí¹Û²ìÏîÄ¿Ãû³Æ */,
-    hlgcjg               varchar(1000)        not null/* »¤Àí¹Û²ì½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    hlgcxmmc             varchar(64)          not null/* æŠ¤ç†è§‚å¯Ÿé¡¹ç›®åç§° */,
+    hlgcjg               varchar(1000)        not null/* æŠ¤ç†è§‚å¯Ÿç»“æœ */,
     
    
 
@@ -1136,28 +1136,28 @@ where id = object_id('DC_HLCZJL_CRL_HLGC') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_CRL_YYMX     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ³öÈëÁ¿¼ÇÂ¼_ÓÃÒ©ÌõÄ¿                                                                                                  */
+ /* DC_HLCZJL_CRL_YYMX     æŠ¤ç†æ“ä½œè®°å½• â€” å‡ºå…¥é‡è®°å½•_ç”¨è¯æ¡ç›®                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_CRL_YYMX') )
  create table  DC_HLCZJL_CRL_YYMX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ywyf                 varchar(100)         null/* Ò©ÎïÓÃ·¨ */,
-    zysylbdm             varchar(2)           null/* ÖĞÒ©Ê¹ÓÃÀà±ğ´úÂë */,
-    zysylbmc             varchar(100)         null/* ÖĞÒ©Ê¹ÓÃÀà±ğÃû³Æ */,
-    ywsypl               varchar(2)           null/* Ò©ÎïÊ¹ÓÃÆµÂÊ */,
-    ywsyplmc             varchar(100)         null/* Ò©ÎïÊ¹ÓÃÃû³Æ */,
-    ywsyjldw             varchar(6)           null/* Ò©ÎïÊ¹ÓÃ¼ÁÁ¿µ¥Î» */,
-    ywsycjl              numeric(12,2)        null/* Ò©ÎïÊ¹ÓÃ´Î¼ÁÁ¿ */,
-    ywsyzjl              numeric(12,2)        null/* Ò©ÎïÊ¹ÓÃ×Ü¼ÁÁ¿ */,
-    ywsytjdm             varchar(4)           null/* Ò©ÎïÊ¹ÓÃÍ¾¾¶´úÂë */,
-    ywsytjmc             varchar(50)          null/* Ò©ÎïÊ¹ÓÃÍ¾¾¶Ãû³Æ */,
-    ywdm                 varchar(50)          null/* Ò©Îï´úÂë */,
-    ywmc                 varchar(50)          null/* Ò©ÎïÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ywyf                 varchar(100)         null/* è¯ç‰©ç”¨æ³• */,
+    zysylbdm             varchar(2)           null/* ä¸­è¯ä½¿ç”¨ç±»åˆ«ä»£ç  */,
+    zysylbmc             varchar(100)         null/* ä¸­è¯ä½¿ç”¨ç±»åˆ«åç§° */,
+    ywsypl               varchar(2)           null/* è¯ç‰©ä½¿ç”¨é¢‘ç‡ */,
+    ywsyplmc             varchar(100)         null/* è¯ç‰©ä½¿ç”¨åç§° */,
+    ywsyjldw             varchar(6)           null/* è¯ç‰©ä½¿ç”¨å‰‚é‡å•ä½ */,
+    ywsycjl              numeric(12,2)        null/* è¯ç‰©ä½¿ç”¨æ¬¡å‰‚é‡ */,
+    ywsyzjl              numeric(12,2)        null/* è¯ç‰©ä½¿ç”¨æ€»å‰‚é‡ */,
+    ywsytjdm             varchar(4)           null/* è¯ç‰©ä½¿ç”¨é€”å¾„ä»£ç  */,
+    ywsytjmc             varchar(50)          null/* è¯ç‰©ä½¿ç”¨é€”å¾„åç§° */,
+    ywdm                 varchar(50)          null/* è¯ç‰©ä»£ç  */,
+    ywmc                 varchar(50)          null/* è¯ç‰©åç§° */,
     
    
 
@@ -1175,18 +1175,18 @@ where id = object_id('DC_HLCZJL_CRL_YYMX') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_CRL_ZDXX     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ³öÈëÁ¿¼ÇÂ¼_Õï¶Ï                                                                                                  */
+ /* DC_HLCZJL_CRL_ZDXX     æŠ¤ç†æ“ä½œè®°å½• â€” å‡ºå…¥é‡è®°å½•_è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_CRL_ZDXX') )
  create table  DC_HLCZJL_CRL_ZDXX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zdbm                 varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    zdmc                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zdbm                 varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    zdmc                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
     
    
 
@@ -1204,43 +1204,43 @@ where id = object_id('DC_HLCZJL_CRL_ZDXX') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_GZHC     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ¸ßÖµºÄ²ÄÊ¹ÓÃ¼ÇÂ¼                                                                                                  */
+ /* DC_HLCZJL_GZHC     æŠ¤ç†æ“ä½œè®°å½• â€” é«˜å€¼è€—æä½¿ç”¨è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_GZHC') )
  create table  DC_HLCZJL_GZHC (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    yexh                 varchar(64)          not null/* Ó¤¶ùĞòºÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    jlrqsj               datetime             not null/* ¼ÇÂ¼ÈÕÆÚÊ±¼ä */,
-    zrxhcbz              char(1)              not null/* Ö²ÈëĞÔºÄ²Ä±êÖ¾ */,
-    clmc                 varchar(200)         not null/* ²ÄÁÏÃû³Æ */,
-    cpbm                 numeric(20)          not null/* ²úÆ·±àÂë */,
-    cpsccj               varchar(70)          not null/* ²úÆ·Éú²ú³§¼Ò */,
-    cpgys                varchar(70)          not null/* ²úÆ·¹©Ó¦ÉÌ */,
-    dw                   varchar(6)           not null/* ºÄ²Äµ¥Î» */,
-    sl                   numeric(5)           not null/* ÊıÁ¿ */,
-    sytj                 varchar(30)          not null/* Ê¹ÓÃÍ¾¾¶ */,
-    hsdm                 varchar(20)          not null/* »¤Ê¿¹¤ºÅ */,
-    hsqm                 varchar(50)          not null/* »¤Ê¿Ç©Ãû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    yexh                 varchar(64)          not null/* å©´å„¿åºå· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    jlrqsj               datetime             not null/* è®°å½•æ—¥æœŸæ—¶é—´ */,
+    zrxhcbz              char(1)              not null/* æ¤å…¥æ€§è€—ææ ‡å¿— */,
+    clmc                 varchar(200)         not null/* ææ–™åç§° */,
+    cpbm                 numeric(20)          not null/* äº§å“ç¼–ç  */,
+    cpsccj               varchar(70)          not null/* äº§å“ç”Ÿäº§å‚å®¶ */,
+    cpgys                varchar(70)          not null/* äº§å“ä¾›åº”å•† */,
+    dw                   varchar(6)           not null/* è€—æå•ä½ */,
+    sl                   numeric(5)           not null/* æ•°é‡ */,
+    sytj                 varchar(30)          not null/* ä½¿ç”¨é€”å¾„ */,
+    hsdm                 varchar(20)          not null/* æŠ¤å£«å·¥å· */,
+    hsqm                 varchar(50)          not null/* æŠ¤å£«ç­¾å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -1258,18 +1258,18 @@ where id = object_id('DC_HLCZJL_GZHC') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_GZHC_ZDXX     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ¸ßÖµºÄ²ÄÊ¹ÓÃ¼ÇÂ¼_Õï¶ÏĞÅÏ¢                                                                                                  */
+ /* DC_HLCZJL_GZHC_ZDXX     æŠ¤ç†æ“ä½œè®°å½• â€” é«˜å€¼è€—æä½¿ç”¨è®°å½•_è¯Šæ–­ä¿¡æ¯                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_GZHC_ZDXX') )
  create table  DC_HLCZJL_GZHC_ZDXX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zddm                 varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    zdmc                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zddm                 varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    zdmc                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
     
    
     
@@ -1287,52 +1287,52 @@ where id = object_id('DC_HLCZJL_GZHC_ZDXX') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SMTZ     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÉúÃüÌåÕ÷²âÁ¿¼ÇÂ¼                                                                                                  */
+ /* DC_HLCZJL_SMTZ     æŠ¤ç†æ“ä½œè®°å½• â€” ç”Ÿå‘½ä½“å¾æµ‹é‡è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SMTZ') )
  create table  DC_HLCZJL_SMTZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yexh                 varchar(64)          not null/* Ó¤¶ùĞòºÅ */,
-    birth                date                 not null/* »¼Õß³öÉúÈÕÆÚ */,
-    zzjgdm               varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    zzjgmc               varchar(70)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(64)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    ryrqsj               datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    cyrqsj               datetime             null/* (³öÔº)¾ÍÕï½áÊøÊ±¼ä */,
-    sjzyts               numeric(4)           null/* Êµ¼Ê×¡ÔºÌìÊı */,
-    sshfmhts             numeric(5)           null/* ÊÖÊõ»ò·ÖÃäºóÌìÊı */,
-    jlrqsj               datetime             not null/* ¼ÇÂ¼ÈÕÆÚÊ±¼ä */,
-    hxpl                 numeric(6,2)         not null/* ºôÎüÆµÂÊ£¨´Î/min£© */,
-    syhxjbz              char(1)              not null/* Ê¹ÓÃºôÎü»ú±êÖ¾ */,
-    ml                   numeric(3)           not null/* ÂöÂÊ£¨´Î/min£© */,
-    qbxl                 numeric(3)           not null/* Æğ²«Æ÷ĞÄÂÊ£¨´Î/min£© */,
-    tw                   numeric(4,1)         not null/* ÌåÎÂ£¨¡æ£© */,
-    ssy                  numeric(3)           not null/* ÊÕËõÑ¹£¨mmHg£© */,
-    szy                  numeric(3)           not null/* ÊæÕÅÑ¹£¨mmHg£© */,
-    tzkg                 numeric(6,2)         not null/* ÌåÖØ£¨kg£© */,
-    fw                   numeric(5,1)         not null/* ¸¹Î§£¨cm£© */,
-    hsdm                 varchar(20)          not null/* »¤Ê¿¹¤ºÅ */,
-    hsqm                 varchar(50)          not null/* »¤Ê¿Ç©Ãû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yexh                 varchar(64)          not null/* å©´å„¿åºå· */,
+    birth                date                 not null/* æ‚£è€…å‡ºç”Ÿæ—¥æœŸ */,
+    zzjgdm               varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    zzjgmc               varchar(70)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(64)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    ryrqsj               datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    cyrqsj               datetime             null/* (å‡ºé™¢)å°±è¯Šç»“æŸæ—¶é—´ */,
+    sjzyts               numeric(4)           null/* å®é™…ä½é™¢å¤©æ•° */,
+    sshfmhts             numeric(5)           null/* æ‰‹æœ¯æˆ–åˆ†å¨©åå¤©æ•° */,
+    jlrqsj               datetime             not null/* è®°å½•æ—¥æœŸæ—¶é—´ */,
+    hxpl                 numeric(6,2)         not null/* å‘¼å¸é¢‘ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    syhxjbz              char(1)              not null/* ä½¿ç”¨å‘¼å¸æœºæ ‡å¿— */,
+    ml                   numeric(3)           not null/* è„‰ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    qbxl                 numeric(3)           not null/* èµ·æå™¨å¿ƒç‡ï¼ˆæ¬¡/minï¼‰ */,
+    tw                   numeric(4,1)         not null/* ä½“æ¸©ï¼ˆâ„ƒï¼‰ */,
+    ssy                  numeric(3)           not null/* æ”¶ç¼©å‹ï¼ˆmmHgï¼‰ */,
+    szy                  numeric(3)           not null/* èˆ’å¼ å‹ï¼ˆmmHgï¼‰ */,
+    tzkg                 numeric(6,2)         not null/* ä½“é‡ï¼ˆkgï¼‰ */,
+    fw                   numeric(5,1)         not null/* è…¹å›´ï¼ˆcmï¼‰ */,
+    hsdm                 varchar(20)          not null/* æŠ¤å£«å·¥å· */,
+    hsqm                 varchar(50)          not null/* æŠ¤å£«ç­¾å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -1350,18 +1350,18 @@ where id = object_id('DC_HLCZJL_SMTZ') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SMTZ_HLGC     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÉúÃüÌåÕ÷²âÁ¿¼ÇÂ¼_»¤Àí¹Û²ì                                                                                                  */
+ /* DC_HLCZJL_SMTZ_HLGC     æŠ¤ç†æ“ä½œè®°å½• â€” ç”Ÿå‘½ä½“å¾æµ‹é‡è®°å½•_æŠ¤ç†è§‚å¯Ÿ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SMTZ_HLGC') )
  create table  DC_HLCZJL_SMTZ_HLGC (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    hlgcxmmc             varchar(30)          not null/* »¤Àí¹Û²ìÏîÄ¿Ãû³Æ */,
-    hlgcjg               varchar(1000)        not null/* »¤Àí¹Û²ì½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    hlgcxmmc             varchar(30)          not null/* æŠ¤ç†è§‚å¯Ÿé¡¹ç›®åç§° */,
+    hlgcjg               varchar(1000)        not null/* æŠ¤ç†è§‚å¯Ÿç»“æœ */,
    
     
     
@@ -1379,18 +1379,18 @@ where id = object_id('DC_HLCZJL_SMTZ_HLGC') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SMTZ_ZDXX     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÉúÃüÌåÕ÷²âÁ¿¼ÇÂ¼_¼²²¡Õï¶Ï                                                                                                  */
+ /* DC_HLCZJL_SMTZ_ZDXX     æŠ¤ç†æ“ä½œè®°å½• â€” ç”Ÿå‘½ä½“å¾æµ‹é‡è®°å½•_ç–¾ç—…è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SMTZ_ZDXX') )
  create table  DC_HLCZJL_SMTZ_ZDXX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zdbm                 varchar(32)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    zdmc                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zdbm                 varchar(32)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    zdmc                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
     
    
     
@@ -1408,51 +1408,51 @@ where id = object_id('DC_HLCZJL_SMTZ_ZDXX') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SSHL     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÊÖÊõ»¤Àí¼ÇÂ¼                                                                                                  */
+ /* DC_HLCZJL_SSHL     æŠ¤ç†æ“ä½œè®°å½• â€” æ‰‹æœ¯æŠ¤ç†è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SSHL') )
  create table  DC_HLCZJL_SSHL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    birth                date                 not null/* »¼Õß³öÉúÈÕÆÚ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yexh                 varchar(64)          not null/* Ó¤¶ùĞòºÅ */,
-    mjzh                 varchar(18)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    zzjgdm               varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    zzjgmc               varchar(70)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(50)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    aboxxdm              varchar(2)           not null/* ABOÑªĞÍ´úÂë */,
-    aboxxmc              varchar(18)          not null/* ABOÑªĞÍÃû³Æ */,
-    rhxxdm               varchar(2)           not null/* RhÑªĞÍ´úÂë */,
-    rhxxmc               varchar(18)          not null/* RhÑªĞÍÃû³Æ */,
-    jzkssj               datetime             null/* (ÈëÔº)¾ÍÕï¿ªÊ¼Ê±¼ä */,
-    jzjssj               datetime             null/* (³öÔº)¾ÍÕï½áÊøÊ±¼ä */,
-    gmsbz                char(1)              not null/* ¹ıÃôÊ·±êÖ¾ */,
-    hldjdm               varchar(2)           not null/* »¤ÀíµÈ¼¶´úÂë */,
-    hldjmc               varchar(100)         not null/* »¤ÀíµÈ¼¶Ãû³Æ */,
-    hllxdm               varchar(2)           not null/* »¤ÀíÀàĞÍ´úÂë */,
-    hllxmc               varchar(100)         not null/* »¤ÀíÀàĞÍÃû³Æ */,
-    ysdm                 varchar(20)          not null/* Ò½Éú¹¤ºÅ */,
-    ysxm                 varchar(50)          not null/* Ò½ÉúĞÕÃû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    birth                date                 not null/* æ‚£è€…å‡ºç”Ÿæ—¥æœŸ */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yexh                 varchar(64)          not null/* å©´å„¿åºå· */,
+    mjzh                 varchar(18)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    zzjgdm               varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    zzjgmc               varchar(70)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(50)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    aboxxdm              varchar(2)           not null/* ABOè¡€å‹ä»£ç  */,
+    aboxxmc              varchar(18)          not null/* ABOè¡€å‹åç§° */,
+    rhxxdm               varchar(2)           not null/* Rhè¡€å‹ä»£ç  */,
+    rhxxmc               varchar(18)          not null/* Rhè¡€å‹åç§° */,
+    jzkssj               datetime             null/* (å…¥é™¢)å°±è¯Šå¼€å§‹æ—¶é—´ */,
+    jzjssj               datetime             null/* (å‡ºé™¢)å°±è¯Šç»“æŸæ—¶é—´ */,
+    gmsbz                char(1)              not null/* è¿‡æ•å²æ ‡å¿— */,
+    hldjdm               varchar(2)           not null/* æŠ¤ç†ç­‰çº§ä»£ç  */,
+    hldjmc               varchar(100)         not null/* æŠ¤ç†ç­‰çº§åç§° */,
+    hllxdm               varchar(2)           not null/* æŠ¤ç†ç±»å‹ä»£ç  */,
+    hllxmc               varchar(100)         not null/* æŠ¤ç†ç±»å‹åç§° */,
+    ysdm                 varchar(20)          not null/* åŒ»ç”Ÿå·¥å· */,
+    ysxm                 varchar(50)          not null/* åŒ»ç”Ÿå§“å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
 
@@ -1470,17 +1470,17 @@ where id = object_id('DC_HLCZJL_SSHL') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SSHL_GMS     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÊÖÊõ»¤Àí¼ÇÂ¼_¹ıÃôÊ·                                                                                                  */
+ /* DC_HLCZJL_SSHL_GMS     æŠ¤ç†æ“ä½œè®°å½• â€” æ‰‹æœ¯æŠ¤ç†è®°å½•_è¿‡æ•å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SSHL_GMS') )
  create table  DC_HLCZJL_SSHL_GMS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    gms                  varchar(1000)        not null/* ¹ıÃôÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    gms                  varchar(1000)        not null/* è¿‡æ•å² */,
     
    
 
@@ -1498,19 +1498,19 @@ where id = object_id('DC_HLCZJL_SSHL_GMS') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SSHL_HLCZ     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÊÖÊõ»¤Àí¼ÇÂ¼_»¤Àí²Ù×÷                                                                                                  */
+ /* DC_HLCZJL_SSHL_HLCZ     æŠ¤ç†æ“ä½œè®°å½• â€” æ‰‹æœ¯æŠ¤ç†è®°å½•_æŠ¤ç†æ“ä½œ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SSHL_HLCZ') )
  create table  DC_HLCZJL_SSHL_HLCZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    hlczxmlmmc           varchar(100)         not null/* »¤Àí²Ù×÷ÏîÄ¿ÀàÄ¿Ãû³Æ */,
-    hlczmc               varchar(100)         not null/* »¤Àí²Ù×÷Ãû³Æ */,
-    hlczjg               varchar(1000)        not null/* »¤Àí²Ù×÷½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    hlczxmlmmc           varchar(100)         not null/* æŠ¤ç†æ“ä½œé¡¹ç›®ç±»ç›®åç§° */,
+    hlczmc               varchar(100)         not null/* æŠ¤ç†æ“ä½œåç§° */,
+    hlczjg               varchar(1000)        not null/* æŠ¤ç†æ“ä½œç»“æœ */,
     
    
 
@@ -1528,18 +1528,18 @@ where id = object_id('DC_HLCZJL_SSHL_HLCZ') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SSHL_HLGC     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÊÖÊõ»¤Àí¼ÇÂ¼_»¤Àí¹Û²ì                                                                                                  */
+ /* DC_HLCZJL_SSHL_HLGC     æŠ¤ç†æ“ä½œè®°å½• â€” æ‰‹æœ¯æŠ¤ç†è®°å½•_æŠ¤ç†è§‚å¯Ÿ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SSHL_HLGC') )
  create table  DC_HLCZJL_SSHL_HLGC (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    hlgcxmmc             varchar(30)          not null/* »¤Àí¹Û²ìÏîÄ¿Ãû³Æ */,
-    hlgcjg               varchar(1000)        not null/* »¤Àí¹Û²ì½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    hlgcxmmc             varchar(30)          not null/* æŠ¤ç†è§‚å¯Ÿé¡¹ç›®åç§° */,
+    hlgcjg               varchar(1000)        not null/* æŠ¤ç†è§‚å¯Ÿç»“æœ */,
     
    
 
@@ -1557,17 +1557,17 @@ where id = object_id('DC_HLCZJL_SSHL_HLGC') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SSHL_PFJC     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÊÖÊõ»¤Àí¼ÇÂ¼_Æ¤·ô¼ì²é                                                                                                  */
+ /* DC_HLCZJL_SSHL_PFJC     æŠ¤ç†æ“ä½œè®°å½• â€” æ‰‹æœ¯æŠ¤ç†è®°å½•_çš®è‚¤æ£€æŸ¥                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SSHL_PFJC') )
  create table  DC_HLCZJL_SSHL_PFJC (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    pfjcms               varchar(1000)        null/* Æ¤·ô¼ì²éÃèÊö */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    pfjcms               varchar(1000)        null/* çš®è‚¤æ£€æŸ¥æè¿° */,
     
    
 
@@ -1585,24 +1585,24 @@ where id = object_id('DC_HLCZJL_SSHL_PFJC') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SSHL_QXHD     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÊÖÊõ»¤Àí¼ÇÂ¼_Æ÷ĞµÎïÆ·ºË¶Ô                                                                                                  */
+ /* DC_HLCZJL_SSHL_QXHD     æŠ¤ç†æ“ä½œè®°å½• â€” æ‰‹æœ¯æŠ¤ç†è®°å½•_å™¨æ¢°ç‰©å“æ ¸å¯¹                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SSHL_QXHD') )
  create table  DC_HLCZJL_SSHL_QXHD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    szsywpmc             varchar(50)          not null/* ÊõÖĞËùÓÃÎïÆ·Ãû³Æ */,
-    sqqdbz               char(1)              not null/* ÊõÇ°Çåµã±êÖ¾ */,
-    gqhdbz               char(1)              not null/* ¹ØÇ°ºË¶Ô±êÖ¾ */,
-    ghhdbz               char(1)              not null/* ¹ØºóºË¶Ô±êÖ¾ */,
-    xthsdm               varchar(20)          not null/* Ñ²Ì¨»¤Ê¿¹¤ºÅ */,
-    xthsqm               varchar(50)          not null/* Ñ²Ì¨»¤Ê¿Ç©Ãû */,
-    qxhsdm               varchar(20)          not null/* Æ÷Ğµ»¤Ê¿¹¤ºÅ */,
-    qxhsqm               varchar(50)          not null/* Æ÷Ğµ»¤Ê¿Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    szsywpmc             varchar(50)          not null/* æœ¯ä¸­æ‰€ç”¨ç‰©å“åç§° */,
+    sqqdbz               char(1)              not null/* æœ¯å‰æ¸…ç‚¹æ ‡å¿— */,
+    gqhdbz               char(1)              not null/* å…³å‰æ ¸å¯¹æ ‡å¿— */,
+    ghhdbz               char(1)              not null/* å…³åæ ¸å¯¹æ ‡å¿— */,
+    xthsdm               varchar(20)          not null/* å·¡å°æŠ¤å£«å·¥å· */,
+    xthsqm               varchar(50)          not null/* å·¡å°æŠ¤å£«ç­¾å */,
+    qxhsdm               varchar(20)          not null/* å™¨æ¢°æŠ¤å£«å·¥å· */,
+    qxhsqm               varchar(50)          not null/* å™¨æ¢°æŠ¤å£«ç­¾å */,
     
    
 
@@ -1620,22 +1620,22 @@ where id = object_id('DC_HLCZJL_SSHL_QXHD') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SSHL_SHJJ     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÊÖÊõ»¤Àí¼ÇÂ¼_Êõºó½»½Ó                                                                                                  */
+ /* DC_HLCZJL_SSHL_SHJJ     æŠ¤ç†æ“ä½œè®°å½• â€” æ‰‹æœ¯æŠ¤ç†è®°å½•_æœ¯åäº¤æ¥                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SSHL_SHJJ') )
  create table  DC_HLCZJL_SSHL_SHJJ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    brjjhdxm             varchar(50)          not null/* ²¡ÈË½»½ÓºË¶ÔÏîÄ¿ */,
-    jjhsdm               varchar(20)          not null/* ½»½Ó»¤Ê¿¹¤ºÅ */,
-    jjhsqm               varchar(50)          not null/* ½»½Ó»¤Ê¿Ç©Ãû */,
-    zyzdm                varchar(20)          not null/* ×ªÔËÕß¹¤ºÅ */,
-    zyzqm                varchar(50)          not null/* ×ªÔËÕßÇ©Ãû */,
-    jjrqsj               datetime             not null/* ½»½ÓÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    brjjhdxm             varchar(50)          not null/* ç—…äººäº¤æ¥æ ¸å¯¹é¡¹ç›® */,
+    jjhsdm               varchar(20)          not null/* äº¤æ¥æŠ¤å£«å·¥å· */,
+    jjhsqm               varchar(50)          not null/* äº¤æ¥æŠ¤å£«ç­¾å */,
+    zyzdm                varchar(20)          not null/* è½¬è¿è€…å·¥å· */,
+    zyzqm                varchar(50)          not null/* è½¬è¿è€…ç­¾å */,
+    jjrqsj               datetime             not null/* äº¤æ¥æ—¥æœŸæ—¶é—´ */,
     
    
 
@@ -1653,18 +1653,18 @@ where id = object_id('DC_HLCZJL_SSHL_SHJJ') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SSHL_SQZD     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÊÖÊõ»¤Àí¼ÇÂ¼_ÊõÇ°Õï¶Ï                                                                                                  */
+ /* DC_HLCZJL_SSHL_SQZD     æŠ¤ç†æ“ä½œè®°å½• â€” æ‰‹æœ¯æŠ¤ç†è®°å½•_æœ¯å‰è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SSHL_SQZD') )
  create table  DC_HLCZJL_SSHL_SQZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    sqzdbm               varchar(64)          not null/* ÊõÇ°Õï¶Ï±àÂë */,
-    sqzdmc               varchar(128)         not null/* ÊõÇ°Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    sqzdbm               varchar(64)          not null/* æœ¯å‰è¯Šæ–­ç¼–ç  */,
+    sqzdmc               varchar(128)         not null/* æœ¯å‰è¯Šæ–­åç§° */,
     
    
 
@@ -1682,28 +1682,28 @@ where id = object_id('DC_HLCZJL_SSHL_SQZD') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SSHL_SS     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÊÖÊõ»¤Àí¼ÇÂ¼_ÊÖÊõ                                                                                                  */
+ /* DC_HLCZJL_SSHL_SS     æŠ¤ç†æ“ä½œè®°å½• â€” æ‰‹æœ¯æŠ¤ç†è®°å½•_æ‰‹æœ¯                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SSHL_SS') )
  create table  DC_HLCZJL_SSHL_SS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ssjbh                varchar(20)          not null/* ÊÖÊõ¼ä±àºÅ */,
-    ssjczbm              varchar(64)          not null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssmc                 varchar(128)         not null/* ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    sszdm                varchar(20)          not null/* ÊÖÊõÕß¹¤ºÅ */,
-    sszxm                varchar(50)          not null/* ÊÖÊõÕßĞÕÃû */,
-    ssmbbwmc             varchar(128)         not null/* ÊÖÊõÄ¿±ê²¿Î»Ãû³Æ */,
-    ssjsrqsj             datetime             not null/* ÊÖÊõ½áÊøÈÕÆÚÊ±¼ä */,
-    ssksrqsj             datetime             not null/* ÊÖÊõ¿ªÊ¼ÈÕÆÚÊ±¼ä */,
-    rsssrqsj             datetime             not null/* ÈëÊÖÊõÊÒÈÕÆÚÊ±¼ä */,
-    csssrqsj             datetime             not null/* ³öÊÖÊõÊÒÈÕÆÚÊ±¼ä */,
-    zbsx                 varchar(100)         not null/* ×¼±¸ÊÂÏî */,
-    szblbz               char(1)              not null/* ÊõÖĞ²¡Àí±êÖ¾ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ssjbh                varchar(20)          not null/* æ‰‹æœ¯é—´ç¼–å· */,
+    ssjczbm              varchar(64)          not null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssmc                 varchar(128)         not null/* æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    sszdm                varchar(20)          not null/* æ‰‹æœ¯è€…å·¥å· */,
+    sszxm                varchar(50)          not null/* æ‰‹æœ¯è€…å§“å */,
+    ssmbbwmc             varchar(128)         not null/* æ‰‹æœ¯ç›®æ ‡éƒ¨ä½åç§° */,
+    ssjsrqsj             datetime             not null/* æ‰‹æœ¯ç»“æŸæ—¥æœŸæ—¶é—´ */,
+    ssksrqsj             datetime             not null/* æ‰‹æœ¯å¼€å§‹æ—¥æœŸæ—¶é—´ */,
+    rsssrqsj             datetime             not null/* å…¥æ‰‹æœ¯å®¤æ—¥æœŸæ—¶é—´ */,
+    csssrqsj             datetime             not null/* å‡ºæ‰‹æœ¯å®¤æ—¥æœŸæ—¶é—´ */,
+    zbsx                 varchar(100)         not null/* å‡†å¤‡äº‹é¡¹ */,
+    szblbz               char(1)              not null/* æœ¯ä¸­ç—…ç†æ ‡å¿— */,
     
    
     
@@ -1721,17 +1721,17 @@ where id = object_id('DC_HLCZJL_SSHL_SS') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_SSHL_TZ     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª ÊÖÊõ»¤Àí¼ÇÂ¼_ÌåÖØ                                                                                                  */
+ /* DC_HLCZJL_SSHL_TZ     æŠ¤ç†æ“ä½œè®°å½• â€” æ‰‹æœ¯æŠ¤ç†è®°å½•_ä½“é‡                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_SSHL_TZ') )
  create table  DC_HLCZJL_SSHL_TZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    tzkg                 numeric(6,2)         not null/* ÌåÖØ£¨kg£© */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    tzkg                 numeric(6,2)         not null/* ä½“é‡ï¼ˆkgï¼‰ */,
     
    
 
@@ -1749,73 +1749,73 @@ where id = object_id('DC_HLCZJL_SSHL_TZ') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_YBHL     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª Ò»°ã»¤Àí¼ÇÂ¼                                                                                                  */
+ /* DC_HLCZJL_YBHL     æŠ¤ç†æ“ä½œè®°å½• â€” ä¸€èˆ¬æŠ¤ç†è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_YBHL') )
  create table  DC_HLCZJL_YBHL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yexh                 varchar(64)          not null/* Ó¤¶ùĞòºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    zzjgdm               varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    zzjgmc               varchar(70)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    csrq                 date                 not null/* »¼Õß³öÉúÈÕÆÚ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    hldjdm               varchar(2)           not null/* »¤ÀíµÈ¼¶´úÂë */,
-    hldjmc               varchar(100)         not null/* »¤ÀíµÈ¼¶Ãû³Æ */,
-    hllxdm               varchar(2)           not null/* »¤ÀíÀàĞÍ´úÂë */,
-    hllxmc               varchar(100)         not null/* »¤ÀíÀàĞÍÃû³Æ */,
-    tzkg                 numeric(6,2)         not null/* ÌåÖØ£¨kg£© */,
-    tw                   numeric(4,1)         not null/* ÌåÎÂ£¨¡æ£© */,
-    hxl                  numeric(3)           not null/* ºôÎüÆµÂÊ£¨´Î/min£© */,
-    ml                   numeric(3)           not null/* ÂöÂÊ£¨´Î/min£© */,
-    ssy                  numeric(3)           not null/* ÊÕËõÑ¹£¨mmHg£© */,
-    szy                  numeric(3)           not null/* ÊæÕÅÑ¹£¨mmHg£© */,
-    xybhd                numeric(4,1)         not null/* ÑªÑõ±¥ºÍ¶È£¨%£© */,
-    zbdmbdbz             char(1)              not null/* ×ã±³¶¯Âö²«¶¯±êÖ¾ */,
-    ysqkdm               varchar(2)           not null/* ÒûÊ³Çé¿ö´úÂë */,
-    ysqkmc               varchar(100)         not null/* ÒûÊ³Çé¿öÃû³Æ */,
-    dghlms               varchar(1000)        not null/* µ¼¹Ü»¤ÀíÃèÊö */,
-    qghldm               varchar(2)           not null/* Æø¹Ü»¤Àí´úÂë */,
-    qghlmc               varchar(100)         not null/* Æø¹Ü»¤ÀíÃû³Æ */,
-    twhl                 varchar(30)          not null/* ÌåÎ»»¤Àí */,
-    pfhl                 varchar(50)          not null/* Æ¤·ô»¤Àí */,
-    yyhl                 varchar(100)         not null/* ÓªÑø»¤Àí */,
-    yszddm               varchar(4)           not null/* ÒûÊ³Ö¸µ¼´úÂë */,
-    yszdmc               varchar(100)         not null/* ÒûÊ³Ö¸µ¼Ãû³Æ */,
-    xlhldm               varchar(2)           not null/* ĞÄÀí»¤Àí´úÂë */,
-    xlhlmc               varchar(100)         not null/* ĞÄÀí»¤ÀíÃû³Æ */,
-    aqhldm               varchar(2)           not null/* °²È«»¤Àí´úÂë */,
-    aqhlmc               varchar(30)          not null/* °²È«»¤ÀíÃû³Æ */,
-    jybq                 varchar(2000)        not null/* ¼òÒª²¡Çé */,
-    hlgcxmmc             varchar(30)          not null/* »¤Àí¹Û²ìÏîÄ¿Ãû³Æ */,
-    hlgcjg               varchar(1000)        not null/* »¤Àí¹Û²ì½á¹û */,
-    fcssaqhdbbz          char(1)              not null/* ·¢³öÊÖÊõ°²È«ºË¶Ô±êÖ¾ */,
-    shssaqhdbbz          char(1)              not null/* ÊÕ»ØÊÖÊõ°²È«ºË¶Ô±êÖ¾ */,
-    fcssfxpgbbz          char(1)              not null/* ·¢³öÊÖÊõ·çÏÕÆÀ¹À±êÖ¾ */,
-    shssfxpgbbz          char(1)              not null/* ÊÕ»ØÊÖÊõ·çÏÕÆÀ¹À±êÖ¾ */,
-    glbz                 char(1)              not null/* ¸ôÀë±êÖ¾ */,
-    glzldm               varchar(2)           not null/* ¸ôÀëÖÖÀà´úÂë */,
-    glzlmc               varchar(100)         not null/* ¸ôÀëÖÖÀàÃû³Æ */,
-    hsdm                 varchar(20)          not null/* »¤Ê¿¹¤ºÅ */,
-    hsqm                 varchar(50)          not null/* »¤Ê¿Ç©Ãû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yexh                 varchar(64)          not null/* å©´å„¿åºå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    zzjgdm               varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    zzjgmc               varchar(70)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    csrq                 date                 not null/* æ‚£è€…å‡ºç”Ÿæ—¥æœŸ */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    hldjdm               varchar(2)           not null/* æŠ¤ç†ç­‰çº§ä»£ç  */,
+    hldjmc               varchar(100)         not null/* æŠ¤ç†ç­‰çº§åç§° */,
+    hllxdm               varchar(2)           not null/* æŠ¤ç†ç±»å‹ä»£ç  */,
+    hllxmc               varchar(100)         not null/* æŠ¤ç†ç±»å‹åç§° */,
+    tzkg                 numeric(6,2)         not null/* ä½“é‡ï¼ˆkgï¼‰ */,
+    tw                   numeric(4,1)         not null/* ä½“æ¸©ï¼ˆâ„ƒï¼‰ */,
+    hxl                  numeric(3)           not null/* å‘¼å¸é¢‘ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    ml                   numeric(3)           not null/* è„‰ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    ssy                  numeric(3)           not null/* æ”¶ç¼©å‹ï¼ˆmmHgï¼‰ */,
+    szy                  numeric(3)           not null/* èˆ’å¼ å‹ï¼ˆmmHgï¼‰ */,
+    xybhd                numeric(4,1)         not null/* è¡€æ°§é¥±å’Œåº¦ï¼ˆ%ï¼‰ */,
+    zbdmbdbz             char(1)              not null/* è¶³èƒŒåŠ¨è„‰æåŠ¨æ ‡å¿— */,
+    ysqkdm               varchar(2)           not null/* é¥®é£Ÿæƒ…å†µä»£ç  */,
+    ysqkmc               varchar(100)         not null/* é¥®é£Ÿæƒ…å†µåç§° */,
+    dghlms               varchar(1000)        not null/* å¯¼ç®¡æŠ¤ç†æè¿° */,
+    qghldm               varchar(2)           not null/* æ°”ç®¡æŠ¤ç†ä»£ç  */,
+    qghlmc               varchar(100)         not null/* æ°”ç®¡æŠ¤ç†åç§° */,
+    twhl                 varchar(30)          not null/* ä½“ä½æŠ¤ç† */,
+    pfhl                 varchar(50)          not null/* çš®è‚¤æŠ¤ç† */,
+    yyhl                 varchar(100)         not null/* è¥å…»æŠ¤ç† */,
+    yszddm               varchar(4)           not null/* é¥®é£ŸæŒ‡å¯¼ä»£ç  */,
+    yszdmc               varchar(100)         not null/* é¥®é£ŸæŒ‡å¯¼åç§° */,
+    xlhldm               varchar(2)           not null/* å¿ƒç†æŠ¤ç†ä»£ç  */,
+    xlhlmc               varchar(100)         not null/* å¿ƒç†æŠ¤ç†åç§° */,
+    aqhldm               varchar(2)           not null/* å®‰å…¨æŠ¤ç†ä»£ç  */,
+    aqhlmc               varchar(30)          not null/* å®‰å…¨æŠ¤ç†åç§° */,
+    jybq                 varchar(2000)        not null/* ç®€è¦ç—…æƒ… */,
+    hlgcxmmc             varchar(30)          not null/* æŠ¤ç†è§‚å¯Ÿé¡¹ç›®åç§° */,
+    hlgcjg               varchar(1000)        not null/* æŠ¤ç†è§‚å¯Ÿç»“æœ */,
+    fcssaqhdbbz          char(1)              not null/* å‘å‡ºæ‰‹æœ¯å®‰å…¨æ ¸å¯¹æ ‡å¿— */,
+    shssaqhdbbz          char(1)              not null/* æ”¶å›æ‰‹æœ¯å®‰å…¨æ ¸å¯¹æ ‡å¿— */,
+    fcssfxpgbbz          char(1)              not null/* å‘å‡ºæ‰‹æœ¯é£é™©è¯„ä¼°æ ‡å¿— */,
+    shssfxpgbbz          char(1)              not null/* æ”¶å›æ‰‹æœ¯é£é™©è¯„ä¼°æ ‡å¿— */,
+    glbz                 char(1)              not null/* éš”ç¦»æ ‡å¿— */,
+    glzldm               varchar(2)           not null/* éš”ç¦»ç§ç±»ä»£ç  */,
+    glzlmc               varchar(100)         not null/* éš”ç¦»ç§ç±»åç§° */,
+    hsdm                 varchar(20)          not null/* æŠ¤å£«å·¥å· */,
+    hsqm                 varchar(50)          not null/* æŠ¤å£«ç­¾å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -1833,17 +1833,17 @@ where id = object_id('DC_HLCZJL_YBHL') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_YBHL_GMS     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª Ò»°ã»¤Àí¼ÇÂ¼_¹ıÃôÊ·                                                                                                  */
+ /* DC_HLCZJL_YBHL_GMS     æŠ¤ç†æ“ä½œè®°å½• â€” ä¸€èˆ¬æŠ¤ç†è®°å½•_è¿‡æ•å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_YBHL_GMS') )
  create table  DC_HLCZJL_YBHL_GMS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    gms                  varchar(1000)        not null/* ¹ıÃôÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    gms                  varchar(1000)        not null/* è¿‡æ•å² */,
     
    
 
@@ -1861,19 +1861,19 @@ where id = object_id('DC_HLCZJL_YBHL_GMS') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_YBHL_HLCZ     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª Ò»°ã»¤Àí¼ÇÂ¼_»¤Àí²Ù×÷                                                                                                  */
+ /* DC_HLCZJL_YBHL_HLCZ     æŠ¤ç†æ“ä½œè®°å½• â€” ä¸€èˆ¬æŠ¤ç†è®°å½•_æŠ¤ç†æ“ä½œ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_YBHL_HLCZ') )
  create table  DC_HLCZJL_YBHL_HLCZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    hlczmc               varchar(100)         not null/* »¤Àí²Ù×÷Ãû³Æ */,
-    hlczxmlmmc           varchar(100)         not null/* »¤Àí²Ù×÷ÏîÄ¿ÀàÄ¿Ãû³Æ */,
-    hlczjg               varchar(1000)        not null/* »¤Àí²Ù×÷½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    hlczmc               varchar(100)         not null/* æŠ¤ç†æ“ä½œåç§° */,
+    hlczxmlmmc           varchar(100)         not null/* æŠ¤ç†æ“ä½œé¡¹ç›®ç±»ç›®åç§° */,
+    hlczjg               varchar(1000)        not null/* æŠ¤ç†æ“ä½œç»“æœ */,
     
    
 
@@ -1891,18 +1891,18 @@ where id = object_id('DC_HLCZJL_YBHL_HLCZ') )
 go
 
 /*========================================================================*/
- /* DC_HLCZJL_YBHL_ZDXX     »¤Àí²Ù×÷¼ÇÂ¼ ¡ª Ò»°ã»¤Àí¼ÇÂ¼_Õï¶Ï                                                                                                  */
+ /* DC_HLCZJL_YBHL_ZDXX     æŠ¤ç†æ“ä½œè®°å½• â€” ä¸€èˆ¬æŠ¤ç†è®°å½•_è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLCZJL_YBHL_ZDXX') )
  create table  DC_HLCZJL_YBHL_ZDXX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zdbm                 varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    zdmc                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zdbm                 varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    zdmc                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
     
    
 
@@ -1920,49 +1920,49 @@ where id = object_id('DC_HLCZJL_YBHL_ZDXX') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_CYPGJZD     »¤ÀíÆÀ¹À¼Æ»® ¡ª ³öÔºÆÀ¹À¼°Ö¸µ¼                                                                                                  */
+ /* DC_HLPGYJH_CYPGJZD     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å‡ºé™¢è¯„ä¼°åŠæŒ‡å¯¼                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_CYPGJZD') )
  create table  DC_HLPGYJH_CYPGJZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    jkkh                 varchar(64)          not null/* ³ÇÏç¾ÓÃñ½¡¿µ¿¨ºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yexh                 varchar(64)          not null/* Ó¤¶ùĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    cyrqsj               datetime             not null/* ³öÔºÈÕÆÚÊ±¼ä */,
-    ysqkdm               varchar(2)           null/* ÒûÊ³Çé¿ö´úÂë */,
-    ysqkmc               varchar(100)         null/* ÒûÊ³Çé¿öÃû³Æ */,
-    zlnldm               varchar(2)           null/* ×ÔÀíÄÜÁ¦´úÂë */,
-    zlnlmc               varchar(18)          null/* ×ÔÀíÄÜÁ¦Ãû³Æ */,
-    cyqkmc               varchar(2000)        not null/* ³öÔºÇé¿ö */,
-    lyfsdm               varchar(2)           not null/* ÀëÔº·½Ê½´úÂë */,
-    lyfsmc               varchar(50)          not null/* ÀëÔº·½Ê½Ãû³Æ */,
-    yyzd                 varchar(100)         null/* ÓÃÒ©Ö¸µ¼ */,
-    yszddm               varchar(2)           null/* ÒûÊ³Ö¸µ¼´úÂë */,
-    yszdmc               varchar(100)         null/* ÒûÊ³Ö¸µ¼Ãû³Æ */,
-    shfszd               varchar(50)          null/* Éú»î·½Ê½Ö¸µ¼ */,
-    xjnr                 varchar(100)         null/* Ğû½ÌÄÚÈİ */,
-    fzzd                 varchar(100)         null/* ¸´ÕïÖ¸µ¼ */,
-    hsdm                 varchar(20)          not null/* »¤Ê¿¹¤ºÅ */,
-    hsqm                 varchar(50)          not null/* »¤Ê¿Ç©Ãû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    jkkh                 varchar(64)          not null/* åŸä¹¡å±…æ°‘å¥åº·å¡å· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yexh                 varchar(64)          not null/* å©´å„¿åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    cyrqsj               datetime             not null/* å‡ºé™¢æ—¥æœŸæ—¶é—´ */,
+    ysqkdm               varchar(2)           null/* é¥®é£Ÿæƒ…å†µä»£ç  */,
+    ysqkmc               varchar(100)         null/* é¥®é£Ÿæƒ…å†µåç§° */,
+    zlnldm               varchar(2)           null/* è‡ªç†èƒ½åŠ›ä»£ç  */,
+    zlnlmc               varchar(18)          null/* è‡ªç†èƒ½åŠ›åç§° */,
+    cyqkmc               varchar(2000)        not null/* å‡ºé™¢æƒ…å†µ */,
+    lyfsdm               varchar(2)           not null/* ç¦»é™¢æ–¹å¼ä»£ç  */,
+    lyfsmc               varchar(50)          not null/* ç¦»é™¢æ–¹å¼åç§° */,
+    yyzd                 varchar(100)         null/* ç”¨è¯æŒ‡å¯¼ */,
+    yszddm               varchar(2)           null/* é¥®é£ŸæŒ‡å¯¼ä»£ç  */,
+    yszdmc               varchar(100)         null/* é¥®é£ŸæŒ‡å¯¼åç§° */,
+    shfszd               varchar(50)          null/* ç”Ÿæ´»æ–¹å¼æŒ‡å¯¼ */,
+    xjnr                 varchar(100)         null/* å®£æ•™å†…å®¹ */,
+    fzzd                 varchar(100)         null/* å¤è¯ŠæŒ‡å¯¼ */,
+    hsdm                 varchar(20)          not null/* æŠ¤å£«å·¥å· */,
+    hsqm                 varchar(50)          not null/* æŠ¤å£«ç­¾å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -1980,18 +1980,18 @@ where id = object_id('DC_HLPGYJH_CYPGJZD') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_CYPGJZD_CYZD     »¤ÀíÆÀ¹À¼Æ»® ¡ª ³öÔºÆÀ¹À¼°Ö¸µ¼_³öÔºÕï¶Ï                                                                                                  */
+ /* DC_HLPGYJH_CYPGJZD_CYZD     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å‡ºé™¢è¯„ä¼°åŠæŒ‡å¯¼_å‡ºé™¢è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_CYPGJZD_CYZD') )
  create table  DC_HLPGYJH_CYPGJZD_CYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    cyzdbm               varchar(64)          not null/* ³öÔºÕï¶Ï±àÂë */,
-    cyzdmc               varchar(128)         not null/* ³öÔºÕï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    cyzdbm               varchar(64)          not null/* å‡ºé™¢è¯Šæ–­ç¼–ç  */,
+    cyzdmc               varchar(128)         not null/* å‡ºé™¢è¯Šæ–­åç§° */,
     
    
     
@@ -2009,54 +2009,54 @@ where id = object_id('DC_HLPGYJH_CYPGJZD_CYZD') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_HLJH     »¤ÀíÆÀ¹À¼Æ»® ¡ª »¤Àí¼Æ»®                                                                                                  */
+ /* DC_HLPGYJH_HLJH     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” æŠ¤ç†è®¡åˆ’                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_HLJH') )
  create table  DC_HLPGYJH_HLJH (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    jkkh                 varchar(64)          not null/* ³ÇÏç¾ÓÃñ½¡¿µ¿¨ºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yexh                 varchar(64)          not null/* Ó¤¶ùĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    jbzdbm               varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    jbzdmc               varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
-    hldjdm               varchar(2)           not null/* »¤ÀíµÈ¼¶´úÂë */,
-    hldjmc               varchar(100)         not null/* »¤ÀíµÈ¼¶Ãû³Æ */,
-    hllxdm               varchar(2)           not null/* »¤ÀíÀàĞÍ´úÂë */,
-    hllxmc               varchar(100)         not null/* »¤ÀíÀàĞÍÃû³Æ */,
-    hlwt                 varchar(1000)        not null/* »¤ÀíÎÊÌâ */,
-    hlczxmlmmc           varchar(100)         not null/* »¤Àí²Ù×÷ÏîÄ¿ÀàÄ¿Ãû³Æ */,
-    hlczmc               varchar(100)         not null/* »¤Àí²Ù×÷Ãû³Æ */,
-    hlczjg               varchar(1000)        not null/* »¤Àí²Ù×÷½á¹û */,
-    dghlms               varchar(1000)        not null/* µ¼¹Ü»¤ÀíÃèÊö */,
-    twhl                 varchar(30)          not null/* ÌåÎ»»¤Àí */,
-    pfhl                 varchar(50)          not null/* Æ¤·ô»¤Àí */,
-    qghldm               varchar(2)           not null/* Æø¹Ü»¤Àí´úÂë */,
-    qghlmc               varchar(18)          not null/* Æø¹Ü»¤ÀíÃû³Æ */,
-    aqhldm               varchar(2)           not null/* °²È«»¤Àí´úÂë */,
-    aqhlmc               varchar(18)          not null/* °²È«»¤ÀíÃû³Æ */,
-    yszddm               varchar(2)           not null/* ÒûÊ³Ö¸µ¼´úÂë */,
-    yszdmc               varchar(18)          not null/* ÒûÊ³Ö¸µ¼Ãû³Æ */,
-    hsdm                 varchar(20)          not null/* »¤Ê¿¹¤ºÅ */,
-    hsqm                 varchar(50)          not null/* »¤Ê¿Ç©Ãû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    jkkh                 varchar(64)          not null/* åŸä¹¡å±…æ°‘å¥åº·å¡å· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yexh                 varchar(64)          not null/* å©´å„¿åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    jbzdbm               varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    jbzdmc               varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
+    hldjdm               varchar(2)           not null/* æŠ¤ç†ç­‰çº§ä»£ç  */,
+    hldjmc               varchar(100)         not null/* æŠ¤ç†ç­‰çº§åç§° */,
+    hllxdm               varchar(2)           not null/* æŠ¤ç†ç±»å‹ä»£ç  */,
+    hllxmc               varchar(100)         not null/* æŠ¤ç†ç±»å‹åç§° */,
+    hlwt                 varchar(1000)        not null/* æŠ¤ç†é—®é¢˜ */,
+    hlczxmlmmc           varchar(100)         not null/* æŠ¤ç†æ“ä½œé¡¹ç›®ç±»ç›®åç§° */,
+    hlczmc               varchar(100)         not null/* æŠ¤ç†æ“ä½œåç§° */,
+    hlczjg               varchar(1000)        not null/* æŠ¤ç†æ“ä½œç»“æœ */,
+    dghlms               varchar(1000)        not null/* å¯¼ç®¡æŠ¤ç†æè¿° */,
+    twhl                 varchar(30)          not null/* ä½“ä½æŠ¤ç† */,
+    pfhl                 varchar(50)          not null/* çš®è‚¤æŠ¤ç† */,
+    qghldm               varchar(2)           not null/* æ°”ç®¡æŠ¤ç†ä»£ç  */,
+    qghlmc               varchar(18)          not null/* æ°”ç®¡æŠ¤ç†åç§° */,
+    aqhldm               varchar(2)           not null/* å®‰å…¨æŠ¤ç†ä»£ç  */,
+    aqhlmc               varchar(18)          not null/* å®‰å…¨æŠ¤ç†åç§° */,
+    yszddm               varchar(2)           not null/* é¥®é£ŸæŒ‡å¯¼ä»£ç  */,
+    yszdmc               varchar(18)          not null/* é¥®é£ŸæŒ‡å¯¼åç§° */,
+    hsdm                 varchar(20)          not null/* æŠ¤å£«å·¥å· */,
+    hsqm                 varchar(50)          not null/* æŠ¤å£«ç­¾å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -2074,91 +2074,91 @@ where id = object_id('DC_HLPGYJH_HLJH') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_RYPG     »¤ÀíÆÀ¹À¼Æ»® ¡ª ÈëÔºÆÀ¹À¼ÇÂ¼                                                                                                  */
+ /* DC_HLPGYJH_RYPG     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å…¥é™¢è¯„ä¼°è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_RYPG') )
  create table  DC_HLPGYJH_RYPG (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    jkkh                 varchar(64)          not null/* ³ÇÏç¾ÓÃñ½¡¿µ¿¨ºÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yexh                 varchar(64)          not null/* Ó¤¶ùĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    gjdm                 varchar(3)           null/* ¹ú¼®´úÂë */,
-    gjmc                 varchar(18)          null/* ¹ú¼®Ãû³Æ */,
-    mz                   varchar(2)           null/* Ãñ×å´úÂë */,
-    mzmc                 varchar(18)          null/* Ãñ×åÃû³Æ */,
-    hyzkdm               varchar(2)           null/* »éÒö×´¿ö´úÂë */,
-    hyzkmc               varchar(18)          null/* »éÒö×´¿öÃû³Æ */,
-    zylbdm               varchar(2)           null/* Ö°ÒµÀà±ğ´úÂë */,
-    zylbmc               varchar(18)          null/* Ö°ÒµÀà±ğÃû³Æ */,
-    xldm                 varchar(2)           null/* Ñ§Àú´úÂë */,
-    xlmc                 varchar(18)          null/* Ñ§ÀúÃû³Æ */,
-    hzdhhm               varchar(20)          null/* »¼Õßµç»°ºÅÂë */,
-    gzdwdhhm             varchar(20)          null/* ¹¤×÷µ¥Î»µç»°ºÅÂë */,
-    hzdzyjdz             varchar(70)          null/* »¼Õßµç×ÓÓÊ¼şµØÖ· */,
-    lxrxm                varchar(50)          null/* ÁªÏµÈËĞÕÃû */,
-    lxrdhhm              varchar(20)          null/* ÁªÏµÈËµç»°ºÅÂë */,
-    rbffs                varchar(20)          null/* Èë²¡·¿·½Ê½ */,
-    ryrqsj               datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    tzkg                 numeric(6,2)         not null/* ÌåÖØ£¨kg£© */,
-    tw                   numeric(4,1)         not null/* ÌåÎÂ£¨¡æ£© */,
-    hxl                  numeric(3)           not null/* ºôÎüÆµÂÊ£¨´Î/min£© */,
-    ml                   numeric(3)           not null/* ÂöÂÊ£¨´Î/min£© */,
-    ssy                  numeric(3)           not null/* ÊÕËõÑ¹£¨mmHg£© */,
-    szy                  numeric(3)           not null/* ÊæÕÅÑ¹£¨mmHg£© */,
-    ryyyms               varchar(1000)        not null/* ÈëÔºÔ­Òò */,
-    rytjdm               varchar(2)           not null/* ÈëÔºÍ¾¾¶´úÂë */,
-    rytjmc               varchar(64)          not null/* ÈëÔºÍ¾¾¶Ãû³Æ */,
-    apgarpfz             numeric(2)           null/* ApgarÆÀ·ÖÖµ */,
-    ysqkdm               varchar(2)           not null/* ÒûÊ³Çé¿ö´úÂë */,
-    ysqkmc               varchar(18)          not null/* ÒûÊ³Çé¿öÃû³Æ */,
-    fycddm               varchar(2)           null/* ·¢Óı³Ì¶È´úÂë */,
-    fycdmc               varchar(18)          null/* ·¢Óı³Ì¶ÈÃû³Æ */,
-    jsztzcbz             char(1)              null/* ¾«Éñ×´Ì¬Õı³£±êÖ¾ */,
-    smzk                 varchar(1000)        null/* Ë¯Ãß×´¿ö */,
-    tsqk                 varchar(1000)        null/* ÌØÊâÇé¿ö */,
-    xlztdm               varchar(2)           null/* ĞÄÀí×´Ì¬´úÂë */,
-    xlztmc               varchar(18)          null/* ĞÄÀí×´Ì¬Ãû³Æ */,
-    yyztdm               varchar(2)           null/* ÓªÑø×´Ì¬´úÂë */,
-    yyztmc               varchar(18)          null/* ÓªÑø×´Ì¬Ãû³Æ */,
-    zlnldm               varchar(2)           null/* ×ÔÀíÄÜÁ¦´úÂë */,
-    zlnlmc               varchar(18)          null/* ×ÔÀíÄÜÁ¦Ãû³Æ */,
-    ybjkzkbz             char(1)              not null/* Ò»°ã½¡¿µ×´¿ö±êÖ¾ */,
-    hzcrxbz              char(1)              not null/* »¼Õß´«È¾ĞÔ±êÖ¾ */,
-    xybz                 char(1)              not null/* ÎüÑÌ±êÖ¾ */,
-    tzxyts               numeric(5)           not null/* Í£Ö¹ÎüÑÌÌìÊı */,
-    xyzkdm               varchar(2)           not null/* ÎüÑÌ×´¿ö´úÂë */,
-    xyzkmc               varchar(18)          not null/* ÎüÑÌ×´¿öÃû³Æ */,
-    rxylz                numeric(3)           not null/* ÈÕÎüÑÌÁ¿£¨Ö§£© */,
-    yjbz                 char(1)              not null/* Òû¾Æ±êÖ¾ */,
-    yjpldm               varchar(2)           not null/* Òû¾ÆÆµÂÊ´úÂë */,
-    yjplmc               varchar(18)          not null/* Òû¾ÆÆµÂÊÃû³Æ */,
-    ryjlml               numeric(3)           not null/* ÈÕÒû¾ÆÁ¿£¨mL£© */,
-    tzysbz               char(1)              not null/* Í¨ÖªÒ½Ê¦±êÖ¾ */,
-    tzysrqsj             datetime             not null/* Í¨ÖªÒ½Ê¦ÈÕÆÚÊ±¼ä */,
-    pgrqsj               datetime             not null/* ÆÀ¹ÀÈÕÆÚÊ±¼ä */,
-    zrhsdm               varchar(50)          not null/* ÔğÈÎ»¤Ê¿¹¤ºÅ */,
-    zrhsqm               varchar(50)          not null/* ÔğÈÎ»¤Ê¿Ç©Ãû */,
-    jzhsdm               varchar(50)          not null/* ½ÓÕï»¤Ê¿¹¤ºÅ */,
-    jzhsqm               varchar(50)          not null/* ½ÓÕï»¤Ê¿Ç©Ãû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    jkkh                 varchar(64)          not null/* åŸä¹¡å±…æ°‘å¥åº·å¡å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yexh                 varchar(64)          not null/* å©´å„¿åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    gjdm                 varchar(3)           null/* å›½ç±ä»£ç  */,
+    gjmc                 varchar(18)          null/* å›½ç±åç§° */,
+    mz                   varchar(2)           null/* æ°‘æ—ä»£ç  */,
+    mzmc                 varchar(18)          null/* æ°‘æ—åç§° */,
+    hyzkdm               varchar(2)           null/* å©šå§»çŠ¶å†µä»£ç  */,
+    hyzkmc               varchar(18)          null/* å©šå§»çŠ¶å†µåç§° */,
+    zylbdm               varchar(2)           null/* èŒä¸šç±»åˆ«ä»£ç  */,
+    zylbmc               varchar(18)          null/* èŒä¸šç±»åˆ«åç§° */,
+    xldm                 varchar(2)           null/* å­¦å†ä»£ç  */,
+    xlmc                 varchar(18)          null/* å­¦å†åç§° */,
+    hzdhhm               varchar(20)          null/* æ‚£è€…ç”µè¯å·ç  */,
+    gzdwdhhm             varchar(20)          null/* å·¥ä½œå•ä½ç”µè¯å·ç  */,
+    hzdzyjdz             varchar(70)          null/* æ‚£è€…ç”µå­é‚®ä»¶åœ°å€ */,
+    lxrxm                varchar(50)          null/* è”ç³»äººå§“å */,
+    lxrdhhm              varchar(20)          null/* è”ç³»äººç”µè¯å·ç  */,
+    rbffs                varchar(20)          null/* å…¥ç—…æˆ¿æ–¹å¼ */,
+    ryrqsj               datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    tzkg                 numeric(6,2)         not null/* ä½“é‡ï¼ˆkgï¼‰ */,
+    tw                   numeric(4,1)         not null/* ä½“æ¸©ï¼ˆâ„ƒï¼‰ */,
+    hxl                  numeric(3)           not null/* å‘¼å¸é¢‘ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    ml                   numeric(3)           not null/* è„‰ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    ssy                  numeric(3)           not null/* æ”¶ç¼©å‹ï¼ˆmmHgï¼‰ */,
+    szy                  numeric(3)           not null/* èˆ’å¼ å‹ï¼ˆmmHgï¼‰ */,
+    ryyyms               varchar(1000)        not null/* å…¥é™¢åŸå›  */,
+    rytjdm               varchar(2)           not null/* å…¥é™¢é€”å¾„ä»£ç  */,
+    rytjmc               varchar(64)          not null/* å…¥é™¢é€”å¾„åç§° */,
+    apgarpfz             numeric(2)           null/* Apgarè¯„åˆ†å€¼ */,
+    ysqkdm               varchar(2)           not null/* é¥®é£Ÿæƒ…å†µä»£ç  */,
+    ysqkmc               varchar(18)          not null/* é¥®é£Ÿæƒ…å†µåç§° */,
+    fycddm               varchar(2)           null/* å‘è‚²ç¨‹åº¦ä»£ç  */,
+    fycdmc               varchar(18)          null/* å‘è‚²ç¨‹åº¦åç§° */,
+    jsztzcbz             char(1)              null/* ç²¾ç¥çŠ¶æ€æ­£å¸¸æ ‡å¿— */,
+    smzk                 varchar(1000)        null/* ç¡çœ çŠ¶å†µ */,
+    tsqk                 varchar(1000)        null/* ç‰¹æ®Šæƒ…å†µ */,
+    xlztdm               varchar(2)           null/* å¿ƒç†çŠ¶æ€ä»£ç  */,
+    xlztmc               varchar(18)          null/* å¿ƒç†çŠ¶æ€åç§° */,
+    yyztdm               varchar(2)           null/* è¥å…»çŠ¶æ€ä»£ç  */,
+    yyztmc               varchar(18)          null/* è¥å…»çŠ¶æ€åç§° */,
+    zlnldm               varchar(2)           null/* è‡ªç†èƒ½åŠ›ä»£ç  */,
+    zlnlmc               varchar(18)          null/* è‡ªç†èƒ½åŠ›åç§° */,
+    ybjkzkbz             char(1)              not null/* ä¸€èˆ¬å¥åº·çŠ¶å†µæ ‡å¿— */,
+    hzcrxbz              char(1)              not null/* æ‚£è€…ä¼ æŸ“æ€§æ ‡å¿— */,
+    xybz                 char(1)              not null/* å¸çƒŸæ ‡å¿— */,
+    tzxyts               numeric(5)           not null/* åœæ­¢å¸çƒŸå¤©æ•° */,
+    xyzkdm               varchar(2)           not null/* å¸çƒŸçŠ¶å†µä»£ç  */,
+    xyzkmc               varchar(18)          not null/* å¸çƒŸçŠ¶å†µåç§° */,
+    rxylz                numeric(3)           not null/* æ—¥å¸çƒŸé‡ï¼ˆæ”¯ï¼‰ */,
+    yjbz                 char(1)              not null/* é¥®é…’æ ‡å¿— */,
+    yjpldm               varchar(2)           not null/* é¥®é…’é¢‘ç‡ä»£ç  */,
+    yjplmc               varchar(18)          not null/* é¥®é…’é¢‘ç‡åç§° */,
+    ryjlml               numeric(3)           not null/* æ—¥é¥®é…’é‡ï¼ˆmLï¼‰ */,
+    tzysbz               char(1)              not null/* é€šçŸ¥åŒ»å¸ˆæ ‡å¿— */,
+    tzysrqsj             datetime             not null/* é€šçŸ¥åŒ»å¸ˆæ—¥æœŸæ—¶é—´ */,
+    pgrqsj               datetime             not null/* è¯„ä¼°æ—¥æœŸæ—¶é—´ */,
+    zrhsdm               varchar(50)          not null/* è´£ä»»æŠ¤å£«å·¥å· */,
+    zrhsqm               varchar(50)          not null/* è´£ä»»æŠ¤å£«ç­¾å */,
+    jzhsdm               varchar(50)          not null/* æ¥è¯ŠæŠ¤å£«å·¥å· */,
+    jzhsqm               varchar(50)          not null/* æ¥è¯ŠæŠ¤å£«ç­¾å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -2176,17 +2176,17 @@ where id = object_id('DC_HLPGYJH_RYPG') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_RYPG_CRBS     »¤ÀíÆÀ¹À¼Æ»® ¡ª ÈëÔºÆÀ¹À¼ÇÂ¼_´«È¾²¡Ê·                                                                                                  */
+ /* DC_HLPGYJH_RYPG_CRBS     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å…¥é™¢è¯„ä¼°è®°å½•_ä¼ æŸ“ç—…å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_RYPG_CRBS') )
  create table  DC_HLPGYJH_RYPG_CRBS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    crbs                 varchar(1000)        not null/* ´«È¾²¡Ê· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    crbs                 varchar(1000)        not null/* ä¼ æŸ“ç—…å² */,
     
    
     
@@ -2204,17 +2204,17 @@ where id = object_id('DC_HLPGYJH_RYPG_CRBS') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_RYPG_GMS     »¤ÀíÆÀ¹À¼Æ»® ¡ª ÈëÔºÆÀ¹À¼ÇÂ¼_¹ıÃôÊ·                                                                                                  */
+ /* DC_HLPGYJH_RYPG_GMS     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å…¥é™¢è¯„ä¼°è®°å½•_è¿‡æ•å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_RYPG_GMS') )
  create table  DC_HLPGYJH_RYPG_GMS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    gms                  varchar(1000)        not null/* ¹ıÃôÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    gms                  varchar(1000)        not null/* è¿‡æ•å² */,
     
    
     
@@ -2232,19 +2232,19 @@ where id = object_id('DC_HLPGYJH_RYPG_GMS') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_RYPG_HLGCXM     »¤ÀíÆÀ¹À¼Æ»® ¡ª ÈëÔºÆÀ¹À¼ÇÂ¼_»¤Àí¹Û²ìÏîÄ¿                                                                                                  */
+ /* DC_HLPGYJH_RYPG_HLGCXM     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å…¥é™¢è¯„ä¼°è®°å½•_æŠ¤ç†è§‚å¯Ÿé¡¹ç›®                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_RYPG_HLGCXM') )
  create table  DC_HLPGYJH_RYPG_HLGCXM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    hlgcxmdm             varchar(11)          null/* »¤Àí¹Û²ìÏîÄ¿´úÂë */,
-    hlgcxmmc             varchar(30)          null/* »¤Àí¹Û²ìÏîÄ¿Ãû³Æ */,
-    hlgcjg               varchar(1000)        null/* »¤Àí¹Û²ì½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    hlgcxmdm             varchar(11)          null/* æŠ¤ç†è§‚å¯Ÿé¡¹ç›®ä»£ç  */,
+    hlgcxmmc             varchar(30)          null/* æŠ¤ç†è§‚å¯Ÿé¡¹ç›®åç§° */,
+    hlgcjg               varchar(1000)        null/* æŠ¤ç†è§‚å¯Ÿç»“æœ */,
     
    
     
@@ -2262,17 +2262,17 @@ where id = object_id('DC_HLPGYJH_RYPG_HLGCXM') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_RYPG_JBS     »¤ÀíÆÀ¹À¼Æ»® ¡ª ÈëÔºÆÀ¹À¼ÇÂ¼_¼²²¡Ê·                                                                                                  */
+ /* DC_HLPGYJH_RYPG_JBS     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å…¥é™¢è¯„ä¼°è®°å½•_ç–¾ç—…å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_RYPG_JBS') )
  create table  DC_HLPGYJH_RYPG_JBS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jbshws               varchar(1000)        not null/* ¼²²¡Ê·£¨º¬ÍâÉË£© */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jbshws               varchar(1000)        not null/* ç–¾ç—…å²ï¼ˆå«å¤–ä¼¤ï¼‰ */,
     
    
     
@@ -2290,17 +2290,17 @@ where id = object_id('DC_HLPGYJH_RYPG_JBS') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_RYPG_JZS     »¤ÀíÆÀ¹À¼Æ»® ¡ª ÈëÔºÆÀ¹À¼ÇÂ¼_¼Ò×åÊ·                                                                                                  */
+ /* DC_HLPGYJH_RYPG_JZS     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å…¥é™¢è¯„ä¼°è®°å½•_å®¶æ—å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_RYPG_JZS') )
  create table  DC_HLPGYJH_RYPG_JZS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jzs                  varchar(1000)        not null/* ¼Ò×åÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jzs                  varchar(1000)        not null/* å®¶æ—å² */,
     
    
     
@@ -2318,18 +2318,18 @@ where id = object_id('DC_HLPGYJH_RYPG_JZS') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_RYPG_RYZD     »¤ÀíÆÀ¹À¼Æ»® ¡ª ÈëÔºÆÀ¹À¼ÇÂ¼_ÈëÔºÕï¶Ï                                                                                                  */
+ /* DC_HLPGYJH_RYPG_RYZD     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å…¥é™¢è¯„ä¼°è®°å½•_å…¥é™¢è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_RYPG_RYZD') )
  create table  DC_HLPGYJH_RYPG_RYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ryzdbm               varchar(64)          not null/* ÈëÔºÕï¶Ï±àÂë */,
-    ryzdmc               varchar(128)         not null/* ÈëÔºÕï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ryzdbm               varchar(64)          not null/* å…¥é™¢è¯Šæ–­ç¼–ç  */,
+    ryzdmc               varchar(128)         not null/* å…¥é™¢è¯Šæ–­åç§° */,
     
    
     
@@ -2347,17 +2347,17 @@ where id = object_id('DC_HLPGYJH_RYPG_RYZD') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_RYPG_SSS     »¤ÀíÆÀ¹À¼Æ»® ¡ª ÈëÔºÆÀ¹À¼ÇÂ¼_ÊÖÊõÊ·                                                                                                  */
+ /* DC_HLPGYJH_RYPG_SSS     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å…¥é™¢è¯„ä¼°è®°å½•_æ‰‹æœ¯å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_RYPG_SSS') )
  create table  DC_HLPGYJH_RYPG_SSS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    sss                  varchar(1000)        not null/* ÊÖÊõÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    sss                  varchar(1000)        not null/* æ‰‹æœ¯å² */,
     
    
     
@@ -2375,17 +2375,17 @@ where id = object_id('DC_HLPGYJH_RYPG_SSS') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_RYPG_SXS     »¤ÀíÆÀ¹À¼Æ»® ¡ª ÈëÔºÆÀ¹À¼ÇÂ¼_ÊäÑªÊ·                                                                                                  */
+ /* DC_HLPGYJH_RYPG_SXS     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å…¥é™¢è¯„ä¼°è®°å½•_è¾“è¡€å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_RYPG_SXS') )
  create table  DC_HLPGYJH_RYPG_SXS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    sxs                  varchar(1000)        not null/* ÊäÑªÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    sxs                  varchar(1000)        not null/* è¾“è¡€å² */,
     
    
     
@@ -2403,17 +2403,17 @@ where id = object_id('DC_HLPGYJH_RYPG_SXS') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_RYPG_YFJZS     »¤ÀíÆÀ¹À¼Æ»® ¡ª ÈëÔºÆÀ¹À¼ÇÂ¼_Ô¤·À½ÓÖÖÊ·                                                                                                  */
+ /* DC_HLPGYJH_RYPG_YFJZS     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å…¥é™¢è¯„ä¼°è®°å½•_é¢„é˜²æ¥ç§å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_RYPG_YFJZS') )
  create table  DC_HLPGYJH_RYPG_YFJZS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    yfjzs                varchar(1000)        not null/* Ô¤·À½ÓÖÖÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    yfjzs                varchar(1000)        not null/* é¢„é˜²æ¥ç§å² */,
     
    
     
@@ -2431,17 +2431,17 @@ where id = object_id('DC_HLPGYJH_RYPG_YFJZS') )
 go
 
 /*========================================================================*/
- /* DC_HLPGYJH_RYPG_ZYZZ     »¤ÀíÆÀ¹À¼Æ»® ¡ª ÈëÔºÆÀ¹À¼ÇÂ¼_Ö÷ÒªÖ¢×´                                                                                                  */
+ /* DC_HLPGYJH_RYPG_ZYZZ     æŠ¤ç†è¯„ä¼°è®¡åˆ’ â€” å…¥é™¢è¯„ä¼°è®°å½•_ä¸»è¦ç—‡çŠ¶                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_HLPGYJH_RYPG_ZYZZ') )
  create table  DC_HLPGYJH_RYPG_ZYZZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zyzz                 varchar(50)          not null/* Ö÷ÒªÖ¢×´ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zyzz                 varchar(50)          not null/* ä¸»è¦ç—‡çŠ¶ */,
     
    
     
@@ -2459,75 +2459,75 @@ where id = object_id('DC_HLPGYJH_RYPG_ZYZZ') )
 go
 
 /*========================================================================*/
- /* DC_JCJYJL_JCJL     ¼ì²é¼ìÑé¼ÇÂ¼ ¡ª ¼ì²é¼ÇÂ¼                                                                                                  */
+ /* DC_JCJYJL_JCJL     æ£€æŸ¥æ£€éªŒè®°å½• â€” æ£€æŸ¥è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_JCJYJL_JCJL') )
  create table  DC_JCJYJL_JCJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yljgzzjgdm           varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    yljgzzjgmc           varchar(100)         not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    mjzh                 varchar(64)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    hzlxdm               varchar(2)           not null/* »¼ÕßÀàĞÍ´úÂë */,
-    hzlxmc               varchar(100)         not null/* »¼ÕßÀàĞÍÃû³Æ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* »¼ÕßĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* »¼ÕßĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    dhhm                 varchar(20)          null/* µç»°ºÅÂë */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    dzsqdbh              varchar(20)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    jcsqjgmc             varchar(70)          not null/* ¼ì²éÉêÇë»ú¹¹Ãû³Æ */,
-    jcsqksdm             varchar(10)          not null/* ¼ì²éÉêÇë»ú¹¹´úÂë */,
-    jcsqksmc             varchar(50)          not null/* ¼ì²éÉêÇë¿ÆÊÒ */,
-    zdjgdm               varchar(20)          not null/* Õï¶Ï»ú¹¹´úÂë */,
-    zdjgmc               varchar(70)          not null/* Õï¶Ï»ú¹¹Ãû³Æ */,
-    zdrq                 date                 not null/* Õï¶ÏÈÕÆÚ */,
-    jbzdbm               varchar(32)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    jbzdmc               varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
-    zs                   varchar(100)         not null/* Ö÷Ëß */,
-    zzksrqsj             datetime             not null/* Ö¢×´¿ªÊ¼ÈÕÆÚÊ±¼ä */,
-    zztzrqsj             datetime             not null/* Ö¢×´Í£Ö¹ÈÕÆÚÊ±¼ä */,
-    zzms                 varchar(1000)        not null/* Ö¢×´ÃèÊö */,
-    tsjcbz               char(1)              not null/* ÌØÊâ¼ì²é±êÖ¾ */,
-    zlgcms               varchar(2000)        not null/* ÕïÁÆ¹ı³ÌÃèÊö */,
-    jcbbh                varchar(20)          not null/* ¼ì²é±ê±¾ºÅ */,
-    jcffdm               varchar(10)          not null/* ¼ì²é·½·¨´úÂë */,
-    jcffmc               varchar(100)         not null/* ¼ì²é·½·¨Ãû³Æ */,
-    jclbdm               varchar(10)          not null/* ¼ì²éÀà±ğ´úÂë */,
-    jclbmc               varchar(100)         not null/* ¼ì²éÀà±ğ */,
-    jcjsdm               varchar(20)          not null/* ¼ì²é¼¼Ê¦¹¤ºÅ */,
-    jcjsqm               varchar(50)          not null/* ¼ì²é¼¼Ê¦Ç©Ãû */,
-    jcysdm               varchar(20)          not null/* ¼ì²éÒ½Ê¦¹¤ºÅ */,
-    jcysqm               varchar(50)          not null/* ¼ì²éÒ½Ê¦Ç©Ãû */,
-    jcrq                 date                 not null/* ¼ì²éÈÕÆÚ */,
-    jcbgdbh              varchar(20)          not null/* ¼ì²é±¨¸æµ¥±àºÅ */,
-    jcbgjgdm             varchar(20)          not null/* ¼ì²é±¨¸æ»ú¹¹´úÂë */,
-    jcbgjgmc             varchar(70)          not null/* ¼ì²é±¨¸æ»ú¹¹Ãû³Æ */,
-    jcbgksdm             varchar(10)          not null/* ¼ì²é±¨¸æ´úÂë */,
-    jcbgksmc             varchar(50)          not null/* ¼ì²é±¨¸æ¿ÆÊÒ */,
-    jcbgjg_kgsj          varchar(200)         not null/* ¼ì²é±¨¸æ½á¹û-¿Í¹ÛËù¼û */,
-    jcbgjg_zgts          varchar(200)         not null/* ¼ì²é±¨¸æ½á¹û-Ö÷¹ÛÌáÊ¾ */,
-    jcbgbz               varchar(100)         not null/* ¼ì²é±¨¸æ±¸×¢ */,
-    jcbgrq               date                 not null/* ¼ì²é±¨¸æÈÕÆÚ */,
-    bgysdm               varchar(20)          not null/* ±¨¸æÒ½Ê¦¹¤ºÅ */,
-    bgysqm               varchar(50)          not null/* ±¨¸æÒ½Ê¦Ç©Ãû */,
-    shysdm               varchar(20)          not null/* ÉóºËÒ½Ê¦¹¤ºÅ */,
-    shysqm               varchar(50)          not null/* ÉóºËÒ½Ê¦Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yljgzzjgdm           varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    yljgzzjgmc           varchar(100)         not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    mjzh                 varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    hzlxdm               varchar(2)           not null/* æ‚£è€…ç±»å‹ä»£ç  */,
+    hzlxmc               varchar(100)         not null/* æ‚£è€…ç±»å‹åç§° */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ‚£è€…æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ‚£è€…æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    dhhm                 varchar(20)          null/* ç”µè¯å·ç  */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    dzsqdbh              varchar(20)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    jcsqjgmc             varchar(70)          not null/* æ£€æŸ¥ç”³è¯·æœºæ„åç§° */,
+    jcsqksdm             varchar(10)          not null/* æ£€æŸ¥ç”³è¯·æœºæ„ä»£ç  */,
+    jcsqksmc             varchar(50)          not null/* æ£€æŸ¥ç”³è¯·ç§‘å®¤ */,
+    zdjgdm               varchar(20)          not null/* è¯Šæ–­æœºæ„ä»£ç  */,
+    zdjgmc               varchar(70)          not null/* è¯Šæ–­æœºæ„åç§° */,
+    zdrq                 date                 not null/* è¯Šæ–­æ—¥æœŸ */,
+    jbzdbm               varchar(32)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    jbzdmc               varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
+    zs                   varchar(100)         not null/* ä¸»è¯‰ */,
+    zzksrqsj             datetime             not null/* ç—‡çŠ¶å¼€å§‹æ—¥æœŸæ—¶é—´ */,
+    zztzrqsj             datetime             not null/* ç—‡çŠ¶åœæ­¢æ—¥æœŸæ—¶é—´ */,
+    zzms                 varchar(1000)        not null/* ç—‡çŠ¶æè¿° */,
+    tsjcbz               char(1)              not null/* ç‰¹æ®Šæ£€æŸ¥æ ‡å¿— */,
+    zlgcms               varchar(2000)        not null/* è¯Šç–—è¿‡ç¨‹æè¿° */,
+    jcbbh                varchar(20)          not null/* æ£€æŸ¥æ ‡æœ¬å· */,
+    jcffdm               varchar(10)          not null/* æ£€æŸ¥æ–¹æ³•ä»£ç  */,
+    jcffmc               varchar(100)         not null/* æ£€æŸ¥æ–¹æ³•åç§° */,
+    jclbdm               varchar(10)          not null/* æ£€æŸ¥ç±»åˆ«ä»£ç  */,
+    jclbmc               varchar(100)         not null/* æ£€æŸ¥ç±»åˆ« */,
+    jcjsdm               varchar(20)          not null/* æ£€æŸ¥æŠ€å¸ˆå·¥å· */,
+    jcjsqm               varchar(50)          not null/* æ£€æŸ¥æŠ€å¸ˆç­¾å */,
+    jcysdm               varchar(20)          not null/* æ£€æŸ¥åŒ»å¸ˆå·¥å· */,
+    jcysqm               varchar(50)          not null/* æ£€æŸ¥åŒ»å¸ˆç­¾å */,
+    jcrq                 date                 not null/* æ£€æŸ¥æ—¥æœŸ */,
+    jcbgdbh              varchar(20)          not null/* æ£€æŸ¥æŠ¥å‘Šå•ç¼–å· */,
+    jcbgjgdm             varchar(20)          not null/* æ£€æŸ¥æŠ¥å‘Šæœºæ„ä»£ç  */,
+    jcbgjgmc             varchar(70)          not null/* æ£€æŸ¥æŠ¥å‘Šæœºæ„åç§° */,
+    jcbgksdm             varchar(10)          not null/* æ£€æŸ¥æŠ¥å‘Šä»£ç  */,
+    jcbgksmc             varchar(50)          not null/* æ£€æŸ¥æŠ¥å‘Šç§‘å®¤ */,
+    jcbgjg_kgsj          varchar(200)         not null/* æ£€æŸ¥æŠ¥å‘Šç»“æœ-å®¢è§‚æ‰€è§ */,
+    jcbgjg_zgts          varchar(200)         not null/* æ£€æŸ¥æŠ¥å‘Šç»“æœ-ä¸»è§‚æç¤º */,
+    jcbgbz               varchar(100)         not null/* æ£€æŸ¥æŠ¥å‘Šå¤‡æ³¨ */,
+    jcbgrq               date                 not null/* æ£€æŸ¥æŠ¥å‘Šæ—¥æœŸ */,
+    bgysdm               varchar(20)          not null/* æŠ¥å‘ŠåŒ»å¸ˆå·¥å· */,
+    bgysqm               varchar(50)          not null/* æŠ¥å‘ŠåŒ»å¸ˆç­¾å */,
+    shysdm               varchar(20)          not null/* å®¡æ ¸åŒ»å¸ˆå·¥å· */,
+    shysqm               varchar(50)          not null/* å®¡æ ¸åŒ»å¸ˆç­¾å */,
     
    
 
@@ -2545,28 +2545,28 @@ where id = object_id('DC_JCJYJL_JCJL') )
 go
 
 /*========================================================================*/
- /* DC_JCJYJL_JCJL_JCXM     ¼ì²é¼ìÑé¼ÇÂ¼ ¡ª ¼ì²é¼ÇÂ¼_¼ì²éÏîÄ¿                                                                                                  */
+ /* DC_JCJYJL_JCJL_JCXM     æ£€æŸ¥æ£€éªŒè®°å½• â€” æ£€æŸ¥è®°å½•_æ£€æŸ¥é¡¹ç›®                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_JCJYJL_JCJL_JCXM') )
  create table  DC_JCJYJL_JCJL_JCXM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    bblbdm               varchar(20)          not null/* ±ê±¾Àà±ğ */,
-    bblbmc               varchar(50)          not null/* ±ê±¾Ãû³Æ */,
-    bbzt                 varchar(20)          not null/* ±ê±¾×´Ì¬ */,
-    bbgdymc              varchar(50)          not null/* ±ê±¾¹Ì¶¨ÒºÃû³Æ */,
-    bbcyrqsj             datetime             not null/* ±ê±¾²ÉÑùÈÕÆÚÊ±¼ä */,
-    jsbbrqsj             datetime             not null/* ½ÓÊÕ±ê±¾ÈÕÆÚÊ±¼ä */,
-    jcxmdm               varchar(20)          not null/* ¼ì²éÏîÄ¿´úÂë */,
-    jcxmmc               varchar(50)          not null/* ¼ì²éÏîÄ¿Ãû³Æ */,
-    jcjgdm               varchar(10)          not null/* ¼ì²é½á¹û´úÂë */,
-    jcjgmc               varchar(50)          not null/* ¼ì²é½á¹ûÃû³Æ */,
-    jcdljg               numeric(14,4)        not null/* ¼ì²é¶¨Á¿½á¹û */,
-    jcdljgjldw           varchar(20)          not null/* ¼ì²é¶¨Á¿½á¹û¼ÆÁ¿µ¥Î» */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    bblbdm               varchar(20)          not null/* æ ‡æœ¬ç±»åˆ« */,
+    bblbmc               varchar(50)          not null/* æ ‡æœ¬åç§° */,
+    bbzt                 varchar(20)          not null/* æ ‡æœ¬çŠ¶æ€ */,
+    bbgdymc              varchar(50)          not null/* æ ‡æœ¬å›ºå®šæ¶²åç§° */,
+    bbcyrqsj             datetime             not null/* æ ‡æœ¬é‡‡æ ·æ—¥æœŸæ—¶é—´ */,
+    jsbbrqsj             datetime             not null/* æ¥æ”¶æ ‡æœ¬æ—¥æœŸæ—¶é—´ */,
+    jcxmdm               varchar(20)          not null/* æ£€æŸ¥é¡¹ç›®ä»£ç  */,
+    jcxmmc               varchar(50)          not null/* æ£€æŸ¥é¡¹ç›®åç§° */,
+    jcjgdm               varchar(10)          not null/* æ£€æŸ¥ç»“æœä»£ç  */,
+    jcjgmc               varchar(50)          not null/* æ£€æŸ¥ç»“æœåç§° */,
+    jcdljg               numeric(14,4)        not null/* æ£€æŸ¥å®šé‡ç»“æœ */,
+    jcdljgjldw           varchar(20)          not null/* æ£€æŸ¥å®šé‡ç»“æœè®¡é‡å•ä½ */,
     
    
 
@@ -2584,31 +2584,31 @@ where id = object_id('DC_JCJYJL_JCJL_JCXM') )
 go
 
 /*========================================================================*/
- /* DC_JCJYJL_JCJL_SS     ¼ì²é¼ìÑé¼ÇÂ¼ ¡ª ¼ì²é¼ÇÂ¼_ÊÖÊõ                                                                                                  */
+ /* DC_JCJYJL_JCJL_SS     æ£€æŸ¥æ£€éªŒè®°å½• â€” æ£€æŸ¥è®°å½•_æ‰‹æœ¯                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_JCJYJL_JCJL_SS') )
  create table  DC_JCJYJL_JCJL_SS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    czbm                 varchar(64)          null/* ²Ù×÷±àÂë */,
-    czmc                 varchar(128)         null/* ²Ù×÷Ãû³Æ */,
-    czbwbm               varchar(64)          null/* ²Ù×÷²¿Î»±àÂë */,
-    czbwmc               varchar(128)         null/* ²Ù×÷²¿Î»Ãû³Æ */,
-    jrwmc                varchar(100)         not null/* ½éÈëÎïÃû³Æ */,
-    czffms               varchar(2000)        null/* ²Ù×÷·½·¨ÃèÊö */,
-    czcs                 numeric(3)           null/* ²Ù×÷´ÎÊı */,
-    czrqsj               datetime             null/* ²Ù×÷ÈÕÆÚÊ±¼ä */,
-    mzffdm               varchar(2)           not null/* Âé×í·½·¨´úÂë */,
-    mzffmc               varchar(50)          not null/* Âé×í·½·¨Ãû³Æ */,
-    mzgcjg               varchar(1000)        not null/* Âé×í¹Û²ì½á¹û */,
-    mzzxybsdm            varchar(2)           not null/* Âé×íÖĞÎ÷Ò½±êÊ¶´úÂë */,
-    mzzxybsmc            varchar(100)         not null/* Âé×íÖĞÎ÷Ò½±êÊ¶Ãû³Æ */,
-    mzysdm               varchar(20)          not null/* Âé×íÒ½Ê¦¹¤ºÅ */,
-    mzysqm               varchar(50)          not null/* Âé×íÒ½Ê¦Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    czbm                 varchar(64)          null/* æ“ä½œç¼–ç  */,
+    czmc                 varchar(128)         null/* æ“ä½œåç§° */,
+    czbwbm               varchar(64)          null/* æ“ä½œéƒ¨ä½ç¼–ç  */,
+    czbwmc               varchar(128)         null/* æ“ä½œéƒ¨ä½åç§° */,
+    jrwmc                varchar(100)         not null/* ä»‹å…¥ç‰©åç§° */,
+    czffms               varchar(2000)        null/* æ“ä½œæ–¹æ³•æè¿° */,
+    czcs                 numeric(3)           null/* æ“ä½œæ¬¡æ•° */,
+    czrqsj               datetime             null/* æ“ä½œæ—¥æœŸæ—¶é—´ */,
+    mzffdm               varchar(2)           not null/* éº»é†‰æ–¹æ³•ä»£ç  */,
+    mzffmc               varchar(50)          not null/* éº»é†‰æ–¹æ³•åç§° */,
+    mzgcjg               varchar(1000)        not null/* éº»é†‰è§‚å¯Ÿç»“æœ */,
+    mzzxybsdm            varchar(2)           not null/* éº»é†‰ä¸­è¥¿åŒ»æ ‡è¯†ä»£ç  */,
+    mzzxybsmc            varchar(100)         not null/* éº»é†‰ä¸­è¥¿åŒ»æ ‡è¯†åç§° */,
+    mzysdm               varchar(20)          not null/* éº»é†‰åŒ»å¸ˆå·¥å· */,
+    mzysqm               varchar(50)          not null/* éº»é†‰åŒ»å¸ˆç­¾å */,
     
    
     
@@ -2626,67 +2626,67 @@ where id = object_id('DC_JCJYJL_JCJL_SS') )
 go
 
 /*========================================================================*/
- /* DC_JCJYJL_JYJL     ¼ì²é¼ìÑé¼ÇÂ¼ ¡ª ¼ìÑé¼ÇÂ¼                                                                                                  */
+ /* DC_JCJYJL_JYJL     æ£€æŸ¥æ£€éªŒè®°å½• â€” æ£€éªŒè®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_JCJYJL_JYJL') )
  create table  DC_JCJYJL_JYJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yljgzzjgdm           varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    yljgzzjgmc           varchar(100)         not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    mjzh                 varchar(64)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    hzlxdm               varchar(2)           not null/* »¼ÕßÀàĞÍ´úÂë */,
-    hzlxmc               varchar(18)          not null/* »¼ÕßÀàĞÍÃû³Æ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* »¼ÕßĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* »¼ÕßĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    dhhm                 varchar(20)          null/* µç»°ºÅÂë */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    dzsqdbh              varchar(20)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    jysqjgdm             varchar(20)          not null/* ¼ìÑéÉêÇë»ú¹¹´úÂë */,
-    jysqjgmc             varchar(70)          not null/* ¼ìÑéÉêÇë»ú¹¹Ãû³Æ */,
-    jysqksdm             varchar(11)          not null/* ¼ìÑéÉêÇë¿ÆÊÒ´úÂë */,
-    jysqksmc             varchar(50)          not null/* ¼ìÑéÉêÇë¿ÆÊÒ */,
-    jyffdm               varchar(10)          not null/* ¼ìÑé·½·¨´úÂë */,
-    jyffmc               varchar(100)         not null/* ¼ìÑé·½·¨Ãû³Æ */,
-    jylbdm               varchar(10)          not null/* ¼ìÑéÀà±ğ´úÂë */,
-    jylbmc               varchar(100)         not null/* ¼ìÑéÀà±ğ */,
-    jybbh                varchar(20)          not null/* ¼ìÑé±ê±¾ºÅ */,
-    jyjsdm               varchar(50)          not null/* ¼ìÑé¼¼Ê¦¹¤ºÅ */,
-    jyjsqm               varchar(50)          not null/* ¼ìÑé¼¼Ê¦Ç©Ãû */,
-    jyjsqmsj             datetime             not null/* ¼ìÑé¼¼Ê¦Ç©ÃûÊ±¼ä */,
-    jyysdm               varchar(50)          not null/* ¼ìÑéÒ½Ê¦¹¤ºÅ */,
-    jyysqm               varchar(50)          not null/* ¼ìÑéÒ½Ê¦Ç©Ãû */,
-    jyysqmsj             datetime             not null/* ¼ìÑéÒ½Ê¦Ê±¼ä */,
-    jyrq                 date                 not null/* ¼ìÑéÈÕÆÚ */,
-    jybgdbh              varchar(20)          not null/* ¼ìÑé±¨¸æµ¥±àºÅ */,
-    jybgjgdm             varchar(20)          not null/* ¼ìÑé±¨¸æ»ú¹¹´úÂë */,
-    jybgjgmc             varchar(70)          not null/* ¼ìÑé±¨¸æ»ú¹¹Ãû³Æ */,
-    jybgksdm             varchar(11)          not null/* ¼ìÑé±¨¸æ¿ÆÊÒ´úÂë */,
-    jybgksmc             varchar(50)          not null/* ¼ìÑé±¨¸æ¿ÆÊÒ */,
-    jybgjg               varchar(200)         not null/* ¼ìÑé±¨¸æ½á¹û */,
-    jybgbz               varchar(100)         not null/* ¼ìÑé±¨¸æ±¸×¢ */,
-    jybgrq               date                 not null/* ¼ìÑé±¨¸æÈÕÆÚ */,
-    bgysdm               varchar(20)          not null/* ±¨¸æÒ½Ê¦¹¤ºÅ */,
-    bgysqm               varchar(50)          not null/* ±¨¸æÒ½Ê¦Ç©Ãû */,
-    shysdm               varchar(20)          not null/* ÉóºËÒ½Ê¦±êÊ¶ºÅ */,
-    shysqm               varchar(50)          not null/* ÉóºËÒ½Ê¦Ç©Ãû */,
-    shysqmsj             datetime             not null/* ÉóºËÒ½Ê¦Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yljgzzjgdm           varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    yljgzzjgmc           varchar(100)         not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    mjzh                 varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    hzlxdm               varchar(2)           not null/* æ‚£è€…ç±»å‹ä»£ç  */,
+    hzlxmc               varchar(18)          not null/* æ‚£è€…ç±»å‹åç§° */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ‚£è€…æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ‚£è€…æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    dhhm                 varchar(20)          null/* ç”µè¯å·ç  */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    dzsqdbh              varchar(20)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    jysqjgdm             varchar(20)          not null/* æ£€éªŒç”³è¯·æœºæ„ä»£ç  */,
+    jysqjgmc             varchar(70)          not null/* æ£€éªŒç”³è¯·æœºæ„åç§° */,
+    jysqksdm             varchar(11)          not null/* æ£€éªŒç”³è¯·ç§‘å®¤ä»£ç  */,
+    jysqksmc             varchar(50)          not null/* æ£€éªŒç”³è¯·ç§‘å®¤ */,
+    jyffdm               varchar(10)          not null/* æ£€éªŒæ–¹æ³•ä»£ç  */,
+    jyffmc               varchar(100)         not null/* æ£€éªŒæ–¹æ³•åç§° */,
+    jylbdm               varchar(10)          not null/* æ£€éªŒç±»åˆ«ä»£ç  */,
+    jylbmc               varchar(100)         not null/* æ£€éªŒç±»åˆ« */,
+    jybbh                varchar(20)          not null/* æ£€éªŒæ ‡æœ¬å· */,
+    jyjsdm               varchar(50)          not null/* æ£€éªŒæŠ€å¸ˆå·¥å· */,
+    jyjsqm               varchar(50)          not null/* æ£€éªŒæŠ€å¸ˆç­¾å */,
+    jyjsqmsj             datetime             not null/* æ£€éªŒæŠ€å¸ˆç­¾åæ—¶é—´ */,
+    jyysdm               varchar(50)          not null/* æ£€éªŒåŒ»å¸ˆå·¥å· */,
+    jyysqm               varchar(50)          not null/* æ£€éªŒåŒ»å¸ˆç­¾å */,
+    jyysqmsj             datetime             not null/* æ£€éªŒåŒ»å¸ˆæ—¶é—´ */,
+    jyrq                 date                 not null/* æ£€éªŒæ—¥æœŸ */,
+    jybgdbh              varchar(20)          not null/* æ£€éªŒæŠ¥å‘Šå•ç¼–å· */,
+    jybgjgdm             varchar(20)          not null/* æ£€éªŒæŠ¥å‘Šæœºæ„ä»£ç  */,
+    jybgjgmc             varchar(70)          not null/* æ£€éªŒæŠ¥å‘Šæœºæ„åç§° */,
+    jybgksdm             varchar(11)          not null/* æ£€éªŒæŠ¥å‘Šç§‘å®¤ä»£ç  */,
+    jybgksmc             varchar(50)          not null/* æ£€éªŒæŠ¥å‘Šç§‘å®¤ */,
+    jybgjg               varchar(200)         not null/* æ£€éªŒæŠ¥å‘Šç»“æœ */,
+    jybgbz               varchar(100)         not null/* æ£€éªŒæŠ¥å‘Šå¤‡æ³¨ */,
+    jybgrq               date                 not null/* æ£€éªŒæŠ¥å‘Šæ—¥æœŸ */,
+    bgysdm               varchar(20)          not null/* æŠ¥å‘ŠåŒ»å¸ˆå·¥å· */,
+    bgysqm               varchar(50)          not null/* æŠ¥å‘ŠåŒ»å¸ˆç­¾å */,
+    shysdm               varchar(20)          not null/* å®¡æ ¸åŒ»å¸ˆæ ‡è¯†å· */,
+    shysqm               varchar(50)          not null/* å®¡æ ¸åŒ»å¸ˆç­¾å */,
+    shysqmsj             datetime             not null/* å®¡æ ¸åŒ»å¸ˆç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -2704,27 +2704,27 @@ where id = object_id('DC_JCJYJL_JYJL') )
 go
 
 /*========================================================================*/
- /* DC_JCJYJL_JYJL_JYXM     ¼ì²é¼ìÑé¼ÇÂ¼ ¡ª ¼ìÑé¼ÇÂ¼_¼ìÑéÏîÄ¿                                                                                                  */
+ /* DC_JCJYJL_JYJL_JYXM     æ£€æŸ¥æ£€éªŒè®°å½• â€” æ£€éªŒè®°å½•_æ£€éªŒé¡¹ç›®                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_JCJYJL_JYJL_JYXM') )
  create table  DC_JCJYJL_JYJL_JYXM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    bblbdm               varchar(20)          not null/* ±ê±¾Àà±ğ´úÂë */,
-    bblbmc               varchar(50)          not null/* ±ê±¾Àà±ğ */,
-    bbzt                 varchar(20)          not null/* ±ê±¾×´Ì¬ */,
-    bbcyrqsj             datetime             not null/* ±ê±¾²ÉÑùÈÕÆÚÊ±¼ä */,
-    jsbbrqsj             datetime             not null/* ½ÓÊÕ±ê±¾ÈÕÆÚÊ±¼ä */,
-    jyxmdm               varchar(20)          not null/* ¼ìÑéÏîÄ¿´úÂë */,
-    jyxmmc               varchar(50)          not null/* ¼ìÑéÏîÄ¿Ãû³Æ */,
-    jyjgdm               varchar(10)          not null/* ¼ìÑé½á¹û´úÂë */,
-    jyjgmc               varchar(100)         not null/* ¼ìÑé½á¹ûÃû³Æ */,
-    jydljg               numeric(14,4)        not null/* ¼ìÑé¶¨Á¿½á¹û */,
-    jydljgjldw           varchar(20)          not null/* ¼ìÑé¶¨Á¿½á¹û¼ÆÁ¿µ¥Î» */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    bblbdm               varchar(20)          not null/* æ ‡æœ¬ç±»åˆ«ä»£ç  */,
+    bblbmc               varchar(50)          not null/* æ ‡æœ¬ç±»åˆ« */,
+    bbzt                 varchar(20)          not null/* æ ‡æœ¬çŠ¶æ€ */,
+    bbcyrqsj             datetime             not null/* æ ‡æœ¬é‡‡æ ·æ—¥æœŸæ—¶é—´ */,
+    jsbbrqsj             datetime             not null/* æ¥æ”¶æ ‡æœ¬æ—¥æœŸæ—¶é—´ */,
+    jyxmdm               varchar(20)          not null/* æ£€éªŒé¡¹ç›®ä»£ç  */,
+    jyxmmc               varchar(50)          not null/* æ£€éªŒé¡¹ç›®åç§° */,
+    jyjgdm               varchar(10)          not null/* æ£€éªŒç»“æœä»£ç  */,
+    jyjgmc               varchar(100)         not null/* æ£€éªŒç»“æœåç§° */,
+    jydljg               numeric(14,4)        not null/* æ£€éªŒå®šé‡ç»“æœ */,
+    jydljgjldw           varchar(20)          not null/* æ£€éªŒå®šé‡ç»“æœè®¡é‡å•ä½ */,
     
    
     
@@ -2742,21 +2742,21 @@ where id = object_id('DC_JCJYJL_JYJL_JYXM') )
 go
 
 /*========================================================================*/
- /* DC_JCJYJL_JYJL_ZDXX     ¼ì²é¼ìÑé¼ÇÂ¼ ¡ª ¼ìÑé¼ÇÂ¼_Õï¶Ï                                                                                                  */
+ /* DC_JCJYJL_JYJL_ZDXX     æ£€æŸ¥æ£€éªŒè®°å½• â€” æ£€éªŒè®°å½•_è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_JCJYJL_JYJL_ZDXX') )
  create table  DC_JCJYJL_JYJL_ZDXX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jbzdbm               varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    jbzdmc               varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
-    zdjgdm               varchar(20)          not null/* Õï¶Ï»ú¹¹´úÂë */,
-    zdjgmc               varchar(70)          not null/* Õï¶Ï»ú¹¹Ãû³Æ */,
-    zdrq                 date                 not null/* Õï¶ÏÈÕÆÚ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jbzdbm               varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    jbzdmc               varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
+    zdjgdm               varchar(20)          not null/* è¯Šæ–­æœºæ„ä»£ç  */,
+    zdjgmc               varchar(70)          not null/* è¯Šæ–­æœºæ„åç§° */,
+    zdrq                 date                 not null/* è¯Šæ–­æ—¥æœŸ */,
     
    
     
@@ -2774,83 +2774,83 @@ where id = object_id('DC_JCJYJL_JYJL_ZDXX') )
 go
 
 /*========================================================================*/
- /* DC_MJZBL_JZLGBL     ÃÅ£¨¼±£©Õï²¡Àú ¡ª ¼±ÕïÁô¹Û²¡Àú                                                                                                  */
+ /* DC_MJZBL_JZLGBL     é—¨ï¼ˆæ€¥ï¼‰è¯Šç—…å† â€” æ€¥è¯Šç•™è§‚ç—…å†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_JZLGBL') )
  create table  DC_MJZBL_JZLGBL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zzjgdm               varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    zzjgmc               varchar(70)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    mjzh                 varchar(64)          not null/* ÃÅ¼±ÕïºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    csrq                 date                 not null/* ³öÉúÈÕÆÚ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    jzrqsj               datetime             not null/* ¾ÍÕïÈÕÆÚÊ±¼ä */,
-    czbzdm               varchar(2)           not null/* ³õÕï±êÖ¾´úÂë */,
-    czbzmc               varchar(18)          not null/* ³õÕï±êÖ¾Ãû³Æ */,
-    srgcsrq              datetime             not null/* ÊÕÈë¹Û²ìÊÒÈÕÆÚÊ±¼ä */,
-    zs                   nvarchar(100)        not null/* Ö÷Ëß */,
-    xbs                  nvarchar(2000)       not null/* ÏÖ²¡Ê· */,
-    jws                  nvarchar(1000)       not null/* ¼ÈÍùÊ· */,
-    tgjc                 nvarchar(500)        not null/* Ìå¸ñ¼ì²é */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
-    fzjcxm               nvarchar(100)        null/* ¸¨Öú¼ì²éÏîÄ¿ */,
-    fzjcjg               nvarchar(1000)       null/* ¸¨Öú¼ì²é½á¹û */,
-    bzyj                 nvarchar(100)        null/* ±æÖ¤ÒÀ¾İ */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨´úÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨ */,
-    yzxmlx               varchar(2)           not null/* Ò½ÖöÏîÄ¿ÀàĞÍ´úÂë */,
-    yzxmlxmc             sysname              not null/* Ò½ÖöÏîÄ¿ÀàĞÍÃû³Æ */,
-    yzxmnr               nvarchar(100)        not null/* Ò½ÖöÏîÄ¿ÄÚÈİ */,
-    yzbzxx               nvarchar(100)        not null/* Ò½Öö±¸×¢ĞÅÏ¢ */,
-    yzklksdm             varchar(10)          not null/* Ò½Öö¿ªÁ¢´úÂë */,
-    yzklks               varchar(50)          not null/* Ò½Öö¿ªÁ¢¿ÆÊÒ */,
-    yzklzdm              varchar(20)          not null/* Ò½Öö¿ªÁ¢Õß¹¤ºÅ */,
-    yzklzqm              varchar(50)          not null/* Ò½Öö¿ªÁ¢ÕßÇ©Ãû */,
-    yzklrq               datetime             not null/* Ò½Öö¿ªÁ¢ÈÕÆÚÊ±¼ä */,
-    yzshzdm              varchar(20)          not null/* Ò½ÖöÉóºËÕß¹¤ºÅ */,
-    yzshzqm              varchar(50)          not null/* Ò½ÖöÉóºËÕßÇ©Ãû */,
-    yzshrq               datetime             not null/* Ò½ÖöÉóºËÈÕÆÚÊ±¼ä */,
-    yzzxksdm             varchar(10)          not null/* Ò½ÖöÖ´ĞĞ´úÂë */,
-    yzzxks               varchar(50)          not null/* Ò½ÖöÖ´ĞĞ¿ÆÊÒ */,
-    yzzxzdm              varchar(20)          not null/* Ò½ÖöÖ´ĞĞÕß¹¤ºÅ */,
-    yzzxzqm              varchar(50)          not null/* Ò½ÖöÖ´ĞĞÕßÇ©Ãû */,
-    yzzxrq               datetime             not null/* Ò½ÖöÖ´ĞĞÈÕÆÚÊ±¼ä */,
-    yzjhjsrq             datetime             not null/* Ò½Öö¼Æ»®½áÊøÈÕÆÚÊ±¼ä */,
-    yzzxzt               varchar(50)          not null/* Ò½ÖöÖ´ĞĞ×´Ì¬ */,
-    qxyzzdm              varchar(20)          not null/* È¡ÏûÒ½ÖöÕß¹¤ºÅ */,
-    qxyzzqm              varchar(50)          not null/* È¡ÏûÒ½ÖöÕßÇ©Ãû */,
-    yzqxrq               datetime             not null/* Ò½ÖöÈ¡ÏûÈÕÆÚÊ±¼ä */,
-    dzsqdbh              varchar(50)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    jzlgbcjl             nvarchar(2000)       not null/* ¼±ÕïÁô¹Û²¡³Ì¼ÇÂ¼ */,
-    qjksrq               datetime             not null/* ÇÀ¾È¿ªÊ¼ÈÕÆÚÊ±¼ä */,
-    qjjsrq               datetime             not null/* ÇÀ¾È½áÊøÈÕÆÚÊ±¼ä */,
-    jzqjjl               nvarchar(2000)       not null/* ¼±ÕïÇÀ¾È¼ÇÂ¼ */,
-    jlrqsj               datetime             not null/* ¼ÇÂ¼ÈÕÆÚÊ±¼ä */,
-    zysx                 nvarchar(1000)       not null/* ×¢ÒâÊÂÏî */,
-    cjqjrydm             varchar(100)         not null/* ²Î¼ÓÇÀ¾ÈÈËÔ±Ãûµ¥´úÂë */,
-    cjqjrymd             varchar(500)         not null/* ²Î¼ÓÇÀ¾ÈÈËÔ±Ãûµ¥ */,
-    zyjszwlb             varchar(8)           not null/* ×¨Òµ¼¼ÊõÖ°ÎñÀà±ğ´úÂë */,
-    zyjszwlbmc           varchar(64)          not null/* ×¨Òµ¼¼ÊõÖ°ÎñÀà±ğÃû³Æ */,
-    hzqxdm               varchar(2)           not null/* »¼ÕßÈ¥Ïò´úÂë */,
-    hzqxmc               varchar(18)          not null/* »¼ÕßÈ¥ÏòÃû³Æ */,
-    zrysbm               varchar(20)          not null/* ÔğÈÎÒ½Ê¦¹¤ºÅ */,
-    zrysqm               varchar(50)          not null/* ÔğÈÎÒ½Ê¦ĞÕÃû */,
-    ysbm                 varchar(20)          not null/* Ç©ÃûÒ½Ê¦¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ç©ÃûÒ½Ê¦Ãû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zzjgdm               varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    zzjgmc               varchar(70)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    mjzh                 varchar(64)          not null/* é—¨æ€¥è¯Šå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    csrq                 date                 not null/* å‡ºç”Ÿæ—¥æœŸ */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    jzrqsj               datetime             not null/* å°±è¯Šæ—¥æœŸæ—¶é—´ */,
+    czbzdm               varchar(2)           not null/* åˆè¯Šæ ‡å¿—ä»£ç  */,
+    czbzmc               varchar(18)          not null/* åˆè¯Šæ ‡å¿—åç§° */,
+    srgcsrq              datetime             not null/* æ”¶å…¥è§‚å¯Ÿå®¤æ—¥æœŸæ—¶é—´ */,
+    zs                   nvarchar(100)        not null/* ä¸»è¯‰ */,
+    xbs                  nvarchar(2000)       not null/* ç°ç—…å² */,
+    jws                  nvarchar(1000)       not null/* æ—¢å¾€å² */,
+    tgjc                 nvarchar(500)        not null/* ä½“æ ¼æ£€æŸ¥ */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
+    fzjcxm               nvarchar(100)        null/* è¾…åŠ©æ£€æŸ¥é¡¹ç›® */,
+    fzjcjg               nvarchar(1000)       null/* è¾…åŠ©æ£€æŸ¥ç»“æœ */,
+    bzyj                 nvarchar(100)        null/* è¾¨è¯ä¾æ® */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ä»£ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³• */,
+    yzxmlx               varchar(2)           not null/* åŒ»å˜±é¡¹ç›®ç±»å‹ä»£ç  */,
+    yzxmlxmc             sysname              not null/* åŒ»å˜±é¡¹ç›®ç±»å‹åç§° */,
+    yzxmnr               nvarchar(100)        not null/* åŒ»å˜±é¡¹ç›®å†…å®¹ */,
+    yzbzxx               nvarchar(100)        not null/* åŒ»å˜±å¤‡æ³¨ä¿¡æ¯ */,
+    yzklksdm             varchar(10)          not null/* åŒ»å˜±å¼€ç«‹ä»£ç  */,
+    yzklks               varchar(50)          not null/* åŒ»å˜±å¼€ç«‹ç§‘å®¤ */,
+    yzklzdm              varchar(20)          not null/* åŒ»å˜±å¼€ç«‹è€…å·¥å· */,
+    yzklzqm              varchar(50)          not null/* åŒ»å˜±å¼€ç«‹è€…ç­¾å */,
+    yzklrq               datetime             not null/* åŒ»å˜±å¼€ç«‹æ—¥æœŸæ—¶é—´ */,
+    yzshzdm              varchar(20)          not null/* åŒ»å˜±å®¡æ ¸è€…å·¥å· */,
+    yzshzqm              varchar(50)          not null/* åŒ»å˜±å®¡æ ¸è€…ç­¾å */,
+    yzshrq               datetime             not null/* åŒ»å˜±å®¡æ ¸æ—¥æœŸæ—¶é—´ */,
+    yzzxksdm             varchar(10)          not null/* åŒ»å˜±æ‰§è¡Œä»£ç  */,
+    yzzxks               varchar(50)          not null/* åŒ»å˜±æ‰§è¡Œç§‘å®¤ */,
+    yzzxzdm              varchar(20)          not null/* åŒ»å˜±æ‰§è¡Œè€…å·¥å· */,
+    yzzxzqm              varchar(50)          not null/* åŒ»å˜±æ‰§è¡Œè€…ç­¾å */,
+    yzzxrq               datetime             not null/* åŒ»å˜±æ‰§è¡Œæ—¥æœŸæ—¶é—´ */,
+    yzjhjsrq             datetime             not null/* åŒ»å˜±è®¡åˆ’ç»“æŸæ—¥æœŸæ—¶é—´ */,
+    yzzxzt               varchar(50)          not null/* åŒ»å˜±æ‰§è¡ŒçŠ¶æ€ */,
+    qxyzzdm              varchar(20)          not null/* å–æ¶ˆåŒ»å˜±è€…å·¥å· */,
+    qxyzzqm              varchar(50)          not null/* å–æ¶ˆåŒ»å˜±è€…ç­¾å */,
+    yzqxrq               datetime             not null/* åŒ»å˜±å–æ¶ˆæ—¥æœŸæ—¶é—´ */,
+    dzsqdbh              varchar(50)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    jzlgbcjl             nvarchar(2000)       not null/* æ€¥è¯Šç•™è§‚ç—…ç¨‹è®°å½• */,
+    qjksrq               datetime             not null/* æŠ¢æ•‘å¼€å§‹æ—¥æœŸæ—¶é—´ */,
+    qjjsrq               datetime             not null/* æŠ¢æ•‘ç»“æŸæ—¥æœŸæ—¶é—´ */,
+    jzqjjl               nvarchar(2000)       not null/* æ€¥è¯ŠæŠ¢æ•‘è®°å½• */,
+    jlrqsj               datetime             not null/* è®°å½•æ—¥æœŸæ—¶é—´ */,
+    zysx                 nvarchar(1000)       not null/* æ³¨æ„äº‹é¡¹ */,
+    cjqjrydm             varchar(100)         not null/* å‚åŠ æŠ¢æ•‘äººå‘˜åå•ä»£ç  */,
+    cjqjrymd             varchar(500)         not null/* å‚åŠ æŠ¢æ•‘äººå‘˜åå• */,
+    zyjszwlb             varchar(8)           not null/* ä¸“ä¸šæŠ€æœ¯èŒåŠ¡ç±»åˆ«ä»£ç  */,
+    zyjszwlbmc           varchar(64)          not null/* ä¸“ä¸šæŠ€æœ¯èŒåŠ¡ç±»åˆ«åç§° */,
+    hzqxdm               varchar(2)           not null/* æ‚£è€…å»å‘ä»£ç  */,
+    hzqxmc               varchar(18)          not null/* æ‚£è€…å»å‘åç§° */,
+    zrysbm               varchar(20)          not null/* è´£ä»»åŒ»å¸ˆå·¥å· */,
+    zrysqm               varchar(50)          not null/* è´£ä»»åŒ»å¸ˆå§“å */,
+    ysbm                 varchar(20)          not null/* ç­¾ååŒ»å¸ˆå·¥å· */,
+    ysqm                 varchar(50)          not null/* ç­¾ååŒ»å¸ˆåç§° */,
     
    
     
@@ -2869,22 +2869,22 @@ go
 
 
 /*========================================================================*/
- /* DC_MJZBL_JZLGBL_CBZD     ÃÅ£¨¼±£©Õï²¡Àú ¡ª ¼±ÕïÁô¹Û²¡Àú_³õ²½Õï¶Ï                                                                                                  */
+ /* DC_MJZBL_JZLGBL_CBZD     é—¨ï¼ˆæ€¥ï¼‰è¯Šç—…å† â€” æ€¥è¯Šç•™è§‚ç—…å†_åˆæ­¥è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_JZLGBL_CBZD') )
  create table  DC_MJZBL_JZLGBL_CBZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    xyzdbm               varchar(64)          not null/* ³õ²½Õï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    xyzdmc               varchar(128)         not null/* ³õ²½Õï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    zybmdm               varchar(64)          not null/* ³õ²½Õï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    zybmmc               varchar(128)         not null/* ³õ²½Õï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    zyzhdm               varchar(64)          not null/* ³õ²½Õï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    zyzhmc               varchar(128)         not null/* ³õ²½Õï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    xyzdbm               varchar(64)          not null/* åˆæ­¥è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    xyzdmc               varchar(128)         not null/* åˆæ­¥è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    zybmdm               varchar(64)          not null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    zybmmc               varchar(128)         not null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    zyzhdm               varchar(64)          not null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    zyzhmc               varchar(128)         not null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
     
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
@@ -2900,18 +2900,18 @@ go
 
 
 /*========================================================================*/
- /* DC_MJZBL_JZLGBL_GMS     ÃÅ£¨¼±£©Õï²¡Àú ¡ª ¼±ÕïÁô¹Û²¡Àú_¹ıÃôÊ·                                                                                                  */
+ /* DC_MJZBL_JZLGBL_GMS     é—¨ï¼ˆæ€¥ï¼‰è¯Šç—…å† â€” æ€¥è¯Šç•™è§‚ç—…å†_è¿‡æ•å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_JZLGBL_GMS') )
  create table  DC_MJZBL_JZLGBL_GMS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    gmsbz                char(1)              not null/* ¹ıÃôÊ·±êÖ¾ */,
-    gms                  nvarchar(1000)       not null/* ¹ıÃôÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    gmsbz                char(1)              not null/* è¿‡æ•å²æ ‡å¿— */,
+    gms                  nvarchar(1000)       not null/* è¿‡æ•å² */,
     
    
     
@@ -2929,24 +2929,24 @@ where id = object_id('DC_MJZBL_JZLGBL_GMS') )
 go
 
 /*========================================================================*/
- /* DC_MJZBL_JZLGBL_SSCZ     ÃÅ£¨¼±£©Õï²¡Àú ¡ª ¼±ÕïÁô¹Û²¡Àú_ÊÖÊõ²Ù×÷                                                                                                  */
+ /* DC_MJZBL_JZLGBL_SSCZ     é—¨ï¼ˆæ€¥ï¼‰è¯Šç—…å† â€” æ€¥è¯Šç•™è§‚ç—…å†_æ‰‹æœ¯æ“ä½œ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_JZLGBL_SSCZ') )
  create table  DC_MJZBL_JZLGBL_SSCZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ssjczbm              varchar(64)          null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssjczmc              varchar(128)         null/* ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    ssmbbwbm             varchar(100)         null/* ÊÖÊõ¼°²Ù×÷Ä¿±ê²¿Î»±àÂë */,
-    ssmbbw               varchar(500)         null/* ÊÖÊõ¼°²Ù×÷Ä¿±ê²¿Î»Ãû³Æ */,
-    jrwdm                varchar(100)         null/* ½éÈëÎï´úÂë */,
-    jrwmc                varchar(500)         null/* ½éÈëÎïÃû³Æ */,
-    ssjczff              nvarchar(2000)       null/* ÊÖÊõ¼°²Ù×÷·½·¨ */,
-    ssjczcs              varchar(3)           null/* ÊÖÊõ¼°²Ù×÷´ÎÊı */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ssjczbm              varchar(64)          null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssjczmc              varchar(128)         null/* æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    ssmbbwbm             varchar(100)         null/* æ‰‹æœ¯åŠæ“ä½œç›®æ ‡éƒ¨ä½ç¼–ç  */,
+    ssmbbw               varchar(500)         null/* æ‰‹æœ¯åŠæ“ä½œç›®æ ‡éƒ¨ä½åç§° */,
+    jrwdm                varchar(100)         null/* ä»‹å…¥ç‰©ä»£ç  */,
+    jrwmc                varchar(500)         null/* ä»‹å…¥ç‰©åç§° */,
+    ssjczff              nvarchar(2000)       null/* æ‰‹æœ¯åŠæ“ä½œæ–¹æ³• */,
+    ssjczcs              varchar(3)           null/* æ‰‹æœ¯åŠæ“ä½œæ¬¡æ•° */,
     
    
 
@@ -2964,42 +2964,42 @@ where id = object_id('DC_MJZBL_JZLGBL_SSCZ') )
 go
 
 /*========================================================================*/
- /* DC_MJZBL_MJZBL     ÃÅ¼±Õï²¡Àú ¡ª ÃÅ¼±Õï²¡Àú                                                                                                  */
+ /* DC_MJZBL_MJZBL     é—¨æ€¥è¯Šç—…å† â€” é—¨æ€¥è¯Šç—…å†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_MJZBL') )
  create table  DC_MJZBL_MJZBL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    mjzh                 varchar(64)          not null/* ÃÅ¼±ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    csrq                 date                 not null/* ³öÉúÈÕÆÚ */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    zzjgdm               varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    zzjgmc               varchar(70)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    jzrqsj               datetime             not null/* ¾ÍÕïÈÕÆÚÊ±¼ä */,
-    czbzdm               varchar(2)           not null/* ³õÕï±êÖ¾´úÂë */,
-    czbzmc               varchar(18)          not null/* ³õÕï±êÖ¾Ãû³Æ */,
-    zs                   nvarchar(100)        not null/* Ö÷Ëß */,
-    xbs                  nvarchar(2000)       not null/* ÏÖ²¡Ê· */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
-    bzyj                 nvarchar(100)        null/* ±æÖ¤ÒÀ¾İ */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨±àÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨ */,
-    dzsqdbh              varchar(20)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    ysbm                 varchar(20)          not null/* Ò½Ê¦Ç©Ãû¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ò½Ê¦Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    mjzh                 varchar(64)          not null/* é—¨æ€¥è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    csrq                 date                 not null/* å‡ºç”Ÿæ—¥æœŸ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    zzjgdm               varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    zzjgmc               varchar(70)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    jzrqsj               datetime             not null/* å°±è¯Šæ—¥æœŸæ—¶é—´ */,
+    czbzdm               varchar(2)           not null/* åˆè¯Šæ ‡å¿—ä»£ç  */,
+    czbzmc               varchar(18)          not null/* åˆè¯Šæ ‡å¿—åç§° */,
+    zs                   nvarchar(100)        not null/* ä¸»è¯‰ */,
+    xbs                  nvarchar(2000)       not null/* ç°ç—…å² */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
+    bzyj                 nvarchar(100)        null/* è¾¨è¯ä¾æ® */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ç¼–ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³• */,
+    dzsqdbh              varchar(20)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    ysbm                 varchar(20)          not null/* åŒ»å¸ˆç­¾åå·¥å· */,
+    ysqm                 varchar(50)          not null/* åŒ»å¸ˆç­¾å */,
     
    
     
@@ -3017,18 +3017,18 @@ where id = object_id('DC_MJZBL_MJZBL') )
 go
 
 /*========================================================================*/
- /* DC_MJZBL_MJZBL_FZJCXM     ÃÅ¼±Õï²¡Àú ¡ª ÃÅ¼±Õï²¡Àú_¸¨Öú¼ì²éÏîÄ¿                                                                                                  */
+ /* DC_MJZBL_MJZBL_FZJCXM     é—¨æ€¥è¯Šç—…å† â€” é—¨æ€¥è¯Šç—…å†_è¾…åŠ©æ£€æŸ¥é¡¹ç›®                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_MJZBL_FZJCXM') )
  create table  DC_MJZBL_MJZBL_FZJCXM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    fzjcxm               nvarchar(100)        null/* ¸¨Öú¼ì²éÏîÄ¿ */,
-    fzjcjg               nvarchar(1000)       null/* ¸¨Öú¼ì²é½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    fzjcxm               nvarchar(100)        null/* è¾…åŠ©æ£€æŸ¥é¡¹ç›® */,
+    fzjcjg               nvarchar(1000)       null/* è¾…åŠ©æ£€æŸ¥ç»“æœ */,
     
    
     
@@ -3046,18 +3046,18 @@ where id = object_id('DC_MJZBL_MJZBL_FZJCXM') )
 go
 
 /*========================================================================*/
- /* DC_MJZBL_MJZBL_GMS     ÃÅ¼±Õï²¡Àú ¡ª ÃÅ¼±Õï²¡Àú_¹ıÃôÊ·                                                                                                  */
+ /* DC_MJZBL_MJZBL_GMS     é—¨æ€¥è¯Šç—…å† â€” é—¨æ€¥è¯Šç—…å†_è¿‡æ•å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_MJZBL_GMS') )
  create table  DC_MJZBL_MJZBL_GMS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    gmsbz                char(1)              not null/* ¹ıÃôÊ·±êÖ¾ */,
-    gms                  nvarchar(1000)       not null/* ¹ıÃôÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    gmsbz                char(1)              not null/* è¿‡æ•å²æ ‡å¿— */,
+    gms                  nvarchar(1000)       not null/* è¿‡æ•å² */,
     
    
 
@@ -3075,17 +3075,17 @@ where id = object_id('DC_MJZBL_MJZBL_GMS') )
 go
 
 /*========================================================================*/
- /* DC_MJZBL_MJZBL_GWS     ÃÅ¼±Õï²¡Àú ¡ª ÃÅ¼±Õï²¡Àú_¼ÈÍùÊ·                                                                                                  */
+ /* DC_MJZBL_MJZBL_GWS     é—¨æ€¥è¯Šç—…å† â€” é—¨æ€¥è¯Šç—…å†_æ—¢å¾€å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_MJZBL_GWS') )
  create table  DC_MJZBL_MJZBL_GWS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jws                  nvarchar(1000)       not null/* ¼ÈÍùÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jws                  nvarchar(1000)       not null/* æ—¢å¾€å² */,
     
    
     
@@ -3103,18 +3103,18 @@ where id = object_id('DC_MJZBL_MJZBL_GWS') )
 go
 
 /*========================================================================*/
- /* DC_MJZBL_MJZBL_XYZD     ÃÅ¼±Õï²¡Àú ¡ª ÃÅ¼±Õï²¡Àú_Î÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_MJZBL_MJZBL_XYZD     é—¨æ€¥è¯Šç—…å† â€” é—¨æ€¥è¯Šç—…å†_è¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_MJZBL_XYZD') )
  create table  DC_MJZBL_MJZBL_XYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    xyzdbm               varchar(64)          not null/* ³õ²½Õï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    xyzdmc               varchar(128)         not null/* ³õ²½Õï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    xyzdbm               varchar(64)          not null/* åˆæ­¥è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    xyzdmc               varchar(128)         not null/* åˆæ­¥è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
     
    
     
@@ -3132,17 +3132,17 @@ where id = object_id('DC_MJZBL_MJZBL_XYZD') )
 go
 
 /*========================================================================*/
- /* DC_MJZBL_MJZBL_YBTGJCJG     ÃÅ¼±Õï²¡Àú ¡ª ÃÅ¼±Õï²¡Àú_Ò»°ãÌå¸ñ¼ì²é½á¹û                                                                                                  */
+ /* DC_MJZBL_MJZBL_YBTGJCJG     é—¨æ€¥è¯Šç—…å† â€” é—¨æ€¥è¯Šç—…å†_ä¸€èˆ¬ä½“æ ¼æ£€æŸ¥ç»“æœ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_MJZBL_YBTGJCJG') )
  create table  DC_MJZBL_MJZBL_YBTGJCJG (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    tgjc                 nvarchar(500)        not null/* Ò»°ãÌå¸ñ¼ì²é½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    tgjc                 nvarchar(500)        not null/* ä¸€èˆ¬ä½“æ ¼æ£€æŸ¥ç»“æœ */,
     
    
     
@@ -3160,37 +3160,37 @@ where id = object_id('DC_MJZBL_MJZBL_YBTGJCJG') )
 go
 
 /*========================================================================*/
- /* DC_MJZBL_MJZBL_YZMX     ÃÅ¼±Õï²¡Àú ¡ª ÃÅ¼±Õï²¡Àú_Ò½ÖöÃ÷Ï¸                                                                                                  */
+ /* DC_MJZBL_MJZBL_YZMX     é—¨æ€¥è¯Šç—…å† â€” é—¨æ€¥è¯Šç—…å†_åŒ»å˜±æ˜ç»†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_MJZBL_YZMX') )
  create table  DC_MJZBL_MJZBL_YZMX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yzxmlx               varchar(2)           not null/* Ò½ÖöÏîÄ¿ÀàĞÍ´úÂë */,
-    yzxmlxmc             nvarchar(100)        not null/* Ò½ÖöÏîÄ¿ÀàĞÍÃû³Æ */,
-    yzxmnr               nvarchar(100)        not null/* Ò½ÖöÏîÄ¿ÄÚÈİ */,
-    yzbzxx               nvarchar(100)        not null/* Ò½Öö±¸×¢ĞÅÏ¢ */,
-    yzklksdm             varchar(10)          not null/* Ò½Öö¿ªÁ¢¿ÆÊÒ´úÂë */,
-    yzklks               varchar(50)          not null/* Ò½Öö¿ªÁ¢¿ÆÊÒÃû³Æ */,
-    yzklzdm              varchar(20)          not null/* Ò½Öö¿ªÁ¢Õß¹¤ºÅ */,
-    yzklzqm              varchar(50)          not null/* Ò½Öö¿ªÁ¢ÕßÇ©Ãû */,
-    yzklrq               datetime             not null/* Ò½Öö¿ªÁ¢ÈÕÆÚÊ±¼ä */,
-    yzshzdm              varchar(20)          not null/* Ò½ÖöÉóºËÕß¹¤ºÅ */,
-    yzshzqm              varchar(50)          not null/* Ò½ÖöÉóºËÕßÇ©Ãû */,
-    yzshrq               datetime             not null/* Ò½ÖöÉóºËÈÕÆÚÊ±¼ä */,
-    zxksdm               varchar(10)          not null/* Ò½ÖöÖ´ĞĞ¿ÆÊÒ´úÂë */,
-    yzzxks               varchar(50)          not null/* Ò½ÖöÖ´ĞĞ¿ÆÊÒÃû³Æ */,
-    yzzxzdm              varchar(20)          not null/* Ò½ÖöÖ´ĞĞÕß¹¤ºÅ */,
-    yzzxzqm              varchar(50)          not null/* Ò½ÖöÖ´ĞĞÕßÇ©Ãû */,
-    yzzxrq               datetime             not null/* Ò½ÖöÖ´ĞĞÈÕÆÚÊ±¼ä */,
-    yzzxzt               varchar(50)          not null/* Ò½ÖöÖ´ĞĞ×´Ì¬ */,
-    qxyzzdm              varchar(20)          not null/* È¡ÏûÒ½ÖöÕß¹¤ºÅ */,
-    qxyzzqm              varchar(50)          not null/* È¡ÏûÒ½ÖöÕßÇ©Ãû */,
-    yzqxrq               datetime             not null/* Ò½ÖöÈ¡ÏûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yzxmlx               varchar(2)           not null/* åŒ»å˜±é¡¹ç›®ç±»å‹ä»£ç  */,
+    yzxmlxmc             nvarchar(100)        not null/* åŒ»å˜±é¡¹ç›®ç±»å‹åç§° */,
+    yzxmnr               nvarchar(100)        not null/* åŒ»å˜±é¡¹ç›®å†…å®¹ */,
+    yzbzxx               nvarchar(100)        not null/* åŒ»å˜±å¤‡æ³¨ä¿¡æ¯ */,
+    yzklksdm             varchar(10)          not null/* åŒ»å˜±å¼€ç«‹ç§‘å®¤ä»£ç  */,
+    yzklks               varchar(50)          not null/* åŒ»å˜±å¼€ç«‹ç§‘å®¤åç§° */,
+    yzklzdm              varchar(20)          not null/* åŒ»å˜±å¼€ç«‹è€…å·¥å· */,
+    yzklzqm              varchar(50)          not null/* åŒ»å˜±å¼€ç«‹è€…ç­¾å */,
+    yzklrq               datetime             not null/* åŒ»å˜±å¼€ç«‹æ—¥æœŸæ—¶é—´ */,
+    yzshzdm              varchar(20)          not null/* åŒ»å˜±å®¡æ ¸è€…å·¥å· */,
+    yzshzqm              varchar(50)          not null/* åŒ»å˜±å®¡æ ¸è€…ç­¾å */,
+    yzshrq               datetime             not null/* åŒ»å˜±å®¡æ ¸æ—¥æœŸæ—¶é—´ */,
+    zxksdm               varchar(10)          not null/* åŒ»å˜±æ‰§è¡Œç§‘å®¤ä»£ç  */,
+    yzzxks               varchar(50)          not null/* åŒ»å˜±æ‰§è¡Œç§‘å®¤åç§° */,
+    yzzxzdm              varchar(20)          not null/* åŒ»å˜±æ‰§è¡Œè€…å·¥å· */,
+    yzzxzqm              varchar(50)          not null/* åŒ»å˜±æ‰§è¡Œè€…ç­¾å */,
+    yzzxrq               datetime             not null/* åŒ»å˜±æ‰§è¡Œæ—¥æœŸæ—¶é—´ */,
+    yzzxzt               varchar(50)          not null/* åŒ»å˜±æ‰§è¡ŒçŠ¶æ€ */,
+    qxyzzdm              varchar(20)          not null/* å–æ¶ˆåŒ»å˜±è€…å·¥å· */,
+    qxyzzqm              varchar(50)          not null/* å–æ¶ˆåŒ»å˜±è€…ç­¾å */,
+    yzqxrq               datetime             not null/* åŒ»å˜±å–æ¶ˆæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -3208,18 +3208,18 @@ where id = object_id('DC_MJZBL_MJZBL_YZMX') )
 go
 
 /*========================================================================*/
- /* DC_MJZBL_MJZBL_ZYBM     ÃÅ¼±Õï²¡Àú ¡ª ÃÅ¼±Õï²¡Àú_ÖĞÒ½²¡Ãû                                                                                                  */
+ /* DC_MJZBL_MJZBL_ZYBM     é—¨æ€¥è¯Šç—…å† â€” é—¨æ€¥è¯Šç—…å†_ä¸­åŒ»ç—…å                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_MJZBL_ZYBM') )
  create table  DC_MJZBL_MJZBL_ZYBM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zybmdm               varchar(64)          null/* ³õ²½Õï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    zybmmc               varchar(128)         null/* ³õ²½Õï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zybmdm               varchar(64)          null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    zybmmc               varchar(128)         null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
     
    
     
@@ -3237,18 +3237,18 @@ where id = object_id('DC_MJZBL_MJZBL_ZYBM') )
 go
 
 /*========================================================================*/
- /* DC_MJZBL_MJZBL_ZYZH     ÃÅ¼±Õï²¡Àú ¡ª ÃÅ¼±Õï²¡Àú_ÖĞÒ½Ö¤ºò                                                                                                  */
+ /* DC_MJZBL_MJZBL_ZYZH     é—¨æ€¥è¯Šç—…å† â€” é—¨æ€¥è¯Šç—…å†_ä¸­åŒ»è¯å€™                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZBL_MJZBL_ZYZH') )
  create table  DC_MJZBL_MJZBL_ZYZH (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zyzhdm               varchar(64)          null/* ³õ²½Õï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    zyzhmc               varchar(128)         null/* ³õ²½Õï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zyzhdm               varchar(64)          null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    zyzhmc               varchar(128)         null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
     
    
     
@@ -3266,47 +3266,47 @@ where id = object_id('DC_MJZBL_MJZBL_ZYZH') )
 go
 
 /*========================================================================*/
- /* DC_MJZCF_XYCF     ÃÅ¼±Õï´¦·½ ¡ª Î÷Ò©´¦·½                                                                                                  */
+ /* DC_MJZCF_XYCF     é—¨æ€¥è¯Šå¤„æ–¹ â€” è¥¿è¯å¤„æ–¹                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZCF_XYCF') )
  create table  DC_MJZCF_XYCF (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    mjzh                 varchar(64)          not null/* ÃÅ¼±ÕïºÅ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* »¼ÕßĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* »¼ÕßĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    cfxh                 varchar(64)          not null/* ´¦·½±àºÅ */,
-    zzjgdm               varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    zzjgmc               varchar(70)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    cfklrq               date                 not null/* ´¦·½¿ªÁ¢ÈÕÆÚ */,
-    cfklskdm             varchar(10)          not null/* ´¦·½¿ªÁ¢¿ÆÊÒ´úÂë */,
-    cfklks               varchar(50)          not null/* ´¦·½¿ªÁ¢¿ÆÊÒ */,
-    jbzdbm               varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    jbzd                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
-    ysbm                 varchar(20)          not null/* ´¦·½¿ªÁ¢Ò½Ê¦¹¤ºÅ */,
-    klysqm               varchar(50)          not null/* ´¦·½¿ªÁ¢Ò½Ê¦Ç©Ãû */,
-    shyjsbm              varchar(20)          not null/* ´¦·½ÉóºËÒ©¼ÁÊ¦¹¤ºÅ */,
-    shyjsqm              varchar(50)          not null/* ´¦·½ÉóºËÒ©¼ÁÊ¦Ç©Ãû */,
-    shyjsqmsj            datetime             not null/* ´¦·½ÉóºËÒ©¼ÁÊ¦Ç©ÃûÊ±¼ä */,
-    tpyjsbm              varchar(20)          not null/* ´¦·½µ÷ÅäÒ©¼ÁÊ¦¹¤ºÅ */,
-    tpyjsqm              varchar(50)          not null/* ´¦·½µ÷ÅäÒ©¼ÁÊ¦Ç©Ãû */,
-    cftpsj               datetime             not null/* ´¦·½µ÷ÅäÊ±¼ä */,
-    hdyjsbm              varchar(20)          not null/* ´¦·½ºË¶ÔÒ©¼ÁÊ¦¹¤ºÅ */,
-    hdyjsqm              varchar(50)          not null/* ´¦·½ºË¶ÔÒ©¼ÁÊ¦Ç©Ãû */,
-    cfhdsj               datetime             not null/* ´¦·½ºË¶ÔÊ±¼ä */,
-    fyyjsbm              varchar(20)          not null/* ´¦·½·¢Ò©Ò©¼ÁÊ¦¹¤ºÅ */,
-    fyyjsqm              varchar(50)          not null/* ´¦·½·¢Ò©Ò©¼ÁÊ¦Ç©Ãû */,
-    cffysj               datetime             not null/* ´¦·½·¢Ò©Ê±¼ä */,
-    cfypje               numeric(8,2)         not null/* ´¦·½Ò©Æ·½ğ¶î */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    mjzh                 varchar(64)          not null/* é—¨æ€¥è¯Šå· */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ‚£è€…æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ‚£è€…æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    cfxh                 varchar(64)          not null/* å¤„æ–¹ç¼–å· */,
+    zzjgdm               varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    zzjgmc               varchar(70)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    cfklrq               date                 not null/* å¤„æ–¹å¼€ç«‹æ—¥æœŸ */,
+    cfklskdm             varchar(10)          not null/* å¤„æ–¹å¼€ç«‹ç§‘å®¤ä»£ç  */,
+    cfklks               varchar(50)          not null/* å¤„æ–¹å¼€ç«‹ç§‘å®¤ */,
+    jbzdbm               varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    jbzd                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
+    ysbm                 varchar(20)          not null/* å¤„æ–¹å¼€ç«‹åŒ»å¸ˆå·¥å· */,
+    klysqm               varchar(50)          not null/* å¤„æ–¹å¼€ç«‹åŒ»å¸ˆç­¾å */,
+    shyjsbm              varchar(20)          not null/* å¤„æ–¹å®¡æ ¸è¯å‰‚å¸ˆå·¥å· */,
+    shyjsqm              varchar(50)          not null/* å¤„æ–¹å®¡æ ¸è¯å‰‚å¸ˆç­¾å */,
+    shyjsqmsj            datetime             not null/* å¤„æ–¹å®¡æ ¸è¯å‰‚å¸ˆç­¾åæ—¶é—´ */,
+    tpyjsbm              varchar(20)          not null/* å¤„æ–¹è°ƒé…è¯å‰‚å¸ˆå·¥å· */,
+    tpyjsqm              varchar(50)          not null/* å¤„æ–¹è°ƒé…è¯å‰‚å¸ˆç­¾å */,
+    cftpsj               datetime             not null/* å¤„æ–¹è°ƒé…æ—¶é—´ */,
+    hdyjsbm              varchar(20)          not null/* å¤„æ–¹æ ¸å¯¹è¯å‰‚å¸ˆå·¥å· */,
+    hdyjsqm              varchar(50)          not null/* å¤„æ–¹æ ¸å¯¹è¯å‰‚å¸ˆç­¾å */,
+    cfhdsj               datetime             not null/* å¤„æ–¹æ ¸å¯¹æ—¶é—´ */,
+    fyyjsbm              varchar(20)          not null/* å¤„æ–¹å‘è¯è¯å‰‚å¸ˆå·¥å· */,
+    fyyjsqm              varchar(50)          not null/* å¤„æ–¹å‘è¯è¯å‰‚å¸ˆç­¾å */,
+    cffysj               datetime             not null/* å¤„æ–¹å‘è¯æ—¶é—´ */,
+    cfypje               numeric(8,2)         not null/* å¤„æ–¹è¯å“é‡‘é¢ */,
     
    
     
@@ -3324,31 +3324,31 @@ where id = object_id('DC_MJZCF_XYCF') )
 go
 
 /*========================================================================*/
- /* DC_MJZCF_XYCF_YYMX     ÃÅ¼±Õï´¦·½ ¡ª Î÷Ò©´¦·½_ÓÃÒ©Ã÷Ï¸                                                                                                  */
+ /* DC_MJZCF_XYCF_YYMX     é—¨æ€¥è¯Šå¤„æ–¹ â€” è¥¿è¯å¤„æ–¹_ç”¨è¯æ˜ç»†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZCF_XYCF_YYMX') )
  create table  DC_MJZCF_XYCF_YYMX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ywdm                 varchar(100)         not null/* Ò©Îï´úÂë */,
-    ywmc                 varchar(500)         not null/* Ò©ÎïÃû³Æ */,
-    ywgg                 varchar(20)          not null/* Ò©Îï¹æ¸ñ */,
-    ywjxdm               varchar(2)           not null/* Ò©Îï¼ÁĞÍ´úÂë */,
-    ywjx                 varchar(64)          not null/* Ò©Îï¼ÁĞÍÃû³Æ */,
-    ywsycjl              numeric(5,2)         not null/* Ò©ÎïÊ¹ÓÃ´Î¼ÁÁ¿ */,
-    ywsyjldw             varchar(6)           not null/* Ò©ÎïÊ¹ÓÃ´Îµ¥Î» */,
-    ywsypcdm             varchar(2)           not null/* Ò©ÎïÊ¹ÓÃÆµ´Î´úÂë */,
-    ywsypc               varchar(64)          not null/* Ò©ÎïÊ¹ÓÃÆµ´ÎÃû³Æ */,
-    ywsytj               varchar(3)           not null/* Ò©ÎïÊ¹ÓÃÍ¾¾¶´úÂë */,
-    ywsytjmc             varchar(64)          not null/* Ò©ÎïÊ¹ÓÃÍ¾¾¶Ãû³Æ */,
-    ywsyzjl              numeric(12,2)        not null/* Ò©ÎïÊ¹ÓÃ×Ü¼ÁÁ¿ */,
-    cfyxts               numeric(2)           not null/* ´¦·½ÓĞĞ§ÌìÊı */,
-    cfypzh               varchar(50)          not null/* ´¦·½Ò©Æ·×éºÅ */,
-    cfbzxx               nvarchar(100)        not null/* ´¦·½±¸×¢ĞÅÏ¢ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ywdm                 varchar(100)         not null/* è¯ç‰©ä»£ç  */,
+    ywmc                 varchar(500)         not null/* è¯ç‰©åç§° */,
+    ywgg                 varchar(20)          not null/* è¯ç‰©è§„æ ¼ */,
+    ywjxdm               varchar(2)           not null/* è¯ç‰©å‰‚å‹ä»£ç  */,
+    ywjx                 varchar(64)          not null/* è¯ç‰©å‰‚å‹åç§° */,
+    ywsycjl              numeric(5,2)         not null/* è¯ç‰©ä½¿ç”¨æ¬¡å‰‚é‡ */,
+    ywsyjldw             varchar(6)           not null/* è¯ç‰©ä½¿ç”¨æ¬¡å•ä½ */,
+    ywsypcdm             varchar(2)           not null/* è¯ç‰©ä½¿ç”¨é¢‘æ¬¡ä»£ç  */,
+    ywsypc               varchar(64)          not null/* è¯ç‰©ä½¿ç”¨é¢‘æ¬¡åç§° */,
+    ywsytj               varchar(3)           not null/* è¯ç‰©ä½¿ç”¨é€”å¾„ä»£ç  */,
+    ywsytjmc             varchar(64)          not null/* è¯ç‰©ä½¿ç”¨é€”å¾„åç§° */,
+    ywsyzjl              numeric(12,2)        not null/* è¯ç‰©ä½¿ç”¨æ€»å‰‚é‡ */,
+    cfyxts               numeric(2)           not null/* å¤„æ–¹æœ‰æ•ˆå¤©æ•° */,
+    cfypzh               varchar(50)          not null/* å¤„æ–¹è¯å“ç»„å· */,
+    cfbzxx               nvarchar(100)        not null/* å¤„æ–¹å¤‡æ³¨ä¿¡æ¯ */,
     
    
     
@@ -3366,54 +3366,54 @@ where id = object_id('DC_MJZCF_XYCF_YYMX') )
 go
 
 /*========================================================================*/
- /* DC_MJZCF_ZYCF     ÃÅ¼±Õï´¦·½ ¡ª ÖĞÒ©´¦·½                                                                                                  */
+ /* DC_MJZCF_ZYCF     é—¨æ€¥è¯Šå¤„æ–¹ â€” ä¸­è¯å¤„æ–¹                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZCF_ZYCF') )
  create table  DC_MJZCF_ZYCF (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    mjzh                 varchar(64)          not null/* ÃÅ¼±ÕïºÅ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* »¼ÕßĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* »¼ÕßĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    zzjgdm               varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    zzjgmc               varchar(70)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    cfxh                 varchar(12)          not null/* ´¦·½±àºÅ */,
-    cflb                 varchar(2)           not null/* ´¦·½Àà±ğ´úÂë */,
-    cflbmc               varchar(18)          not null/* ´¦·½Àà±ğÃû³Æ */,
-    cfklrq               date                 not null/* ´¦·½¿ªÁ¢ÈÕÆÚ */,
-    cfyxts               numeric(2)           not null/* ´¦·½ÓĞĞ§ÌìÊı */,
-    cfklksdm             varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    cfklks               varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    jbzdbm               varchar(64)          not null/* Î÷Ò½Õï¶Ï±àÂë */,
-    jbzd                 varchar(128)         not null/* Î÷Ò½Õï¶ÏÃû³Æ */,
-    zybmdm               varchar(64)          not null/* ÖĞÒ½²¡Ãû´úÂë */,
-    zybm                 varchar(128)         not null/* ÖĞÒ½²¡ÃûÃû³Æ */,
-    zyzhdm               varchar(64)          not null/* ÖĞÒ½Ö¤ºò´úÂë */,
-    zyzh                 varchar(128)         not null/* ÖĞÒ½Ö¤ºòÃû³Æ */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨´úÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨ */,
-    ysbm                 varchar(20)          not null/* ´¦·½¿ªÁ¢Ò½Ê¦¹¤ºÅ */,
-    klysqm               varchar(50)          not null/* ´¦·½¿ªÁ¢Ò½Ê¦Ç©Ãû */,
-    shyjsbm              varchar(20)          not null/* ´¦·½ÉóºËÒ©¼ÁÊ¦¹¤ºÅ */,
-    shyjsqm              varchar(50)          not null/* ´¦·½ÉóºËÒ©¼ÁÊ¦Ç©Ãû */,
-    tpyjsbm              varchar(20)          not null/* ´¦·½µ÷ÅäÒ©¼ÁÊ¦¹¤ºÅ */,
-    tpyjsqm              varchar(50)          not null/* ´¦·½µ÷ÅäÒ©¼ÁÊ¦Ç©Ãû */,
-    hdyjsbm              varchar(20)          not null/* ´¦·½ºË¶ÔÒ©¼ÁÊ¦¹¤ºÅ */,
-    hdyjsqm              varchar(50)          not null/* ´¦·½ºË¶ÔÒ©¼ÁÊ¦Ç©Ãû */,
-    fyyjsbm              varchar(20)          not null/* ´¦·½·¢Ò©Ò©¼ÁÊ¦¹¤ºÅ */,
-    fyyjsqm              varchar(50)          not null/* ´¦·½·¢Ò©Ò©¼ÁÊ¦Ç©Ãû */,
-    cfbzxx               nvarchar(100)        not null/* ´¦·½±¸×¢ĞÅÏ¢ */,
-    cfypje               numeric(8,2)         not null/* ´¦·½Ò©Æ·½ğ¶î */,
-    cfypzh               varchar(50)          not null/* ´¦·½Ò©Æ·×éºÅ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    mjzh                 varchar(64)          not null/* é—¨æ€¥è¯Šå· */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ‚£è€…æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ‚£è€…æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    zzjgdm               varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    zzjgmc               varchar(70)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    cfxh                 varchar(12)          not null/* å¤„æ–¹ç¼–å· */,
+    cflb                 varchar(2)           not null/* å¤„æ–¹ç±»åˆ«ä»£ç  */,
+    cflbmc               varchar(18)          not null/* å¤„æ–¹ç±»åˆ«åç§° */,
+    cfklrq               date                 not null/* å¤„æ–¹å¼€ç«‹æ—¥æœŸ */,
+    cfyxts               numeric(2)           not null/* å¤„æ–¹æœ‰æ•ˆå¤©æ•° */,
+    cfklksdm             varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    cfklks               varchar(50)          not null/* ç§‘å®¤åç§° */,
+    jbzdbm               varchar(64)          not null/* è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    jbzd                 varchar(128)         not null/* è¥¿åŒ»è¯Šæ–­åç§° */,
+    zybmdm               varchar(64)          not null/* ä¸­åŒ»ç—…åä»£ç  */,
+    zybm                 varchar(128)         not null/* ä¸­åŒ»ç—…ååç§° */,
+    zyzhdm               varchar(64)          not null/* ä¸­åŒ»è¯å€™ä»£ç  */,
+    zyzh                 varchar(128)         not null/* ä¸­åŒ»è¯å€™åç§° */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ä»£ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³• */,
+    ysbm                 varchar(20)          not null/* å¤„æ–¹å¼€ç«‹åŒ»å¸ˆå·¥å· */,
+    klysqm               varchar(50)          not null/* å¤„æ–¹å¼€ç«‹åŒ»å¸ˆç­¾å */,
+    shyjsbm              varchar(20)          not null/* å¤„æ–¹å®¡æ ¸è¯å‰‚å¸ˆå·¥å· */,
+    shyjsqm              varchar(50)          not null/* å¤„æ–¹å®¡æ ¸è¯å‰‚å¸ˆç­¾å */,
+    tpyjsbm              varchar(20)          not null/* å¤„æ–¹è°ƒé…è¯å‰‚å¸ˆå·¥å· */,
+    tpyjsqm              varchar(50)          not null/* å¤„æ–¹è°ƒé…è¯å‰‚å¸ˆç­¾å */,
+    hdyjsbm              varchar(20)          not null/* å¤„æ–¹æ ¸å¯¹è¯å‰‚å¸ˆå·¥å· */,
+    hdyjsqm              varchar(50)          not null/* å¤„æ–¹æ ¸å¯¹è¯å‰‚å¸ˆç­¾å */,
+    fyyjsbm              varchar(20)          not null/* å¤„æ–¹å‘è¯è¯å‰‚å¸ˆå·¥å· */,
+    fyyjsqm              varchar(50)          not null/* å¤„æ–¹å‘è¯è¯å‰‚å¸ˆç­¾å */,
+    cfbzxx               nvarchar(100)        not null/* å¤„æ–¹å¤‡æ³¨ä¿¡æ¯ */,
+    cfypje               numeric(8,2)         not null/* å¤„æ–¹è¯å“é‡‘é¢ */,
+    cfypzh               varchar(50)          not null/* å¤„æ–¹è¯å“ç»„å· */,
     
    
     
@@ -3431,28 +3431,28 @@ where id = object_id('DC_MJZCF_ZYCF') )
 go
 
 /*========================================================================*/
- /* DC_MJZCF_ZYCF_CFMX     ÃÅ¼±Õï´¦·½ ¡ª ÖĞÒ©´¦·½_´¦·½Ã÷Ï¸                                                                                                  */
+ /* DC_MJZCF_ZYCF_CFMX     é—¨æ€¥è¯Šå¤„æ–¹ â€” ä¸­è¯å¤„æ–¹_å¤„æ–¹æ˜ç»†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZCF_ZYCF_CFMX') )
  create table  DC_MJZCF_ZYCF_CFMX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ywdm                 varchar(100)         not null/* Ò©Îï´úÂë */,
-    ywmc                 varchar(500)         not null/* Ò©ÎïÃû³Æ */,
-    ywgg                 varchar(20)          not null/* Ò©Îï¹æ¸ñ */,
-    ywjxdm               varchar(2)           not null/* Ò©Îï¼ÁĞÍ´úÂë */,
-    ywjx                 varchar(64)          not null/* Ò©Îï¼ÁĞÍÃû³Æ */,
-    ywsycjl              numeric(5,2)         not null/* Ò©ÎïÊ¹ÓÃ´Î¼ÁÁ¿ */,
-    ywsyjldw             varchar(6)           not null/* Ò©ÎïÊ¹ÓÃ¼ÁÁ¿µ¥Î» */,
-    ywsypcdm             varchar(2)           not null/* Ò©ÎïÊ¹ÓÃÆµ´Î´úÂë */,
-    ywsypc               varchar(64)          not null/* Ò©ÎïÊ¹ÓÃÆµ´ÎÃû³Æ */,
-    ywsytj               varchar(3)           not null/* Ò©ÎïÊ¹ÓÃÍ¾¾¶´úÂë */,
-    ywsytjmc             varchar(64)          not null/* Ò©ÎïÊ¹ÓÃÍ¾¾¶Ãû³Æ */,
-    ywsyzjl              numeric(12,2)        not null/* Ò©ÎïÊ¹ÓÃ×Ü¼ÁÁ¿ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ywdm                 varchar(100)         not null/* è¯ç‰©ä»£ç  */,
+    ywmc                 varchar(500)         not null/* è¯ç‰©åç§° */,
+    ywgg                 varchar(20)          not null/* è¯ç‰©è§„æ ¼ */,
+    ywjxdm               varchar(2)           not null/* è¯ç‰©å‰‚å‹ä»£ç  */,
+    ywjx                 varchar(64)          not null/* è¯ç‰©å‰‚å‹åç§° */,
+    ywsycjl              numeric(5,2)         not null/* è¯ç‰©ä½¿ç”¨æ¬¡å‰‚é‡ */,
+    ywsyjldw             varchar(6)           not null/* è¯ç‰©ä½¿ç”¨å‰‚é‡å•ä½ */,
+    ywsypcdm             varchar(2)           not null/* è¯ç‰©ä½¿ç”¨é¢‘æ¬¡ä»£ç  */,
+    ywsypc               varchar(64)          not null/* è¯ç‰©ä½¿ç”¨é¢‘æ¬¡åç§° */,
+    ywsytj               varchar(3)           not null/* è¯ç‰©ä½¿ç”¨é€”å¾„ä»£ç  */,
+    ywsytjmc             varchar(64)          not null/* è¯ç‰©ä½¿ç”¨é€”å¾„åç§° */,
+    ywsyzjl              numeric(12,2)        not null/* è¯ç‰©ä½¿ç”¨æ€»å‰‚é‡ */,
     
    
     
@@ -3470,20 +3470,20 @@ where id = object_id('DC_MJZCF_ZYCF_CFMX') )
 go
 
 /*========================================================================*/
- /* DC_MJZCF_ZYCF_ZYYPCF     ÃÅ¼±Õï´¦·½ ¡ª ÖĞÒ©´¦·½_ÖĞÒ©ÒûÆ¬´¦·½                                                                                                  */
+ /* DC_MJZCF_ZYCF_ZYYPCF     é—¨æ€¥è¯Šå¤„æ–¹ â€” ä¸­è¯å¤„æ–¹_ä¸­è¯é¥®ç‰‡å¤„æ–¹                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_MJZCF_ZYCF_ZYYPCF') )
  create table  DC_MJZCF_ZYCF_ZYYPCF (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zyypcf               nvarchar(500)        not null/* ÖĞÒ©ÒûÆ¬´¦·½ */,
-    zyypjs               varchar(2)           not null/* ÖĞÒ©ÒûÆ¬¼ÁÊı£¨¼Á£© */,
-    zyypjzf              nvarchar(100)        not null/* ÖĞÒ©ÒûÆ¬¼åÖó·¨ */,
-    zyyyff               nvarchar(100)        not null/* ÖĞÒ©ÓÃÒ©·½·¨ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zyypcf               nvarchar(500)        not null/* ä¸­è¯é¥®ç‰‡å¤„æ–¹ */,
+    zyypjs               varchar(2)           not null/* ä¸­è¯é¥®ç‰‡å‰‚æ•°ï¼ˆå‰‚ï¼‰ */,
+    zyypjzf              nvarchar(100)        not null/* ä¸­è¯é¥®ç‰‡ç…ç…®æ³• */,
+    zyyyff               nvarchar(100)        not null/* ä¸­è¯ç”¨è¯æ–¹æ³• */,
     
    
     
@@ -3501,118 +3501,118 @@ where id = object_id('DC_MJZCF_ZYCF_ZYYPCF') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_JBXX     ÈëÔº¼ÇÂ¼ ¡ª ÈëÔº¼ÇÂ¼»ù±¾ĞÅÏ¢                                                                                                  */
+ /* DC_RYJL_JBXX     å…¥é™¢è®°å½• â€” å…¥é™¢è®°å½•åŸºæœ¬ä¿¡æ¯                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_JBXX') )
  create table  DC_RYJL_JBXX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    zyh                  varchar(18)          not null/* ×¡ÔººÅ */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅÂë */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    mz                   varchar(2)           null/* Ãñ×å */,
-    mzmc                 varchar(32)          null/* Ãñ×åÃû³Æ */,
-    hyzkdm               varchar(2)           null/* »éÒö×´¿ö´úÂë */,
-    hyzkmc               varchar(32)          null/* »éÒö×´¿öÃû³Æ */,
-    dzsf                 varchar(70)          not null/* µØÖ·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    dzsq                 varchar(70)          not null/* µØÖ·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    dzx                  varchar(70)          not null/* µØÖ·-ÏØ£¨Çø£© */,
-    dzxz                 varchar(70)          not null/* µØÖ·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    dzc                  varchar(70)          not null/* µØÖ·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    dzmphm               varchar(70)          not null/* µØÖ·-ÃÅÅÆºÅÂë */,
-    zylbdm               varchar(2)           not null/* Ö°ÒµÀà±ğ´úÂë */,
-    zylbmc               varchar(50)          not null/* Ö°ÒµÀà±ğÃû³Æ */,
-    ryrq                 datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    bscszxm              varchar(50)          null/* ²¡Ê·³ÂÊöÕßĞÕÃû */,
-    cszhzgxdm            varchar(2)           null/* ³ÂÊöÕßÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    cszhzgxmc            varchar(50)          null/* ³ÂÊöÕßÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    csnrbz               char(1)              not null/* ³ÂÊöÄÚÈİ¿É¿¿±êÖ¾ */,
-    zs                   nvarchar(100)        not null/* Ö÷Ëß */,
-    xbs                  nvarchar(2000)       not null/* ÏÖ²¡Ê· */,
-    ybjkbz               char(1)              null/* Ò»°ã½¡¿µ×´¿ö±êÖ¾ */,
-    jbs                  nvarchar(1000)       null/* ¼²²¡Ê·£¨º¬ÍâÉË£© */,
-    hzcrbz               char(1)              not null/* »¼Õß´«È¾ĞÔ±êÖ¾ */,
-    crbs                 nvarchar(1000)       null/* ´«È¾²¡Ê· */,
-    yfjzs                nvarchar(1000)       null/* Ô¤·À½ÓÖÖÊ· */,
-    sss                  nvarchar(1000)       null/* ÊÖÊõÊ· */,
-    sxs                  nvarchar(1000)       null/* ÊäÑªÊ· */,
-    gms                  nvarchar(1000)       null/* ¹ıÃôÊ· */,
-    grs                  nvarchar(1000)       null/* ¸öÈËÊ· */,
-    hys                  nvarchar(1000)       null/* »éÓıÊ· */,
-    yjs                  nvarchar(1000)       null/* ÔÂ¾­Ê· */,
-    jzs                  nvarchar(1000)       null/* ¼Ò×åÊ· */,
-    tjtw                 numeric(4,1)         not null/* Ìå¸ñ¼ì²é--ÌåÎÂ£¨¡æ£© */,
-    tjml                 numeric(3)           not null/* Ìå¸ñ¼ì²é--ÂöÂÊ£¨´Î/min£© */,
-    tjhxpl               numeric(3)           not null/* Ìå¸ñ¼ì²é--ºôÎüÆµÂÊ£¨´Î/min£© */,
-    tjssy                numeric(3)           not null/* Ìå¸ñ¼ì²é--ÊÕËõÑ¹£¨mmHg£© */,
-    tjszy                numeric(3)           not null/* Ìå¸ñ¼ì²é--ÊæÕÅÑ¹£¨mmHg£© */,
-    tjsg                 numeric(5,1)         not null/* Ìå¸ñ¼ì²é--Éí¸ß£¨cm£© */,
-    tjtz                 numeric(5,2)         not null/* Ìå¸ñ¼ì²é--ÌåÖØ£¨kg£© */,
-    tjybjg               nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--Ò»°ã×´¿ö¼ì²é½á¹û */,
-    tjplmjg              nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--Æ¤·ôºÍğ¤Ä¤¼ì²é½á¹û */,
-    tjqblbjg             nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--È«ÉíÇ³DC_RYJL_JBXXÁÜ°Í½á¼ì²é½á¹û */,
-    tjtbqgjg             nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--Í·²¿¼°ÆäÆ÷¹Ù¼ì²é½á¹û */,
-    tjjbjg               nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--¾±²¿¼ì²é½á¹û */,
-    tjxbjg               nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--ĞØ²¿¼ì²é½á¹û */,
-    tjfbjg               nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--¸¹²¿¼ì²é½á¹û */,
-    tjgmzzjg             nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--¸ØÃÅÖ¸Õï¼ì²é½á¹ûÃèÊö */,
-    tjwszqjg             nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--ÍâÉúÖ³Æ÷¼ì²é½á¹û */,
-    tjjzjg               nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--¼¹Öù¼ì²é½á¹û */,
-    tjszjg               nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--ËÄÖ«¼ì²é½á¹û */,
-    tjsjxtjg             nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--Éñ¾­ÏµÍ³¼ì²é½á¹û */,
-    zkqk                 nvarchar(1000)       null/* ×¨¿ÆÇé¿ö */,
-    fzjcjg               nvarchar(1000)       null/* ¸¨Öú¼ì²é½á¹û */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨´úÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨ */,
-    czxyzdmc             varchar(128)         not null/* ³õ²½Õï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    czxyzdbm             varchar(64)          not null/* ³õ²½Õï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    czzybmmc             varchar(128)         null/* ³õ²½Õï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    czzybmdm             varchar(64)          null/* ³õ²½Õï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    czzyzhmc             varchar(128)         null/* ³õ²½Õï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    czzyzhdm             varchar(64)          null/* ³õ²½Õï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    czrq                 date                 not null/* ³õ²½Õï¶ÏÈÕÆÚ */,
-    xzxyzdmc             varchar(128)         null/* ĞŞÕıÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    xzxyzdbm             varchar(64)          null/* ĞŞÕıÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    xzzybmmc             varchar(128)         null/* ĞŞÕıÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    xzzybmdm             varchar(64)          null/* ĞŞÕıÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    xzzyzhmc             varchar(128)         null/* ĞŞÕıÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    xzzyzhdm             varchar(64)          null/* ĞŞÕıÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    xzzdrq               date                 null/* ĞŞÕıÕï¶ÏÈÕÆÚ */,
-    qzxyzdmc             varchar(128)         not null/* È·¶¨Õï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    qzxyzdbm             varchar(64)          not null/* È·¶¨Õï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    qzzybmmc             varchar(128)         null/* È·¶¨Õï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    qzzybmdm             varchar(64)          null/* È·¶¨Õï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    qzzyzhmc             varchar(128)         null/* È·¶¨Õï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    qzzyzhdm             varchar(64)          null/* È·¶¨Õï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    qzrq                 date                 not null/* È·¶¨Õï¶ÏÈÕÆÚ */,
-    bzmc                 varchar(128)         null/* ²¹³äÕï¶ÏÃû³Æ */,
-    bzbm                 varchar(64)          null/* ²¹³äÕï¶Ï±àÂë */,
-    bzrq                 date                 null/* ²¹³äÕï¶ÏÈÕÆÚ */,
-    ryzdsw               varchar(20)          null/* ÈëÔºÕï¶ÏË³Î» */,
-    jzysbm               varchar(20)          not null/* ½ÓÕïÒ½Ê¦±àÂë */,
-    jzysqm               varchar(50)          not null/* ½ÓÕïÒ½Ê¦Ç©Ãû */,
-    zyysbm               varchar(20)          not null/* ×¡ÔºÒ½Ê¦±àÂë */,
-    zyysqm               varchar(50)          not null/* ×¡ÔºÒ½Ê¦Ç©Ãû */,
-    zzysbm               varchar(20)          not null/* Ö÷ÖÎÒ½Ê¦±àÂë */,
-    zzysqm               varchar(50)          not null/* Ö÷ÖÎÒ½Ê¦Ç©Ãû */,
-    zrysbm               varchar(20)          not null/* Ö÷ÈÎÒ½Ê¦±àÂë */,
-    zrysqm               varchar(50)          not null/* Ö÷ÈÎÒ½Ê¦Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    zyh                  varchar(18)          not null/* ä½é™¢å· */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å·ç  */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    mz                   varchar(2)           null/* æ°‘æ— */,
+    mzmc                 varchar(32)          null/* æ°‘æ—åç§° */,
+    hyzkdm               varchar(2)           null/* å©šå§»çŠ¶å†µä»£ç  */,
+    hyzkmc               varchar(32)          null/* å©šå§»çŠ¶å†µåç§° */,
+    dzsf                 varchar(70)          not null/* åœ°å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    dzsq                 varchar(70)          not null/* åœ°å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    dzx                  varchar(70)          not null/* åœ°å€-å¿ï¼ˆåŒºï¼‰ */,
+    dzxz                 varchar(70)          not null/* åœ°å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    dzc                  varchar(70)          not null/* åœ°å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    dzmphm               varchar(70)          not null/* åœ°å€-é—¨ç‰Œå·ç  */,
+    zylbdm               varchar(2)           not null/* èŒä¸šç±»åˆ«ä»£ç  */,
+    zylbmc               varchar(50)          not null/* èŒä¸šç±»åˆ«åç§° */,
+    ryrq                 datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    bscszxm              varchar(50)          null/* ç—…å²é™ˆè¿°è€…å§“å */,
+    cszhzgxdm            varchar(2)           null/* é™ˆè¿°è€…ä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    cszhzgxmc            varchar(50)          null/* é™ˆè¿°è€…ä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    csnrbz               char(1)              not null/* é™ˆè¿°å†…å®¹å¯é æ ‡å¿— */,
+    zs                   nvarchar(100)        not null/* ä¸»è¯‰ */,
+    xbs                  nvarchar(2000)       not null/* ç°ç—…å² */,
+    ybjkbz               char(1)              null/* ä¸€èˆ¬å¥åº·çŠ¶å†µæ ‡å¿— */,
+    jbs                  nvarchar(1000)       null/* ç–¾ç—…å²ï¼ˆå«å¤–ä¼¤ï¼‰ */,
+    hzcrbz               char(1)              not null/* æ‚£è€…ä¼ æŸ“æ€§æ ‡å¿— */,
+    crbs                 nvarchar(1000)       null/* ä¼ æŸ“ç—…å² */,
+    yfjzs                nvarchar(1000)       null/* é¢„é˜²æ¥ç§å² */,
+    sss                  nvarchar(1000)       null/* æ‰‹æœ¯å² */,
+    sxs                  nvarchar(1000)       null/* è¾“è¡€å² */,
+    gms                  nvarchar(1000)       null/* è¿‡æ•å² */,
+    grs                  nvarchar(1000)       null/* ä¸ªäººå² */,
+    hys                  nvarchar(1000)       null/* å©šè‚²å² */,
+    yjs                  nvarchar(1000)       null/* æœˆç»å² */,
+    jzs                  nvarchar(1000)       null/* å®¶æ—å² */,
+    tjtw                 numeric(4,1)         not null/* ä½“æ ¼æ£€æŸ¥--ä½“æ¸©ï¼ˆâ„ƒï¼‰ */,
+    tjml                 numeric(3)           not null/* ä½“æ ¼æ£€æŸ¥--è„‰ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    tjhxpl               numeric(3)           not null/* ä½“æ ¼æ£€æŸ¥--å‘¼å¸é¢‘ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    tjssy                numeric(3)           not null/* ä½“æ ¼æ£€æŸ¥--æ”¶ç¼©å‹ï¼ˆmmHgï¼‰ */,
+    tjszy                numeric(3)           not null/* ä½“æ ¼æ£€æŸ¥--èˆ’å¼ å‹ï¼ˆmmHgï¼‰ */,
+    tjsg                 numeric(5,1)         not null/* ä½“æ ¼æ£€æŸ¥--èº«é«˜ï¼ˆcmï¼‰ */,
+    tjtz                 numeric(5,2)         not null/* ä½“æ ¼æ£€æŸ¥--ä½“é‡ï¼ˆkgï¼‰ */,
+    tjybjg               nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--ä¸€èˆ¬çŠ¶å†µæ£€æŸ¥ç»“æœ */,
+    tjplmjg              nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--çš®è‚¤å’Œé»è†œæ£€æŸ¥ç»“æœ */,
+    tjqblbjg             nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--å…¨èº«æµ…DC_RYJL_JBXXæ·‹å·´ç»“æ£€æŸ¥ç»“æœ */,
+    tjtbqgjg             nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--å¤´éƒ¨åŠå…¶å™¨å®˜æ£€æŸ¥ç»“æœ */,
+    tjjbjg               nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--é¢ˆéƒ¨æ£€æŸ¥ç»“æœ */,
+    tjxbjg               nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--èƒ¸éƒ¨æ£€æŸ¥ç»“æœ */,
+    tjfbjg               nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--è…¹éƒ¨æ£€æŸ¥ç»“æœ */,
+    tjgmzzjg             nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--è‚›é—¨æŒ‡è¯Šæ£€æŸ¥ç»“æœæè¿° */,
+    tjwszqjg             nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--å¤–ç”Ÿæ®–å™¨æ£€æŸ¥ç»“æœ */,
+    tjjzjg               nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--è„ŠæŸ±æ£€æŸ¥ç»“æœ */,
+    tjszjg               nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--å››è‚¢æ£€æŸ¥ç»“æœ */,
+    tjsjxtjg             nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--ç¥ç»ç³»ç»Ÿæ£€æŸ¥ç»“æœ */,
+    zkqk                 nvarchar(1000)       null/* ä¸“ç§‘æƒ…å†µ */,
+    fzjcjg               nvarchar(1000)       null/* è¾…åŠ©æ£€æŸ¥ç»“æœ */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ä»£ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³• */,
+    czxyzdmc             varchar(128)         not null/* åˆæ­¥è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    czxyzdbm             varchar(64)          not null/* åˆæ­¥è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    czzybmmc             varchar(128)         null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    czzybmdm             varchar(64)          null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    czzyzhmc             varchar(128)         null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    czzyzhdm             varchar(64)          null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    czrq                 date                 not null/* åˆæ­¥è¯Šæ–­æ—¥æœŸ */,
+    xzxyzdmc             varchar(128)         null/* ä¿®æ­£è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    xzxyzdbm             varchar(64)          null/* ä¿®æ­£è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    xzzybmmc             varchar(128)         null/* ä¿®æ­£è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    xzzybmdm             varchar(64)          null/* ä¿®æ­£è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    xzzyzhmc             varchar(128)         null/* ä¿®æ­£è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    xzzyzhdm             varchar(64)          null/* ä¿®æ­£è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    xzzdrq               date                 null/* ä¿®æ­£è¯Šæ–­æ—¥æœŸ */,
+    qzxyzdmc             varchar(128)         not null/* ç¡®å®šè¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    qzxyzdbm             varchar(64)          not null/* ç¡®å®šè¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    qzzybmmc             varchar(128)         null/* ç¡®å®šè¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    qzzybmdm             varchar(64)          null/* ç¡®å®šè¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    qzzyzhmc             varchar(128)         null/* ç¡®å®šè¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    qzzyzhdm             varchar(64)          null/* ç¡®å®šè¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    qzrq                 date                 not null/* ç¡®å®šè¯Šæ–­æ—¥æœŸ */,
+    bzmc                 varchar(128)         null/* è¡¥å……è¯Šæ–­åç§° */,
+    bzbm                 varchar(64)          null/* è¡¥å……è¯Šæ–­ç¼–ç  */,
+    bzrq                 date                 null/* è¡¥å……è¯Šæ–­æ—¥æœŸ */,
+    ryzdsw               varchar(20)          null/* å…¥é™¢è¯Šæ–­é¡ºä½ */,
+    jzysbm               varchar(20)          not null/* æ¥è¯ŠåŒ»å¸ˆç¼–ç  */,
+    jzysqm               varchar(50)          not null/* æ¥è¯ŠåŒ»å¸ˆç­¾å */,
+    zyysbm               varchar(20)          not null/* ä½é™¢åŒ»å¸ˆç¼–ç  */,
+    zyysqm               varchar(50)          not null/* ä½é™¢åŒ»å¸ˆç­¾å */,
+    zzysbm               varchar(20)          not null/* ä¸»æ²»åŒ»å¸ˆç¼–ç  */,
+    zzysqm               varchar(50)          not null/* ä¸»æ²»åŒ»å¸ˆç­¾å */,
+    zrysbm               varchar(20)          not null/* ä¸»ä»»åŒ»å¸ˆç¼–ç  */,
+    zrysqm               varchar(50)          not null/* ä¸»ä»»åŒ»å¸ˆç­¾å */,
     
    
 
@@ -3630,63 +3630,63 @@ where id = object_id('DC_RYJL_JBXX') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RCYJL     ÈëÔº¼ÇÂ¼£­24Ğ¡Ê±ÄÚÈë³öÔº¼ÇÂ¼                                                                                                  */
+ /* DC_RYJL_RCYJL     å…¥é™¢è®°å½•ï¼24å°æ—¶å†…å…¥å‡ºé™¢è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_RCYJL') )
  create table  DC_RYJL_RCYJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(18)          not null/* ×¡ÔººÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅÂë */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    mz                   varchar(2)           null/* Ãñ×å */,
-    mzmc                 varchar(32)          null/* Ãñ×åÃû³Æ */,
-    hyzkdm               varchar(2)           null/* »éÒö×´¿ö´úÂë */,
-    hyzkmc               varchar(32)          null/* »éÒö×´¿öÃû³Æ */,
-    dzsf                 varchar(70)          not null/* µØÖ·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    dzsq                 varchar(70)          not null/* µØÖ·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    dzx                  varchar(70)          not null/* µØÖ·-ÏØ£¨Çø£© */,
-    dzxz                 varchar(70)          not null/* µØÖ·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    dzc                  varchar(70)          not null/* µØÖ·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    dzmphm               varchar(70)          not null/* µØÖ·-ÃÅÅÆºÅÂë */,
-    zylbdm               varchar(2)           null/* Ö°ÒµÀà±ğ´úÂë */,
-    zylbmc               varchar(32)          null/* Ö°ÒµÀà±ğÃû³Æ */,
-    ryrq                 datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    cyrq                 datetime             not null/* ³öÔºÈÕÆÚÊ±¼ä */,
-    bscszxm              varchar(50)          not null/* ²¡Ê·³ÂÊöÕßĞÕÃû */,
-    cszhzgxdm            varchar(50)          not null/* ³ÂÊöÕßÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    cszhzgxmc            varchar(50)          not null/* ³ÂÊöÕßÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    csnrbz               char(1)              not null/* ³ÂÊöÄÚÈİ¿É¿¿±êÖ¾ */,
-    zs                   nvarchar(100)        not null/* Ö÷Ëß */,
-    xbs                  nvarchar(2000)       not null/* ÏÖ²¡Ê· */,
-    ryqk                 nvarchar(2000)       not null/* ÈëÔºÇé¿ö */,
-    zzmc                 varchar(50)          not null/* Ö¢×´Ãû³Æ */,
-    zzms                 nvarchar(1000)       not null/* Ö¢×´ÃèÊö */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨´úÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨ */,
-    zlgcms               nvarchar(2000)       not null/* ÕïÁÆ¹ı³ÌÃèÊö */,
-    cyqk                 nvarchar(2000)       not null/* ³öÔºÇé¿ö */,
-    cyyz                 nvarchar(1000)       null/* ³öÔºÒ½Öö */,
-    yzklysbm             varchar(20)          null/* Ò½Öö¿ªÁ¢Ò½Ê¦±àÂë */,
-    cyyzklrqm            varchar(50)          null/* ³öÔºÒ½Öö¿ªÁ¢ÈËÇ©Ãû */,
-    cyyzklrq             datetime             null/* ³öÔºÒ½Öö¿ªÁ¢ÈÕÆÚÊ±¼ä */,
-    jzysbm               varchar(20)          not null/* ½ÓÕïÒ½Ê¦±àÂë */,
-    jzysqm               varchar(50)          not null/* ½ÓÕïÒ½Ê¦Ç©Ãû */,
-    zyysbm               varchar(20)          not null/* ×¡ÔºÒ½Ê¦±àÂë */,
-    zyysqm               varchar(50)          not null/* ×¡ÔºÒ½Ê¦Ç©Ãû */,
-    zzysbm               varchar(20)          not null/* Ö÷ÖÎÒ½Ê¦±àÂë */,
-    zzysqm               varchar(50)          not null/* Ö÷ÖÎÒ½Ê¦Ç©Ãû */,
-    zrysbm               varchar(20)          not null/* Ö÷ÈÎÒ½Ê¦±àÂë */,
-    zrysqm               varchar(50)          not null/* Ö÷ÈÎÒ½Ê¦Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(18)          not null/* ä½é™¢å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å·ç  */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    mz                   varchar(2)           null/* æ°‘æ— */,
+    mzmc                 varchar(32)          null/* æ°‘æ—åç§° */,
+    hyzkdm               varchar(2)           null/* å©šå§»çŠ¶å†µä»£ç  */,
+    hyzkmc               varchar(32)          null/* å©šå§»çŠ¶å†µåç§° */,
+    dzsf                 varchar(70)          not null/* åœ°å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    dzsq                 varchar(70)          not null/* åœ°å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    dzx                  varchar(70)          not null/* åœ°å€-å¿ï¼ˆåŒºï¼‰ */,
+    dzxz                 varchar(70)          not null/* åœ°å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    dzc                  varchar(70)          not null/* åœ°å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    dzmphm               varchar(70)          not null/* åœ°å€-é—¨ç‰Œå·ç  */,
+    zylbdm               varchar(2)           null/* èŒä¸šç±»åˆ«ä»£ç  */,
+    zylbmc               varchar(32)          null/* èŒä¸šç±»åˆ«åç§° */,
+    ryrq                 datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    cyrq                 datetime             not null/* å‡ºé™¢æ—¥æœŸæ—¶é—´ */,
+    bscszxm              varchar(50)          not null/* ç—…å²é™ˆè¿°è€…å§“å */,
+    cszhzgxdm            varchar(50)          not null/* é™ˆè¿°è€…ä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    cszhzgxmc            varchar(50)          not null/* é™ˆè¿°è€…ä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    csnrbz               char(1)              not null/* é™ˆè¿°å†…å®¹å¯é æ ‡å¿— */,
+    zs                   nvarchar(100)        not null/* ä¸»è¯‰ */,
+    xbs                  nvarchar(2000)       not null/* ç°ç—…å² */,
+    ryqk                 nvarchar(2000)       not null/* å…¥é™¢æƒ…å†µ */,
+    zzmc                 varchar(50)          not null/* ç—‡çŠ¶åç§° */,
+    zzms                 nvarchar(1000)       not null/* ç—‡çŠ¶æè¿° */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ä»£ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³• */,
+    zlgcms               nvarchar(2000)       not null/* è¯Šç–—è¿‡ç¨‹æè¿° */,
+    cyqk                 nvarchar(2000)       not null/* å‡ºé™¢æƒ…å†µ */,
+    cyyz                 nvarchar(1000)       null/* å‡ºé™¢åŒ»å˜± */,
+    yzklysbm             varchar(20)          null/* åŒ»å˜±å¼€ç«‹åŒ»å¸ˆç¼–ç  */,
+    cyyzklrqm            varchar(50)          null/* å‡ºé™¢åŒ»å˜±å¼€ç«‹äººç­¾å */,
+    cyyzklrq             datetime             null/* å‡ºé™¢åŒ»å˜±å¼€ç«‹æ—¥æœŸæ—¶é—´ */,
+    jzysbm               varchar(20)          not null/* æ¥è¯ŠåŒ»å¸ˆç¼–ç  */,
+    jzysqm               varchar(50)          not null/* æ¥è¯ŠåŒ»å¸ˆç­¾å */,
+    zyysbm               varchar(20)          not null/* ä½é™¢åŒ»å¸ˆç¼–ç  */,
+    zyysqm               varchar(50)          not null/* ä½é™¢åŒ»å¸ˆç­¾å */,
+    zzysbm               varchar(20)          not null/* ä¸»æ²»åŒ»å¸ˆç¼–ç  */,
+    zzysqm               varchar(50)          not null/* ä¸»æ²»åŒ»å¸ˆç­¾å */,
+    zrysbm               varchar(20)          not null/* ä¸»ä»»åŒ»å¸ˆç¼–ç  */,
+    zrysqm               varchar(50)          not null/* ä¸»ä»»åŒ»å¸ˆç­¾å */,
     
    
     
@@ -3704,18 +3704,18 @@ where id = object_id('DC_RYJL_RCYJL') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RCYJL_CYXYZD     ÈëÔº¼ÇÂ¼£­24Ğ¡Ê±ÄÚÈë³öÔº¼ÇÂ¼_³öÔºÎ÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_RYJL_RCYJL_CYXYZD     å…¥é™¢è®°å½•ï¼24å°æ—¶å†…å…¥å‡ºé™¢è®°å½•_å‡ºé™¢è¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_RCYJL_CYXYZD') )
  create table  DC_RYJL_RCYJL_CYXYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    czxyzdmc             varchar(128)         not null/* ³öÔºÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    czxyzdbm             varchar(64)          not null/* ³öÔºÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    czxyzdmc             varchar(128)         not null/* å‡ºé™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    czxyzdbm             varchar(64)          not null/* å‡ºé™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
     
    
     
@@ -3733,20 +3733,20 @@ where id = object_id('DC_RYJL_RCYJL_CYXYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RCYJL_CYZYZD     ÈëÔº¼ÇÂ¼£­24Ğ¡Ê±ÄÚÈë³öÔº¼ÇÂ¼_³öÔºÖĞÒ½Õï¶Ï                                                                                                  */
+ /* DC_RYJL_RCYJL_CYZYZD     å…¥é™¢è®°å½•ï¼24å°æ—¶å†…å…¥å‡ºé™¢è®°å½•_å‡ºé™¢ä¸­åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_RCYJL_CYZYZD') )
  create table  DC_RYJL_RCYJL_CYZYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    czzybmmc             varchar(128)         not null/* ³öÔºÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    czzybmdm             varchar(64)          not null/* ³öÔºÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    czzyzhmc             varchar(128)         not null/* ³öÔºÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    czzyzhdm             varchar(64)          not null/* ³öÔºÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    czzybmmc             varchar(128)         not null/* å‡ºé™¢è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    czzybmdm             varchar(64)          not null/* å‡ºé™¢è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    czzyzhmc             varchar(128)         not null/* å‡ºé™¢è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    czzyzhdm             varchar(64)          not null/* å‡ºé™¢è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
     
    
     
@@ -3764,18 +3764,18 @@ where id = object_id('DC_RYJL_RCYJL_CYZYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RCYJL_RYXYZD     ÈëÔº¼ÇÂ¼£­24Ğ¡Ê±ÄÚÈë³öÔº¼ÇÂ¼_ÈëÔºÎ÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_RYJL_RCYJL_RYXYZD     å…¥é™¢è®°å½•ï¼24å°æ—¶å†…å…¥å‡ºé™¢è®°å½•_å…¥é™¢è¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_RCYJL_RYXYZD') )
  create table  DC_RYJL_RCYJL_RYXYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    rzxyzdmc             varchar(128)         not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    rzxzzdbm             varchar(64)          not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    rzxyzdmc             varchar(128)         not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    rzxzzdbm             varchar(64)          not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
     
    
     
@@ -3793,20 +3793,20 @@ where id = object_id('DC_RYJL_RCYJL_RYXYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RCYJL_RYZYZD     ÈëÔº¼ÇÂ¼£­24Ğ¡Ê±ÄÚÈë³öÔº¼ÇÂ¼_ÈëÔºÖĞÒ½Õï¶Ï                                                                                                  */
+ /* DC_RYJL_RCYJL_RYZYZD     å…¥é™¢è®°å½•ï¼24å°æ—¶å†…å…¥å‡ºé™¢è®°å½•_å…¥é™¢ä¸­åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_RCYJL_RYZYZD') )
  create table  DC_RYJL_RCYJL_RYZYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    rzzybmmc             varchar(128)         null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    rzzybmdm             varchar(64)          null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    rzzyzhmc             varchar(128)         null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    rzzyzhdm             varchar(64)          null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    rzzybmmc             varchar(128)         null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    rzzybmdm             varchar(64)          null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    rzzyzhmc             varchar(128)         null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    rzzyzhdm             varchar(64)          null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
     
    
     
@@ -3824,17 +3824,17 @@ where id = object_id('DC_RYJL_RCYJL_RYZYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RCYJL_ZYSZGCJG     ÈëÔº¼ÇÂ¼£­24Ğ¡Ê±ÄÚÈë³öÔº¼ÇÂ¼_ÖĞÒ½ËÄÕï¹Û²ì½á¹û                                                                                                  */
+ /* DC_RYJL_RCYJL_ZYSZGCJG     å…¥é™¢è®°å½•ï¼24å°æ—¶å†…å…¥å‡ºé™¢è®°å½•_ä¸­åŒ»å››è¯Šè§‚å¯Ÿç»“æœ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_RCYJL_ZYSZGCJG') )
  create table  DC_RYJL_RCYJL_ZYSZGCJG (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
     
    
 
@@ -3852,55 +3852,55 @@ where id = object_id('DC_RYJL_RCYJL_ZYSZGCJG') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RYSWJL     ÈëÔº¼ÇÂ¼ ¡ª 24Ğ¡Ê±ÄÚÈëÔºËÀÍö¼ÇÂ¼                                                                                                  */
+ /* DC_RYJL_RYSWJL     å…¥é™¢è®°å½• â€” 24å°æ—¶å†…å…¥é™¢æ­»äº¡è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_RYSWJL') )
  create table  DC_RYJL_RYSWJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    mz                   varchar(2)           null/* Ãñ×å */,
-    mzmc                 varchar(32)          null/* Ãñ×åÃû³Æ */,
-    hyzkdm               varchar(2)           null/* »éÒö×´¿ö´úÂë */,
-    hyzkmc               varchar(32)          null/* »éÒö×´¿öÃû³Æ */,
-    dzsf                 varchar(70)          not null/* µØÖ·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    dzsq                 varchar(70)          not null/* µØÖ·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    dzx                  varchar(70)          not null/* µØÖ·-ÏØ£¨Çø£© */,
-    dzxz                 varchar(70)          not null/* µØÖ·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    dzc                  varchar(70)          not null/* µØÖ·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    dzmphm               varchar(70)          not null/* µØÖ·-ÃÅÅÆºÅÂë */,
-    zylbdm               varchar(2)           null/* Ö°ÒµÀà±ğ´úÂë */,
-    zylbmc               varchar(50)          null/* Ö°ÒµÀà±ğÃû³Æ */,
-    bscszxm              varchar(50)          not null/* ²¡Ê·³ÂÊöÕßĞÕÃû */,
-    cszhzgxdm            varchar(2)           not null/* ³ÂÊöÕßÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    cszhzgxmc            varchar(50)          not null/* ³ÂÊöÕßÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    csnrbz               char(1)              not null/* ³ÂÊöÄÚÈİ¿É¿¿±êÖ¾ */,
-    ryrq                 datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    swrq                 datetime             not null/* ËÀÍöÈÕÆÚÊ±¼ä */,
-    ryqk                 nvarchar(2000)       not null/* ÈëÔºÇé¿ö */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨´úÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨ */,
-    zlgcms               nvarchar(2000)       not null/* ÕïÁÆ¹ı³ÌÃèÊö */,
-    swyy                 nvarchar(100)        not null/* ËÀÍöÔ­Òò */,
-    jzysbm               varchar(20)          not null/* ½ÓÕïÒ½Ê¦±àÂë */,
-    jzysqm               varchar(50)          not null/* ½ÓÕïÒ½Ê¦Ç©Ãû */,
-    zyysbm               varchar(20)          not null/* ×¡ÔºÒ½Ê¦±àÂë */,
-    zyysqm               varchar(50)          not null/* ×¡ÔºÒ½Ê¦Ç©Ãû */,
-    zzysbm               varchar(20)          not null/* Ö÷ÖÎÒ½Ê¦±àÂë */,
-    zzysqm               varchar(50)          not null/* Ö÷ÖÎÒ½Ê¦Ç©Ãû */,
-    zrysbm               varchar(20)          not null/* Ö÷ÈÎÒ½Ê¦±àÂë */,
-    zrysqm               varchar(50)          not null/* Ö÷ÈÎÒ½Ê¦Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    mz                   varchar(2)           null/* æ°‘æ— */,
+    mzmc                 varchar(32)          null/* æ°‘æ—åç§° */,
+    hyzkdm               varchar(2)           null/* å©šå§»çŠ¶å†µä»£ç  */,
+    hyzkmc               varchar(32)          null/* å©šå§»çŠ¶å†µåç§° */,
+    dzsf                 varchar(70)          not null/* åœ°å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    dzsq                 varchar(70)          not null/* åœ°å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    dzx                  varchar(70)          not null/* åœ°å€-å¿ï¼ˆåŒºï¼‰ */,
+    dzxz                 varchar(70)          not null/* åœ°å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    dzc                  varchar(70)          not null/* åœ°å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    dzmphm               varchar(70)          not null/* åœ°å€-é—¨ç‰Œå·ç  */,
+    zylbdm               varchar(2)           null/* èŒä¸šç±»åˆ«ä»£ç  */,
+    zylbmc               varchar(50)          null/* èŒä¸šç±»åˆ«åç§° */,
+    bscszxm              varchar(50)          not null/* ç—…å²é™ˆè¿°è€…å§“å */,
+    cszhzgxdm            varchar(2)           not null/* é™ˆè¿°è€…ä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    cszhzgxmc            varchar(50)          not null/* é™ˆè¿°è€…ä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    csnrbz               char(1)              not null/* é™ˆè¿°å†…å®¹å¯é æ ‡å¿— */,
+    ryrq                 datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    swrq                 datetime             not null/* æ­»äº¡æ—¥æœŸæ—¶é—´ */,
+    ryqk                 nvarchar(2000)       not null/* å…¥é™¢æƒ…å†µ */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ä»£ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³• */,
+    zlgcms               nvarchar(2000)       not null/* è¯Šç–—è¿‡ç¨‹æè¿° */,
+    swyy                 nvarchar(100)        not null/* æ­»äº¡åŸå›  */,
+    jzysbm               varchar(20)          not null/* æ¥è¯ŠåŒ»å¸ˆç¼–ç  */,
+    jzysqm               varchar(50)          not null/* æ¥è¯ŠåŒ»å¸ˆç­¾å */,
+    zyysbm               varchar(20)          not null/* ä½é™¢åŒ»å¸ˆç¼–ç  */,
+    zyysqm               varchar(50)          not null/* ä½é™¢åŒ»å¸ˆç­¾å */,
+    zzysbm               varchar(20)          not null/* ä¸»æ²»åŒ»å¸ˆç¼–ç  */,
+    zzysqm               varchar(50)          not null/* ä¸»æ²»åŒ»å¸ˆç­¾å */,
+    zrysbm               varchar(20)          not null/* ä¸»ä»»åŒ»å¸ˆç¼–ç  */,
+    zrysqm               varchar(50)          not null/* ä¸»ä»»åŒ»å¸ˆç­¾å */,
     
    
 
@@ -3918,18 +3918,18 @@ where id = object_id('DC_RYJL_RYSWJL') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RYSWJL_RYXYZD     ÈëÔº¼ÇÂ¼ ¡ª 24Ğ¡Ê±ÄÚÈëÔºËÀÍö¼ÇÂ¼_ÈëÔºÎ÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_RYJL_RYSWJL_RYXYZD     å…¥é™¢è®°å½• â€” 24å°æ—¶å†…å…¥é™¢æ­»äº¡è®°å½•_å…¥é™¢è¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_RYSWJL_RYXYZD') )
  create table  DC_RYJL_RYSWJL_RYXYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    rzxyzdmc             varchar(128)         not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    rzxyzdbm             varchar(64)          not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    rzxyzdmc             varchar(128)         not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    rzxyzdbm             varchar(64)          not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
     
    
     
@@ -3947,20 +3947,20 @@ where id = object_id('DC_RYJL_RYSWJL_RYXYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RYSWJL_RYZYZD     ÈëÔº¼ÇÂ¼ ¡ª 24Ğ¡Ê±ÄÚÈëÔºËÀÍö¼ÇÂ¼_ÈëÔºÖĞÒ½Õï¶Ï                                                                                                  */
+ /* DC_RYJL_RYSWJL_RYZYZD     å…¥é™¢è®°å½• â€” 24å°æ—¶å†…å…¥é™¢æ­»äº¡è®°å½•_å…¥é™¢ä¸­åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_RYSWJL_RYZYZD') )
  create table  DC_RYJL_RYSWJL_RYZYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    rzzybmmc             varchar(128)         not null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    rzzybmdm             varchar(64)          not null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    rzzyzhmc             varchar(128)         not null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    rzzyzhdm             varchar(64)          not null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    rzzybmmc             varchar(128)         not null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    rzzybmdm             varchar(64)          not null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    rzzyzhmc             varchar(128)         not null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    rzzyzhdm             varchar(64)          not null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
     
    
     
@@ -3978,18 +3978,18 @@ where id = object_id('DC_RYJL_RYSWJL_RYZYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RYSWJL_SWXYZD     ÈëÔº¼ÇÂ¼ ¡ª 24Ğ¡Ê±ÄÚÈëÔºËÀÍö¼ÇÂ¼_ËÀÍöÎ÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_RYJL_RYSWJL_SWXYZD     å…¥é™¢è®°å½• â€” 24å°æ—¶å†…å…¥é™¢æ­»äº¡è®°å½•_æ­»äº¡è¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_RYSWJL_SWXYZD') )
  create table  DC_RYJL_RYSWJL_SWXYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    szxyzdmc             varchar(128)         not null/* ËÀÍöÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    szxyzdbm             varchar(64)          not null/* ËÀÍöÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    szxyzdmc             varchar(128)         not null/* æ­»äº¡è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    szxyzdbm             varchar(64)          not null/* æ­»äº¡è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
     
    
     
@@ -4007,20 +4007,20 @@ where id = object_id('DC_RYJL_RYSWJL_SWXYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RYSWJL_SWZYZD     ÈëÔº¼ÇÂ¼ ¡ª 24Ğ¡Ê±ÄÚÈëÔºËÀÍö¼ÇÂ¼_ËÀÍöÖĞÒ½Õï¶Ï                                                                                                  */
+ /* DC_RYJL_RYSWJL_SWZYZD     å…¥é™¢è®°å½• â€” 24å°æ—¶å†…å…¥é™¢æ­»äº¡è®°å½•_æ­»äº¡ä¸­åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_RYSWJL_SWZYZD') )
  create table  DC_RYJL_RYSWJL_SWZYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    szzybmmc             varchar(128)         not null/* ËÀÍöÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    szzybmdm             varchar(64)          not null/* ËÀÍöÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    szzyzhmc             varchar(128)         not null/* ËÀÍöÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    szzyzhdm             varchar(64)          not null/* ËÀÍöÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    szzybmmc             varchar(128)         not null/* æ­»äº¡è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    szzybmdm             varchar(64)          not null/* æ­»äº¡è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    szzyzhmc             varchar(128)         not null/* æ­»äº¡è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    szzyzhdm             varchar(64)          not null/* æ­»äº¡è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
     
    
     
@@ -4038,17 +4038,17 @@ where id = object_id('DC_RYJL_RYSWJL_SWZYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_RYSWJL_ZYSZGCJG     ÈëÔº¼ÇÂ¼ ¡ª 24Ğ¡Ê±ÄÚÈëÔºËÀÍö¼ÇÂ¼_ÖĞÒ½ËÄÕï¹Û²ì½á¹û                                                                                                  */
+ /* DC_RYJL_RYSWJL_ZYSZGCJG     å…¥é™¢è®°å½• â€” 24å°æ—¶å†…å…¥é™¢æ­»äº¡è®°å½•_ä¸­åŒ»å››è¯Šè§‚å¯Ÿç»“æœ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_RYSWJL_ZYSZGCJG') )
  create table  DC_RYJL_RYSWJL_ZYSZGCJG (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
     
    
     
@@ -4067,83 +4067,83 @@ go
 
 
 /*========================================================================*/
- /* DC_ZCJL_DCJL     A-±ê×¼±í ¡ª Öú²ú¼ÇÂ¼ ¡ª ´ı²ú¼ÇÂ¼                                                                                                  */
+ /* DC_ZCJL_DCJL     A-æ ‡å‡†è¡¨ â€” åŠ©äº§è®°å½• â€” å¾…äº§è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZCJL_DCJL') )
  create table  DC_ZCJL_DCJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    cfxm                 varchar(50)          not null/* ²ú¸¾ĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    lxrxm                varchar(50)          not null/* ÁªÏµÈËĞÕÃû */,
-    lxrdh                varchar(20)          not null/* ÁªÏµÈËµç»° */,
-    lxrhzgxdm            varchar(20)          not null/* ÁªÏµÈËÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    lxrhzgxmc            varchar(50)          not null/* ÁªÏµÈËÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    dcrqsj               datetime             not null/* ´ı²úÈÕÆÚÊ±¼ä */,
-    yc                   numeric(2)           not null/* ÔĞ´Î */,
-    cc                   numeric(2)           not null/* ²ú´Î */,
-    mcyjrq               date                 not null/* Ä©´ÎÔÂ¾­ÈÕÆÚ */,
-    syxsdm               varchar(2)           not null/* ÊÜÔĞĞÎÊ½´úÂë */,
-    syxsmc               varchar(18)          not null/* ÊÜÔĞĞÎÊ½Ãû³Æ */,
-    ycq                  date                 not null/* Ô¤²úÆÚ */,
-    cqjcbz               char(1)              not null/* ²úÇ°¼ì²é±êÖ¾ */,
-    cqjcycqk             varchar(200)         not null/* ²úÇ°¼ì²éÒì³£Çé¿ö */,
-    yqtzkg               numeric(6,2)         not null/* ÔĞÇ°ÌåÖØ£¨kg£© */,
-    sgcm                 numeric(5,1)         not null/* Éí¸ß£¨cm£© */,
-    cqtzkg               numeric(6,2)         not null/* ·ÖÃäÇ°ÌåÖØ£¨kg£© */,
-    ccrstsqk             varchar(200)         not null/* ´Ë´ÎÈÑÉïÌØÊâÇé¿ö */,
-    ssy                  numeric(3)           not null/* ÊÕËõÑ¹£¨mmHg£© */,
-    szy                  numeric(3)           not null/* ÊæÕÅÑ¹£¨mmHg£© */,
-    tw                   numeric(4,1)         not null/* ÌåÎÂ£¨¡æ£© */,
-    ml                   numeric(3)           not null/* ÂöÂÊ£¨´Î/min£© */,
-    hxl                  numeric(3)           not null/* ºôÎüÆµÂÊ£¨´Î/min£© */,
-    gdgdcm               numeric(4,1)         not null/* ¹¬µ×¸ß¶È£¨cm£© */,
-    fw                   numeric(5,1)         not null/* ¸¹Î§£¨cm£© */,
-    tfwdm                varchar(2)           not null/* Ì¥·½Î»´úÂë */,
-    tfwmc                varchar(18)          not null/* Ì¥·½Î»Ãû³Æ */,
-    gjtetz               numeric(4)           not null/* ¹À¼ÆÌ¥¶ùÌåÖØ */,
-    txlc                 numeric(3)           not null/* Ì¥ĞÄÂÊ£¨´Î/min£© */,
-    twncqkdpg            varchar(200)         not null/* Í·Î»ÄÑ²úÇé¿öµÄÆÀ¹À */,
-    ckhjcm               numeric(3,1)         not null/* ³ö¿Úºá¾¶£¨cm£© */,
-    dcwjcm               numeric(4,1)         not null/* ÷¾³ÜÍâ¾¶£¨cm£© */,
-    zgjjjjcm             numeric(4,1)         not null/* ×ø¹Ç½á½Ú¼ä¾¶£¨cm£© */,
-    gsqk                 varchar(200)         not null/* ¹¬ËõÇé¿ö */,
-    gjhd                 varchar(100)         not null/* ¹¬¾±Çé¿ö */,
-    gkqk                 varchar(100)         not null/* ¹¬¿ÚÇé¿ö */,
-    tmqkdm               varchar(2)           not null/* Ì¥Ä¤Çé¿ö´úÂë */,
-    tmqkmc               varchar(18)          not null/* Ì¥Ä¤Çé¿öÃû³Æ */,
-    pmfsdm               varchar(2)           not null/* ÆÆÄ¤·½Ê½´úÂë */,
-    pmfsmc               varchar(12)          not null/* ÆÆÄ¤·½Ê½Ãû³Æ */,
-    xlwz                 varchar(100)         not null/* ÏÈÂ¶Î»ÖÃ */,
-    ysqk                 varchar(100)         not null/* ÑòË®Çé¿ö */,
-    bgcybz               char(1)              not null/* °òë×³äÓ¯±êÖ¾ */,
-    czqbz                char(1)              not null/* ³¦ÕÍÆø±êÖ¾ */,
-    jcfsdm               varchar(2)           not null/* ¼ì²é·½Ê½´úÂë */,
-    jcfsmc               varchar(18)          not null/* ¼ì²é·½Ê½Ãû³Æ */,
-    czjh                 varchar(2000)        not null/* ´¦ÖÃ¼Æ»® */,
-    jhxqdfmfs            varchar(2)           not null/* ¼Æ»®Ñ¡È¡µÄ·ÖÃä·½Ê½´úÂë */,
-    jhxqdfmfsmc          varchar(18)          not null/* ¼Æ»®Ñ¡È¡µÄ·ÖÃä·½Ê½Ãû³Æ */,
-    ccjlrqsj             datetime             not null/* ²ú³Ì¼ÇÂ¼ÈÕÆÚÊ±¼ä */,
-    ccjg                 varchar(200)         not null/* ²ú³Ì¾­¹ı */,
-    ccjczdm              varchar(20)          not null/* ²ú³Ì¼ì²éÕß¹¤ºÅ */,
-    ccjczqm              varchar(50)          not null/* ²ú³Ì¼ì²éÕßÇ©Ãû */,
-    zzysdm               varchar(20)          not null/* Ö÷ÖÎÒ½Éú¹¤ºÅ */,
-    zzysqm               varchar(50)          not null/* Ö÷ÖÎÒ½ÉúÃû³Æ */,
-    jlrdm                varchar(20)          not null/* ¼ÇÂ¼ÈËÔ±¹¤ºÅ */,
-    jlrqm                varchar(50)          not null/* ¼ÇÂ¼ÈËÔ±Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    cfxm                 varchar(50)          not null/* äº§å¦‡å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    lxrxm                varchar(50)          not null/* è”ç³»äººå§“å */,
+    lxrdh                varchar(20)          not null/* è”ç³»äººç”µè¯ */,
+    lxrhzgxdm            varchar(20)          not null/* è”ç³»äººä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    lxrhzgxmc            varchar(50)          not null/* è”ç³»äººä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    dcrqsj               datetime             not null/* å¾…äº§æ—¥æœŸæ—¶é—´ */,
+    yc                   numeric(2)           not null/* å­•æ¬¡ */,
+    cc                   numeric(2)           not null/* äº§æ¬¡ */,
+    mcyjrq               date                 not null/* æœ«æ¬¡æœˆç»æ—¥æœŸ */,
+    syxsdm               varchar(2)           not null/* å—å­•å½¢å¼ä»£ç  */,
+    syxsmc               varchar(18)          not null/* å—å­•å½¢å¼åç§° */,
+    ycq                  date                 not null/* é¢„äº§æœŸ */,
+    cqjcbz               char(1)              not null/* äº§å‰æ£€æŸ¥æ ‡å¿— */,
+    cqjcycqk             varchar(200)         not null/* äº§å‰æ£€æŸ¥å¼‚å¸¸æƒ…å†µ */,
+    yqtzkg               numeric(6,2)         not null/* å­•å‰ä½“é‡ï¼ˆkgï¼‰ */,
+    sgcm                 numeric(5,1)         not null/* èº«é«˜ï¼ˆcmï¼‰ */,
+    cqtzkg               numeric(6,2)         not null/* åˆ†å¨©å‰ä½“é‡ï¼ˆkgï¼‰ */,
+    ccrstsqk             varchar(200)         not null/* æ­¤æ¬¡å¦Šå¨ ç‰¹æ®Šæƒ…å†µ */,
+    ssy                  numeric(3)           not null/* æ”¶ç¼©å‹ï¼ˆmmHgï¼‰ */,
+    szy                  numeric(3)           not null/* èˆ’å¼ å‹ï¼ˆmmHgï¼‰ */,
+    tw                   numeric(4,1)         not null/* ä½“æ¸©ï¼ˆâ„ƒï¼‰ */,
+    ml                   numeric(3)           not null/* è„‰ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    hxl                  numeric(3)           not null/* å‘¼å¸é¢‘ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    gdgdcm               numeric(4,1)         not null/* å®«åº•é«˜åº¦ï¼ˆcmï¼‰ */,
+    fw                   numeric(5,1)         not null/* è…¹å›´ï¼ˆcmï¼‰ */,
+    tfwdm                varchar(2)           not null/* èƒæ–¹ä½ä»£ç  */,
+    tfwmc                varchar(18)          not null/* èƒæ–¹ä½åç§° */,
+    gjtetz               numeric(4)           not null/* ä¼°è®¡èƒå„¿ä½“é‡ */,
+    txlc                 numeric(3)           not null/* èƒå¿ƒç‡ï¼ˆæ¬¡/minï¼‰ */,
+    twncqkdpg            varchar(200)         not null/* å¤´ä½éš¾äº§æƒ…å†µçš„è¯„ä¼° */,
+    ckhjcm               numeric(3,1)         not null/* å‡ºå£æ¨ªå¾„ï¼ˆcmï¼‰ */,
+    dcwjcm               numeric(4,1)         not null/* éª¶è€»å¤–å¾„ï¼ˆcmï¼‰ */,
+    zgjjjjcm             numeric(4,1)         not null/* åéª¨ç»“èŠ‚é—´å¾„ï¼ˆcmï¼‰ */,
+    gsqk                 varchar(200)         not null/* å®«ç¼©æƒ…å†µ */,
+    gjhd                 varchar(100)         not null/* å®«é¢ˆæƒ…å†µ */,
+    gkqk                 varchar(100)         not null/* å®«å£æƒ…å†µ */,
+    tmqkdm               varchar(2)           not null/* èƒè†œæƒ…å†µä»£ç  */,
+    tmqkmc               varchar(18)          not null/* èƒè†œæƒ…å†µåç§° */,
+    pmfsdm               varchar(2)           not null/* ç ´è†œæ–¹å¼ä»£ç  */,
+    pmfsmc               varchar(12)          not null/* ç ´è†œæ–¹å¼åç§° */,
+    xlwz                 varchar(100)         not null/* å…ˆéœ²ä½ç½® */,
+    ysqk                 varchar(100)         not null/* ç¾Šæ°´æƒ…å†µ */,
+    bgcybz               char(1)              not null/* è†€èƒ±å……ç›ˆæ ‡å¿— */,
+    czqbz                char(1)              not null/* è‚ èƒ€æ°”æ ‡å¿— */,
+    jcfsdm               varchar(2)           not null/* æ£€æŸ¥æ–¹å¼ä»£ç  */,
+    jcfsmc               varchar(18)          not null/* æ£€æŸ¥æ–¹å¼åç§° */,
+    czjh                 varchar(2000)        not null/* å¤„ç½®è®¡åˆ’ */,
+    jhxqdfmfs            varchar(2)           not null/* è®¡åˆ’é€‰å–çš„åˆ†å¨©æ–¹å¼ä»£ç  */,
+    jhxqdfmfsmc          varchar(18)          not null/* è®¡åˆ’é€‰å–çš„åˆ†å¨©æ–¹å¼åç§° */,
+    ccjlrqsj             datetime             not null/* äº§ç¨‹è®°å½•æ—¥æœŸæ—¶é—´ */,
+    ccjg                 varchar(200)         not null/* äº§ç¨‹ç»è¿‡ */,
+    ccjczdm              varchar(20)          not null/* äº§ç¨‹æ£€æŸ¥è€…å·¥å· */,
+    ccjczqm              varchar(50)          not null/* äº§ç¨‹æ£€æŸ¥è€…ç­¾å */,
+    zzysdm               varchar(20)          not null/* ä¸»æ²»åŒ»ç”Ÿå·¥å· */,
+    zzysqm               varchar(50)          not null/* ä¸»æ²»åŒ»ç”Ÿåç§° */,
+    jlrdm                varchar(20)          not null/* è®°å½•äººå‘˜å·¥å· */,
+    jlrqm                varchar(50)          not null/* è®°å½•äººå‘˜ç­¾å */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -4157,17 +4157,17 @@ where id = object_id('DC_ZCJL_DCJL') )
 go
 
 /*========================================================================*/
- /* DC_ZCJL_DCJL_SSS     A-±ê×¼±í ¡ª Öú²ú¼ÇÂ¼ ¡ª ´ı²ú¼ÇÂ¼_ÊÖÊõÊ·                                                                                                  */
+ /* DC_ZCJL_DCJL_SSS     A-æ ‡å‡†è¡¨ â€” åŠ©äº§è®°å½• â€” å¾…äº§è®°å½•_æ‰‹æœ¯å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZCJL_DCJL_SSS') )
  create table  DC_ZCJL_DCJL_SSS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    sss                  varchar(1000)        not null/* ÊÖÊõÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    sss                  varchar(1000)        not null/* æ‰‹æœ¯å² */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -4181,17 +4181,17 @@ where id = object_id('DC_ZCJL_DCJL_SSS') )
 go
 
 /*========================================================================*/
- /* DC_ZCJL_DCJL_JWS     A-±ê×¼±í ¡ª Öú²ú¼ÇÂ¼ ¡ª ´ı²ú¼ÇÂ¼_¼ÈÍùÊ·                                                                                                  */
+ /* DC_ZCJL_DCJL_JWS     A-æ ‡å‡†è¡¨ â€” åŠ©äº§è®°å½• â€” å¾…äº§è®°å½•_æ—¢å¾€å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZCJL_DCJL_JWS') )
  create table  DC_ZCJL_DCJL_JWS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jws                  varchar(1000)        not null/* ¼ÈÍùÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jws                  varchar(1000)        not null/* æ—¢å¾€å² */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -4205,17 +4205,17 @@ where id = object_id('DC_ZCJL_DCJL_JWS') )
 go
 
 /*========================================================================*/
- /* DC_ZCJL_DCJL_JWYCS     A-±ê×¼±í ¡ª Öú²ú¼ÇÂ¼ ¡ª ´ı²ú¼ÇÂ¼_¼ÈÍùÔĞ²úÊ·                                                                                                  */
+ /* DC_ZCJL_DCJL_JWYCS     A-æ ‡å‡†è¡¨ â€” åŠ©äº§è®°å½• â€” å¾…äº§è®°å½•_æ—¢å¾€å­•äº§å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZCJL_DCJL_JWYCS') )
  create table  DC_ZCJL_DCJL_JWYCS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jwycs                varchar(1000)        not null/* ¼ÈÍùÔĞ²úÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jwycs                varchar(1000)        not null/* æ—¢å¾€å­•äº§å² */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -4230,116 +4230,116 @@ go
 
 
 /*========================================================================*/
- /* DC_ZCJL_PGC     Öú²ú¼ÇÂ¼ ¡ª ÆÊ¹¬²ú¼ÇÂ¼                                                                                                  */
+ /* DC_ZCJL_PGC     åŠ©äº§è®°å½• â€” å‰–å®«äº§è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZCJL_PGC') )
  create table  DC_ZCJL_PGC (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    cfxm                 varchar(50)          not null/* ²ú¸¾ĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    dcrqsj               datetime             not null/* ´ı²úÈÕÆÚÊ±¼ä */,
-    cqzdmc               varchar(200)         not null/* ÊõÇ°Õï¶Ï */,
-    sszz                 varchar(500)         not null/* ÊÖÊõÖ¸Õ÷ */,
-    ssjczbm              varchar(64)          not null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssjczmc              varchar(128)         not null/* ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    ssksrqsj             datetime             not null/* ÊÖÊõ¿ªÊ¼ÈÕÆÚÊ±¼ä */,
-    mzffdm               varchar(2)           not null/* Âé×í·½·¨´úÂë */,
-    mzffmc               varchar(100)         not null/* Âé×í·½·¨Ãû³Æ */,
-    mztw                 varchar(100)         not null/* Âé×íÌåÎ» */,
-    mzxg                 varchar(100)         not null/* Âé×íĞ§¹û */,
-    pgcssgc              varchar(2000)        not null/* ÆÊ¹¬²úÊÖÊõ¹ı³Ì */,
-    zgqk                 varchar(100)         not null/* ×Ó¹¬Çé¿ö */,
-    temcfsdm             varchar(11)          not null/* Ì¥¶ùÃä³ö´úÂë */,
-    temcfsmc             varchar(100)         not null/* Ì¥¶ùÃä³ö·½Ê½ */,
-    ysxz                 varchar(100)         not null/* ÑòË®ĞÔ×´ */,
-    ysl                  numeric(5)           not null/* ÑòË®Á¿£¨mL£© */,
-    tpwcrqsj             datetime             not null/* Ì¥ÅÌÃä³öÈÕÆÚÊ±¼ä */,
-    tpmcqk               varchar(100)         not null/* Ì¥ÅÌÃä³öÇé¿ö */,
-    tmwzqkbz             char(1)              not null/* Ì¥Ä¤ÍêÕûÇé¿ö±êÖ¾ */,
-    rjsz                 numeric(3)           not null/* ÈÆ¾±Éí£¨ÖÜ£© */,
-    qdcdcm               numeric(5)           not null/* Æê´ø³¤¶È£¨cm£© */,
-    qdycqkms             varchar(200)         not null/* Æê´øÒì³£Çé¿öÃèÊö */,
-    cqdxqkbz             char(1)              not null/* ´æÆê´øÑªÇé¿ö±êÖ¾ */,
-    zgbfhqk              varchar(100)         not null/* ×Ó¹¬±Ú·ìºÏÇé¿ö */,
-    gsjmc                varchar(50)          not null/* ¹¬Ëõ¼ÁÃû³Æ */,
-    gsjsyff              varchar(100)         not null/* ¹¬Ëõ¼ÁÊ¹ÓÃ·½·¨ */,
-    temohs               varchar(100)         not null/* Ì¥Ä¤»ÆÈ¾ */,
-    tepanhs              varchar(100)         not null/* Ì¥ÅÌ»ÆÈ¾ */,
-    tfwdm                varchar(20)          not null/* Ì¥·½Î»´úÂë */,
-    tfwmc                varchar(50)          not null/* Ì¥·½Î»Ãû³Æ */,
-    ssyy                 varchar(50)          not null/* ÊÖÊõÓÃÒ© */,
-    ssyyl                varchar(50)          not null/* ÊÖÊõÓÃÒ©Á¿ */,
-    fqtczg               varchar(100)         not null/* ¸¹Ç»Ì½²é×Ó¹¬ */,
-    fqtcfj               varchar(100)         not null/* ¸¹Ç»Ì½²é¸½¼ş */,
-    gqtcycqkbz           char(1)              not null/* ¹¬Ç»Ì½²éÒì³£Çé¿ö±êÖ¾ */,
-    gqtcjlbz             char(1)              not null/* ¹¬Ç»Ì½²é¼¡Áö±êÖ¾ */,
-    gqtcycqkms           varchar(1000)        not null/* ¹¬Ç»Ì½²éÒì³£Çé¿öÃèÊö */,
-    gqtcclqk             varchar(100)         not null/* ¹¬Ç»Ì½²é´¦ÀíÇé¿ö */,
-    ssscfqk              varchar(1000)        not null/* ÊÖÊõÊ±²ú¸¾Çé¿ö */,
-    cxlml                numeric(5)           not null/* ³öÑªÁ¿£¨mL£© */,
-    sxcf                 varchar(100)         not null/* ÊäÑª³É·Ö */,
-    sxlml                numeric(4)           not null/* ÊäÑªÁ¿£¨mL£© */,
-    sylml                numeric(5)           not null/* ÊäÒºÁ¿£¨mL£© */,
-    gysjmin              numeric(4)           not null/* ¹©ÑõÊ±¼ä£¨min£© */,
-    qtyy                 varchar(50)          not null/* ÆäËûÓÃÒ© */,
-    qtqk                 varchar(100)         not null/* ÆäËûÓÃÒ©Çé¿ö */,
-    ssjsrqsj             datetime             not null/* ÊÖÊõ½áÊøÈÕÆÚÊ±¼ä */,
-    ssqcsjmin            numeric(4)           not null/* ÊÖÊõÈ«³ÌÊ±¼ä£¨min£© */,
-    shzdmc               varchar(200)         not null/* ÊõºóÕï¶Ï */,
-    shgcrqsj             datetime             not null/* Êõºó¹Û²ìÈÕÆÚÊ±¼ä */,
-    shjcmin              numeric(3)           not null/* Êõºó¼ì²éÊ±¼ä£¨min£© */,
-    chssymmhg            numeric(3)           not null/* ÊõºóÊÕËõÑ¹£¨mmHg £© */,
-    chszymmhg            numeric(3)           not null/* ÊõºóÊæÕÅÑ¹£¨mmHg £© */,
-    chmbc                numeric(3)           not null/* ÊõºóÂö²«£¨´Î/min £© */,
-    chxlc                numeric(3)           not null/* ÊõºóĞÄÂÊ£¨´Î/min £© */,
-    chcxlml              numeric(5)           not null/* Êõºó³öÑªÁ¿£¨mL£© */,
-    chgs                 varchar(200)         not null/* Êõºó¹¬Ëõ */,
-    chgdgdcm             numeric(4,1)         not null/* Êõºó¹¬µ×¸ß¶È£¨cm£© */,
-    jdcsqk               varchar(100)         not null/* Æê´ø²øÈÆÇé¿ö */,
-    xsexbdm              varchar(4)           not null/* ĞÂÉú¶ùĞÔ±ğ´úÂë */,
-    xsexbmc              varchar(20)          not null/* ĞÂÉú¶ùĞÔ±ğÃû³Æ */,
-    xsecstzg             numeric(4)           not null/* ĞÂÉú¶ù³öÉúÌåÖØ£¨g£© */,
-    xsecssccm            numeric(5,1)         not null/* ĞÂÉú¶ù³öÉúÉí³¤£¨cm£© */,
-    jdnzzs               numeric(5)           not null/* Æê´øÅ¤×ª£¨ÖÜ£© */,
-    cldx                 varchar(100)         not null/* ²úÁö´óĞ¡ */,
-    clbw                 varchar(100)         not null/* ²úÁö²¿Î» */,
-    aafsm                varchar(10)          not null/* ApgarÆÀ·Ö¼ä¸ôÊ±¼ä´úÂë */,
-    aafmc                varchar(18)          not null/* ApgarÆÀ·Ö¼ä¸ôÊ±¼äÃû³Æ */,
-    apgarpfz             numeric(2)           not null/* ApgarÆÀ·ÖÖµ */,
-    fmjjdm               varchar(10)          not null/* ·ÖÃä½á¾Ö´úÂë */,
-    fmjjmc               varchar(100)         not null/* ·ÖÃä½á¾ÖÃû³Æ */,
-    xseycqkdm            varchar(10)          not null/* ĞÂÉú¶ùÒì³£Çé¿ö´úÂë */,
-    xseycqkmc            varchar(100)         not null/* ĞÂÉú¶ùÒì³£Çé¿öÃû³Æ */,
-    sszdm                varchar(20)          not null/* ÊÖÊõÒ½Éú¹¤ºÅ */,
-    sszqm                varchar(50)          not null/* ÊÖÊõÒ½ÉúÇ©Ãû */,
-    mzysdm               varchar(20)          not null/* Âé×íÒ½Éú¹¤ºÅ */,
-    mzysqm               varchar(50)          not null/* Âé×íÒ½ÉúÇ©Ãû */,
-    qxhsdm               varchar(20)          not null/* Æ÷Ğµ»¤Ê¿¹¤ºÅ */,
-    qxhsqm               varchar(50)          not null/* Æ÷Ğµ»¤Ê¿Ç©Ãû */,
-    zsdm                 varchar(20)          not null/* ÊÖÊõÖúÊÖ¹¤ºÅ */,
-    zsqm                 varchar(50)          not null/* ÊÖÊõÖúÊÖÇ©Ãû */,
-    ekysdm               varchar(20)          not null/* ¶ù¿ÆÒ½Éú¹¤ºÅ */,
-    ekysqm               varchar(50)          not null/* ¶ù¿ÆÒ½ÉúÇ©Ãû */,
-    zdysdm               varchar(20)          not null/* Ö¸µ¼Õß¹¤ºÅ */,
-    zdysqm               varchar(50)          not null/* Ö¸µ¼ÕßÇ©Ãû */,
-    hyzdm                varchar(20)          not null/* »¤Ó¤Õß¹¤ºÅ */,
-    hyzqm                varchar(50)          not null/* »¤Ó¤ÕßÇ©Ãû */,
-    jlrdm                varchar(20)          not null/* ¼ÇÂ¼ÈËÔ±¹¤ºÅ */,
-    jlrqm                varchar(50)          not null/* ¼ÇÂ¼ÈËÔ±Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    cfxm                 varchar(50)          not null/* äº§å¦‡å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    dcrqsj               datetime             not null/* å¾…äº§æ—¥æœŸæ—¶é—´ */,
+    cqzdmc               varchar(200)         not null/* æœ¯å‰è¯Šæ–­ */,
+    sszz                 varchar(500)         not null/* æ‰‹æœ¯æŒ‡å¾ */,
+    ssjczbm              varchar(64)          not null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssjczmc              varchar(128)         not null/* æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    ssksrqsj             datetime             not null/* æ‰‹æœ¯å¼€å§‹æ—¥æœŸæ—¶é—´ */,
+    mzffdm               varchar(2)           not null/* éº»é†‰æ–¹æ³•ä»£ç  */,
+    mzffmc               varchar(100)         not null/* éº»é†‰æ–¹æ³•åç§° */,
+    mztw                 varchar(100)         not null/* éº»é†‰ä½“ä½ */,
+    mzxg                 varchar(100)         not null/* éº»é†‰æ•ˆæœ */,
+    pgcssgc              varchar(2000)        not null/* å‰–å®«äº§æ‰‹æœ¯è¿‡ç¨‹ */,
+    zgqk                 varchar(100)         not null/* å­å®«æƒ…å†µ */,
+    temcfsdm             varchar(11)          not null/* èƒå„¿å¨©å‡ºä»£ç  */,
+    temcfsmc             varchar(100)         not null/* èƒå„¿å¨©å‡ºæ–¹å¼ */,
+    ysxz                 varchar(100)         not null/* ç¾Šæ°´æ€§çŠ¶ */,
+    ysl                  numeric(5)           not null/* ç¾Šæ°´é‡ï¼ˆmLï¼‰ */,
+    tpwcrqsj             datetime             not null/* èƒç›˜å¨©å‡ºæ—¥æœŸæ—¶é—´ */,
+    tpmcqk               varchar(100)         not null/* èƒç›˜å¨©å‡ºæƒ…å†µ */,
+    tmwzqkbz             char(1)              not null/* èƒè†œå®Œæ•´æƒ…å†µæ ‡å¿— */,
+    rjsz                 numeric(3)           not null/* ç»•é¢ˆèº«ï¼ˆå‘¨ï¼‰ */,
+    qdcdcm               numeric(5)           not null/* è„å¸¦é•¿åº¦ï¼ˆcmï¼‰ */,
+    qdycqkms             varchar(200)         not null/* è„å¸¦å¼‚å¸¸æƒ…å†µæè¿° */,
+    cqdxqkbz             char(1)              not null/* å­˜è„å¸¦è¡€æƒ…å†µæ ‡å¿— */,
+    zgbfhqk              varchar(100)         not null/* å­å®«å£ç¼åˆæƒ…å†µ */,
+    gsjmc                varchar(50)          not null/* å®«ç¼©å‰‚åç§° */,
+    gsjsyff              varchar(100)         not null/* å®«ç¼©å‰‚ä½¿ç”¨æ–¹æ³• */,
+    temohs               varchar(100)         not null/* èƒè†œé»„æŸ“ */,
+    tepanhs              varchar(100)         not null/* èƒç›˜é»„æŸ“ */,
+    tfwdm                varchar(20)          not null/* èƒæ–¹ä½ä»£ç  */,
+    tfwmc                varchar(50)          not null/* èƒæ–¹ä½åç§° */,
+    ssyy                 varchar(50)          not null/* æ‰‹æœ¯ç”¨è¯ */,
+    ssyyl                varchar(50)          not null/* æ‰‹æœ¯ç”¨è¯é‡ */,
+    fqtczg               varchar(100)         not null/* è…¹è…”æ¢æŸ¥å­å®« */,
+    fqtcfj               varchar(100)         not null/* è…¹è…”æ¢æŸ¥é™„ä»¶ */,
+    gqtcycqkbz           char(1)              not null/* å®«è…”æ¢æŸ¥å¼‚å¸¸æƒ…å†µæ ‡å¿— */,
+    gqtcjlbz             char(1)              not null/* å®«è…”æ¢æŸ¥è‚Œç˜¤æ ‡å¿— */,
+    gqtcycqkms           varchar(1000)        not null/* å®«è…”æ¢æŸ¥å¼‚å¸¸æƒ…å†µæè¿° */,
+    gqtcclqk             varchar(100)         not null/* å®«è…”æ¢æŸ¥å¤„ç†æƒ…å†µ */,
+    ssscfqk              varchar(1000)        not null/* æ‰‹æœ¯æ—¶äº§å¦‡æƒ…å†µ */,
+    cxlml                numeric(5)           not null/* å‡ºè¡€é‡ï¼ˆmLï¼‰ */,
+    sxcf                 varchar(100)         not null/* è¾“è¡€æˆåˆ† */,
+    sxlml                numeric(4)           not null/* è¾“è¡€é‡ï¼ˆmLï¼‰ */,
+    sylml                numeric(5)           not null/* è¾“æ¶²é‡ï¼ˆmLï¼‰ */,
+    gysjmin              numeric(4)           not null/* ä¾›æ°§æ—¶é—´ï¼ˆminï¼‰ */,
+    qtyy                 varchar(50)          not null/* å…¶ä»–ç”¨è¯ */,
+    qtqk                 varchar(100)         not null/* å…¶ä»–ç”¨è¯æƒ…å†µ */,
+    ssjsrqsj             datetime             not null/* æ‰‹æœ¯ç»“æŸæ—¥æœŸæ—¶é—´ */,
+    ssqcsjmin            numeric(4)           not null/* æ‰‹æœ¯å…¨ç¨‹æ—¶é—´ï¼ˆminï¼‰ */,
+    shzdmc               varchar(200)         not null/* æœ¯åè¯Šæ–­ */,
+    shgcrqsj             datetime             not null/* æœ¯åè§‚å¯Ÿæ—¥æœŸæ—¶é—´ */,
+    shjcmin              numeric(3)           not null/* æœ¯åæ£€æŸ¥æ—¶é—´ï¼ˆminï¼‰ */,
+    chssymmhg            numeric(3)           not null/* æœ¯åæ”¶ç¼©å‹ï¼ˆmmHg ï¼‰ */,
+    chszymmhg            numeric(3)           not null/* æœ¯åèˆ’å¼ å‹ï¼ˆmmHg ï¼‰ */,
+    chmbc                numeric(3)           not null/* æœ¯åè„‰æï¼ˆæ¬¡/min ï¼‰ */,
+    chxlc                numeric(3)           not null/* æœ¯åå¿ƒç‡ï¼ˆæ¬¡/min ï¼‰ */,
+    chcxlml              numeric(5)           not null/* æœ¯åå‡ºè¡€é‡ï¼ˆmLï¼‰ */,
+    chgs                 varchar(200)         not null/* æœ¯åå®«ç¼© */,
+    chgdgdcm             numeric(4,1)         not null/* æœ¯åå®«åº•é«˜åº¦ï¼ˆcmï¼‰ */,
+    jdcsqk               varchar(100)         not null/* è„å¸¦ç¼ ç»•æƒ…å†µ */,
+    xsexbdm              varchar(4)           not null/* æ–°ç”Ÿå„¿æ€§åˆ«ä»£ç  */,
+    xsexbmc              varchar(20)          not null/* æ–°ç”Ÿå„¿æ€§åˆ«åç§° */,
+    xsecstzg             numeric(4)           not null/* æ–°ç”Ÿå„¿å‡ºç”Ÿä½“é‡ï¼ˆgï¼‰ */,
+    xsecssccm            numeric(5,1)         not null/* æ–°ç”Ÿå„¿å‡ºç”Ÿèº«é•¿ï¼ˆcmï¼‰ */,
+    jdnzzs               numeric(5)           not null/* è„å¸¦æ‰­è½¬ï¼ˆå‘¨ï¼‰ */,
+    cldx                 varchar(100)         not null/* äº§ç˜¤å¤§å° */,
+    clbw                 varchar(100)         not null/* äº§ç˜¤éƒ¨ä½ */,
+    aafsm                varchar(10)          not null/* Apgarè¯„åˆ†é—´éš”æ—¶é—´ä»£ç  */,
+    aafmc                varchar(18)          not null/* Apgarè¯„åˆ†é—´éš”æ—¶é—´åç§° */,
+    apgarpfz             numeric(2)           not null/* Apgarè¯„åˆ†å€¼ */,
+    fmjjdm               varchar(10)          not null/* åˆ†å¨©ç»“å±€ä»£ç  */,
+    fmjjmc               varchar(100)         not null/* åˆ†å¨©ç»“å±€åç§° */,
+    xseycqkdm            varchar(10)          not null/* æ–°ç”Ÿå„¿å¼‚å¸¸æƒ…å†µä»£ç  */,
+    xseycqkmc            varchar(100)         not null/* æ–°ç”Ÿå„¿å¼‚å¸¸æƒ…å†µåç§° */,
+    sszdm                varchar(20)          not null/* æ‰‹æœ¯åŒ»ç”Ÿå·¥å· */,
+    sszqm                varchar(50)          not null/* æ‰‹æœ¯åŒ»ç”Ÿç­¾å */,
+    mzysdm               varchar(20)          not null/* éº»é†‰åŒ»ç”Ÿå·¥å· */,
+    mzysqm               varchar(50)          not null/* éº»é†‰åŒ»ç”Ÿç­¾å */,
+    qxhsdm               varchar(20)          not null/* å™¨æ¢°æŠ¤å£«å·¥å· */,
+    qxhsqm               varchar(50)          not null/* å™¨æ¢°æŠ¤å£«ç­¾å */,
+    zsdm                 varchar(20)          not null/* æ‰‹æœ¯åŠ©æ‰‹å·¥å· */,
+    zsqm                 varchar(50)          not null/* æ‰‹æœ¯åŠ©æ‰‹ç­¾å */,
+    ekysdm               varchar(20)          not null/* å„¿ç§‘åŒ»ç”Ÿå·¥å· */,
+    ekysqm               varchar(50)          not null/* å„¿ç§‘åŒ»ç”Ÿç­¾å */,
+    zdysdm               varchar(20)          not null/* æŒ‡å¯¼è€…å·¥å· */,
+    zdysqm               varchar(50)          not null/* æŒ‡å¯¼è€…ç­¾å */,
+    hyzdm                varchar(20)          not null/* æŠ¤å©´è€…å·¥å· */,
+    hyzqm                varchar(50)          not null/* æŠ¤å©´è€…ç­¾å */,
+    jlrdm                varchar(20)          not null/* è®°å½•äººå‘˜å·¥å· */,
+    jlrqm                varchar(50)          not null/* è®°å½•äººå‘˜ç­¾å */,
     
    
     
@@ -4357,128 +4357,128 @@ where id = object_id('DC_ZCJL_PGC') )
 go
 
 /*========================================================================*/
- /* DC_ZCJL_YDFM     Öú²ú¼ÇÂ¼ ¡ª ÒõµÀ·ÖÃä                                                                                                  */
+ /* DC_ZCJL_YDFM     åŠ©äº§è®°å½• â€” é˜´é“åˆ†å¨©                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZCJL_YDFM') )
  create table  DC_ZCJL_YDFM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    cfxm                 varchar(50)          not null/* ²ú¸¾ĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    yc                   numeric(2)           not null/* ÔĞ´Î */,
-    cc                   numeric(2)           not null/* ²ú´Î */,
-    mcyjrq               datetime             not null/* Ä©´ÎÔÂ¾­ÈÕÆÚ */,
-    ycq                  date                 not null/* Ô¤²úÆÚ */,
-    lcrqsj               datetime             not null/* ÁÙ²úÈÕÆÚÊ±¼ä */,
-    tmplrqsj             datetime             not null/* Ì¥Ä¤ÆÆÁÑÈÕÆÚÊ±¼ä */,
-    zdmc                 varchar(200)         not null/* ÈëÔºÕï¶Ï */,
-    chpgcybz             char(1)              not null/* ²úºó°òë×³äÓ¯±êÖ¾ */,
-    qysxz                varchar(100)         not null/* Ç°ÑòË®ĞÔ×´ */,
-    qyslml               numeric(5)           not null/* Ç°ÑòË®Á¿£¨mL£© */,
-    gsksrqsj             datetime             not null/* ¹¬Ëõ¿ªÊ¼ÈÕÆÚÊ±¼ä */,
-    d1ccsc               numeric(4)           not null/* µÚ1²ú³ÌÊ±³¤£¨min£© */,
-    gkkqrqsj             datetime             not null/* ¹¬¿Ú¿ªÈ«ÈÕÆÚÊ±¼ä */,
-    d2ccsc               numeric(4)           not null/* µÚ2²ú³ÌÊ±³¤£¨min£© */,
-    temcrqsj             datetime             not null/* Ì¥¶ùÃä³öÈÕÆÚÊ±¼ä */,
-    d3ccsc               numeric(4)           not null/* µÚ3²ú³ÌÊ±³¤£¨min£© */,
-    tpmcrqsj             datetime             not null/* Ì¥ÅÌÃä³öÈÕÆÚÊ±¼ä */,
-    zccsc                numeric(4)           not null/* ×Ü²ú³ÌÊ±³¤£¨min£© */,
-    tfwdm                varchar(2)           not null/* Ì¥·½Î»´úÂë */,
-    tfwmc                varchar(50)          not null/* Ì¥·½Î»Ãû³Æ */,
-    temczcbz             char(1)              not null/* Ì¥¶ùÃä³öÖú²ú±êÖ¾ */,
-    zcfs                 varchar(100)         not null/* Öú²ú·½Ê½ */,
-    tpmcqk               varchar(100)         not null/* Ì¥ÅÌÃä³öÇé¿ö */,
-    tmwzqkbz             char(1)              not null/* Ì¥Ä¤ÍêÕûÇé¿ö±êÖ¾ */,
-    ysxz                 varchar(100)         not null/* ÑòË®ĞÔ×´ */,
-    yslml                numeric(5)           not null/* ÑòË®Á¿£¨mL£© */,
-    qdcdcm               numeric(5)           not null/* Æê´ø³¤¶È£¨cm£© */,
-    rjsz                 numeric(3)           not null/* ÈÆ¾±Éí£¨ÖÜ£© */,
-    qdycqkbz             char(1)              not null/* Æê´øÒì³£Çé¿ö±êÖ¾ */,
-    qdycqkms             varchar(200)         not null/* Æê´øÒì³£Çé¿öÃèÊö */,
-    csyy                 varchar(50)          not null/* ²úÊ±ÓÃÒ© */,
-    yfcs                 varchar(200)         not null/* Ô¤·À´ëÊ© */,
-    cfhyqkbz             char(1)              not null/* ²ú¸¾»áÒõÇĞ¿ª±êÖ¾ */,
-    hyqkwz               varchar(100)         not null/* »áÒõÇĞ¿ªÎ»ÖÃ */,
-    cfhyfhzs             numeric(2)           not null/* ²ú¸¾»áÒõ·ìºÏÕëÊı */,
-    cfhylscdmc           varchar(100)         not null/* »áÒõÁÑÉËÇé¿ö */,
-    cfhylscddm           varchar(2)           not null/* »áÒõÁÑÉËÇé¿ö´úÂë */,
-    hyxzbz               char(1)              not null/* »áÒõÑªÖ×±êÖ¾ */,
-    hyxzdx               varchar(50)          not null/* »áÒõÑªÖ×´óĞ¡ */,
-    hyxzcl               varchar(200)         not null/* »áÒõÑªÖ×´¦Àí */,
-    mzffdm               varchar(2)           not null/* Âé×í·½·¨´úÂë */,
-    mzffmc               varchar(50)          not null/* Âé×í·½·¨Ãû³Æ */,
-    mzywdm               varchar(32)          not null/* Âé×íÒ©Îï´úÂë */,
-    mzywmc               varchar(128)         not null/* Âé×íÒ©ÎïÃû³Æ */,
-    ydlsbz               char(1)              not null/* ÒõµÀÁÑÉË±êÖ¾ */,
-    ydxzbz               char(1)              not null/* ÒõµÀÑªÖ×±êÖ¾ */,
-    ydxzdx               varchar(50)          not null/* ÒõµÀÑªÖ×´óĞ¡ */,
-    gjlsbz               char(1)              not null/* ¹¬¾±ÁÑÉË±êÖ¾ */,
-    ydzcbz               char(1)              not null/* ÒõµÀÖú²ú±êÖ¾ */,
-    ydzcfs               varchar(100)         not null/* ÒõµÀÖú²ú·½Ê½ */,
-    ydxzcl               varchar(100)         not null/* ÒõµÀÑªÖ×´¦Àí */,
-    gjfhqk               varchar(100)         not null/* ¹¬¾±·ìºÏÇé¿ö */,
-    chyy                 varchar(50)          not null/* ²úºóÓÃÒ© */,
-    fmgczy               varchar(200)         not null/* ·ÖÃä¹ı³ÌÕªÒª */,
-    gsqk                 varchar(200)         not null/* ¹¬ËõÇé¿ö */,
-    zgqk                 varchar(100)         not null/* ×Ó¹¬Çé¿ö */,
-    elzk                 varchar(100)         not null/* ¶ñÂ¶×´¿ö */,
-    hyqk                 varchar(100)         not null/* »áÒõÇé¿ö */,
-    xbssgc               varchar(100)         not null/* ĞŞ²¹ÊÖÊõ¹ı³Ì */,
-    cqdxqkbz             char(1)              not null/* ´æÆê´øÑªÇé¿ö±êÖ¾ */,
-    chzdmc               varchar(200)         not null/* ²úºóÕï¶Ï */,
-    chgcrqsj             datetime             not null/* ²úºó¹Û²ìÈÕÆÚÊ±¼ä */,
-    chjcsj               numeric(3)           not null/* ²úºó¼ì²éÊ±¼ä£¨min£© */,
-    chssy                numeric(3)           not null/* ²úºóÊÕËõÑ¹£¨mmHg £© */,
-    chszy                numeric(3)           not null/* ²úºóÊæÕÅÑ¹£¨mmHg £© */,
-    chmbc                numeric(3)           not null/* ²úºóÂö²«£¨´Î/min £© */,
-    chxlc                numeric(3)           not null/* ²úºóĞÄÂÊ£¨´Î/min £© */,
-    chcxl                numeric(5)           not null/* ²úºó³öÑªÁ¿£¨mL£© */,
-    chgs                 varchar(200)         not null/* ²úºó¹¬Ëõ */,
-    chgdgd               numeric(4,1)         not null/* ²úºó¹¬µ×¸ß¶È£¨cm£© */,
-    gc                   varchar(100)         not null/* ¸Ø²é */,
-    xsexbdm              varchar(2)           not null/* ĞÂÉú¶ùĞÔ±ğ´úÂë */,
-    xsexbmc              varchar(100)         not null/* ĞÂÉú¶ùĞÔ±ğÃû³Æ */,
-    xsecstzg             numeric(4)           not null/* ĞÂÉú¶ù³öÉúÌåÖØ£¨g£© */,
-    xsecssccm            numeric(5,1)         not null/* ĞÂÉú¶ù³öÉúÉí³¤£¨cm£© */,
-    cldx                 varchar(100)         not null/* ²úÁö´óĞ¡ */,
-    clbw                 varchar(100)         not null/* ²úÁö²¿Î» */,
-    aafsm                varchar(2)           not null/* ApgarÆÀ·Ö¼ä¸ôÊ±¼ä´úÂë */,
-    aafsmc               varchar(100)         not null/* ApgarÆÀ·Ö¼ä¸ôÊ±¼ä */,
-    apgarpfz             numeric(2)           not null/* ApgarÆÀ·ÖÖµ */,
-    fmjjdm               varchar(2)           not null/* ·ÖÃä½á¾Ö´úÂë */,
-    fmjjmc               varchar(100)         not null/* ·ÖÃä½á¾ÖÃû³Æ */,
-    xseycqkdm            varchar(2)           not null/* ĞÂÉú¶ùÒì³£Çé¿ö´úÂë */,
-    fmgctsqkms           varchar(200)         not null/* ·ÖÃä¹ı³ÌÌØÊâÇé¿öÃèÊö */,
-    xseycqkmc            varchar(100)         not null/* ĞÂÉú¶ùÒì³£Çé¿öÃû³Æ */,
-    ssysdm               varchar(20)          not null/* ÊÖÊõÒ½Éú¹¤ºÅ */,
-    ssysqm               varchar(50)          not null/* ÊÖÊõÒ½ÉúÇ©Ãû */,
-    jszdm                varchar(20)          not null/* ½ÓÉúÈËÔ±¹¤ºÅ */,
-    jszqm                varchar(50)          not null/* ½ÓÉúÈËÔ±Ç©Ãû */,
-    zczdm                varchar(20)          not null/* Öú²úÕß¹¤ºÅ */,
-    zczqm                varchar(50)          not null/* Öú²úÕßÇ©Ãû */,
-    zsdm                 varchar(20)          not null/* ÖúÊÖ¹¤ºÅ */,
-    zsqm                 varchar(50)          not null/* ÖúÊÖÇ©Ãû */,
-    ekysdm               varchar(20)          not null/* ¶ù¿ÆÒ½Éú¹¤ºÅ */,
-    ekysqm               varchar(50)          not null/* ¶ù¿ÆÒ½ÉúÇ©Ãû */,
-    hyzdm                varchar(20)          not null/* »¤Ó¤Õß¹¤ºÅ */,
-    hyzqm                varchar(50)          not null/* »¤Ó¤ÕßÇ©Ãû */,
-    zdzdm                varchar(20)          not null/* Ö¸µ¼Õß¹¤ºÅ */,
-    zdzqm                varchar(50)          not null/* Ö¸µ¼ÕßÇ©Ãû */,
-    jlrdm                varchar(20)          not null/* ¼ÇÂ¼ÈËÔ±¹¤ºÅ */,
-    jlrqm                varchar(50)          not null/* ¼ÇÂ¼ÈËÔ±Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    cfxm                 varchar(50)          not null/* äº§å¦‡å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    yc                   numeric(2)           not null/* å­•æ¬¡ */,
+    cc                   numeric(2)           not null/* äº§æ¬¡ */,
+    mcyjrq               datetime             not null/* æœ«æ¬¡æœˆç»æ—¥æœŸ */,
+    ycq                  date                 not null/* é¢„äº§æœŸ */,
+    lcrqsj               datetime             not null/* ä¸´äº§æ—¥æœŸæ—¶é—´ */,
+    tmplrqsj             datetime             not null/* èƒè†œç ´è£‚æ—¥æœŸæ—¶é—´ */,
+    zdmc                 varchar(200)         not null/* å…¥é™¢è¯Šæ–­ */,
+    chpgcybz             char(1)              not null/* äº§åè†€èƒ±å……ç›ˆæ ‡å¿— */,
+    qysxz                varchar(100)         not null/* å‰ç¾Šæ°´æ€§çŠ¶ */,
+    qyslml               numeric(5)           not null/* å‰ç¾Šæ°´é‡ï¼ˆmLï¼‰ */,
+    gsksrqsj             datetime             not null/* å®«ç¼©å¼€å§‹æ—¥æœŸæ—¶é—´ */,
+    d1ccsc               numeric(4)           not null/* ç¬¬1äº§ç¨‹æ—¶é•¿ï¼ˆminï¼‰ */,
+    gkkqrqsj             datetime             not null/* å®«å£å¼€å…¨æ—¥æœŸæ—¶é—´ */,
+    d2ccsc               numeric(4)           not null/* ç¬¬2äº§ç¨‹æ—¶é•¿ï¼ˆminï¼‰ */,
+    temcrqsj             datetime             not null/* èƒå„¿å¨©å‡ºæ—¥æœŸæ—¶é—´ */,
+    d3ccsc               numeric(4)           not null/* ç¬¬3äº§ç¨‹æ—¶é•¿ï¼ˆminï¼‰ */,
+    tpmcrqsj             datetime             not null/* èƒç›˜å¨©å‡ºæ—¥æœŸæ—¶é—´ */,
+    zccsc                numeric(4)           not null/* æ€»äº§ç¨‹æ—¶é•¿ï¼ˆminï¼‰ */,
+    tfwdm                varchar(2)           not null/* èƒæ–¹ä½ä»£ç  */,
+    tfwmc                varchar(50)          not null/* èƒæ–¹ä½åç§° */,
+    temczcbz             char(1)              not null/* èƒå„¿å¨©å‡ºåŠ©äº§æ ‡å¿— */,
+    zcfs                 varchar(100)         not null/* åŠ©äº§æ–¹å¼ */,
+    tpmcqk               varchar(100)         not null/* èƒç›˜å¨©å‡ºæƒ…å†µ */,
+    tmwzqkbz             char(1)              not null/* èƒè†œå®Œæ•´æƒ…å†µæ ‡å¿— */,
+    ysxz                 varchar(100)         not null/* ç¾Šæ°´æ€§çŠ¶ */,
+    yslml                numeric(5)           not null/* ç¾Šæ°´é‡ï¼ˆmLï¼‰ */,
+    qdcdcm               numeric(5)           not null/* è„å¸¦é•¿åº¦ï¼ˆcmï¼‰ */,
+    rjsz                 numeric(3)           not null/* ç»•é¢ˆèº«ï¼ˆå‘¨ï¼‰ */,
+    qdycqkbz             char(1)              not null/* è„å¸¦å¼‚å¸¸æƒ…å†µæ ‡å¿— */,
+    qdycqkms             varchar(200)         not null/* è„å¸¦å¼‚å¸¸æƒ…å†µæè¿° */,
+    csyy                 varchar(50)          not null/* äº§æ—¶ç”¨è¯ */,
+    yfcs                 varchar(200)         not null/* é¢„é˜²æªæ–½ */,
+    cfhyqkbz             char(1)              not null/* äº§å¦‡ä¼šé˜´åˆ‡å¼€æ ‡å¿— */,
+    hyqkwz               varchar(100)         not null/* ä¼šé˜´åˆ‡å¼€ä½ç½® */,
+    cfhyfhzs             numeric(2)           not null/* äº§å¦‡ä¼šé˜´ç¼åˆé’ˆæ•° */,
+    cfhylscdmc           varchar(100)         not null/* ä¼šé˜´è£‚ä¼¤æƒ…å†µ */,
+    cfhylscddm           varchar(2)           not null/* ä¼šé˜´è£‚ä¼¤æƒ…å†µä»£ç  */,
+    hyxzbz               char(1)              not null/* ä¼šé˜´è¡€è‚¿æ ‡å¿— */,
+    hyxzdx               varchar(50)          not null/* ä¼šé˜´è¡€è‚¿å¤§å° */,
+    hyxzcl               varchar(200)         not null/* ä¼šé˜´è¡€è‚¿å¤„ç† */,
+    mzffdm               varchar(2)           not null/* éº»é†‰æ–¹æ³•ä»£ç  */,
+    mzffmc               varchar(50)          not null/* éº»é†‰æ–¹æ³•åç§° */,
+    mzywdm               varchar(32)          not null/* éº»é†‰è¯ç‰©ä»£ç  */,
+    mzywmc               varchar(128)         not null/* éº»é†‰è¯ç‰©åç§° */,
+    ydlsbz               char(1)              not null/* é˜´é“è£‚ä¼¤æ ‡å¿— */,
+    ydxzbz               char(1)              not null/* é˜´é“è¡€è‚¿æ ‡å¿— */,
+    ydxzdx               varchar(50)          not null/* é˜´é“è¡€è‚¿å¤§å° */,
+    gjlsbz               char(1)              not null/* å®«é¢ˆè£‚ä¼¤æ ‡å¿— */,
+    ydzcbz               char(1)              not null/* é˜´é“åŠ©äº§æ ‡å¿— */,
+    ydzcfs               varchar(100)         not null/* é˜´é“åŠ©äº§æ–¹å¼ */,
+    ydxzcl               varchar(100)         not null/* é˜´é“è¡€è‚¿å¤„ç† */,
+    gjfhqk               varchar(100)         not null/* å®«é¢ˆç¼åˆæƒ…å†µ */,
+    chyy                 varchar(50)          not null/* äº§åç”¨è¯ */,
+    fmgczy               varchar(200)         not null/* åˆ†å¨©è¿‡ç¨‹æ‘˜è¦ */,
+    gsqk                 varchar(200)         not null/* å®«ç¼©æƒ…å†µ */,
+    zgqk                 varchar(100)         not null/* å­å®«æƒ…å†µ */,
+    elzk                 varchar(100)         not null/* æ¶éœ²çŠ¶å†µ */,
+    hyqk                 varchar(100)         not null/* ä¼šé˜´æƒ…å†µ */,
+    xbssgc               varchar(100)         not null/* ä¿®è¡¥æ‰‹æœ¯è¿‡ç¨‹ */,
+    cqdxqkbz             char(1)              not null/* å­˜è„å¸¦è¡€æƒ…å†µæ ‡å¿— */,
+    chzdmc               varchar(200)         not null/* äº§åè¯Šæ–­ */,
+    chgcrqsj             datetime             not null/* äº§åè§‚å¯Ÿæ—¥æœŸæ—¶é—´ */,
+    chjcsj               numeric(3)           not null/* äº§åæ£€æŸ¥æ—¶é—´ï¼ˆminï¼‰ */,
+    chssy                numeric(3)           not null/* äº§åæ”¶ç¼©å‹ï¼ˆmmHg ï¼‰ */,
+    chszy                numeric(3)           not null/* äº§åèˆ’å¼ å‹ï¼ˆmmHg ï¼‰ */,
+    chmbc                numeric(3)           not null/* äº§åè„‰æï¼ˆæ¬¡/min ï¼‰ */,
+    chxlc                numeric(3)           not null/* äº§åå¿ƒç‡ï¼ˆæ¬¡/min ï¼‰ */,
+    chcxl                numeric(5)           not null/* äº§åå‡ºè¡€é‡ï¼ˆmLï¼‰ */,
+    chgs                 varchar(200)         not null/* äº§åå®«ç¼© */,
+    chgdgd               numeric(4,1)         not null/* äº§åå®«åº•é«˜åº¦ï¼ˆcmï¼‰ */,
+    gc                   varchar(100)         not null/* è‚›æŸ¥ */,
+    xsexbdm              varchar(2)           not null/* æ–°ç”Ÿå„¿æ€§åˆ«ä»£ç  */,
+    xsexbmc              varchar(100)         not null/* æ–°ç”Ÿå„¿æ€§åˆ«åç§° */,
+    xsecstzg             numeric(4)           not null/* æ–°ç”Ÿå„¿å‡ºç”Ÿä½“é‡ï¼ˆgï¼‰ */,
+    xsecssccm            numeric(5,1)         not null/* æ–°ç”Ÿå„¿å‡ºç”Ÿèº«é•¿ï¼ˆcmï¼‰ */,
+    cldx                 varchar(100)         not null/* äº§ç˜¤å¤§å° */,
+    clbw                 varchar(100)         not null/* äº§ç˜¤éƒ¨ä½ */,
+    aafsm                varchar(2)           not null/* Apgarè¯„åˆ†é—´éš”æ—¶é—´ä»£ç  */,
+    aafsmc               varchar(100)         not null/* Apgarè¯„åˆ†é—´éš”æ—¶é—´ */,
+    apgarpfz             numeric(2)           not null/* Apgarè¯„åˆ†å€¼ */,
+    fmjjdm               varchar(2)           not null/* åˆ†å¨©ç»“å±€ä»£ç  */,
+    fmjjmc               varchar(100)         not null/* åˆ†å¨©ç»“å±€åç§° */,
+    xseycqkdm            varchar(2)           not null/* æ–°ç”Ÿå„¿å¼‚å¸¸æƒ…å†µä»£ç  */,
+    fmgctsqkms           varchar(200)         not null/* åˆ†å¨©è¿‡ç¨‹ç‰¹æ®Šæƒ…å†µæè¿° */,
+    xseycqkmc            varchar(100)         not null/* æ–°ç”Ÿå„¿å¼‚å¸¸æƒ…å†µåç§° */,
+    ssysdm               varchar(20)          not null/* æ‰‹æœ¯åŒ»ç”Ÿå·¥å· */,
+    ssysqm               varchar(50)          not null/* æ‰‹æœ¯åŒ»ç”Ÿç­¾å */,
+    jszdm                varchar(20)          not null/* æ¥ç”Ÿäººå‘˜å·¥å· */,
+    jszqm                varchar(50)          not null/* æ¥ç”Ÿäººå‘˜ç­¾å */,
+    zczdm                varchar(20)          not null/* åŠ©äº§è€…å·¥å· */,
+    zczqm                varchar(50)          not null/* åŠ©äº§è€…ç­¾å */,
+    zsdm                 varchar(20)          not null/* åŠ©æ‰‹å·¥å· */,
+    zsqm                 varchar(50)          not null/* åŠ©æ‰‹ç­¾å */,
+    ekysdm               varchar(20)          not null/* å„¿ç§‘åŒ»ç”Ÿå·¥å· */,
+    ekysqm               varchar(50)          not null/* å„¿ç§‘åŒ»ç”Ÿç­¾å */,
+    hyzdm                varchar(20)          not null/* æŠ¤å©´è€…å·¥å· */,
+    hyzqm                varchar(50)          not null/* æŠ¤å©´è€…ç­¾å */,
+    zdzdm                varchar(20)          not null/* æŒ‡å¯¼è€…å·¥å· */,
+    zdzqm                varchar(50)          not null/* æŒ‡å¯¼è€…ç­¾å */,
+    jlrdm                varchar(20)          not null/* è®°å½•äººå‘˜å·¥å· */,
+    jlrqm                varchar(50)          not null/* è®°å½•äººå‘˜ç­¾å */,
     
    
     
@@ -4496,53 +4496,53 @@ where id = object_id('DC_ZCJL_YDFM') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZJL     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×í¼ÇÂ¼                                                                                                  */
+ /* DC_ZLCZJL_MZJL     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZJL') )
  create table  DC_ZLCZJL_MZJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    mjzh                 varchar(64)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    dzsqdbh              varchar(20)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    xbdm                 varchar(2)           not null/* »¼ÕßĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* »¼ÕßĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    tzkg                 numeric(6,2)         null/* ÌåÖØ£¨kg£© */,
-    abo                  varchar(2)           not null/* ABOÑªĞÍ´úÂë */,
-    abomc                varchar(18)          not null/* ABOÑªĞÍÃû³Æ */,
-    rh                   varchar(2)           not null/* RhÑªĞÍ´úÂë */,
-    rhmc                 varchar(18)          not null/* RhÑªĞÍÃû³Æ */,
-    ml                   numeric(3)           not null/* ÂöÂÊ£¨´Î/min£© */,
-    csssrqsj             datetime             not null/* ³öÊÖÊõÊÒÈÕÆÚÊ±¼ä */,
-    sxrqsj               datetime             null/* ÊäÑªÈÕÆÚÊ±¼ä */,
-    sxpzdm               varchar(2)           null/* ÊäÑªÆ·ÖÖ´úÂë */,
-    sxpzmc               varchar(50)          null/* ÊäÑªÆ·ÖÖÃû³Æ */,
-    sxlml                numeric(4)           null/* ÊäÑªÁ¿£¨mL£© */,
-    sxljldw              varchar(10)          null/* ÊäÑªÁ¿¼ÆÁ¿µ¥Î» */,
-    sxfybz               char(1)              null/* ÊäÑª·´Ó¦±êÖ¾ */,
-    szsyxm               varchar(50)          null/* ÊõÖĞÊäÒºÏîÄ¿ */,
-    cxl                  numeric(5)           null/* ³öÑªÁ¿£¨mL£© */,
-    hzqxdm               varchar(2)           null/* »¼ÕßÈ¥Ïò´úÂë */,
-    hzqxmc               varchar(64)          null/* »¼ÕßÈ¥ÏòÃû³Æ */,
-    mzysdm               varchar(50)          not null/* Âé×íÒ½Ê¦¹¤ºÅ */,
-    mzysqm               varchar(50)          not null/* Âé×íÒ½Ê¦Ç©Ãû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    mjzh                 varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    dzsqdbh              varchar(20)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    xbdm                 varchar(2)           not null/* æ‚£è€…æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ‚£è€…æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    tzkg                 numeric(6,2)         null/* ä½“é‡ï¼ˆkgï¼‰ */,
+    abo                  varchar(2)           not null/* ABOè¡€å‹ä»£ç  */,
+    abomc                varchar(18)          not null/* ABOè¡€å‹åç§° */,
+    rh                   varchar(2)           not null/* Rhè¡€å‹ä»£ç  */,
+    rhmc                 varchar(18)          not null/* Rhè¡€å‹åç§° */,
+    ml                   numeric(3)           not null/* è„‰ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    csssrqsj             datetime             not null/* å‡ºæ‰‹æœ¯å®¤æ—¥æœŸæ—¶é—´ */,
+    sxrqsj               datetime             null/* è¾“è¡€æ—¥æœŸæ—¶é—´ */,
+    sxpzdm               varchar(2)           null/* è¾“è¡€å“ç§ä»£ç  */,
+    sxpzmc               varchar(50)          null/* è¾“è¡€å“ç§åç§° */,
+    sxlml                numeric(4)           null/* è¾“è¡€é‡ï¼ˆmLï¼‰ */,
+    sxljldw              varchar(10)          null/* è¾“è¡€é‡è®¡é‡å•ä½ */,
+    sxfybz               char(1)              null/* è¾“è¡€ååº”æ ‡å¿— */,
+    szsyxm               varchar(50)          null/* æœ¯ä¸­è¾“æ¶²é¡¹ç›® */,
+    cxl                  numeric(5)           null/* å‡ºè¡€é‡ï¼ˆmLï¼‰ */,
+    hzqxdm               varchar(2)           null/* æ‚£è€…å»å‘ä»£ç  */,
+    hzqxmc               varchar(64)          null/* æ‚£è€…å»å‘åç§° */,
+    mzysdm               varchar(50)          not null/* éº»é†‰åŒ»å¸ˆå·¥å· */,
+    mzysqm               varchar(50)          not null/* éº»é†‰åŒ»å¸ˆç­¾å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -4560,18 +4560,18 @@ where id = object_id('DC_ZLCZJL_MZJL') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZJL_CGJCXM     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×í¼ÇÂ¼_³£¹æ¼à²âÏîÄ¿                                                                                                  */
+ /* DC_ZLCZJL_MZJL_CGJCXM     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰è®°å½•_å¸¸è§„ç›‘æµ‹é¡¹ç›®                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZJL_CGJCXM') )
  create table  DC_ZLCZJL_MZJL_CGJCXM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    cgjcxmmc             varchar(100)         not null/* ³£¹æ¼à²âÏîÄ¿Ãû³Æ */,
-    cgjcxmjg             varchar(200)         not null/* ³£¹æ¼à²âÏîÄ¿½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    cgjcxmmc             varchar(100)         not null/* å¸¸è§„ç›‘æµ‹é¡¹ç›®åç§° */,
+    cgjcxmjg             varchar(200)         not null/* å¸¸è§„ç›‘æµ‹é¡¹ç›®ç»“æœ */,
     
    
     
@@ -4589,17 +4589,17 @@ where id = object_id('DC_ZLCZJL_MZJL_CGJCXM') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZJL_HXPLMX     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×í¼ÇÂ¼_ºôÎüÆµÂÊÃ÷Ï¸                                                                                                  */
+ /* DC_ZLCZJL_MZJL_HXPLMX     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰è®°å½•_å‘¼å¸é¢‘ç‡æ˜ç»†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZJL_HXPLMX') )
  create table  DC_ZLCZJL_MZJL_HXPLMX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    hxl                  numeric(3)           not null/* ºôÎüÆµÂÊ£¨´Î/min£© */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    hxl                  numeric(3)           not null/* å‘¼å¸é¢‘ç‡ï¼ˆæ¬¡/minï¼‰ */,
     
    
     
@@ -4617,33 +4617,33 @@ where id = object_id('DC_ZLCZJL_MZJL_HXPLMX') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZJL_MZMX     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×í¼ÇÂ¼_Âé×íÃ÷Ï¸                                                                                                  */
+ /* DC_ZLCZJL_MZJL_MZMX     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰è®°å½•_éº»é†‰æ˜ç»†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZJL_MZMX') )
  create table  DC_ZLCZJL_MZJL_MZMX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    mzffdm               varchar(2)           not null/* Âé×í·½·¨´úÂë */,
-    mzffmc               varchar(18)          not null/* Âé×í·½·¨Ãû³Æ */,
-    qgcgfl               varchar(100)         null/* Æø¹Ü²å¹Ü·ÖÀà */,
-    mzywdm               varchar(10)          not null/* Âé×íÒ©Îï´úÂë */,
-    mzywmc               varchar(50)          not null/* Âé×íÒ©ÎïÃû³Æ */,
-    mztw                 varchar(100)         not null/* Âé×íÌåÎ» */,
-    asafjbzdm            varchar(2)           not null/* ASA·Ö¼¶±ê×¼´úÂë */,
-    asafjbzmc            varchar(32)          not null/* ASA·Ö¼¶±ê×¼Ãû³Æ */,
-    mzxg                 varchar(100)         not null/* Âé×íĞ§¹û */,
-    mzqyy                varchar(100)         not null/* Âé×íÇ°ÓÃÒ© */,
-    mzksrqsj             datetime             not null/* Âé×í¿ªÊ¼ÈÕÆÚÊ±¼ä */,
-    hxlxdm               varchar(2)           not null/* ºôÎüÀàĞÍ´úÂë */,
-    hxlxmc               varchar(32)          not null/* ºôÎüÀàĞÍÃû³Æ */,
-    mzms                 varchar(200)         not null/* Âé×íÃèÊö */,
-    mzhbzbzdm            varchar(2)           not null/* Âé×íºÏ²¢Ö¢±êÖ¾´úÂë */,
-    mzhbzbzmc            varchar(32)          not null/* Âé×íºÏ²¢Ö¢±êÖ¾Ãû³Æ */,
-    ccgc                 varchar(2000)        null/* ´©´Ì¹ı³Ì */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    mzffdm               varchar(2)           not null/* éº»é†‰æ–¹æ³•ä»£ç  */,
+    mzffmc               varchar(18)          not null/* éº»é†‰æ–¹æ³•åç§° */,
+    qgcgfl               varchar(100)         null/* æ°”ç®¡æ’ç®¡åˆ†ç±» */,
+    mzywdm               varchar(10)          not null/* éº»é†‰è¯ç‰©ä»£ç  */,
+    mzywmc               varchar(50)          not null/* éº»é†‰è¯ç‰©åç§° */,
+    mztw                 varchar(100)         not null/* éº»é†‰ä½“ä½ */,
+    asafjbzdm            varchar(2)           not null/* ASAåˆ†çº§æ ‡å‡†ä»£ç  */,
+    asafjbzmc            varchar(32)          not null/* ASAåˆ†çº§æ ‡å‡†åç§° */,
+    mzxg                 varchar(100)         not null/* éº»é†‰æ•ˆæœ */,
+    mzqyy                varchar(100)         not null/* éº»é†‰å‰ç”¨è¯ */,
+    mzksrqsj             datetime             not null/* éº»é†‰å¼€å§‹æ—¥æœŸæ—¶é—´ */,
+    hxlxdm               varchar(2)           not null/* å‘¼å¸ç±»å‹ä»£ç  */,
+    hxlxmc               varchar(32)          not null/* å‘¼å¸ç±»å‹åç§° */,
+    mzms                 varchar(200)         not null/* éº»é†‰æè¿° */,
+    mzhbzbzdm            varchar(2)           not null/* éº»é†‰åˆå¹¶ç—‡æ ‡å¿—ä»£ç  */,
+    mzhbzbzmc            varchar(32)          not null/* éº»é†‰åˆå¹¶ç—‡æ ‡å¿—åç§° */,
+    ccgc                 varchar(2000)        null/* ç©¿åˆºè¿‡ç¨‹ */,
     
    
     
@@ -4661,18 +4661,18 @@ where id = object_id('DC_ZLCZJL_MZJL_MZMX') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZJL_SHZD     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×í¼ÇÂ¼_ÊõºóÕï¶Ï                                                                                                  */
+ /* DC_ZLCZJL_MZJL_SHZD     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰è®°å½•_æœ¯åè¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZJL_SHZD') )
  create table  DC_ZLCZJL_MZJL_SHZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    shzdbm               varchar(64)          not null/* ÊõºóÕï¶Ï±àÂë */,
-    shzdmc               varchar(128)         not null/* ÊõºóÕï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    shzdbm               varchar(64)          not null/* æœ¯åè¯Šæ–­ç¼–ç  */,
+    shzdmc               varchar(128)         not null/* æœ¯åè¯Šæ–­åç§° */,
     
    
     
@@ -4690,18 +4690,18 @@ where id = object_id('DC_ZLCZJL_MZJL_SHZD') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZJL_SQZD     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×í¼ÇÂ¼_ÊõÇ°Õï¶Ï                                                                                                  */
+ /* DC_ZLCZJL_MZJL_SQZD     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰è®°å½•_æœ¯å‰è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZJL_SQZD') )
  create table  DC_ZLCZJL_MZJL_SQZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    sqzdbm               varchar(64)          not null/* ÊõÇ°Õï¶Ï±àÂë */,
-    sqzdmc               varchar(128)         not null/* ÊõÇ°Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    sqzdbm               varchar(64)          not null/* æœ¯å‰è¯Šæ–­ç¼–ç  */,
+    sqzdmc               varchar(128)         not null/* æœ¯å‰è¯Šæ–­åç§° */,
     
    
     
@@ -4719,26 +4719,26 @@ where id = object_id('DC_ZLCZJL_MZJL_SQZD') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZJL_SSJL     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×í¼ÇÂ¼_ÊÖÊõ¼ÇÂ¼                                                                                                  */
+ /* DC_ZLCZJL_MZJL_SSJL     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰è®°å½•_æ‰‹æœ¯è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZJL_SSJL') )
  create table  DC_ZLCZJL_MZJL_SSJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    ssjbh                varchar(20)          not null/* ÊÖÊõ¼ä±àºÅ */,
-    ssjczbm              varchar(64)          not null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssjczmc              varchar(128)         not null/* ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    sstwdm               varchar(2)           not null/* ÊÖÊõÌåÎ»´úÂë */,
-    sstwmc               varchar(50)          not null/* ÊÖÊõÌåÎ»Ãû³Æ */,
-    ssksrqsj             datetime             not null/* ÊÖÊõ¿ªÊ¼ÈÕÆÚÊ±¼ä */,
-    ssjsrqsj             datetime             not null/* ÊÖÊõ½áÊøÈÕÆÚÊ±¼ä */,
-    sszdm                varchar(50)          not null/* ÊÖÊõÕß¹¤ºÅ */,
-    sszxm                varchar(50)          not null/* ÊÖÊõÕßĞÕÃû */,
-    zlgcms               varchar(2000)        not null/* ÕïÁÆ¹ı³ÌÃèÊö */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    ssjbh                varchar(20)          not null/* æ‰‹æœ¯é—´ç¼–å· */,
+    ssjczbm              varchar(64)          not null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssjczmc              varchar(128)         not null/* æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    sstwdm               varchar(2)           not null/* æ‰‹æœ¯ä½“ä½ä»£ç  */,
+    sstwmc               varchar(50)          not null/* æ‰‹æœ¯ä½“ä½åç§° */,
+    ssksrqsj             datetime             not null/* æ‰‹æœ¯å¼€å§‹æ—¥æœŸæ—¶é—´ */,
+    ssjsrqsj             datetime             not null/* æ‰‹æœ¯ç»“æŸæ—¥æœŸæ—¶é—´ */,
+    sszdm                varchar(50)          not null/* æ‰‹æœ¯è€…å·¥å· */,
+    sszxm                varchar(50)          not null/* æ‰‹æœ¯è€…å§“å */,
+    zlgcms               varchar(2000)        not null/* è¯Šç–—è¿‡ç¨‹æè¿° */,
     
    
     
@@ -4756,18 +4756,18 @@ where id = object_id('DC_ZLCZJL_MZJL_SSJL') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZJL_TSJCXM     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×í¼ÇÂ¼_ÌØÊâ¼à²âÏîÄ¿                                                                                                  */
+ /* DC_ZLCZJL_MZJL_TSJCXM     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰è®°å½•_ç‰¹æ®Šç›‘æµ‹é¡¹ç›®                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZJL_TSJCXM') )
  create table  DC_ZLCZJL_MZJL_TSJCXM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    tsjcxmmc             varchar(200)         not null/* ÌØÊâ¼à²âÏîÄ¿Ãû³Æ */,
-    tsjcxmjg             varchar(200)         not null/* ÌØÊâ¼à²âÏîÄ¿½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    tsjcxmmc             varchar(200)         not null/* ç‰¹æ®Šç›‘æµ‹é¡¹ç›®åç§° */,
+    tsjcxmjg             varchar(200)         not null/* ç‰¹æ®Šç›‘æµ‹é¡¹ç›®ç»“æœ */,
     
    
     
@@ -4785,17 +4785,17 @@ where id = object_id('DC_ZLCZJL_MZJL_TSJCXM') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZJL_TWMX     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×í¼ÇÂ¼_ÌåÎÂÃ÷Ï¸                                                                                                  */
+ /* DC_ZLCZJL_MZJL_TWMX     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰è®°å½•_ä½“æ¸©æ˜ç»†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZJL_TWMX') )
  create table  DC_ZLCZJL_MZJL_TWMX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    tw                   numeric(4,1)         not null/* ÌåÎÂ£¨¡æ£© */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    tw                   numeric(4,1)         not null/* ä½“æ¸©ï¼ˆâ„ƒï¼‰ */,
     
    
     
@@ -4813,17 +4813,17 @@ where id = object_id('DC_ZLCZJL_MZJL_TWMX') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZJL_XLMX     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×í¼ÇÂ¼_ĞÄÂÊÃ÷Ï¸                                                                                                  */
+ /* DC_ZLCZJL_MZJL_XLMX     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰è®°å½•_å¿ƒç‡æ˜ç»†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZJL_XLMX') )
  create table  DC_ZLCZJL_MZJL_XLMX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    xlc                  numeric(3)           not null/* ĞÄÂÊ£¨´Î/min£© */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    xlc                  numeric(3)           not null/* å¿ƒç‡ï¼ˆæ¬¡/minï¼‰ */,
     
    
     
@@ -4841,18 +4841,18 @@ where id = object_id('DC_ZLCZJL_MZJL_XLMX') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZJL_XYMX     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×í¼ÇÂ¼_ÑªÑ¹Ã÷Ï¸                                                                                                  */
+ /* DC_ZLCZJL_MZJL_XYMX     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰è®°å½•_è¡€å‹æ˜ç»†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZJL_XYMX') )
  create table  DC_ZLCZJL_MZJL_XYMX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    ssy                  numeric(3)           not null/* ÊÕËõÑ¹£¨mmHg£© */,
-    szy                  numeric(3)           not null/* ÊæÕÅÑ¹£¨mmHg£© */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    ssy                  numeric(3)           not null/* æ”¶ç¼©å‹ï¼ˆmmHgï¼‰ */,
+    szy                  numeric(3)           not null/* èˆ’å¼ å‹ï¼ˆmmHgï¼‰ */,
     
    
     
@@ -4870,26 +4870,26 @@ where id = object_id('DC_ZLCZJL_MZJL_XYMX') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZJL_YWSY     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×í¼ÇÂ¼_Ò©ÎïÊ¹ÓÃÃ÷Ï¸                                                                                                  */
+ /* DC_ZLCZJL_MZJL_YWSY     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰è®°å½•_è¯ç‰©ä½¿ç”¨æ˜ç»†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZJL_YWSY') )
  create table  DC_ZLCZJL_MZJL_YWSY (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    ywdm                 varchar(50)          not null/* Ò©Îï´úÂë */,
-    ywmc                 varchar(50)          not null/* Ò©ÎïÃû³Æ */,
-    ywyf                 varchar(100)         not null/* Ò©ÎïÓÃ·¨ */,
-    ywsypl               varchar(2)           not null/* Ò©ÎïÊ¹ÓÃÆµÂÊ */,
-    ywsypldm             varchar(18)          not null/* Ò©ÎïÊ¹ÓÃ¼ÁÁ¿´úÂë */,
-    ywsyjldw             varchar(6)           not null/* Ò©ÎïÊ¹ÓÃ¼ÁÁ¿µ¥Î» */,
-    ywsycjl              numeric(5,2)         not null/* Ò©ÎïÊ¹ÓÃ´Î¼ÁÁ¿ */,
-    ywsyzjl              numeric(12,2)        not null/* Ò©ÎïÊ¹ÓÃ×Ü¼ÁÁ¿ */,
-    ywsytjdm             numeric(3)           not null/* Ò©ÎïÊ¹ÓÃÍ¾¾¶´úÂë */,
-    ywsytjmc             varchar(18)          not null/* Ò©ÎïÊ¹ÓÃÍ¾¾¶Ãû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    ywdm                 varchar(50)          not null/* è¯ç‰©ä»£ç  */,
+    ywmc                 varchar(50)          not null/* è¯ç‰©åç§° */,
+    ywyf                 varchar(100)         not null/* è¯ç‰©ç”¨æ³• */,
+    ywsypl               varchar(2)           not null/* è¯ç‰©ä½¿ç”¨é¢‘ç‡ */,
+    ywsypldm             varchar(18)          not null/* è¯ç‰©ä½¿ç”¨å‰‚é‡ä»£ç  */,
+    ywsyjldw             varchar(6)           not null/* è¯ç‰©ä½¿ç”¨å‰‚é‡å•ä½ */,
+    ywsycjl              numeric(5,2)         not null/* è¯ç‰©ä½¿ç”¨æ¬¡å‰‚é‡ */,
+    ywsyzjl              numeric(12,2)        not null/* è¯ç‰©ä½¿ç”¨æ€»å‰‚é‡ */,
+    ywsytjdm             numeric(3)           not null/* è¯ç‰©ä½¿ç”¨é€”å¾„ä»£ç  */,
+    ywsytjmc             varchar(18)          not null/* è¯ç‰©ä½¿ç”¨é€”å¾„åç§° */,
     
    
     
@@ -4907,53 +4907,53 @@ where id = object_id('DC_ZLCZJL_MZJL_YWSY') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZSHFSJL     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×íÊõºó·ÃÊÓ¼ÇÂ¼                                                                                                  */
+ /* DC_ZLCZJL_MZSHFSJL     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰æœ¯åè®¿è§†è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZSHFSJL') )
  create table  DC_ZLCZJL_MZSHFSJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    mjzh                 varchar(64)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    dzsqsbh              varchar(20)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    zzjgdm               varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    zzjgmc               varchar(70)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* »¼ÕßĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* »¼ÕßĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    tz                   numeric(6,2)         not null/* ÌåÖØ£¨kg£© */,
-    aboxx                varchar(2)           null/* ABOÑªĞÍ´úÂë */,
-    aboxxmc              varchar(18)          null/* ABOÑªĞÍÃû³Æ */,
-    rhxx                 varchar(2)           null/* RhÑªĞÍ´úÂë */,
-    rhxxmc               varchar(18)          null/* RhÑªĞÍÃû³Æ */,
-    ybzkjcjg             nvarchar(1000)       not null/* Ò»°ã×´¿ö¼ì²é½á¹û */,
-    ssjczbm              varchar(64)          not null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssjczmc              varchar(128)         not null/* ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    mzff                 varchar(2)           not null/* Âé×í·½·¨´úÂë */,
-    mzffmc               varchar(30)          not null/* Âé×í·½·¨Ãû³Æ */,
-    mzhfqk               nvarchar(100)        not null/* Âé×í»Ö¸´Çé¿ö */,
-    qxrqsj               datetime             not null/* ÇåĞÑÈÕÆÚÊ±¼ä */,
-    bcqgcgbz             char(1)              null/* °Î³ıÆø¹Ü²å¹Ü±êÖ¾ */,
-    mzsyz                nvarchar(100)        not null/* Âé×íÊÊÓ¦Ö¤ */,
-    ysbm                 varchar(20)          null/* Ò½Éú±àÂë */,
-    mzysbm               varchar(20)          not null/* Âé×íÒ½Ê¦¹¤ºÅ */,
-    mzysqm               varchar(50)          not null/* Âé×íÒ½Ê¦Ç©Ãû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    mjzh                 varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    dzsqsbh              varchar(20)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    zzjgdm               varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    zzjgmc               varchar(70)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ‚£è€…æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ‚£è€…æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    tz                   numeric(6,2)         not null/* ä½“é‡ï¼ˆkgï¼‰ */,
+    aboxx                varchar(2)           null/* ABOè¡€å‹ä»£ç  */,
+    aboxxmc              varchar(18)          null/* ABOè¡€å‹åç§° */,
+    rhxx                 varchar(2)           null/* Rhè¡€å‹ä»£ç  */,
+    rhxxmc               varchar(18)          null/* Rhè¡€å‹åç§° */,
+    ybzkjcjg             nvarchar(1000)       not null/* ä¸€èˆ¬çŠ¶å†µæ£€æŸ¥ç»“æœ */,
+    ssjczbm              varchar(64)          not null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssjczmc              varchar(128)         not null/* æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    mzff                 varchar(2)           not null/* éº»é†‰æ–¹æ³•ä»£ç  */,
+    mzffmc               varchar(30)          not null/* éº»é†‰æ–¹æ³•åç§° */,
+    mzhfqk               nvarchar(100)        not null/* éº»é†‰æ¢å¤æƒ…å†µ */,
+    qxrqsj               datetime             not null/* æ¸…é†’æ—¥æœŸæ—¶é—´ */,
+    bcqgcgbz             char(1)              null/* æ‹”é™¤æ°”ç®¡æ’ç®¡æ ‡å¿— */,
+    mzsyz                nvarchar(100)        not null/* éº»é†‰é€‚åº”è¯ */,
+    ysbm                 varchar(20)          null/* åŒ»ç”Ÿç¼–ç  */,
+    mzysbm               varchar(20)          not null/* éº»é†‰åŒ»å¸ˆå·¥å· */,
+    mzysqm               varchar(50)          not null/* éº»é†‰åŒ»å¸ˆç­¾å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -4971,19 +4971,19 @@ where id = object_id('DC_ZLCZJL_MZSHFSJL') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZSHFSJL_SHZD     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×íÊõºó·ÃÊÓ¼ÇÂ¼_ÊõºóÕï¶Ï                                                                                                  */
+ /* DC_ZLCZJL_MZSHFSJL_SHZD     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰æœ¯åè®¿è§†è®°å½•_æœ¯åè¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZSHFSJL_SHZD') )
  create table  DC_ZLCZJL_MZSHFSJL_SHZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    dzsqsbh              varchar(20)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    shzdbm               varchar(64)          not null/* ÊõºóÕï¶Ï±àÂë */,
-    shzdmc               varchar(128)         not null/* ÊõºóÕï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    dzsqsbh              varchar(20)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    shzdbm               varchar(64)          not null/* æœ¯åè¯Šæ–­ç¼–ç  */,
+    shzdmc               varchar(128)         not null/* æœ¯åè¯Šæ–­åç§° */,
     
    
     
@@ -5001,19 +5001,19 @@ where id = object_id('DC_ZLCZJL_MZSHFSJL_SHZD') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZSHFSJL_SQZD     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×íÊõºó·ÃÊÓ¼ÇÂ¼_ÊõÇ°Õï¶Ï                                                                                                  */
+ /* DC_ZLCZJL_MZSHFSJL_SQZD     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰æœ¯åè®¿è§†è®°å½•_æœ¯å‰è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZSHFSJL_SQZD') )
  create table  DC_ZLCZJL_MZSHFSJL_SQZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    dzsqsbh              varchar(20)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    sqzdbm               varchar(64)          not null/* ÊõÇ°Õï¶Ï±àÂë */,
-    sqzdmc               varchar(128)         not null/* ÊõÇ°Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    dzsqsbh              varchar(20)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    sqzdbm               varchar(64)          not null/* æœ¯å‰è¯Šæ–­ç¼–ç  */,
+    sqzdmc               varchar(128)         not null/* æœ¯å‰è¯Šæ–­åç§° */,
     
    
     
@@ -5031,17 +5031,17 @@ where id = object_id('DC_ZLCZJL_MZSHFSJL_SQZD') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZSHFSJL_TSQK     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×íÊõºó·ÃÊÓ¼ÇÂ¼_ÌØÊâÇé¿ö                                                                                                  */
+ /* DC_ZLCZJL_MZSHFSJL_TSQK     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰æœ¯åè®¿è§†è®°å½•_ç‰¹æ®Šæƒ…å†µ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZSHFSJL_TSQK') )
  create table  DC_ZLCZJL_MZSHFSJL_TSQK (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    tsqk                 nvarchar(1000)       null/* ÌØÊâÇé¿ö */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    tsqk                 nvarchar(1000)       null/* ç‰¹æ®Šæƒ…å†µ */,
     
    
     
@@ -5059,64 +5059,64 @@ where id = object_id('DC_ZLCZJL_MZSHFSJL_TSQK') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZSQFSJL     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×íÊõÇ°·ÃÊÓ¼ÇÂ¼                                                                                                  */
+ /* DC_ZLCZJL_MZSQFSJL     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰æœ¯å‰è®¿è§†è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZSQFSJL') )
  create table  DC_ZLCZJL_MZSQFSJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    mjzh                 varchar(64)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    dzsqsbh              varchar(20)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* »¼ÕßĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* »¼ÕßĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    tz                   numeric(6,2)         null/* ÌåÖØ£¨kg£© */,
-    aboxx                varchar(2)           not null/* ABOÑªĞÍ´úÂë */,
-    aboxxmc              varchar(18)          not null/* ABOÑªĞÍÃû³Æ */,
-    rhxx                 varchar(2)           not null/* RhÑªĞÍ´úÂë */,
-    rhxxmc               varchar(18)          not null/* RhÑªĞÍÃû³Æ */,
-    sqzdbm               varchar(64)          not null/* ÊõÇ°Õï¶Ï±àÂë */,
-    sqzdmc               varchar(128)         not null/* ÊõÇ°Õï¶ÏÃû³Æ */,
-    sqhbjb               nvarchar(100)        null/* ÊõÇ°ºÏ²¢¼²²¡ */,
-    jybs                 nvarchar(100)        not null/* ¼òÒª²¡Ê· */,
-    xdtjcjg              nvarchar(100)        null/* ĞÄµçÍ¼¼ì²é½á¹û */,
-    xbxxjc               nvarchar(100)        null/* ĞØ²¿XÏß¼ì²é½á¹û */,
-    ctjcjg               nvarchar(100)        null/* CT¼ì²é½á¹û */,
-    bcjcjg               nvarchar(100)        null/* B³¬¼ì²é½á¹û */,
-    mricjc               nvarchar(1000)       null/* MRI³¬¼ì²é½á¹û */,
-    fgnjcjg              nvarchar(1000)       null/* ·Î¹¦ÄÜ¼ì²é½á¹û */,
-    xcgjcjg              nvarchar(1000)       null/* Ñª³£¹æ¼ì²é½á¹û */,
-    ncgjcjg              nvarchar(100)        null/* Äò³£¹æ¼ì²é½á¹û */,
-    nxgnjc               nvarchar(100)        null/* ÄıÑª¹¦ÄÜ¼ì²é½á¹û */,
-    ggnjcjg              nvarchar(100)        null/* ¸Î¹¦ÄÜ¼ì²é½á¹û */,
-    xqfxjc               nvarchar(1000)       null/* ÑªÆø·ÖÎö¼ì²é½á¹û */,
-    jsztzcbz             char(1)              null/* ¾«Éñ×´Ì¬Õı³£±êÖ¾ */,
-    xztzjg               nvarchar(100)        null/* ĞÄÔàÌıÕï½á¹û */,
-    fbtzjg               nvarchar(100)        null/* ·Î²¿ÌıÕï½á¹û */,
-    szjcjg               nvarchar(1000)       null/* ËÄÖ«¼ì²é½á¹û */,
-    jzjcjg               nvarchar(1000)       null/* ¼¹Öù¼ì²é½á¹û */,
-    fbjcjg               nvarchar(1000)       null/* ¸¹²¿¼ì²é½á¹û */,
-    qgjcjg               nvarchar(100)        null/* Æø¹Ü¼ì²é½á¹û */,
-    ycjcjg               nvarchar(100)        null/* ÑÀ³İ¼ì²é½á¹û */,
-    mzysbm               varchar(20)          not null/* Âé×íÒ½Ê¦¹¤ºÅ */,
-    mzysqm               varchar(50)          not null/* Âé×íÒ½Ê¦Ç©Ãû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    mjzh                 varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    dzsqsbh              varchar(20)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ‚£è€…æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ‚£è€…æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    tz                   numeric(6,2)         null/* ä½“é‡ï¼ˆkgï¼‰ */,
+    aboxx                varchar(2)           not null/* ABOè¡€å‹ä»£ç  */,
+    aboxxmc              varchar(18)          not null/* ABOè¡€å‹åç§° */,
+    rhxx                 varchar(2)           not null/* Rhè¡€å‹ä»£ç  */,
+    rhxxmc               varchar(18)          not null/* Rhè¡€å‹åç§° */,
+    sqzdbm               varchar(64)          not null/* æœ¯å‰è¯Šæ–­ç¼–ç  */,
+    sqzdmc               varchar(128)         not null/* æœ¯å‰è¯Šæ–­åç§° */,
+    sqhbjb               nvarchar(100)        null/* æœ¯å‰åˆå¹¶ç–¾ç—… */,
+    jybs                 nvarchar(100)        not null/* ç®€è¦ç—…å² */,
+    xdtjcjg              nvarchar(100)        null/* å¿ƒç”µå›¾æ£€æŸ¥ç»“æœ */,
+    xbxxjc               nvarchar(100)        null/* èƒ¸éƒ¨Xçº¿æ£€æŸ¥ç»“æœ */,
+    ctjcjg               nvarchar(100)        null/* CTæ£€æŸ¥ç»“æœ */,
+    bcjcjg               nvarchar(100)        null/* Bè¶…æ£€æŸ¥ç»“æœ */,
+    mricjc               nvarchar(1000)       null/* MRIè¶…æ£€æŸ¥ç»“æœ */,
+    fgnjcjg              nvarchar(1000)       null/* è‚ºåŠŸèƒ½æ£€æŸ¥ç»“æœ */,
+    xcgjcjg              nvarchar(1000)       null/* è¡€å¸¸è§„æ£€æŸ¥ç»“æœ */,
+    ncgjcjg              nvarchar(100)        null/* å°¿å¸¸è§„æ£€æŸ¥ç»“æœ */,
+    nxgnjc               nvarchar(100)        null/* å‡è¡€åŠŸèƒ½æ£€æŸ¥ç»“æœ */,
+    ggnjcjg              nvarchar(100)        null/* è‚åŠŸèƒ½æ£€æŸ¥ç»“æœ */,
+    xqfxjc               nvarchar(1000)       null/* è¡€æ°”åˆ†ææ£€æŸ¥ç»“æœ */,
+    jsztzcbz             char(1)              null/* ç²¾ç¥çŠ¶æ€æ­£å¸¸æ ‡å¿— */,
+    xztzjg               nvarchar(100)        null/* å¿ƒè„å¬è¯Šç»“æœ */,
+    fbtzjg               nvarchar(100)        null/* è‚ºéƒ¨å¬è¯Šç»“æœ */,
+    szjcjg               nvarchar(1000)       null/* å››è‚¢æ£€æŸ¥ç»“æœ */,
+    jzjcjg               nvarchar(1000)       null/* è„ŠæŸ±æ£€æŸ¥ç»“æœ */,
+    fbjcjg               nvarchar(1000)       null/* è…¹éƒ¨æ£€æŸ¥ç»“æœ */,
+    qgjcjg               nvarchar(100)        null/* æ°”ç®¡æ£€æŸ¥ç»“æœ */,
+    ycjcjg               nvarchar(100)        null/* ç‰™é½¿æ£€æŸ¥ç»“æœ */,
+    mzysbm               varchar(20)          not null/* éº»é†‰åŒ»å¸ˆå·¥å· */,
+    mzysqm               varchar(50)          not null/* éº»é†‰åŒ»å¸ˆç­¾å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
 
@@ -5134,17 +5134,17 @@ where id = object_id('DC_ZLCZJL_MZSQFSJL') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZSQFSJL_GMS     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×íÊõÇ°·ÃÊÓ¼ÇÂ¼_¹ıÃôÊ·                                                                                                  */
+ /* DC_ZLCZJL_MZSQFSJL_GMS     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰æœ¯å‰è®¿è§†è®°å½•_è¿‡æ•å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZSQFSJL_GMS') )
  create table  DC_ZLCZJL_MZSQFSJL_GMS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    gms                  nvarchar(1000)       null/* ¹ıÃôÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    gms                  nvarchar(1000)       null/* è¿‡æ•å² */,
     
    
     
@@ -5162,21 +5162,21 @@ where id = object_id('DC_ZLCZJL_MZSQFSJL_GMS') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZSQFSJL_NMZFF     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×íÊõÇ°·ÃÊÓ¼ÇÂ¼_ÄâÊµÊ©Âé×í·½·¨                                                                                                  */
+ /* DC_ZLCZJL_MZSQFSJL_NMZFF     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰æœ¯å‰è®¿è§†è®°å½•_æ‹Ÿå®æ–½éº»é†‰æ–¹æ³•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZSQFSJL_NMZFF') )
  create table  DC_ZLCZJL_MZSQFSJL_NMZFF (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    nmzffdm              varchar(2)           not null/* ÄâÊµÊ©Âé×í·½·¨´úÂë */,
-    nmzffmc              varchar(30)          not null/* ÄâÊµÊ©Âé×í·½·¨Ãû³Æ */,
-    zysx                 nvarchar(1000)       not null/* ×¢ÒâÊÂÏî */,
-    sqmzyz               nvarchar(1000)       not null/* ÊõÇ°Âé×íÒ½Öö */,
-    mzsyz                nvarchar(100)        not null/* Âé×íÊÊÓ¦Ö¤ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    nmzffdm              varchar(2)           not null/* æ‹Ÿå®æ–½éº»é†‰æ–¹æ³•ä»£ç  */,
+    nmzffmc              varchar(30)          not null/* æ‹Ÿå®æ–½éº»é†‰æ–¹æ³•åç§° */,
+    zysx                 nvarchar(1000)       not null/* æ³¨æ„äº‹é¡¹ */,
+    sqmzyz               nvarchar(1000)       not null/* æœ¯å‰éº»é†‰åŒ»å˜± */,
+    mzsyz                nvarchar(100)        not null/* éº»é†‰é€‚åº”è¯ */,
     
    
     
@@ -5194,19 +5194,19 @@ where id = object_id('DC_ZLCZJL_MZSQFSJL_NMZFF') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZSQFSJL_NSSCZ     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×íÊõÇ°·ÃÊÓ¼ÇÂ¼_ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷                                                                                                  */
+ /* DC_ZLCZJL_MZSQFSJL_NSSCZ     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰æœ¯å‰è®¿è§†è®°å½•_æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZSQFSJL_NSSCZ') )
  create table  DC_ZLCZJL_MZSQFSJL_NSSCZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    nssczbm              varchar(64)          not null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷±àÂë */,
-    nssczmc              varchar(128)         not null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    ssjbh                varchar(20)          not null/* ÊÖÊõ¼ä±àºÅ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    nssczbm              varchar(64)          not null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    nssczmc              varchar(128)         not null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    ssjbh                varchar(20)          not null/* æ‰‹æœ¯é—´ç¼–å· */,
     
    
     
@@ -5224,17 +5224,17 @@ where id = object_id('DC_ZLCZJL_MZSQFSJL_NSSCZ') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_MZSQFSJL_YBZKJCJG     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª Âé×íÊõÇ°·ÃÊÓ¼ÇÂ¼_Ò»°ã×´¿ö¼ì²é½á¹û                                                                                                  */
+ /* DC_ZLCZJL_MZSQFSJL_YBZKJCJG     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” éº»é†‰æœ¯å‰è®¿è§†è®°å½•_ä¸€èˆ¬çŠ¶å†µæ£€æŸ¥ç»“æœ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_MZSQFSJL_YBZKJCJG') )
  create table  DC_ZLCZJL_MZSQFSJL_YBZKJCJG (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    ybzkjc               nvarchar(1000)       null/* Ò»°ã×´¿ö¼ì²é½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    ybzkjc               nvarchar(1000)       null/* ä¸€èˆ¬çŠ¶å†µæ£€æŸ¥ç»“æœ */,
     
    
     
@@ -5252,61 +5252,61 @@ where id = object_id('DC_ZLCZJL_MZSQFSJL_YBZKJCJG') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_SXJL     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª ÊäÑª¼ÇÂ¼                                                                                                  */
+ /* DC_ZLCZJL_SXJL     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” è¾“è¡€è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_SXJL') )
  create table  DC_ZLCZJL_SXJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    mjzh                 varchar(64)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    dzsqdbh              varchar(20)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* »¼ÕßĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* »¼ÕßĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    aboxx                varchar(2)           not null/* ABOÑªĞÍ´úÂë */,
-    aboxxmc              varchar(18)          not null/* ABOÑªĞÍÃû³Æ */,
-    rhxx                 varchar(2)           not null/* RhÑªĞÍ´úÂë */,
-    rhxxmc               varchar(18)          not null/* RhÑªĞÍÃû³Æ */,
-    sxsbz                char(1)              not null/* ÊäÑªÊ·±êÊ¶´úÂë */,
-    sxsbzmc              varchar(64)          not null/* ÊäÑªÊ·±êÊ¶Ãû³Æ */,
-    sxxzdm               varchar(2)           not null/* ÊäÑªĞÔÖÊ´úÂë */,
-    sxxzmc               varchar(18)          not null/* ÊäÑªĞÔÖÊÃû³Æ */,
-    sqaboxx              varchar(2)           not null/* ÉêÇëABOÑªĞÍ´úÂë */,
-    sqaboxxmc            varchar(18)          not null/* ÉêÇëABOÑªĞÍÃû³Æ */,
-    sqrhxx               varchar(2)           not null/* ÉêÇëRhÑªĞÍ´úÂë */,
-    sqrhxxmc             varchar(18)          not null/* ÉêÇëRhÑªĞÍÃû³Æ */,
-    sxzz                 nvarchar(500)        not null/* ÊäÑªÖ¸Õ÷ */,
-    sxgcjl               nvarchar(2000)       not null/* ÊäÑª¹ı³Ì¼ÇÂ¼ */,
-    sxpzdm               varchar(2)           not null/* ÊäÑªÆ·ÖÖ´úÂë */,
-    sxpzmc               varchar(50)          not null/* ÊäÑªÆ·ÖÖÃû³Æ */,
-    xdbm                 varchar(10)          not null/* Ñª´ü±àÂë */,
-    sxl                  numeric(4)           not null/* ÊäÑªÁ¿£¨mL£© */,
-    sxljldw              varchar(10)          not null/* ÊäÑªÁ¿¼ÆÁ¿µ¥Î» */,
-    sxfybz               char(1)              not null/* ÊäÑª·´Ó¦±êÖ¾ */,
-    sxfylx               varchar(2)           not null/* ÊäÑª·´Ó¦ÀàĞÍ */,
-    sxfylxmc             varchar(18)          not null/* ÊäÑª·´Ó¦ÀàĞÍÃû³Æ */,
-    sxcs                 int                  not null/* ÊäÑª´ÎÊı */,
-    sxrqsj               datetime             not null/* ÊäÑªÈÕÆÚÊ±¼ä */,
-    sxyy                 nvarchar(100)        not null/* ÊäÑªÔ­Òò */,
-    ysbm                 varchar(20)          not null/* Ò½Ê¦¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ò½Ê¦Ç©Ãû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    mjzh                 varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    dzsqdbh              varchar(20)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ‚£è€…æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ‚£è€…æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    aboxx                varchar(2)           not null/* ABOè¡€å‹ä»£ç  */,
+    aboxxmc              varchar(18)          not null/* ABOè¡€å‹åç§° */,
+    rhxx                 varchar(2)           not null/* Rhè¡€å‹ä»£ç  */,
+    rhxxmc               varchar(18)          not null/* Rhè¡€å‹åç§° */,
+    sxsbz                char(1)              not null/* è¾“è¡€å²æ ‡è¯†ä»£ç  */,
+    sxsbzmc              varchar(64)          not null/* è¾“è¡€å²æ ‡è¯†åç§° */,
+    sxxzdm               varchar(2)           not null/* è¾“è¡€æ€§è´¨ä»£ç  */,
+    sxxzmc               varchar(18)          not null/* è¾“è¡€æ€§è´¨åç§° */,
+    sqaboxx              varchar(2)           not null/* ç”³è¯·ABOè¡€å‹ä»£ç  */,
+    sqaboxxmc            varchar(18)          not null/* ç”³è¯·ABOè¡€å‹åç§° */,
+    sqrhxx               varchar(2)           not null/* ç”³è¯·Rhè¡€å‹ä»£ç  */,
+    sqrhxxmc             varchar(18)          not null/* ç”³è¯·Rhè¡€å‹åç§° */,
+    sxzz                 nvarchar(500)        not null/* è¾“è¡€æŒ‡å¾ */,
+    sxgcjl               nvarchar(2000)       not null/* è¾“è¡€è¿‡ç¨‹è®°å½• */,
+    sxpzdm               varchar(2)           not null/* è¾“è¡€å“ç§ä»£ç  */,
+    sxpzmc               varchar(50)          not null/* è¾“è¡€å“ç§åç§° */,
+    xdbm                 varchar(10)          not null/* è¡€è¢‹ç¼–ç  */,
+    sxl                  numeric(4)           not null/* è¾“è¡€é‡ï¼ˆmLï¼‰ */,
+    sxljldw              varchar(10)          not null/* è¾“è¡€é‡è®¡é‡å•ä½ */,
+    sxfybz               char(1)              not null/* è¾“è¡€ååº”æ ‡å¿— */,
+    sxfylx               varchar(2)           not null/* è¾“è¡€ååº”ç±»å‹ */,
+    sxfylxmc             varchar(18)          not null/* è¾“è¡€ååº”ç±»å‹åç§° */,
+    sxcs                 int                  not null/* è¾“è¡€æ¬¡æ•° */,
+    sxrqsj               datetime             not null/* è¾“è¡€æ—¥æœŸæ—¶é—´ */,
+    sxyy                 nvarchar(100)        not null/* è¾“è¡€åŸå›  */,
+    ysbm                 varchar(20)          not null/* åŒ»å¸ˆå·¥å· */,
+    ysqm                 varchar(50)          not null/* åŒ»å¸ˆç­¾å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -5324,18 +5324,18 @@ where id = object_id('DC_ZLCZJL_SXJL') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_SXJL_JBZD     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ ¡ª ÊäÑª¼ÇÂ¼_¼²²¡Õï¶Ï                                                                                                  */
+ /* DC_ZLCZJL_SXJL_JBZD     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• â€” è¾“è¡€è®°å½•_ç–¾ç—…è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_SXJL_JBZD') )
  create table  DC_ZLCZJL_SXJL_JBZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    jbzdbm               varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    jbzd                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    jbzdbm               varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    jbzd                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
    
    
     
@@ -5353,64 +5353,64 @@ where id = object_id('DC_ZLCZJL_SXJL_JBZD') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_YBSSJL     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ £­Ò»°ãÊÖÊõ¼ÇÂ¼                                                                                                  */
+ /* DC_ZLCZJL_YBSSJL     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• ï¼ä¸€èˆ¬æ‰‹æœ¯è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_YBSSJL') )
  create table  DC_ZLCZJL_YBSSJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    mjzh                 varchar(64)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    dzsqsbh              varchar(20)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* »¼ÕßĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* »¼ÕßĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    sqzdbm               varchar(64)          not null/* ÊõÇ°Õï¶Ï±àÂë */,
-    sqzdmc               varchar(128)         not null/* ÊõÇ°Õï¶ÏÃû³Æ */,
-    shzdbm               varchar(64)          not null/* ÊõºóÕï¶Ï±àÂë */,
-    shzdmc               varchar(128)         not null/* ÊõºóÕï¶ÏÃû³Æ */,
-    ssmbbwdm             varchar(100)         null/* ÊÖÊõÄ¿±ê²¿Î»´úÂë */,
-    ssmbbw               varchar(500)         null/* ÊÖÊõÄ¿±ê²¿Î»Ãû³Æ */,
-    jrwdm                varchar(100)         null/* ½éÈëÎï´úÂë */,
-    jrwmc                nvarchar(500)        null/* ½éÈëÎïÃû³Æ */,
-    sstw                 varchar(2)           null/* ÊÖÊõÌåÎ»´úÂë */,
-    sstwmc               varchar(64)          null/* ÊÖÊõÌåÎ»Ãû³Æ */,
-    ssgc                 nvarchar(2000)       null/* ÊÖÊõ¹ı³ÌÃèÊö */,
-    sssbz                char(1)              null/* ÊÖÊõÊ·±êÖ¾ */,
-    pfxd                 nvarchar(200)        null/* Æ¤·ôÏû¶¾ÃèÊö */,
-    ssqk                 nvarchar(200)        null/* ÊÖÊõÇĞ¿ÚÃèÊö */,
-    ylbz                 char(1)              null/* ÒıÁ÷±êÖ¾ */,
-    cxl                  numeric(5)           null/* ³öÑªÁ¿£¨mL£© */,
-    syl                  numeric(5)           null/* ÊäÒºÁ¿£¨mL£© */,
-    sxl                  numeric(4)           null/* ÊäÑªÁ¿£¨mL£© */,
-    ylcldm               varchar(100)         null/* ÒıÁ÷²ÄÁÏ´úÂë */,
-    ylclmc               nvarchar(500)        null/* ÒıÁ÷²ÄÁÏÃû³Æ */,
-    ylclsm               nvarchar(200)        null/* ÒıÁ÷²ÄÁÏÊıÄ¿ */,
-    fzbwdm               varchar(64)          null/* ·ÅÖÃ²¿Î»´úÂë */,
-    fzbw                 varchar(128)         null/* ·ÅÖÃ²¿Î» */,
-    sxfybz               char(1)              null/* ÊäÑª·´Ó¦±êÖ¾ */,
-    sszbm                varchar(20)          not null/* Ö÷µ¶Ò½Éú¹¤ºÅ */,
-    sszxm                varchar(50)          not null/* Ö÷µ¶Ò½ÉúĞÕÃû */,
-    mzff                 varchar(2)           not null/* Âé×í·½·¨´úÂë */,
-    mzffmc               varchar(30)          not null/* Âé×í·½·¨Ãû³Æ */,
-    mzysbm               varchar(20)          not null/* Âé×íÒ½Ê¦¹¤ºÅ */,
-    mzysxm               varchar(50)          not null/* Âé×íÒ½Ê¦ĞÕÃû */,
-    qmrqsj               datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    mjzh                 varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    dzsqsbh              varchar(20)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ‚£è€…æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ‚£è€…æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    sqzdbm               varchar(64)          not null/* æœ¯å‰è¯Šæ–­ç¼–ç  */,
+    sqzdmc               varchar(128)         not null/* æœ¯å‰è¯Šæ–­åç§° */,
+    shzdbm               varchar(64)          not null/* æœ¯åè¯Šæ–­ç¼–ç  */,
+    shzdmc               varchar(128)         not null/* æœ¯åè¯Šæ–­åç§° */,
+    ssmbbwdm             varchar(100)         null/* æ‰‹æœ¯ç›®æ ‡éƒ¨ä½ä»£ç  */,
+    ssmbbw               varchar(500)         null/* æ‰‹æœ¯ç›®æ ‡éƒ¨ä½åç§° */,
+    jrwdm                varchar(100)         null/* ä»‹å…¥ç‰©ä»£ç  */,
+    jrwmc                nvarchar(500)        null/* ä»‹å…¥ç‰©åç§° */,
+    sstw                 varchar(2)           null/* æ‰‹æœ¯ä½“ä½ä»£ç  */,
+    sstwmc               varchar(64)          null/* æ‰‹æœ¯ä½“ä½åç§° */,
+    ssgc                 nvarchar(2000)       null/* æ‰‹æœ¯è¿‡ç¨‹æè¿° */,
+    sssbz                char(1)              null/* æ‰‹æœ¯å²æ ‡å¿— */,
+    pfxd                 nvarchar(200)        null/* çš®è‚¤æ¶ˆæ¯’æè¿° */,
+    ssqk                 nvarchar(200)        null/* æ‰‹æœ¯åˆ‡å£æè¿° */,
+    ylbz                 char(1)              null/* å¼•æµæ ‡å¿— */,
+    cxl                  numeric(5)           null/* å‡ºè¡€é‡ï¼ˆmLï¼‰ */,
+    syl                  numeric(5)           null/* è¾“æ¶²é‡ï¼ˆmLï¼‰ */,
+    sxl                  numeric(4)           null/* è¾“è¡€é‡ï¼ˆmLï¼‰ */,
+    ylcldm               varchar(100)         null/* å¼•æµææ–™ä»£ç  */,
+    ylclmc               nvarchar(500)        null/* å¼•æµææ–™åç§° */,
+    ylclsm               nvarchar(200)        null/* å¼•æµææ–™æ•°ç›® */,
+    fzbwdm               varchar(64)          null/* æ”¾ç½®éƒ¨ä½ä»£ç  */,
+    fzbw                 varchar(128)         null/* æ”¾ç½®éƒ¨ä½ */,
+    sxfybz               char(1)              null/* è¾“è¡€ååº”æ ‡å¿— */,
+    sszbm                varchar(20)          not null/* ä¸»åˆ€åŒ»ç”Ÿå·¥å· */,
+    sszxm                varchar(50)          not null/* ä¸»åˆ€åŒ»ç”Ÿå§“å */,
+    mzff                 varchar(2)           not null/* éº»é†‰æ–¹æ³•ä»£ç  */,
+    mzffmc               varchar(30)          not null/* éº»é†‰æ–¹æ³•åç§° */,
+    mzysbm               varchar(20)          not null/* éº»é†‰åŒ»å¸ˆå·¥å· */,
+    mzysxm               varchar(50)          not null/* éº»é†‰åŒ»å¸ˆå§“å */,
+    qmrqsj               datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -5428,18 +5428,18 @@ where id = object_id('DC_ZLCZJL_YBSSJL') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_YBSSJL_SQYY     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ £­Ò»°ãÊÖÊõ¼ÇÂ¼_ÊõÇ°ÓÃÒ©                                                                                                  */
+ /* DC_ZLCZJL_YBSSJL_SQYY     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• ï¼ä¸€èˆ¬æ‰‹æœ¯è®°å½•_æœ¯å‰ç”¨è¯                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_YBSSJL_SQYY') )
  create table  DC_ZLCZJL_YBSSJL_SQYY (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    sqyydm               varchar(100)         null/* ÊõÇ°ÓÃÒ©´úÂë */,
-    sqyy                 nvarchar(500)        null/* ÊõÇ°ÓÃÒ© */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    sqyydm               varchar(100)         null/* æœ¯å‰ç”¨è¯ä»£ç  */,
+    sqyy                 nvarchar(500)        null/* æœ¯å‰ç”¨è¯ */,
     
    
 
@@ -5457,33 +5457,33 @@ where id = object_id('DC_ZLCZJL_YBSSJL_SQYY') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_YBSSJL_SSMX     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ £­Ò»°ãÊÖÊõ¼ÇÂ¼_ÊÖÊõÃ÷Ï¸                                                                                                  */
+ /* DC_ZLCZJL_YBSSJL_SSMX     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• ï¼ä¸€èˆ¬æ‰‹æœ¯è®°å½•_æ‰‹æœ¯æ˜ç»†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_YBSSJL_SSMX') )
  create table  DC_ZLCZJL_YBSSJL_SSMX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    ssjbh                varchar(20)          not null/* ÊÖÊõ¼ä±àºÅ */,
-    ssksrq               datetime             not null/* ÊÖÊõ¿ªÊ¼ÈÕÆÚÊ±¼ä */,
-    ssjsrq               datetime             not null/* ÊÖÊõ½áÊøÈÕÆÚÊ±¼ä */,
-    ssjczbm              varchar(64)          not null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssmc                 varchar(128)         not null/* ÊÖÊõÃû³Æ */,
-    ssjbdm               varchar(2)           not null/* ÊÖÊõ¼¶±ğ´úÂë */,
-    ssjbmc               varchar(18)          not null/* ÊÖÊõ¼¶±ğÃû³Æ */,
-    yzbm                 varchar(20)          not null/* ¢ñÖú¹¤ºÅ */,
-    yzxm                 varchar(50)          not null/* ¢ñÖúĞÕÃû */,
-    ezbm                 varchar(20)          not null/* ¢òÖú¹¤ºÅ */,
-    ezxm                 varchar(50)          not null/* ¢òÖúĞÕÃû */,
-    qxhsbm               varchar(20)          not null/* Æ÷Ğµ»¤Ê¿¹¤ºÅ */,
-    qxhsxm               varchar(50)          not null/* Æ÷Ğµ»¤Ê¿ĞÕÃû */,
-    xthsbm               varchar(20)          not null/* Ñ²Ì¨»¤Ê¿¹¤ºÅ */,
-    xthsxm               varchar(50)          not null/* Ñ²Ì¨»¤Ê¿ĞÕÃû */,
-    ssysbm               varchar(20)          not null/* ÊÖÊõÕß¹¤ºÅ */,
-    sszqm                varchar(50)          not null/* ÊÖÊõÕßÇ©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    ssjbh                varchar(20)          not null/* æ‰‹æœ¯é—´ç¼–å· */,
+    ssksrq               datetime             not null/* æ‰‹æœ¯å¼€å§‹æ—¥æœŸæ—¶é—´ */,
+    ssjsrq               datetime             not null/* æ‰‹æœ¯ç»“æŸæ—¥æœŸæ—¶é—´ */,
+    ssjczbm              varchar(64)          not null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssmc                 varchar(128)         not null/* æ‰‹æœ¯åç§° */,
+    ssjbdm               varchar(2)           not null/* æ‰‹æœ¯çº§åˆ«ä»£ç  */,
+    ssjbmc               varchar(18)          not null/* æ‰‹æœ¯çº§åˆ«åç§° */,
+    yzbm                 varchar(20)          not null/* â… åŠ©å·¥å· */,
+    yzxm                 varchar(50)          not null/* â… åŠ©å§“å */,
+    ezbm                 varchar(20)          not null/* â…¡åŠ©å·¥å· */,
+    ezxm                 varchar(50)          not null/* â…¡åŠ©å§“å */,
+    qxhsbm               varchar(20)          not null/* å™¨æ¢°æŠ¤å£«å·¥å· */,
+    qxhsxm               varchar(50)          not null/* å™¨æ¢°æŠ¤å£«å§“å */,
+    xthsbm               varchar(20)          not null/* å·¡å°æŠ¤å£«å·¥å· */,
+    xthsxm               varchar(50)          not null/* å·¡å°æŠ¤å£«å§“å */,
+    ssysbm               varchar(20)          not null/* æ‰‹æœ¯è€…å·¥å· */,
+    sszqm                varchar(50)          not null/* æ‰‹æœ¯è€…ç­¾å */,
     
    
     
@@ -5501,18 +5501,18 @@ where id = object_id('DC_ZLCZJL_YBSSJL_SSMX') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_YBSSJL_SZYY     Ò»°ãÖÎÁÆ´¦ÖÃ¼ÇÂ¼ £­Ò»°ãÊÖÊõ¼ÇÂ¼_ÊõÖĞÓÃÒ©                                                                                                  */
+ /* DC_ZLCZJL_YBSSJL_SZYY     ä¸€èˆ¬æ²»ç–—å¤„ç½®è®°å½• ï¼ä¸€èˆ¬æ‰‹æœ¯è®°å½•_æœ¯ä¸­ç”¨è¯                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_YBSSJL_SZYY') )
  create table  DC_ZLCZJL_YBSSJL_SZYY (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    szyydm               varchar(100)         null/* ÊõÖĞÓÃÒ©´úÂë */,
-    szyy                 nvarchar(500)        null/* ÊõÖĞÓÃÒ© */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    szyydm               varchar(100)         null/* æœ¯ä¸­ç”¨è¯ä»£ç  */,
+    szyy                 nvarchar(500)        null/* æœ¯ä¸­ç”¨è¯ */,
     
    
 
@@ -5530,48 +5530,48 @@ where id = object_id('DC_ZLCZJL_YBSSJL_SZYY') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_ZLJL     ÖÎÁÆ´¦ÖÃ¼ÇÂ¼£­ÖÎÁÆ¼ÇÂ¼                                                                                                  */
+ /* DC_ZLCZJL_ZLJL     æ²»ç–—å¤„ç½®è®°å½•ï¼æ²»ç–—è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_ZLJL') )
  create table  DC_ZLCZJL_ZLJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    mjzh                 varchar(64)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    dzsqdbh              varchar(20)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* »¼ÕßĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* »¼ÕßĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    tz                   numeric(6,2)         null/* ÌåÖØ£¨kg£© */,
-    cljzdyj              nvarchar(2000)       null/* ´¦Àí¼°Ö¸µ¼Òâ¼û */,
-    yczlczbz             char(1)              null/* ÓĞ´´ÕïÁÆ²Ù×÷±êÖ¾ */,
-    gmsbz                char(1)              null/* ¹ıÃôÊ·±êÖ¾ */,
-    gms                  nvarchar(1000)       null/* ¹ıÃôÊ· */,
-    yzsybz               nvarchar(100)        null/* Ò½ÖöÊ¹ÓÃ±¸×¢ */,
-    jhzlfa               nvarchar(1000)       null/* ½ñºóÖÎÁÆ·½°¸ */,
-    sffsdm               varchar(2)           null/* Ëæ·Ã·½Ê½´úÂë */,
-    sffsmc               varchar(18)          null/* Ëæ·Ã·½Ê½Ãû³Æ */,
-    sfrq                 date                 null/* Ëæ·ÃÈÕÆÚ */,
-    sfzqjy               varchar(2)           null/* Ëæ·ÃÖÜÆÚ½¨Òé´úÂë */,
-    sfzqjymc             varchar(20)          null/* Ëæ·ÃÖÜÆÚ½¨ÒéÃû³Æ */,
-    yzzxzdm              varchar(20)          not null/* Ò½ÖöÖ´ĞĞÕß¹¤ºÅ */,
-    yzzxzqm              varchar(50)          not null/* Ò½ÖöÖ´ĞĞÕßÇ©Ãû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    mjzh                 varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    dzsqdbh              varchar(20)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ‚£è€…æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ‚£è€…æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    tz                   numeric(6,2)         null/* ä½“é‡ï¼ˆkgï¼‰ */,
+    cljzdyj              nvarchar(2000)       null/* å¤„ç†åŠæŒ‡å¯¼æ„è§ */,
+    yczlczbz             char(1)              null/* æœ‰åˆ›è¯Šç–—æ“ä½œæ ‡å¿— */,
+    gmsbz                char(1)              null/* è¿‡æ•å²æ ‡å¿— */,
+    gms                  nvarchar(1000)       null/* è¿‡æ•å² */,
+    yzsybz               nvarchar(100)        null/* åŒ»å˜±ä½¿ç”¨å¤‡æ³¨ */,
+    jhzlfa               nvarchar(1000)       null/* ä»Šåæ²»ç–—æ–¹æ¡ˆ */,
+    sffsdm               varchar(2)           null/* éšè®¿æ–¹å¼ä»£ç  */,
+    sffsmc               varchar(18)          null/* éšè®¿æ–¹å¼åç§° */,
+    sfrq                 date                 null/* éšè®¿æ—¥æœŸ */,
+    sfzqjy               varchar(2)           null/* éšè®¿å‘¨æœŸå»ºè®®ä»£ç  */,
+    sfzqjymc             varchar(20)          null/* éšè®¿å‘¨æœŸå»ºè®®åç§° */,
+    yzzxzdm              varchar(20)          not null/* åŒ»å˜±æ‰§è¡Œè€…å·¥å· */,
+    yzzxzqm              varchar(50)          not null/* åŒ»å˜±æ‰§è¡Œè€…ç­¾å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -5589,25 +5589,25 @@ where id = object_id('DC_ZLCZJL_ZLJL') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_ZLJL_SSCZ     ÖÎÁÆ´¦ÖÃ¼ÇÂ¼£­ÖÎÁÆ¼ÇÂ¼_ÊÖÊõ²Ù×÷                                                                                                  */
+ /* DC_ZLCZJL_ZLJL_SSCZ     æ²»ç–—å¤„ç½®è®°å½•ï¼æ²»ç–—è®°å½•_æ‰‹æœ¯æ“ä½œ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_ZLJL_SSCZ') )
  create table  DC_ZLCZJL_ZLJL_SSCZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    czbm                 varchar(64)          null/* ²Ù×÷±àÂë */,
-    czmc                 varchar(128)         null/* ²Ù×÷Ãû³Æ */,
-    czmbbw               varchar(64)          null/* ²Ù×÷Ä¿±ê²¿Î»´úÂë */,
-    czmbbwmc             varchar(128)         null/* ²Ù×÷Ä¿±ê²¿Î»Ãû³Æ */,
-    jrwdm                varchar(64)          null/* ½éÈëÎï´úÂë */,
-    jrwmc                sysname              null/* ½éÈëÎïÃû³Æ */,
-    czffms               nvarchar(2000)       null/* ²Ù×÷·½·¨ÃèÊö */,
-    czcs                 int                  null/* ²Ù×÷´ÎÊı */,
-    czrq                 datetime             null/* ²Ù×÷ÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    czbm                 varchar(64)          null/* æ“ä½œç¼–ç  */,
+    czmc                 varchar(128)         null/* æ“ä½œåç§° */,
+    czmbbw               varchar(64)          null/* æ“ä½œç›®æ ‡éƒ¨ä½ä»£ç  */,
+    czmbbwmc             varchar(128)         null/* æ“ä½œç›®æ ‡éƒ¨ä½åç§° */,
+    jrwdm                varchar(64)          null/* ä»‹å…¥ç‰©ä»£ç  */,
+    jrwmc                sysname              null/* ä»‹å…¥ç‰©åç§° */,
+    czffms               nvarchar(2000)       null/* æ“ä½œæ–¹æ³•æè¿° */,
+    czcs                 int                  null/* æ“ä½œæ¬¡æ•° */,
+    czrq                 datetime             null/* æ“ä½œæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -5625,30 +5625,30 @@ where id = object_id('DC_ZLCZJL_ZLJL_SSCZ') )
 go
 
 /*========================================================================*/
- /* DC_ZLCZJL_ZLJL_YYMX     ÖÎÁÆ´¦ÖÃ¼ÇÂ¼£­ÖÎÁÆ¼ÇÂ¼_ÓÃÒ©Ã÷Ï¸                                                                                                  */
+ /* DC_ZLCZJL_ZLJL_YYMX     æ²»ç–—å¤„ç½®è®°å½•ï¼æ²»ç–—è®°å½•_ç”¨è¯æ˜ç»†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_ZLJL_YYMX') )
  create table  DC_ZLCZJL_ZLJL_YYMX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ywdm                 varchar(64)          null/* Ò©Îï´úÂë */,
-    ywmc                 varchar(128)         null/* Ò©ÎïÃû³Æ */,
-    ywyf                 varchar(128)         null/* Ò©ÎïÓÃ·¨ */,
-    zysylb               varchar(2)           null/* ÖĞÒ©Ê¹ÓÃÀà±ğ´úÂë */,
-    zysylbmc             varchar(18)          null/* ÖĞÒ©Ê¹ÓÃÀà±ğÃû³Æ */,
-    ywsypl               varchar(2)           null/* Ò©ÎïÊ¹ÓÃÆµÂÊ */,
-    ywsyplmc             varchar(10)          null/* Ò©ÎïÊ¹ÓÃÆµÂÊÃû³Æ */,
-    ywjxdm               varchar(2)           null/* Ò©Îï¼ÁĞÍ´úÂë */,
-    ywjx                 varchar(50)          null/* Ò©Îï¼ÁĞÍ */,
-    ywsyjldw             varchar(6)           null/* Ò©ÎïÊ¹ÓÃ¼ÁÁ¿µ¥Î» */,
-    ywsycjl              numeric(5,2)         null/* Ò©ÎïÊ¹ÓÃ´Î¼ÁÁ¿ */,
-    ywsyzjl              numeric(12,2)        null/* Ò©ÎïÊ¹ÓÃ×Ü¼ÁÁ¿ */,
-    ywsytj               varchar(3)           null/* Ò©ÎïÊ¹ÓÃÍ¾¾¶´úÂë */,
-    ywsytjmc             varchar(20)          null/* Ò©ÎïÊ¹ÓÃÍ¾¾¶ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ywdm                 varchar(64)          null/* è¯ç‰©ä»£ç  */,
+    ywmc                 varchar(128)         null/* è¯ç‰©åç§° */,
+    ywyf                 varchar(128)         null/* è¯ç‰©ç”¨æ³• */,
+    zysylb               varchar(2)           null/* ä¸­è¯ä½¿ç”¨ç±»åˆ«ä»£ç  */,
+    zysylbmc             varchar(18)          null/* ä¸­è¯ä½¿ç”¨ç±»åˆ«åç§° */,
+    ywsypl               varchar(2)           null/* è¯ç‰©ä½¿ç”¨é¢‘ç‡ */,
+    ywsyplmc             varchar(10)          null/* è¯ç‰©ä½¿ç”¨é¢‘ç‡åç§° */,
+    ywjxdm               varchar(2)           null/* è¯ç‰©å‰‚å‹ä»£ç  */,
+    ywjx                 varchar(50)          null/* è¯ç‰©å‰‚å‹ */,
+    ywsyjldw             varchar(6)           null/* è¯ç‰©ä½¿ç”¨å‰‚é‡å•ä½ */,
+    ywsycjl              numeric(5,2)         null/* è¯ç‰©ä½¿ç”¨æ¬¡å‰‚é‡ */,
+    ywsyzjl              numeric(12,2)        null/* è¯ç‰©ä½¿ç”¨æ€»å‰‚é‡ */,
+    ywsytj               varchar(3)           null/* è¯ç‰©ä½¿ç”¨é€”å¾„ä»£ç  */,
+    ywsytjmc             varchar(20)          null/* è¯ç‰©ä½¿ç”¨é€”å¾„ */,
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -5663,18 +5663,18 @@ go
 
 
 /*========================================================================*/
- /* DC_ZLCZJL_ZLJL_JBZD     ÖÎÁÆ´¦ÖÃ¼ÇÂ¼£­ÖÎÁÆ¼ÇÂ¼_¼²²¡Õï¶Ï                                                                                                 */
+ /* DC_ZLCZJL_ZLJL_JBZD     æ²»ç–—å¤„ç½®è®°å½•ï¼æ²»ç–—è®°å½•_ç–¾ç—…è¯Šæ–­                                                                                                 */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZLCZJL_ZLJL_JBZD') )
  create table  DC_ZLCZJL_ZLJL_JBZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jbzdbm               varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    jbzd                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jbzdbm               varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    jbzd                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -5689,43 +5689,43 @@ go
 
 
 /*========================================================================*/
- /* DC_ZQGZXX_BWZTZS     ÖªÇé¸æÖªĞÅÏ¢£­²¡Î££¨ÖØ£©Í¨ÖªÊé                                                                                                  */
+ /* DC_ZQGZXX_BWZTZS     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ï¼ç—…å±ï¼ˆé‡ï¼‰é€šçŸ¥ä¹¦                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_BWZTZS') )
  create table  DC_ZQGZXX_BWZTZS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    mjzh                 varchar(64)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    tysbh                varchar(20)          not null/* ÖªÇéÍ¬ÒâÊé±àºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡´²ºÅ */,
-    bch                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅÂë */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    bqgkjqjcs            nvarchar(2000)       not null/* ²¡Çé¸ÅÀ¨¼°Ö÷ÒªÇÀ¾È´ëÊ© */,
-    tznr                 nvarchar(1000)       not null/* ²¡Î££¨ÖØ£©Í¨ÖªÄÚÈİ */,
-    tzrq                 datetime             not null/* ²¡Î££¨ÖØ£©Í¨ÖªÈÕÆÚÊ±¼ä */,
-    dlrqm                varchar(50)          null/* ·¨¶¨´úÀíÈËÇ©Ãû */,
-    dlrhzgxdm            varchar(2)           null/* ·¨¶¨´úÀíÈËÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    dlrhzgxmc            varchar(50)          null/* ·¨¶¨´úÀíÈËÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    dlrqmrq              datetime             null/* ·¨¶¨´úÀíÈËÇ©ÃûÈÕÆÚÊ±¼ä */,
-    ysbm                 varchar(20)          not null/* Ò½Ê¦¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ò½Ê¦Ç©Ãû */,
-    ysqmrq               datetime             not null/* Ò½Ê¦Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    mjzh                 varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    tysbh                varchar(20)          not null/* çŸ¥æƒ…åŒæ„ä¹¦ç¼–å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…åºŠå· */,
+    bch                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å·ç  */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    bqgkjqjcs            nvarchar(2000)       not null/* ç—…æƒ…æ¦‚æ‹¬åŠä¸»è¦æŠ¢æ•‘æªæ–½ */,
+    tznr                 nvarchar(1000)       not null/* ç—…å±ï¼ˆé‡ï¼‰é€šçŸ¥å†…å®¹ */,
+    tzrq                 datetime             not null/* ç—…å±ï¼ˆé‡ï¼‰é€šçŸ¥æ—¥æœŸæ—¶é—´ */,
+    dlrqm                varchar(50)          null/* æ³•å®šä»£ç†äººç­¾å */,
+    dlrhzgxdm            varchar(2)           null/* æ³•å®šä»£ç†äººä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    dlrhzgxmc            varchar(50)          null/* æ³•å®šä»£ç†äººä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    dlrqmrq              datetime             null/* æ³•å®šä»£ç†äººç­¾åæ—¥æœŸæ—¶é—´ */,
+    ysbm                 varchar(20)          not null/* åŒ»å¸ˆå·¥å· */,
+    ysqm                 varchar(50)          not null/* åŒ»å¸ˆç­¾å */,
+    ysqmrq               datetime             not null/* åŒ»å¸ˆç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
 
@@ -5743,18 +5743,18 @@ where id = object_id('DC_ZQGZXX_BWZTZS') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_BWZTZS_JBZD     ÖªÇé¸æÖªĞÅÏ¢£­²¡Î££¨ÖØ£©Í¨ÖªÊé_¼²²¡Õï¶Ï                                                                                                  */
+ /* DC_ZQGZXX_BWZTZS_JBZD     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ï¼ç—…å±ï¼ˆé‡ï¼‰é€šçŸ¥ä¹¦_ç–¾ç—…è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_BWZTZS_JBZD') )
  create table  DC_ZQGZXX_BWZTZS_JBZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jbzdbm               varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    jbzd                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jbzdbm               varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    jbzd                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
     
    
     
@@ -5772,54 +5772,54 @@ where id = object_id('DC_ZQGZXX_BWZTZS_JBZD') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_MZZQTYS     ÖªÇé¸æÖªĞÅÏ¢£­Âé×íÖªÇéÍ¬ÒâÊé                                                                                                  */
+ /* DC_ZQGZXX_MZZQTYS     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ï¼éº»é†‰çŸ¥æƒ…åŒæ„ä¹¦                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_MZZQTYS') )
  create table  DC_ZQGZXX_MZZQTYS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    mjzh                 varchar(64)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    tysbh                varchar(20)          not null/* ÖªÇéÍ¬ÒâÊé±àºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    nssbm                varchar(64)          null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷±àÂë */,
-    nssczmc              varchar(128)         null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    nssrq                datetime             null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷ÈÕÆÚÊ±¼ä */,
-    nmzdm                varchar(2)           not null/* ÄâÊµÊ©Âé×í·½·¨´úÂë */,
-    nmzffmc              varchar(30)          not null/* ÄâÊµÊ©Âé×í·½·¨Ãû³Æ */,
-    hzjcjb               nvarchar(500)        null/* »¼Õß»ù´¡¼²²¡ */,
-    jcjbmzyx             nvarchar(1000)       null/* »ù´¡¼²²¡¶ÔÂé×í¿ÉÄÜ²úÉúµÄÓ°Ïì */,
-    nycjcff              nvarchar(2000)       null/* ÄâĞĞÓĞ´´²Ù×÷ºÍ¼à²â·½·¨ */,
-    mzywbfz              nvarchar(1000)       null/* Âé×íÖĞ¡¢Âé×íºó¿ÉÄÜ·¢ÉúµÄÒâÍâ¼°²¢·¢Ö¢ */,
-    mzztb                char(1)              null/* Ê¹ÓÃÂé×íÕòÍ´±Ã±êÖ¾ */,
-    mzaqbx               char(1)              null/* ²Î¼ÓÂé×í°²È«±£ÏÕ±êÖ¾ */,
-    yljgyj               nvarchar(2000)       not null/* Ò½ÁÆ»ú¹¹Òâ¼û */,
-    hzdlryj              nvarchar(2000)       not null/* »¼Õß/·¨¶¨´úÀíÈËÒâ¼û */,
-    hzqm                 varchar(50)          not null/* »¼ÕßÇ©Ãû */,
-    dlrqm                varchar(50)          not null/* ·¨¶¨´úÀíÈËÇ©Ãû */,
-    dlrhzgxdm            varchar(20)          not null/* ·¨¶¨´úÀíÈËÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    dlrhzgxmc            varchar(50)          not null/* ·¨¶¨´úÀíÈËÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    hzdlrqmrq            datetime             not null/* »¼Õß/·¨¶¨´úÀíÈËÇ©ÃûÈÕÆÚÊ±¼ä */,
-    mzysdm               varchar(20)          not null/* Âé×íÒ½Ê¦¹¤ºÅ */,
-    mzysqm               varchar(50)          not null/* Âé×íÒ½Ê¦Ç©Ãû */,
-    mzysqmrq             datetime             not null/* Âé×íÒ½Ê¦Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    mjzh                 varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    tysbh                varchar(20)          not null/* çŸ¥æƒ…åŒæ„ä¹¦ç¼–å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    nssbm                varchar(64)          null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    nssczmc              varchar(128)         null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    nssrq                datetime             null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œæ—¥æœŸæ—¶é—´ */,
+    nmzdm                varchar(2)           not null/* æ‹Ÿå®æ–½éº»é†‰æ–¹æ³•ä»£ç  */,
+    nmzffmc              varchar(30)          not null/* æ‹Ÿå®æ–½éº»é†‰æ–¹æ³•åç§° */,
+    hzjcjb               nvarchar(500)        null/* æ‚£è€…åŸºç¡€ç–¾ç—… */,
+    jcjbmzyx             nvarchar(1000)       null/* åŸºç¡€ç–¾ç—…å¯¹éº»é†‰å¯èƒ½äº§ç”Ÿçš„å½±å“ */,
+    nycjcff              nvarchar(2000)       null/* æ‹Ÿè¡Œæœ‰åˆ›æ“ä½œå’Œç›‘æµ‹æ–¹æ³• */,
+    mzywbfz              nvarchar(1000)       null/* éº»é†‰ä¸­ã€éº»é†‰åå¯èƒ½å‘ç”Ÿçš„æ„å¤–åŠå¹¶å‘ç—‡ */,
+    mzztb                char(1)              null/* ä½¿ç”¨éº»é†‰é•‡ç—›æ³µæ ‡å¿— */,
+    mzaqbx               char(1)              null/* å‚åŠ éº»é†‰å®‰å…¨ä¿é™©æ ‡å¿— */,
+    yljgyj               nvarchar(2000)       not null/* åŒ»ç–—æœºæ„æ„è§ */,
+    hzdlryj              nvarchar(2000)       not null/* æ‚£è€…/æ³•å®šä»£ç†äººæ„è§ */,
+    hzqm                 varchar(50)          not null/* æ‚£è€…ç­¾å */,
+    dlrqm                varchar(50)          not null/* æ³•å®šä»£ç†äººç­¾å */,
+    dlrhzgxdm            varchar(20)          not null/* æ³•å®šä»£ç†äººä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    dlrhzgxmc            varchar(50)          not null/* æ³•å®šä»£ç†äººä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    hzdlrqmrq            datetime             not null/* æ‚£è€…/æ³•å®šä»£ç†äººç­¾åæ—¥æœŸæ—¶é—´ */,
+    mzysdm               varchar(20)          not null/* éº»é†‰åŒ»å¸ˆå·¥å· */,
+    mzysqm               varchar(50)          not null/* éº»é†‰åŒ»å¸ˆç­¾å */,
+    mzysqmrq             datetime             not null/* éº»é†‰åŒ»å¸ˆç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -5837,18 +5837,18 @@ where id = object_id('DC_ZQGZXX_MZZQTYS') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_MZZQTYS_SQZD     ÖªÇé¸æÖªĞÅÏ¢£­Âé×íÖªÇéÍ¬ÒâÊé_ÊõÇ°Õï¶Ï                                                                                                  */
+ /* DC_ZQGZXX_MZZQTYS_SQZD     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ï¼éº»é†‰çŸ¥æƒ…åŒæ„ä¹¦_æœ¯å‰è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_MZZQTYS_SQZD') )
  create table  DC_ZQGZXX_MZZQTYS_SQZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    sqzd                 varchar(64)          not null/* ÊõÇ°Õï¶Ï±àÂë */,
-    sqzdmc               varchar(128)         not null/* ÊõÇ°Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    sqzd                 varchar(64)          not null/* æœ¯å‰è¯Šæ–­ç¼–ç  */,
+    sqzdmc               varchar(128)         not null/* æœ¯å‰è¯Šæ–­åç§° */,
     
    
     
@@ -5866,45 +5866,45 @@ where id = object_id('DC_ZQGZXX_MZZQTYS_SQZD') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_QTZQTYS     ÖªÇé¸æÖªĞÅÏ¢ ¡ª ÆäËûÖªÇéÍ¬ÒâÊé                                                                                                  */
+ /* DC_ZQGZXX_QTZQTYS     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ â€” å…¶ä»–çŸ¥æƒ…åŒæ„ä¹¦                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_QTZQTYS') )
  create table  DC_ZQGZXX_QTZQTYS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    mjzh                 varchar(18)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(18)          not null/* ×¡ÔººÅ */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    tysbh                varchar(20)          not null/* ÖªÇéÍ¬ÒâÊé±àºÅ */,
-    tysmc                varchar(200)         not null/* ÖªÇéÍ¬ÒâÊéÃû³Æ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    zqtynr               nvarchar(2000)       not null/* ÖªÇéÍ¬ÒâÄÚÈİ */,
-    yljgyj               nvarchar(2000)       not null/* Ò½ÁÆ»ú¹¹Òâ¼û */,
-    dlryj                nvarchar(2000)       not null/* »¼Õß/·¨¶¨´úÀíÈËÒâ¼û */,
-    hzqm                 varchar(50)          not null/* »¼ÕßÇ©Ãû */,
-    dlrqm                varchar(50)          null/* ·¨¶¨´úÀíÈËÇ©Ãû */,
-    dlrhzgx              varchar(2)           null/* ·¨¶¨´úÀíÈËÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    dlrhzmc              varchar(50)          null/* ·¨¶¨´úÀíÈËÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    dlrqmrq              datetime             not null/* »¼Õß/·¨¶¨´úÀíÈËÇ©ÃûÈÕÆÚÊ±¼ä */,
-    ysbm                 varchar(20)          not null/* Ò½Ê¦¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ò½Ê¦Ç©Ãû */,
-    ysqmrq               datetime             not null/* Ò½Ê¦Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    mjzh                 varchar(18)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(18)          not null/* ä½é™¢å· */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    tysbh                varchar(20)          not null/* çŸ¥æƒ…åŒæ„ä¹¦ç¼–å· */,
+    tysmc                varchar(200)         not null/* çŸ¥æƒ…åŒæ„ä¹¦åç§° */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    zqtynr               nvarchar(2000)       not null/* çŸ¥æƒ…åŒæ„å†…å®¹ */,
+    yljgyj               nvarchar(2000)       not null/* åŒ»ç–—æœºæ„æ„è§ */,
+    dlryj                nvarchar(2000)       not null/* æ‚£è€…/æ³•å®šä»£ç†äººæ„è§ */,
+    hzqm                 varchar(50)          not null/* æ‚£è€…ç­¾å */,
+    dlrqm                varchar(50)          null/* æ³•å®šä»£ç†äººç­¾å */,
+    dlrhzgx              varchar(2)           null/* æ³•å®šä»£ç†äººä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    dlrhzmc              varchar(50)          null/* æ³•å®šä»£ç†äººä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    dlrqmrq              datetime             not null/* æ‚£è€…/æ³•å®šä»£ç†äººç­¾åæ—¥æœŸæ—¶é—´ */,
+    ysbm                 varchar(20)          not null/* åŒ»å¸ˆå·¥å· */,
+    ysqm                 varchar(50)          not null/* åŒ»å¸ˆç­¾å */,
+    ysqmrq               datetime             not null/* åŒ»å¸ˆç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -5922,18 +5922,18 @@ where id = object_id('DC_ZQGZXX_QTZQTYS') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_QTZQTYS_JBZD     ÖªÇé¸æÖªĞÅÏ¢ ¡ª ÆäËûÖªÇéÍ¬ÒâÊé_¼²²¡Õï¶Ï                                                                                                  */
+ /* DC_ZQGZXX_QTZQTYS_JBZD     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ â€” å…¶ä»–çŸ¥æƒ…åŒæ„ä¹¦_ç–¾ç—…è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_QTZQTYS_JBZD') )
  create table  DC_ZQGZXX_QTZQTYS_JBZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jbzdbm               varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    jbzd                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jbzdbm               varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    jbzd                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
     
    
     
@@ -5951,52 +5951,52 @@ where id = object_id('DC_ZQGZXX_QTZQTYS_JBZD') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_SSTYS     ÖªÇé¸æÖªĞÅÏ¢£­ÊÖÊõÍ¬ÒâÊé                                                                                                  */
+ /* DC_ZQGZXX_SSTYS     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ï¼æ‰‹æœ¯åŒæ„ä¹¦                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_SSTYS') )
  create table  DC_ZQGZXX_SSTYS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    mjzh                 varchar(64)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    zqtysbh              varchar(20)          not null/* ÖªÇéÍ¬ÒâÊé±àºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(50)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    lxdh                 varchar(50)          not null/* ÁªÏµµç»° */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    ssywfx               nvarchar(200)        not null/* ÊÖÊõÖĞ¿ÉÄÜ³öÏÖµÄÒâÍâ¼°·çÏÕ */,
-    ssywbfz              nvarchar(1000)       not null/* ÊÖÊõºó¿ÉÄÜ³öÏÖµÄÒâÍâ¼°²¢·¢Ö¢ */,
-    tdfa                 nvarchar(1000)       not null/* Ìæ´ú·½°¸ */,
-    yljgyj               nvarchar(2000)       not null/* Ò½ÁÆ»ú¹¹Òâ¼û */,
-    hzdlryj              nvarchar(2000)       not null/* »¼Õß/·¨¶¨´úÀíÈËÒâ¼û */,
-    hzqm                 varchar(50)          not null/* »¼ÕßÇ©Ãû */,
-    dlrqm                varchar(50)          not null/* ·¨¶¨´úÀíÈËÇ©Ãû */,
-    dlrhzgxdm            varchar(2)           not null/* ·¨¶¨´úÀíÈËÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    dlrhzgxmc            varchar(50)          not null/* ·¨¶¨´úÀíÈËÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    dlrqmrq              datetime             not null/* »¼Õß/·¨¶¨´úÀíÈËÇ©ÃûÈÕÆÚÊ±¼ä */,
-    jzysdm               varchar(20)          not null/* ¾­ÖÎÒ½Ê¦¹¤ºÅ */,
-    jzysqm               varchar(50)          not null/* ¾­ÖÎÒ½Ê¦Ç©Ãû */,
-    zrysdm               varchar(50)          not null/* ÔğÈÎÒ½Éú¹¤ºÅ */,
-    zrysxm               varchar(50)          not null/* ÔğÈÎÒ½ÉúĞÕÃû */,
-    sszdm                varchar(20)          not null/* ÊÖÊõÕß¹¤ºÅ */,
-    sszqm                varchar(50)          not null/* ÊÖÊõÕßÇ©Ãû */,
-    ysqmrq               datetime             not null/* Ò½Ê¦Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    mjzh                 varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    zqtysbh              varchar(20)          not null/* çŸ¥æƒ…åŒæ„ä¹¦ç¼–å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(50)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    lxdh                 varchar(50)          not null/* è”ç³»ç”µè¯ */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    ssywfx               nvarchar(200)        not null/* æ‰‹æœ¯ä¸­å¯èƒ½å‡ºç°çš„æ„å¤–åŠé£é™© */,
+    ssywbfz              nvarchar(1000)       not null/* æ‰‹æœ¯åå¯èƒ½å‡ºç°çš„æ„å¤–åŠå¹¶å‘ç—‡ */,
+    tdfa                 nvarchar(1000)       not null/* æ›¿ä»£æ–¹æ¡ˆ */,
+    yljgyj               nvarchar(2000)       not null/* åŒ»ç–—æœºæ„æ„è§ */,
+    hzdlryj              nvarchar(2000)       not null/* æ‚£è€…/æ³•å®šä»£ç†äººæ„è§ */,
+    hzqm                 varchar(50)          not null/* æ‚£è€…ç­¾å */,
+    dlrqm                varchar(50)          not null/* æ³•å®šä»£ç†äººç­¾å */,
+    dlrhzgxdm            varchar(2)           not null/* æ³•å®šä»£ç†äººä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    dlrhzgxmc            varchar(50)          not null/* æ³•å®šä»£ç†äººä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    dlrqmrq              datetime             not null/* æ‚£è€…/æ³•å®šä»£ç†äººç­¾åæ—¥æœŸæ—¶é—´ */,
+    jzysdm               varchar(20)          not null/* ç»æ²»åŒ»å¸ˆå·¥å· */,
+    jzysqm               varchar(50)          not null/* ç»æ²»åŒ»å¸ˆç­¾å */,
+    zrysdm               varchar(50)          not null/* è´£ä»»åŒ»ç”Ÿå·¥å· */,
+    zrysxm               varchar(50)          not null/* è´£ä»»åŒ»ç”Ÿå§“å */,
+    sszdm                varchar(20)          not null/* æ‰‹æœ¯è€…å·¥å· */,
+    sszqm                varchar(50)          not null/* æ‰‹æœ¯è€…ç­¾å */,
+    ysqmrq               datetime             not null/* åŒ»å¸ˆç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -6014,25 +6014,25 @@ where id = object_id('DC_ZQGZXX_SSTYS') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_SSTYS_NSSSS     ÖªÇé¸æÖªĞÅÏ¢£­ÊÖÊõÍ¬ÒâÊé_ÄâÊµÊ©ÊÖÊõ                                                                                                  */
+ /* DC_ZQGZXX_SSTYS_NSSSS     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ï¼æ‰‹æœ¯åŒæ„ä¹¦_æ‹Ÿå®æ–½æ‰‹æœ¯                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_SSTYS_NSSSS') )
  create table  DC_ZQGZXX_SSTYS_NSSSS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    nssbm                varchar(64)          not null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷±àÂë */,
-    nssczmc              varchar(128)         not null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    nssrq                datetime             not null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷ÈÕÆÚÊ±¼ä */,
-    sszz                 nvarchar(500)        not null/* ÊÖÊõÖ¸Õ÷ */,
-    ssjjz                nvarchar(100)        not null/* ÊÖÊõ½û¼ÉÖ¢ */,
-    ssfs                 varchar(30)          not null/* ÊÖÊõ·½Ê½ */,
-    nmzdm                varchar(2)           not null/* ÄâÊµÊ©Âé×í·½·¨´úÂë */,
-    nmzffmc              varchar(30)          not null/* ÄâÊµÊ©Âé×í·½·¨Ãû³Æ */,
-    sqzb                 nvarchar(1000)       not null/* ÊõÇ°×¼±¸ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    nssbm                varchar(64)          not null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    nssczmc              varchar(128)         not null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    nssrq                datetime             not null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œæ—¥æœŸæ—¶é—´ */,
+    sszz                 nvarchar(500)        not null/* æ‰‹æœ¯æŒ‡å¾ */,
+    ssjjz                nvarchar(100)        not null/* æ‰‹æœ¯ç¦å¿Œç—‡ */,
+    ssfs                 varchar(30)          not null/* æ‰‹æœ¯æ–¹å¼ */,
+    nmzdm                varchar(2)           not null/* æ‹Ÿå®æ–½éº»é†‰æ–¹æ³•ä»£ç  */,
+    nmzffmc              varchar(30)          not null/* æ‹Ÿå®æ–½éº»é†‰æ–¹æ³•åç§° */,
+    sqzb                 nvarchar(1000)       not null/* æœ¯å‰å‡†å¤‡ */,
     
    
     
@@ -6050,18 +6050,18 @@ where id = object_id('DC_ZQGZXX_SSTYS_NSSSS') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_SSTYS_SQZD     ÖªÇé¸æÖªĞÅÏ¢£­ÊÖÊõÍ¬ÒâÊé_ÊõÇ°Õï¶Ï                                                                                                  */
+ /* DC_ZQGZXX_SSTYS_SQZD     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ï¼æ‰‹æœ¯åŒæ„ä¹¦_æœ¯å‰è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_SSTYS_SQZD') )
  create table  DC_ZQGZXX_SSTYS_SQZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    sqzd                 varchar(64)          not null/* ÊõÇ°Õï¶Ï±àÂë */,
-    sqzdmc               varchar(128)         not null/* ÊõÇ°Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    sqzd                 varchar(64)          not null/* æœ¯å‰è¯Šæ–­ç¼–ç  */,
+    sqzdmc               varchar(128)         not null/* æœ¯å‰è¯Šæ–­åç§° */,
     
    
     
@@ -6079,50 +6079,50 @@ where id = object_id('DC_ZQGZXX_SSTYS_SQZD') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_SXZLTYS     ÖªÇé¸æÖªĞÅÏ¢£­ÊäÑªÖÎÁÆÍ¬ÒâÊé                                                                                                  */
+ /* DC_ZQGZXX_SXZLTYS     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ï¼è¾“è¡€æ²»ç–—åŒæ„ä¹¦                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_SXZLTYS') )
  create table  DC_ZQGZXX_SXZLTYS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    mjzh                 varchar(64)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    tysbh                varchar(20)          not null/* ÖªÇéÍ¬ÒâÊé±àºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    sxsdm                char(1)              not null/* ÊäÑªÊ·±êÊ¶´úÂë */,
-    sxzz                 nvarchar(500)        not null/* ÊäÑªÖ¸Õ÷ */,
-    sxpzdm               varchar(2)           not null/* ÊäÑªÆ·ÖÖ´úÂë */,
-    sxpzmc               varchar(50)          not null/* ÊäÑªÆ·ÖÖÃû³Æ */,
-    sxqjcjg              nvarchar(200)        not null/* ÊäÑªÇ°ÓĞ¹Ø¼ì²éÏîÄ¿¼°½á¹û */,
-    sxfs                 varchar(50)          not null/* ÊäÑª·½Ê½ */,
-    nsxrq                datetime             not null/* Äâ¶¨ÊäÑªÈÕÆÚÊ±¼ä */,
-    sxblhg               nvarchar(500)        not null/* ÊäÑª·çÏÕ¼°¿ÉÄÜ·¢ÉúµÄ²»Á¼ºó¹û */,
-    yljgyj               nvarchar(2000)       not null/* Ò½ÁÆ»ú¹¹Òâ¼û */,
-    hzdlryj              nvarchar(2000)       not null/* »¼Õß/·¨¶¨´úÀíÈËÒâ¼û */,
-    hzdlrqm              varchar(50)          not null/* »¼Õß/·¨¶¨´úÀíÈËÇ©Ãû */,
-    dlrhzgxdm            varchar(50)          not null/* ·¨¶¨´úÀíÈËÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    dlrhzgxmc            varchar(50)          not null/* ·¨¶¨´úÀíÈËÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    hzdlrqmrq            datetime             not null/* »¼Õß/·¨¶¨´úÀíÈËÇ©ÃûÈÕÆÚÊ±¼ä */,
-    ysbm                 varchar(20)          not null/* Ò½Ê¦¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ò½Ê¦Ç©Ãû */,
-    ysqmrq               datetime             not null/* Ò½Ê¦Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    mjzh                 varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    tysbh                varchar(20)          not null/* çŸ¥æƒ…åŒæ„ä¹¦ç¼–å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    sxsdm                char(1)              not null/* è¾“è¡€å²æ ‡è¯†ä»£ç  */,
+    sxzz                 nvarchar(500)        not null/* è¾“è¡€æŒ‡å¾ */,
+    sxpzdm               varchar(2)           not null/* è¾“è¡€å“ç§ä»£ç  */,
+    sxpzmc               varchar(50)          not null/* è¾“è¡€å“ç§åç§° */,
+    sxqjcjg              nvarchar(200)        not null/* è¾“è¡€å‰æœ‰å…³æ£€æŸ¥é¡¹ç›®åŠç»“æœ */,
+    sxfs                 varchar(50)          not null/* è¾“è¡€æ–¹å¼ */,
+    nsxrq                datetime             not null/* æ‹Ÿå®šè¾“è¡€æ—¥æœŸæ—¶é—´ */,
+    sxblhg               nvarchar(500)        not null/* è¾“è¡€é£é™©åŠå¯èƒ½å‘ç”Ÿçš„ä¸è‰¯åæœ */,
+    yljgyj               nvarchar(2000)       not null/* åŒ»ç–—æœºæ„æ„è§ */,
+    hzdlryj              nvarchar(2000)       not null/* æ‚£è€…/æ³•å®šä»£ç†äººæ„è§ */,
+    hzdlrqm              varchar(50)          not null/* æ‚£è€…/æ³•å®šä»£ç†äººç­¾å */,
+    dlrhzgxdm            varchar(50)          not null/* æ³•å®šä»£ç†äººä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    dlrhzgxmc            varchar(50)          not null/* æ³•å®šä»£ç†äººä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    hzdlrqmrq            datetime             not null/* æ‚£è€…/æ³•å®šä»£ç†äººç­¾åæ—¥æœŸæ—¶é—´ */,
+    ysbm                 varchar(20)          not null/* åŒ»å¸ˆå·¥å· */,
+    ysqm                 varchar(50)          not null/* åŒ»å¸ˆç­¾å */,
+    ysqmrq               datetime             not null/* åŒ»å¸ˆç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -6140,18 +6140,18 @@ where id = object_id('DC_ZQGZXX_SXZLTYS') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_SXZLTYS_JBZD     ÖªÇé¸æÖªĞÅÏ¢£­ÊäÑªÖÎÁÆÍ¬ÒâÊé_¼²²¡Õï¶Ï                                                                                                  */
+ /* DC_ZQGZXX_SXZLTYS_JBZD     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ï¼è¾“è¡€æ²»ç–—åŒæ„ä¹¦_ç–¾ç—…è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_SXZLTYS_JBZD') )
  create table  DC_ZQGZXX_SXZLTYS_JBZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jbzdbm               varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    jbzd                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jbzdbm               varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    jbzd                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
     
    
     
@@ -6169,17 +6169,17 @@ where id = object_id('DC_ZQGZXX_SXZLTYS_JBZD') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_SXZLTYS_SXS     ÖªÇé¸æÖªĞÅÏ¢£­ÊäÑªÖÎÁÆÍ¬ÒâÊé_ÊäÑªÊ·                                                                                                  */
+ /* DC_ZQGZXX_SXZLTYS_SXS     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ï¼è¾“è¡€æ²»ç–—åŒæ„ä¹¦_è¾“è¡€å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_SXZLTYS_SXS') )
  create table  DC_ZQGZXX_SXZLTYS_SXS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    sxsmc                varchar(32)          not null/* ÊäÑªÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    sxsmc                varchar(32)          not null/* è¾“è¡€å² */,
     
    
     
@@ -6197,44 +6197,44 @@ where id = object_id('DC_ZQGZXX_SXZLTYS_SXS') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_TSJCZLTYS     ÖªÇé¸æÖªĞÅÏ¢£­ÌØÊâ¼ì²é¼°ÌØÊâÖÎÁÆÍ¬ÒâÊé                                                                                                  */
+ /* DC_ZQGZXX_TSJCZLTYS     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ï¼ç‰¹æ®Šæ£€æŸ¥åŠç‰¹æ®Šæ²»ç–—åŒæ„ä¹¦                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_TSJCZLTYS') )
  create table  DC_ZQGZXX_TSJCZLTYS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    mjzh                 varchar(10)          not null/* ÃÅ£¨¼±£©ÕïºÅ */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    tysbh                varchar(20)          not null/* ÖªÇéÍ¬ÒâÊé±àºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅÂë */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    jczlxmmc             varchar(100)         not null/* ÌØÊâ¼ì²é¼°ÌØÊâÖÎÁÆÏîÄ¿Ãû³Æ */,
-    jczlmd               nvarchar(100)        not null/* ÌØÊâ¼ì²é¼°ÌØÊâÖÎÁÆÄ¿µÄ */,
-    jczlbfz              nvarchar(1000)       null/* ÌØÊâ¼ì²é¼°ÌØÊâÖÎÁÆ¿ÉÄÜÒıÆğµÄ²¢·¢Ö¢¼°·çÏÕ */,
-    tdfa                 nvarchar(1000)       null/* Ìæ´ú·½°¸ */,
-    hzdlrqm              varchar(50)          not null/* »¼Õß/·¨¶¨´úÀíÈËÇ©Ãû */,
-    hzdlrgxdm            varchar(2)           not null/* ·¨¶¨´úÀíÈËÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    hzdlrgxmc            varchar(128)         not null/* ·¨¶¨´úÀíÈËÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    dlrqmrq              datetime             not null/* »¼Õß/·¨¶¨´úÀíÈËÇ©ÃûÈÕÆÚÊ±¼ä */,
-    ysbm                 varchar(20)          not null/* Ò½Éú¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ò½Ê¦Ç©Ãû */,
-    ysqmrq               datetime             not null/* Ò½Ê¦Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    mjzh                 varchar(10)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šå· */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    tysbh                varchar(20)          not null/* çŸ¥æƒ…åŒæ„ä¹¦ç¼–å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å·ç  */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    jczlxmmc             varchar(100)         not null/* ç‰¹æ®Šæ£€æŸ¥åŠç‰¹æ®Šæ²»ç–—é¡¹ç›®åç§° */,
+    jczlmd               nvarchar(100)        not null/* ç‰¹æ®Šæ£€æŸ¥åŠç‰¹æ®Šæ²»ç–—ç›®çš„ */,
+    jczlbfz              nvarchar(1000)       null/* ç‰¹æ®Šæ£€æŸ¥åŠç‰¹æ®Šæ²»ç–—å¯èƒ½å¼•èµ·çš„å¹¶å‘ç—‡åŠé£é™© */,
+    tdfa                 nvarchar(1000)       null/* æ›¿ä»£æ–¹æ¡ˆ */,
+    hzdlrqm              varchar(50)          not null/* æ‚£è€…/æ³•å®šä»£ç†äººç­¾å */,
+    hzdlrgxdm            varchar(2)           not null/* æ³•å®šä»£ç†äººä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    hzdlrgxmc            varchar(128)         not null/* æ³•å®šä»£ç†äººä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    dlrqmrq              datetime             not null/* æ‚£è€…/æ³•å®šä»£ç†äººç­¾åæ—¥æœŸæ—¶é—´ */,
+    ysbm                 varchar(20)          not null/* åŒ»ç”Ÿå·¥å· */,
+    ysqm                 varchar(50)          not null/* åŒ»å¸ˆç­¾å */,
+    ysqmrq               datetime             not null/* åŒ»å¸ˆç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -6252,18 +6252,18 @@ where id = object_id('DC_ZQGZXX_TSJCZLTYS') )
 go
 
 /*========================================================================*/
- /* DC_ZQGZXX_TSJCZLTYS_JBZD     ÖªÇé¸æÖªĞÅÏ¢£­ÌØÊâ¼ì²é¼°ÌØÊâÖÎÁÆÍ¬ÒâÊé_¼²²¡Õï¶Ï                                                                                                  */
+ /* DC_ZQGZXX_TSJCZLTYS_JBZD     çŸ¥æƒ…å‘ŠçŸ¥ä¿¡æ¯ï¼ç‰¹æ®Šæ£€æŸ¥åŠç‰¹æ®Šæ²»ç–—åŒæ„ä¹¦_ç–¾ç—…è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZQGZXX_TSJCZLTYS_JBZD') )
  create table  DC_ZQGZXX_TSJCZLTYS_JBZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jbzdbm               varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    jbzd                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jbzdbm               varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    jbzd                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
     
    
     
@@ -6281,166 +6281,166 @@ where id = object_id('DC_ZQGZXX_TSJCZLTYS_JBZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBA_BASY     ²¡°¸Ê×Ò³£­×¡Ôº²¡°¸Ê×Ò³                                                                                                  */
+ /* DC_ZYBA_BASY     ç—…æ¡ˆé¦–é¡µï¼ä½é™¢ç—…æ¡ˆé¦–é¡µ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBA_BASY') )
  create table  DC_ZYBA_BASY (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yljgzzjgdm           varchar(10)          not null/* ×¡Ôº»ú¹¹±êÊ¶ */,
-    yljgzzjgmc           varchar(70)          not null/* ×¡Ôº»ú¹¹Ãû³Æ */,
-    ylfffsdm             varchar(2)           not null/* Ò½ÁÆ¸¶·Ñ·½Ê½´úÂë */,
-    ylfffsmc             varchar(50)          not null/* Ò½ÁÆ¸¶·Ñ·½Ê½Ãû³Æ */,
-    jkkh                 varchar(18)          not null/* ½¡¿µ¿¨ºÅ */,
-    zycs                 numeric(3)           not null/* ×¡Ôº´ÎÊı */,
-    bah                  varchar(18)          not null/* ²¡°¸ºÅ */,
-    xm                   varchar(50)          not null/* ĞÕÃû */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    csrq                 date                 not null/* ³öÉúÈÕÆÚ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    gjdm                 varchar(3)           not null/* ¹ú¼®´úÂë */,
-    gjmc                 varchar(64)          not null/* ¹ú¼®Ãû³Æ */,
-    xsecstzg             numeric(4)           null/* ĞÂÉú¶ù³öÉúÌåÖØ£¨g£© */,
-    xserytzg             numeric(4)           null/* ĞÂÉú¶ùÈëÔºÌåÖØ£¨g£© */,
-    csd_s                varchar(70)          not null/* ³öÉúµØ-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    csd_cs               varchar(70)          not null/* ³öÉúµØ-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    csd_xq               varchar(70)          not null/* ³öÉúµØ-ÏØ£¨Çø£© */,
-    jg_s                 varchar(70)          not null/* ¼®¹áÊ¡ */,
-    jg_cs                varchar(70)          not null/* ¼®¹á³ÇÊĞ */,
-    mzdm                 varchar(3)           not null/* Ãñ×å */,
-    mzmc                 varchar(50)          not null/* Ãñ×åÃû³Æ */,
-    sfzjlbdm             varchar(2)           not null/* Éí·İÖ¤¼şÀà±ğ´úÂë */,
-    sfzjlbmc             varchar(50)          not null/* Éí·İÖ¤¼şÀà±ğÃû³Æ */,
-    hzsfzjhm             varchar(18)          not null/* »¼ÕßÉí·İÖ¤¼şºÅÂë */,
-    zylbdm               varchar(2)           null/* Ö°ÒµÀà±ğ´úÂë */,
-    zylbmc               varchar(18)          null/* Ö°ÒµÀà±ğÃû³Æ */,
-    hyzkdm               varchar(2)           null/* »éÒö×´¿ö´úÂë */,
-    hyzkmc               varchar(18)          null/* »éÒö×´¿öÃû³Æ */,
-    xzz_s                varchar(70)          not null/* ÏÖ×¡Ö·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    xzz_cs               varchar(70)          not null/* ÏÖ×¡Ö·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    xzz_xq               varchar(70)          not null/* ÏÖ×¡Ö·-ÏØ£¨Çø£© */,
-    xzz_jd               varchar(70)          not null/* ÏÖ×¡Ö·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    xzz_xz               varchar(70)          not null/* ÏÖ×¡Ö·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    xzz_mphm             varchar(70)          not null/* ÏÖ×¡Ö·-ÃÅÅÆºÅÂë */,
-    dhhm                 varchar(20)          not null/* µç»°ºÅÂë */,
-    xzz_yzbm             numeric(6)           not null/* ÏÖ×¡Ö·-ÓÊÕş±àÂë */,
-    hkdz_s               varchar(70)          not null/* »§¿ÚµØÖ·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    hkdz_cs              varchar(70)          not null/* »§¿ÚµØÖ·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    hkdz_xq              varchar(70)          not null/* »§¿ÚµØÖ·-ÏØ£¨Çø£© */,
-    hkdz_xz              varchar(70)          not null/* »§¿ÚµØÖ·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    hkdz_c               varchar(70)          not null/* »§¿ÚµØÖ·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    hkdz_mphm            varchar(70)          not null/* »§¿ÚµØÖ·-ÃÅÅÆºÅÂë */,
-    hkdz_yzbm            numeric(6)           not null/* »§¿ÚµØÖ·-ÓÊÕş±àÂë */,
-    gzdwmc               varchar(70)          not null/* ¹¤×÷µ¥Î»Ãû³Æ */,
-    gzdwdz_s             varchar(70)          not null/* ¹¤×÷µ¥Î»µØÖ·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    gzdwdz_cs            varchar(70)          not null/* ¹¤×÷µ¥Î»µØÖ·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    gzdwdz_xq            varchar(70)          not null/* ¹¤×÷µ¥Î»µØÖ·-ÏØ£¨Çø£© */,
-    gzdwdz_xz            varchar(70)          not null/* ¹¤×÷µ¥Î»µØÖ·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    gzdwdz_c             varchar(70)          not null/* ¹¤×÷µ¥Î»µØÖ·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    gzdwdz_mphm          varchar(70)          not null/* ¹¤×÷µ¥Î»µØÖ·-ÃÅÅÆºÅÂë */,
-    gzdwdhhm             varchar(20)          not null/* ¹¤×÷µ¥Î»µç»°ºÅÂë */,
-    gzdwdz_yzbm          numeric(6)           not null/* ¹¤×÷µ¥Î»µØÖ·-ÓÊÕş±àÂë */,
-    lxrxm                varchar(50)          not null/* ÁªÏµÈËĞÕÃû */,
-    lxryhzdgxdm          varchar(2)           not null/* ÁªÏµÈËÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    lxryhzdgxmc          varchar(50)          not null/* ÁªÏµÈËÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    lxrdz_s              varchar(70)          not null/* ÁªÏµÈËµØÖ·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    lxrdz_cs             varchar(70)          not null/* ÁªÏµÈËµØÖ·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    lxrdz_xq             varchar(70)          not null/* ÁªÏµÈËµØÖ·-ÏØ£¨Çø£© */,
-    lxrdz_xz             varchar(70)          not null/* ÁªÏµÈËµØÖ·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    lxrdz_c              varchar(70)          not null/* ÁªÏµÈËµØÖ·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    lxrdz_mphm           varchar(70)          not null/* ÁªÏµÈËµØÖ·-ÃÅÅÆºÅÂë */,
-    lxrdhhm              varchar(20)          not null/* ÁªÏµÈËµç»°ºÅÂë */,
-    rytjdm               varchar(2)           not null/* ÈëÔºÍ¾¾¶´úÂë */,
-    rytjmc               varchar(20)          not null/* ÈëÔºÍ¾¾¶Ãû³Æ */,
-    ryrqsj               datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    rykbdm               varchar(11)          not null/* ÈëÔº¿Æ±ğ´úÂë */,
-    rykbmc               varchar(50)          not null/* ÈëÔº¿Æ±ğ */,
-    rybf                 varchar(10)          not null/* ÈëÔº²¡·¿ */,
-    zkkb                 varchar(50)          null/* ×ª¿Æ¿Æ±ğ */,
-    cyrqsj               datetime             not null/* ³öÔºÈÕÆÚÊ±¼ä */,
-    cykbdm               varchar(10)          not null/* ³öÔº¿Æ±ğ´úÂë */,
-    cykbmc               varchar(50)          not null/* ³öÔº¿Æ±ğ */,
-    cybf                 varchar(10)          not null/* ³öÔº²¡·¿ */,
-    sjzyts               numeric(4)           not null/* Êµ¼Ê×¡ÔºÌìÊı */,
-    sszddwbyyjbbm        varchar(64)          not null/* ËğÉËÖĞ¶¾µÄÍâ²¿Ô­Òò¼²²¡±àÂë */,
-    sszddwbyyjbmc        varchar(128)         not null/* ËğÉËÖĞ¶¾µÄÍâ²¿Ô­Òò¼²²¡Ãû³Æ */,
-    swhzsjbz             char(1)              null/* ËÀÍö»¼ÕßÊ¬¼ì±êÖ¾ */,
-    aboxxdm              varchar(2)           not null/* ABOÑªĞÍ´úÂë */,
-    aboxxmc              varchar(18)          not null/* ABOÑªĞÍÃû³Æ */,
-    rhxxdm               varchar(2)           not null/* RhÑªĞÍ´úÂë */,
-    rhxxmc               varchar(18)          not null/* RhÑªĞÍÃû³Æ */,
-    kzrdm                varchar(20)          not null/* ¿ÆÖ÷ÈÎ¹¤ºÅ */,
-    kzrqm                varchar(50)          not null/* ¿ÆÖ÷ÈÎÇ©Ãû */,
-    zrfzrysqm            varchar(50)          not null/* Ö÷ÈÎ£¨¸±Ö÷ÈÎ£©Ò½Ê¦Ç©Ãû */,
-    zzysdm               varchar(20)          not null/* Ö÷ÖÎÒ½Ê¦¹¤ºÅ */,
-    zzysqm               varchar(50)          not null/* Ö÷ÖÎÒ½Ê¦Ç©Ãû */,
-    zyysdm               varchar(20)          not null/* ×¡ÔºÒ½Ê¦¹¤ºÅ */,
-    zyysqm               varchar(50)          not null/* ×¡ÔºÒ½Ê¦Ç©Ãû */,
-    zrhsdm               varchar(20)          not null/* ÔğÈÎ»¤Ê¿¹¤ºÅ */,
-    zrhsqm               varchar(50)          not null/* ÔğÈÎ»¤Ê¿Ç©Ãû */,
-    jxysdm               varchar(20)          not null/* ½øĞŞÒ½Ê¦¹¤ºÅ */,
-    jxysqm               varchar(50)          not null/* ½øĞŞÒ½Ê¦Ç©Ãû */,
-    sxysdm               varchar(20)          not null/* ÊµÏ°Ò½Ê¦¹¤ºÅ */,
-    sxysqm               varchar(50)          not null/* ÊµÏ°Ò½Ê¦Ç©Ãû */,
-    bydm                 varchar(20)          not null/* ±àÂëÔ±¹¤ºÅ */,
-    bym                  varchar(50)          not null/* ±àÂëÔ±Ç©Ãû */,
-    bazldm               varchar(2)           not null/* ²¡°¸ÖÊÁ¿´úÂë */,
-    bazlmc               varchar(100)         not null/* ²¡°¸ÖÊÁ¿Ãû³Æ */,
-    zkysdm               varchar(20)          not null/* ÖÊ¿ØÒ½Ê¦¹¤ºÅ */,
-    zkysqm               varchar(50)          not null/* ÖÊ¿ØÒ½Ê¦Ç©Ãû */,
-    zkhsdm               varchar(20)          not null/* ÖÊ¿Ø»¤Ê¿¹¤ºÅ */,
-    zkhsqm               varchar(50)          not null/* ÖÊ¿Ø»¤Ê¿Ç©Ãû */,
-    zkrq                 date                 not null/* ÖÊ¿ØÈÕÆÚ */,
-    lyfsdm               varchar(2)           not null/* ÀëÔº·½Ê½´úÂë */,
-    lyfsmc               varchar(100)         not null/* ÀëÔº·½Ê½Ãû³Æ */,
-    njsyljgdm            varchar(20)          not null/* Äâ½ÓÊÕÒ½ÁÆ»ú¹¹´úÂë */,
-    njsyljgmc            varchar(70)          not null/* Äâ½ÓÊÕÒ½ÁÆ»ú¹¹Ãû³Æ */,
-    cy31dnzzybz          char(1)              not null/* ³öÔº31dÄÚÔÙ×¡Ôº±êÖ¾ */,
-    cy31dnzzymd          varchar(100)         null/* ³öÔº31dÄÚÔÙ×¡ÔºÄ¿µÄ */,
-    lnsshzryqhmsj_d      numeric(5)           not null/* Â­ÄÔËğÉË»¼ÕßÈëÔºÇ°»èÃÔÊ±¼ä-d */,
-    lnsshzryqhmsj_h      numeric(2)           not null/* Â­ÄÔËğÉË»¼ÕßÈëÔºÇ°»èÃÔÊ±¼ä-h */,
-    lnsshzryqhmsj_min    numeric(2)           not null/* Â­ÄÔËğÉË»¼ÕßÈëÔºÇ°»èÃÔÊ±¼ä-min */,
-    lnsshzryhhmsj_d      numeric(5)           not null/* Â­ÄÔËğÉË»¼ÕßÈëÔººó»èÃÔÊ±¼ä-d */,
-    lnsshzryhhmsj_h      numeric(2)           not null/* Â­ÄÔËğÉË»¼ÕßÈëÔººó»èÃÔÊ±¼ä-h */,
-    lnsshzryhhmsj_min    numeric(2)           not null/* Â­ÄÔËğÉË»¼ÕßÈëÔººó»èÃÔÊ±¼ä-min */,
-    zyzfy                numeric(10,2)        not null/* ×¡Ôº×Ü·ÑÓÃ */,
-    zyzfy_zfje           numeric(10,2)        not null/* ×¡Ôº×Ü·ÑÓÃ-×Ô¸¶½ğ¶î */,
-    zhylfwl_ybylfwf      numeric(10,2)        not null/* ×ÛºÏÒ½ÁÆ·şÎñÀà-Ò»°ãÒ½ÁÆ·şÎñ·Ñ */,
-    zhylfwl_ybzlczf      numeric(10,2)        not null/* ×ÛºÏÒ½ÁÆ·şÎñÀà-Ò»°ãÖÎÁÆ²Ù×÷·Ñ */,
-    zhylfwl_hlf          numeric(10,2)        not null/* ×ÛºÏÒ½ÁÆ·şÎñÀà-»¤Àí·Ñ */,
-    zhylfwl_qtfy         numeric(10,2)        not null/* ×ÛºÏÒ½ÁÆ·şÎñÀà-ÆäËû·ÑÓÃ */,
-    zdl_blzdf            numeric(10,2)        not null/* Õï¶ÏÀà-²¡ÀíÕï¶Ï·Ñ */,
-    zdl_syszdf           numeric(10,2)        not null/* Õï¶ÏÀà-ÊµÑéÊÒÕï¶Ï·Ñ */,
-    zdl_yxxzdf           numeric(10,2)        not null/* Õï¶ÏÀà-Ó°ÏñÑ§Õï¶Ï·Ñ */,
-    zdl_lczdxmf          numeric(10,2)        not null/* Õï¶ÏÀà-ÁÙ´²Õï¶ÏÏîÄ¿·Ñ */,
-    zll_fsszlxmf         numeric(10,2)        not null/* ÖÎÁÆÀà-·ÇÊÖÊõÖÎÁÆÏîÄ¿·Ñ */,
-    zll_fsszlxmf_lcwlzlf numeric(10,2)        not null/* ÖÎÁÆÀà-·ÇÊÖÊõÖÎÁÆÏîÄ¿·Ñ-ÁÙ´²ÎïÀíÖÎÁÆ·Ñ */,
-    zll_sszlf            numeric(10,2)        not null/* ÖÎÁÆÀà-ÊÖÊõÖÎÁÆ·Ñ */,
-    zll_sszlf_mzf        numeric(10,2)        not null/* ÖÎÁÆÀà-ÊÖÊõÖÎÁÆ·Ñ-Âé×í·Ñ */,
-    zll_sszlf_ssf        numeric(10,2)        not null/* ÖÎÁÆÀà-ÊÖÊõÖÎÁÆ·Ñ-ÊÖÊõ·Ñ */,
-    kfl_kff              numeric(10,2)        not null/* ¿µ¸´Àà-¿µ¸´·Ñ */,
-    zyl_zyzlf            numeric(10,2)        not null/* ÖĞÒ½Àà-ÖĞÒ½ÖÎÁÆ·Ñ */,
-    xyl_xyf              numeric(10,2)        not null/* Î÷Ò©Àà-Î÷Ò©·Ñ */,
-    xyl_xyf_kjywfy       numeric(10,2)        not null/* Î÷Ò©Àà-Î÷Ò©·Ñ-¿¹¾úÒ©Îï·ÑÓÃ */,
-    zyl_zchenyf          numeric(10,2)        not null/* ÖĞÒ©Àà-ÖĞ³ÉÒ©·Ñ */,
-    zyl_zcyf             numeric(10,2)        not null/* ÖĞÒ©Àà-ÖĞ²İÒ©·Ñ */,
-    xyhxyzpl_xf          numeric(10,2)        not null/* ÑªÒººÍÑªÒºÖÆÆ·Àà-Ñª·Ñ */,
-    xyhxyzpl_bdblzpf     numeric(10,2)        not null/* ÑªÒººÍÑªÒºÖÆÆ·Àà-°×µ°°×ÀàÖÆÆ··Ñ */,
-    xyhxyzpl_qdblzpf     numeric(10,2)        not null/* ÑªÒººÍÑªÒºÖÆÆ·Àà-Çòµ°°×ÀàÖÆÆ··Ñ */,
-    xyhxyzpl_nxyzlzpf    numeric(10,2)        not null/* ÑªÒººÍÑªÒºÖÆÆ·Àà-ÄıÑªÒò×ÓÀàÖÆÆ··Ñ */,
-    xyhxyzpl_xbyzlzpf    numeric(10,2)        not null/* ÑªÒººÍÑªÒºÖÆÆ·Àà-Ï¸°ûÒò×ÓÀàÖÆÆ··Ñ */,
-    hcl_jcyycxyyclf      numeric(10,2)        not null/* ºÄ²ÄÀà-¼ì²éÓÃÒ»´ÎĞÔÒ½ÓÃ²ÄÁÏ·Ñ */,
-    hcl_zlyycxyyclf      numeric(10,2)        not null/* ºÄ²ÄÀà-ÖÎÁÆÓÃÒ»´ÎĞÔÒ½ÓÃ²ÄÁÏ·Ñ */,
-    hcl_ssyycxyyclf      numeric(10,2)        not null/* ºÄ²ÄÀà-ÊÖÊõÓÃÒ»´ÎĞÔÒ½ÓÃ²ÄÁÏ·Ñ */,
-    qtl_qtf              numeric(10,2)        not null/* ÆäËûÀà-ÆäËû·Ñ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yljgzzjgdm           varchar(10)          not null/* ä½é™¢æœºæ„æ ‡è¯† */,
+    yljgzzjgmc           varchar(70)          not null/* ä½é™¢æœºæ„åç§° */,
+    ylfffsdm             varchar(2)           not null/* åŒ»ç–—ä»˜è´¹æ–¹å¼ä»£ç  */,
+    ylfffsmc             varchar(50)          not null/* åŒ»ç–—ä»˜è´¹æ–¹å¼åç§° */,
+    jkkh                 varchar(18)          not null/* å¥åº·å¡å· */,
+    zycs                 numeric(3)           not null/* ä½é™¢æ¬¡æ•° */,
+    bah                  varchar(18)          not null/* ç—…æ¡ˆå· */,
+    xm                   varchar(50)          not null/* å§“å */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    csrq                 date                 not null/* å‡ºç”Ÿæ—¥æœŸ */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    gjdm                 varchar(3)           not null/* å›½ç±ä»£ç  */,
+    gjmc                 varchar(64)          not null/* å›½ç±åç§° */,
+    xsecstzg             numeric(4)           null/* æ–°ç”Ÿå„¿å‡ºç”Ÿä½“é‡ï¼ˆgï¼‰ */,
+    xserytzg             numeric(4)           null/* æ–°ç”Ÿå„¿å…¥é™¢ä½“é‡ï¼ˆgï¼‰ */,
+    csd_s                varchar(70)          not null/* å‡ºç”Ÿåœ°-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    csd_cs               varchar(70)          not null/* å‡ºç”Ÿåœ°-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    csd_xq               varchar(70)          not null/* å‡ºç”Ÿåœ°-å¿ï¼ˆåŒºï¼‰ */,
+    jg_s                 varchar(70)          not null/* ç±è´¯çœ */,
+    jg_cs                varchar(70)          not null/* ç±è´¯åŸå¸‚ */,
+    mzdm                 varchar(3)           not null/* æ°‘æ— */,
+    mzmc                 varchar(50)          not null/* æ°‘æ—åç§° */,
+    sfzjlbdm             varchar(2)           not null/* èº«ä»½è¯ä»¶ç±»åˆ«ä»£ç  */,
+    sfzjlbmc             varchar(50)          not null/* èº«ä»½è¯ä»¶ç±»åˆ«åç§° */,
+    hzsfzjhm             varchar(18)          not null/* æ‚£è€…èº«ä»½è¯ä»¶å·ç  */,
+    zylbdm               varchar(2)           null/* èŒä¸šç±»åˆ«ä»£ç  */,
+    zylbmc               varchar(18)          null/* èŒä¸šç±»åˆ«åç§° */,
+    hyzkdm               varchar(2)           null/* å©šå§»çŠ¶å†µä»£ç  */,
+    hyzkmc               varchar(18)          null/* å©šå§»çŠ¶å†µåç§° */,
+    xzz_s                varchar(70)          not null/* ç°ä½å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    xzz_cs               varchar(70)          not null/* ç°ä½å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    xzz_xq               varchar(70)          not null/* ç°ä½å€-å¿ï¼ˆåŒºï¼‰ */,
+    xzz_jd               varchar(70)          not null/* ç°ä½å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    xzz_xz               varchar(70)          not null/* ç°ä½å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    xzz_mphm             varchar(70)          not null/* ç°ä½å€-é—¨ç‰Œå·ç  */,
+    dhhm                 varchar(20)          not null/* ç”µè¯å·ç  */,
+    xzz_yzbm             numeric(6)           not null/* ç°ä½å€-é‚®æ”¿ç¼–ç  */,
+    hkdz_s               varchar(70)          not null/* æˆ·å£åœ°å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    hkdz_cs              varchar(70)          not null/* æˆ·å£åœ°å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    hkdz_xq              varchar(70)          not null/* æˆ·å£åœ°å€-å¿ï¼ˆåŒºï¼‰ */,
+    hkdz_xz              varchar(70)          not null/* æˆ·å£åœ°å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    hkdz_c               varchar(70)          not null/* æˆ·å£åœ°å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    hkdz_mphm            varchar(70)          not null/* æˆ·å£åœ°å€-é—¨ç‰Œå·ç  */,
+    hkdz_yzbm            numeric(6)           not null/* æˆ·å£åœ°å€-é‚®æ”¿ç¼–ç  */,
+    gzdwmc               varchar(70)          not null/* å·¥ä½œå•ä½åç§° */,
+    gzdwdz_s             varchar(70)          not null/* å·¥ä½œå•ä½åœ°å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    gzdwdz_cs            varchar(70)          not null/* å·¥ä½œå•ä½åœ°å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    gzdwdz_xq            varchar(70)          not null/* å·¥ä½œå•ä½åœ°å€-å¿ï¼ˆåŒºï¼‰ */,
+    gzdwdz_xz            varchar(70)          not null/* å·¥ä½œå•ä½åœ°å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    gzdwdz_c             varchar(70)          not null/* å·¥ä½œå•ä½åœ°å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    gzdwdz_mphm          varchar(70)          not null/* å·¥ä½œå•ä½åœ°å€-é—¨ç‰Œå·ç  */,
+    gzdwdhhm             varchar(20)          not null/* å·¥ä½œå•ä½ç”µè¯å·ç  */,
+    gzdwdz_yzbm          numeric(6)           not null/* å·¥ä½œå•ä½åœ°å€-é‚®æ”¿ç¼–ç  */,
+    lxrxm                varchar(50)          not null/* è”ç³»äººå§“å */,
+    lxryhzdgxdm          varchar(2)           not null/* è”ç³»äººä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    lxryhzdgxmc          varchar(50)          not null/* è”ç³»äººä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    lxrdz_s              varchar(70)          not null/* è”ç³»äººåœ°å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    lxrdz_cs             varchar(70)          not null/* è”ç³»äººåœ°å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    lxrdz_xq             varchar(70)          not null/* è”ç³»äººåœ°å€-å¿ï¼ˆåŒºï¼‰ */,
+    lxrdz_xz             varchar(70)          not null/* è”ç³»äººåœ°å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    lxrdz_c              varchar(70)          not null/* è”ç³»äººåœ°å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    lxrdz_mphm           varchar(70)          not null/* è”ç³»äººåœ°å€-é—¨ç‰Œå·ç  */,
+    lxrdhhm              varchar(20)          not null/* è”ç³»äººç”µè¯å·ç  */,
+    rytjdm               varchar(2)           not null/* å…¥é™¢é€”å¾„ä»£ç  */,
+    rytjmc               varchar(20)          not null/* å…¥é™¢é€”å¾„åç§° */,
+    ryrqsj               datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    rykbdm               varchar(11)          not null/* å…¥é™¢ç§‘åˆ«ä»£ç  */,
+    rykbmc               varchar(50)          not null/* å…¥é™¢ç§‘åˆ« */,
+    rybf                 varchar(10)          not null/* å…¥é™¢ç—…æˆ¿ */,
+    zkkb                 varchar(50)          null/* è½¬ç§‘ç§‘åˆ« */,
+    cyrqsj               datetime             not null/* å‡ºé™¢æ—¥æœŸæ—¶é—´ */,
+    cykbdm               varchar(10)          not null/* å‡ºé™¢ç§‘åˆ«ä»£ç  */,
+    cykbmc               varchar(50)          not null/* å‡ºé™¢ç§‘åˆ« */,
+    cybf                 varchar(10)          not null/* å‡ºé™¢ç—…æˆ¿ */,
+    sjzyts               numeric(4)           not null/* å®é™…ä½é™¢å¤©æ•° */,
+    sszddwbyyjbbm        varchar(64)          not null/* æŸä¼¤ä¸­æ¯’çš„å¤–éƒ¨åŸå› ç–¾ç—…ç¼–ç  */,
+    sszddwbyyjbmc        varchar(128)         not null/* æŸä¼¤ä¸­æ¯’çš„å¤–éƒ¨åŸå› ç–¾ç—…åç§° */,
+    swhzsjbz             char(1)              null/* æ­»äº¡æ‚£è€…å°¸æ£€æ ‡å¿— */,
+    aboxxdm              varchar(2)           not null/* ABOè¡€å‹ä»£ç  */,
+    aboxxmc              varchar(18)          not null/* ABOè¡€å‹åç§° */,
+    rhxxdm               varchar(2)           not null/* Rhè¡€å‹ä»£ç  */,
+    rhxxmc               varchar(18)          not null/* Rhè¡€å‹åç§° */,
+    kzrdm                varchar(20)          not null/* ç§‘ä¸»ä»»å·¥å· */,
+    kzrqm                varchar(50)          not null/* ç§‘ä¸»ä»»ç­¾å */,
+    zrfzrysqm            varchar(50)          not null/* ä¸»ä»»ï¼ˆå‰¯ä¸»ä»»ï¼‰åŒ»å¸ˆç­¾å */,
+    zzysdm               varchar(20)          not null/* ä¸»æ²»åŒ»å¸ˆå·¥å· */,
+    zzysqm               varchar(50)          not null/* ä¸»æ²»åŒ»å¸ˆç­¾å */,
+    zyysdm               varchar(20)          not null/* ä½é™¢åŒ»å¸ˆå·¥å· */,
+    zyysqm               varchar(50)          not null/* ä½é™¢åŒ»å¸ˆç­¾å */,
+    zrhsdm               varchar(20)          not null/* è´£ä»»æŠ¤å£«å·¥å· */,
+    zrhsqm               varchar(50)          not null/* è´£ä»»æŠ¤å£«ç­¾å */,
+    jxysdm               varchar(20)          not null/* è¿›ä¿®åŒ»å¸ˆå·¥å· */,
+    jxysqm               varchar(50)          not null/* è¿›ä¿®åŒ»å¸ˆç­¾å */,
+    sxysdm               varchar(20)          not null/* å®ä¹ åŒ»å¸ˆå·¥å· */,
+    sxysqm               varchar(50)          not null/* å®ä¹ åŒ»å¸ˆç­¾å */,
+    bydm                 varchar(20)          not null/* ç¼–ç å‘˜å·¥å· */,
+    bym                  varchar(50)          not null/* ç¼–ç å‘˜ç­¾å */,
+    bazldm               varchar(2)           not null/* ç—…æ¡ˆè´¨é‡ä»£ç  */,
+    bazlmc               varchar(100)         not null/* ç—…æ¡ˆè´¨é‡åç§° */,
+    zkysdm               varchar(20)          not null/* è´¨æ§åŒ»å¸ˆå·¥å· */,
+    zkysqm               varchar(50)          not null/* è´¨æ§åŒ»å¸ˆç­¾å */,
+    zkhsdm               varchar(20)          not null/* è´¨æ§æŠ¤å£«å·¥å· */,
+    zkhsqm               varchar(50)          not null/* è´¨æ§æŠ¤å£«ç­¾å */,
+    zkrq                 date                 not null/* è´¨æ§æ—¥æœŸ */,
+    lyfsdm               varchar(2)           not null/* ç¦»é™¢æ–¹å¼ä»£ç  */,
+    lyfsmc               varchar(100)         not null/* ç¦»é™¢æ–¹å¼åç§° */,
+    njsyljgdm            varchar(20)          not null/* æ‹Ÿæ¥æ”¶åŒ»ç–—æœºæ„ä»£ç  */,
+    njsyljgmc            varchar(70)          not null/* æ‹Ÿæ¥æ”¶åŒ»ç–—æœºæ„åç§° */,
+    cy31dnzzybz          char(1)              not null/* å‡ºé™¢31då†…å†ä½é™¢æ ‡å¿— */,
+    cy31dnzzymd          varchar(100)         null/* å‡ºé™¢31då†…å†ä½é™¢ç›®çš„ */,
+    lnsshzryqhmsj_d      numeric(5)           not null/* é¢…è„‘æŸä¼¤æ‚£è€…å…¥é™¢å‰æ˜è¿·æ—¶é—´-d */,
+    lnsshzryqhmsj_h      numeric(2)           not null/* é¢…è„‘æŸä¼¤æ‚£è€…å…¥é™¢å‰æ˜è¿·æ—¶é—´-h */,
+    lnsshzryqhmsj_min    numeric(2)           not null/* é¢…è„‘æŸä¼¤æ‚£è€…å…¥é™¢å‰æ˜è¿·æ—¶é—´-min */,
+    lnsshzryhhmsj_d      numeric(5)           not null/* é¢…è„‘æŸä¼¤æ‚£è€…å…¥é™¢åæ˜è¿·æ—¶é—´-d */,
+    lnsshzryhhmsj_h      numeric(2)           not null/* é¢…è„‘æŸä¼¤æ‚£è€…å…¥é™¢åæ˜è¿·æ—¶é—´-h */,
+    lnsshzryhhmsj_min    numeric(2)           not null/* é¢…è„‘æŸä¼¤æ‚£è€…å…¥é™¢åæ˜è¿·æ—¶é—´-min */,
+    zyzfy                numeric(10,2)        not null/* ä½é™¢æ€»è´¹ç”¨ */,
+    zyzfy_zfje           numeric(10,2)        not null/* ä½é™¢æ€»è´¹ç”¨-è‡ªä»˜é‡‘é¢ */,
+    zhylfwl_ybylfwf      numeric(10,2)        not null/* ç»¼åˆåŒ»ç–—æœåŠ¡ç±»-ä¸€èˆ¬åŒ»ç–—æœåŠ¡è´¹ */,
+    zhylfwl_ybzlczf      numeric(10,2)        not null/* ç»¼åˆåŒ»ç–—æœåŠ¡ç±»-ä¸€èˆ¬æ²»ç–—æ“ä½œè´¹ */,
+    zhylfwl_hlf          numeric(10,2)        not null/* ç»¼åˆåŒ»ç–—æœåŠ¡ç±»-æŠ¤ç†è´¹ */,
+    zhylfwl_qtfy         numeric(10,2)        not null/* ç»¼åˆåŒ»ç–—æœåŠ¡ç±»-å…¶ä»–è´¹ç”¨ */,
+    zdl_blzdf            numeric(10,2)        not null/* è¯Šæ–­ç±»-ç—…ç†è¯Šæ–­è´¹ */,
+    zdl_syszdf           numeric(10,2)        not null/* è¯Šæ–­ç±»-å®éªŒå®¤è¯Šæ–­è´¹ */,
+    zdl_yxxzdf           numeric(10,2)        not null/* è¯Šæ–­ç±»-å½±åƒå­¦è¯Šæ–­è´¹ */,
+    zdl_lczdxmf          numeric(10,2)        not null/* è¯Šæ–­ç±»-ä¸´åºŠè¯Šæ–­é¡¹ç›®è´¹ */,
+    zll_fsszlxmf         numeric(10,2)        not null/* æ²»ç–—ç±»-éæ‰‹æœ¯æ²»ç–—é¡¹ç›®è´¹ */,
+    zll_fsszlxmf_lcwlzlf numeric(10,2)        not null/* æ²»ç–—ç±»-éæ‰‹æœ¯æ²»ç–—é¡¹ç›®è´¹-ä¸´åºŠç‰©ç†æ²»ç–—è´¹ */,
+    zll_sszlf            numeric(10,2)        not null/* æ²»ç–—ç±»-æ‰‹æœ¯æ²»ç–—è´¹ */,
+    zll_sszlf_mzf        numeric(10,2)        not null/* æ²»ç–—ç±»-æ‰‹æœ¯æ²»ç–—è´¹-éº»é†‰è´¹ */,
+    zll_sszlf_ssf        numeric(10,2)        not null/* æ²»ç–—ç±»-æ‰‹æœ¯æ²»ç–—è´¹-æ‰‹æœ¯è´¹ */,
+    kfl_kff              numeric(10,2)        not null/* åº·å¤ç±»-åº·å¤è´¹ */,
+    zyl_zyzlf            numeric(10,2)        not null/* ä¸­åŒ»ç±»-ä¸­åŒ»æ²»ç–—è´¹ */,
+    xyl_xyf              numeric(10,2)        not null/* è¥¿è¯ç±»-è¥¿è¯è´¹ */,
+    xyl_xyf_kjywfy       numeric(10,2)        not null/* è¥¿è¯ç±»-è¥¿è¯è´¹-æŠ—èŒè¯ç‰©è´¹ç”¨ */,
+    zyl_zchenyf          numeric(10,2)        not null/* ä¸­è¯ç±»-ä¸­æˆè¯è´¹ */,
+    zyl_zcyf             numeric(10,2)        not null/* ä¸­è¯ç±»-ä¸­è‰è¯è´¹ */,
+    xyhxyzpl_xf          numeric(10,2)        not null/* è¡€æ¶²å’Œè¡€æ¶²åˆ¶å“ç±»-è¡€è´¹ */,
+    xyhxyzpl_bdblzpf     numeric(10,2)        not null/* è¡€æ¶²å’Œè¡€æ¶²åˆ¶å“ç±»-ç™½è›‹ç™½ç±»åˆ¶å“è´¹ */,
+    xyhxyzpl_qdblzpf     numeric(10,2)        not null/* è¡€æ¶²å’Œè¡€æ¶²åˆ¶å“ç±»-çƒè›‹ç™½ç±»åˆ¶å“è´¹ */,
+    xyhxyzpl_nxyzlzpf    numeric(10,2)        not null/* è¡€æ¶²å’Œè¡€æ¶²åˆ¶å“ç±»-å‡è¡€å› å­ç±»åˆ¶å“è´¹ */,
+    xyhxyzpl_xbyzlzpf    numeric(10,2)        not null/* è¡€æ¶²å’Œè¡€æ¶²åˆ¶å“ç±»-ç»†èƒå› å­ç±»åˆ¶å“è´¹ */,
+    hcl_jcyycxyyclf      numeric(10,2)        not null/* è€—æç±»-æ£€æŸ¥ç”¨ä¸€æ¬¡æ€§åŒ»ç”¨ææ–™è´¹ */,
+    hcl_zlyycxyyclf      numeric(10,2)        not null/* è€—æç±»-æ²»ç–—ç”¨ä¸€æ¬¡æ€§åŒ»ç”¨ææ–™è´¹ */,
+    hcl_ssyycxyyclf      numeric(10,2)        not null/* è€—æç±»-æ‰‹æœ¯ç”¨ä¸€æ¬¡æ€§åŒ»ç”¨ææ–™è´¹ */,
+    qtl_qtf              numeric(10,2)        not null/* å…¶ä»–ç±»-å…¶ä»–è´¹ */,
     
    
     
@@ -6458,19 +6458,19 @@ where id = object_id('DC_ZYBA_BASY') )
 go
 
 /*========================================================================*/
- /* DC_ZYBA_BASY_BLZD     ²¡°¸Ê×Ò³£­×¡Ôº²¡°¸Ê×Ò³_²¡ÀíÕï¶Ï                                                                                                  */
+ /* DC_ZYBA_BASY_BLZD     ç—…æ¡ˆé¦–é¡µï¼ä½é™¢ç—…æ¡ˆé¦–é¡µ_ç—…ç†è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBA_BASY_BLZD') )
  create table  DC_ZYBA_BASY_BLZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    blhm                 varchar(18)          not null/* ²¡ÀíºÅ */,
-    blzdmc               varchar(128)         not null/* ²¡ÀíÕï¶ÏÃû³Æ */,
-    blzdjbbm             varchar(64)          not null/* ²¡ÀíÕï¶Ï¼²²¡±àÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    blhm                 varchar(18)          not null/* ç—…ç†å· */,
+    blzdmc               varchar(128)         not null/* ç—…ç†è¯Šæ–­åç§° */,
+    blzdjbbm             varchar(64)          not null/* ç—…ç†è¯Šæ–­ç–¾ç—…ç¼–ç  */,
     
    
     
@@ -6488,20 +6488,20 @@ where id = object_id('DC_ZYBA_BASY_BLZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBA_BASY_CYQTZD     ²¡°¸Ê×Ò³£­×¡Ôº²¡°¸Ê×Ò³_³öÔºÆäËûÕï¶Ï                                                                                                  */
+ /* DC_ZYBA_BASY_CYQTZD     ç—…æ¡ˆé¦–é¡µï¼ä½é™¢ç—…æ¡ˆé¦–é¡µ_å‡ºé™¢å…¶ä»–è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBA_BASY_CYQTZD') )
  create table  DC_ZYBA_BASY_CYQTZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    cyzd_qtzdmc          varchar(128)         not null/* ³öÔºÕï¶Ï-ÆäËûÕï¶ÏÃû³Æ */,
-    cyzd_qtzdjbbm        varchar(64)          not null/* ³öÔºÕï¶Ï-ÆäËûÕï¶Ï¼²²¡±àÂë */,
-    cyzd_qtzdrybqdm      varchar(64)          not null/* ³öÔºÕï¶Ï-ÆäËûÕï¶ÏÈëÔº²¡Çé´úÂë */,
-    cyzd_qtzdrybqmc      varchar(128)         not null/* ³öÔºÕï¶Ï-ÆäËûÕï¶ÏÈëÔº²¡ÇéÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    cyzd_qtzdmc          varchar(128)         not null/* å‡ºé™¢è¯Šæ–­-å…¶ä»–è¯Šæ–­åç§° */,
+    cyzd_qtzdjbbm        varchar(64)          not null/* å‡ºé™¢è¯Šæ–­-å…¶ä»–è¯Šæ–­ç–¾ç—…ç¼–ç  */,
+    cyzd_qtzdrybqdm      varchar(64)          not null/* å‡ºé™¢è¯Šæ–­-å…¶ä»–è¯Šæ–­å…¥é™¢ç—…æƒ…ä»£ç  */,
+    cyzd_qtzdrybqmc      varchar(128)         not null/* å‡ºé™¢è¯Šæ–­-å…¶ä»–è¯Šæ–­å…¥é™¢ç—…æƒ…åç§° */,
     
    
     
@@ -6519,20 +6519,20 @@ where id = object_id('DC_ZYBA_BASY_CYQTZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBA_BASY_CYZYZD     ²¡°¸Ê×Ò³£­×¡Ôº²¡°¸Ê×Ò³_³öÔºÖ÷ÒªÕï¶Ï                                                                                                  */
+ /* DC_ZYBA_BASY_CYZYZD     ç—…æ¡ˆé¦–é¡µï¼ä½é™¢ç—…æ¡ˆé¦–é¡µ_å‡ºé™¢ä¸»è¦è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBA_BASY_CYZYZD') )
  create table  DC_ZYBA_BASY_CYZYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    cyzd_zyzdmc          varchar(128)         not null/* ³öÔºÕï¶Ï-Ö÷ÒªÕï¶ÏÃû³Æ */,
-    cyzd_zyzdjbbm        varchar(64)          not null/* ³öÔºÕï¶Ï-Ö÷ÒªÕï¶Ï¼²²¡±àÂë */,
-    cyzd_zyzdrybqdm      varchar(64)          not null/* ³öÔºÕï¶Ï-Ö÷ÒªÕï¶ÏÈëÔº²¡Çé´úÂë */,
-    cyzd_zyzdrybqmc      varchar(128)         not null/* ³öÔºÕï¶Ï-Ö÷ÒªÕï¶ÏÈëÔº²¡ÇéÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    cyzd_zyzdmc          varchar(128)         not null/* å‡ºé™¢è¯Šæ–­-ä¸»è¦è¯Šæ–­åç§° */,
+    cyzd_zyzdjbbm        varchar(64)          not null/* å‡ºé™¢è¯Šæ–­-ä¸»è¦è¯Šæ–­ç–¾ç—…ç¼–ç  */,
+    cyzd_zyzdrybqdm      varchar(64)          not null/* å‡ºé™¢è¯Šæ–­-ä¸»è¦è¯Šæ–­å…¥é™¢ç—…æƒ…ä»£ç  */,
+    cyzd_zyzdrybqmc      varchar(128)         not null/* å‡ºé™¢è¯Šæ–­-ä¸»è¦è¯Šæ–­å…¥é™¢ç—…æƒ…åç§° */,
     
    
     
@@ -6550,18 +6550,18 @@ where id = object_id('DC_ZYBA_BASY_CYZYZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBA_BASY_GMS     ²¡°¸Ê×Ò³£­×¡Ôº²¡°¸Ê×Ò³_¹ıÃôÊ·                                                                                                  */
+ /* DC_ZYBA_BASY_GMS     ç—…æ¡ˆé¦–é¡µï¼ä½é™¢ç—…æ¡ˆé¦–é¡µ_è¿‡æ•å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBA_BASY_GMS') )
  create table  DC_ZYBA_BASY_GMS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ywgmbz               char(1)              null/* Ò©Îï¹ıÃô±êÖ¾ */,
-    gmyw                 varchar(1000)        null/* ¹ıÃôÒ©Îï */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ywgmbz               char(1)              null/* è¯ç‰©è¿‡æ•æ ‡å¿— */,
+    gmyw                 varchar(1000)        null/* è¿‡æ•è¯ç‰© */,
     
    
     
@@ -6579,18 +6579,18 @@ where id = object_id('DC_ZYBA_BASY_GMS') )
 go
 
 /*========================================================================*/
- /* DC_ZYBA_BASY_MJZD     ²¡°¸Ê×Ò³£­×¡Ôº²¡°¸Ê×Ò³_ÃÅ¼±Õï¶Ï                                                                                                  */
+ /* DC_ZYBA_BASY_MJZD     ç—…æ¡ˆé¦–é¡µï¼ä½é™¢ç—…æ¡ˆé¦–é¡µ_é—¨æ€¥è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBA_BASY_MJZD') )
  create table  DC_ZYBA_BASY_MJZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    mjzzdmc              varchar(128)         not null/* ÃÅ£¨¼±£©ÕïÕï¶ÏÃû³Æ */,
-    mjzzdjbbm            varchar(64)          not null/* ÃÅ£¨¼±£©ÕïÕï¶Ï¼²²¡±àÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    mjzzdmc              varchar(128)         not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šè¯Šæ–­åç§° */,
+    mjzzdjbbm            varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šè¯Šæ–­ç–¾ç—…ç¼–ç  */,
     
    
     
@@ -6608,35 +6608,35 @@ where id = object_id('DC_ZYBA_BASY_MJZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBA_BASY_SS     ²¡°¸Ê×Ò³£­×¡Ôº²¡°¸Ê×Ò³_ÊÖÊõ                                                                                                  */
+ /* DC_ZYBA_BASY_SS     ç—…æ¡ˆé¦–é¡µï¼ä½é™¢ç—…æ¡ˆé¦–é¡µ_æ‰‹æœ¯                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBA_BASY_SS') )
  create table  DC_ZYBA_BASY_SS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ssjczbm              varchar(64)          null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssjczrq              datetime             null/* ÊÖÊõ¼°²Ù×÷ÈÕÆÚ */,
-    ssjbdm               varchar(2)           null/* ÊÖÊõ¼¶±ğ´úÂë */,
-    ssjbmc               varchar(50)          null/* ÊÖÊõ¼¶±ğÃû³Æ */,
-    ssjczmc              varchar(128)         null/* ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    sszdm                varchar(20)          null/* ÊÖÊõÕß¹¤ºÅ */,
-    sszxm                varchar(50)          null/* ÊÖÊõÕßĞÕÃû */,
-    yzdm                 varchar(20)          null/* ¢ñÖú¹¤ºÅ */,
-    yzxm                 varchar(50)          null/* ¢ñÖúĞÕÃû */,
-    ezdm                 varchar(20)          null/* ¢òÖú¹¤ºÅ */,
-    ezxm                 varchar(50)          null/* ¢òÖúĞÕÃû */,
-    ssqklbdm             varchar(2)           null/* ÊÖÊõÇĞ¿ÚÀà±ğ´úÂë */,
-    ssqklbmc             varchar(100)         null/* ÊÖÊõÇĞ¿ÚÀà±ğÃû³Æ */,
-    qkyhdjdm             varchar(2)           null/* ÇĞ¿ÚÓúºÏµÈ¼¶´úÂë */,
-    qkyhdjmc             varchar(100)         null/* ÇĞ¿ÚÓúºÏµÈ¼¶Ãû³Æ */,
-    mzfsdm               varchar(2)           null/* Âé×í·½Ê½´úÂë */,
-    mzfsmc               varchar(50)          null/* Âé×í·½Ê½Ãû³Æ */,
-    mzysdm               varchar(20)          null/* Âé×íÒ½Ê¦¹¤ºÅ */,
-    mzysxm               varchar(50)          null/* Âé×íÒ½Ê¦ĞÕÃû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ssjczbm              varchar(64)          null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssjczrq              datetime             null/* æ‰‹æœ¯åŠæ“ä½œæ—¥æœŸ */,
+    ssjbdm               varchar(2)           null/* æ‰‹æœ¯çº§åˆ«ä»£ç  */,
+    ssjbmc               varchar(50)          null/* æ‰‹æœ¯çº§åˆ«åç§° */,
+    ssjczmc              varchar(128)         null/* æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    sszdm                varchar(20)          null/* æ‰‹æœ¯è€…å·¥å· */,
+    sszxm                varchar(50)          null/* æ‰‹æœ¯è€…å§“å */,
+    yzdm                 varchar(20)          null/* â… åŠ©å·¥å· */,
+    yzxm                 varchar(50)          null/* â… åŠ©å§“å */,
+    ezdm                 varchar(20)          null/* â…¡åŠ©å·¥å· */,
+    ezxm                 varchar(50)          null/* â…¡åŠ©å§“å */,
+    ssqklbdm             varchar(2)           null/* æ‰‹æœ¯åˆ‡å£ç±»åˆ«ä»£ç  */,
+    ssqklbmc             varchar(100)         null/* æ‰‹æœ¯åˆ‡å£ç±»åˆ«åç§° */,
+    qkyhdjdm             varchar(2)           null/* åˆ‡å£æ„ˆåˆç­‰çº§ä»£ç  */,
+    qkyhdjmc             varchar(100)         null/* åˆ‡å£æ„ˆåˆç­‰çº§åç§° */,
+    mzfsdm               varchar(2)           null/* éº»é†‰æ–¹å¼ä»£ç  */,
+    mzfsmc               varchar(50)          null/* éº»é†‰æ–¹å¼åç§° */,
+    mzysdm               varchar(20)          null/* éº»é†‰åŒ»å¸ˆå·¥å· */,
+    mzysxm               varchar(50)          null/* éº»é†‰åŒ»å¸ˆå§“å */,
     
    
     
@@ -6654,50 +6654,50 @@ where id = object_id('DC_ZYBA_BASY_SS') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_CYJL     ×¡Ôº²¡³Ì¼ÇÂ¼£­³öÔº¼ÇÂ¼                                                                                                  */
+ /* DC_ZYBCJL_CYJL     ä½é™¢ç—…ç¨‹è®°å½•ï¼å‡ºé™¢è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_CYJL') )
  create table  DC_ZYBCJL_CYJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(50)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    ryrq                 datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    ryqk                 nvarchar(2000)       not null/* ÈëÔºÇé¿ö */,
-    zyszjcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨±àÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨Ãû³Æ */,
-    zlgcms               nvarchar(2000)       not null/* ÕïÁÆ¹ı³ÌÃèÊö */,
-    zyjzff               nvarchar(100)        null/* ÖĞÒ©¼åÖó·½·¨ */,
-    zyyyff               nvarchar(100)        null/* ÖĞÒ©ÓÃÒ©·½·¨ */,
-    cyqk                 nvarchar(2000)       not null/* ³öÔºÇé¿ö */,
-    cyrq                 datetime             not null/* ³öÔºÈÕÆÚÊ±¼ä */,
-    cyzztz               nvarchar(1000)       not null/* ³öÔºÊ±Ö¢×´ÓëÌåÕ÷ */,
-    cyyz                 nvarchar(1000)       not null/* ³öÔºÒ½Öö */,
-    zyysbm               varchar(20)          not null/* ×¡ÔºÒ½Ê¦¹¤ºÅ */,
-    zyysqm               varchar(50)          not null/* ×¡ÔºÒ½Ê¦Ç©Ãû */,
-    zzysbm               varchar(20)          not null/* Ö÷ÖÎÒ½Ê¦¹¤ºÅ */,
-    zzysqm               varchar(50)          not null/* Ö÷ÖÎÒ½Ê¦Ç©Ãû */,
-    zrysbm               varchar(20)          not null/* Ö÷ÈÎÒ½Ê¦¹¤ºÅ */,
-    zrysqm               varchar(50)          not null/* Ö÷ÈÎÒ½Ê¦Ç©Ãû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å·æ ‡è¯† */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(50)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    ryrq                 datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    ryqk                 nvarchar(2000)       not null/* å…¥é™¢æƒ…å†µ */,
+    zyszjcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ç¼–ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³•åç§° */,
+    zlgcms               nvarchar(2000)       not null/* è¯Šç–—è¿‡ç¨‹æè¿° */,
+    zyjzff               nvarchar(100)        null/* ä¸­è¯ç…ç…®æ–¹æ³• */,
+    zyyyff               nvarchar(100)        null/* ä¸­è¯ç”¨è¯æ–¹æ³• */,
+    cyqk                 nvarchar(2000)       not null/* å‡ºé™¢æƒ…å†µ */,
+    cyrq                 datetime             not null/* å‡ºé™¢æ—¥æœŸæ—¶é—´ */,
+    cyzztz               nvarchar(1000)       not null/* å‡ºé™¢æ—¶ç—‡çŠ¶ä¸ä½“å¾ */,
+    cyyz                 nvarchar(1000)       not null/* å‡ºé™¢åŒ»å˜± */,
+    zyysbm               varchar(20)          not null/* ä½é™¢åŒ»å¸ˆå·¥å· */,
+    zyysqm               varchar(50)          not null/* ä½é™¢åŒ»å¸ˆç­¾å */,
+    zzysbm               varchar(20)          not null/* ä¸»æ²»åŒ»å¸ˆå·¥å· */,
+    zzysqm               varchar(50)          not null/* ä¸»æ²»åŒ»å¸ˆç­¾å */,
+    zrysbm               varchar(20)          not null/* ä¸»ä»»åŒ»å¸ˆå·¥å· */,
+    zrysqm               varchar(50)          not null/* ä¸»ä»»åŒ»å¸ˆç­¾å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
 
@@ -6715,18 +6715,18 @@ where id = object_id('DC_ZYBCJL_CYJL') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_CYJL_CYXYZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­³öÔº¼ÇÂ¼_³öÔºÎ÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_CYJL_CYXYZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼å‡ºé™¢è®°å½•_å‡ºé™¢è¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_CYJL_CYXYZD') )
  create table  DC_ZYBCJL_CYJL_CYXYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    czxyzdmc             varchar(128)         not null/* ³öÔºÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    czxyzdbm             varchar(64)          not null/* ³öÔºÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    czxyzdmc             varchar(128)         not null/* å‡ºé™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    czxyzdbm             varchar(64)          not null/* å‡ºé™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
     
    
     
@@ -6744,18 +6744,18 @@ where id = object_id('DC_ZYBCJL_CYJL_CYXYZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_CYJL_CYZYZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­³öÔº¼ÇÂ¼_³öÔºÖĞÒ½Õï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_CYJL_CYZYZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼å‡ºé™¢è®°å½•_å‡ºé™¢ä¸­åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_CYJL_CYZYZD') )
  create table  DC_ZYBCJL_CYJL_CYZYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    czzybmmc             varchar(128)         null/* ³öÔºÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    czzybmdm             varchar(64)          null/* ³öÔºÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    czzybmmc             varchar(128)         null/* å‡ºé™¢è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    czzybmdm             varchar(64)          null/* å‡ºé™¢è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
     
    
     
@@ -6773,18 +6773,18 @@ where id = object_id('DC_ZYBCJL_CYJL_CYZYZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_CYJL_RYXYZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­³öÔº¼ÇÂ¼_ÈëÔºÎ÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_CYJL_RYXYZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼å‡ºé™¢è®°å½•_å…¥é™¢è¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_CYJL_RYXYZD') )
  create table  DC_ZYBCJL_CYJL_RYXYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ryzdbm               varchar(64)          not null/* ÈëÔºÕï¶Ï±àÂë */,
-    ryzdmc               varchar(128)         not null/* ÈëÔºÕï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ryzdbm               varchar(64)          not null/* å…¥é™¢è¯Šæ–­ç¼–ç  */,
+    ryzdmc               varchar(128)         not null/* å…¥é™¢è¯Šæ–­åç§° */,
     
    
     
@@ -6802,17 +6802,17 @@ where id = object_id('DC_ZYBCJL_CYJL_RYXYZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_CYJL_FZJC     ×¡Ôº²¡³Ì¼ÇÂ¼£­³öÔº¼ÇÂ¼_¸¨Öú¼ì²é                                                                                                  */
+ /* DC_ZYBCJL_CYJL_FZJC     ä½é™¢ç—…ç¨‹è®°å½•ï¼å‡ºé™¢è®°å½•_è¾…åŠ©æ£€æŸ¥                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_CYJL_RYZD_FZJC') )
  create table  DC_ZYBCJL_CYJL_RYZD_FZJC (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    yxfzjcjg             nvarchar(1000)       null/* ÑôĞÔ¸¨Öú¼ì²é½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    yxfzjcjg             nvarchar(1000)       null/* é˜³æ€§è¾…åŠ©æ£€æŸ¥ç»“æœ */,
     
    
     
@@ -6830,58 +6830,58 @@ where id = object_id('DC_ZYBCJL_CYJL_RYZD_FZJC') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_HZJL     ×¡Ôº²¡³Ì¼ÇÂ¼£­»áÕï¼ÇÂ¼                                                                                                  */
+ /* DC_ZYBCJL_HZJL     ä½é™¢ç—…ç¨‹è®°å½•ï¼ä¼šè¯Šè®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_HZJL') )
  create table  DC_ZYBCJL_HZJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    dzsqdbh              varchar(20)          null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(50)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    blgy                 nvarchar(200)        not null/* ²¡ÀúÕªÒª */,
-    fzjcjg               nvarchar(1000)       null/* ¸¨Öú¼ì²é½á¹û */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨±àÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨Ãû³Æ */,
-    zlgcmc               nvarchar(1000)       not null/* ÕïÁÆ¹ı³ÌÃû³Æ */,
-    zlgcms               nvarchar(2000)       not null/* ÕïÁÆ¹ı³ÌÃèÊö */,
-    hzlx                 varchar(50)          not null/* »áÕïÀàĞÍ */,
-    hzyy                 nvarchar(200)        not null/* »áÕïÔ­Òò */,
-    hzmd                 nvarchar(50)         not null/* »áÕïÄ¿µÄ */,
-    hzsqysdm             varchar(20)          not null/* »áÕïÉêÇëÒ½Ê¦¹¤ºÅ */,
-    hzsqysqm             varchar(50)          not null/* »áÕïÉêÇëÒ½Ê¦Ç©Ãû */,
-    hzsqksdm             varchar(10)          not null/* »áÕïÉêÇë¿ÆÊÒ´úÂë */,
-    hzsqks               varchar(50)          not null/* »áÕïÉêÇë¿ÆÊÒ */,
-    hzsqyljgdm           varchar(10)          not null/* »áÕïÉêÇëÒ½ÁÆ»ú¹¹´úÂë */,
-    hzsqyljgmc           varchar(70)          not null/* »áÕïÉêÇëÒ½ÁÆ»ú¹¹Ãû³Æ */,
-    hzyj                 nvarchar(2000)       not null/* »áÕïÒâ¼û */,
-    hzysbm               varchar(20)          not null/* »áÕïÒ½Ê¦¹¤ºÅ */,
-    hzysqm               varchar(50)          not null/* »áÕïÒ½Ê¦Ç©Ãû */,
-    hzksdm               varchar(10)          not null/* »áÕï¿ÆÊÒ´úÂë */,
-    hzksmc               varchar(50)          not null/* »áÕï¿ÆÊÒÃû³Æ */,
-    hzyljgdm             varchar(10)          not null/* »áÕïÒ½Ê¦ËùÔÚÒ½ÁÆ»ú¹¹´úÂë */,
-    hzysyljgmc           varchar(70)          not null/* »áÕïÒ½Ê¦ËùÔÚÒ½ÁÆ»ú¹¹Ãû³Æ */,
-    hzszyljgdm           varchar(10)          not null/* »áÕïËùÔÚÒ½ÁÆ»ú¹¹´úÂë */,
-    hzszyljgmc           varchar(70)          not null/* »áÕïËùÔÚÒ½ÁÆ»ú¹¹Ãû³Æ */,
-    hzrq                 datetime             not null/* »áÕïÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å·æ ‡è¯† */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    dzsqdbh              varchar(20)          null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(50)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    blgy                 nvarchar(200)        not null/* ç—…å†æ‘˜è¦ */,
+    fzjcjg               nvarchar(1000)       null/* è¾…åŠ©æ£€æŸ¥ç»“æœ */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ç¼–ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³•åç§° */,
+    zlgcmc               nvarchar(1000)       not null/* è¯Šç–—è¿‡ç¨‹åç§° */,
+    zlgcms               nvarchar(2000)       not null/* è¯Šç–—è¿‡ç¨‹æè¿° */,
+    hzlx                 varchar(50)          not null/* ä¼šè¯Šç±»å‹ */,
+    hzyy                 nvarchar(200)        not null/* ä¼šè¯ŠåŸå›  */,
+    hzmd                 nvarchar(50)         not null/* ä¼šè¯Šç›®çš„ */,
+    hzsqysdm             varchar(20)          not null/* ä¼šè¯Šç”³è¯·åŒ»å¸ˆå·¥å· */,
+    hzsqysqm             varchar(50)          not null/* ä¼šè¯Šç”³è¯·åŒ»å¸ˆç­¾å */,
+    hzsqksdm             varchar(10)          not null/* ä¼šè¯Šç”³è¯·ç§‘å®¤ä»£ç  */,
+    hzsqks               varchar(50)          not null/* ä¼šè¯Šç”³è¯·ç§‘å®¤ */,
+    hzsqyljgdm           varchar(10)          not null/* ä¼šè¯Šç”³è¯·åŒ»ç–—æœºæ„ä»£ç  */,
+    hzsqyljgmc           varchar(70)          not null/* ä¼šè¯Šç”³è¯·åŒ»ç–—æœºæ„åç§° */,
+    hzyj                 nvarchar(2000)       not null/* ä¼šè¯Šæ„è§ */,
+    hzysbm               varchar(20)          not null/* ä¼šè¯ŠåŒ»å¸ˆå·¥å· */,
+    hzysqm               varchar(50)          not null/* ä¼šè¯ŠåŒ»å¸ˆç­¾å */,
+    hzksdm               varchar(10)          not null/* ä¼šè¯Šç§‘å®¤ä»£ç  */,
+    hzksmc               varchar(50)          not null/* ä¼šè¯Šç§‘å®¤åç§° */,
+    hzyljgdm             varchar(10)          not null/* ä¼šè¯ŠåŒ»å¸ˆæ‰€åœ¨åŒ»ç–—æœºæ„ä»£ç  */,
+    hzysyljgmc           varchar(70)          not null/* ä¼šè¯ŠåŒ»å¸ˆæ‰€åœ¨åŒ»ç–—æœºæ„åç§° */,
+    hzszyljgdm           varchar(10)          not null/* ä¼šè¯Šæ‰€åœ¨åŒ»ç–—æœºæ„ä»£ç  */,
+    hzszyljgmc           varchar(70)          not null/* ä¼šè¯Šæ‰€åœ¨åŒ»ç–—æœºæ„åç§° */,
+    hzrq                 datetime             not null/* ä¼šè¯Šæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -6899,18 +6899,18 @@ where id = object_id('DC_ZYBCJL_HZJL') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_HZJL_XYZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­»áÕï¼ÇÂ¼_Î÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_HZJL_XYZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼ä¼šè¯Šè®°å½•_è¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_HZJL_XYZD') )
  create table  DC_ZYBCJL_HZJL_XYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    xyzdmc               varchar(128)         not null/* Î÷Ò½Õï¶ÏÃû³Æ */,
-    xyzdbm               varchar(64)          not null/* Î÷Ò½Õï¶Ï±àÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    xyzdmc               varchar(128)         not null/* è¥¿åŒ»è¯Šæ–­åç§° */,
+    xyzdbm               varchar(64)          not null/* è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
     
    
     
@@ -6928,18 +6928,18 @@ where id = object_id('DC_ZYBCJL_HZJL_XYZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_HZJL_ZYBM     ×¡Ôº²¡³Ì¼ÇÂ¼£­»áÕï¼ÇÂ¼_ÖĞÒ½²¡Ãû                                                                                                  */
+ /* DC_ZYBCJL_HZJL_ZYBM     ä½é™¢ç—…ç¨‹è®°å½•ï¼ä¼šè¯Šè®°å½•_ä¸­åŒ»ç—…å                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_HZJL_ZYBM') )
  create table  DC_ZYBCJL_HZJL_ZYBM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    zybmmc               varchar(128)         null/* ÖĞÒ½²¡ÃûÃû³Æ */,
-    zybmdm               varchar(64)          null/* ÖĞÒ½²¡Ãû´úÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    zybmmc               varchar(128)         null/* ä¸­åŒ»ç—…ååç§° */,
+    zybmdm               varchar(64)          null/* ä¸­åŒ»ç—…åä»£ç  */,
     
    
     
@@ -6957,18 +6957,18 @@ where id = object_id('DC_ZYBCJL_HZJL_ZYBM') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_HZJL_ZYZH     ×¡Ôº²¡³Ì¼ÇÂ¼£­»áÕï¼ÇÂ¼_ÖĞÒ½Ö¤ºò                                                                                                  */
+ /* DC_ZYBCJL_HZJL_ZYZH     ä½é™¢ç—…ç¨‹è®°å½•ï¼ä¼šè¯Šè®°å½•_ä¸­åŒ»è¯å€™                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_HZJL_ZYZH') )
  create table  DC_ZYBCJL_HZJL_ZYZH (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    zyzhmc               varchar(128)         null/* ÖĞÒ½Ö¤ºòÃû³Æ */,
-    zyzhdm               varchar(64)          null/* ÖĞÒ½Ö¤ºò´úÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    zyzhmc               varchar(128)         null/* ä¸­åŒ»è¯å€™åç§° */,
+    zyzhdm               varchar(64)          null/* ä¸­åŒ»è¯å€™ä»£ç  */,
     
    
     
@@ -6986,50 +6986,50 @@ where id = object_id('DC_ZYBCJL_HZJL_ZYZH') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_JDXJ     ×¡Ôº²¡³Ì¼ÇÂ¼£­½×¶ÎĞ¡½á                                                                                                  */
+ /* DC_ZYBCJL_JDXJ     ä½é™¢ç—…ç¨‹è®°å½•ï¼é˜¶æ®µå°ç»“                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_JDXJ') )
  create table  DC_ZYBCJL_JDXJ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    zyh                  varchar(18)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(10)          not null/* ÈëÔº²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    csrq                 date                 null/* »¼Õß³öÉúÈÕÆÚ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    ryrq                 datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    xjrq                 datetime             not null/* Ğ¡½áÈÕÆÚÊ±¼ä */,
-    zs                   nvarchar(100)        not null/* Ö÷Ëß */,
-    ryqk                 nvarchar(2000)       not null/* ÈëÔºÇé¿ö */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    zyh                  varchar(18)          not null/* ä½é™¢å·æ ‡è¯† */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(10)          not null/* å…¥é™¢ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    csrq                 date                 null/* æ‚£è€…å‡ºç”Ÿæ—¥æœŸ */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    ryrq                 datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    xjrq                 datetime             not null/* å°ç»“æ—¥æœŸæ—¶é—´ */,
+    zs                   nvarchar(100)        not null/* ä¸»è¯‰ */,
+    ryqk                 nvarchar(2000)       not null/* å…¥é™¢æƒ…å†µ */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
    
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨±àÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨Ãû³Æ */,
-    zyjzff               nvarchar(100)        null/* ÖĞÒ©¼åÖó·½·¨ */,
-    zyyyff               nvarchar(100)        null/* ÖĞÒ©ÓÃÒ©·½·¨ */,
-    yznr                 nvarchar(1000)       null/* Ò½ÖöÄÚÈİ */,
-    zlgcms               nvarchar(2000)       null/* ÕïÁÆ¹ı³ÌÃèÊö */,
-    mqqk                 nvarchar(2000)       not null/* Ä¿Ç°Çé¿ö */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ç¼–ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³•åç§° */,
+    zyjzff               nvarchar(100)        null/* ä¸­è¯ç…ç…®æ–¹æ³• */,
+    zyyyff               nvarchar(100)        null/* ä¸­è¯ç”¨è¯æ–¹æ³• */,
+    yznr                 nvarchar(1000)       null/* åŒ»å˜±å†…å®¹ */,
+    zlgcms               nvarchar(2000)       null/* è¯Šç–—è¿‡ç¨‹æè¿° */,
+    mqqk                 nvarchar(2000)       not null/* ç›®å‰æƒ…å†µ */,
 
-    jhzlfa               nvarchar(1000)       not null/* ½ñºóÖÎÁÆ·½°¸ */,
-    ysbm                 varchar(20)          not null/* Ç©ÃûÈË¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ç©ÃûÈËĞÕÃû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    jhzlfa               nvarchar(1000)       not null/* ä»Šåæ²»ç–—æ–¹æ¡ˆ */,
+    ysbm                 varchar(20)          not null/* ç­¾åäººå·¥å· */,
+    ysqm                 varchar(50)          not null/* ç­¾åäººå§“å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
 
@@ -7049,22 +7049,22 @@ go
 
 
 /*========================================================================*/
- /* DC_ZYBCJL_JDXJ_RYZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­½»½Ó°à¼ÇÂ¼_ÈëÔºÕï¶Ï                                                                                                */
+ /* DC_ZYBCJL_JDXJ_RYZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼äº¤æ¥ç­è®°å½•_å…¥é™¢è¯Šæ–­                                                                                                */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_JDXJ_RYZD') )
  create table  DC_ZYBCJL_JDXJ_RYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    rzxyzdbm             varchar(64)          not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    rzxyzd               varchar(128)         not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    rzzybmdm             varchar(64)          null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    rzzybm               varchar(128)         null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    rzzyzhdm             varchar(64)          null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    rzzyzh               varchar(128)         null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    rzxyzdbm             varchar(64)          not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    rzxyzd               varchar(128)         not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    rzzybmdm             varchar(64)          null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    rzzybm               varchar(128)         null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    rzzyzhdm             varchar(64)          null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    rzzyzh               varchar(128)         null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
     
     
 	[isNew] [bit] NULL,
@@ -7083,22 +7083,22 @@ go
 
 
 /*========================================================================*/
- /* DC_ZYBCJL_JDXJ_MQZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­½»½Ó°à¼ÇÂ¼_Ä¿Ç°Õï¶Ï                                                                                                */
+ /* DC_ZYBCJL_JDXJ_MQZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼äº¤æ¥ç­è®°å½•_ç›®å‰è¯Šæ–­                                                                                                */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_JDXJ_MQZD') )
  create table  DC_ZYBCJL_JDXJ_MQZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    mqzdxyzdbm           varchar(64)          not null/* Ä¿Ç°Õï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    mqzdxyzd             varchar(128)         not null/* Ä¿Ç°Õï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    mqzdzybmdm           varchar(64)          null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    mqzdzybm             varchar(128)         null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    mqzdzyzhdm           varchar(64)          null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    mqzdzyzh             varchar(128)         null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    mqzdxyzdbm           varchar(64)          not null/* ç›®å‰è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    mqzdxyzd             varchar(128)         not null/* ç›®å‰è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    mqzdzybmdm           varchar(64)          null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    mqzdzybm             varchar(128)         null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    mqzdzyzhdm           varchar(64)          null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    mqzdzyzh             varchar(128)         null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
     
     
 	[isNew] [bit] NULL,
@@ -7116,61 +7116,61 @@ go
 
 
 /*========================================================================*/
- /* DC_ZYBCJL_JJBJL     ×¡Ôº²¡³Ì¼ÇÂ¼£­½»½Ó°à¼ÇÂ¼                                                                                                  */
+ /* DC_ZYBCJL_JJBJL     ä½é™¢ç—…ç¨‹è®°å½•ï¼äº¤æ¥ç­è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_JJBJL') )
  create table  DC_ZYBCJL_JJBJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    zyh                  varchar(18)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(10)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    ryrq                 datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    zs                   nvarchar(100)        not null/* Ö÷Ëß */,
-    ryqk                 nvarchar(2000)       not null/* ÈëÔºÇé¿ö */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
-    rzxyzdbm             varchar(64)          not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    rzxyzd               varchar(128)         not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    rzzybmdm             varchar(64)          null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    rzzybm               varchar(128)         null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    rzzyzhdm             varchar(64)          null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    rzzyzh               varchar(128)         null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨±àÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨Ãû³Æ */,
-    zlgcms               nvarchar(2000)       null/* ÕïÁÆ¹ı³ÌÃèÊö */,
-    mqqk                 nvarchar(2000)       not null/* Ä¿Ç°Çé¿ö */,
-    mqzdxyzdbm           varchar(64)          not null/* Ä¿Ç°Õï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    mqzdxyzd             varchar(128)         not null/* Ä¿Ç°Õï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    mqzdzybmdm           varchar(64)          null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    mqzdzybm             varchar(128)         null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    mqzdzyzhdm           varchar(64)          null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    mqzdzyzh             varchar(128)         null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    zysx                 nvarchar(1000)       not null/* ×¢ÒâÊÂÏî */,
-    jbzljh               nvarchar(2000)       not null/* ½Ó°àÕïÁÆ¼Æ»® */,
-    jbrq                 datetime             not null/* ½»°àÈÕÆÚÊ±¼ä */,
-    jbysbm               varchar(20)          not null/* ½»°àÒ½Éú¹¤ºÅ */,
-    jbzqm                varchar(50)          not null/* ½»°àÒ½ÉúÇ©Ãû */,
-    jbsj                 datetime             not null/* ½Ó°àÈÕÆÚÊ±¼ä */,
-    ysbm                 varchar(20)          not null/* Ò½Éú¹¤ºÅ */,
-    ysxm                 varchar(20)          not null/* Ò½ÉúĞÕÃû */,
-    jbrdm                varchar(20)          not null/* ½Ó°àÕß¹¤ºÅ */,
-    jbrqm                varchar(50)          not null/* ½Ó°àÕßÇ©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    zyh                  varchar(18)          not null/* ä½é™¢å·æ ‡è¯† */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(10)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    ryrq                 datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    zs                   nvarchar(100)        not null/* ä¸»è¯‰ */,
+    ryqk                 nvarchar(2000)       not null/* å…¥é™¢æƒ…å†µ */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
+    rzxyzdbm             varchar(64)          not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    rzxyzd               varchar(128)         not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    rzzybmdm             varchar(64)          null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    rzzybm               varchar(128)         null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    rzzyzhdm             varchar(64)          null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    rzzyzh               varchar(128)         null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ç¼–ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³•åç§° */,
+    zlgcms               nvarchar(2000)       null/* è¯Šç–—è¿‡ç¨‹æè¿° */,
+    mqqk                 nvarchar(2000)       not null/* ç›®å‰æƒ…å†µ */,
+    mqzdxyzdbm           varchar(64)          not null/* ç›®å‰è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    mqzdxyzd             varchar(128)         not null/* ç›®å‰è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    mqzdzybmdm           varchar(64)          null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    mqzdzybm             varchar(128)         null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    mqzdzyzhdm           varchar(64)          null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    mqzdzyzh             varchar(128)         null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    zysx                 nvarchar(1000)       not null/* æ³¨æ„äº‹é¡¹ */,
+    jbzljh               nvarchar(2000)       not null/* æ¥ç­è¯Šç–—è®¡åˆ’ */,
+    jbrq                 datetime             not null/* äº¤ç­æ—¥æœŸæ—¶é—´ */,
+    jbysbm               varchar(20)          not null/* äº¤ç­åŒ»ç”Ÿå·¥å· */,
+    jbzqm                varchar(50)          not null/* äº¤ç­åŒ»ç”Ÿç­¾å */,
+    jbsj                 datetime             not null/* æ¥ç­æ—¥æœŸæ—¶é—´ */,
+    ysbm                 varchar(20)          not null/* åŒ»ç”Ÿå·¥å· */,
+    ysxm                 varchar(20)          not null/* åŒ»ç”Ÿå§“å */,
+    jbrdm                varchar(20)          not null/* æ¥ç­è€…å·¥å· */,
+    jbrqm                varchar(50)          not null/* æ¥ç­è€…ç­¾å */,
     
    
     
@@ -7190,22 +7190,22 @@ go
 
 
 /*========================================================================*/
- /* DC_ZYBCJL_JJBJL_RYZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­½»½Ó°à¼ÇÂ¼_ÈëÔºÕï¶Ï                                                                                                */
+ /* DC_ZYBCJL_JJBJL_RYZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼äº¤æ¥ç­è®°å½•_å…¥é™¢è¯Šæ–­                                                                                                */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_JJBJL_RYZD') )
  create table  DC_ZYBCJL_JJBJL_RYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    rzxyzdbm             varchar(64)          not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    rzxyzd               varchar(128)         not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    rzzybmdm             varchar(64)          null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    rzzybm               varchar(128)         null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    rzzyzhdm             varchar(64)          null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    rzzyzh               varchar(128)         null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    rzxyzdbm             varchar(64)          not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    rzxyzd               varchar(128)         not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    rzzybmdm             varchar(64)          null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    rzzybm               varchar(128)         null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    rzzyzhdm             varchar(64)          null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    rzzyzh               varchar(128)         null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
     
     
 	[isNew] [bit] NULL,
@@ -7223,22 +7223,22 @@ go
 
 
 /*========================================================================*/
- /* DC_ZYBCJL_JJBJL_MQZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­½»½Ó°à¼ÇÂ¼_Ä¿Ç°Õï¶Ï                                                                                                */
+ /* DC_ZYBCJL_JJBJL_MQZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼äº¤æ¥ç­è®°å½•_ç›®å‰è¯Šæ–­                                                                                                */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_JJBJL_MQZD') )
  create table  DC_ZYBCJL_JJBJL_MQZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    mqzdxyzdbm           varchar(64)          not null/* Ä¿Ç°Õï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    mqzdxyzd             varchar(128)         not null/* Ä¿Ç°Õï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    mqzdzybmdm           varchar(64)          null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    mqzdzybm             varchar(128)         null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    mqzdzyzhdm           varchar(64)          null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    mqzdzyzh             varchar(128)         null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    mqzdxyzdbm           varchar(64)          not null/* ç›®å‰è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    mqzdxyzd             varchar(128)         not null/* ç›®å‰è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    mqzdzybmdm           varchar(64)          null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    mqzdzybm             varchar(128)         null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    mqzdzyzhdm           varchar(64)          null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    mqzdzyzh             varchar(128)         null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
     
     
 	[isNew] [bit] NULL,
@@ -7254,44 +7254,44 @@ where id = object_id('DC_ZYBCJL_JJBJL_MQZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_QJJL     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÇÀ¾È¼ÇÂ¼                                                                                                  */
+ /* DC_ZYBCJL_QJJL     ä½é™¢ç—…ç¨‹è®°å½•ï¼æŠ¢æ•‘è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_QJJL') )
  create table  DC_ZYBCJL_QJJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    zyh                  varchar(18)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(10)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    bqbhqk               nvarchar(1000)       not null/* ²¡Çé±ä»¯Çé¿ö */,
-    qjcs                 nvarchar(1000)       not null/* ÇÀ¾È´ëÊ© */,
-    qjksrq               datetime             not null/* ÇÀ¾È¿ªÊ¼ÈÕÆÚÊ±¼ä */,
-    qjjsrq               datetime             not null/* ÇÀ¾È½áÊøÈÕÆÚÊ±¼ä */,
-    zysx                 nvarchar(1000)       null/* ×¢ÒâÊÂÏî */,
-    cjtlrymd             varchar(100)         not null/* ²Î¼ÓÌÖÂÛÈËÔ±Ãûµ¥ */,
-    cjqjrydm             varchar(100)         null/* ²Î¼ÓÇÀ¾ÈÈËÔ±´úÂë */,
-    cjqjrymd             varchar(500)         null/* ²Î¼ÓÇÀ¾ÈÈËÔ±Ãûµ¥ */,
-    zyzwlbdm             varchar(4)           null/* ×¨Òµ¼¼ÊõÖ°ÎñÀà±ğ´úÂë */,
-    zyzwlbmc             varchar(50)          null/* ×¨Òµ¼¼ÊõÖ°ÎñÀà±ğÃû³Æ */,
-    ysbm                 varchar(20)          not null/* Ç©ÃûÈË¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ç©ÃûÈËĞÕÃû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    zyh                  varchar(18)          not null/* ä½é™¢å·æ ‡è¯† */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(10)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    bqbhqk               nvarchar(1000)       not null/* ç—…æƒ…å˜åŒ–æƒ…å†µ */,
+    qjcs                 nvarchar(1000)       not null/* æŠ¢æ•‘æªæ–½ */,
+    qjksrq               datetime             not null/* æŠ¢æ•‘å¼€å§‹æ—¥æœŸæ—¶é—´ */,
+    qjjsrq               datetime             not null/* æŠ¢æ•‘ç»“æŸæ—¥æœŸæ—¶é—´ */,
+    zysx                 nvarchar(1000)       null/* æ³¨æ„äº‹é¡¹ */,
+    cjtlrymd             varchar(100)         not null/* å‚åŠ è®¨è®ºäººå‘˜åå• */,
+    cjqjrydm             varchar(100)         null/* å‚åŠ æŠ¢æ•‘äººå‘˜ä»£ç  */,
+    cjqjrymd             varchar(500)         null/* å‚åŠ æŠ¢æ•‘äººå‘˜åå• */,
+    zyzwlbdm             varchar(4)           null/* ä¸“ä¸šæŠ€æœ¯èŒåŠ¡ç±»åˆ«ä»£ç  */,
+    zyzwlbmc             varchar(50)          null/* ä¸“ä¸šæŠ€æœ¯èŒåŠ¡ç±»åˆ«åç§° */,
+    ysbm                 varchar(20)          not null/* ç­¾åäººå·¥å· */,
+    ysqm                 varchar(50)          not null/* ç­¾åäººå§“å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -7309,18 +7309,18 @@ where id = object_id('DC_ZYBCJL_QJJL') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_QJJL_JBZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÇÀ¾È¼ÇÂ¼_¼²²¡Õï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_QJJL_JBZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼æŠ¢æ•‘è®°å½•_ç–¾ç—…è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_QJJL_JBZD') )
  create table  DC_ZYBCJL_QJJL_JBZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jbzdmc               varchar(500)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
-    jbzdbm               varchar(100)         not null/* ¼²²¡Õï¶Ï±àÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jbzdmc               varchar(500)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
+    jbzdbm               varchar(100)         not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
     
    
     
@@ -7338,20 +7338,20 @@ where id = object_id('DC_ZYBCJL_QJJL_JBZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_QJJL_JCJY     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÇÀ¾È¼ÇÂ¼_¼ì²é/¼ìÑé                                                                                                  */
+ /* DC_ZYBCJL_QJJL_JCJY     ä½é™¢ç—…ç¨‹è®°å½•ï¼æŠ¢æ•‘è®°å½•_æ£€æŸ¥/æ£€éªŒ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_QJJL_JCJY') )
  create table  DC_ZYBCJL_QJJL_JCJY (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jcjyxmmc             varchar(500)         null/* ¼ì²é/¼ìÑéÏîÄ¿Ãû³Æ */,
-    jcjyjg               nvarchar(1000)       null/* ¼ì²é/¼ìÑé½á¹û */,
-    jcjyjgdm             varchar(2)           null/* ¼ì²é/¼ìÑé½á¹û´úÂë */,
-    jcjydljg             numeric(14,4)        null/* ¼ì²é/¼ìÑé¶¨Á¿½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jcjyxmmc             varchar(500)         null/* æ£€æŸ¥/æ£€éªŒé¡¹ç›®åç§° */,
+    jcjyjg               nvarchar(1000)       null/* æ£€æŸ¥/æ£€éªŒç»“æœ */,
+    jcjyjgdm             varchar(2)           null/* æ£€æŸ¥/æ£€éªŒç»“æœä»£ç  */,
+    jcjydljg             numeric(14,4)        null/* æ£€æŸ¥/æ£€éªŒå®šé‡ç»“æœ */,
     
    
     
@@ -7369,24 +7369,24 @@ where id = object_id('DC_ZYBCJL_QJJL_JCJY') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_QJJL_SSCZ     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÇÀ¾È¼ÇÂ¼_ÊÖÊõ²Ù×÷                                                                                                  */
+ /* DC_ZYBCJL_QJJL_SSCZ     ä½é™¢ç—…ç¨‹è®°å½•ï¼æŠ¢æ•‘è®°å½•_æ‰‹æœ¯æ“ä½œ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_QJJL_SSCZ') )
  create table  DC_ZYBCJL_QJJL_SSCZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ssczbm               varchar(64)          not null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssczmc               varchar(128)         not null/* ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    ssczbwdm             varchar(64)          not null/* ÊÖÊõ¼°²Ù×÷Ä¿±ê²¿Î»´úÂë */,
-    ssczbwmc             varchar(128)         not null/* ÊÖÊõ¼°²Ù×÷Ä¿±ê²¿Î»Ãû³Æ */,
-    jrwdm                varchar(64)          null/* ½éÈëÎï´úÂë */,
-    jrwmc                varchar(128)         null/* ½éÈëÎïÃû³Æ */,
-    czff                 nvarchar(2000)       not null/* ²Ù×÷·½·¨ */,
-    czcs                 numeric(3)           not null/* ²Ù×÷´ÎÊı */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ssczbm               varchar(64)          not null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssczmc               varchar(128)         not null/* æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    ssczbwdm             varchar(64)          not null/* æ‰‹æœ¯åŠæ“ä½œç›®æ ‡éƒ¨ä½ä»£ç  */,
+    ssczbwmc             varchar(128)         not null/* æ‰‹æœ¯åŠæ“ä½œç›®æ ‡éƒ¨ä½åç§° */,
+    jrwdm                varchar(64)          null/* ä»‹å…¥ç‰©ä»£ç  */,
+    jrwmc                varchar(128)         null/* ä»‹å…¥ç‰©åç§° */,
+    czff                 nvarchar(2000)       not null/* æ“ä½œæ–¹æ³• */,
+    czcs                 numeric(3)           not null/* æ“ä½œæ¬¡æ•° */,
     
    
     
@@ -7404,43 +7404,43 @@ where id = object_id('DC_ZYBCJL_QJJL_SSCZ') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_RCBCJL     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÈÕ³£²¡³Ì¼ÇÂ¼                                                                                                  */
+ /* DC_ZYBCJL_RCBCJL     ä½é™¢ç—…ç¨‹è®°å½•ï¼æ—¥å¸¸ç—…ç¨‹è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_RCBCJL') )
  create table  DC_ZYBCJL_RCBCJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfmc                 varchar(10)          not null/* ²¡·¿Ãû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    jlrq                 datetime             not null/* ¼ÇÂ¼ÈÕÆÚÊ±¼ä */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğËµÃ÷ */,
-    csrq                 date                 not null/* »¼Õß³öÉúÈÕÆÚ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    zybc                 nvarchar(2000)       not null/* ×¡Ôº²¡³Ì */,
-    yznr                 nvarchar(1000)       null/* Ò½ÖöÄÚÈİ */,
-    zyjzff               nvarchar(100)        null/* ÖĞÒ©¼åÖó·½·¨ */,
-    zyyyff               nvarchar(100)        null/* ÖĞÒ©ÓÃÒ©·½·¨ */,
-    bzlzms               nvarchar(1000)       null/* ±æÖ¤ÂÛÖÎÏêÏ¸ÃèÊö */,
-    zyzwlbdm             varchar(2)           null/* ×¨Òµ¼¼ÊõÖ°ÎñÀà±ğ´úÂë */,
-    zyzwlbmc             varchar(20)          null/* ×¨Òµ¼¼ÊõÖ°ÎñÀà±ğÃû³Æ */,
-    ysbm                 varchar(20)          not null/* Ò½Éú¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ò½ÉúĞÕÃû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    zyh                  varchar(64)          not null/* ä½é™¢å·æ ‡è¯† */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfmc                 varchar(10)          not null/* ç—…æˆ¿åç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    jlrq                 datetime             not null/* è®°å½•æ—¥æœŸæ—¶é—´ */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«è¯´æ˜ */,
+    csrq                 date                 not null/* æ‚£è€…å‡ºç”Ÿæ—¥æœŸ */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    zybc                 nvarchar(2000)       not null/* ä½é™¢ç—…ç¨‹ */,
+    yznr                 nvarchar(1000)       null/* åŒ»å˜±å†…å®¹ */,
+    zyjzff               nvarchar(100)        null/* ä¸­è¯ç…ç…®æ–¹æ³• */,
+    zyyyff               nvarchar(100)        null/* ä¸­è¯ç”¨è¯æ–¹æ³• */,
+    bzlzms               nvarchar(1000)       null/* è¾¨è¯è®ºæ²»è¯¦ç»†æè¿° */,
+    zyzwlbdm             varchar(2)           null/* ä¸“ä¸šæŠ€æœ¯èŒåŠ¡ç±»åˆ«ä»£ç  */,
+    zyzwlbmc             varchar(20)          null/* ä¸“ä¸šæŠ€æœ¯èŒåŠ¡ç±»åˆ«åç§° */,
+    ysbm                 varchar(20)          not null/* åŒ»ç”Ÿå·¥å· */,
+    ysqm                 varchar(50)          not null/* åŒ»ç”Ÿå§“å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -7458,17 +7458,17 @@ where id = object_id('DC_ZYBCJL_RCBCJL') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_RCBCJL_ZYSZGCJG     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÈÕ³£²¡³Ì¼ÇÂ¼_ÖĞÒ½ËÄÕï¹Û²ì½á¹û                                                                                                  */
+ /* DC_ZYBCJL_RCBCJL_ZYSZGCJG     ä½é™¢ç—…ç¨‹è®°å½•ï¼æ—¥å¸¸ç—…ç¨‹è®°å½•_ä¸­åŒ»å››è¯Šè§‚å¯Ÿç»“æœ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_RCBCJL_ZYSZGCJG') )
  create table  DC_ZYBCJL_RCBCJL_ZYSZGCJG (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
     
    
     
@@ -7486,56 +7486,56 @@ where id = object_id('DC_ZYBCJL_RCBCJL_ZYSZGCJG') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SCBCJL     ×¡Ôº²¡³Ì¼ÇÂ¼£­Ê×´Î²¡³Ì¼ÇÂ¼                                                                                                  */
+ /* DC_ZYBCJL_SCBCJL     ä½é™¢ç—…ç¨‹è®°å½•ï¼é¦–æ¬¡ç—…ç¨‹è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SCBCJL') )
  create table  DC_ZYBCJL_SCBCJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ×¡Ôº»¼ÕßÈëÔº¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ×¡Ôº»¼ÕßÈëÔº¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ÈëÔº²¡·¿ºÅ */,
-    bfmc                 varchar(50)          not null/* ÈëÔº²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    jlrq                 datetime             not null/* ¼ÇÂ¼ÈÕÆÚÊ±¼ä */,
-    hzxm                 varchar(64)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅ */,
-    xbdm                 varchar(2)           not null/* »¼ÕßĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* »¼ÕßĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    zs                   nvarchar(100)        not null/* Ö÷Ëß */,
-    bltd                 nvarchar(2000)       not null/* ²¡ÀıÌØµã */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
-    zdyjdm               nvarchar(100)        null/* Õï¶ÏÒÀ¾İ´úÂë */,
-    zdyj                 nvarchar(1000)       not null/* Õï¶ÏÒÀ¾İ */,
-    czxyzdbm             varchar(64)          not null/* ³õ²½Õï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    czxyzd               varchar(128)         not null/* ³õ²½Õï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    czzybmdm             varchar(64)          null/* ³õ²½Õï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    czzybm               varchar(128)         null/* ³õ²½Õï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    czzyzhdm             varchar(64)          null/* ³õ²½Õï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    czzyzh               varchar(128)         null/* ³õ²½Õï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    jzxyzdbm             varchar(64)          not null/* ¼ø±ğÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    jzxyzdmc             varchar(128)         not null/* ¼ø±ğÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    jzzybmdm             varchar(64)          null/* ¼ø±ğÕï¶Ï-ÖĞÒ½²¡Ãû±àÂë */,
-    jzzybmmc             varchar(128)         null/* ¼ø±ğÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    jzzyzhbm             varchar(64)          null/* ¼ø±ğÕï¶Ï-ÖĞÒ½Ö¤ºò±àÂë */,
-    jzzyzhmc             varchar(128)         null/* ¼ø±ğÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    zljh                 nvarchar(2000)       not null/* ÕïÁÆ¼Æ»® */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨´úÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨ */,
-    zyysbm               varchar(20)          not null/* ×¡ÔºÒ½Ê¦¹¤ºÅ */,
-    zyysqm               varchar(50)          not null/* ×¡ÔºÒ½Ê¦Ç©Ãû */,
-    sjysbm               varchar(20)          not null/* ÉÏ¼¶Ò½Ê¦¹¤ºÅ */,
-    sjysqm               varchar(50)          not null/* ÉÏ¼¶Ò½Ê¦Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å· */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ä½é™¢æ‚£è€…å…¥é™¢ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ä½é™¢æ‚£è€…å…¥é™¢ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* å…¥é™¢ç—…æˆ¿å· */,
+    bfmc                 varchar(50)          not null/* å…¥é™¢ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    jlrq                 datetime             not null/* è®°å½•æ—¥æœŸæ—¶é—´ */,
+    hzxm                 varchar(64)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å· */,
+    xbdm                 varchar(2)           not null/* æ‚£è€…æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ‚£è€…æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    zs                   nvarchar(100)        not null/* ä¸»è¯‰ */,
+    bltd                 nvarchar(2000)       not null/* ç—…ä¾‹ç‰¹ç‚¹ */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
+    zdyjdm               nvarchar(100)        null/* è¯Šæ–­ä¾æ®ä»£ç  */,
+    zdyj                 nvarchar(1000)       not null/* è¯Šæ–­ä¾æ® */,
+    czxyzdbm             varchar(64)          not null/* åˆæ­¥è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    czxyzd               varchar(128)         not null/* åˆæ­¥è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    czzybmdm             varchar(64)          null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    czzybm               varchar(128)         null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    czzyzhdm             varchar(64)          null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    czzyzh               varchar(128)         null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    jzxyzdbm             varchar(64)          not null/* é‰´åˆ«è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    jzxyzdmc             varchar(128)         not null/* é‰´åˆ«è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    jzzybmdm             varchar(64)          null/* é‰´åˆ«è¯Šæ–­-ä¸­åŒ»ç—…åç¼–ç  */,
+    jzzybmmc             varchar(128)         null/* é‰´åˆ«è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    jzzyzhbm             varchar(64)          null/* é‰´åˆ«è¯Šæ–­-ä¸­åŒ»è¯å€™ç¼–ç  */,
+    jzzyzhmc             varchar(128)         null/* é‰´åˆ«è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    zljh                 nvarchar(2000)       not null/* è¯Šç–—è®¡åˆ’ */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ä»£ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³• */,
+    zyysbm               varchar(20)          not null/* ä½é™¢åŒ»å¸ˆå·¥å· */,
+    zyysqm               varchar(50)          not null/* ä½é™¢åŒ»å¸ˆç­¾å */,
+    sjysbm               varchar(20)          not null/* ä¸Šçº§åŒ»å¸ˆå·¥å· */,
+    sjysqm               varchar(50)          not null/* ä¸Šçº§åŒ»å¸ˆç­¾å */,
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -7549,22 +7549,22 @@ where id = object_id('DC_ZYBCJL_SCBCJL') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SCBCJL_CZZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­Ê×´Î²¡³Ì¼ÇÂ¼_³õ²½Õï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_SCBCJL_CZZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼é¦–æ¬¡ç—…ç¨‹è®°å½•_åˆæ­¥è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SCBCJL_CZZD') )
  create table  DC_ZYBCJL_SCBCJL_CZZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    czxyzdbm             varchar(64)          not null/* ³õ²½Õï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    czxyzd               varchar(128)         not null/* ³õ²½Õï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    czzybmdm             varchar(64)          null/* ³õ²½Õï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    czzybm               varchar(128)         null/* ³õ²½Õï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    czzyzhdm             varchar(64)          null/* ³õ²½Õï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    czzyzh               varchar(128)         null/* ³õ²½Õï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    czxyzdbm             varchar(64)          not null/* åˆæ­¥è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    czxyzd               varchar(128)         not null/* åˆæ­¥è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    czzybmdm             varchar(64)          null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    czzybm               varchar(128)         null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    czzyzhdm             varchar(64)          null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    czzyzh               varchar(128)         null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -7579,22 +7579,22 @@ go
 
 
 /*========================================================================*/
- /* DC_ZYBCJL_SCBCJL_JZZD    ×¡Ôº²¡³Ì¼ÇÂ¼£­Ê×´Î²¡³Ì¼ÇÂ¼_¼ø±ğÕï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_SCBCJL_JZZD    ä½é™¢ç—…ç¨‹è®°å½•ï¼é¦–æ¬¡ç—…ç¨‹è®°å½•_é‰´åˆ«è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SCBCJL_JZZD') )
  create table  DC_ZYBCJL_SCBCJL_JZZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jzxyzdbm             varchar(64)          not null/* ¼ø±ğÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    jzxyzdmc             varchar(128)         not null/* ¼ø±ğÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    jzzybmdm             varchar(64)          null/* ¼ø±ğÕï¶Ï-ÖĞÒ½²¡Ãû±àÂë */,
-    jzzybmmc             varchar(128)         null/* ¼ø±ğÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    jzzyzhbm             varchar(64)          null/* ¼ø±ğÕï¶Ï-ÖĞÒ½Ö¤ºò±àÂë */,
-    jzzyzhmc             varchar(128)         null/* ¼ø±ğÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jzxyzdbm             varchar(64)          not null/* é‰´åˆ«è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    jzxyzdmc             varchar(128)         not null/* é‰´åˆ«è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    jzzybmdm             varchar(64)          null/* é‰´åˆ«è¯Šæ–­-ä¸­åŒ»ç—…åç¼–ç  */,
+    jzzybmmc             varchar(128)         null/* é‰´åˆ«è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    jzzyzhbm             varchar(64)          null/* é‰´åˆ«è¯Šæ–­-ä¸­åŒ»è¯å€™ç¼–ç  */,
+    jzzyzhmc             varchar(128)         null/* é‰´åˆ«è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -7609,60 +7609,60 @@ go
 
 
 /*========================================================================*/
- /* DC_ZYBCJL_SHSCBCJL     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÊõºóÊ×´Î²¡³Ì¼ÇÂ¼                                                                                                  */
+ /* DC_ZYBCJL_SHSCBCJL     ä½é™¢ç—…ç¨‹è®°å½•ï¼æœ¯åé¦–æ¬¡ç—…ç¨‹è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SHSCBCJL') )
  create table  DC_ZYBCJL_SHSCBCJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(50)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    birth                datetime             not null/* »¼Õß³öÉúÈÕÆÚ */,
-    lxdh                 varchar(50)          not null/* ÁªÏµµç»° */,
-    hyzkdm               varchar(20)          not null/* »¼Õß»éÒö×´¿ö´úÂë */,
-    hyzk                 varchar(50)          not null/* »¼Õß»éÒö×´¿ö */,
-    mzdm                 varchar(20)          not null/* Ãñ×å´úÂë */,
-    mz                   varchar(50)          not null/* Ãñ×å */,
-    hkszd                varchar(50)          null/* »§¿ÚËùÔÚµØ */,
-    csdz                 varchar(500)         null/* ³öÉúµØÖ· */,
-    gzdw                 varchar(50)          null/* ¹¤×÷µ¥Î»Ãû³Æ */,
-    gzdwdz               varchar(500)         null/* ¹¤×÷µØµã */,
-    gzdwdh               varchar(70)          null/* ¹¤×÷µ¥Î»µç»° */,
-    jgd                  varchar(50)          null/* ¼®¹áµØ */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    jlrq                 datetime             not null/* ¼ÇÂ¼ÈÕÆÚÊ±¼ä */,
-    ssczbm               varchar(64)          not null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssmc                 varchar(128)         not null/* ÊÖÊõÃû³Æ */,
-    ssmbbwdm             varchar(64)          not null/* ÊÖÊõÄ¿±ê²¿Î»±àÂë */,
-    ssbwmc               varchar(128)         not null/* ÊÖÊõÄ¿±ê²¿Î»Ãû³Æ */,
-    ssrq                 datetime             not null/* ÊÖÊõÈÕÆÚÊ±¼ä */,
-    mzffdm               varchar(64)          not null/* Âé×í·½·¨´úÂë */,
-    mzffmc               varchar(128)         not null/* Âé×í·½·¨Ãû³Æ */,
-    ssgc                 nvarchar(2000)       not null/* ÊÖÊõ¹ı³Ì */,
-    zdyjdm               nvarchar(1000)       not null/* Õï¶ÏÒÀ¾İ±àÂë */,
-    zdyj                 nvarchar(1000)       not null/* Õï¶ÏÒÀ¾İÃû³Æ */,
-    zysx                 nvarchar(1000)       null/* ×¢ÒâÊÂÏî */,
-    ysbm                 varchar(20)          not null/* Ç©ÃûÈË¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ç©ÃûÈËĞÕÃû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
-    jzkssj               datetime             not null/* (ÈëÔº)¾ÍÕï¿ªÊ¼Ê±¼ä */,
-    jzjssj               datetime             not null/* (³öÔº)¾ÍÕï½áÊøÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å·æ ‡è¯† */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(50)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    birth                datetime             not null/* æ‚£è€…å‡ºç”Ÿæ—¥æœŸ */,
+    lxdh                 varchar(50)          not null/* è”ç³»ç”µè¯ */,
+    hyzkdm               varchar(20)          not null/* æ‚£è€…å©šå§»çŠ¶å†µä»£ç  */,
+    hyzk                 varchar(50)          not null/* æ‚£è€…å©šå§»çŠ¶å†µ */,
+    mzdm                 varchar(20)          not null/* æ°‘æ—ä»£ç  */,
+    mz                   varchar(50)          not null/* æ°‘æ— */,
+    hkszd                varchar(50)          null/* æˆ·å£æ‰€åœ¨åœ° */,
+    csdz                 varchar(500)         null/* å‡ºç”Ÿåœ°å€ */,
+    gzdw                 varchar(50)          null/* å·¥ä½œå•ä½åç§° */,
+    gzdwdz               varchar(500)         null/* å·¥ä½œåœ°ç‚¹ */,
+    gzdwdh               varchar(70)          null/* å·¥ä½œå•ä½ç”µè¯ */,
+    jgd                  varchar(50)          null/* ç±è´¯åœ° */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    jlrq                 datetime             not null/* è®°å½•æ—¥æœŸæ—¶é—´ */,
+    ssczbm               varchar(64)          not null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssmc                 varchar(128)         not null/* æ‰‹æœ¯åç§° */,
+    ssmbbwdm             varchar(64)          not null/* æ‰‹æœ¯ç›®æ ‡éƒ¨ä½ç¼–ç  */,
+    ssbwmc               varchar(128)         not null/* æ‰‹æœ¯ç›®æ ‡éƒ¨ä½åç§° */,
+    ssrq                 datetime             not null/* æ‰‹æœ¯æ—¥æœŸæ—¶é—´ */,
+    mzffdm               varchar(64)          not null/* éº»é†‰æ–¹æ³•ä»£ç  */,
+    mzffmc               varchar(128)         not null/* éº»é†‰æ–¹æ³•åç§° */,
+    ssgc                 nvarchar(2000)       not null/* æ‰‹æœ¯è¿‡ç¨‹ */,
+    zdyjdm               nvarchar(1000)       not null/* è¯Šæ–­ä¾æ®ç¼–ç  */,
+    zdyj                 nvarchar(1000)       not null/* è¯Šæ–­ä¾æ®åç§° */,
+    zysx                 nvarchar(1000)       null/* æ³¨æ„äº‹é¡¹ */,
+    ysbm                 varchar(20)          not null/* ç­¾åäººå·¥å· */,
+    ysqm                 varchar(50)          not null/* ç­¾åäººå§“å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
+    jzkssj               datetime             not null/* (å…¥é™¢)å°±è¯Šå¼€å§‹æ—¶é—´ */,
+    jzjssj               datetime             not null/* (å‡ºé™¢)å°±è¯Šç»“æŸæ—¶é—´ */,
     
    
     
@@ -7680,18 +7680,18 @@ where id = object_id('DC_ZYBCJL_SHSCBCJL') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SHSCBCJL_SHZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÊõºóÊ×´Î²¡³Ì¼ÇÂ¼_ÊõºóÕï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_SHSCBCJL_SHZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼æœ¯åé¦–æ¬¡ç—…ç¨‹è®°å½•_æœ¯åè¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SHSCBCJL_SHZD') )
  create table  DC_ZYBCJL_SHSCBCJL_SHZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    shzdmc               varchar(128)         not null/* ÊõºóÕï¶ÏÃû³Æ */,
-    shzdbm               varchar(64)          not null/* ÊõºóÕï¶Ï±àÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    shzdmc               varchar(128)         not null/* æœ¯åè¯Šæ–­åç§° */,
+    shzdbm               varchar(64)          not null/* æœ¯åè¯Šæ–­ç¼–ç  */,
     
    
     
@@ -7709,46 +7709,46 @@ where id = object_id('DC_ZYBCJL_SHSCBCJL_SHZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SJYSCFJL     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÉÏ¼¶Ò½Ê¦²é·¿¼ÇÂ¼                                                                                                  */
+ /* DC_ZYBCJL_SJYSCFJL     ä½é™¢ç—…ç¨‹è®°å½•ï¼ä¸Šçº§åŒ»å¸ˆæŸ¥æˆ¿è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SJYSCFJL') )
  create table  DC_ZYBCJL_SJYSCFJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(64)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    cfrq                 datetime             not null/* ²é·¿ÈÕÆÚÊ±¼ä */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    csrq                 date                 not null/* ³öÉúÈÕÆÚ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğËµÃ÷ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    cfjl                 nvarchar(2000)       not null/* ²é·¿¼ÇÂ¼ */,
-    bzlzms               nvarchar(1000)       null/* ±æÖ¤ÂÛÖÎÏêÏ¸ÃèÊö */,
-    yznr                 nvarchar(1000)       null/* Ò½ÖöÄÚÈİ */,
-    zyjzff               nvarchar(100)        null/* ÖĞÒ©¼åÖó·½·¨ */,
-    zyyyff               nvarchar(100)        null/* ÖĞÒ©ÓÃÒ©·½·¨ */,
-    yljh                 nvarchar(2000)       not null/* ÕïÁÆ¼Æ»® */,
-    jlrbm                varchar(20)          not null/* ¼ÇÂ¼ÈË¹¤ºÅ */,
-    jlrqm                varchar(50)          not null/* ¼ÇÂ¼ÈËÇ©Ãû */,
-    zzysbm               varchar(20)          not null/* Ö÷ÖÎÒ½Ê¦¹¤ºÅ */,
-    zzysqm               varchar(50)          not null/* Ö÷ÖÎÒ½Ê¦Ç©Ãû */,
-    zrysbm               varchar(20)          not null/* Ö÷ÈÎÒ½Ê¦¹¤ºÅ */,
-    zrysqm               varchar(50)          not null/* Ö÷ÈÎÒ½Ê¦Ç©Ãû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å·æ ‡è¯† */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(64)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    cfrq                 datetime             not null/* æŸ¥æˆ¿æ—¥æœŸæ—¶é—´ */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    csrq                 date                 not null/* å‡ºç”Ÿæ—¥æœŸ */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«è¯´æ˜ */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    cfjl                 nvarchar(2000)       not null/* æŸ¥æˆ¿è®°å½• */,
+    bzlzms               nvarchar(1000)       null/* è¾¨è¯è®ºæ²»è¯¦ç»†æè¿° */,
+    yznr                 nvarchar(1000)       null/* åŒ»å˜±å†…å®¹ */,
+    zyjzff               nvarchar(100)        null/* ä¸­è¯ç…ç…®æ–¹æ³• */,
+    zyyyff               nvarchar(100)        null/* ä¸­è¯ç”¨è¯æ–¹æ³• */,
+    yljh                 nvarchar(2000)       not null/* è¯Šç–—è®¡åˆ’ */,
+    jlrbm                varchar(20)          not null/* è®°å½•äººå·¥å· */,
+    jlrqm                varchar(50)          not null/* è®°å½•äººç­¾å */,
+    zzysbm               varchar(20)          not null/* ä¸»æ²»åŒ»å¸ˆå·¥å· */,
+    zzysqm               varchar(50)          not null/* ä¸»æ²»åŒ»å¸ˆç­¾å */,
+    zrysbm               varchar(20)          not null/* ä¸»ä»»åŒ»å¸ˆå·¥å· */,
+    zrysqm               varchar(50)          not null/* ä¸»ä»»åŒ»å¸ˆç­¾å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -7766,17 +7766,17 @@ where id = object_id('DC_ZYBCJL_SJYSCFJL') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SJYSCFJL_ZYSZGCJG     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÉÏ¼¶Ò½Ê¦²é·¿¼ÇÂ¼_ÖĞÒ½ËÄÕï¹Û²ì½á¹û                                                                                                  */
+ /* DC_ZYBCJL_SJYSCFJL_ZYSZGCJG     ä½é™¢ç—…ç¨‹è®°å½•ï¼ä¸Šçº§åŒ»å¸ˆæŸ¥æˆ¿è®°å½•_ä¸­åŒ»å››è¯Šè§‚å¯Ÿç»“æœ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SJYSCFJL_ZYSZGCJG') )
  create table  DC_ZYBCJL_SJYSCFJL_ZYSZGCJG (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
     
    
     
@@ -7794,61 +7794,61 @@ where id = object_id('DC_ZYBCJL_SJYSCFJL_ZYSZGCJG') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SQTL     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÊõÇ°ÌÖÂÛ                                                                                                  */
+ /* DC_ZYBCJL_SQTL     ä½é™¢ç—…ç¨‹è®°å½•ï¼æœ¯å‰è®¨è®º                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SQTL') )
  create table  DC_ZYBCJL_SQTL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(50)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    tlrq                 datetime             not null/* ÌÖÂÛÈÕÆÚÊ±¼ä */,
-    tldd                 varchar(50)          not null/* ÌÖÂÛµØµã */,
-    zcrbm                varchar(100)         not null/* Ö÷³ÖÈË¹¤ºÅ */,
-    zcrxm                varchar(500)         not null/* Ö÷³ÖÈËĞÕÃû */,
-    tlrybm               varchar(100)         not null/* ²Î¼ÓÌÖÂÛÈËÔ±¹¤ºÅ */,
-    cjtlmd               varchar(500)         not null/* ²Î¼ÓÌÖÂÛÈËÔ±Ãûµ¥ */,
-    zyzwlbdm             varchar(4)           not null/* ×¨Òµ¼¼ÊõÖ°ÎñÀà±ğ´úÂë */,
-    zyzwlbmc             varchar(50)          not null/* ×¨Òµ¼¼ÊõÖ°ÎñÀà±ğÃû³Æ */,
-    ryrq                 datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    ssczmc               varchar(128)         not null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    ssczbm               varchar(64)          not null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssmbbwdm             varchar(64)          not null/* ÄâÊµÊ©ÊÖÊõÄ¿±ê²¿Î»´úÂë */,
-    ssbwmc               varchar(128)         not null/* ÄâÊµÊ©ÊÖÊõÄ¿±ê²¿Î»Ãû³Æ */,
-    ssczrq               datetime             not null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷ÈÕÆÚÊ±¼ä */,
-    mzffdm               varchar(64)          not null/* ÄâÊµÊ©Âé×í·½·¨´úÂë */,
-    mzffmc               varchar(128)         not null/* ÄâÊµÊ©Âé×í·½·¨Ãû³Æ */,
-    ssyd                 nvarchar(200)        not null/* ÊÖÊõÒªµã */,
-    sqzb                 nvarchar(1000)       not null/* ÊõÇ°×¼±¸ */,
-    sszz                 nvarchar(500)        not null/* ÊÖÊõÖ¸Õ÷ */,
-    ssfa                 nvarchar(1000)       not null/* ÊÖÊõ·½°¸ */,
-    zysx                 nvarchar(1000)       not null/* ×¢ÒâÊÂÏî */,
-    tlyj                 nvarchar(2000)       not null/* ÌÖÂÛÒâ¼û */,
-    tljl                 nvarchar(2000)       not null/* ÌÖÂÛ½áÂÛ */,
-    sszbm                varchar(20)          null/* ÊÖÊõÕß¹¤ºÅ */,
-    sszqm                varchar(50)          null/* ÊÖÊõÕßÇ©Ãû */,
-    mzysbm               varchar(20)          null/* Âé×íÒ½Ê¦¹¤ºÅ */,
-    mzsqm                varchar(50)          null/* Âé×íÒ½Ê¦Ç©Ãû */,
-    ysbm                 varchar(20)          not null/* Ç©ÃûÈË¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ç©ÃûÈËĞÕÃû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å·æ ‡è¯† */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(50)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    tlrq                 datetime             not null/* è®¨è®ºæ—¥æœŸæ—¶é—´ */,
+    tldd                 varchar(50)          not null/* è®¨è®ºåœ°ç‚¹ */,
+    zcrbm                varchar(100)         not null/* ä¸»æŒäººå·¥å· */,
+    zcrxm                varchar(500)         not null/* ä¸»æŒäººå§“å */,
+    tlrybm               varchar(100)         not null/* å‚åŠ è®¨è®ºäººå‘˜å·¥å· */,
+    cjtlmd               varchar(500)         not null/* å‚åŠ è®¨è®ºäººå‘˜åå• */,
+    zyzwlbdm             varchar(4)           not null/* ä¸“ä¸šæŠ€æœ¯èŒåŠ¡ç±»åˆ«ä»£ç  */,
+    zyzwlbmc             varchar(50)          not null/* ä¸“ä¸šæŠ€æœ¯èŒåŠ¡ç±»åˆ«åç§° */,
+    ryrq                 datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    ssczmc               varchar(128)         not null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    ssczbm               varchar(64)          not null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssmbbwdm             varchar(64)          not null/* æ‹Ÿå®æ–½æ‰‹æœ¯ç›®æ ‡éƒ¨ä½ä»£ç  */,
+    ssbwmc               varchar(128)         not null/* æ‹Ÿå®æ–½æ‰‹æœ¯ç›®æ ‡éƒ¨ä½åç§° */,
+    ssczrq               datetime             not null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œæ—¥æœŸæ—¶é—´ */,
+    mzffdm               varchar(64)          not null/* æ‹Ÿå®æ–½éº»é†‰æ–¹æ³•ä»£ç  */,
+    mzffmc               varchar(128)         not null/* æ‹Ÿå®æ–½éº»é†‰æ–¹æ³•åç§° */,
+    ssyd                 nvarchar(200)        not null/* æ‰‹æœ¯è¦ç‚¹ */,
+    sqzb                 nvarchar(1000)       not null/* æœ¯å‰å‡†å¤‡ */,
+    sszz                 nvarchar(500)        not null/* æ‰‹æœ¯æŒ‡å¾ */,
+    ssfa                 nvarchar(1000)       not null/* æ‰‹æœ¯æ–¹æ¡ˆ */,
+    zysx                 nvarchar(1000)       not null/* æ³¨æ„äº‹é¡¹ */,
+    tlyj                 nvarchar(2000)       not null/* è®¨è®ºæ„è§ */,
+    tljl                 nvarchar(2000)       not null/* è®¨è®ºç»“è®º */,
+    sszbm                varchar(20)          null/* æ‰‹æœ¯è€…å·¥å· */,
+    sszqm                varchar(50)          null/* æ‰‹æœ¯è€…ç­¾å */,
+    mzysbm               varchar(20)          null/* éº»é†‰åŒ»å¸ˆå·¥å· */,
+    mzsqm                varchar(50)          null/* éº»é†‰åŒ»å¸ˆç­¾å */,
+    ysbm                 varchar(20)          not null/* ç­¾åäººå·¥å· */,
+    ysqm                 varchar(50)          not null/* ç­¾åäººå§“å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -7866,18 +7866,18 @@ where id = object_id('DC_ZYBCJL_SQTL') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SQTL_SQZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÊõÇ°ÌÖÂÛ_ÊõÇ°Õï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_SQTL_SQZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼æœ¯å‰è®¨è®º_æœ¯å‰è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SQTL_SQZD') )
  create table  DC_ZYBCJL_SQTL_SQZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    sqzdbm               varchar(64)          not null/* ÊõÇ°Õï¶Ï±àÂë */,
-    sqzdmc               varchar(128)         not null/* ÊõÇ°Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    sqzdbm               varchar(64)          not null/* æœ¯å‰è¯Šæ–­ç¼–ç  */,
+    sqzdmc               varchar(128)         not null/* æœ¯å‰è¯Šæ–­åç§° */,
     
    
     
@@ -7895,56 +7895,56 @@ where id = object_id('DC_ZYBCJL_SQTL_SQZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SQXJ     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÊõÇ°Ğ¡½á                                                                                                  */
+ /* DC_ZYBCJL_SQXJ     ä½é™¢ç—…ç¨‹è®°å½•ï¼æœ¯å‰å°ç»“                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SQXJ') )
  create table  DC_ZYBCJL_SQXJ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(50)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    xjrq                 datetime             not null/* Ğ¡½áÈÕÆÚÊ±¼ä */,
-    blzy                 nvarchar(200)        not null/* ²¡ÀúÕªÒª */,
-    zdyjdm               varchar(100)         not null/* Õï¶ÏÒÀ¾İ´úÂë */,
-    zdyj                 nvarchar(1000)       not null/* Õï¶ÏÒÀ¾İÃû³Æ */,
-    gmsbz                char(1)              not null/* ¹ıÃôÊ·±êÖ¾ */,
-    fzjcjg               nvarchar(1000)       not null/* ¸¨Öú¼ì²é½á¹û */,
-    sssyz                nvarchar(100)        not null/* ÊÖÊõÊÊÓ¦Ö¤ */,
-    ssjjz                nvarchar(100)        not null/* ÊÖÊõ½û¼ÉÖ¢ */,
-    sszz                 nvarchar(500)        not null/* ÊÖÊõÖ¸Õ÷ */,
-    hzyj                 nvarchar(2000)       null/* »áÕïÒâ¼û */,
-    ssczbm               varchar(64)          not null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssczmc               varchar(128)         not null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    ssmbbwdm             varchar(64)          not null/* ÄâÊµÊ©ÊÖÊõÄ¿±ê²¿Î»´úÂë */,
-    ssbwmc               varchar(128)         not null/* ÄâÊµÊ©ÊÖÊõÄ¿±ê²¿Î»Ãû³Æ */,
-    ssczrq               datetime             not null/* ÄâÊµÊ©ÊÖÊõ¼°²Ù×÷ÈÕÆÚÊ±¼ä */,
-    mzffdm               varchar(64)          not null/* ÄâÊµÊ©Âé×í·½·¨´úÂë */,
-    mzffmc               varchar(128)         not null/* ÄâÊµÊ©Âé×í·½·¨Ãû³Æ */,
-    zysx                 nvarchar(1000)       not null/* ×¢ÒâÊÂÏî */,
-    ssyd                 nvarchar(200)        not null/* ÊÖÊõÒªµã */,
-    sqzb                 nvarchar(1000)       not null/* ÊõÇ°×¼±¸ */,
-    sszbm                varchar(20)          not null/* ÊÖÊõÕß¹¤ºÅ */,
-    sszqm                varchar(50)          not null/* ÊÖÊõÕßÇ©Ãû */,
-    ysbm                 varchar(20)          null/* Ç©ÃûÈË¹¤ºÅ */,
-    ysqm                 varchar(50)          null/* Ç©ÃûÈËĞÕÃû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å·æ ‡è¯† */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(50)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    xjrq                 datetime             not null/* å°ç»“æ—¥æœŸæ—¶é—´ */,
+    blzy                 nvarchar(200)        not null/* ç—…å†æ‘˜è¦ */,
+    zdyjdm               varchar(100)         not null/* è¯Šæ–­ä¾æ®ä»£ç  */,
+    zdyj                 nvarchar(1000)       not null/* è¯Šæ–­ä¾æ®åç§° */,
+    gmsbz                char(1)              not null/* è¿‡æ•å²æ ‡å¿— */,
+    fzjcjg               nvarchar(1000)       not null/* è¾…åŠ©æ£€æŸ¥ç»“æœ */,
+    sssyz                nvarchar(100)        not null/* æ‰‹æœ¯é€‚åº”è¯ */,
+    ssjjz                nvarchar(100)        not null/* æ‰‹æœ¯ç¦å¿Œç—‡ */,
+    sszz                 nvarchar(500)        not null/* æ‰‹æœ¯æŒ‡å¾ */,
+    hzyj                 nvarchar(2000)       null/* ä¼šè¯Šæ„è§ */,
+    ssczbm               varchar(64)          not null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssczmc               varchar(128)         not null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    ssmbbwdm             varchar(64)          not null/* æ‹Ÿå®æ–½æ‰‹æœ¯ç›®æ ‡éƒ¨ä½ä»£ç  */,
+    ssbwmc               varchar(128)         not null/* æ‹Ÿå®æ–½æ‰‹æœ¯ç›®æ ‡éƒ¨ä½åç§° */,
+    ssczrq               datetime             not null/* æ‹Ÿå®æ–½æ‰‹æœ¯åŠæ“ä½œæ—¥æœŸæ—¶é—´ */,
+    mzffdm               varchar(64)          not null/* æ‹Ÿå®æ–½éº»é†‰æ–¹æ³•ä»£ç  */,
+    mzffmc               varchar(128)         not null/* æ‹Ÿå®æ–½éº»é†‰æ–¹æ³•åç§° */,
+    zysx                 nvarchar(1000)       not null/* æ³¨æ„äº‹é¡¹ */,
+    ssyd                 nvarchar(200)        not null/* æ‰‹æœ¯è¦ç‚¹ */,
+    sqzb                 nvarchar(1000)       not null/* æœ¯å‰å‡†å¤‡ */,
+    sszbm                varchar(20)          not null/* æ‰‹æœ¯è€…å·¥å· */,
+    sszqm                varchar(50)          not null/* æ‰‹æœ¯è€…ç­¾å */,
+    ysbm                 varchar(20)          null/* ç­¾åäººå·¥å· */,
+    ysqm                 varchar(50)          null/* ç­¾åäººå§“å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -7962,17 +7962,17 @@ where id = object_id('DC_ZYBCJL_SQXJ') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SQXJ_GMS     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÊõÇ°Ğ¡½á_¹ıÃôÊ·                                                                                                  */
+ /* DC_ZYBCJL_SQXJ_GMS     ä½é™¢ç—…ç¨‹è®°å½•ï¼æœ¯å‰å°ç»“_è¿‡æ•å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SQXJ_GMS') )
  create table  DC_ZYBCJL_SQXJ_GMS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    gms                  nvarchar(1000)       null/* ¹ıÃôÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    gms                  nvarchar(1000)       null/* è¿‡æ•å² */,
     
    
     
@@ -7990,18 +7990,18 @@ where id = object_id('DC_ZYBCJL_SQXJ_GMS') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SQXJ_SQZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÊõÇ°Ğ¡½á_ÊõÇ°Õï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_SQXJ_SQZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼æœ¯å‰å°ç»“_æœ¯å‰è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SQXJ_SQZD') )
  create table  DC_ZYBCJL_SQXJ_SQZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    sqzdbm               varchar(64)          not null/* ÊõÇ°Õï¶Ï±àÂë */,
-    sqzdmc               varchar(128)         not null/* ÊõÇ°Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    sqzdbm               varchar(64)          not null/* æœ¯å‰è¯Šæ–­ç¼–ç  */,
+    sqzdmc               varchar(128)         not null/* æœ¯å‰è¯Šæ–­åç§° */,
     
    
     
@@ -8019,45 +8019,45 @@ where id = object_id('DC_ZYBCJL_SQXJ_SQZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SWBLTLJL     ×¡Ôº²¡³Ì¼ÇÂ¼£­ËÀÍö²¡ÀıÌÖÂÛ¼ÇÂ¼                                                                                                  */
+ /* DC_ZYBCJL_SWBLTLJL     ä½é™¢ç—…ç¨‹è®°å½•ï¼æ­»äº¡ç—…ä¾‹è®¨è®ºè®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SWBLTLJL') )
  create table  DC_ZYBCJL_SWBLTLJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(10)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    tlrq                 datetime             not null/* ÌÖÂÛÈÕÆÚÊ±¼ä */,
-    tldddm               varchar(20)          not null/* ÌÖÂÛµØµã´úÂë */,
-    tldd                 varchar(50)          not null/* ÌÖÂÛµØµãÃû³Æ */,
-    zcrbm                varchar(100)         not null/* Ö÷³ÖÈË¹¤ºÅ */,
-    zcrxm                varchar(500)         not null/* Ö÷³ÖÈËĞÕÃû */,
-    zjswyymc             varchar(128)         not null/* Ö±½ÓËÀÍöÔ­ÒòÃû³Æ */,
-    zjswyybm             varchar(64)          not null/* Ö±½ÓËÀÍöÔ­Òò±àÂë */,
-    swtljl               nvarchar(2000)       not null/* ËÀÍöÌÖÂÛ¼ÇÂ¼ */,
-    zcrzjyj              nvarchar(2000)       not null/* Ö÷³ÖÈË×Ü½áÒâ¼û */,
-    zzysbm               varchar(20)          not null/* Ö÷ÖÎÒ½Ê¦¹¤ºÅ */,
-    zzysqm               varchar(50)          not null/* Ö÷ÖÎÒ½Ê¦Ç©Ãû */,
-    zrysbm               varchar(20)          not null/* Ö÷ÈÎÒ½Ê¦¹¤ºÅ */,
-    zrysqm               varchar(50)          not null/* Ö÷ÈÎÒ½Ê¦Ç©Ãû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å·æ ‡è¯† */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(10)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    tlrq                 datetime             not null/* è®¨è®ºæ—¥æœŸæ—¶é—´ */,
+    tldddm               varchar(20)          not null/* è®¨è®ºåœ°ç‚¹ä»£ç  */,
+    tldd                 varchar(50)          not null/* è®¨è®ºåœ°ç‚¹åç§° */,
+    zcrbm                varchar(100)         not null/* ä¸»æŒäººå·¥å· */,
+    zcrxm                varchar(500)         not null/* ä¸»æŒäººå§“å */,
+    zjswyymc             varchar(128)         not null/* ç›´æ¥æ­»äº¡åŸå› åç§° */,
+    zjswyybm             varchar(64)          not null/* ç›´æ¥æ­»äº¡åŸå› ç¼–ç  */,
+    swtljl               nvarchar(2000)       not null/* æ­»äº¡è®¨è®ºè®°å½• */,
+    zcrzjyj              nvarchar(2000)       not null/* ä¸»æŒäººæ€»ç»“æ„è§ */,
+    zzysbm               varchar(20)          not null/* ä¸»æ²»åŒ»å¸ˆå·¥å· */,
+    zzysqm               varchar(50)          not null/* ä¸»æ²»åŒ»å¸ˆç­¾å */,
+    zrysbm               varchar(20)          not null/* ä¸»ä»»åŒ»å¸ˆå·¥å· */,
+    zrysqm               varchar(50)          not null/* ä¸»ä»»åŒ»å¸ˆç­¾å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
     
@@ -8076,20 +8076,20 @@ go
 
 
 /*========================================================================*/
- /* DC_ZYBCJL_SWBLTLJL_TLRY     ×¡Ôº²¡³Ì¼ÇÂ¼£­ËÀÍö²¡ÀıÌÖÂÛ¼ÇÂ¼_²Î¼ÓÌÖÂÛÈËÔ±                                                                                           */
+ /* DC_ZYBCJL_SWBLTLJL_TLRY     ä½é™¢ç—…ç¨‹è®°å½•ï¼æ­»äº¡ç—…ä¾‹è®¨è®ºè®°å½•_å‚åŠ è®¨è®ºäººå‘˜                                                                                           */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SWBLTLJL_TLRY') )
  create table  DC_ZYBCJL_SWBLTLJL_TLRY (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    tlrybm               varchar(100)         not null/* ²Î¼ÓÌÖÂÛÈËÔ±¹¤ºÅ */,
-    cjtlmd               varchar(500)         not null/* ²Î¼ÓÌÖÂÛÈËÔ±Ãûµ¥ */,
-    zyzwlbdm             varchar(10)          not null/* ×¨Òµ¼¼ÊõÖ°ÎñÀà±ğ´úÂë */,
-    zyzwlbmc             varchar(50)          not null/* ×¨Òµ¼¼ÊõÖ°ÎñÀà±ğÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    tlrybm               varchar(100)         not null/* å‚åŠ è®¨è®ºäººå‘˜å·¥å· */,
+    cjtlmd               varchar(500)         not null/* å‚åŠ è®¨è®ºäººå‘˜åå• */,
+    zyzwlbdm             varchar(10)          not null/* ä¸“ä¸šæŠ€æœ¯èŒåŠ¡ç±»åˆ«ä»£ç  */,
+    zyzwlbmc             varchar(50)          not null/* ä¸“ä¸šæŠ€æœ¯èŒåŠ¡ç±»åˆ«åç§° */,
     
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
@@ -8107,18 +8107,18 @@ go
  
 
 /*========================================================================*/
- /* DC_ZYBCJL_SWBLTLJL_SWZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­ËÀÍö²¡ÀıÌÖÂÛ¼ÇÂ¼_ËÀÍöÕï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_SWBLTLJL_SWZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼æ­»äº¡ç—…ä¾‹è®¨è®ºè®°å½•_æ­»äº¡è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SWBLTLJL_SWZD') )
  create table  DC_ZYBCJL_SWBLTLJL_SWZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    swzdbm               varchar(100)         not null/* ËÀÍöÕï¶Ï±àÂë */,
-    swzdmc               varchar(500)         not null/* ËÀÍöÕï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    swzdbm               varchar(100)         not null/* æ­»äº¡è¯Šæ–­ç¼–ç  */,
+    swzdmc               varchar(500)         not null/* æ­»äº¡è¯Šæ–­åç§° */,
     
    
     
@@ -8136,48 +8136,48 @@ where id = object_id('DC_ZYBCJL_SWBLTLJL_SWZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SWJL     ×¡Ôº²¡³Ì¼ÇÂ¼£­ËÀÍö¼ÇÂ¼                                                                                                  */
+ /* DC_ZYBCJL_SWJL     ä½é™¢ç—…ç¨‹è®°å½•ï¼æ­»äº¡è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SWJL') )
  create table  DC_ZYBCJL_SWJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zzjgdm               varchar(10)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹´úÂë */,
-    zzjgmc               varchar(70)          not null/* Ò½ÁÆ»ú¹¹×éÖ¯»ú¹¹Ãû³Æ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bfmc                 varchar(50)          not null/* ²¡·¿Ãû³Æ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    ryrq                 datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å·æ ‡è¯† */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zzjgdm               varchar(10)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„ä»£ç  */,
+    zzjgmc               varchar(70)          not null/* åŒ»ç–—æœºæ„ç»„ç»‡æœºæ„åç§° */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bfmc                 varchar(50)          not null/* ç—…æˆ¿åç§° */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    ryrq                 datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
    
-    ryqk                 nvarchar(2000)       not null/* ÈëÔºÇé¿ö */,
-    zlgcms               nvarchar(2000)       not null/* ÕïÁÆ¹ı³ÌÃèÊö */,
-    swrq                 datetime             not null/* ËÀÍöÈÕÆÚÊ±¼ä */,
-    zjswyymc             varchar(128)         not null/* Ö±½ÓËÀÍöÔ­ÒòÃû³Æ */,
-    zjswyybm             varchar(64)          not null/* Ö±½ÓËÀÍöÔ­Òò±àÂë */,
-    jstysjbz             char(1)              not null/* ¼ÒÊôÊÇ·ñÍ¬ÒâÊ¬Ìå½âÆÊ±êÖ¾ */,
-    zyysbm               varchar(20)          not null/* ×¡ÔºÒ½Ê¦¹¤ºÅ */,
-    zyysqm               varchar(50)          not null/* ×¡ÔºÒ½Ê¦Ç©Ãû */,
-    zzysbm               varchar(20)          not null/* Ö÷ÖÎÒ½Ê¦¹¤ºÅ */,
-    zzysqm               varchar(50)          not null/* Ö÷ÖÎÒ½Ê¦Ç©Ãû */,
-    zrysbm               varchar(20)          not null/* Ö÷ÈÎÒ½Ê¦¹¤ºÅ */,
-    zrysqm               varchar(50)          not null/* Ö÷ÈÎÒ½Ê¦Ç©Ãû */,
-    qmrq                 datetime             not null/* Ç©ÃûÈÕÆÚÊ±¼ä */,
+    ryqk                 nvarchar(2000)       not null/* å…¥é™¢æƒ…å†µ */,
+    zlgcms               nvarchar(2000)       not null/* è¯Šç–—è¿‡ç¨‹æè¿° */,
+    swrq                 datetime             not null/* æ­»äº¡æ—¥æœŸæ—¶é—´ */,
+    zjswyymc             varchar(128)         not null/* ç›´æ¥æ­»äº¡åŸå› åç§° */,
+    zjswyybm             varchar(64)          not null/* ç›´æ¥æ­»äº¡åŸå› ç¼–ç  */,
+    jstysjbz             char(1)              not null/* å®¶å±æ˜¯å¦åŒæ„å°¸ä½“è§£å‰–æ ‡å¿— */,
+    zyysbm               varchar(20)          not null/* ä½é™¢åŒ»å¸ˆå·¥å· */,
+    zyysqm               varchar(50)          not null/* ä½é™¢åŒ»å¸ˆç­¾å */,
+    zzysbm               varchar(20)          not null/* ä¸»æ²»åŒ»å¸ˆå·¥å· */,
+    zzysqm               varchar(50)          not null/* ä¸»æ²»åŒ»å¸ˆç­¾å */,
+    zrysbm               varchar(20)          not null/* ä¸»ä»»åŒ»å¸ˆå·¥å· */,
+    zrysqm               varchar(50)          not null/* ä¸»ä»»åŒ»å¸ˆç­¾å */,
+    qmrq                 datetime             not null/* ç­¾åæ—¥æœŸæ—¶é—´ */,
     
    
 
@@ -8195,18 +8195,18 @@ where id = object_id('DC_ZYBCJL_SWJL') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SWJL_RYZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­ËÀÍö¼ÇÂ¼_ÈëÔºÕï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_SWJL_RYZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼æ­»äº¡è®°å½•_å…¥é™¢è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SWJL_RYZD') )
  create table  DC_ZYBCJL_SWJL_RYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ryzdbm               varchar(64)          not null/* ÈëÔºÕï¶Ï±àÂë */,
-    ryzdmc               varchar(128)         not null/* ÈëÔºÕï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ryzdbm               varchar(64)          not null/* å…¥é™¢è¯Šæ–­ç¼–ç  */,
+    ryzdmc               varchar(128)         not null/* å…¥é™¢è¯Šæ–­åç§° */,
     
    
 
@@ -8224,18 +8224,18 @@ where id = object_id('DC_ZYBCJL_SWJL_RYZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_SWJL_SWZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­ËÀÍö¼ÇÂ¼_ËÀÍöÕï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_SWJL_SWZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼æ­»äº¡è®°å½•_æ­»äº¡è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SWJL_SWZD') )
  create table  DC_ZYBCJL_SWJL_SWZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    swzdmc               varchar(128)         not null/* ËÀÍöÕï¶ÏÃû³Æ */,
-    swzdbm               varchar(64)          not null/* ËÀÍöÕï¶Ï±àÂë */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    swzdmc               varchar(128)         not null/* æ­»äº¡è¯Šæ–­åç§° */,
+    swzdbm               varchar(64)          not null/* æ­»äº¡è¯Šæ–­ç¼–ç  */,
     
    
 
@@ -8253,49 +8253,49 @@ where id = object_id('DC_ZYBCJL_SWJL_SWZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_YNBLTLJL     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÒÉÄÑ²¡ÀıÌÖÂÛ¼ÇÂ¼                                                                                                  */
+ /* DC_ZYBCJL_YNBLTLJL     ä½é™¢ç—…ç¨‹è®°å½•ï¼ç–‘éš¾ç—…ä¾‹è®¨è®ºè®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_YNBLTLJL') )
  create table  DC_ZYBCJL_YNBLTLJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    rybfmc               varchar(50)          not null/* ÈëÔº²¡·¿Ãû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    tlrq                 datetime             not null/* ÌÖÂÛÈÕÆÚÊ±¼ä */,
-    tldddm               varchar(20)          not null/* ÌÖÂÛµØµã´úÂë */,
-    tldd                 varchar(50)          not null/* ÌÖÂÛµØµã */,
-    tlrybm               varchar(100)         not null/* ÌÖÂÛÈËÔ±¹¤ºÅ */,
-    cjtlrmd              varchar(500)         not null/* ²Î¼ÓÌÖÂÛÈËÔ±Ãûµ¥ */,
-    zcrbm                varchar(100)         not null/* Ö÷³ÖÈË¹¤ºÅ */,
-    zcrxm                varchar(500)         not null/* Ö÷³ÖÈËĞÕÃû */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğËµÃ÷ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    tlyj                 nvarchar(2000)       not null/* ÌÖÂÛÒâ¼û */,
-    bzlzms               nvarchar(1000)       null/* ±æÖ¤ÂÛÖÎÏêÏ¸ÃèÊö */,
-    zycfyznr             nvarchar(1000)       null/* ÖĞÒ©´¦·½Ò½ÖöÄÚÈİ */,
-    zyyyff               nvarchar(100)        null/* ÖĞÒ©ÓÃÒ©·½·¨ */,
-    zcrzjyj              nvarchar(2000)       null/* Ö÷³ÖÈË×Ü½áÒâ¼û */,
-    ysbm                 varchar(20)          not null/* Ç©ÃûÈË¹¤ºÅ */,
-    ysqm                 varchar(50)          not null/* Ç©ÃûÈËĞÕÃû */,
-    zzysbm               varchar(20)          not null/* Ö÷ÖÎÒ½Ê¦¹¤ºÅ */,
-    zzysqm               varchar(50)          not null/* Ö÷ÖÎÒ½Ê¦Ç©Ãû */,
-    zrysbm               varchar(20)          not null/* Ö÷ÈÎÒ½Ê¦¹¤ºÅ */,
-    zrysqm               varchar(50)          not null/* Ö÷ÈÎÒ½Ê¦Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å·æ ‡è¯† */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    rybfmc               varchar(50)          not null/* å…¥é™¢ç—…æˆ¿åç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    tlrq                 datetime             not null/* è®¨è®ºæ—¥æœŸæ—¶é—´ */,
+    tldddm               varchar(20)          not null/* è®¨è®ºåœ°ç‚¹ä»£ç  */,
+    tldd                 varchar(50)          not null/* è®¨è®ºåœ°ç‚¹ */,
+    tlrybm               varchar(100)         not null/* è®¨è®ºäººå‘˜å·¥å· */,
+    cjtlrmd              varchar(500)         not null/* å‚åŠ è®¨è®ºäººå‘˜åå• */,
+    zcrbm                varchar(100)         not null/* ä¸»æŒäººå·¥å· */,
+    zcrxm                varchar(500)         not null/* ä¸»æŒäººå§“å */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«è¯´æ˜ */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    tlyj                 nvarchar(2000)       not null/* è®¨è®ºæ„è§ */,
+    bzlzms               nvarchar(1000)       null/* è¾¨è¯è®ºæ²»è¯¦ç»†æè¿° */,
+    zycfyznr             nvarchar(1000)       null/* ä¸­è¯å¤„æ–¹åŒ»å˜±å†…å®¹ */,
+    zyyyff               nvarchar(100)        null/* ä¸­è¯ç”¨è¯æ–¹æ³• */,
+    zcrzjyj              nvarchar(2000)       null/* ä¸»æŒäººæ€»ç»“æ„è§ */,
+    ysbm                 varchar(20)          not null/* ç­¾åäººå·¥å· */,
+    ysqm                 varchar(50)          not null/* ç­¾åäººå§“å */,
+    zzysbm               varchar(20)          not null/* ä¸»æ²»åŒ»å¸ˆå·¥å· */,
+    zzysqm               varchar(50)          not null/* ä¸»æ²»åŒ»å¸ˆç­¾å */,
+    zrysbm               varchar(20)          not null/* ä¸»ä»»åŒ»å¸ˆå·¥å· */,
+    zrysqm               varchar(50)          not null/* ä¸»ä»»åŒ»å¸ˆç­¾å */,
     
    
 
@@ -8313,17 +8313,17 @@ where id = object_id('DC_ZYBCJL_YNBLTLJL') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_YNBLTLJL_ZYSZGCJG     ×¡Ôº²¡³Ì¼ÇÂ¼£­ÒÉÄÑ²¡ÀıÌÖÂÛ¼ÇÂ¼_ÖĞÒ½ËÄÕï¹Û²ì½á¹û                                                                                                  */
+ /* DC_ZYBCJL_YNBLTLJL_ZYSZGCJG     ä½é™¢ç—…ç¨‹è®°å½•ï¼ç–‘éš¾ç—…ä¾‹è®¨è®ºè®°å½•_ä¸­åŒ»å››è¯Šè§‚å¯Ÿç»“æœ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_YNBLTLJL_ZYSZGCJG') )
  create table  DC_ZYBCJL_YNBLTLJL_ZYSZGCJG (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
     
    
 
@@ -8341,58 +8341,58 @@ where id = object_id('DC_ZYBCJL_YNBLTLJL_ZYSZGCJG') )
 go
 
 /*========================================================================*/
- /* DC_ZYBCJL_ZKJL     ×¡Ôº²¡³Ì¼ÇÂ¼£­×ª¿Æ¼ÇÂ¼                                                                                                  */
+ /* DC_ZYBCJL_ZKJL     ä½é™¢ç—…ç¨‹è®°å½•ï¼è½¬ç§‘è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_ZKJL') )
  create table  DC_ZYBCJL_ZKJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    zyh                  varchar(64)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    rybfmc               varchar(50)          not null/* ÈëÔº²¡·¿Ãû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    hzcsrq               datetime             null/* »¼Õß³öÉúÈÕÆÚ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    ryrq                 datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    zs                   nvarchar(100)        not null/* Ö÷Ëß */,
-    ryqk                 nvarchar(2000)       not null/* ÈëÔºÇé¿ö */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨´úÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨Ãû³Æ */,
-    zlgcms               nvarchar(2000)       not null/* ÕïÁÆ¹ı³ÌÃèÊö */,
-    mqqk                 nvarchar(2000)       not null/* Ä¿Ç°Çé¿ö */,
-    zkmd                 nvarchar(200)        not null/* ×ª¿ÆÄ¿µÄ */,
-    zrzljh               nvarchar(2000)       not null/* ×ªÈëÕïÁÆ¼Æ»® */,
-    zycfyznr             nvarchar(1000)       null/* ÖĞÒ©´¦·½Ò½ÖöÄÚÈİ */,
-    zyjzff               nvarchar(100)        null/* ÖĞÒ©¼åÖó·½·¨ */,
-    zyyyff               nvarchar(100)        null/* ÖĞÒ©ÓÃÒ©·½·¨ */,
-    zysx                 nvarchar(1000)       not null/* ×¢ÒâÊÂÏî */,
-    zkjllx               char(1)              not null/* ×ª¿Æ¼ÇÂ¼ÀàĞÍ */,
-    zkjllxmc             varchar(20)          not null/* ×ª¿Æ¼ÇÂ¼ÀàĞÍÃû³Æ */,
-    zcrq                 datetime             not null/* ×ª³öÈÕÆÚÊ±¼ä */,
-    zcksdm               varchar(10)          not null/* ×ª³ö¿ÆÊÒ´úÂë */,
-    zcks                 varchar(50)          not null/* ×ª³ö¿ÆÊÒÃû³Æ */,
-    zcysbm               varchar(20)          not null/* ×ª³öÒ½Ê¦¹¤ºÅ */,
-    zcysqm               varchar(50)          not null/* ×ª³öÒ½Ê¦Ç©Ãû */,
-    zrrq                 datetime             not null/* ×ªÈëÈÕÆÚÊ±¼ä */,
-    zrksdm               varchar(10)          not null/* ×ªÈë¿ÆÊÒ´úÂë */,
-    zrks                 varchar(50)          not null/* ×ªÈë¿ÆÊÒÃû³Æ */,
-    zrysbm               varchar(20)          not null/* ×ªÈëÒ½Ê¦¹¤ºÅ */,
-    zrysqm               varchar(50)          not null/* ×ªÈëÒ½Ê¦Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    zyh                  varchar(64)          not null/* ä½é™¢å·æ ‡è¯† */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    rybfmc               varchar(50)          not null/* å…¥é™¢ç—…æˆ¿åç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    hzcsrq               datetime             null/* æ‚£è€…å‡ºç”Ÿæ—¥æœŸ */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    ryrq                 datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    zs                   nvarchar(100)        not null/* ä¸»è¯‰ */,
+    ryqk                 nvarchar(2000)       not null/* å…¥é™¢æƒ…å†µ */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ä»£ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³•åç§° */,
+    zlgcms               nvarchar(2000)       not null/* è¯Šç–—è¿‡ç¨‹æè¿° */,
+    mqqk                 nvarchar(2000)       not null/* ç›®å‰æƒ…å†µ */,
+    zkmd                 nvarchar(200)        not null/* è½¬ç§‘ç›®çš„ */,
+    zrzljh               nvarchar(2000)       not null/* è½¬å…¥è¯Šç–—è®¡åˆ’ */,
+    zycfyznr             nvarchar(1000)       null/* ä¸­è¯å¤„æ–¹åŒ»å˜±å†…å®¹ */,
+    zyjzff               nvarchar(100)        null/* ä¸­è¯ç…ç…®æ–¹æ³• */,
+    zyyyff               nvarchar(100)        null/* ä¸­è¯ç”¨è¯æ–¹æ³• */,
+    zysx                 nvarchar(1000)       not null/* æ³¨æ„äº‹é¡¹ */,
+    zkjllx               char(1)              not null/* è½¬ç§‘è®°å½•ç±»å‹ */,
+    zkjllxmc             varchar(20)          not null/* è½¬ç§‘è®°å½•ç±»å‹åç§° */,
+    zcrq                 datetime             not null/* è½¬å‡ºæ—¥æœŸæ—¶é—´ */,
+    zcksdm               varchar(10)          not null/* è½¬å‡ºç§‘å®¤ä»£ç  */,
+    zcks                 varchar(50)          not null/* è½¬å‡ºç§‘å®¤åç§° */,
+    zcysbm               varchar(20)          not null/* è½¬å‡ºåŒ»å¸ˆå·¥å· */,
+    zcysqm               varchar(50)          not null/* è½¬å‡ºåŒ»å¸ˆç­¾å */,
+    zrrq                 datetime             not null/* è½¬å…¥æ—¥æœŸæ—¶é—´ */,
+    zrksdm               varchar(10)          not null/* è½¬å…¥ç§‘å®¤ä»£ç  */,
+    zrks                 varchar(50)          not null/* è½¬å…¥ç§‘å®¤åç§° */,
+    zrysbm               varchar(20)          not null/* è½¬å…¥åŒ»å¸ˆå·¥å· */,
+    zrysqm               varchar(50)          not null/* è½¬å…¥åŒ»å¸ˆç­¾å */,
     
    
 
@@ -8411,22 +8411,22 @@ go
 
 
 /*========================================================================*/
- /* DC_ZYBCJL_ZKJL_RYZD    ×¡Ôº²¡³Ì¼ÇÂ¼£­×ª¿Æ¼ÇÂ¼-ÈëÔºÕï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_ZKJL_RYZD    ä½é™¢ç—…ç¨‹è®°å½•ï¼è½¬ç§‘è®°å½•-å…¥é™¢è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_ZKJL_RYZD') )
  create table  DC_ZYBCJL_ZKJL_RYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    rzxyzdbm             varchar(64)          not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    rzxyzd               varchar(128)         not null/* ÈëÔºÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    rzzybmdm             varchar(64)          null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    rzzybm               varchar(128)         null/* ÈëÔºÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    rzzyzhdm             varchar(64)          null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    rzzyzh               varchar(128)         null/* ÈëÔºÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    rzxyzdbm             varchar(64)          not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    rzxyzd               varchar(128)         not null/* å…¥é™¢è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    rzzybmdm             varchar(64)          null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    rzzybm               varchar(128)         null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    rzzyzhdm             varchar(64)          null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    rzzyzh               varchar(128)         null/* å…¥é™¢è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
     
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
@@ -8443,22 +8443,22 @@ go
 
 
 /*========================================================================*/
- /* DC_ZYBCJL_ZKJL_MQZD    ×¡Ôº²¡³Ì¼ÇÂ¼£­×ª¿Æ¼ÇÂ¼-Ä¿Ç°Õï¶Ï                                                                                                 */
+ /* DC_ZYBCJL_ZKJL_MQZD    ä½é™¢ç—…ç¨‹è®°å½•ï¼è½¬ç§‘è®°å½•-ç›®å‰è¯Šæ–­                                                                                                 */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_ZKJL_MQZD') )
  create table  DC_ZYBCJL_ZKJL_MQZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-	mqzdxyzdbm           varchar(64)          not null/* Ä¿Ç°Õï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    mqzdxyzd             varchar(128)         not null/* Ä¿Ç°Õï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    mqzdzybmdm           varchar(64)          null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    mqzdzybm             varchar(128)         null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    mqzdzyzhdm           varchar(64)          null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    mqzdzyzh             varchar(128)         null/* Ä¿Ç°Õï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+	mqzdxyzdbm           varchar(64)          not null/* ç›®å‰è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    mqzdxyzd             varchar(128)         not null/* ç›®å‰è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    mqzdzybmdm           varchar(64)          null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    mqzdzybm             varchar(128)         null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    mqzdzyzhdm           varchar(64)          null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    mqzdzyzh             varchar(128)         null/* ç›®å‰è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
     
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
@@ -8474,33 +8474,33 @@ go
 
 
 /*========================================================================*/
- /* DC_ZYYZ_ZYYZ     ×¡ÔºÒ½Öö£­×¡ÔºÒ½Öö                                                                                                  */
+ /* DC_ZYYZ_ZYYZ     ä½é™¢åŒ»å˜±ï¼ä½é™¢åŒ»å˜±                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYYZ_ZYYZ') )
  create table  DC_ZYYZ_ZYYZ (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    zyh                  varchar(50)          not null/* ×¡ÔººÅ±êÊ¶ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    tzkg                 numeric(6,2)         not null/* ÌåÖØ£¨kg£© */,
-    yzlbdm               varchar(2)           not null/* Ò½ÖöÀà±ğ´úÂë */,
-    yzlbmc               varchar(50)          not null/* Ò½ÖöÀà±ğÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    zyh                  varchar(50)          not null/* ä½é™¢å·æ ‡è¯† */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    tzkg                 numeric(6,2)         not null/* ä½“é‡ï¼ˆkgï¼‰ */,
+    yzlbdm               varchar(2)           not null/* åŒ»å˜±ç±»åˆ«ä»£ç  */,
+    yzlbmc               varchar(50)          not null/* åŒ»å˜±ç±»åˆ«åç§° */,
     
    
 
@@ -8518,47 +8518,47 @@ where id = object_id('DC_ZYYZ_ZYYZ') )
 go
 
 /*========================================================================*/
- /* DC_ZYYZ_ZYYZ_YZMX     ×¡ÔºÒ½Öö£­×¡ÔºÒ½Öö_Ò½ÖöÃ÷Ï¸                                                                                                  */
+ /* DC_ZYYZ_ZYYZ_YZMX     ä½é™¢åŒ»å˜±ï¼ä½é™¢åŒ»å˜±_åŒ»å˜±æ˜ç»†                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYYZ_ZYYZ_YZMX') )
  create table  DC_ZYYZ_ZYYZ_YZMX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          not null/* Ö÷Ô´¼ÇÂ¼ĞòºÅ */,
-    dzsqdbh              varchar(20)          not null/* µç×ÓÉêÇëµ¥±àºÅ */,
-    cfypzh               varchar(50)          not null/* ´¦·½Ò©Æ·×éºÅ */,
-    yzxmlxdm             varchar(2)           not null/* Ò½ÖöÏîÄ¿ÀàĞÍ´úÂë */,
-    yzxmlxmc             varchar(50)          not null/* Ò½ÖöÏîÄ¿ÀàĞÍÃû³Æ */,
-    yzxmnr               varchar(100)         not null/* Ò½ÖöÏîÄ¿ÄÚÈİ */,
-    yzjhksrqsj           datetime             not null/* Ò½Öö¼Æ»®¿ªÊ¼ÈÕÆÚÊ±¼ä */,
-    yzjhjsrqsj           datetime             not null/* Ò½Öö¼Æ»®½áÊøÈÕÆÚÊ±¼ä */,
-    yzbzxx               varchar(100)         null/* Ò½Öö±¸×¢ĞÅÏ¢ */,
-    yzklzdm              varchar(20)          not null/* Ò½Öö¿ªÁ¢Õß¹¤ºÅ */,
-    yzklzqm              varchar(50)          not null/* Ò½Öö¿ªÁ¢ÕßÇ©Ãû */,
-    yzklrqsj             datetime             not null/* Ò½Öö¿ªÁ¢ÈÕÆÚÊ±¼ä */,
-    yzklksdm             varchar(11)          not null/* Ò½Öö¿ªÁ¢¿ÆÊÒ±àÂë */,
-    yzklksmc             varchar(50)          not null/* Ò½Öö¿ªÁ¢¿ÆÊÒÃû³Æ */,
-    yzshrdm              varchar(20)          not null/* Ò½ÖöÉóºËÈË¹¤ºÅ */,
-    yzshrqm              varchar(50)          not null/* Ò½ÖöÉóºËÈËÇ©Ãû */,
-    yzshrqsj             datetime             not null/* Ò½ÖöÉóºËÈÕÆÚÊ±¼ä */,
-    hdyzhsdm             varchar(20)          not null/* ºË¶ÔÒ½Öö»¤Ê¿¹¤ºÅ */,
-    hdyzhsqm             varchar(50)          not null/* ºË¶ÔÒ½Öö»¤Ê¿Ç©Ãû */,
-    yzhdrqsj             datetime             not null/* Ò½ÖöºË¶ÔÈÕÆÚÊ±¼ä */,
-    yzzxzdm              varchar(20)          not null/* Ò½ÖöÖ´ĞĞÕß¹¤ºÅ */,
-    yzzxzqm              varchar(50)          not null/* Ò½ÖöÖ´ĞĞÕßÇ©Ãû */,
-    yzzxrqsj             datetime             not null/* Ò½ÖöÖ´ĞĞÈÕÆÚÊ±¼ä */,
-    yzzxksdm             varchar(20)          not null/* Ò½ÖöÖ´ĞĞ¿ÆÊÒ±àÂë */,
-    yzzxksmc             varchar(50)          not null/* Ò½ÖöÖ´ĞĞ¿ÆÊÒÃû³Æ */,
-    yzzxzt               varchar(50)          not null/* Ò½ÖöÖ´ĞĞ×´Ì¬ */,
-    yztzrqsj             datetime             not null/* Ò½ÖöÍ£Ö¹ÈÕÆÚÊ±¼ä */,
-    tzyzzdm              varchar(20)          not null/* Í£Ö¹Ò½ÖöÕß¹¤ºÅ */,
-    tzyzzqm              varchar(50)          not null/* Í£Ö¹Ò½ÖöÕßÇ©Ãû */,
-    yzqxrqsj             datetime             not null/* Ò½ÖöÈ¡ÏûÈÕÆÚÊ±¼ä */,
-    qxyzzdm              varchar(20)          not null/* È¡ÏûÒ½ÖöÕß¹¤ºÅ */,
-    qxyzzqm              varchar(50)          not null/* È¡ÏûÒ½ÖöÕßÇ©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          not null/* ä¸»æºè®°å½•åºå· */,
+    dzsqdbh              varchar(20)          not null/* ç”µå­ç”³è¯·å•ç¼–å· */,
+    cfypzh               varchar(50)          not null/* å¤„æ–¹è¯å“ç»„å· */,
+    yzxmlxdm             varchar(2)           not null/* åŒ»å˜±é¡¹ç›®ç±»å‹ä»£ç  */,
+    yzxmlxmc             varchar(50)          not null/* åŒ»å˜±é¡¹ç›®ç±»å‹åç§° */,
+    yzxmnr               varchar(100)         not null/* åŒ»å˜±é¡¹ç›®å†…å®¹ */,
+    yzjhksrqsj           datetime             not null/* åŒ»å˜±è®¡åˆ’å¼€å§‹æ—¥æœŸæ—¶é—´ */,
+    yzjhjsrqsj           datetime             not null/* åŒ»å˜±è®¡åˆ’ç»“æŸæ—¥æœŸæ—¶é—´ */,
+    yzbzxx               varchar(100)         null/* åŒ»å˜±å¤‡æ³¨ä¿¡æ¯ */,
+    yzklzdm              varchar(20)          not null/* åŒ»å˜±å¼€ç«‹è€…å·¥å· */,
+    yzklzqm              varchar(50)          not null/* åŒ»å˜±å¼€ç«‹è€…ç­¾å */,
+    yzklrqsj             datetime             not null/* åŒ»å˜±å¼€ç«‹æ—¥æœŸæ—¶é—´ */,
+    yzklksdm             varchar(11)          not null/* åŒ»å˜±å¼€ç«‹ç§‘å®¤ç¼–ç  */,
+    yzklksmc             varchar(50)          not null/* åŒ»å˜±å¼€ç«‹ç§‘å®¤åç§° */,
+    yzshrdm              varchar(20)          not null/* åŒ»å˜±å®¡æ ¸äººå·¥å· */,
+    yzshrqm              varchar(50)          not null/* åŒ»å˜±å®¡æ ¸äººç­¾å */,
+    yzshrqsj             datetime             not null/* åŒ»å˜±å®¡æ ¸æ—¥æœŸæ—¶é—´ */,
+    hdyzhsdm             varchar(20)          not null/* æ ¸å¯¹åŒ»å˜±æŠ¤å£«å·¥å· */,
+    hdyzhsqm             varchar(50)          not null/* æ ¸å¯¹åŒ»å˜±æŠ¤å£«ç­¾å */,
+    yzhdrqsj             datetime             not null/* åŒ»å˜±æ ¸å¯¹æ—¥æœŸæ—¶é—´ */,
+    yzzxzdm              varchar(20)          not null/* åŒ»å˜±æ‰§è¡Œè€…å·¥å· */,
+    yzzxzqm              varchar(50)          not null/* åŒ»å˜±æ‰§è¡Œè€…ç­¾å */,
+    yzzxrqsj             datetime             not null/* åŒ»å˜±æ‰§è¡Œæ—¥æœŸæ—¶é—´ */,
+    yzzxksdm             varchar(20)          not null/* åŒ»å˜±æ‰§è¡Œç§‘å®¤ç¼–ç  */,
+    yzzxksmc             varchar(50)          not null/* åŒ»å˜±æ‰§è¡Œç§‘å®¤åç§° */,
+    yzzxzt               varchar(50)          not null/* åŒ»å˜±æ‰§è¡ŒçŠ¶æ€ */,
+    yztzrqsj             datetime             not null/* åŒ»å˜±åœæ­¢æ—¥æœŸæ—¶é—´ */,
+    tzyzzdm              varchar(20)          not null/* åœæ­¢åŒ»å˜±è€…å·¥å· */,
+    tzyzzqm              varchar(50)          not null/* åœæ­¢åŒ»å˜±è€…ç­¾å */,
+    yzqxrqsj             datetime             not null/* åŒ»å˜±å–æ¶ˆæ—¥æœŸæ—¶é—´ */,
+    qxyzzdm              varchar(20)          not null/* å–æ¶ˆåŒ»å˜±è€…å·¥å· */,
+    qxyzzqm              varchar(50)          not null/* å–æ¶ˆåŒ»å˜±è€…ç­¾å */,
     
    
 
@@ -8576,207 +8576,207 @@ where id = object_id('DC_ZYYZ_ZYYZ_YZMX') )
 go
 
 /*========================================================================*/
- /* DC_ZYZYBA_BASY     ²¡°¸Ê×Ò³£­ÖĞÒ½×¡Ôº²¡°¸                                                                                                  */
+ /* DC_ZYZYBA_BASY     ç—…æ¡ˆé¦–é¡µï¼ä¸­åŒ»ä½é™¢ç—…æ¡ˆ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYZYBA_BASY') )
  create table  DC_ZYZYBA_BASY (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    yljgzzjgdm           varchar(10)          not null/* Ò½ÁÆ»ú¹¹´úÂë */,
-    yljgzzjgmc           varchar(70)          not null/* Ò½ÁÆ»ú¹¹Ãû³Æ */,
-    ylfffsdm             varchar(2)           not null/* Ò½ÁÆ¸¶·Ñ·½Ê½´úÂë */,
-    ylfffsmc             varchar(50)          not null/* Ò½ÁÆ¸¶·Ñ·½Ê½Ãû³Æ */,
-    jmjkkh               varchar(18)          not null/* ¾ÓÃñ½¡¿µµµ°¸ */,
-    zycs                 numeric(3)           not null/* ×¡Ôº´ÎÊı */,
-    bah                  varchar(18)          not null/* ²¡°¸ºÅ */,
-    zyh                  varchar(20)          not null/* ×¡ÔººÅ */,
-    xm                   varchar(50)          not null/* ĞÕÃû */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    csrq                 date                 not null/* ³öÉúÈÕÆÚ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨ÔÂ£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨Ëê£© */,
-    gjdm                 varchar(3)           not null/* ¹ú¼®´úÂë */,
-    gjmc                 varchar(100)         not null/* ¹ú¼®Ãû³Æ */,
-    xsecstzg             numeric(4)           null/* ĞÂÉú¶ù³öÉúÌåÖØ£¨g£© */,
-    xserytzg             numeric(4)           null/* ĞÂÉú¶ùÈëÔºÌåÖØ£¨g£© */,
-    csd_s                varchar(70)          not null/* ³öÉúµØ-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    csd_cs               varchar(70)          not null/* ³öÉúµØ-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    csd_xq               varchar(70)          not null/* ³öÉúµØ-ÏØ£¨Çø£© */,
-    jg_s                 varchar(70)          not null/* ¼®¹á-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    jg_cs                varchar(70)          not null/* ¼®¹á-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    mzdm                 varchar(2)           not null/* Ãñ×å */,
-    mzmc                 varchar(50)          not null/* Ãñ×åÃû³Æ */,
-    hzsfzjlbdm           varchar(2)           not null/* »¼ÕßÉí·İÖ¤¼şÀà±ğ´úÂë */,
-    hzsfzjlbmc           varchar(64)          not null/* »¼ÕßÉí·İÖ¤¼şÀà±ğÃû³Æ */,
-    hzsfzjhm             varchar(18)          not null/* »¼ÕßÉí·İÖ¤¼şºÅÂë */,
-    zylbdm               varchar(2)           null/* Ö°ÒµÀà±ğ´úÂë */,
-    zylbmc               varchar(18)          null/* Ö°ÒµÀà±ğÃû³Æ */,
-    hyzkdm               varchar(2)           not null/* »éÒö×´¿ö´úÂë */,
-    hyzkmc               varchar(18)          not null/* »éÒö×´¿öÃû³Æ */,
-    xzz_s                varchar(70)          not null/* ÏÖ×¡Ö·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    xzz_cs               varchar(70)          not null/* ÏÖ×¡Ö·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    xzz_xq               varchar(70)          not null/* ÏÖ×¡Ö·-ÏØ£¨Çø£© */,
-    xzz_xz               varchar(70)          not null/* ÏÖ×¡Ö·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    xzz_c                varchar(70)          not null/* ÏÖ×¡Ö·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    xzz_mphm             varchar(70)          not null/* ÏÖ×¡Ö·-ÃÅÅÆºÅÂë */,
-    dhhm                 varchar(20)          not null/* µç»°ºÅÂë */,
-    xzz_yzbm             numeric(6)           not null/* ÏÖ×¡Ö·-ÓÊÕş±àÂë */,
-    hkdz_s               varchar(70)          not null/* »§¿ÚµØÖ·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    hkdz_cs              varchar(70)          not null/* »§¿ÚµØÖ·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    hkdz_xq              varchar(70)          not null/* »§¿ÚµØÖ·-ÏØ£¨Çø£© */,
-    hkdz_xz              varchar(70)          not null/* »§¿ÚµØÖ·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    hkdz_c               varchar(70)          not null/* »§¿ÚµØÖ·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    hkdz_mphm            varchar(70)          not null/* »§¿ÚµØÖ·-ÃÅÅÆºÅÂë */,
-    hkdz_yzbm            numeric(6)           not null/* »§¿ÚµØÖ·-ÓÊÕş±àÂë */,
-    gzdwmc               varchar(70)          not null/* ¹¤×÷µ¥Î»Ãû³Æ */,
-    gzdwdz_s             varchar(70)          not null/* ¹¤×÷µ¥Î»µØÖ·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    gzdwdz_cs            varchar(70)          not null/* ¹¤×÷µ¥Î»µØÖ·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    gzdwdz_xq            varchar(70)          not null/* ¹¤×÷µ¥Î»µØÖ·-ÏØ£¨Çø£© */,
-    gzdwdz_xz            varchar(70)          not null/* ¹¤×÷µ¥Î»µØÖ·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    gzdwdz_c             varchar(70)          not null/* ¹¤×÷µ¥Î»µØÖ·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    gzdwdz_mphm          varchar(70)          not null/* ¹¤×÷µ¥Î»µØÖ·-ÃÅÅÆºÅÂë */,
-    gzdwdhhm             varchar(20)          not null/* ¹¤×÷µ¥Î»µç»°ºÅÂë */,
-    gzdwdz_yzbm          numeric(6)           not null/* ¹¤×÷µ¥Î»µØÖ·-ÓÊÕş±àÂë */,
-    lxrxm                varchar(50)          not null/* ÁªÏµÈËĞÕÃû */,
-    lxryhzdgxdm          varchar(2)           not null/* ÁªÏµÈËÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    lxryhzdgxmc          varchar(50)          not null/* ÁªÏµÈËÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    lxrdz_s              varchar(70)          not null/* ÁªÏµÈËµØÖ·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    lxrdz_cs             varchar(70)          not null/* ÁªÏµÈËµØÖ·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    lxrdz_xq             varchar(70)          not null/* ÁªÏµÈËµØÖ·-ÏØ£¨Çø£© */,
-    lxrdz_xz             varchar(70)          not null/* ÁªÏµÈËµØÖ·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    lxrdz_c              varchar(70)          not null/* ÁªÏµÈËµØÖ·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    lxrdz_mphm           varchar(70)          not null/* ÁªÏµÈËµØÖ·-ÃÅÅÆºÅÂë */,
-    lxrdhhm              varchar(20)          not null/* ÁªÏµÈËµç»°ºÅÂë */,
-    rytjdm               varchar(2)           not null/* ÈëÔºÍ¾¾¶´úÂë */,
-    rytjmc               varchar(20)          not null/* ÈëÔºÍ¾¾¶Ãû³Æ */,
-    zllbdm               varchar(2)           not null/* ÖÎÁÆÀà±ğ´úÂë */,
-    zllbmc               varchar(100)         not null/* ÖÎÁÆÀà±ğÃû³Æ */,
-    ryrqsj               datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    rykbdm               varchar(11)          not null/* ÈëÔº¿Æ±ğ´úÂë */,
-    rykb                 varchar(50)          not null/* ÈëÔº¿Æ±ğÃû³Æ */,
-    rybf                 varchar(10)          not null/* ÈëÔº²¡·¿ */,
-    zkkb                 varchar(50)          null/* ×ª¿Æ¿Æ±ğ */,
-    cyrqsj               datetime             not null/* ³öÔºÈÕÆÚÊ±¼ä */,
-    cykbdm               varchar(11)          not null/* ³öÔº¿Æ±ğ´úÂë */,
-    cykbmc               varchar(50)          not null/* ³öÔº¿Æ±ğ */,
-    cybf                 varchar(10)          not null/* ³öÔº²¡·¿ */,
-    sjzyts               numeric(4)           not null/* Êµ¼Ê×¡ÔºÌìÊı */,
-    sslcljbzdm           varchar(2)           not null/* ÊµÊ©ÁÙ´²Â·¾¶±êÖ¾´úÂë */,
-    sslcljbzmc           varchar(50)          not null/* ÊµÊ©ÁÙ´²Â·¾¶±êÖ¾Ãû³Æ */,
-    syyljgzyzjbz         char(1)              null/* Ê¹ÓÃÒ½ÁÆ»ú¹¹ÖĞÒ©ÖÆ¼Á±êÖ¾ */,
-    syzyzlsbbz           char(1)              null/* Ê¹ÓÃÖĞÒ½ÕïÁÆÉè±¸±êÖ¾ */,
-    syzyzljsbz           char(1)              null/* Ê¹ÓÃÖĞÒ½ÕïÁÆ¼¼Êõ±êÖ¾ */,
-    bzshbz               char(1)              null/* ±æÖ¤Ê©»¤±êÖ¾ */,
-    sszddwbyyjbbm        varchar(64)          not null/* ËğÉËÖĞ¶¾µÄÍâ²¿Ô­Òò¼²²¡±àÂë */,
-    sszddwbyyjbmc        varchar(128)         not null/* ËğÉËÖĞ¶¾µÄÍâ²¿Ô­Òò */,
-    swhzsjbz             char(1)              null/* ËÀÍö»¼ÕßÊ¬¼ì±êÖ¾ */,
-    aboxxdm              varchar(2)           not null/* ABOÑªĞÍ´úÂë */,
-    aboxxmc              varchar(8)           not null/* ABOÑªĞÍÃû³Æ */,
-    rhxxdm               varchar(2)           not null/* RhÑªĞÍ´úÂë */,
-    rhxxmc               varchar(8)           not null/* RhÑªĞÍÃû³Æ */,
-    kzrdm                varchar(20)          not null/* ¿ÆÖ÷ÈÎ¹¤ºÅ */,
-    kzrqm                varchar(50)          not null/* ¿ÆÖ÷ÈÎÇ©Ãû */,
-    zrfzrysdm            varchar(20)          not null/* Ö÷ÈÎ£¨¸±Ö÷ÈÎ£©Ò½Ê¦¹¤ºÅ */,
-    zrfzrysqm            varchar(50)          not null/* Ö÷ÈÎ£¨¸±Ö÷ÈÎ£©Ò½Ê¦Ç©Ãû */,
-    zzysdm               varchar(20)          not null/* Ö÷ÖÎÒ½Ê¦¹¤ºÅ */,
-    zzysqm               varchar(50)          not null/* Ö÷ÖÎÒ½Ê¦Ç©Ãû */,
-    zyysdm               varchar(20)          not null/* ×¡ÔºÒ½Ê¦¹¤ºÅ */,
-    zyysqm               varchar(50)          not null/* ×¡ÔºÒ½Ê¦Ç©Ãû */,
-    zrhsdm               varchar(20)          not null/* ÔğÈÎ»¤Ê¿¹¤ºÅ */,
-    zrhsqm               varchar(50)          not null/* ÔğÈÎ»¤Ê¿Ç©Ãû */,
-    jxysdm               varchar(20)          not null/* ½øĞŞÒ½Ê¦¹¤ºÅ */,
-    jxysqm               varchar(50)          not null/* ½øĞŞÒ½Ê¦Ç©Ãû */,
-    sxysdm               varchar(20)          not null/* ÊµÏ°Ò½Ê¦¹¤ºÅ */,
-    sxysqm               varchar(50)          not null/* ÊµÏ°Ò½Ê¦Ç©Ãû */,
-    bydm                 varchar(20)          not null/* ±àÂëÔ±¹¤ºÅ */,
-    bym                  varchar(50)          not null/* ±àÂëÔ±Ç©Ãû */,
-    bazldm               varchar(2)           not null/* ²¡°¸ÖÊÁ¿´úÂë */,
-    bazlmc               varchar(50)          not null/* ²¡°¸ÖÊÁ¿Ãû³Æ */,
-    zkysdm               varchar(20)          not null/* ÖÊ¿ØÒ½Ê¦¹¤ºÅ */,
-    zkysqm               varchar(50)          not null/* ÖÊ¿ØÒ½Ê¦Ç©Ãû */,
-    zkhsdm               varchar(20)          not null/* ÖÊ¿Ø»¤Ê¿¹¤ºÅ */,
-    zkhsqm               varchar(50)          not null/* ÖÊ¿Ø»¤Ê¿Ç©Ãû */,
-    zkrq                 date                 not null/* ÖÊ¿ØÈÕÆÚ */,
-    ssjczbm              varchar(64)          not null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssjczrq              datetime             not null/* ÊÖÊõ¼°²Ù×÷ÈÕÆÚ */,
-    ssjbdm               varchar(2)           not null/* ÊÖÊõ¼¶±ğ´úÂë */,
-    ssjbmc               varchar(50)          not null/* ÊÖÊõ¼¶±ğÃû³Æ */,
-    ssjczmc              varchar(128)         not null/* ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    sszdm                varchar(20)          not null/* ÊÖÊõÕß¹¤ºÅ */,
-    sszxm                varchar(50)          not null/* ÊÖÊõÕßĞÕÃû */,
-    yzdm                 varchar(20)          not null/* ¢ñÖú¹¤ºÅ */,
-    yzxm                 varchar(50)          not null/* ¢ñÖúĞÕÃû */,
-    ezdm                 varchar(20)          not null/* ¢òÖú¹¤ºÅ */,
-    ezxm                 varchar(50)          not null/* ¢òÖúĞÕÃû */,
-    ssqklbdm             varchar(2)           not null/* ÊÖÊõÇĞ¿ÚÀà±ğ´úÂë */,
-    ssqklbmc             varchar(100)         not null/* ÊÖÊõÇĞ¿ÚÀà±ğÃû³Æ */,
-    qkyhdjdm             varchar(2)           not null/* ÇĞ¿ÚÓúºÏµÈ¼¶´úÂë */,
-    qkyhdjmc             varchar(100)         not null/* ÇĞ¿ÚÓúºÏµÈ¼¶Ãû³Æ */,
-    mzffdm               numeric(2)           not null/* Âé×í·½·¨´úÂë */,
-    mzffmc               varchar(50)          not null/* Âé×í·½·¨Ãû³Æ */,
-    mzysdm               varchar(20)          not null/* Âé×íÒ½Ê¦¹¤ºÅ */,
-    mzysxm               varchar(50)          not null/* Âé×íÒ½Ê¦ĞÕÃû */,
-    lyfsdm               varchar(2)           not null/* ÀëÔº·½Ê½´úÂë */,
-    lyfsmc               varchar(100)         not null/* ÀëÔº·½Ê½Ãû³Æ */,
-    njsyljgdm            varchar(20)          null/* Äâ½ÓÊÕÒ½ÁÆ»ú¹¹´úÂë */,
-    njsyljgmc            varchar(70)          null/* Äâ½ÓÊÕÒ½ÁÆ»ú¹¹Ãû³Æ */,
-    cy31dnzzybz          char(1)              not null/* ³öÔº31dÄÚÔÙ×¡Ôº±êÖ¾ */,
-    cy31dnzzymd          varchar(100)         null/* ³öÔº31dÄÚÔÙ×¡ÔºÄ¿µÄ */,
-    lnsshzryqhmsj_d      numeric(5)           not null/* Â­ÄÔËğÉË»¼ÕßÈëÔºÇ°»èÃÔÊ±¼ä-d */,
-    lnsshzryqhmsj_h      numeric(2)           not null/* Â­ÄÔËğÉË»¼ÕßÈëÔºÇ°»èÃÔÊ±¼ä-h */,
-    lnsshzryqhmsj_min    numeric(2)           not null/* Â­ÄÔËğÉË»¼ÕßÈëÔºÇ°»èÃÔÊ±¼ä-min */,
-    lnsshzryhhmsj_d      numeric(5)           not null/* Â­ÄÔËğÉË»¼ÕßÈëÔººó»èÃÔÊ±¼ä-d */,
-    lnsshzryhhmsj_h      numeric(2)           not null/* Â­ÄÔËğÉË»¼ÕßÈëÔººó»èÃÔÊ±¼ä-h */,
-    lnsshzryhhmsj_min    numeric(2)           not null/* Â­ÄÔËğÉË»¼ÕßÈëÔººó»èÃÔÊ±¼ä-min */,
-    zyzfy                numeric(10,2)        not null/* ×¡Ôº×Ü·ÑÓÃ */,
-    zyzfy_zfje           numeric(10,2)        not null/* ×¡Ôº×Ü·ÑÓÃ-×Ô¸¶½ğ¶î */,
-    zhylfwl_ybylfwf      numeric(10,2)        not null/* ×ÛºÏÒ½ÁÆ·şÎñÀà-Ò»°ãÒ½ÁÆ·şÎñ·Ñ */,
-    zhylfwl_ybylfwf_zybzlzf numeric(10,2)        not null/* ×ÛºÏÒ½ÁÆ·şÎñÀà-Ò»°ãÒ½ÁÆ·şÎñ·Ñ-ÖĞÒ½±æÖ¤ÂÛÖÎ·Ñ */,
-    zhylfwl_ybylfwf_zybzlzhzf numeric(10,2)        not null/* ×ÛºÏÒ½ÁÆ·şÎñÀà-Ò»°ãÒ½ÁÆ·şÎñ·Ñ-ÖĞÒ½±æÖ¤ÂÛÖÎ»áÕï·Ñ */,
-    zhylfwl_ybzlczf      numeric(10,2)        not null/* ×ÛºÏÒ½ÁÆ·şÎñÀà-Ò»°ãÖÎÁÆ²Ù×÷·Ñ */,
-    zhylfwl_hlf          numeric(10,2)        not null/* ×ÛºÏÒ½ÁÆ·şÎñÀà-»¤Àí·Ñ */,
-    zhylfwl_qtfy         numeric(10,2)        not null/* ×ÛºÏÒ½ÁÆ·şÎñÀà-ÆäËû·ÑÓÃ */,
-    zdl_blzdf            numeric(10,2)        not null/* Õï¶ÏÀà-²¡ÀíÕï¶Ï·Ñ */,
-    zdl_syszdf           numeric(10,2)        not null/* Õï¶ÏÀà-ÊµÑéÊÒÕï¶Ï·Ñ */,
-    zdl_yxxzdf           numeric(10,2)        not null/* Õï¶ÏÀà-Ó°ÏñÑ§Õï¶Ï·Ñ */,
-    zdl_lczdxmf          numeric(10,2)        not null/* Õï¶ÏÀà-ÁÙ´²Õï¶ÏÏîÄ¿·Ñ */,
-    zll_fsszlxmf         numeric(10,2)        not null/* ÖÎÁÆÀà-·ÇÊÖÊõÖÎÁÆÏîÄ¿·Ñ */,
-    zll_fsszlxmf_lcwlzlf numeric(10,2)        not null/* ÖÎÁÆÀà-·ÇÊÖÊõÖÎÁÆÏîÄ¿·Ñ-ÁÙ´²ÎïÀíÖÎÁÆ·Ñ */,
-    zll_sszlf            numeric(10,2)        not null/* ÖÎÁÆÀà-ÊÖÊõÖÎÁÆ·Ñ */,
-    zll_sszlf_mzf        numeric(10,2)        not null/* ÖÎÁÆÀà-ÊÖÊõÖÎÁÆ·Ñ-Âé×í·Ñ */,
-    zll_sszlf_ssf        numeric(10,2)        not null/* ÖÎÁÆÀà-ÊÖÊõÖÎÁÆ·Ñ-ÊÖÊõ·Ñ */,
-    kfl_kff              numeric(10,2)        not null/* ¿µ¸´Àà-¿µ¸´·Ñ */,
-    zyl_zyzdf            numeric(10,2)        not null/* ÖĞÒ½Àà-ÖĞÒ½Õï¶Ï·Ñ */,
-    zyl_zyzlf            numeric(10,2)        not null/* ÖĞÒ½Àà-ÖĞÒ½ÖÎÁÆ·Ñ */,
-    zyl_zyzlf_zywzf      numeric(10,2)        not null/* ÖĞÒ½Àà-ÖĞÒ½ÖÎÁÆ·Ñ-ÖĞÒ½ÍâÖÎ·Ñ */,
-    zyl_zyzlf_zygsf      numeric(10,2)        not null/* ÖĞÒ½Àà-ÖĞÒ½ÖÎÁÆ·Ñ-ÖĞÒ½¹ÇÉË·Ñ */,
-    zyl_zyzlf_zcyjff     numeric(10,2)        not null/* ÖĞÒ½Àà-ÖĞÒ½ÖÎÁÆ·Ñ-Õë´ÌÓë¾Ä·¨·Ñ */,
-    zyl_zyzlf_zytnzlf    numeric(10,2)        not null/* ÖĞÒ½Àà-ÖĞÒ½ÖÎÁÆ·Ñ-ÖĞÒ½ÍÆÄÃÖÎÁÆ·Ñ */,
-    zyl_zyzlf_zygczlf    numeric(10,2)        not null/* ÖĞÒ½Àà-ÖĞÒ½ÖÎÁÆ·Ñ-ÖĞÒ½¸Ø³¦ÖÎÁÆ·Ñ */,
-    zyl_zyzlf_zytszlf    numeric(10,2)        not null/* ÖĞÒ½Àà-ÖĞÒ½ÖÎÁÆ·Ñ-ÖĞÒ½ÌØÊâÖÎÁÆ·Ñ */,
-    zyl_zyqtf            numeric(10,2)        not null/* ÖĞÒ½Àà-ÖĞÒ½ÆäËû·Ñ */,
-    zyl_zyqtf_zytsdpjgf  numeric(10,2)        not null/* ÖĞÒ½Àà-ÖĞÒ½ÆäËû·Ñ-ÖĞÒ½ÌØÊâµ÷Åä¼Ó¹¤·Ñ */,
-    zyl_zyqtf_bzssf      numeric(10,2)        not null/* ÖĞÒ½Àà-ÖĞÒ½ÆäËû·Ñ-±æÖ¤Ê©ÉÅ·Ñ */,
-    xyl_xyf              numeric(10,2)        not null/* Î÷Ò©Àà-Î÷Ò©·Ñ */,
-    xyl_xyf_kjywfy       numeric(10,2)        not null/* Î÷Ò©Àà-Î÷Ò©·Ñ-¿¹¾úÒ©Îï·ÑÓÃ */,
-    zyl_zchenyf          numeric(10,2)        not null/* ÖĞÒ©Àà-ÖĞ³ÉÒ©·Ñ */,
-    zyl_zcyf_yljgzyzjf   numeric(10,2)        not null/* ÖĞÒ©Àà-ÖĞ³ÉÒ©·Ñ-Ò½ÁÆ»ú¹¹ÖĞÒ©ÖÆ¼Á·Ñ */,
-    zyl_zcyf             numeric(10,2)        not null/* ÖĞÒ©Àà-ÖĞ²İÒ©·Ñ */,
-    xyhxyzpl_xf          numeric(10,2)        not null/* ÑªÒººÍÑªÒºÖÆÆ·Àà-Ñª·Ñ */,
-    xyhxyzpl_bdblzpf     numeric(10,2)        not null/* ÑªÒººÍÑªÒºÖÆÆ·Àà-°×µ°°×ÀàÖÆÆ··Ñ */,
-    xyhxyzpl_qdblzpf     numeric(10,2)        not null/* ÑªÒººÍÑªÒºÖÆÆ·Àà-Çòµ°°×ÀàÖÆÆ··Ñ */,
-    xyhxyzpl_nxyzlzpf    numeric(10,2)        not null/* ÑªÒººÍÑªÒºÖÆÆ·Àà-ÄıÑªÒò×ÓÀàÖÆÆ··Ñ */,
-    xyhxyzpl_xbyzlzpf    numeric(10,2)        not null/* ÑªÒººÍÑªÒºÖÆÆ·Àà-Ï¸°ûÒò×ÓÀàÖÆÆ··Ñ */,
-    hcl_jcyycxyyclf      numeric(10,2)        not null/* ºÄ²ÄÀà-¼ì²éÓÃÒ»´ÎĞÔÒ½ÓÃ²ÄÁÏ·Ñ */,
-    hcl_zlyycxyyclf      numeric(10,2)        not null/* ºÄ²ÄÀà-ÖÎÁÆÓÃÒ»´ÎĞÔÒ½ÓÃ²ÄÁÏ·Ñ */,
-    hcl_ssyycxyyclf      numeric(10,2)        not null/* ºÄ²ÄÀà-ÊÖÊõÓÃÒ»´ÎĞÔÒ½ÓÃ²ÄÁÏ·Ñ */,
-    qtl_qtf              numeric(10,2)        not null/* ÆäËûÀà-ÆäËû·Ñ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    yljgzzjgdm           varchar(10)          not null/* åŒ»ç–—æœºæ„ä»£ç  */,
+    yljgzzjgmc           varchar(70)          not null/* åŒ»ç–—æœºæ„åç§° */,
+    ylfffsdm             varchar(2)           not null/* åŒ»ç–—ä»˜è´¹æ–¹å¼ä»£ç  */,
+    ylfffsmc             varchar(50)          not null/* åŒ»ç–—ä»˜è´¹æ–¹å¼åç§° */,
+    jmjkkh               varchar(18)          not null/* å±…æ°‘å¥åº·æ¡£æ¡ˆ */,
+    zycs                 numeric(3)           not null/* ä½é™¢æ¬¡æ•° */,
+    bah                  varchar(18)          not null/* ç—…æ¡ˆå· */,
+    zyh                  varchar(20)          not null/* ä½é™¢å· */,
+    xm                   varchar(50)          not null/* å§“å */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    csrq                 date                 not null/* å‡ºç”Ÿæ—¥æœŸ */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    gjdm                 varchar(3)           not null/* å›½ç±ä»£ç  */,
+    gjmc                 varchar(100)         not null/* å›½ç±åç§° */,
+    xsecstzg             numeric(4)           null/* æ–°ç”Ÿå„¿å‡ºç”Ÿä½“é‡ï¼ˆgï¼‰ */,
+    xserytzg             numeric(4)           null/* æ–°ç”Ÿå„¿å…¥é™¢ä½“é‡ï¼ˆgï¼‰ */,
+    csd_s                varchar(70)          not null/* å‡ºç”Ÿåœ°-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    csd_cs               varchar(70)          not null/* å‡ºç”Ÿåœ°-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    csd_xq               varchar(70)          not null/* å‡ºç”Ÿåœ°-å¿ï¼ˆåŒºï¼‰ */,
+    jg_s                 varchar(70)          not null/* ç±è´¯-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    jg_cs                varchar(70)          not null/* ç±è´¯-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    mzdm                 varchar(2)           not null/* æ°‘æ— */,
+    mzmc                 varchar(50)          not null/* æ°‘æ—åç§° */,
+    hzsfzjlbdm           varchar(2)           not null/* æ‚£è€…èº«ä»½è¯ä»¶ç±»åˆ«ä»£ç  */,
+    hzsfzjlbmc           varchar(64)          not null/* æ‚£è€…èº«ä»½è¯ä»¶ç±»åˆ«åç§° */,
+    hzsfzjhm             varchar(18)          not null/* æ‚£è€…èº«ä»½è¯ä»¶å·ç  */,
+    zylbdm               varchar(2)           null/* èŒä¸šç±»åˆ«ä»£ç  */,
+    zylbmc               varchar(18)          null/* èŒä¸šç±»åˆ«åç§° */,
+    hyzkdm               varchar(2)           not null/* å©šå§»çŠ¶å†µä»£ç  */,
+    hyzkmc               varchar(18)          not null/* å©šå§»çŠ¶å†µåç§° */,
+    xzz_s                varchar(70)          not null/* ç°ä½å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    xzz_cs               varchar(70)          not null/* ç°ä½å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    xzz_xq               varchar(70)          not null/* ç°ä½å€-å¿ï¼ˆåŒºï¼‰ */,
+    xzz_xz               varchar(70)          not null/* ç°ä½å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    xzz_c                varchar(70)          not null/* ç°ä½å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    xzz_mphm             varchar(70)          not null/* ç°ä½å€-é—¨ç‰Œå·ç  */,
+    dhhm                 varchar(20)          not null/* ç”µè¯å·ç  */,
+    xzz_yzbm             numeric(6)           not null/* ç°ä½å€-é‚®æ”¿ç¼–ç  */,
+    hkdz_s               varchar(70)          not null/* æˆ·å£åœ°å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    hkdz_cs              varchar(70)          not null/* æˆ·å£åœ°å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    hkdz_xq              varchar(70)          not null/* æˆ·å£åœ°å€-å¿ï¼ˆåŒºï¼‰ */,
+    hkdz_xz              varchar(70)          not null/* æˆ·å£åœ°å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    hkdz_c               varchar(70)          not null/* æˆ·å£åœ°å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    hkdz_mphm            varchar(70)          not null/* æˆ·å£åœ°å€-é—¨ç‰Œå·ç  */,
+    hkdz_yzbm            numeric(6)           not null/* æˆ·å£åœ°å€-é‚®æ”¿ç¼–ç  */,
+    gzdwmc               varchar(70)          not null/* å·¥ä½œå•ä½åç§° */,
+    gzdwdz_s             varchar(70)          not null/* å·¥ä½œå•ä½åœ°å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    gzdwdz_cs            varchar(70)          not null/* å·¥ä½œå•ä½åœ°å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    gzdwdz_xq            varchar(70)          not null/* å·¥ä½œå•ä½åœ°å€-å¿ï¼ˆåŒºï¼‰ */,
+    gzdwdz_xz            varchar(70)          not null/* å·¥ä½œå•ä½åœ°å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    gzdwdz_c             varchar(70)          not null/* å·¥ä½œå•ä½åœ°å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    gzdwdz_mphm          varchar(70)          not null/* å·¥ä½œå•ä½åœ°å€-é—¨ç‰Œå·ç  */,
+    gzdwdhhm             varchar(20)          not null/* å·¥ä½œå•ä½ç”µè¯å·ç  */,
+    gzdwdz_yzbm          numeric(6)           not null/* å·¥ä½œå•ä½åœ°å€-é‚®æ”¿ç¼–ç  */,
+    lxrxm                varchar(50)          not null/* è”ç³»äººå§“å */,
+    lxryhzdgxdm          varchar(2)           not null/* è”ç³»äººä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    lxryhzdgxmc          varchar(50)          not null/* è”ç³»äººä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    lxrdz_s              varchar(70)          not null/* è”ç³»äººåœ°å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    lxrdz_cs             varchar(70)          not null/* è”ç³»äººåœ°å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    lxrdz_xq             varchar(70)          not null/* è”ç³»äººåœ°å€-å¿ï¼ˆåŒºï¼‰ */,
+    lxrdz_xz             varchar(70)          not null/* è”ç³»äººåœ°å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    lxrdz_c              varchar(70)          not null/* è”ç³»äººåœ°å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    lxrdz_mphm           varchar(70)          not null/* è”ç³»äººåœ°å€-é—¨ç‰Œå·ç  */,
+    lxrdhhm              varchar(20)          not null/* è”ç³»äººç”µè¯å·ç  */,
+    rytjdm               varchar(2)           not null/* å…¥é™¢é€”å¾„ä»£ç  */,
+    rytjmc               varchar(20)          not null/* å…¥é™¢é€”å¾„åç§° */,
+    zllbdm               varchar(2)           not null/* æ²»ç–—ç±»åˆ«ä»£ç  */,
+    zllbmc               varchar(100)         not null/* æ²»ç–—ç±»åˆ«åç§° */,
+    ryrqsj               datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    rykbdm               varchar(11)          not null/* å…¥é™¢ç§‘åˆ«ä»£ç  */,
+    rykb                 varchar(50)          not null/* å…¥é™¢ç§‘åˆ«åç§° */,
+    rybf                 varchar(10)          not null/* å…¥é™¢ç—…æˆ¿ */,
+    zkkb                 varchar(50)          null/* è½¬ç§‘ç§‘åˆ« */,
+    cyrqsj               datetime             not null/* å‡ºé™¢æ—¥æœŸæ—¶é—´ */,
+    cykbdm               varchar(11)          not null/* å‡ºé™¢ç§‘åˆ«ä»£ç  */,
+    cykbmc               varchar(50)          not null/* å‡ºé™¢ç§‘åˆ« */,
+    cybf                 varchar(10)          not null/* å‡ºé™¢ç—…æˆ¿ */,
+    sjzyts               numeric(4)           not null/* å®é™…ä½é™¢å¤©æ•° */,
+    sslcljbzdm           varchar(2)           not null/* å®æ–½ä¸´åºŠè·¯å¾„æ ‡å¿—ä»£ç  */,
+    sslcljbzmc           varchar(50)          not null/* å®æ–½ä¸´åºŠè·¯å¾„æ ‡å¿—åç§° */,
+    syyljgzyzjbz         char(1)              null/* ä½¿ç”¨åŒ»ç–—æœºæ„ä¸­è¯åˆ¶å‰‚æ ‡å¿— */,
+    syzyzlsbbz           char(1)              null/* ä½¿ç”¨ä¸­åŒ»è¯Šç–—è®¾å¤‡æ ‡å¿— */,
+    syzyzljsbz           char(1)              null/* ä½¿ç”¨ä¸­åŒ»è¯Šç–—æŠ€æœ¯æ ‡å¿— */,
+    bzshbz               char(1)              null/* è¾¨è¯æ–½æŠ¤æ ‡å¿— */,
+    sszddwbyyjbbm        varchar(64)          not null/* æŸä¼¤ä¸­æ¯’çš„å¤–éƒ¨åŸå› ç–¾ç—…ç¼–ç  */,
+    sszddwbyyjbmc        varchar(128)         not null/* æŸä¼¤ä¸­æ¯’çš„å¤–éƒ¨åŸå›  */,
+    swhzsjbz             char(1)              null/* æ­»äº¡æ‚£è€…å°¸æ£€æ ‡å¿— */,
+    aboxxdm              varchar(2)           not null/* ABOè¡€å‹ä»£ç  */,
+    aboxxmc              varchar(8)           not null/* ABOè¡€å‹åç§° */,
+    rhxxdm               varchar(2)           not null/* Rhè¡€å‹ä»£ç  */,
+    rhxxmc               varchar(8)           not null/* Rhè¡€å‹åç§° */,
+    kzrdm                varchar(20)          not null/* ç§‘ä¸»ä»»å·¥å· */,
+    kzrqm                varchar(50)          not null/* ç§‘ä¸»ä»»ç­¾å */,
+    zrfzrysdm            varchar(20)          not null/* ä¸»ä»»ï¼ˆå‰¯ä¸»ä»»ï¼‰åŒ»å¸ˆå·¥å· */,
+    zrfzrysqm            varchar(50)          not null/* ä¸»ä»»ï¼ˆå‰¯ä¸»ä»»ï¼‰åŒ»å¸ˆç­¾å */,
+    zzysdm               varchar(20)          not null/* ä¸»æ²»åŒ»å¸ˆå·¥å· */,
+    zzysqm               varchar(50)          not null/* ä¸»æ²»åŒ»å¸ˆç­¾å */,
+    zyysdm               varchar(20)          not null/* ä½é™¢åŒ»å¸ˆå·¥å· */,
+    zyysqm               varchar(50)          not null/* ä½é™¢åŒ»å¸ˆç­¾å */,
+    zrhsdm               varchar(20)          not null/* è´£ä»»æŠ¤å£«å·¥å· */,
+    zrhsqm               varchar(50)          not null/* è´£ä»»æŠ¤å£«ç­¾å */,
+    jxysdm               varchar(20)          not null/* è¿›ä¿®åŒ»å¸ˆå·¥å· */,
+    jxysqm               varchar(50)          not null/* è¿›ä¿®åŒ»å¸ˆç­¾å */,
+    sxysdm               varchar(20)          not null/* å®ä¹ åŒ»å¸ˆå·¥å· */,
+    sxysqm               varchar(50)          not null/* å®ä¹ åŒ»å¸ˆç­¾å */,
+    bydm                 varchar(20)          not null/* ç¼–ç å‘˜å·¥å· */,
+    bym                  varchar(50)          not null/* ç¼–ç å‘˜ç­¾å */,
+    bazldm               varchar(2)           not null/* ç—…æ¡ˆè´¨é‡ä»£ç  */,
+    bazlmc               varchar(50)          not null/* ç—…æ¡ˆè´¨é‡åç§° */,
+    zkysdm               varchar(20)          not null/* è´¨æ§åŒ»å¸ˆå·¥å· */,
+    zkysqm               varchar(50)          not null/* è´¨æ§åŒ»å¸ˆç­¾å */,
+    zkhsdm               varchar(20)          not null/* è´¨æ§æŠ¤å£«å·¥å· */,
+    zkhsqm               varchar(50)          not null/* è´¨æ§æŠ¤å£«ç­¾å */,
+    zkrq                 date                 not null/* è´¨æ§æ—¥æœŸ */,
+    ssjczbm              varchar(64)          not null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssjczrq              datetime             not null/* æ‰‹æœ¯åŠæ“ä½œæ—¥æœŸ */,
+    ssjbdm               varchar(2)           not null/* æ‰‹æœ¯çº§åˆ«ä»£ç  */,
+    ssjbmc               varchar(50)          not null/* æ‰‹æœ¯çº§åˆ«åç§° */,
+    ssjczmc              varchar(128)         not null/* æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    sszdm                varchar(20)          not null/* æ‰‹æœ¯è€…å·¥å· */,
+    sszxm                varchar(50)          not null/* æ‰‹æœ¯è€…å§“å */,
+    yzdm                 varchar(20)          not null/* â… åŠ©å·¥å· */,
+    yzxm                 varchar(50)          not null/* â… åŠ©å§“å */,
+    ezdm                 varchar(20)          not null/* â…¡åŠ©å·¥å· */,
+    ezxm                 varchar(50)          not null/* â…¡åŠ©å§“å */,
+    ssqklbdm             varchar(2)           not null/* æ‰‹æœ¯åˆ‡å£ç±»åˆ«ä»£ç  */,
+    ssqklbmc             varchar(100)         not null/* æ‰‹æœ¯åˆ‡å£ç±»åˆ«åç§° */,
+    qkyhdjdm             varchar(2)           not null/* åˆ‡å£æ„ˆåˆç­‰çº§ä»£ç  */,
+    qkyhdjmc             varchar(100)         not null/* åˆ‡å£æ„ˆåˆç­‰çº§åç§° */,
+    mzffdm               numeric(2)           not null/* éº»é†‰æ–¹æ³•ä»£ç  */,
+    mzffmc               varchar(50)          not null/* éº»é†‰æ–¹æ³•åç§° */,
+    mzysdm               varchar(20)          not null/* éº»é†‰åŒ»å¸ˆå·¥å· */,
+    mzysxm               varchar(50)          not null/* éº»é†‰åŒ»å¸ˆå§“å */,
+    lyfsdm               varchar(2)           not null/* ç¦»é™¢æ–¹å¼ä»£ç  */,
+    lyfsmc               varchar(100)         not null/* ç¦»é™¢æ–¹å¼åç§° */,
+    njsyljgdm            varchar(20)          null/* æ‹Ÿæ¥æ”¶åŒ»ç–—æœºæ„ä»£ç  */,
+    njsyljgmc            varchar(70)          null/* æ‹Ÿæ¥æ”¶åŒ»ç–—æœºæ„åç§° */,
+    cy31dnzzybz          char(1)              not null/* å‡ºé™¢31då†…å†ä½é™¢æ ‡å¿— */,
+    cy31dnzzymd          varchar(100)         null/* å‡ºé™¢31då†…å†ä½é™¢ç›®çš„ */,
+    lnsshzryqhmsj_d      numeric(5)           not null/* é¢…è„‘æŸä¼¤æ‚£è€…å…¥é™¢å‰æ˜è¿·æ—¶é—´-d */,
+    lnsshzryqhmsj_h      numeric(2)           not null/* é¢…è„‘æŸä¼¤æ‚£è€…å…¥é™¢å‰æ˜è¿·æ—¶é—´-h */,
+    lnsshzryqhmsj_min    numeric(2)           not null/* é¢…è„‘æŸä¼¤æ‚£è€…å…¥é™¢å‰æ˜è¿·æ—¶é—´-min */,
+    lnsshzryhhmsj_d      numeric(5)           not null/* é¢…è„‘æŸä¼¤æ‚£è€…å…¥é™¢åæ˜è¿·æ—¶é—´-d */,
+    lnsshzryhhmsj_h      numeric(2)           not null/* é¢…è„‘æŸä¼¤æ‚£è€…å…¥é™¢åæ˜è¿·æ—¶é—´-h */,
+    lnsshzryhhmsj_min    numeric(2)           not null/* é¢…è„‘æŸä¼¤æ‚£è€…å…¥é™¢åæ˜è¿·æ—¶é—´-min */,
+    zyzfy                numeric(10,2)        not null/* ä½é™¢æ€»è´¹ç”¨ */,
+    zyzfy_zfje           numeric(10,2)        not null/* ä½é™¢æ€»è´¹ç”¨-è‡ªä»˜é‡‘é¢ */,
+    zhylfwl_ybylfwf      numeric(10,2)        not null/* ç»¼åˆåŒ»ç–—æœåŠ¡ç±»-ä¸€èˆ¬åŒ»ç–—æœåŠ¡è´¹ */,
+    zhylfwl_ybylfwf_zybzlzf numeric(10,2)        not null/* ç»¼åˆåŒ»ç–—æœåŠ¡ç±»-ä¸€èˆ¬åŒ»ç–—æœåŠ¡è´¹-ä¸­åŒ»è¾¨è¯è®ºæ²»è´¹ */,
+    zhylfwl_ybylfwf_zybzlzhzf numeric(10,2)        not null/* ç»¼åˆåŒ»ç–—æœåŠ¡ç±»-ä¸€èˆ¬åŒ»ç–—æœåŠ¡è´¹-ä¸­åŒ»è¾¨è¯è®ºæ²»ä¼šè¯Šè´¹ */,
+    zhylfwl_ybzlczf      numeric(10,2)        not null/* ç»¼åˆåŒ»ç–—æœåŠ¡ç±»-ä¸€èˆ¬æ²»ç–—æ“ä½œè´¹ */,
+    zhylfwl_hlf          numeric(10,2)        not null/* ç»¼åˆåŒ»ç–—æœåŠ¡ç±»-æŠ¤ç†è´¹ */,
+    zhylfwl_qtfy         numeric(10,2)        not null/* ç»¼åˆåŒ»ç–—æœåŠ¡ç±»-å…¶ä»–è´¹ç”¨ */,
+    zdl_blzdf            numeric(10,2)        not null/* è¯Šæ–­ç±»-ç—…ç†è¯Šæ–­è´¹ */,
+    zdl_syszdf           numeric(10,2)        not null/* è¯Šæ–­ç±»-å®éªŒå®¤è¯Šæ–­è´¹ */,
+    zdl_yxxzdf           numeric(10,2)        not null/* è¯Šæ–­ç±»-å½±åƒå­¦è¯Šæ–­è´¹ */,
+    zdl_lczdxmf          numeric(10,2)        not null/* è¯Šæ–­ç±»-ä¸´åºŠè¯Šæ–­é¡¹ç›®è´¹ */,
+    zll_fsszlxmf         numeric(10,2)        not null/* æ²»ç–—ç±»-éæ‰‹æœ¯æ²»ç–—é¡¹ç›®è´¹ */,
+    zll_fsszlxmf_lcwlzlf numeric(10,2)        not null/* æ²»ç–—ç±»-éæ‰‹æœ¯æ²»ç–—é¡¹ç›®è´¹-ä¸´åºŠç‰©ç†æ²»ç–—è´¹ */,
+    zll_sszlf            numeric(10,2)        not null/* æ²»ç–—ç±»-æ‰‹æœ¯æ²»ç–—è´¹ */,
+    zll_sszlf_mzf        numeric(10,2)        not null/* æ²»ç–—ç±»-æ‰‹æœ¯æ²»ç–—è´¹-éº»é†‰è´¹ */,
+    zll_sszlf_ssf        numeric(10,2)        not null/* æ²»ç–—ç±»-æ‰‹æœ¯æ²»ç–—è´¹-æ‰‹æœ¯è´¹ */,
+    kfl_kff              numeric(10,2)        not null/* åº·å¤ç±»-åº·å¤è´¹ */,
+    zyl_zyzdf            numeric(10,2)        not null/* ä¸­åŒ»ç±»-ä¸­åŒ»è¯Šæ–­è´¹ */,
+    zyl_zyzlf            numeric(10,2)        not null/* ä¸­åŒ»ç±»-ä¸­åŒ»æ²»ç–—è´¹ */,
+    zyl_zyzlf_zywzf      numeric(10,2)        not null/* ä¸­åŒ»ç±»-ä¸­åŒ»æ²»ç–—è´¹-ä¸­åŒ»å¤–æ²»è´¹ */,
+    zyl_zyzlf_zygsf      numeric(10,2)        not null/* ä¸­åŒ»ç±»-ä¸­åŒ»æ²»ç–—è´¹-ä¸­åŒ»éª¨ä¼¤è´¹ */,
+    zyl_zyzlf_zcyjff     numeric(10,2)        not null/* ä¸­åŒ»ç±»-ä¸­åŒ»æ²»ç–—è´¹-é’ˆåˆºä¸ç¸æ³•è´¹ */,
+    zyl_zyzlf_zytnzlf    numeric(10,2)        not null/* ä¸­åŒ»ç±»-ä¸­åŒ»æ²»ç–—è´¹-ä¸­åŒ»æ¨æ‹¿æ²»ç–—è´¹ */,
+    zyl_zyzlf_zygczlf    numeric(10,2)        not null/* ä¸­åŒ»ç±»-ä¸­åŒ»æ²»ç–—è´¹-ä¸­åŒ»è‚›è‚ æ²»ç–—è´¹ */,
+    zyl_zyzlf_zytszlf    numeric(10,2)        not null/* ä¸­åŒ»ç±»-ä¸­åŒ»æ²»ç–—è´¹-ä¸­åŒ»ç‰¹æ®Šæ²»ç–—è´¹ */,
+    zyl_zyqtf            numeric(10,2)        not null/* ä¸­åŒ»ç±»-ä¸­åŒ»å…¶ä»–è´¹ */,
+    zyl_zyqtf_zytsdpjgf  numeric(10,2)        not null/* ä¸­åŒ»ç±»-ä¸­åŒ»å…¶ä»–è´¹-ä¸­åŒ»ç‰¹æ®Šè°ƒé…åŠ å·¥è´¹ */,
+    zyl_zyqtf_bzssf      numeric(10,2)        not null/* ä¸­åŒ»ç±»-ä¸­åŒ»å…¶ä»–è´¹-è¾¨è¯æ–½è†³è´¹ */,
+    xyl_xyf              numeric(10,2)        not null/* è¥¿è¯ç±»-è¥¿è¯è´¹ */,
+    xyl_xyf_kjywfy       numeric(10,2)        not null/* è¥¿è¯ç±»-è¥¿è¯è´¹-æŠ—èŒè¯ç‰©è´¹ç”¨ */,
+    zyl_zchenyf          numeric(10,2)        not null/* ä¸­è¯ç±»-ä¸­æˆè¯è´¹ */,
+    zyl_zcyf_yljgzyzjf   numeric(10,2)        not null/* ä¸­è¯ç±»-ä¸­æˆè¯è´¹-åŒ»ç–—æœºæ„ä¸­è¯åˆ¶å‰‚è´¹ */,
+    zyl_zcyf             numeric(10,2)        not null/* ä¸­è¯ç±»-ä¸­è‰è¯è´¹ */,
+    xyhxyzpl_xf          numeric(10,2)        not null/* è¡€æ¶²å’Œè¡€æ¶²åˆ¶å“ç±»-è¡€è´¹ */,
+    xyhxyzpl_bdblzpf     numeric(10,2)        not null/* è¡€æ¶²å’Œè¡€æ¶²åˆ¶å“ç±»-ç™½è›‹ç™½ç±»åˆ¶å“è´¹ */,
+    xyhxyzpl_qdblzpf     numeric(10,2)        not null/* è¡€æ¶²å’Œè¡€æ¶²åˆ¶å“ç±»-çƒè›‹ç™½ç±»åˆ¶å“è´¹ */,
+    xyhxyzpl_nxyzlzpf    numeric(10,2)        not null/* è¡€æ¶²å’Œè¡€æ¶²åˆ¶å“ç±»-å‡è¡€å› å­ç±»åˆ¶å“è´¹ */,
+    xyhxyzpl_xbyzlzpf    numeric(10,2)        not null/* è¡€æ¶²å’Œè¡€æ¶²åˆ¶å“ç±»-ç»†èƒå› å­ç±»åˆ¶å“è´¹ */,
+    hcl_jcyycxyyclf      numeric(10,2)        not null/* è€—æç±»-æ£€æŸ¥ç”¨ä¸€æ¬¡æ€§åŒ»ç”¨ææ–™è´¹ */,
+    hcl_zlyycxyyclf      numeric(10,2)        not null/* è€—æç±»-æ²»ç–—ç”¨ä¸€æ¬¡æ€§åŒ»ç”¨ææ–™è´¹ */,
+    hcl_ssyycxyyclf      numeric(10,2)        not null/* è€—æç±»-æ‰‹æœ¯ç”¨ä¸€æ¬¡æ€§åŒ»ç”¨ææ–™è´¹ */,
+    qtl_qtf              numeric(10,2)        not null/* å…¶ä»–ç±»-å…¶ä»–è´¹ */,
     
    
     
@@ -8795,19 +8795,19 @@ where id = object_id('DC_ZYZYBA_BASY') )
 go
 
 /*========================================================================*/
- /* DC_ZYZYBA_BASY_BLZD     ²¡°¸Ê×Ò³£­ÖĞÒ½×¡Ôº²¡°¸_²¡ÀíÕï¶Ï                                                                                                  */
+ /* DC_ZYZYBA_BASY_BLZD     ç—…æ¡ˆé¦–é¡µï¼ä¸­åŒ»ä½é™¢ç—…æ¡ˆ_ç—…ç†è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYZYBA_BASY_BLZD') )
  create table  DC_ZYZYBA_BASY_BLZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    blhm                 varchar(18)          not null/* ²¡ÀíºÅ */,
-    blzdjbbm             varchar(64)          not null/* ²¡ÀíÕï¶Ï¼²²¡±àÂë */,
-    blzdmc               varchar(128)         not null/* ²¡ÀíÕï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    blhm                 varchar(18)          not null/* ç—…ç†å· */,
+    blzdjbbm             varchar(64)          not null/* ç—…ç†è¯Šæ–­ç–¾ç—…ç¼–ç  */,
+    blzdmc               varchar(128)         not null/* ç—…ç†è¯Šæ–­åç§° */,
     
    
     
@@ -8825,20 +8825,20 @@ where id = object_id('DC_ZYZYBA_BASY_BLZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYZYBA_BASY_CYXYQTZD     ²¡°¸Ê×Ò³£­ÖĞÒ½×¡Ôº²¡°¸_³öÔºÎ÷Ò½ÆäËûÕï¶Ï                                                                                                  */
+ /* DC_ZYZYBA_BASY_CYXYQTZD     ç—…æ¡ˆé¦–é¡µï¼ä¸­åŒ»ä½é™¢ç—…æ¡ˆ_å‡ºé™¢è¥¿åŒ»å…¶ä»–è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYZYBA_BASY_CYXYQTZD') )
  create table  DC_ZYZYBA_BASY_CYXYQTZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    cyxyzd_qtzdjbbm      varchar(64)          not null/* ³öÔºÎ÷Ò½Õï¶Ï-ÆäËûÕï¶Ï¼²²¡±àÂë */,
-    cyxyzd_qtzdmc        varchar(128)         not null/* ³öÔºÎ÷Ò½Õï¶Ï-ÆäËûÕï¶ÏÃû³Æ */,
-    cyxyzd_qtzd_rybqdm   varchar(64)          not null/* ³öÔºÎ÷Ò½Õï¶Ï-ÆäËûÕï¶Ï-ÈëÔº²¡Çé´úÂë */,
-    cyxyzd_qtzd_rybqmc   varchar(128)         not null/* ³öÔºÎ÷Ò½Õï¶Ï-ÆäËûÕï¶Ï-ÈëÔº²¡ÇéÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    cyxyzd_qtzdjbbm      varchar(64)          not null/* å‡ºé™¢è¥¿åŒ»è¯Šæ–­-å…¶ä»–è¯Šæ–­ç–¾ç—…ç¼–ç  */,
+    cyxyzd_qtzdmc        varchar(128)         not null/* å‡ºé™¢è¥¿åŒ»è¯Šæ–­-å…¶ä»–è¯Šæ–­åç§° */,
+    cyxyzd_qtzd_rybqdm   varchar(64)          not null/* å‡ºé™¢è¥¿åŒ»è¯Šæ–­-å…¶ä»–è¯Šæ–­-å…¥é™¢ç—…æƒ…ä»£ç  */,
+    cyxyzd_qtzd_rybqmc   varchar(128)         not null/* å‡ºé™¢è¥¿åŒ»è¯Šæ–­-å…¶ä»–è¯Šæ–­-å…¥é™¢ç—…æƒ…åç§° */,
     
    
     
@@ -8856,20 +8856,20 @@ where id = object_id('DC_ZYZYBA_BASY_CYXYQTZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYZYBA_BASY_CYXYZZD     ²¡°¸Ê×Ò³£­ÖĞÒ½×¡Ôº²¡°¸_³öÔºÎ÷Ò½Ö÷ÒªÕï¶Ï                                                                                                  */
+ /* DC_ZYZYBA_BASY_CYXYZZD     ç—…æ¡ˆé¦–é¡µï¼ä¸­åŒ»ä½é™¢ç—…æ¡ˆ_å‡ºé™¢è¥¿åŒ»ä¸»è¦è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYZYBA_BASY_CYXYZZD') )
  create table  DC_ZYZYBA_BASY_CYXYZZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    cyxyzd_zyzdmc        varchar(128)         not null/* ³öÔºÎ÷Ò½Õï¶Ï-Ö÷ÒªÕï¶ÏÃû³Æ */,
-    cyxyzd_zyzdjbbm      varchar(64)          not null/* ³öÔºÎ÷Ò½Õï¶Ï-Ö÷ÒªÕï¶Ï¼²²¡±àÂë */,
-    cyxyzd_zyzd_rybqdm   varchar(64)          not null/* ³öÔºÎ÷Ò½Õï¶Ï-Ö÷ÒªÕï¶Ï-ÈëÔº²¡Çé´úÂë */,
-    cyxyzd_zyzd_rybqmc   varchar(128)         not null/* ³öÔºÎ÷Ò½Õï¶Ï-Ö÷ÒªÕï¶Ï-ÈëÔº²¡ÇéÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    cyxyzd_zyzdmc        varchar(128)         not null/* å‡ºé™¢è¥¿åŒ»è¯Šæ–­-ä¸»è¦è¯Šæ–­åç§° */,
+    cyxyzd_zyzdjbbm      varchar(64)          not null/* å‡ºé™¢è¥¿åŒ»è¯Šæ–­-ä¸»è¦è¯Šæ–­ç–¾ç—…ç¼–ç  */,
+    cyxyzd_zyzd_rybqdm   varchar(64)          not null/* å‡ºé™¢è¥¿åŒ»è¯Šæ–­-ä¸»è¦è¯Šæ–­-å…¥é™¢ç—…æƒ…ä»£ç  */,
+    cyxyzd_zyzd_rybqmc   varchar(128)         not null/* å‡ºé™¢è¥¿åŒ»è¯Šæ–­-ä¸»è¦è¯Šæ–­-å…¥é™¢ç—…æƒ…åç§° */,
     
    
     
@@ -8887,20 +8887,20 @@ where id = object_id('DC_ZYZYBA_BASY_CYXYZZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYZYBA_BASY_CYZYBM     ²¡°¸Ê×Ò³£­ÖĞÒ½×¡Ôº²¡°¸_³öÔºÖĞÒ½Õï¶ÏÖ÷²¡                                                                                                  */
+ /* DC_ZYZYBA_BASY_CYZYBM     ç—…æ¡ˆé¦–é¡µï¼ä¸­åŒ»ä½é™¢ç—…æ¡ˆ_å‡ºé™¢ä¸­åŒ»è¯Šæ–­ä¸»ç—…                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYZYBA_BASY_CYZYBM') )
  create table  DC_ZYZYBA_BASY_CYZYBM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    cyzyzd_zbbm          varchar(64)          not null/* ³öÔºÖĞÒ½Õï¶Ï-Ö÷²¡±àÂë */,
-    cyzyzd_zbmc          varchar(128)         not null/* ³öÔºÖĞÒ½Õï¶Ï-Ö÷²¡Ãû³Æ */,
-    cyzyzd_zb_rybqdm     varchar(64)          not null/* ³öÔºÖĞÒ½Õï¶Ï-Ö÷²¡-ÈëÔº²¡Çé´úÂë */,
-    cyzyzd_zb_rybqmc     varchar(128)         not null/* ³öÔºÖĞÒ½Õï¶Ï-Ö÷²¡-ÈëÔº²¡ÇéÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    cyzyzd_zbbm          varchar(64)          not null/* å‡ºé™¢ä¸­åŒ»è¯Šæ–­-ä¸»ç—…ç¼–ç  */,
+    cyzyzd_zbmc          varchar(128)         not null/* å‡ºé™¢ä¸­åŒ»è¯Šæ–­-ä¸»ç—…åç§° */,
+    cyzyzd_zb_rybqdm     varchar(64)          not null/* å‡ºé™¢ä¸­åŒ»è¯Šæ–­-ä¸»ç—…-å…¥é™¢ç—…æƒ…ä»£ç  */,
+    cyzyzd_zb_rybqmc     varchar(128)         not null/* å‡ºé™¢ä¸­åŒ»è¯Šæ–­-ä¸»ç—…-å…¥é™¢ç—…æƒ…åç§° */,
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -8914,20 +8914,20 @@ where id = object_id('DC_ZYZYBA_BASY_CYZYBM') )
 go
 
 /*========================================================================*/
- /* DC_ZYZYBA_BASY_CYZYZH     ²¡°¸Ê×Ò³£­ÖĞÒ½×¡Ôº²¡°¸_³öÔºÖĞÒ½Õï¶ÏÖ÷Ö¤                                                                                                  */
+ /* DC_ZYZYBA_BASY_CYZYZH     ç—…æ¡ˆé¦–é¡µï¼ä¸­åŒ»ä½é™¢ç—…æ¡ˆ_å‡ºé™¢ä¸­åŒ»è¯Šæ–­ä¸»è¯                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYZYBA_BASY_CYZYZH') )
  create table  DC_ZYZYBA_BASY_CYZYZH (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    cyzyzd_zzbm          varchar(64)          not null/* ³öÔºÖĞÒ½Õï¶Ï-Ö÷Ö¤±àÂë */,
-    cyzyzd_zzmc          varchar(128)         not null/* ³öÔºÖĞÒ½Õï¶Ï-Ö÷Ö¤Ãû³Æ */,
-    cyzyzd_zz_rybqdm     varchar(64)          not null/* ³öÔºÖĞÒ½Õï¶Ï-Ö÷Ö¤-ÈëÔº²¡Çé´úÂë */,
-    cyzyzd_zz_rybqmc     varchar(128)         not null/* ³öÔºÖĞÒ½Õï¶Ï-Ö÷Ö¤-ÈëÔº²¡ÇéÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    cyzyzd_zzbm          varchar(64)          not null/* å‡ºé™¢ä¸­åŒ»è¯Šæ–­-ä¸»è¯ç¼–ç  */,
+    cyzyzd_zzmc          varchar(128)         not null/* å‡ºé™¢ä¸­åŒ»è¯Šæ–­-ä¸»è¯åç§° */,
+    cyzyzd_zz_rybqdm     varchar(64)          not null/* å‡ºé™¢ä¸­åŒ»è¯Šæ–­-ä¸»è¯-å…¥é™¢ç—…æƒ…ä»£ç  */,
+    cyzyzd_zz_rybqmc     varchar(128)         not null/* å‡ºé™¢ä¸­åŒ»è¯Šæ–­-ä¸»è¯-å…¥é™¢ç—…æƒ…åç§° */,
     
    
     
@@ -8945,18 +8945,18 @@ where id = object_id('DC_ZYZYBA_BASY_CYZYZH') )
 go
 
 /*========================================================================*/
- /* DC_ZYZYBA_BASY_GMS     ²¡°¸Ê×Ò³£­ÖĞÒ½×¡Ôº²¡°¸_¹ıÃôÊ·                                                                                                  */
+ /* DC_ZYZYBA_BASY_GMS     ç—…æ¡ˆé¦–é¡µï¼ä¸­åŒ»ä½é™¢ç—…æ¡ˆ_è¿‡æ•å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYZYBA_BASY_GMS') )
  create table  DC_ZYZYBA_BASY_GMS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ywgmbz               char(1)              not null/* Ò©Îï¹ıÃô±êÖ¾ */,
-    gmyw                 varchar(1000)        not null/* ¹ıÃôÒ©Îï */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ywgmbz               char(1)              not null/* è¯ç‰©è¿‡æ•æ ‡å¿— */,
+    gmyw                 varchar(1000)        not null/* è¿‡æ•è¯ç‰© */,
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -8970,18 +8970,18 @@ where id = object_id('DC_ZYZYBA_BASY_GMS') )
 go
 
 /*========================================================================*/
- /* DC_ZYZYBA_BASY_MJZXYZD     ²¡°¸Ê×Ò³£­ÖĞÒ½×¡Ôº²¡°¸_ÃÅ¼±ÕïÎ÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_ZYZYBA_BASY_MJZXYZD     ç—…æ¡ˆé¦–é¡µï¼ä¸­åŒ»ä½é™¢ç—…æ¡ˆ_é—¨æ€¥è¯Šè¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYZYBA_BASY_MJZXYZD') )
  create table  DC_ZYZYBA_BASY_MJZXYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    mjzzdxyzdjbbm        varchar(64)          not null/* ÃÅ£¨¼±£©ÕïÕï¶Ï£¨Î÷Ò½Õï¶Ï£©¼²²¡±àÂë */,
-    mjzzdxyzdmc          varchar(128)         not null/* ÃÅ£¨¼±£©ÕïÕï¶Ï£¨Î÷Ò½Õï¶Ï£©Ãû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    mjzzdxyzdjbbm        varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šè¯Šæ–­ï¼ˆè¥¿åŒ»è¯Šæ–­ï¼‰ç–¾ç—…ç¼–ç  */,
+    mjzzdxyzdmc          varchar(128)         not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šè¯Šæ–­ï¼ˆè¥¿åŒ»è¯Šæ–­ï¼‰åç§° */,
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -8995,18 +8995,18 @@ where id = object_id('DC_ZYZYBA_BASY_MJZXYZD') )
 go
 
 /*========================================================================*/
- /* DC_ZYZYBA_BASY_MJZZYBM     ²¡°¸Ê×Ò³£­ÖĞÒ½×¡Ôº²¡°¸_ÃÅ¼±ÕïÖĞÒ½²¡Ãû                                                                                                  */
+ /* DC_ZYZYBA_BASY_MJZZYBM     ç—…æ¡ˆé¦–é¡µï¼ä¸­åŒ»ä½é™¢ç—…æ¡ˆ_é—¨æ€¥è¯Šä¸­åŒ»ç—…å                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYZYBA_BASY_MJZZYBM') )
  create table  DC_ZYZYBA_BASY_MJZZYBM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    mjzzdzyzdbmbm        varchar(64)          not null/* ÃÅ£¨¼±£©ÕïÕï¶Ï£¨ÖĞÒ½Õï¶Ï£©²¡Ãû±àÂë */,
-    mjzzdzyzdmc          varchar(128)         not null/* ÃÅ£¨¼±£©ÕïÕï¶Ï£¨ÖĞÒ½Õï¶Ï£©Ãû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    mjzzdzyzdbmbm        varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šè¯Šæ–­ï¼ˆä¸­åŒ»è¯Šæ–­ï¼‰ç—…åç¼–ç  */,
+    mjzzdzyzdmc          varchar(128)         not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šè¯Šæ–­ï¼ˆä¸­åŒ»è¯Šæ–­ï¼‰åç§° */,
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9020,18 +9020,18 @@ where id = object_id('DC_ZYZYBA_BASY_MJZZYBM') )
 go
 
 /*========================================================================*/
- /* DC_ZYZYBA_BASY_MJZZYZH     ²¡°¸Ê×Ò³£­ÖĞÒ½×¡Ôº²¡°¸_ÃÅ¼±ÕïÖĞÒ½Ö¢ºò                                                                                                  */
+ /* DC_ZYZYBA_BASY_MJZZYZH     ç—…æ¡ˆé¦–é¡µï¼ä¸­åŒ»ä½é™¢ç—…æ¡ˆ_é—¨æ€¥è¯Šä¸­åŒ»ç—‡å€™                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYZYBA_BASY_MJZZYZH') )
  create table  DC_ZYZYBA_BASY_MJZZYZH (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    mjzzdzyzhzhbm        varchar(64)          not null/* ÃÅ£¨¼±£©ÕïÕï¶Ï£¨ÖĞÒ½Ö¤ºò£©Ö¤ºò±àÂë */,
-    mjzzdzyzhmc          varchar(128)         not null/* ÃÅ£¨¼±£©ÕïÕï¶Ï£¨ÖĞÒ½Ö¤ºò£©Ãû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    mjzzdzyzhzhbm        varchar(64)          not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šè¯Šæ–­ï¼ˆä¸­åŒ»è¯å€™ï¼‰è¯å€™ç¼–ç  */,
+    mjzzdzyzhmc          varchar(128)         not null/* é—¨ï¼ˆæ€¥ï¼‰è¯Šè¯Šæ–­ï¼ˆä¸­åŒ»è¯å€™ï¼‰åç§° */,
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9045,55 +9045,55 @@ where id = object_id('DC_ZYZYBA_BASY_MJZZYZH') )
 go
 
 /*========================================================================*/
- /* DC_ZZYJL_ZZYJL     ×ª(Õï)Ôº¼ÇÂ¼£­×ª£¨Õï£©Ôº¼ÇÂ¼                                                                                                  */
+ /* DC_ZZYJL_ZZYJL     è½¬(è¯Š)é™¢è®°å½•ï¼è½¬ï¼ˆè¯Šï¼‰é™¢è®°å½•                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZZYJL_ZZYJL') )
  create table  DC_ZZYJL_ZZYJL (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    jzlb                 varchar(2)           not null/* ¾ÍÕïÀà±ğ */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    jkkh                 varchar(18)          not null/* ¾ÓÃñ½¡¿µ¿¨ºÅ */,
-    mjzh                 varchar(18)          null/* ÃÅ¼±ÕïºÅ */,
-    zyh                  varchar(64)          null/* ×¡ÔººÅ±êÊ¶ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* »¼ÕßÉí·İÖ¤ºÅ±êÊ¶ */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    csrq                 date                 not null/* ³öÉúÈÕÆÚ */,
-    gms                  nvarchar(1000)       not null/* ¹ıÃôÊ· */,
-    jbs                  nvarchar(1000)       not null/* ¼²²¡Ê· */,
-    sss                  nvarchar(1000)       not null/* ÊÖÊõÊ· */,
-    zzrq                 datetime             not null/* ×ªÕï£¨Ôº£©ÈÕÆÚ */,
-    zzyy                 nvarchar(100)        not null/* ×ªÕïÔ­Òò */,
-    zzjl                 varchar(2000)        not null/* ×ªÕï¼ÇÂ¼ */,
-    ysbm                 varchar(20)          not null/* ×ªÕïÒ½Ê¦±àÂë */,
-    zzysxm               varchar(50)          not null/* ×ªÕïÒ½Ê¦ĞÕÃû */,
-    zdrq                 date                 not null/* Õï¶ÏÈÕÆÚ */,
-    zdyljgdm             varchar(10)          not null/* Õï¶ÏÒ½ÁÆ»ú¹¹´úÂë */,
-    zdjgmc               nvarchar(70)         null/* Õï¶Ï»ú¹¹Ãû³Æ */,
-    xgzz                 nvarchar(1000)       null/* Ïà¹ØÖ¢×´ */,
-    zyzlcs               nvarchar(1000)       null/* Ö÷ÒªÖÎÁÆ´ëÊ© */,
-    fzjcjg               varchar(1000)        null/* ¸¨Öú¼ì²é½á¹û */,
-    ssczbm               varchar(64)          null/* ÊÖÊõ¼°²Ù×÷±àÂë */,
-    ssjczmc              varchar(128)         null/* ÊÖÊõ¼°²Ù×÷Ãû³Æ */,
-    ssczksrq             datetime             null/* ÊÖÊõ¼°²Ù×÷¿ªÊ¼ÈÕÆÚÊ±¼ä */,
-    zlfa                 nvarchar(1000)       null/* ÖÎÁÆ·½°¸ */,
-    czjh                 nvarchar(1000)       null/* ´¦ÖÃ¼Æ»® */,
-    jkwtpg               nvarchar(2000)       null/* ½¡¿µÎÊÌâÆÀ¹À */,
-    kfcszd               nvarchar(100)        null/* ¿µ¸´´ëÊ©Ö¸µ¼ */,
-    zcjgdm               varchar(10)          not null/* ×ª³öÒ½ÁÆ»ú¹¹´úÂë */,
-    zcjgmc               varchar(70)          not null/* ×ª³öÒ½ÁÆ»ú¹¹Ãû³Æ */,
-    zcjgksdm             varchar(20)          not null/* ×ª³öÒ½ÁÆ»ú¹¹¿Æ´úÂë */,
-    zcjgksmc             varchar(50)          not null/* ×ª³öÒ½ÁÆ»ú¹¹¿ÆÊÒÃû */,
-    zryljgdm             varchar(10)          not null/* ×ªÈëÒ½ÁÆ»ú¹¹´úÂë */,
-    zrjgmc               varchar(70)          not null/* ×ªÈëÒ½ÁÆ»ú¹¹Ãû³Æ */,
-    zrjgksdm             varchar(20)          not null/* ×ªÈëÒ½ÁÆ»ú¹¹¿ÆÊÒ´úÂë */,
-    zrjgksmc             varchar(50)          not null/* ×ªÈëÒ½ÁÆ»ú¹¹¿ÆÊÒÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    jzlb                 varchar(2)           not null/* å°±è¯Šç±»åˆ« */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    jkkh                 varchar(18)          not null/* å±…æ°‘å¥åº·å¡å· */,
+    mjzh                 varchar(18)          null/* é—¨æ€¥è¯Šå· */,
+    zyh                  varchar(64)          null/* ä½é™¢å·æ ‡è¯† */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* æ‚£è€…èº«ä»½è¯å·æ ‡è¯† */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    csrq                 date                 not null/* å‡ºç”Ÿæ—¥æœŸ */,
+    gms                  nvarchar(1000)       not null/* è¿‡æ•å² */,
+    jbs                  nvarchar(1000)       not null/* ç–¾ç—…å² */,
+    sss                  nvarchar(1000)       not null/* æ‰‹æœ¯å² */,
+    zzrq                 datetime             not null/* è½¬è¯Šï¼ˆé™¢ï¼‰æ—¥æœŸ */,
+    zzyy                 nvarchar(100)        not null/* è½¬è¯ŠåŸå›  */,
+    zzjl                 varchar(2000)        not null/* è½¬è¯Šè®°å½• */,
+    ysbm                 varchar(20)          not null/* è½¬è¯ŠåŒ»å¸ˆç¼–ç  */,
+    zzysxm               varchar(50)          not null/* è½¬è¯ŠåŒ»å¸ˆå§“å */,
+    zdrq                 date                 not null/* è¯Šæ–­æ—¥æœŸ */,
+    zdyljgdm             varchar(10)          not null/* è¯Šæ–­åŒ»ç–—æœºæ„ä»£ç  */,
+    zdjgmc               nvarchar(70)         null/* è¯Šæ–­æœºæ„åç§° */,
+    xgzz                 nvarchar(1000)       null/* ç›¸å…³ç—‡çŠ¶ */,
+    zyzlcs               nvarchar(1000)       null/* ä¸»è¦æ²»ç–—æªæ–½ */,
+    fzjcjg               varchar(1000)        null/* è¾…åŠ©æ£€æŸ¥ç»“æœ */,
+    ssczbm               varchar(64)          null/* æ‰‹æœ¯åŠæ“ä½œç¼–ç  */,
+    ssjczmc              varchar(128)         null/* æ‰‹æœ¯åŠæ“ä½œåç§° */,
+    ssczksrq             datetime             null/* æ‰‹æœ¯åŠæ“ä½œå¼€å§‹æ—¥æœŸæ—¶é—´ */,
+    zlfa                 nvarchar(1000)       null/* æ²»ç–—æ–¹æ¡ˆ */,
+    czjh                 nvarchar(1000)       null/* å¤„ç½®è®¡åˆ’ */,
+    jkwtpg               nvarchar(2000)       null/* å¥åº·é—®é¢˜è¯„ä¼° */,
+    kfcszd               nvarchar(100)        null/* åº·å¤æªæ–½æŒ‡å¯¼ */,
+    zcjgdm               varchar(10)          not null/* è½¬å‡ºåŒ»ç–—æœºæ„ä»£ç  */,
+    zcjgmc               varchar(70)          not null/* è½¬å‡ºåŒ»ç–—æœºæ„åç§° */,
+    zcjgksdm             varchar(20)          not null/* è½¬å‡ºåŒ»ç–—æœºæ„ç§‘ä»£ç  */,
+    zcjgksmc             varchar(50)          not null/* è½¬å‡ºåŒ»ç–—æœºæ„ç§‘å®¤å */,
+    zryljgdm             varchar(10)          not null/* è½¬å…¥åŒ»ç–—æœºæ„ä»£ç  */,
+    zrjgmc               varchar(70)          not null/* è½¬å…¥åŒ»ç–—æœºæ„åç§° */,
+    zrjgksdm             varchar(20)          not null/* è½¬å…¥åŒ»ç–—æœºæ„ç§‘å®¤ä»£ç  */,
+    zrjgksmc             varchar(50)          not null/* è½¬å…¥åŒ»ç–—æœºæ„ç§‘å®¤åç§° */,
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9108,18 +9108,18 @@ go
 
 
 /*========================================================================*/
- /* DC_ZZYJL_ZZYJL_JBZD     ×ª(Õï)Ôº¼ÇÂ¼£­×ª£¨Õï£©Ôº¼ÇÂ¼_¼²²¡Õï¶Ï                                                                                          */
+ /* DC_ZZYJL_ZZYJL_JBZD     è½¬(è¯Š)é™¢è®°å½•ï¼è½¬ï¼ˆè¯Šï¼‰é™¢è®°å½•_ç–¾ç—…è¯Šæ–­                                                                                          */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZZYJL_ZZYJL_JBZD') )
  create table  DC_ZZYJL_ZZYJL_JBZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jbzdbm               varchar(64)          not null/* ¼²²¡Õï¶Ï±àÂë */,
-    jbzd                 varchar(128)         not null/* ¼²²¡Õï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jbzdbm               varchar(64)          not null/* ç–¾ç—…è¯Šæ–­ç¼–ç  */,
+    jbzd                 varchar(128)         not null/* ç–¾ç—…è¯Šæ–­åç§° */,
     
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
@@ -9134,88 +9134,88 @@ where id = object_id('DC_ZZYJL_ZZYJL_JBZD') )
 go
 
 /*========================================================================*/
- /*   DC_RYJL_JBXX     A-±ê×¼±ê±í ¡ª ÈëÔº¼ÇÂ¼ ¡ª ÈëÔº¼ÇÂ¼»ù±¾ĞÅÏ¢                                                                                                  */
+ /*   DC_RYJL_JBXX     A-æ ‡å‡†æ ‡è¡¨ â€” å…¥é™¢è®°å½• â€” å…¥é™¢è®°å½•åŸºæœ¬ä¿¡æ¯                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_JBXX') )
  create table  DC_RYJL_JBXX (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    zyh                  varchar(18)          not null/* ×¡ÔººÅ */,
-    jzlsh                varchar(64)          not null/* ¾ÍÕïÁ÷Ë®ºÅ */,
-    patid                varchar(64)          not null/* »¼Õßpatid */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    bqdm                 varchar(10)          not null/* ²¡Çø´úÂë */,
-    bqmc                 varchar(50)          not null/* ²¡ÇøÃû³Æ */,
-    ksdm                 varchar(10)          not null/* ¿ÆÊÒ´úÂë */,
-    ksmc                 varchar(50)          not null/* ¿ÆÊÒÃû³Æ */,
-    bfh                  varchar(10)          not null/* ²¡·¿ºÅ */,
-    bch                  varchar(10)          not null/* ²¡´²ºÅ */,
-    hzxm                 varchar(50)          not null/* »¼ÕßĞÕÃû */,
-    sfzhm                varchar(18)          not null/* Éí·İÖ¤ºÅÂë */,
-    xbdm                 varchar(2)           not null/* ĞÔ±ğ´úÂë */,
-    xbmc                 varchar(16)          not null/* ĞÔ±ğÃû³Æ */,
-    nls                  numeric(3)           not null/* ÄêÁä£¨Ëê£© */,
-    nly                  varchar(8)           null/* ÄêÁä£¨ÔÂ£© */,
-    mz                   varchar(2)           null/* Ãñ×å */,
-    mzmc                 varchar(32)          null/* Ãñ×åÃû³Æ */,
-    hyzkdm               varchar(2)           null/* »éÒö×´¿ö´úÂë */,
-    hyzkmc               varchar(32)          null/* »éÒö×´¿öÃû³Æ */,
-    dzsf                 varchar(70)          not null/* µØÖ·-Ê¡£¨×ÔÖÎÇø¡¢Ö±Ï½ÊĞ£© */,
-    dzsq                 varchar(70)          not null/* µØÖ·-ÊĞ£¨µØÇø¡¢Öİ£© */,
-    dzx                  varchar(70)          not null/* µØÖ·-ÏØ£¨Çø£© */,
-    dzxz                 varchar(70)          not null/* µØÖ·-Ïç£¨Õò¡¢½ÖµÀ°ìÊÂ´¦£© */,
-    dzc                  varchar(70)          not null/* µØÖ·-´å£¨½Ö¡¢Â·¡¢ÅªµÈ£© */,
-    dzmphm               varchar(70)          not null/* µØÖ·-ÃÅÅÆºÅÂë */,
-    zylbdm               varchar(2)           not null/* Ö°ÒµÀà±ğ´úÂë */,
-    zylbmc               varchar(50)          not null/* Ö°ÒµÀà±ğÃû³Æ */,
-    ryrq                 datetime             not null/* ÈëÔºÈÕÆÚÊ±¼ä */,
-    bscszxm              varchar(50)          null/* ²¡Ê·³ÂÊöÕßĞÕÃû */,
-    cszhzgxdm            varchar(2)           null/* ³ÂÊöÕßÓë»¼ÕßµÄ¹ØÏµ´úÂë */,
-    cszhzgxmc            varchar(50)          null/* ³ÂÊöÕßÓë»¼ÕßµÄ¹ØÏµÃû³Æ */,
-    csnrbz               char(1)              not null/* ³ÂÊöÄÚÈİ¿É¿¿±êÖ¾ */,
-    zs                   nvarchar(100)        not null/* Ö÷Ëß */,
-    xbs                  nvarchar(2000)       not null/* ÏÖ²¡Ê· */,
-    ybjkbz               char(1)              null/* Ò»°ã½¡¿µ×´¿ö±êÖ¾ */,
-    jbs                  nvarchar(1000)       null/* ¼²²¡Ê·£¨º¬ÍâÉË£© */,
-    hzcrbz               char(1)              not null/* »¼Õß´«È¾ĞÔ±êÖ¾ */,
-    crbs                 nvarchar(1000)       null/* ´«È¾²¡Ê· */,
-    yfjzs                nvarchar(1000)       null/* Ô¤·À½ÓÖÖÊ· */,
-    sxs                  nvarchar(1000)       null/* ÊäÑªÊ· */,
-    grs                  nvarchar(1000)       null/* ¸öÈËÊ· */,
-    yjs                  nvarchar(1000)       null/* ÔÂ¾­Ê· */,
-    tjtw                 numeric(4,1)         not null/* Ìå¸ñ¼ì²é--ÌåÎÂ£¨¡æ£© */,
-    tjml                 numeric(3)           not null/* Ìå¸ñ¼ì²é--ÂöÂÊ£¨´Î/min£© */,
-    tjhxpl               numeric(3)           not null/* Ìå¸ñ¼ì²é--ºôÎüÆµÂÊ£¨´Î/min£© */,
-    tjssy                numeric(3)           not null/* Ìå¸ñ¼ì²é--ÊÕËõÑ¹£¨mmHg£© */,
-    tjszy                numeric(3)           not null/* Ìå¸ñ¼ì²é--ÊæÕÅÑ¹£¨mmHg£© */,
-    tjsg                 numeric(5,1)         not null/* Ìå¸ñ¼ì²é--Éí¸ß£¨cm£© */,
-    tjtz                 numeric(5,2)         not null/* Ìå¸ñ¼ì²é--ÌåÖØ£¨kg£© */,
-    tjybjg               nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--Ò»°ã×´¿ö¼ì²é½á¹û */,
-    tjplmjg              nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--Æ¤·ôºÍğ¤Ä¤¼ì²é½á¹û */,
-    tjqblbjg             nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--È«ÉíÇ³DC_RYJL_JBXXÁÜ°Í½á¼ì²é½á¹û */,
-    tjtbqgjg             nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--Í·²¿¼°ÆäÆ÷¹Ù¼ì²é½á¹û */,
-    tjjbjg               nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--¾±²¿¼ì²é½á¹û */,
-    tjxbjg               nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--ĞØ²¿¼ì²é½á¹û */,
-    tjfbjg               nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--¸¹²¿¼ì²é½á¹û */,
-    tjgmzzjg             nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--¸ØÃÅÖ¸Õï¼ì²é½á¹ûÃèÊö */,
-    tjwszqjg             nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--ÍâÉúÖ³Æ÷¼ì²é½á¹û */,
-    tjjzjg               nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--¼¹Öù¼ì²é½á¹û */,
-    tjszjg               nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--ËÄÖ«¼ì²é½á¹û */,
-    tjsjxtjg             nvarchar(1000)       not null/* Ìå¸ñ¼ì²é--Éñ¾­ÏµÍ³¼ì²é½á¹û */,
-    zkqk                 nvarchar(1000)       null/* ×¨¿ÆÇé¿ö */,
-    zyszgcjg             nvarchar(1000)       null/* ÖĞÒ½¡°ËÄÕï¡±¹Û²ì½á¹û */,
-    zfbm                 varchar(20)          null/* ÖÎÔòÖÎ·¨´úÂë */,
-    zzzf                 nvarchar(100)        null/* ÖÎÔòÖÎ·¨ */,
-    jzysbm               varchar(20)          not null/* ½ÓÕïÒ½Ê¦±àÂë */,
-    jzysqm               varchar(50)          not null/* ½ÓÕïÒ½Ê¦Ç©Ãû */,
-    zyysbm               varchar(20)          not null/* ×¡ÔºÒ½Ê¦±àÂë */,
-    zyysqm               varchar(50)          not null/* ×¡ÔºÒ½Ê¦Ç©Ãû */,
-    zzysbm               varchar(20)          not null/* Ö÷ÖÎÒ½Ê¦±àÂë */,
-    zzysqm               varchar(50)          not null/* Ö÷ÖÎÒ½Ê¦Ç©Ãû */,
-    zrysbm               varchar(20)          not null/* Ö÷ÈÎÒ½Ê¦±àÂë */,
-    zrysqm               varchar(50)          not null/* Ö÷ÈÎÒ½Ê¦Ç©Ãû */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    zyh                  varchar(18)          not null/* ä½é™¢å· */,
+    jzlsh                varchar(64)          not null/* å°±è¯Šæµæ°´å· */,
+    patid                varchar(64)          not null/* æ‚£è€…patid */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    bqdm                 varchar(10)          not null/* ç—…åŒºä»£ç  */,
+    bqmc                 varchar(50)          not null/* ç—…åŒºåç§° */,
+    ksdm                 varchar(10)          not null/* ç§‘å®¤ä»£ç  */,
+    ksmc                 varchar(50)          not null/* ç§‘å®¤åç§° */,
+    bfh                  varchar(10)          not null/* ç—…æˆ¿å· */,
+    bch                  varchar(10)          not null/* ç—…åºŠå· */,
+    hzxm                 varchar(50)          not null/* æ‚£è€…å§“å */,
+    sfzhm                varchar(18)          not null/* èº«ä»½è¯å·ç  */,
+    xbdm                 varchar(2)           not null/* æ€§åˆ«ä»£ç  */,
+    xbmc                 varchar(16)          not null/* æ€§åˆ«åç§° */,
+    nls                  numeric(3)           not null/* å¹´é¾„ï¼ˆå²ï¼‰ */,
+    nly                  varchar(8)           null/* å¹´é¾„ï¼ˆæœˆï¼‰ */,
+    mz                   varchar(2)           null/* æ°‘æ— */,
+    mzmc                 varchar(32)          null/* æ°‘æ—åç§° */,
+    hyzkdm               varchar(2)           null/* å©šå§»çŠ¶å†µä»£ç  */,
+    hyzkmc               varchar(32)          null/* å©šå§»çŠ¶å†µåç§° */,
+    dzsf                 varchar(70)          not null/* åœ°å€-çœï¼ˆè‡ªæ²»åŒºã€ç›´è¾–å¸‚ï¼‰ */,
+    dzsq                 varchar(70)          not null/* åœ°å€-å¸‚ï¼ˆåœ°åŒºã€å·ï¼‰ */,
+    dzx                  varchar(70)          not null/* åœ°å€-å¿ï¼ˆåŒºï¼‰ */,
+    dzxz                 varchar(70)          not null/* åœ°å€-ä¹¡ï¼ˆé•‡ã€è¡—é“åŠäº‹å¤„ï¼‰ */,
+    dzc                  varchar(70)          not null/* åœ°å€-æ‘ï¼ˆè¡—ã€è·¯ã€å¼„ç­‰ï¼‰ */,
+    dzmphm               varchar(70)          not null/* åœ°å€-é—¨ç‰Œå·ç  */,
+    zylbdm               varchar(2)           not null/* èŒä¸šç±»åˆ«ä»£ç  */,
+    zylbmc               varchar(50)          not null/* èŒä¸šç±»åˆ«åç§° */,
+    ryrq                 datetime             not null/* å…¥é™¢æ—¥æœŸæ—¶é—´ */,
+    bscszxm              varchar(50)          null/* ç—…å²é™ˆè¿°è€…å§“å */,
+    cszhzgxdm            varchar(2)           null/* é™ˆè¿°è€…ä¸æ‚£è€…çš„å…³ç³»ä»£ç  */,
+    cszhzgxmc            varchar(50)          null/* é™ˆè¿°è€…ä¸æ‚£è€…çš„å…³ç³»åç§° */,
+    csnrbz               char(1)              not null/* é™ˆè¿°å†…å®¹å¯é æ ‡å¿— */,
+    zs                   nvarchar(100)        not null/* ä¸»è¯‰ */,
+    xbs                  nvarchar(2000)       not null/* ç°ç—…å² */,
+    ybjkbz               char(1)              null/* ä¸€èˆ¬å¥åº·çŠ¶å†µæ ‡å¿— */,
+    jbs                  nvarchar(1000)       null/* ç–¾ç—…å²ï¼ˆå«å¤–ä¼¤ï¼‰ */,
+    hzcrbz               char(1)              not null/* æ‚£è€…ä¼ æŸ“æ€§æ ‡å¿— */,
+    crbs                 nvarchar(1000)       null/* ä¼ æŸ“ç—…å² */,
+    yfjzs                nvarchar(1000)       null/* é¢„é˜²æ¥ç§å² */,
+    sxs                  nvarchar(1000)       null/* è¾“è¡€å² */,
+    grs                  nvarchar(1000)       null/* ä¸ªäººå² */,
+    yjs                  nvarchar(1000)       null/* æœˆç»å² */,
+    tjtw                 numeric(4,1)         not null/* ä½“æ ¼æ£€æŸ¥--ä½“æ¸©ï¼ˆâ„ƒï¼‰ */,
+    tjml                 numeric(3)           not null/* ä½“æ ¼æ£€æŸ¥--è„‰ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    tjhxpl               numeric(3)           not null/* ä½“æ ¼æ£€æŸ¥--å‘¼å¸é¢‘ç‡ï¼ˆæ¬¡/minï¼‰ */,
+    tjssy                numeric(3)           not null/* ä½“æ ¼æ£€æŸ¥--æ”¶ç¼©å‹ï¼ˆmmHgï¼‰ */,
+    tjszy                numeric(3)           not null/* ä½“æ ¼æ£€æŸ¥--èˆ’å¼ å‹ï¼ˆmmHgï¼‰ */,
+    tjsg                 numeric(5,1)         not null/* ä½“æ ¼æ£€æŸ¥--èº«é«˜ï¼ˆcmï¼‰ */,
+    tjtz                 numeric(5,2)         not null/* ä½“æ ¼æ£€æŸ¥--ä½“é‡ï¼ˆkgï¼‰ */,
+    tjybjg               nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--ä¸€èˆ¬çŠ¶å†µæ£€æŸ¥ç»“æœ */,
+    tjplmjg              nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--çš®è‚¤å’Œé»è†œæ£€æŸ¥ç»“æœ */,
+    tjqblbjg             nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--å…¨èº«æµ…DC_RYJL_JBXXæ·‹å·´ç»“æ£€æŸ¥ç»“æœ */,
+    tjtbqgjg             nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--å¤´éƒ¨åŠå…¶å™¨å®˜æ£€æŸ¥ç»“æœ */,
+    tjjbjg               nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--é¢ˆéƒ¨æ£€æŸ¥ç»“æœ */,
+    tjxbjg               nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--èƒ¸éƒ¨æ£€æŸ¥ç»“æœ */,
+    tjfbjg               nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--è…¹éƒ¨æ£€æŸ¥ç»“æœ */,
+    tjgmzzjg             nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--è‚›é—¨æŒ‡è¯Šæ£€æŸ¥ç»“æœæè¿° */,
+    tjwszqjg             nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--å¤–ç”Ÿæ®–å™¨æ£€æŸ¥ç»“æœ */,
+    tjjzjg               nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--è„ŠæŸ±æ£€æŸ¥ç»“æœ */,
+    tjszjg               nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--å››è‚¢æ£€æŸ¥ç»“æœ */,
+    tjsjxtjg             nvarchar(1000)       not null/* ä½“æ ¼æ£€æŸ¥--ç¥ç»ç³»ç»Ÿæ£€æŸ¥ç»“æœ */,
+    zkqk                 nvarchar(1000)       null/* ä¸“ç§‘æƒ…å†µ */,
+    zyszgcjg             nvarchar(1000)       null/* ä¸­åŒ»â€œå››è¯Šâ€è§‚å¯Ÿç»“æœ */,
+    zfbm                 varchar(20)          null/* æ²»åˆ™æ²»æ³•ä»£ç  */,
+    zzzf                 nvarchar(100)        null/* æ²»åˆ™æ²»æ³• */,
+    jzysbm               varchar(20)          not null/* æ¥è¯ŠåŒ»å¸ˆç¼–ç  */,
+    jzysqm               varchar(50)          not null/* æ¥è¯ŠåŒ»å¸ˆç­¾å */,
+    zyysbm               varchar(20)          not null/* ä½é™¢åŒ»å¸ˆç¼–ç  */,
+    zyysqm               varchar(50)          not null/* ä½é™¢åŒ»å¸ˆç­¾å */,
+    zzysbm               varchar(20)          not null/* ä¸»æ²»åŒ»å¸ˆç¼–ç  */,
+    zzysqm               varchar(50)          not null/* ä¸»æ²»åŒ»å¸ˆç­¾å */,
+    zrysbm               varchar(20)          not null/* ä¸»ä»»åŒ»å¸ˆç¼–ç  */,
+    zrysqm               varchar(50)          not null/* ä¸»ä»»åŒ»å¸ˆç­¾å */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9230,17 +9230,17 @@ go
 
 
 /*========================================================================*/
- /* DC_RYJL_JBXX_HYS     A-±ê×¼±ê±í ¡ª ÈëÔº¼ÇÂ¼ ¡ª ÈëÔº¼ÇÂ¼»ù±¾ĞÅÏ¢_»éÓıÊ·                                                                                                  */
+ /* DC_RYJL_JBXX_HYS     A-æ ‡å‡†æ ‡è¡¨ â€” å…¥é™¢è®°å½• â€” å…¥é™¢è®°å½•åŸºæœ¬ä¿¡æ¯_å©šè‚²å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_JBXX_HYS') )
  create table  DC_RYJL_JBXX_HYS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    hys                  nvarchar(1000)       null/* »éÓıÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    hys                  nvarchar(1000)       null/* å©šè‚²å² */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9254,17 +9254,17 @@ where id = object_id('DC_RYJL_JBXX_HYS') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_JBXX_JZS     A-±ê×¼±ê±í ¡ª ÈëÔº¼ÇÂ¼ ¡ª ÈëÔº¼ÇÂ¼»ù±¾ĞÅÏ¢_¼Ò×åÊ·                                                                                                  */
+ /* DC_RYJL_JBXX_JZS     A-æ ‡å‡†æ ‡è¡¨ â€” å…¥é™¢è®°å½• â€” å…¥é™¢è®°å½•åŸºæœ¬ä¿¡æ¯_å®¶æ—å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_JBXX_JZS') )
  create table  DC_RYJL_JBXX_JZS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    jzs                  nvarchar(1000)       null/* ¼Ò×åÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    jzs                  nvarchar(1000)       null/* å®¶æ—å² */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9278,17 +9278,17 @@ where id = object_id('DC_RYJL_JBXX_JZS') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_JBXX_SSS     A-±ê×¼±ê±í ¡ª ÈëÔº¼ÇÂ¼ ¡ª ÈëÔº¼ÇÂ¼»ù±¾ĞÅÏ¢_ÊÖÊõÊ·                                                                                                  */
+ /* DC_RYJL_JBXX_SSS     A-æ ‡å‡†æ ‡è¡¨ â€” å…¥é™¢è®°å½• â€” å…¥é™¢è®°å½•åŸºæœ¬ä¿¡æ¯_æ‰‹æœ¯å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_JBXX_SSS') )
  create table  DC_RYJL_JBXX_SSS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    sss                  nvarchar(1000)       null/* ÊÖÊõÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    sss                  nvarchar(1000)       null/* æ‰‹æœ¯å² */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9302,22 +9302,22 @@ where id = object_id('DC_RYJL_JBXX_SSS') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_JBXX_QDZYZD     A-±ê×¼±ê±í ¡ª ÈëÔº¼ÇÂ¼ ¡ª ÈëÔº¼ÇÂ¼»ù±¾ĞÅÏ¢_È·¶¨ÖĞÒ½Õï¶Ï                                                                                                  */
+ /* DC_RYJL_JBXX_QDZYZD     A-æ ‡å‡†æ ‡è¡¨ â€” å…¥é™¢è®°å½• â€” å…¥é™¢è®°å½•åŸºæœ¬ä¿¡æ¯_ç¡®å®šä¸­åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_JBXX_QDZYZD') )
  create table  DC_RYJL_JBXX_QDZYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    qzzybmmc             varchar(128)         null/* È·¶¨Õï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    qzzybmdm             varchar(64)          null/* È·¶¨Õï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    qzzyzhmc             varchar(128)         null/* È·¶¨Õï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    qzzyzhdm             varchar(64)          null/* È·¶¨Õï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    qzrq                 date                 not null/* È·¶¨Õï¶ÏÈÕÆÚ */,
-    ryzdsw               varchar(20)          null/* ÈëÔºÕï¶ÏË³Î» */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    qzzybmmc             varchar(128)         null/* ç¡®å®šè¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    qzzybmdm             varchar(64)          null/* ç¡®å®šè¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    qzzyzhmc             varchar(128)         null/* ç¡®å®šè¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    qzzyzhdm             varchar(64)          null/* ç¡®å®šè¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    qzrq                 date                 not null/* ç¡®å®šè¯Šæ–­æ—¥æœŸ */,
+    ryzdsw               varchar(20)          null/* å…¥é™¢è¯Šæ–­é¡ºä½ */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9331,20 +9331,20 @@ where id = object_id('DC_RYJL_JBXX_QDZYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_JBXX_QDXYZD     A-±ê×¼±ê±í ¡ª ÈëÔº¼ÇÂ¼ ¡ª ÈëÔº¼ÇÂ¼»ù±¾ĞÅÏ¢_È·¶¨Î÷Ò½Õï¶Ï                                                                                                  */
+ /* DC_RYJL_JBXX_QDXYZD     A-æ ‡å‡†æ ‡è¡¨ â€” å…¥é™¢è®°å½• â€” å…¥é™¢è®°å½•åŸºæœ¬ä¿¡æ¯_ç¡®å®šè¥¿åŒ»è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_JBXX_QDXYZD') )
  create table  DC_RYJL_JBXX_QDXYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    qzxyzdmc             varchar(128)         not null/* È·¶¨Õï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    qzxyzdbm             varchar(64)          not null/* È·¶¨Õï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    qzrq                 date                 not null/* È·¶¨Õï¶ÏÈÕÆÚ */,
-    ryzdsw               varchar(20)          null/* ÈëÔºÕï¶ÏË³Î» */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    qzxyzdmc             varchar(128)         not null/* ç¡®å®šè¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    qzxyzdbm             varchar(64)          not null/* ç¡®å®šè¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    qzrq                 date                 not null/* ç¡®å®šè¯Šæ–­æ—¥æœŸ */,
+    ryzdsw               varchar(20)          null/* å…¥é™¢è¯Šæ–­é¡ºä½ */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9358,17 +9358,17 @@ where id = object_id('DC_RYJL_JBXX_QDXYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_JBXX_FZJCJG     A-±ê×¼±ê±í ¡ª ÈëÔº¼ÇÂ¼ ¡ª ÈëÔº¼ÇÂ¼»ù±¾ĞÅÏ¢_¸¨Öú¼ì²é½á¹û                                                                                                  */
+ /* DC_RYJL_JBXX_FZJCJG     A-æ ‡å‡†æ ‡è¡¨ â€” å…¥é™¢è®°å½• â€” å…¥é™¢è®°å½•åŸºæœ¬ä¿¡æ¯_è¾…åŠ©æ£€æŸ¥ç»“æœ                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_JBXX_FZJCJG') )
  create table  DC_RYJL_JBXX_FZJCJG (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    fzjcjg               nvarchar(1000)       null/* ¸¨Öú¼ì²é½á¹û */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    fzjcjg               nvarchar(1000)       null/* è¾…åŠ©æ£€æŸ¥ç»“æœ */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9382,17 +9382,17 @@ where id = object_id('DC_RYJL_JBXX_FZJCJG') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_JBXX_GMS     A-±ê×¼±ê±í ¡ª ÈëÔº¼ÇÂ¼ ¡ª ÈëÔº¼ÇÂ¼»ù±¾ĞÅÏ¢_¹ıÃôÊ·                                                                                                  */
+ /* DC_RYJL_JBXX_GMS     A-æ ‡å‡†æ ‡è¡¨ â€” å…¥é™¢è®°å½• â€” å…¥é™¢è®°å½•åŸºæœ¬ä¿¡æ¯_è¿‡æ•å²                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_JBXX_GMS') )
  create table  DC_RYJL_JBXX_GMS (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    gms                  nvarchar(1000)       null/* ¹ıÃôÊ· */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    gms                  nvarchar(1000)       null/* è¿‡æ•å² */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9406,23 +9406,23 @@ where id = object_id('DC_RYJL_JBXX_GMS') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_JBXX_CZXYZD     A-±ê×¼±ê±í ¡ª ÈëÔº¼ÇÂ¼ ¡ª ÈëÔº¼ÇÂ¼»ù±¾ĞÅÏ¢_³õ²½Õï¶Ï                                                                                                  */
+ /* DC_RYJL_JBXX_CZXYZD     A-æ ‡å‡†æ ‡è¡¨ â€” å…¥é™¢è®°å½• â€” å…¥é™¢è®°å½•åŸºæœ¬ä¿¡æ¯_åˆæ­¥è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_JBXX_CZXYZD'))
  create table  DC_RYJL_JBXX_CZXYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    czxyzdmc             varchar(128)         not null/* ³õ²½Õï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    czxyzdbm             varchar(64)          not null/* ³õ²½Õï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    czzybmmc             varchar(128)         null/* ³õ²½Õï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    czzybmdm             varchar(64)          null/* ³õ²½Õï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    czzyzhmc             varchar(128)         null/* ³õ²½Õï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    czzyzhdm             varchar(64)          null/* ³õ²½Õï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    czrq                 date                 not null/* ³õ²½Õï¶ÏÈÕÆÚ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    czxyzdmc             varchar(128)         not null/* åˆæ­¥è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    czxyzdbm             varchar(64)          not null/* åˆæ­¥è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    czzybmmc             varchar(128)         null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    czzybmdm             varchar(64)          null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    czzyzhmc             varchar(128)         null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    czzyzhdm             varchar(64)          null/* åˆæ­¥è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    czrq                 date                 not null/* åˆæ­¥è¯Šæ–­æ—¥æœŸ */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9437,23 +9437,23 @@ go
 
 
 /*========================================================================*/
- /* DC_RYJL_JBXX_XZXYZD     A-±ê×¼±ê±í ¡ª ÈëÔº¼ÇÂ¼ ¡ª ÈëÔº¼ÇÂ¼»ù±¾ĞÅÏ¢_ĞŞÕıÕï¶Ï                                                                                                 */
+ /* DC_RYJL_JBXX_XZXYZD     A-æ ‡å‡†æ ‡è¡¨ â€” å…¥é™¢è®°å½• â€” å…¥é™¢è®°å½•åŸºæœ¬ä¿¡æ¯_ä¿®æ­£è¯Šæ–­                                                                                                 */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_JBXX_XZXYZD') )
  create table  DC_RYJL_JBXX_XZXYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    xzxyzdmc             varchar(128)         null/* ĞŞÕıÕï¶Ï-Î÷Ò½Õï¶ÏÃû³Æ */,
-    xzxyzdbm             varchar(64)          null/* ĞŞÕıÕï¶Ï-Î÷Ò½Õï¶Ï±àÂë */,
-    xzzybmmc             varchar(128)         null/* ĞŞÕıÕï¶Ï-ÖĞÒ½²¡ÃûÃû³Æ */,
-    xzzybmdm             varchar(64)          null/* ĞŞÕıÕï¶Ï-ÖĞÒ½²¡Ãû´úÂë */,
-    xzzyzhmc             varchar(128)         null/* ĞŞÕıÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
-    xzzyzhdm             varchar(64)          null/* ĞŞÕıÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    xzzdrq               date                 null/* ĞŞÕıÕï¶ÏÈÕÆÚ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    xzxyzdmc             varchar(128)         null/* ä¿®æ­£è¯Šæ–­-è¥¿åŒ»è¯Šæ–­åç§° */,
+    xzxyzdbm             varchar(64)          null/* ä¿®æ­£è¯Šæ–­-è¥¿åŒ»è¯Šæ–­ç¼–ç  */,
+    xzzybmmc             varchar(128)         null/* ä¿®æ­£è¯Šæ–­-ä¸­åŒ»ç—…ååç§° */,
+    xzzybmdm             varchar(64)          null/* ä¿®æ­£è¯Šæ–­-ä¸­åŒ»ç—…åä»£ç  */,
+    xzzyzhmc             varchar(128)         null/* ä¿®æ­£è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
+    xzzyzhdm             varchar(64)          null/* ä¿®æ­£è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    xzzdrq               date                 null/* ä¿®æ­£è¯Šæ–­æ—¥æœŸ */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9467,19 +9467,19 @@ where id = object_id('DC_RYJL_JBXX_XZXYZD') )
 go
 
 /*========================================================================*/
- /* DC_RYJL_JBXX_BZBM     A-±ê×¼±ê±í ¡ª ÈëÔº¼ÇÂ¼ ¡ª ÈëÔº¼ÇÂ¼»ù±¾ĞÅÏ¢_²¹³äÕï¶Ï                                                                                                 */
+ /* DC_RYJL_JBXX_BZBM     A-æ ‡å‡†æ ‡è¡¨ â€” å…¥é™¢è®°å½• â€” å…¥é™¢è®°å½•åŸºæœ¬ä¿¡æ¯_è¡¥å……è¯Šæ–­                                                                                                 */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_RYJL_JBXX_BZBM') )
  create table  DC_RYJL_JBXX_BZBM (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    bzbm                 varchar(64)          null/* ²¹³äÕï¶Ï±àÂë */,
-    bzmc                 varchar(128)         null/* ²¹³äÕï¶ÏÃû³Æ */,
-    bzrq                 date                 null/* ²¹³äÕï¶ÏÈÕÆÚ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    bzbm                 varchar(64)          null/* è¡¥å……è¯Šæ–­ç¼–ç  */,
+    bzmc                 varchar(128)         null/* è¡¥å……è¯Šæ–­åç§° */,
+    bzrq                 date                 null/* è¡¥å……è¯Šæ–­æ—¥æœŸ */,
     [isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9493,18 +9493,18 @@ where id = object_id('DC_RYJL_JBXX_BZBM') )
 go
   
 /*========================================================================*/
- /* DC_ZYBCJL_CYJL_CZZYZH     ×¡Ôº²¡³Ì¼ÇÂ¼£­³öÔº¼ÇÂ¼_ ³öÔºÖĞÒ½Ö¤ºò                                                                                                */
+ /* DC_ZYBCJL_CYJL_CZZYZH     ä½é™¢ç—…ç¨‹è®°å½•ï¼å‡ºé™¢è®°å½•_ å‡ºé™¢ä¸­åŒ»è¯å€™                                                                                                */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_CYJL_CZZYZH') )
  create table  DC_ZYBCJL_CYJL_CZZYZH (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    czzyzhdm             varchar(64)          null/* ³öÔºÕï¶Ï-ÖĞÒ½Ö¤ºò´úÂë */,
-    czzyzhmc             varchar(128)         null/* ³öÔºÕï¶Ï-ÖĞÒ½Ö¤ºòÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    czzyzhdm             varchar(64)          null/* å‡ºé™¢è¯Šæ–­-ä¸­åŒ»è¯å€™ä»£ç  */,
+    czzyzhmc             varchar(128)         null/* å‡ºé™¢è¯Šæ–­-ä¸­åŒ»è¯å€™åç§° */,
 	[isNew] [bit] NULL,
 	[gxrqtimestr] [varchar](50) NULL,
 	[timetempstr] [varbinary](8) NULL,
@@ -9520,18 +9520,18 @@ go
 
 
 /*========================================================================*/
- /* DC_ZYBCJL_SWJL_RYZD     ×¡Ôº²¡³Ì¼ÇÂ¼£­ËÀÍö¼ÇÂ¼_ÈëÔºÕï¶Ï                                                                                                  */
+ /* DC_ZYBCJL_SWJL_RYZD     ä½é™¢ç—…ç¨‹è®°å½•ï¼æ­»äº¡è®°å½•_å…¥é™¢è¯Šæ–­                                                                                                  */
  /*========================================================================*/
  if not exists 
 (select 1 from sysobjects 
 where id = object_id('DC_ZYBCJL_SWJL_RYZD') )
  create table  DC_ZYBCJL_SWJL_RYZD (    
-    xh                   numeric(12)          identity(1, 1)/* ĞòºÅ  */,
-    yljgdm               varchar(20)          not null/* Ò½ÁÆ»ú¹¹´úÂë  */,
-    yjlxh                varchar(64)          not null/* Ô´¼ÇÂ¼ĞòºÅ */,
-    zyjlxh               varchar(64)          null/* Ö÷±íÔ­¼ÍÂ¼ĞòºÅ */,
-    ryzdbm               varchar(64)          not null/* ÈëÔºÕï¶Ï±àÂë */,
-    ryzdmc               varchar(128)         not null/* ÈëÔºÕï¶ÏÃû³Æ */,
+    xh                   numeric(12)          identity(1, 1)/* åºå·  */,
+    yljgdm               varchar(20)          not null/* åŒ»ç–—æœºæ„ä»£ç   */,
+    yjlxh                varchar(64)          not null/* æºè®°å½•åºå· */,
+    zyjlxh               varchar(64)          null/* ä¸»è¡¨åŸçºªå½•åºå· */,
+    ryzdbm               varchar(64)          not null/* å…¥é™¢è¯Šæ–­ç¼–ç  */,
+    ryzdmc               varchar(128)         not null/* å…¥é™¢è¯Šæ–­åç§° */,
     
    
 
@@ -9548,7 +9548,7 @@ where id = object_id('DC_ZYBCJL_SWJL_RYZD') )
 	)
 go
 
-   ryzdbm               varchar(64)          not null/* ÈëÔºÕï¶Ï±àÂë */,
-    ryzdmc               varchar(128)         not null/* ÈëÔºÕï¶ÏÃû³Æ */,
+   ryzdbm               varchar(64)          not null/* å…¥é™¢è¯Šæ–­ç¼–ç  */,
+    ryzdmc               varchar(128)         not null/* å…¥é™¢è¯Šæ–­åç§° */,
     
     
