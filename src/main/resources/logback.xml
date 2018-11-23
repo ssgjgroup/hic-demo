@@ -12,7 +12,7 @@
     <appender name="logFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_HOME}/hic.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_HOME}/logs/hic-%d{yyyy-MM-dd}_%i.log.zip</fileNamePattern>
+            <fileNamePattern>${LOG_HOME}/logs/hic-%d{yyyy-MM-dd}_%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
@@ -33,7 +33,7 @@
             <level>ERROR</level>
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_HOME}/logs/hic-error-%d{yyyy-MM-dd}_%i.log.zip</fileNamePattern>
+            <fileNamePattern>${LOG_HOME}/logs/hic-error-%d{yyyy-MM-dd}_%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>100MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>

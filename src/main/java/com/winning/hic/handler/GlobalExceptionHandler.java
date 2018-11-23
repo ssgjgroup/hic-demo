@@ -18,7 +18,7 @@ import java.util.List;
  * Date: 2018-07-17
  * Time: 12:27
  */
-@ControllerAdvice
+//@ControllerAdvice
 public class GlobalExceptionHandler {
 
     public static final String DEFAULT_ERROR_VIEW = "error";
