@@ -178,9 +178,7 @@
 
 
 </body>
-<!--[if !IE]> -->
 <script th:src="@{/bootstrap/js/jquery-2.2.4.min.js}"></script>
-<!-- <![endif]-->
 <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
 <script th:src="@{/bootstrap/js/bootstrap-table.min.js}"></script>
 <script th:src="@{/bootstrap/js/bootstrap-table-zh-CN.min.js}"></script>
@@ -198,8 +196,6 @@
 <script th:src="@{/assets/layer/layer.js}"></script>
 
 <script th:inline="javascript" type="text/javascript">
-
-
     var ctx = /*[[@{/}]]*/'';
     // alert(ctx+'modelCheck/modelCheck');
     var $table = $('#treegrid_table');
@@ -219,6 +215,13 @@
             "showMethod":"fadeIn",//显示时的动画方式
             "hideMethod":"fadeOut"//消失时的动画方式
         };
+        $('.hasDatepicker').datepicker({
+            autoclose: true,
+            language: "zh-CN",
+            todayHighlight: true
+        }).next().on(ace.click_event, function () {
+            $(this).prev().focus();
+        });
         $table.bootstrapTable({
             url: ctx + 'dataList/loadList',
             height: $(window).height() - 100,
