@@ -4,12 +4,17 @@
 <mapper namespace="com.winning.hic.dao.hdw.EmrMbmxkDao">
 
     <resultMap id="emrMbmxkResultForList" type="com.winning.hic.model.EmrMbmxk">
-         <result column="MBDM" property="mbdm" jdbcType="VARCHAR" />
-         <result column="JDREFID" property="jdrefid" jdbcType="INTEGER" />
-         <result column="JDDM" property="jddm" jdbcType="VARCHAR" />
-         <result column="JDLX" property="jdlx" jdbcType="VARCHAR" />
-         <result column="JDNR" property="jdnr" jdbcType="NVARCHAR" />
-         <result column="MEMO" property="memo" jdbcType="VARCHAR" />
+         <result column="yljgdm" property="yljgdm" jdbcType="VARCHAR" />
+         <result column="mbdm" property="mbdm" jdbcType="VARCHAR" />
+         <result column="jdrefid" property="jdrefid" jdbcType="INTEGER" />
+         <result column="jddm" property="jddm" jdbcType="VARCHAR" />
+         <result column="jdlx" property="jdlx" jdbcType="VARCHAR" />
+         <result column="jdnr" property="jdnr" jdbcType="NVARCHAR" />
+         <result column="memo" property="memo" jdbcType="VARCHAR" />
+         <result column="iscurrent" property="iscurrent" jdbcType="BIT" />
+         <result column="gxrq" property="gxrq" jdbcType="TIMESTAMP" />
+         <result column="sys_id" property="sysId" jdbcType="VARCHAR" />
+         <result column="lsnid" property="lsnid" jdbcType="BIGINT" />
     </resultMap>
 
     <resultMap id="emrMbmxkResult" type="com.winning.hic.model.EmrMbmxk" extends="emrMbmxkResultForList">
@@ -17,33 +22,48 @@
     </resultMap>
 
     <sql id="sql-emrMbmxk">
-        <if test="(mbdm != null and mbdm != '')"> and t.MBDM = #{mbdm} </if>
-        <if test="(jdrefid != null and jdrefid != '')"> and t.JDREFID = #{jdrefid} </if>
-        <if test="(jddm != null and jddm != '')"> and t.JDDM = #{jddm} </if>
-        <if test="(jdlx != null and jdlx != '')"> and t.JDLX = #{jdlx} </if>
-        <if test="(jdnr != null and jdnr != '')"> and t.JDNR = #{jdnr} </if>
-        <if test="(memo != null and memo != '')"> and t.MEMO = #{memo} </if>
+        <if test="(yljgdm != null )"> and t.yljgdm = #{yljgdm} </if>
+        <if test="(mbdm != null )"> and t.mbdm = #{mbdm} </if>
+        <if test="(jdrefid != null )"> and t.jdrefid = #{jdrefid} </if>
+        <if test="(jddm != null )"> and t.jddm = #{jddm} </if>
+        <if test="(jdlx != null )"> and t.jdlx = #{jdlx} </if>
+        <if test="(jdnr != null )"> and t.jdnr = #{jdnr} </if>
+        <if test="(memo != null )"> and t.memo = #{memo} </if>
+        <if test="(iscurrent != null )"> and t.iscurrent = #{iscurrent} </if>
+        <if test="(gxrq != null )"> and t.gxrq = #{gxrq} </if>
+        <if test="(sysId != null )"> and t.sys_id = #{sysId} </if>
+        <if test="(lsnid != null )"> and t.lsnid = #{lsnid} </if>
     </sql>
 
     <insert id="insertEmrMbmxk" parameterType="com.winning.hic.model.EmrMbmxk">
         <selectKey resultType="String"  order="BEFORE"  keyProperty="id">SELECT CAST(NEWID() AS VARCHAR(36)) AS ID</selectKey>
         INSERT INTO EMR_MBMXK
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="(mbdm != null and mbdm != '')"> MBDM , </if>
-            <if test="(jdrefid != null and jdrefid != '')"> JDREFID , </if>
-            <if test="(jddm != null and jddm != '')"> JDDM , </if>
-            <if test="(jdlx != null and jdlx != '')"> JDLX , </if>
-            <if test="(jdnr != null and jdnr != '')"> JDNR , </if>
-            <if test="(memo != null and memo != '')"> MEMO , </if>
+            <if test="(yljgdm != null )"> yljgdm , </if>
+            <if test="(mbdm != null )"> mbdm , </if>
+            <if test="(jdrefid != null )"> jdrefid , </if>
+            <if test="(jddm != null )"> jddm , </if>
+            <if test="(jdlx != null )"> jdlx , </if>
+            <if test="(jdnr != null )"> jdnr , </if>
+            <if test="(memo != null )"> memo , </if>
+            <if test="(iscurrent != null )"> iscurrent , </if>
+            <if test="(gxrq != null )"> gxrq , </if>
+            <if test="(sysId != null )"> sys_id , </if>
+            <if test="(lsnid != null )"> lsnid , </if>
         </trim>
         VALUES
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="(mbdm != null and mbdm != '')"> #{mbdm , jdbcType= VARCHAR },  </if>
-            <if test="(jdrefid != null and jdrefid != '')"> #{jdrefid , jdbcType= INTEGER },  </if>
-            <if test="(jddm != null and jddm != '')"> #{jddm , jdbcType= VARCHAR },  </if>
-            <if test="(jdlx != null and jdlx != '')"> #{jdlx , jdbcType= VARCHAR },  </if>
-            <if test="(jdnr != null and jdnr != '')"> #{jdnr , jdbcType= NVARCHAR },  </if>
-            <if test="(memo != null and memo != '')"> #{memo , jdbcType= VARCHAR },  </if>
+            <if test="(yljgdm != null )">#{yljgdm , jdbcType= VARCHAR },  </if>
+            <if test="(mbdm != null )">#{mbdm , jdbcType= VARCHAR },  </if>
+            <if test="(jdrefid != null )">#{jdrefid , jdbcType= INTEGER },  </if>
+            <if test="(jddm != null )">#{jddm , jdbcType= VARCHAR },  </if>
+            <if test="(jdlx != null )">#{jdlx , jdbcType= VARCHAR },  </if>
+            <if test="(jdnr != null )">#{jdnr , jdbcType= NVARCHAR },  </if>
+            <if test="(memo != null )">#{memo , jdbcType= VARCHAR },  </if>
+            <if test="(iscurrent != null )">#{iscurrent , jdbcType= BIT },  </if>
+            <if test="(gxrq != null )">#{gxrq , jdbcType= TIMESTAMP },  </if>
+            <if test="(sysId != null )">#{sysId , jdbcType= VARCHAR },  </if>
+            <if test="(lsnid != null )">#{lsnid , jdbcType= BIGINT },  </if>
         </trim>
     </insert>
 
@@ -51,19 +71,26 @@
         UPDATE EMR_MBMXK
         <set>
             <trim suffixOverrides=",">
-                <if test="(mbdm != null and mbdm != '')"> MBDM = #{mbdm , jdbcType= VARCHAR }, </if>
-                <if test="(jdrefid != null and jdrefid != '')"> JDREFID = #{jdrefid , jdbcType= INTEGER }, </if>
-                <if test="(jddm != null and jddm != '')"> JDDM = #{jddm , jdbcType= VARCHAR }, </if>
-                <if test="(jdlx != null and jdlx != '')"> JDLX = #{jdlx , jdbcType= VARCHAR }, </if>
-                <if test="(jdnr != null and jdnr != '')"> JDNR = #{jdnr , jdbcType= NVARCHAR }, </if>
-                <if test="(memo != null and memo != '')"> MEMO = #{memo , jdbcType= VARCHAR }, </if>
+                <if test="(yljgdm != null )"> yljgdm = #{yljgdm , jdbcType= VARCHAR }, </if>
+                <if test="(mbdm != null )"> mbdm = #{mbdm , jdbcType= VARCHAR }, </if>
+                <if test="(jdrefid != null )"> jdrefid = #{jdrefid , jdbcType= INTEGER }, </if>
+                <if test="(jddm != null )"> jddm = #{jddm , jdbcType= VARCHAR }, </if>
+                <if test="(jdlx != null )"> jdlx = #{jdlx , jdbcType= VARCHAR }, </if>
+                <if test="(jdnr != null )"> jdnr = #{jdnr , jdbcType= NVARCHAR }, </if>
+                <if test="(memo != null )"> memo = #{memo , jdbcType= VARCHAR }, </if>
+                <if test="(iscurrent != null )"> iscurrent = #{iscurrent , jdbcType= BIT }, </if>
+                <if test="(gxrq != null )"> gxrq = #{gxrq , jdbcType= TIMESTAMP }, </if>
+                <if test="(sysId != null )"> sys_id = #{sysId , jdbcType= VARCHAR }, </if>
+                <if test="(lsnid != null )"> lsnid = #{lsnid , jdbcType= BIGINT }, </if>
             </trim>
         </set>
         <where>
-            <if test="(mbdm != null and mbdm != '')"> and MBDM = #{ mbdm, jdbcType= VARCHAR }   </if>
-            <if test="(jdrefid != null and jdrefid != '')"> and JDREFID = #{ jdrefid, jdbcType= INTEGER }   </if>
-            <if test="(mbdm !=null or mbdm!='') and (jdrefid !=null or jdrefid!='') and (map.pks != null and map.size > 0)">
-                and (MBDM,JDREFID) in
+            <if test="(yljgdm != null )"> and yljgdm = #{ yljgdm, jdbcType= VARCHAR }   </if>
+            <if test="(mbdm != null )"> and mbdm = #{ mbdm, jdbcType= VARCHAR }   </if>
+            <if test="(jdrefid != null )"> and jdrefid = #{ jdrefid, jdbcType= INTEGER }   </if>
+            <if test="(sysId != null )"> and sys_id = #{ sysId, jdbcType= VARCHAR }   </if>
+            <if test="(yljgdm !=null ) and (mbdm !=null ) and (jdrefid !=null ) and (sysId !=null ) and (map.pks != null and map.size > 0)">
+                and (yljgdm,mbdm,jdrefid,sys_id) in
                 <foreach item="item" collection="map.pks" open="(" separator="," close=")"> #{item}</foreach>
             </if>
         </where>
@@ -72,10 +99,12 @@
     <delete id="deleteEmrMbmxk" parameterType="com.winning.hic.model.EmrMbmxk">
         delete from  EMR_MBMXK
         <where>
-            <if test="(mbdm != null and mbdm != '')"> and MBDM = #{ mbdm }   </if>
-            <if test="(jdrefid != null and jdrefid != '')"> and JDREFID = #{ jdrefid }   </if>
-            <if test="(mbdm !=null or mbdm!='') and (jdrefid !=null or jdrefid!='') and (map.pks != null and map.size > 0)">
-                and (MBDM,JDREFID) in
+        <if test="(yljgdm != null )"> and yljgdm = #{ yljgdm }   </if>
+        <if test="(mbdm != null )"> and mbdm = #{ mbdm }   </if>
+        <if test="(jdrefid != null )"> and jdrefid = #{ jdrefid }   </if>
+        <if test="(sysId != null )"> and sys_id = #{ sysId }   </if>
+            <if test="(yljgdm !=null ) and (mbdm !=null ) and (jdrefid !=null ) and (sysId !=null ) and (map.pks != null and map.size > 0)">
+                and (yljgdm,mbdm,jdrefid,sys_id) in
                 <foreach item="item" collection="map.pks" open="(" separator="," close=")"> #{item}</foreach>
             </if>
         </where>
@@ -96,7 +125,7 @@
         <where>
             <include refid="sql-emrMbmxk" />
         </where>
-        ORDER BY t.MBDM,t.JDREFID ASC
+        ORDER BY t.yljgdm,t.mbdm,t.jdrefid,t.sys_id ASC
     </select>
 
     <select id="selectEmrMbmxkCount" resultType="int" parameterType="com.winning.hic.model.EmrMbmxk">
@@ -109,12 +138,12 @@
     <select id="selectEmrMbmxkPageList" resultMap="emrMbmxkResult" parameterType="com.winning.hic.model.EmrMbmxk">
         SELECT * FROM (
         SELECT t.* ,
-        ROW_NUMBER() OVER ( ORDER BY t.MBDM,t.JDREFID DESC ) AS _RN
+        ROW_NUMBER() OVER ( ORDER BY t.yljgdm,t.mbdm,t.jdrefid,t.sys_id DESC ) AS _RN
         FROM EMR_MBMXK t
         <where>
             <include refid="sql-emrMbmxk" />
         </where>
-        <!-- order by t.MBDM,t.JDREFID asc -->
+        <!-- order by t.yljgdm,t.mbdm,t.jdrefid,t.sys_id asc -->
         ) TEMP_TABLE WHERE _RN BETWEEN  #{row.first} + 1 AND #{row.first} + #{row.count}
     </select>
 
