@@ -1,7 +1,8 @@
 /target/
-logs/
 !.mvn/wrapper/maven-wrapper.jar
-
+# customer
+logs/**
+run/**
 ### STS ###
 .apt_generated
 .classpath
@@ -24,6 +25,4 @@ logs/
 /dist/
 /nbdist/
 /.nb-gradle/
-logs/
-run/环境部署/03-程序/
-run/环境部署/04-数据解析/
+
