@@ -111,6 +111,7 @@ public class HlhtZcjlPgcServiceImpl implements HlhtZcjlPgcService {
             onePgc.getMap().put("regex", t.getMap().get("regex"));
             List<HlhtZcjlPgc> hlhtZcjlPgcs = this.hlhtZcjlPgcDao.selectHlhtZcjlPgcListByProc(onePgc);
             if (hlhtZcjlPgcs != null) {
+                emr_count = emr_count + hlhtZcjlPgcs.size();
                 for (HlhtZcjlPgc obj : hlhtZcjlPgcs) {
                     //清库
                     HlhtZcjlPgc temp = new HlhtZcjlPgc();

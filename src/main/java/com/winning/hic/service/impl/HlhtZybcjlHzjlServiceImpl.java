@@ -138,7 +138,7 @@ public class HlhtZybcjlHzjlServiceImpl implements HlhtZybcjlHzjlService {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            this.splitTableDao.selectAnmrZybcjlHzjlSplitByProc(obj);
+                            this.splitTableDao.selectAnmrZybcjlHzjlSplitByProc(oneHzjl);
                             this.createHlhtZybcjlHzjl(obj);
                             real_count++;
                         } else { //会诊答复单 update
@@ -150,7 +150,7 @@ public class HlhtZybcjlHzjlServiceImpl implements HlhtZybcjlHzjlService {
                                 if (entity != null) {
                                     entity = (HlhtZybcjlHzjl) HicHelper.initModelValue(mbzDataSetList, document, entity, paramTypeMap);
                                     ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_HZJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                                    this.splitTableDao.selectAnmrZybcjlHzjlSplitByProc(obj);
+                                    this.splitTableDao.selectAnmrZybcjlHzjlSplitByProc(oneHzjl);
                                     this.modifyHlhtZybcjlHzjl(entity);
                                 }
 

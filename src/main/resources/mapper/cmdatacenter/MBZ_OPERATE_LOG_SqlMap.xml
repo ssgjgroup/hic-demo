@@ -127,10 +127,11 @@
         SELECT * FROM (
         SELECT t.* ,
         ROW_NUMBER() OVER ( ORDER BY t.create_time DESC ) AS _RN
-        FROM (SELECT TOP 300 * FROM MBZ_OPERATE_LOG ORDER BY create_time DESC) t
+        FROM (SELECT TOP 300 * FROM MBZ_OPERATE_LOG  t
         <where>
             <include refid="sql-mbzOperateLog" />
         </where>
+        ORDER BY create_time DESC) t
         <!-- order by t.id asc -->
         ) TEMP_TABLE WHERE _RN BETWEEN  #{row.first} + 1 AND #{row.first} + #{row.count}
     </select>

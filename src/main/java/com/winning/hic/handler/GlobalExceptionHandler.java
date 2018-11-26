@@ -18,7 +18,7 @@ import java.util.List;
  * Date: 2018-07-17
  * Time: 12:27
  */
-//@ControllerAdvice
+@ControllerAdvice
 public class GlobalExceptionHandler {
 
     public static final String DEFAULT_ERROR_VIEW = "error";
@@ -46,7 +46,8 @@ public class GlobalExceptionHandler {
         }else{
             sbMsg.add("系统错误，请联系管理员!");
         }
-        logger.error("Exception:",e);
+        logger.error("Exception:{}",e);
+        logger.error("Exception Message:{}",e.getMessage());
         ModelAndView mav = new ModelAndView();
         mav.addObject("msg", sbMsg);
         mav.addObject("url", req.getRequestURL());

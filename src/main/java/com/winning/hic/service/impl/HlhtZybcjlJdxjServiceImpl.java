@@ -131,7 +131,7 @@ public class HlhtZybcjlJdxjServiceImpl implements HlhtZybcjlJdxjService {
                     logger.info("Model:{}", obj);
                     ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_JDXJ),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.createHlhtZybcjlJdxj(obj);
-                    this.splitTableDao.selectAnmrZybcjlJdxjSplitByProc(obj);
+                    this.splitTableDao.selectAnmrZybcjlJdxjSplitByProc(jdxj);
                     //插入日志
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZYBCJL_JDXJ_SOURCE_TYPE),
