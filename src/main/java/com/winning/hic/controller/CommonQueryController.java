@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.winning.hic.base.utils.Base64Utils;
+import com.winning.hic.base.utils.StringUtil;
 import com.winning.hic.base.utils.XmlFormatter;
 import com.winning.hic.model.support.Row;
 import io.swagger.annotations.ApiImplicitParams;
@@ -53,6 +54,9 @@ public class CommonQueryController extends BaseController {
     public Map<String, Object> getBldmListForCIS(MbzDictInfo dictInfo, Row row){
         dictInfo.setDictCode("platformTableName");
         dictInfo.setRow(row);
+        if(StringUtil.isEmptyOrNull(dictInfo.getDictLabel())){
+            dictInfo.setDictLabel(null);
+        }
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("status", Constants.SUCCESS);
         result.put("total", getFacade().getMbzDictInfoService().getMbzDictInfoCount(dictInfo));

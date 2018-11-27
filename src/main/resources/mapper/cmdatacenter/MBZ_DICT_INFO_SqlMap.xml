@@ -20,7 +20,7 @@
     <sql id="sql-mbzDictInfo">
         <if test="(dictCode != null and dictCode != '')">and t.DICT_CODE = #{dictCode}</if>
         <if test="(dictValue != null and dictValue != '')">and t.DICT_VALUE = #{dictValue}</if>
-        <if test="(dictLabel != null)">and t.DICT_LABEL = #{dictLabel}</if>
+        <if test="(dictLabel != null)">and t.DICT_LABEL like '%${dictLabel}%'</if>
         <if test="(dictSort != null and dictSort != '')">and t.DICT_SORT = #{dictSort}</if>
         <if test="(dictDesc != null and dictDesc != '')">and t.DICT_DESC = #{dictDesc}</if>
         <if test="(pyCode != null and pyCode != '')">and t.PY_CODE = #{pyCode}</if>
