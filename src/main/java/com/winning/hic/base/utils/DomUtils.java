@@ -46,6 +46,7 @@ public class DomUtils {
     private static final String nodetypeAttrName = "nodetype";
     private static final String atomtypeAttrName = "atomtype";
     private static final String idAttrName = "id";
+    private static final String unitAttrName = "unit";
     public static final String displayAttrName = "display";
 
 
@@ -204,7 +205,7 @@ public class DomUtils {
                 break;
             }
         }
-        //获取基础模板元素
+        //获取基础模板元素   nodetype="Embeded"
         Element refChildElement = refElement.element(nodeTagName);
         String val = XmlUtil.getValueByAttrName(refChildElement, "visiable");
         if ("False".equalsIgnoreCase(val)) {
@@ -214,9 +215,9 @@ public class DomUtils {
         //基础模板id
         String qrmbdm = info.getQrmbdm();
         if ((!StringUtil.isEmptyOrNull(qrmbdm) && qrmbdm.equals(refChildElement.attribute(idAttrName).getValue())) || StringUtil.isEmptyOrNull(qrmbdm)) {
-            //获取基础模板元素子节点集合
+            //获取基础模板元素子节点集合 元数据集合
             List<Element> embededElementList = refChildElement.elements(nodeTagName);
-            //遍历解析基础模板子节点
+            //遍历解析基础模板子节点  遍历元数据，找到对应的数据
             for (Element element : embededElementList) {
                 //判断节点是否可视
                 String visiable = XmlUtil.getValueByAttrName(element, "visiable");
@@ -228,7 +229,7 @@ public class DomUtils {
                 Attribute nodeTypeAttr = element.attribute(nodetypeAttrName);
                 //获取节点ID属性
                 Attribute idAttr = element.attribute(idAttrName);
-                //只有文件结构ID，没有模板ID，取全部数据
+                //文件机构类型 或者 基础模板类型
                 if (StringUtil.isEmptyOrNull(info.getQrmbdm()) || (!StringUtil.isEmptyOrNull(info.getQrmbdm()) && StringUtil.isEmptyOrNull(info.getQrdxdm()))) {
                     if (nodeTypeAttr != null && textNodeType.equals(nodeTypeAttr.getValue())) {
                         builder.append(
@@ -236,11 +237,13 @@ public class DomUtils {
                     } else if (nodeTypeAttr != null && objectNodeType.equals(nodeTypeAttr.getValue())) {
                         builder.append(resolveObjectNode(element, info));
                     }
-                } else {//存在基础模板ID取模板数据
+                } else {//元数据类型和原子节点类型
                     if (nodeTypeAttr != null && objectNodeType.equals(nodeTypeAttr.getValue())
                             && idAttr != null
                             && info.getQrdxdm().equals(idAttr.getValue())) {
                         builder.append(resolveObjectNode(element, info));
+                        break;
+
                     }
                 }
             }
