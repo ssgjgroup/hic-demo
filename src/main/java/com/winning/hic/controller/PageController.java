@@ -85,7 +85,7 @@ public class PageController extends BaseController {
         return "config/index";
     }
     @ApiOperation(value = "页面跳转",notes = "跳转到数据列表")
-    @GetMapping(value = "/dataCheck/index")
+    @GetMapping(value = "/dataInfo/index")
     public String goToDataCheckPage(Model model){
         MbzDictInfo temp2 = new MbzDictInfo();
         temp2.setDictCode("platformTableName");
@@ -93,7 +93,7 @@ public class PageController extends BaseController {
         List<MbzDictInfo> dictList = super.getFacade().getMbzDictInfoService().getMbzDictInfoList(temp2);
         resultMap.put("dataSet", dictList);
         model.addAllAttributes(resultMap);
-        return "dataCheck/index";
+        return "dataInfo/index";
     }
 //    @ApiOperation(value = "页面跳转",notes = "跳转到日志查看")
 //    @GetMapping(value = "/logger/index")
