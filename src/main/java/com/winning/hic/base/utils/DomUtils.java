@@ -348,6 +348,21 @@ public class DomUtils {
             }
         //}
         }
+        //TODO 特殊处理
+        if("aafmc".equals(info.getPyCode())){
+            String unitValue = node.attribute(unitAttrName).getValue();
+            switch (unitValue){
+                case "501": value="每"+value+"秒"  ;break;
+                case "502": value="每"+value+"分钟";break;
+                case "503": value="每"+value+"小时";break;
+                case "504": value="每"+value+"天"  ;break;
+                case "505": value="每"+value+"周"  ;break;
+                case "506": value="每"+value+"月"  ;break;
+                case "507": value="每"+value+"季度";break;
+                case "508": value="每"+value+"年"  ;break;
+                default: ;
+            }
+        }
 
         return value;
     }
