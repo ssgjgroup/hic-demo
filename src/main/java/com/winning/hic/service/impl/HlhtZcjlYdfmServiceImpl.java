@@ -138,7 +138,7 @@ public class HlhtZcjlYdfmServiceImpl implements HlhtZcjlYdfmService {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZlczjlSxjl.class);
+                Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZcjlYdfm.class);
                 try {
                     obj = (HlhtZcjlYdfm) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                     logger.info("Model:{}", obj);
