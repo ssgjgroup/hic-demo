@@ -274,17 +274,17 @@
     </select>
 
     <select id="selectEmrQtbljlkId" resultType ="String" parameterType="com.winning.hic.model.EmrQtbljlk">
-        SELECT TOP 1 QTBLJLXH FROM EMR_QTBLJLK WHERE CJSJ &lt; #{cjsj} AND MXFLDM='B-8405'
-        <if test="(syxh != null ) or syxh == 0"> and SYXH = #{syxh} </if>
-        ORDER BY CJSJ DESC;
+        SELECT TOP 1 QTBLJLXH FROM EMR_QTBLJLK WHERE cjsj &lt; #{cjsj} AND mxfldm='B-8405'
+        <if test="(syxh != null ) or syxh == 0"> and syxh = #{syxh} </if>
+        ORDER BY cjsj DESC;
     </select>
 
     <!-- Chen,Kuai 用于查找病人症断编码 -->
     <select id="selectEmrBrzdqk" resultType ="String" parameterType="com.winning.hic.model.EmrQtbljlk">
         select    STUFF(
-        (SELECT ZDDM+'  '
+        (SELECT zddm+'  '
         FROM EMR_BRZDQK t
-        WHERE  t.ZDLB ='2'	<if test="(syxh != null ) or syxh == 0"> and t.SYXH = #{syxh}
+        WHERE  t.zdlb ='2'	<if test="(syxh != null ) or syxh == 0"> and t.syxh = #{syxh}
     </if>
         FOR xml path('')),1,1,'' );
     </select>

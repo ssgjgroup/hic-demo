@@ -10,18 +10,14 @@ import java.util.List;
  */
 public class SplitStrings {
 	public static void main(String[] args) {
-		String zb = "ANMR_MJZBL_JZLGBL";
-		String bmz = "DC_MJZBL_JZLGBL_CBZD";
-		String bzds = "  xh          |         numeric(12)     _     identity(1 1)/* 序号  */,\n" +
-				"    yljgdm      |         varchar(20)     _     not null/* 医疗机构代码  */,\n" +
-				"    yjlxh       |         varchar(64)     _     not null/* 源记录序号 */,\n" +
-				"    zyjlxh      |         varchar(64)     _     null/* 主表原纪录序号 */,\n" +
-				"    xyzdbm      |         varchar(64)     _     not null/* 初步诊断-西医诊断编码 */,\n" +
-				"    xyzdmc      |         varchar(128)    _     not null/* 初步诊断-西医诊断名称 */,\n" +
-				"    zybmdm      |         varchar(64)     _     not null/* 初步诊断-中医病名代码 */,\n" +
-				"    zybmmc      |         varchar(128)    _     not null/* 初步诊断-中医病名名称 */,\n" +
-				"    zyzhdm      |         varchar(64)     _     not null/* 初步诊断-中医证候代码 */,\n" +
-				"    zyzhmc      |         varchar(128)    _     not null/* 初步诊断-中医证候名称 */,";
+		String zb = "ANMR_ZQGZXX_QTZQTYS";
+		String bmz = "DC_ZQGZXX_QTZQTYS_JBZD";
+		String bzds = "xh         |          numeric(12)     _     identity(1 1)/* 序号  */,\n" +
+				"\t\tyljgdm       |        varchar(20)       _   not null/* 医疗机构代码  */,\n" +
+				"\t\tyjlxh        |        varchar(64)       _   not null/* 源记录序号 */,\n" +
+				"\t\tzyjlxh       |        varchar(64)       _   null/* 主表原纪录序号 */,\n" +
+				"\t\tjbzdbm       |        varchar(64)       _   not null/* 疾病诊断编码 */,\n" +
+				"\t\tjbzd         |        varchar(128)      _   not null/* 疾病诊断名称 */,";
 		String [] bzd = bzds.trim().split(",");
 		String create_tempTable = "create table #"+ bmz +"( \r\n";
 		for (int i = 0; i < bzd.length; i++) {
@@ -41,6 +37,7 @@ public class SplitStrings {
 		String [] bzd1 = bzds.trim().replace(" ","").split(",");
 		StringBuffer sb1 = new StringBuffer();
 		List temp2 = new ArrayList();
+		List temp3 = new ArrayList();
 		for(int i = 2; i < bzd1.length; i++) {
 			String [] st = bzd1[i].toString().split("\\|");
 			String [] strs = new String [] {"xh","yljgdm","yjlxh","zyjlxh","jzlsh"};
@@ -48,9 +45,12 @@ public class SplitStrings {
 			if(!list1.contains(st[0].split("_")[0].toString().trim())) {
 				temp2.add(st[0].split("_")[0].toString());
 			}
+			if(!list1.contains(st[0].split("_")[0].toString().trim())) {
+				temp3.add(st[1].split("_")[0].toString());
+			}
 		}
 		for (int i = 0; i < temp2.size(); i++) {
-			sb1.append("_"+i+".value,");
+			sb1.append("convert("+temp3.get(i)+",_"+i+".value),");
 		}
 		insert_tempTalbe = insert_tempTalbe + sb1.toString() + "1,getdate(),getdate(),'EMR',0,'0' \r\nfrom " + "\r\n" + "   #"+ zb +" as a\r\n";
 		StringBuffer sb2 = new StringBuffer();
@@ -61,7 +61,7 @@ public class SplitStrings {
 		String aere = "    where 1 = 1";
 		for(int j = 1; j < temp2.size(); j++) {
 			if(j == temp2.size() - 1) {
-				aere = aere + " and _"+"0.id = "+ "_"+j+".id"; 
+				aere = aere + " and _"+"0.id = "+ "_"+j+".id";
 			}else {
 				aere = aere + " and _"+"0.id = "+ "_"+j+".id";
 			}
