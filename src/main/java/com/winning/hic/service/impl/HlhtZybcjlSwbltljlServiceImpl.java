@@ -142,7 +142,7 @@ public class HlhtZybcjlSwbltljlServiceImpl implements HlhtZybcjlSwbltljlService 
                 obj.setZcrxm(zcrxm);
                 obj.setZcrbm(zcrxm);
                 String cjtlmd = obj.getCjtlmd();
-                cjtlmd = cjtlmd.replace(" ", "");
+                //cjtlmd = cjtlmd.replace(" ", "");
                 cjtlmd = cjtlmd.replace("副主任医师", "");
                 cjtlmd = cjtlmd.replace("副主治医师", "");
                 cjtlmd = cjtlmd.replace("副住院医师", "");
@@ -177,13 +177,22 @@ public class HlhtZybcjlSwbltljlServiceImpl implements HlhtZybcjlSwbltljlService 
                 cjtlmd = cjtlmd.replace("及全体实习生", ",");
                 cjtlmd = cjtlmd.replace(",全体进修及基地医师", ",");
                 cjtlmd = cjtlmd.replace("管护师", ",");
-                cjtlmd = cjtlmd.replace("及全体规培及研究生。", ",");
+                cjtlmd = cjtlmd.replace("及全体规培及研究生。", ",");/**/
                 cjtlmd = cjtlmd.replace(",全体进修及基地医师", ",");
                 cjtlmd = cjtlmd.replace("及全体规培及研究生。", ",");
                 cjtlmd = cjtlmd.replace(",全体基地和实习同学", ",");
+                cjtlmd = cjtlmd.replace("医师", "");
+                cjtlmd = cjtlmd.replace("副主任", "");
+                cjtlmd = cjtlmd.replace("副主治", "");
+                cjtlmd = cjtlmd.replace("副住院", "");
+                cjtlmd = cjtlmd.replace("主任", "");
+                cjtlmd = cjtlmd.replace("主治", "");
+                cjtlmd = cjtlmd.replace("住院", "");
+                cjtlmd = cjtlmd.replace("规培", "");
                 cjtlmd = cjtlmd.replace("、", ",");
                 cjtlmd = cjtlmd.replace("，", ",");
                 cjtlmd = cjtlmd.replace(",,", ",");
+                cjtlmd = cjtlmd.replace(",", " ");
                 obj.setCjtlmd(cjtlmd);
                 obj.setTlrybm(cjtlmd);
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_SWBLTLJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
