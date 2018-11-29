@@ -274,7 +274,7 @@
     </select>
 
     <select id="selectEmrQtbljlkId" resultType ="String" parameterType="com.winning.hic.model.EmrQtbljlk">
-        SELECT TOP 1 QTBLJLXH FROM EMR_QTBLJLK WHERE cjsj &lt; #{cjsj} AND mxfldm='B-8405'
+        SELECT TOP 1 qtbljlxh FROM EMR_QTBLJLK WHERE cjsj &lt; #{cjsj} AND mxfldm='B-8405'
         <if test="(syxh != null ) or syxh == 0"> and syxh = #{syxh} </if>
         ORDER BY cjsj DESC;
     </select>
