@@ -1,15 +1,10 @@
 package com.winning.hic.model;
 
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.Date;
-import java.util.Date;
-import java.util.Date;
-import java.io.Serializable;
-
 import org.apache.ibatis.type.Alias;
 
-import com.winning.hic.model.BaseDomain;
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.sql.Date;
 
 
 /**

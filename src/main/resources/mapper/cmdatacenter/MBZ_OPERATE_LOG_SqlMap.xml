@@ -117,10 +117,12 @@
     </select>
 
     <select id="selectMbzOperateLogCount" resultType="int" parameterType="com.winning.hic.model.MbzOperateLog">
-        select count(1) from  (SELECT TOP 300 * FROM MBZ_OPERATE_LOG ORDER BY create_time DESC) t
+        select count(1) from  (SELECT TOP 300 * FROM MBZ_OPERATE_LOG
         <where>
             <include refid="sql-mbzOperateLog" />
         </where>
+        ORDER BY create_time DESC) t
+
     </select>
 
     <select id="selectMbzOperateLogPageList" resultMap="mbzOperateLogResult" parameterType="com.winning.hic.model.MbzOperateLog">
