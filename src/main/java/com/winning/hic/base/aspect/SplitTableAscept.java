@@ -27,7 +27,7 @@ public class SplitTableAscept {
     @Autowired
     private MbzOperateLogService mbzOperateLogService;
 
-    @Pointcut("execution(* com.winning.hic.dao.hdw.SplitTableDao..selectAnmr*(..))")
+    @Pointcut("execution(* com.winning.hic.dao.hdw.SplitTableDao.selectAnmr*ByProc(..))")
     public void servicePointcut() {
     }
 
@@ -41,7 +41,12 @@ public class SplitTableAscept {
 
     @Around("servicePointcut()")
     public void around(JoinPoint joinPoint) {
-        String className = joinPoint.getTarget().getClass().getName();
+        String allName = joinPoint.getSignature().toString();
+        // 样例 void com.winning.hic.dao.hdw.SplitTableDao.selectAnmrRyjlRcyjlSplitByProc(HlhtRyjlRcyjl)
+        allName = allName.split(" ")[1];
+        allName = allName.substring(0, allName.lastIndexOf("."));
+        String methodName = joinPoint.getSignature().getName();
+        String className = allName + "." + methodName;
         try {
             logger.info("拆分存储开始执行>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>{}", className);
             ((ProceedingJoinPoint) joinPoint).proceed();

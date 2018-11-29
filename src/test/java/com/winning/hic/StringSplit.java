@@ -28,6 +28,11 @@ public class StringSplit {
         for (String str : strs) {
             System.out.println(str);
         }
+
+        String allName = "void com.winning.hic.dao.hdw.SplitTableDao.selectAnmrRyjlRcyjlSplitByProc(HlhtRyjlRcyjl)";
+        allName = allName.split(" ")[1];
+        System.out.println(allName.substring(0, allName.lastIndexOf(".")));
+
     }
 
 }
