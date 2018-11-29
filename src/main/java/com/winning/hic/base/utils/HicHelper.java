@@ -51,7 +51,7 @@ public class HicHelper {
 
             //判断是否可以取值到，不能则提供默认值
             try {
-                strValue = DomUtils.getAttrValueByDataSet(document, dataSet);
+                strValue = DomUtils.getAttrValueByDataSet(document, dataSet).trim();
                 //logger.info("pyCode:{};methodName:{};strValue:{};", pyCode, methodName, strValue);
             } catch (NullPointerException e) {
                 //logger.info("pyCode:{};methodName:{};strValue:{};using default value", pyCode, methodName, strValue);
@@ -165,7 +165,7 @@ public class HicHelper {
                             value = sqlDate;
                         }
                     } catch (ParseException e) {
-                        e.printStackTrace();
+                       logger.error(e.getMessage());
                         value = new java.sql.Timestamp(sdf.parse("1990-01-01 00:00:00").getTime());
                     }
                 } else if (paramType.contains("Date")) {
