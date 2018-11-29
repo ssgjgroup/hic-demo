@@ -127,14 +127,16 @@ public class HlhtZlczjlMzsqfsjlServiceImpl implements HlhtZlczjlMzsqfsjlService 
                 try {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
                 Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZlczjlMzsqfsjl.class);
+
+                obj = (HlhtZlczjlMzsqfsjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
+                logger.info("Model:{}", obj);
+                this.hlhtZlczjlMzsqfsjlDao.insertHlhtZlczjlMzsqfsjl(obj);
+                //插入日志
                 try {
-                    obj = (HlhtZlczjlMzsqfsjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
-                    logger.info("Model:{}", obj);
-                    this.hlhtZlczjlMzsqfsjlDao.insertHlhtZlczjlMzsqfsjl(obj);
-                    //插入日志
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZLCZJL_MZSQFSJL_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
@@ -144,8 +146,10 @@ public class HlhtZlczjlMzsqfsjlServiceImpl implements HlhtZlczjlMzsqfsjlService 
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZLCZJL_MZSQFSJL_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZLCZJL_MZSQFSJL_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
+
                 real_count++;
             }
         }

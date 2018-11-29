@@ -99,7 +99,7 @@ public class HlhtZybcjlRcbcjlServiceImpl implements HlhtZybcjlRcbcjlService {
     }
 
     @Override
-    public MbzDataCheck interfaceHlhtZybcjlRcbcjl(MbzDataCheck t) throws Exception {
+    public MbzDataCheck interfaceHlhtZybcjlRcbcjl(MbzDataCheck t) {
         //执行过程信息记录
 
         int emr_count = 0;//病历数量
@@ -136,29 +136,29 @@ public class HlhtZybcjlRcbcjlServiceImpl implements HlhtZybcjlRcbcjlService {
                 try {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
                 Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZybcjlRcbcjl.class);
-                try {
-                    obj = (HlhtZybcjlRcbcjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                logger.info("Model:{}", obj);
+                obj = (HlhtZybcjlRcbcjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                 this.hlhtZybcjlRcbcjlDao.insertHlhtZybcjlRcbcjl(obj);
-                this.splitTableDao.selectAnmrZybcjlRcbcjlSplitByProc(hlhtZybcjlRcbcjlTemp);
-                mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
-                        Long.parseLong(Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE),
-                        Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
-                        obj.getFssj(),
-                        obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
-                        obj.getKsmc(), obj.getKsdm(), obj.getBqmc(), obj.getBqdm(), obj.getSfzhm(),
-                        PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE), obj, 1),
-                        PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE), obj, 0)));
+                try {
+                    mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
+                            Long.parseLong(Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE),
+                            Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
+                            obj.getFssj(),
+                            obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
+                            obj.getKsmc(), obj.getKsdm(), obj.getBqmc(), obj.getBqdm(), obj.getSfzhm(),
+                            PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE), obj, 1),
+                            PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE), obj, 0)));
+                } catch (Exception e) {
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
+                }
                 real_count++;
-
             }
         }
+        this.splitTableDao.selectAnmrZybcjlRcbcjlSplitByProc(hlhtZybcjlRcbcjlTemp);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZYBCJL_RCBCJL_SOURCE_TYPE), t);
 

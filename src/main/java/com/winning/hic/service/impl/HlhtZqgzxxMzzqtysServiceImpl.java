@@ -137,14 +137,14 @@ public class HlhtZqgzxxMzzqtysServiceImpl implements HlhtZqgzxxMzzqtysService {
                 try {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
                 Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZqgzxxMzzqtys.class);
+                obj = (HlhtZqgzxxMzzqtys) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
+                logger.info("Model:{}", obj);
+                this.hlhtZqgzxxMzzqtysDao.insertHlhtZqgzxxMzzqtys(obj);
                 try {
-                    obj = (HlhtZqgzxxMzzqtys) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
-                    logger.info("Model:{}", obj);
-                    this.hlhtZqgzxxMzzqtysDao.insertHlhtZqgzxxMzzqtys(obj);
-                    this.splitTableDao.selectAnmrZqgzxxMzzqtysSplitByProc(hlhtZqgzxxMzzqtysTemp);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZQGZXX_MZZQTYS_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
@@ -154,13 +154,13 @@ public class HlhtZqgzxxMzzqtysServiceImpl implements HlhtZqgzxxMzzqtysService {
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_MZZQTYS_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_MZZQTYS_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
-
                 real_count++;
-
             }
         }
+        this.splitTableDao.selectAnmrZqgzxxMzzqtysSplitByProc(hlhtZqgzxxMzzqtysTemp);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZQGZXX_MZZQTYS_SOURCE_TYPE), t);
         MbzDataCheck mbzDataCheck = new MbzDataCheck();

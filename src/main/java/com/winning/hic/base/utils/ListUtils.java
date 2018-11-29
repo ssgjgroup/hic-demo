@@ -24,17 +24,20 @@ public class ListUtils {
             String getMethodName = "get" + StringUtil.titleCase(param);
             try {
                 String value = (String)ReflectUtil.getParam(obj, getMethodName);
-                String[] strArray = value.split(" ");
-                List<String> strs = new ArrayList<>();
-                List<String> stringList = Arrays.asList(strArray);
-                String regexValue = "";
-                for (String s : stringList) {
-                    if(!StringUtil.isEmptyOrNull(s)){
-                        regexValue+=s.trim()+regex;
+                if(!StringUtil.isEmptyOrNull(value)){
+                    String[] strArray = value.split(" ");
+                    List<String> strs = new ArrayList<>();
+                    List<String> stringList = Arrays.asList(strArray);
+                    String regexValue = "";
+                    for (String s : stringList) {
+                        if(!StringUtil.isEmptyOrNull(s)){
+                            regexValue+=s.trim()+regex;
+                        }
                     }
+                    regexValue = regexValue.substring(0,regexValue.length()-regex.length());
+                    ReflectUtil.setParamKind(obj,setMethodName,regexValue);
                 }
-                regexValue = regexValue.substring(0,regexValue.length()-regex.length());
-                ReflectUtil.setParamKind(obj,setMethodName,regexValue);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

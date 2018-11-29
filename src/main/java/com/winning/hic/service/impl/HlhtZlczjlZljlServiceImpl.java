@@ -137,14 +137,16 @@ public class HlhtZlczjlZljlServiceImpl implements HlhtZlczjlZljlService {
                 try {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
                 Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZlczjlZljl.class);
+
+                obj = (HlhtZlczjlZljl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
+                logger.info("Model:{}", obj);
+                this.hlhtZlczjlZljlDao.insertHlhtZlczjlZljl(obj);
+
                 try {
-                    obj = (HlhtZlczjlZljl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
-                    logger.info("Model:{}", obj);
-                    this.hlhtZlczjlZljlDao.insertHlhtZlczjlZljl(obj);
-                    this.splitTableDao.selectAnmrZlczjlZljlSplitByProc(hlhtZlczjlZljlTemp);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZLCZJL_ZLJL_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
@@ -153,19 +155,17 @@ public class HlhtZlczjlZljlServiceImpl implements HlhtZlczjlZljlService {
                             obj.getKsmc(), obj.getKsdm(), obj.getBqmc(), obj.getBqdm(), obj.getSfzhm(),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZLCZJL_ZLJL_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZLCZJL_ZLJL_SOURCE_TYPE), obj, 0)));
-                } catch (ParseException e) {
-                    e.printStackTrace();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
                 real_count++;
 
             }
         }
-
+        this.splitTableDao.selectAnmrZlczjlZljlSplitByProc(hlhtZlczjlZljlTemp);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZLCZJL_ZLJL_SOURCE_TYPE), t);
-
         MbzDataCheck mbzDataCheck = new MbzDataCheck();
         mbzDataCheck.setDataCount(emr_count);
         mbzDataCheck.setRealCount(real_count);

@@ -165,27 +165,49 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
                 Document xzDocument = null;
                 Document qzDocument = null;
                 Document bzDocument = null;
+
                 try {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
-                    if (xzEmrQtbljlks.size() >= 1) {
-                        //去除入院记录中多余取值字段
-//                            mbzDataSetList.removeAll(xzDataSetList);
-                        xzDocument = XmlUtil.getDocument(Base64Utils.unzipEmrXml(xzEmrQtbljlks.get(0).getBlnr()));
-                    }
-                    if (qzEmrQtbljlks.size() >= 1) {
-//                            mbzDataSetList.removeAll(qzDataSetList);
-                        qzDocument = XmlUtil.getDocument(Base64Utils.unzipEmrXml(qzEmrQtbljlks.get(0).getBlnr()));
-                    }
-
-                    if (bzEmrQtbljlks.size() >= 1) {
-//                            mbzDataSetList.removeAll(bzDataSetList);
-                        bzDocument = XmlUtil.getDocument(Base64Utils.unzipEmrXml(bzEmrQtbljlks.get(0).getBlnr()));
-                    }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
+                if (xzEmrQtbljlks.size() >= 1) {
+                    //去除入院记录中多余取值字段
+//                            mbzDataSetList.removeAll(xzDataSetList);
+                    try {
+                        xzDocument = XmlUtil.getDocument(Base64Utils.unzipEmrXml(xzEmrQtbljlks.get(0).getBlnr()));
+                    } catch (IOException e) {
+                        //e.printStackTrace();
+                        logger.error("解析病历报错,病历名称：{},源记录序号{}", xzEmrQtbljlks.get(0).getBlmc(), xzEmrQtbljlks.get(0).getQtbljlxh());
+                        continue;
+                    }
+                }
+                if (qzEmrQtbljlks.size() >= 1) {
+//                            mbzDataSetList.removeAll(qzDataSetList);
+                    try {
+                        qzDocument = XmlUtil.getDocument(Base64Utils.unzipEmrXml(qzEmrQtbljlks.get(0).getBlnr()));
+                    } catch (IOException e) {
+                        // e.printStackTrace();
+                        logger.error("解析病历报错,病历名称：{},源记录序号{}", qzEmrQtbljlks.get(0).getBlmc(), qzEmrQtbljlks.get(0).getQtbljlxh());
+                        continue;
+                    }
+                }
+
+                if (bzEmrQtbljlks.size() >= 1) {
+//                            mbzDataSetList.removeAll(bzDataSetList);
+                    try {
+                        bzDocument = XmlUtil.getDocument(Base64Utils.unzipEmrXml(bzEmrQtbljlks.get(0).getBlnr()));
+                    } catch (IOException e) {
+                        //e.printStackTrace();
+                        logger.error("解析病历报错,病历名称：{},源记录序号{}", bzEmrQtbljlks.get(0).getBlmc(), bzEmrQtbljlks.get(0).getQtbljlxh());
+                        continue;
+                    }
+                }
+
                 Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtRyjlJbxx.class);
-                try {
+
                     obj = (HlhtRyjlJbxx) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                     if (xzDocument != null) {
                         obj = (HlhtRyjlJbxx) HicHelper.initModelValue(xzDataSetList, xzDocument, obj, paramTypeMap);
@@ -390,7 +412,7 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
                     }
                     ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.RYJL_JBXX), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.hlhtRyjlJbxxDao.insertHlhtRyjlJbxx(obj);
-                    this.splitTableDao.selectAnmrRyjlJbxxSplitByProc(hlhtRyjlJbxxTemp);
+                try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_RYJL_JBXX_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
@@ -400,11 +422,14 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_RYJL_JBXX_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_RYJL_JBXX_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                    continue;
                 }
                 real_count++;
             }
         }
+        this.splitTableDao.selectAnmrRyjlJbxxSplitByProc(hlhtRyjlJbxxTemp);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_RYJL_JBXX_SOURCE_TYPE), t);
 

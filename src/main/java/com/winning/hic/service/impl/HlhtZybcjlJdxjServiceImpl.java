@@ -96,43 +96,44 @@ public class HlhtZybcjlJdxjServiceImpl implements HlhtZybcjlJdxjService {
         mbzDataSet.setSourceType(Constants.WN_ZYBCJL_JDXJ_SOURCE_TYPE);
         mbzDataSet.setPId(Long.parseLong(Constants.WN_ZYBCJL_JDXJ_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = mbzDataSetService.getMbzDataSetList(mbzDataSet);
-        try {
-            HlhtZybcjlJdxj jdxj = new HlhtZybcjlJdxj();
-            jdxj.getMap().put("sourceType", Constants.WN_ZYBCJL_JDXJ_SOURCE_TYPE);
-            jdxj.getMap().put("startDate", t.getMap().get("startDate"));
-            jdxj.getMap().put("endDate", t.getMap().get("endDate"));
-            jdxj.getMap().put("syxh", t.getMap().get("syxh"));
-            jdxj.getMap().put("yljgdm", t.getMap().get("yljgdm"));
-            jdxj.getMap().put("regex", t.getMap().get("regex"));
 
-            List<HlhtZybcjlJdxj> hlhtZybcjlJdxjs = this.hlhtZybcjlJdxjDao.selectHlhtZybcjlJdxjListByProc(jdxj);
+        HlhtZybcjlJdxj jdxj = new HlhtZybcjlJdxj();
+        jdxj.getMap().put("sourceType", Constants.WN_ZYBCJL_JDXJ_SOURCE_TYPE);
+        jdxj.getMap().put("startDate", t.getMap().get("startDate"));
+        jdxj.getMap().put("endDate", t.getMap().get("endDate"));
+        jdxj.getMap().put("syxh", t.getMap().get("syxh"));
+        jdxj.getMap().put("yljgdm", t.getMap().get("yljgdm"));
+        jdxj.getMap().put("regex", t.getMap().get("regex"));
 
-            if (hlhtZybcjlJdxjs != null) {
-                emr_count = emr_count + hlhtZybcjlJdxjs.size();
-                for (HlhtZybcjlJdxj obj : hlhtZybcjlJdxjs) {
-                    //清库
-                    HlhtZybcjlJdxj temp = new HlhtZybcjlJdxj();
-                    temp.setYjlxh(obj.getYjlxh());
-                    this.removeHlhtZybcjlJdxj(temp);
-                    //清除日志
-                    Map<String, Object> param = new HashMap<>();
-                    param.put("SOURCE_ID", obj.getYjlxh());
-                    param.put("SOURCE_TYPE", Constants.WN_ZYBCJL_JDXJ_SOURCE_TYPE);
-                    mbzLoadDataInfoDao.deleteMbzLoadDataInfoBySourceIdAndSourceType(param);
-                    //3.xml文件解析 获取病历信息
-                    Document document = null;
-                    try {
-                        document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZybcjlJdxj.class);
-                    obj = (HlhtZybcjlJdxj) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
-                    logger.info("Model:{}", obj);
-                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_JDXJ),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                    this.createHlhtZybcjlJdxj(obj);
-                    this.splitTableDao.selectAnmrZybcjlJdxjSplitByProc(jdxj);
-                    //插入日志
+        List<HlhtZybcjlJdxj> hlhtZybcjlJdxjs = this.hlhtZybcjlJdxjDao.selectHlhtZybcjlJdxjListByProc(jdxj);
+
+        if (hlhtZybcjlJdxjs != null) {
+            emr_count = emr_count + hlhtZybcjlJdxjs.size();
+            for (HlhtZybcjlJdxj obj : hlhtZybcjlJdxjs) {
+                //清库
+                HlhtZybcjlJdxj temp = new HlhtZybcjlJdxj();
+                temp.setYjlxh(obj.getYjlxh());
+                this.removeHlhtZybcjlJdxj(temp);
+                //清除日志
+                Map<String, Object> param = new HashMap<>();
+                param.put("SOURCE_ID", obj.getYjlxh());
+                param.put("SOURCE_TYPE", Constants.WN_ZYBCJL_JDXJ_SOURCE_TYPE);
+                mbzLoadDataInfoDao.deleteMbzLoadDataInfoBySourceIdAndSourceType(param);
+                //3.xml文件解析 获取病历信息
+                Document document = null;
+                try {
+                    document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
+                } catch (IOException e) {
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
+                }
+                Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZybcjlJdxj.class);
+                obj = (HlhtZybcjlJdxj) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
+                logger.info("Model:{}", obj);
+                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_JDXJ), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                this.createHlhtZybcjlJdxj(obj);
+                //插入日志
+                try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZYBCJL_JDXJ_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
@@ -140,21 +141,17 @@ public class HlhtZybcjlJdxjServiceImpl implements HlhtZybcjlJdxjService {
                             obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
                             obj.getKsmc(), obj.getKsdm(), obj.getBqmc(), obj.getBqdm(), obj.getSfzhm(), PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_JDXJ_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_JDXJ_SOURCE_TYPE), obj, 0)));
-                    real_count++;
-
+                } catch (Exception e) {
+                    //e.printStackTrace();
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
-
+                real_count++;
             }
-
-            //}
-            //1.病历总数 2.抽取的病历数量 3.子集类型
-            this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZYBCJL_JDXJ_SOURCE_TYPE), t);
-
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-
-
+        this.splitTableDao.selectAnmrZybcjlJdxjSplitByProc(jdxj);
+        //1.病历总数 2.抽取的病历数量 3.子集类型
+        this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZYBCJL_JDXJ_SOURCE_TYPE), t);
         MbzDataCheck mbzDataCheck = new MbzDataCheck();
         mbzDataCheck.setDataCount(emr_count);
         mbzDataCheck.setRealCount(real_count);

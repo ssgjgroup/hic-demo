@@ -126,15 +126,16 @@ public class HlhtZlczjlSxjlServiceImpl implements HlhtZlczjlSxjlService {
                 try {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
                 Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZlczjlSxjl.class);
+
+                obj = (HlhtZlczjlSxjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
+                logger.info("Model:{}", obj);
+                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZLCZJL_SXJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                this.hlhtZlczjlSxjlDao.insertHlhtZlczjlSxjl(obj);
                 try {
-                    obj = (HlhtZlczjlSxjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
-                    logger.info("Model:{}", obj);
-                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZLCZJL_SXJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                    this.hlhtZlczjlSxjlDao.insertHlhtZlczjlSxjl(obj);
-                    this.splitTableDao.selectAnmrZlczjlSxjlSplitByProc(hlhtZlczjlSxjlTemp);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZLCZJL_SXJL_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
@@ -144,13 +145,16 @@ public class HlhtZlczjlSxjlServiceImpl implements HlhtZlczjlSxjlService {
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZLCZJL_SXJL_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZLCZJL_SXJL_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
+
 
                 real_count++;
 
             }
         }
+        this.splitTableDao.selectAnmrZlczjlSxjlSplitByProc(hlhtZlczjlSxjlTemp);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZLCZJL_SXJL_SOURCE_TYPE), t);
 

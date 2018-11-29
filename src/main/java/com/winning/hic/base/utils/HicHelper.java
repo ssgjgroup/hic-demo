@@ -38,7 +38,7 @@ public class HicHelper {
      * @throws ParseException
      */
     public static Object initModelValue(List<MbzDataSet> mbzDataSets, Document document,
-                                        Object obj, Map<String, String> paramTypeMap) throws ParseException {
+                                        Object obj, Map<String, String> paramTypeMap)  {
 
         String bltd = "";
         String shzdbm = "";
@@ -67,13 +67,23 @@ public class HicHelper {
                     String pattern = "yyyy-MM-dd HH:mm:ss";
                     SimpleDateFormat sdf = new SimpleDateFormat(pattern);
                     String dateStr = "1990-01-01 00:00:00";
-                    java.sql.Timestamp sqlDate = new java.sql.Timestamp(sdf.parse(dateStr).getTime());
+                    java.sql.Timestamp sqlDate = null;
+                    try {
+                        sqlDate = new java.sql.Timestamp(sdf.parse(dateStr).getTime());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                     value = sqlDate;
                 } else if (paramType.contains("Date")) {
                     String pattern = "yyyy-MM-dd HH:mm:ss";
                     SimpleDateFormat sdf = new SimpleDateFormat(pattern);
                     String dateStr = "1990-01-01 00:00:00";
-                    java.sql.Date sqlDate = new java.sql.Date(sdf.parse(dateStr).getTime());
+                    java.sql.Date sqlDate = null;
+                    try {
+                        sqlDate = new java.sql.Date(sdf.parse(dateStr).getTime());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                     value = sqlDate;
                 } else if (paramType.contains("BigDecimal")) {
                     value = new BigDecimal(0);
@@ -165,8 +175,13 @@ public class HicHelper {
                             value = sqlDate;
                         }
                     } catch (ParseException e) {
-                        e.printStackTrace();
-                        value = new java.sql.Timestamp(sdf.parse("1990-01-01 00:00:00").getTime());
+                        //e.printStackTrace();
+                        logger.error("时间转换失败:{},错误原因:{}",dateStr,e.getMessage());
+                        try {
+                            value = new java.sql.Timestamp(sdf.parse("1990-01-01 00:00:00").getTime());
+                        } catch (ParseException e1) {
+                            //e1.printStackTrace();
+                        }
                     }
                 } else if (paramType.contains("Date")) {
                     //格式：636467930400000000`2017-11-20,16:44
@@ -205,7 +220,14 @@ public class HicHelper {
                             value = sqlDate;
                         }
                     } catch (ParseException e) {
-                        e.printStackTrace();
+                       // e.printStackTrace();
+                        logger.error("时间转换失败:{},错误原因:{}",dateStr,e.getMessage());
+                        try {
+                            java.sql.Date sqlDate = new java.sql.Date(sdf.parse("1990-01-01 00:00:00").getTime());
+                            value = sqlDate;
+                        } catch (ParseException e1) {
+                            //e1.printStackTrace();
+                        }
                     }
                 } else if (paramType.contains("BigDecimal")) {
                     String dateStr = StringUtil.isEmptyOrNull(strValue.trim()) ? "0" : strValue.trim();

@@ -5,6 +5,7 @@ import java.util.*;
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
+import com.winning.hic.model.*;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,10 +19,6 @@ import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.CommonQueryDao;
 import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtZqgzxxSstysDao;
-import com.winning.hic.model.HlhtZqgzxxSstys;
-import com.winning.hic.model.MbzDataCheck;
-import com.winning.hic.model.MbzDataSet;
-import com.winning.hic.model.MbzLoadDataInfo;
 import com.winning.hic.service.HlhtZqgzxxSstysService;
 import com.winning.hic.service.MbzDataCheckService;
 
@@ -87,7 +84,7 @@ public class HlhtZqgzxxSstysServiceImpl implements HlhtZqgzxxSstysService {
     public MbzDataCheck interfaceHlhtZqgzxxSstys(MbzDataCheck entity) throws Exception {
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
-       //实际数量
+        //实际数量
 
         //配置接口表字段配置信息
         MbzDataSet mbzDataSet = new MbzDataSet();
@@ -119,8 +116,15 @@ public class HlhtZqgzxxSstysServiceImpl implements HlhtZqgzxxSstysService {
                 oldObj.setYjlxh(String.valueOf(obj.getYjlxh()));
                 oldObj = getHlhtZqgzxxSstys(oldObj);
                 //解析病历xml
-                Document document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
-                //System.out.println(Base64Utils.unzipEmrXml(emrQtbljlk.getBlnr()));
+                Document document = null;
+                try {
+                    document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
+                    obj = (HlhtZqgzxxSstys) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
+                } catch (Exception e) {
+                    //e.printStackTrace();
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
+                }
                 //判断是否存在重复,存在则删除，重新新增
                 if (oldObj != null) {
                     //初始化数据
@@ -137,21 +141,27 @@ public class HlhtZqgzxxSstysServiceImpl implements HlhtZqgzxxSstysService {
 
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZQGZXX_SSTYS), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                 this.createHlhtZqgzxxSstys(obj);
-                this.splitTableDao.selectAnmrZqgzxxSstysSplitByProc(hlht);
-                //插入日志
-                mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
-                        Long.parseLong(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE),
-                        Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
-                        obj.getFssj(),
-                        obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
-                        obj.getKsmc(), obj.getKsdm(), obj.getBqmc(), obj.getBqdm(), obj.getSfzhm(),
-                        PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE), obj, 1),
-                        PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE), obj, 0)));
+
+                try {
+                    //插入日志
+                    mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
+                            Long.parseLong(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE),
+                            Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
+                            obj.getFssj(),
+                            obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
+                            obj.getKsmc(), obj.getKsdm(), obj.getBqmc(), obj.getBqdm(), obj.getSfzhm(),
+                            PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE), obj, 1),
+                            PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE), obj, 0)));
+                } catch (Exception e) {
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
+                }
                 real_count++;
             }
         } else {
             logger.info("接口数据集:{}无相关的病历信息或者未配置结果集，请先书写病历信息或配置结果集", mbzDataSet.getRecordName());
         }
+        this.splitTableDao.selectAnmrZqgzxxSstysSplitByProc(hlht);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE), entity);
         MbzDataCheck mbzDataCheck = new MbzDataCheck();

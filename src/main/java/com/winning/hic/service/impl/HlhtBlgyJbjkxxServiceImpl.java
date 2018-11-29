@@ -103,7 +103,7 @@ public class HlhtBlgyJbjkxxServiceImpl implements HlhtBlgyJbjkxxService {
             logger.info("Model:{}", obj);
             //创建新的数据
             this.hlhtBlgyJbjkxxDao.insertHlhtBlgyJbjkxx(obj);
-            this.splitTableDao.selectAnmrBlgyJbjkxxSplitByProc(jbjkxx);
+
             //插入日志
             mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                     Long.parseLong(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE),
@@ -114,6 +114,7 @@ public class HlhtBlgyJbjkxxServiceImpl implements HlhtBlgyJbjkxxService {
                     PercentUtil.getPercent(Long.parseLong(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE), obj, 0)));
             real_count++;
         }
+        this.splitTableDao.selectAnmrBlgyJbjkxxSplitByProc(jbjkxx);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(jbjkxxList.size(), real_count, Integer.parseInt(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE), entity);
         MbzDataCheck mbzDataCheck = new MbzDataCheck();

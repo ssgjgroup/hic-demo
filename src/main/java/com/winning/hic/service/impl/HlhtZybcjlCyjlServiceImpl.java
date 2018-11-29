@@ -120,69 +120,70 @@ public class HlhtZybcjlCyjlServiceImpl implements HlhtZybcjlCyjlService {
                 try {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
                 Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZybcjlCyjl.class);
+
+                obj = (HlhtZybcjlCyjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
+                logger.info("Model:{}", obj);
+                //初步诊断-中医病名代码、名称处理
+                if (!"NA".equals(obj.getCzzybmdm())) {
+                    String bmdm = "";
+                    String bm = "";
+                    String[] str = obj.getCzzybmdm().split("  ");
+                    String[] str2 = obj.getCzzybmmc().split("  ");
+                    Character o = new Character('B');
+                    for (int i = 0; str.length > i; i++) {
+                        if (!"".equals(str[i].toString())) {
+                            if (o.equals(str[i].trim().charAt(0))) {
+                                bmdm = bmdm + str[i] + "  ";
+                                bm = bm + str2[i] + "  ";
+                            }
+                        }
+                    }
+                    if (StringUtils.isEmpty(bmdm)) {
+                        obj.setCzzybmdm("NA");
+                    } else {
+                        obj.setCzzybmdm(bmdm);
+                    }
+                    if (StringUtils.isEmpty(bm)) {
+                        obj.setCzzybmmc("NA");
+                    } else {
+                        obj.setCzzybmmc(bm);
+                    }
+                }
+                //初步诊断-中医证候代码
+                if (!"NA".equals(obj.getCzzyzhdm())) {
+                    String bmdm = "";
+                    String bm = "";
+                    String[] str = obj.getCzzyzhdm().split("  ");
+                    String[] str2 = obj.getCzzyzhmc().split("  ");
+                    Character o = new Character('B');
+                    for (int i = 0; str.length > i; i++) {
+                        if (!"".equals(str[i].toString())) {
+                            if (!o.equals(str[i].trim().charAt(0))) {
+                                bmdm = bmdm + str[i] + "  ";
+                                bm = bm + str2[i] + "  ";
+                            }
+                        }
+                    }
+                    if (StringUtils.isEmpty(bmdm)) {
+                        obj.setCzzyzhdm("NA");
+                    } else {
+                        obj.setCzzyzhdm(bmdm);
+                    }
+                    if (StringUtils.isEmpty(bm)) {
+                        obj.setCzzyzhmc("NA");
+                    } else {
+                        obj.setCzzyzhmc(bm);
+                    }
+                }
+
+
+                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_CYJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                this.hlhtZybcjlCyjlDao.insertHlhtZybcjlCyjl(obj);
                 try {
-                    obj = (HlhtZybcjlCyjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
-                    logger.info("Model:{}", obj);
-                    //初步诊断-中医病名代码、名称处理
-                    if (!"NA".equals(obj.getCzzybmdm())) {
-                        String bmdm = "";
-                        String bm = "";
-                        String[] str = obj.getCzzybmdm().split("  ");
-                        String[] str2 = obj.getCzzybmmc().split("  ");
-                        Character o = new Character('B');
-                        for (int i = 0; str.length > i; i++) {
-                            if (!"".equals(str[i].toString())) {
-                                if (o.equals(str[i].trim().charAt(0))) {
-                                    bmdm = bmdm + str[i] + "  ";
-                                    bm = bm + str2[i] + "  ";
-                                }
-                            }
-                        }
-                        if (StringUtils.isEmpty(bmdm)) {
-                            obj.setCzzybmdm("NA");
-                        } else {
-                            obj.setCzzybmdm(bmdm);
-                        }
-                        if (StringUtils.isEmpty(bm)) {
-                            obj.setCzzybmmc("NA");
-                        } else {
-                            obj.setCzzybmmc(bm);
-                        }
-                    }
-                    //初步诊断-中医证候代码
-                    if (!"NA".equals(obj.getCzzyzhdm())) {
-                        String bmdm = "";
-                        String bm = "";
-                        String[] str = obj.getCzzyzhdm().split("  ");
-                        String[] str2 = obj.getCzzyzhmc().split("  ");
-                        Character o = new Character('B');
-                        for (int i = 0; str.length > i; i++) {
-                            if (!"".equals(str[i].toString())) {
-                                if (!o.equals(str[i].trim().charAt(0))) {
-                                    bmdm = bmdm + str[i] + "  ";
-                                    bm = bm + str2[i] + "  ";
-                                }
-                            }
-                        }
-                        if (StringUtils.isEmpty(bmdm)) {
-                            obj.setCzzyzhdm("NA");
-                        } else {
-                            obj.setCzzyzhdm(bmdm);
-                        }
-                        if (StringUtils.isEmpty(bm)) {
-                            obj.setCzzyzhmc("NA");
-                        } else {
-                            obj.setCzzyzhmc(bm);
-                        }
-                    }
-
-
-                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_CYJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                    this.hlhtZybcjlCyjlDao.insertHlhtZybcjlCyjl(obj);
-                    this.splitTableDao.selectAnmrZybcjlCyjlSplitByProc(hlhtZybcjlCyjlTemp);
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZYBCJL_CYJL_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
@@ -192,12 +193,14 @@ public class HlhtZybcjlCyjlServiceImpl implements HlhtZybcjlCyjlService {
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_CYJL_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_CYJL_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
 
                 real_count++;
             }
         }
+        this.splitTableDao.selectAnmrZybcjlCyjlSplitByProc(hlhtZybcjlCyjlTemp);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZYBCJL_CYJL_SOURCE_TYPE), t);
 

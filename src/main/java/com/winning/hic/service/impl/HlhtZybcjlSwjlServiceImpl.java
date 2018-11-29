@@ -108,7 +108,6 @@ public class HlhtZybcjlSwjlServiceImpl implements HlhtZybcjlSwjlService {
     @Override
     public MbzDataCheck interfaceHlhtZybcjlSwjl(MbzDataCheck t) {
         //执行过程信息记录
-
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
 
@@ -142,24 +141,24 @@ public class HlhtZybcjlSwjlServiceImpl implements HlhtZybcjlSwjlService {
                 try {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
                 Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZybcjlSwjl.class);
+                obj = (HlhtZybcjlSwjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
+                logger.info("Model:{}", obj);
+                obj.setRyzdbm(obj.getRyzdbm() == null ? "NA" : obj.getRyzdbm().replace("西医诊断：", "").trim());
+                obj.setRyzdbm(obj.getRyzdbm() == null ? "NA" : obj.getRyzdbm().replace("中医诊断：", "").trim());
+                obj.setRyzdmc(obj.getRyzdmc() == null ? "NA" : obj.getRyzdmc().replace("西医诊断：", "").trim());
+                obj.setRyzdmc(obj.getRyzdmc() == null ? "NA" : obj.getRyzdmc().replace("中医诊断：", "").trim());
+                obj.setSwzdbm(obj.getSwzdbm() == null ? "NA" : obj.getSwzdbm().replace("西医诊断：", "").trim());
+                obj.setSwzdbm(obj.getSwzdbm() == null ? "NA" : obj.getSwzdbm().replace("中医诊断：", "").trim());
+                obj.setSwzdmc(obj.getSwzdmc() == null ? "NA" : obj.getSwzdmc().replace("西医诊断：", "").trim());
+                obj.setSwzdmc(obj.getSwzdmc() == null ? "NA" : obj.getSwzdmc().replace("中医诊断：", "").trim());
+                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_SWJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                this.hlhtZybcjlSwjlDao.insertHlhtZybcjlSwjl(obj);
+                //插入日志
                 try {
-                    obj = (HlhtZybcjlSwjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
-                    logger.info("Model:{}", obj);
-                    obj.setRyzdbm(obj.getRyzdbm() == null ? "NA" : obj.getRyzdbm().replace("西医诊断：", "").trim());
-                    obj.setRyzdbm(obj.getRyzdbm() == null ? "NA" : obj.getRyzdbm().replace("中医诊断：", "").trim());
-                    obj.setRyzdmc(obj.getRyzdmc() == null ? "NA" : obj.getRyzdmc().replace("西医诊断：", "").trim());
-                    obj.setRyzdmc(obj.getRyzdmc() == null ? "NA" : obj.getRyzdmc().replace("中医诊断：", "").trim());
-                    obj.setSwzdbm(obj.getSwzdbm() == null ? "NA" : obj.getSwzdbm().replace("西医诊断：", "").trim());
-                    obj.setSwzdbm(obj.getSwzdbm() == null ? "NA" : obj.getSwzdbm().replace("中医诊断：", "").trim());
-                    obj.setSwzdmc(obj.getSwzdmc() == null ? "NA" : obj.getSwzdmc().replace("西医诊断：", "").trim());
-                    obj.setSwzdmc(obj.getSwzdmc() == null ? "NA" : obj.getSwzdmc().replace("中医诊断：", "").trim());
-                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_SWJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                    this.hlhtZybcjlSwjlDao.insertHlhtZybcjlSwjl(obj);
-                    this.splitTableDao.selectAnmrZybcjlSwjlSplitByProc(hlhtZybcjlSwjlTemp);
-                    //插入日志
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZYBCJL_SWJL_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
@@ -169,12 +168,14 @@ public class HlhtZybcjlSwjlServiceImpl implements HlhtZybcjlSwjlService {
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_SWJL_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZYBCJL_SWJL_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
                 }
                 real_count++;
 
             }
         }
+        this.splitTableDao.selectAnmrZybcjlSwjlSplitByProc(hlhtZybcjlSwjlTemp);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZYBCJL_SWJL_SOURCE_TYPE), t);
         MbzDataCheck mbzDataCheck = new MbzDataCheck();

@@ -96,7 +96,7 @@ public class HlhtCyxjCyxjServiceImpl implements HlhtCyxjCyxjService {
         mbzDataSet.setSourceType(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE);
         mbzDataSet.setPId(Long.parseLong(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE));
         List<MbzDataSet> mbzDataSetList = mbzDataSetService.getMbzDataSetList(mbzDataSet);
-        try {
+
             //获取首次病程的对象集合
             Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtCyxjCyxj.class);
             //for(MbzDataListSet dataListSet :dataListSets){
@@ -128,7 +128,9 @@ public class HlhtCyxjCyxjServiceImpl implements HlhtCyxjCyxjService {
                         document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                         obj = (HlhtCyxjCyxj) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        //e.printStackTrace();
+                        logger.error("解析病历报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                        continue;
                     }
                     //初步诊断-中医病名代码、名称处理
                     if (!"NA".equals(obj.getRzzybmdm())) {
@@ -239,25 +241,25 @@ public class HlhtCyxjCyxjServiceImpl implements HlhtCyxjCyxjService {
                     logger.info("Model:{}", obj);
                     ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.CYXJ_CYXJ), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                     this.createHlhtCyxjCyxj(obj);
-                    this.splitTableDao.selectAnmrCyxjCyxjSplitByProc(oneCyxj);
+
                     //插入日志
-                    mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
-                            Long.parseLong(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE),
-                            Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
-                            obj.getFssj(),
-                            obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
-                            obj.getKsmc(), obj.getKsdm(), obj.getBqmc(), obj.getBqdm(), obj.getSfzhm(), PercentUtil.getPercent(Long.parseLong(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE), obj, 1),
-                            PercentUtil.getPercent(Long.parseLong(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE), obj, 0)));
+                    try {
+                        mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
+                                Long.parseLong(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE),
+                                Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
+                                obj.getFssj(),
+                                obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
+                                obj.getKsmc(), obj.getKsdm(), obj.getBqmc(), obj.getBqdm(), obj.getSfzhm(), PercentUtil.getPercent(Long.parseLong(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE), obj, 1),
+                                PercentUtil.getPercent(Long.parseLong(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE), obj, 0)));
+                    } catch (Exception e) {
+                        logger.error("病历百分比计算报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                        continue;
+                    }
                     real_count++;
 
                 }
             }
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        this.splitTableDao.selectAnmrCyxjCyxjSplitByProc(oneCyxj);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE), t);
 
