@@ -1,8 +1,11 @@
 package com.winning.hic.job;
 
+import com.winning.hic.base.Constants;
 import com.winning.hic.base.utils.DateUtil;
 import com.winning.hic.model.MbzAutomateSet;
+import com.winning.hic.model.MbzDictInfo;
 import com.winning.hic.service.MbzAutomateSetService;
+import com.winning.hic.service.MbzDictInfoService;
 import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,6 +43,8 @@ public class ScheduleRefreshDatabase {
 
     @Autowired
     private MbzAutomateSetService mbzAutomateSetService;
+    @Autowired
+    private MbzDictInfoService mbzDictInfoService;
 
     @Autowired
     @Qualifier("jobDetail")
@@ -57,48 +62,56 @@ public class ScheduleRefreshDatabase {
 
     @Scheduled(fixedRate = 1000 * 60 * 30 ) // 每隔30min查库，并根据查询结果决定是否重新设置定时任务
     public void scheduleUpdateCronTrigger() throws SchedulerException {
-        logger.info("刷新定时任务信息开始：[{}]",DateUtil.format(new Date(),DateUtil.PATTERN_19));
-        CronTrigger trigger = (CronTrigger) scheduler.getTrigger(cronTrigger.getKey());
-        String currentCron = trigger.getCronExpression();// 当前Trigger使用的
-        MbzAutomateSet automateSet = mbzAutomateSetService.getMbzAutomateSet(null);
-        if(automateSet == null ){ //表示未配置时间
-            automateSet = new MbzAutomateSet();
-            automateSet.setGroupName("HLHT");
-            automateSet.setJobName("HLHT-Job");
-            automateSet.setTriggerName("HLHT-Trigger");
-            automateSet.setBatchDate("2:00:00");
-            automateSet.setCron("* * 2 * * ?");
-            mbzAutomateSetService.createMbzAutomateSet(automateSet);
-            // 表达式调度构建器
-            CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule("* * 2 * * ?");
-            // 按新的cronExpression表达式重新构建trigger
-            trigger = (CronTrigger) scheduler.getTrigger(cronTrigger.getKey());
-            trigger = trigger.getTriggerBuilder().withIdentity(cronTrigger.getKey())
-                    .withSchedule(scheduleBuilder).build();
-            // 按新的trigger重新设置job执行
-            scheduler.rescheduleJob(cronTrigger.getKey(), trigger);
-            logger.info("刷新定时任务信息结束，未配置调度规则，将采用默认规则：[{}]，设置时间是：[{}]","* * 2 * * ?",DateUtil.format(new Date(),DateUtil.PATTERN_19));
+        MbzDictInfo mbzDictInfo = new MbzDictInfo();
+        mbzDictInfo.setDictCode(Constants.TIME_TASK);
+        mbzDictInfo = mbzDictInfoService.getMbzDictInfo(mbzDictInfo);
+        if(mbzDictInfo == null || Constants.TIME_TASK_END_STATUS == mbzDictInfo.getStatus().intValue() ){
+            logger.info("检查定时任务信息：[{}],关闭定时任务",DateUtil.format(new Date(),DateUtil.PATTERN_19));
             return;
-        }
-        String searchCron = automateSet.getCron(); // 从数据库查询出来的
-        //System.out.println(currentCron);
-       // System.out.println(searchCron);
-        if (currentCron.equals(searchCron)) {
-            // 如果当前使用的cron表达式和从数据库中查询出来的cron表达式一致，则不刷新任务
-        } else {
-            logger.info("任务【" + automateSet.getJobName() + "】的调度规则已变更为[" + searchCron + "]，正在重新设置.@"+DateUtil.format(new Date(),DateUtil.PATTERN_19));
-            // 表达式调度构建器
-            CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(searchCron);
-            // 按新的cronExpression表达式重新构建trigger
-            trigger = (CronTrigger) scheduler.getTrigger(cronTrigger.getKey());
-            trigger = trigger.getTriggerBuilder().withIdentity(cronTrigger.getKey())
-                    .withSchedule(scheduleBuilder).build();
-            // 按新的trigger重新设置job执行
-            scheduler.rescheduleJob(cronTrigger.getKey(), trigger);
-            currentCron = searchCron;
-        }
+        }else{
+            logger.info("刷新定时任务信息开始：[{}]",DateUtil.format(new Date(),DateUtil.PATTERN_19));
+            CronTrigger trigger = (CronTrigger) scheduler.getTrigger(cronTrigger.getKey());
+            String currentCron = trigger.getCronExpression();// 当前Trigger使用的
+            MbzAutomateSet automateSet = mbzAutomateSetService.getMbzAutomateSet(null);
+            if(automateSet == null ){ //表示未配置时间
+                automateSet = new MbzAutomateSet();
+                automateSet.setGroupName("HLHT");
+                automateSet.setJobName("HLHT-Job");
+                automateSet.setTriggerName("HLHT-Trigger");
+                automateSet.setBatchDate("2:00:00");
+                automateSet.setCron("* * 2 * * ?");
+                mbzAutomateSetService.createMbzAutomateSet(automateSet);
+                // 表达式调度构建器
+                CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule("* * 2 * * ?");
+                // 按新的cronExpression表达式重新构建trigger
+                trigger = (CronTrigger) scheduler.getTrigger(cronTrigger.getKey());
+                trigger = trigger.getTriggerBuilder().withIdentity(cronTrigger.getKey())
+                        .withSchedule(scheduleBuilder).build();
+                // 按新的trigger重新设置job执行
+                scheduler.rescheduleJob(cronTrigger.getKey(), trigger);
+                logger.info("刷新定时任务信息结束，未配置调度规则，将采用默认规则：[{}]，设置时间是：[{}]","* * 2 * * ?",DateUtil.format(new Date(),DateUtil.PATTERN_19));
+                return;
+            }
+            String searchCron = automateSet.getCron(); // 从数据库查询出来的
+            //System.out.println(currentCron);
+            // System.out.println(searchCron);
+            if (currentCron.equals(searchCron)) {
+                // 如果当前使用的cron表达式和从数据库中查询出来的cron表达式一致，则不刷新任务
+            } else {
+                logger.info("任务【" + automateSet.getJobName() + "】的调度规则已变更为[" + searchCron + "]，正在重新设置.@"+DateUtil.format(new Date(),DateUtil.PATTERN_19));
+                // 表达式调度构建器
+                CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(searchCron);
+                // 按新的cronExpression表达式重新构建trigger
+                trigger = (CronTrigger) scheduler.getTrigger(cronTrigger.getKey());
+                trigger = trigger.getTriggerBuilder().withIdentity(cronTrigger.getKey())
+                        .withSchedule(scheduleBuilder).build();
+                // 按新的trigger重新设置job执行
+                scheduler.rescheduleJob(cronTrigger.getKey(), trigger);
+                currentCron = searchCron;
+            }
 
-        logger.info("刷新定时任务信息结束:[{}]",DateUtil.format(new Date(),DateUtil.PATTERN_19));
+            logger.info("刷新定时任务信息结束:[{}]",DateUtil.format(new Date(),DateUtil.PATTERN_19));
+        }
     }
 
 }

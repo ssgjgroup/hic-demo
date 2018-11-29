@@ -89,4 +89,17 @@ public class Constants {
 
     public static final String SUCCESS = "SUCCESS";
     public static final String ERROR = "error";
+
+    /**
+     * 定时任务
+     */
+    public static final String TIME_TASK = "timeTask";
+    /**
+     * 定时任务开启
+     */
+    public static final Integer TIME_TASK_START_STATUS = 1;
+    /**
+     * 定时任务关闭
+     */
+    public static final Integer TIME_TASK_END_STATUS = 0;
 }
