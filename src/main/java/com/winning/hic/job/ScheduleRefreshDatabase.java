@@ -60,7 +60,7 @@ public class ScheduleRefreshDatabase {
     @Qualifier("scheduler")
     private Scheduler scheduler;
 
-    @Scheduled(fixedRate = 1000 * 60 * 30 ) // 每隔30min查库，并根据查询结果决定是否重新设置定时任务
+    @Scheduled(fixedRate = 1000 * 60 * 5 ) // 每隔5min查库，并根据查询结果决定是否重新设置定时任务
     public void scheduleUpdateCronTrigger() throws SchedulerException {
         MbzDictInfo mbzDictInfo = new MbzDictInfo();
         mbzDictInfo.setDictCode(Constants.TIME_TASK);
