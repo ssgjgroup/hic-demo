@@ -1,5 +1,7 @@
 package com.winning.hic.base.utils;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -341,5 +343,73 @@ public class HicHelper {
             //logger.info("Model:{}", obj);
         }
         return obj;
+    }
+
+    /**
+     * 数据封装 将map中参数封装到obj中
+     * @param object 待数据封装obj
+     * @param dataMap 数据参数map
+     * @return
+     */
+    public static Class<?> initBean(Object object, Map<String, Object> dataMap) {
+
+        Class<?> T = null;
+        try {
+            T = object.getClass();
+            Method[] method = T.getMethods();
+            for (Method m : method) {
+                String methodName = m.getName();
+                if (methodName.startsWith("set")) {
+                    String fieldName = methodName.substring(3);
+                    String index = fieldName.substring(0, 1).toLowerCase();
+                    String next = fieldName.substring(1);
+                    fieldName = index + next;
+                    Class<?>[] types = m.getParameterTypes();
+                    String type = types[0].getName();
+                    if (dataMap.get(fieldName) != null
+                            && !dataMap.get(fieldName).equals("")) {
+                        Object[] param = new Object[1];
+                        String value = String.valueOf(dataMap.get(fieldName));
+                        if (type.equals(String.class.getName())) {
+                            param[0] = value;
+                        } else if (type.equals("int")
+                                || type.equals(Integer.class.getName())) {
+                            param[0] = new Integer(value);
+                        } else if (type.equals("long")
+                                || type.equals(Long.class.getName())) {
+                            param[0] = new Long(value);
+                        } else if (type.equals("boolean")
+                                || type.equals(Boolean.class.getName())) {
+                            param[0] = Boolean.valueOf(value);
+                        } else if (type.equals(Date.class.getName())) {
+                            SimpleDateFormat sdf = new SimpleDateFormat(
+                                    "yyyy-MM-dd");
+                            Date date = sdf.parse(value);
+                            param[0] = date;
+                        } else if (type.equals("double")
+                                || type.equals(Double.class.getName())) {
+                            param[0] = new Double(value);
+                        } else if (type.equals("short")
+                                || type.equals(Short.class.getName())) {
+                            param[0] = new Short(value);
+                        }
+
+                        m.invoke(object, param);
+                    }
+                }
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return T;
     }
 }

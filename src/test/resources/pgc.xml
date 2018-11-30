@@ -1,0 +1,300 @@
+<Model id="b66b52df-fed6-4be7-8af4-f83740b63049" name="手术记录(剖宫产手术记录)" description="" text="剖宫产手术记录单" nodetype="Model" canprint="True" printInOddPages="False" display="11```0`1" Version="1.0.0.63" titledisplay="1`1`1" hospitalcoderange="10007" catalogcode="B-9385" illnesstypecode="FF85" scalemodelxml="" modellogiccontent="" indentEnabled="False" indentLength="0" isReview="False" isform="False" formclass="" maxrefid="22" RelateInstanceId="0">
+  <Ref id="17">
+    <node identity="2" isfixed="False" spaceholder="0" atomvisibleenabled="False" atomvisible="" diagnosistype="-1" illnesstypecode="" hospitalcoderange="" diagnosisInsertstype="-1" FirstCharOfDiagnosisInsertVertical="0" id="86f0e2e9-f53a-4781-bea6-dd75a64dbf2b" nodetype="Embeded" nodelogiccontent="" name="手术信息(术前诊断)" text="手术信息(术前诊断)" description="用于术前小结、术前讨论等记录中。" otherid="D-101529" display="11```0`1">
+      <node embededId="0" id="b96f6b9b-3d5c-4e9e-af8c-ea79a1b5c826" nodetype="Object" nodelogiccontent="" name="术前诊断" text="术前诊断" description="6.231" otherid="E-62" display="11```0`1">
+        <node id="1222d85e-4a28-445a-8dad-70434002ac85" nodetype="AtomNode" nodelogiccontent="" name="术前诊断" text="术前诊断" description="6.001" otherid="F-60010" atomtype="String" maxrequired="10" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="ICD-10///ICD10///记录状态//1" inputdirect="False" display="1111111```````0" embededId="1" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+    </node>
+  </Ref>
+  <node id="2ef0a3e4-f75d-4f36-aef0-93562b802c47" nodetype="DynamicMoleNode" nodelogiccontent="" name="术前诊断" text="术前诊断" description="5.736" otherid="C-81" display="20`术前诊断　`&#xD;&#xA;`0`1" permitobjs="" defaultobjs="" allowUserDefine="False" canNotInputText="False" isnewPage="False" canNull="True" canNullSubmit="True" permittedDoctorGradeRange="" useDiagContinuedPrint="False" nodePrintArea="None" indentLength="0">
+    <node refid="17" nodetype="Embeded" />
+  </node>
+  <Ref id="18">
+    <node identity="4" isfixed="False" spaceholder="0" atomvisibleenabled="False" atomvisible="" diagnosistype="-1" illnesstypecode="" hospitalcoderange="" diagnosisInsertstype="-1" FirstCharOfDiagnosisInsertVertical="0" id="2fef96b0-bbcd-4947-8083-9197d9845064" nodetype="Embeded" nodelogiccontent="" name="手术信息(术后诊断)" text="手术信息(术后诊断)" otherid="D-101529" display="11```0`1">
+      <node embededId="2" id="f760472b-dbbb-4c9e-b8cc-4bfe264f1289" nodetype="Object" nodelogiccontent="" name="术后诊断" text="术后诊断" description="6.233" otherid="E-74" display="11```0`1">
+        <node id="1222d85e-4a28-445a-8dad-70434002ac85" nodetype="AtomNode" nodelogiccontent="" name="术后诊断" text="术后诊断" description="6.001" otherid="F-60010" atomtype="String" maxrequired="10" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="ICD-10///ICD10///记录状态//1" inputdirect="False" display="1111111```````0" embededId="3" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+    </node>
+  </Ref>
+  <node id="3329a9aa-b58d-400f-93db-5187b9fcca0e" nodetype="DynamicMoleNode" nodelogiccontent="" name="术后诊断" text="术后诊断" otherid="C-81" display="20`术后诊断　`&#xD;&#xA;`0`1" permitobjs="" defaultobjs="" allowUserDefine="False" canNotInputText="False" isnewPage="False" canNull="True" canNullSubmit="True" permittedDoctorGradeRange="" useDiagContinuedPrint="False" nodePrintArea="None" indentLength="0">
+    <node refid="18" nodetype="Embeded" />
+  </node>
+  <Ref id="19">
+    <node identity="10" isfixed="False" spaceholder="4" atomvisibleenabled="False" atomvisible="" diagnosistype="-1" illnesstypecode="" hospitalcoderange="" diagnosisInsertstype="-1" FirstCharOfDiagnosisInsertVertical="0" id="6210303a-0b21-429b-82a1-b8de042d3cf3" nodetype="Embeded" nodelogiccontent="" name="手术信息(拟施手术名称)" text="手术信息(拟施手术名称)" description="创伤性操作及手术名称，取自snomed" otherid="D-101529" display="11```0`1">
+      <node embededId="8" id="dd4611de-e3f7-4172-8d97-b309aed1e8af" nodetype="Object" nodelogiccontent="" name="创伤手术(检查)名称" text="创伤手术(检查)名称" otherid="E-52" display="11```0`1">
+        <node id="45efbecc-7991-4ab6-98b7-ade5f4a51b87" nodetype="AtomNode" nodelogiccontent="" name="操作" text="拟施手术名称" description="操作" otherid="F-40" atomtype="String" maxrequired="3" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="操作///Procedure///代码范围//P1-28160,P1-28123,P1-01014,P1-01015,P1-03108,P1-0310C" inputdirect="False" display="1111111```````0" embededId="9" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+    </node>
+  </Ref>
+  <node id="5fe5e01d-a059-4a76-b773-5c7a9f0088d5" nodetype="DynamicMoleNode" nodelogiccontent="" name="手术记录(拟施手术名称及日期)" text="手术记录(拟施手术名称及日期)" description="5.120" otherid="C-51" display="20`手术方式　`&#xD;&#xA;`0`1" permitobjs="" defaultobjs="" allowUserDefine="False" canNotInputText="False" isnewPage="False" canNull="True" canNullSubmit="True" permittedDoctorGradeRange="" useDiagContinuedPrint="False" nodePrintArea="None" indentLength="0">
+    <node refid="19" nodetype="Embeded" />
+  </node>
+  <Ref id="11">
+    <node identity="10" isfixed="True" spaceholder="10" atomvisibleenabled="False" atomvisible="" diagnosistype="-1" illnesstypecode="" hospitalcoderange="" diagnosisInsertstype="-1" FirstCharOfDiagnosisInsertVertical="0" id="ae4df96d-9379-4cb5-b8c3-1436228020eb" nodetype="Embeded" nodelogiccontent="" name="手术信息(参加手术人员)" text="手术信息(参加手术人员)" description="适用于宝山分院，描述参加手术的医师。" otherid="D-101529" display="11```0`1">
+      <node embededId="2" id="3fd2a3c0-94c3-4606-9579-b92b67836266" nodetype="Object" nodelogiccontent="" name="手术医师" text="手术医师" description="5.210(主刀)" otherid="E-53301" display="11```0`1">
+        <node id="6d779fe3-733a-4f0d-9c86-a040241deeb6" nodetype="AtomNode" nodelogiccontent="" name="手术医师" text="手术医师" description="3.003" otherid="F-30030" atomtype="String" maxrequired="8" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="职工表///EmployeeBook///记录状态//1" inputdirect="False" display="2011111`手术者` `````0" embededId="3" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node embededId="4" id="7ad60d50-c198-4c65-b188-98fc65bad100" nodetype="Object" nodelogiccontent="" name="第一助手" text="第一助手" description="5.211" otherid="E-53" display="11```0`1">
+        <node id="6d779fe3-733a-4f0d-9c86-a040241deeb6" nodetype="AtomNode" nodelogiccontent="" name="第一助手" text="第一助手" description="3.003" otherid="F-30030" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="职工表///EmployeeBook///记录状态//1" inputdirect="False" display="2011111`Ⅰ助` `````0" embededId="5" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node embededId="6" id="dd056f33-8bd6-43ab-9c76-3ea622e106a6" nodetype="Object" nodelogiccontent="" name="第二助手" text="第二助手" description="5.212" otherid="E-53" display="11```0`1">
+        <node id="6d779fe3-733a-4f0d-9c86-a040241deeb6" nodetype="AtomNode" nodelogiccontent="" name="第二助手" text="第二助手" description="3.003" otherid="F-30030" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="职工表///EmployeeBook///记录状态//1" inputdirect="False" display="2011111`Ⅱ助` `````0" embededId="7" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+    </node>
+  </Ref>
+  <Ref id="20">
+    <node identity="4" isfixed="False" spaceholder="4" atomvisibleenabled="False" atomvisible="" diagnosistype="-1" illnesstypecode="" hospitalcoderange="" diagnosisInsertstype="-1" FirstCharOfDiagnosisInsertVertical="0" id="42f7df71-85f3-470b-97b5-b30a2f63ec35" nodetype="Embeded" nodelogiccontent="" name="手术信息(器械护士)" text="手术信息(器械护士)" otherid="D-101529" display="11```0`1">
+      <node embededId="0" id="f7fa4b0f-a65e-4de5-8826-6ca267047277" nodetype="Object" nodelogiccontent="" name="手术护士" text="手术护士" description="0.233" otherid="E-02804" display="11```0`1">
+        <node id="6d779fe3-733a-4f0d-9c86-a040241deeb6" nodetype="AtomNode" nodelogiccontent="" name="手术护士" text="护士" description="3.003" otherid="F-30030" atomtype="String" maxrequired="10" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="职工表///EmployeeBook///记录状态//1" inputdirect="False" display="2011111`护士` `````0" embededId="1" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+    </node>
+  </Ref>
+  <node id="14316f6f-4632-4c0f-8a85-521ddc480047" nodetype="DynamicMoleNode" nodelogiccontent="" name="手术参加人员" text="手术参加人员" description="手术参加人员" otherid="C-51" display="10``&#xD;&#xA;`0`1" permitobjs="" defaultobjs="" allowUserDefine="False" canNotInputText="False" isnewPage="False" canNull="True" canNullSubmit="True" permittedDoctorGradeRange="" useDiagContinuedPrint="False" nodePrintArea="None" indentLength="0">
+    <node refid="11" nodetype="Embeded" />
+    <node refid="20" nodetype="Embeded" />
+  </node>
+  <Ref id="13">
+    <node identity="12" isfixed="True" spaceholder="4" atomvisibleenabled="False" atomvisible="" diagnosistype="-1" illnesstypecode="" hospitalcoderange="" diagnosisInsertstype="-1" FirstCharOfDiagnosisInsertVertical="0" id="8becb76b-33b8-479f-9484-ae9ffc0bc2c6" nodetype="Embeded" nodelogiccontent="" name="手术信息(麻醉信息)" text="手术信息(麻醉信息)" description="用于手术记录中，说明麻醉医师和麻醉方式。" otherid="D-101529" display="11```0`1">
+      <node embededId="0" id="37bb18e2-7a37-4770-84ff-8e11ca489456" nodetype="Object" nodelogiccontent="" name="麻醉医师" text="麻醉医师" description="5.213" otherid="E-53304" display="11```0`1">
+        <node id="6d779fe3-733a-4f0d-9c86-a040241deeb6" nodetype="AtomNode" nodelogiccontent="" name="麻醉医师" text="麻醉医师" description="3.003" otherid="F-30030" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="职工表///EmployeeBook///记录状态//1" inputdirect="False" display="0011111`` `````0" embededId="1" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="    " rtf="    " nodetype="Text" />
+      <node text=" " rtf=" " nodetype="Text" />
+      <node text=" " rtf=" " nodetype="Text" />
+      <node text=" " rtf=" " nodetype="Text" />
+      <node embededId="2" id="6d98c243-9e61-4190-adeb-cae173c58f05" nodetype="Object" nodelogiccontent="" name="麻醉方式" text="麻醉方式" description="5.214" otherid="E-53305" display="11```0`1">
+        <node id="40f302c2-60af-4065-90a7-875399b2d860" nodetype="AtomNode" nodelogiccontent="" name="麻醉方式" text="麻醉方式" description="3.005" otherid="F-30050" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="麻醉字典///AnesthesiaBook///记录状态//1" inputdirect="False" display="0011111`` `````0" embededId="3" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+    </node>
+  </Ref>
+  <node id="db82b023-a04c-4ec7-a155-7cc1111da9f0" nodetype="DynamicMoleNode" nodelogiccontent="" name="麻醉信息" text="麻醉信息" description="手术或检查的麻醉信息。" otherid="C-51" display="10``&#xD;&#xA;`0`1" permitobjs="" defaultobjs="" allowUserDefine="False" canNotInputText="False" isnewPage="False" canNull="True" canNullSubmit="True" permittedDoctorGradeRange="" useDiagContinuedPrint="False" nodePrintArea="None" indentLength="0">
+    <node refid="13" nodetype="Embeded" />
+  </node>
+  <Ref id="22">
+    <node identity="166" isfixed="False" spaceholder="0" atomvisibleenabled="False" atomvisible="" diagnosistype="-1" illnesstypecode="" hospitalcoderange="" diagnosisInsertstype="-1" FirstCharOfDiagnosisInsertVertical="0" id="6375efbf-0e2c-4075-b183-9994b93b571a" nodetype="Embeded" nodelogiccontent="" name="检查记录(剖宫产手术7)" text="检查记录(剖宫产手术7)" otherid="D-71414585" display="11```0`1">
+      <node text="体位：" rtf="\'cc\'e5\'ce\'bb\'a3\'ba" nodetype="Text" />
+      <node embededId="146" id="1590ff31-864c-4302-a5d9-450b12ed63a9" nodetype="Object" nodelogiccontent="" name="体位描述" text="体位描述" description="选项：侧卧位、仰卧位、俯卧位" otherid="E-3405" display="11```0`1">
+        <node id="f7d7405e-82f7-4435-87f9-34ae567446e1" nodetype="AtomNode" nodelogiccontent="" name="体位描述" text="体位描述" description="4.002" otherid="F-40020" atomtype="String" value="48331`仰卧位`F-10340" ischoiceatom="True" ChoiceType="ShowList" sqlstr="功能///BiologyFunction///代码范围//F-10318,F-10340,F-10310//开始序号//48320//结束序号//48331" inputdirect="False" display="1111111`` `````0" embededId="147" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;消毒：碘酒、酒精&#xA;手术切口：" rtf="\par&#xD;&#xA;\'cf\'fb\'b6\'be\'a3\'ba\'b5\'e2\'be\'c6\'a1\'a2\'be\'c6\'be\'ab\par&#xD;&#xA;\pard\'ca\'d6\'ca\'f5\'c7\'d0\'bf\'da\'a3\'ba" nodetype="Text" />
+      <node embededId="58" id="4ac05e35-dc0e-4e34-86f8-4b266224d1ec" nodetype="Object" nodelogiccontent="" name="耻上横切口长度" text="耻上横切口长度" description="剖宫产" otherid="E-5233" display="11```0`1">
+        <node id="8219e0fd-9463-4071-9e70-3f403321700d" nodetype="AtomNode" nodelogiccontent="" name="小数" text="耻上横切口长度" description="不带单位的浮点型数值。" otherid="F-7050" atomtype="Double" value="" display="1010111``耻上横切口``cm```0" embededId="59" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="，" rtf="\'a3\'ac" nodetype="Text" />
+      <node embededId="60" id="1409bd72-903e-41d4-9e4b-175f3f60eefc" nodetype="Object" nodelogiccontent="" name="下腹右旁正中纵切口长度" text="下腹右旁正中纵切口长度" description="剖宫产" otherid="E-5233" display="11```0`1">
+        <node id="8219e0fd-9463-4071-9e70-3f403321700d" nodetype="AtomNode" nodelogiccontent="" name="小数" text="下腹右旁正中纵切口长度" description="不带单位的浮点型数值。" otherid="F-7050" atomtype="Double" value="" display="1010111``下腹右旁正中纵``cm```0" embededId="61" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="，" rtf="\'a3\'ac" nodetype="Text" />
+      <node embededId="62" id="926589d6-1cb8-4fc1-980f-dd35e8097a85" nodetype="Object" nodelogiccontent="" name="有无下腹瘢痕切除术" text="有无下腹瘢痕切除术" otherid="E-2246" display="11```0`1">
+        <node id="f7d7405e-82f7-4435-87f9-34ae567446e1" nodetype="AtomNode" nodelogiccontent="" name="功能" text="有无下腹瘢痕切除术" description="体征和症状。" otherid="F-4" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="功能///BiologyFunction///代码范围//F-01250,F-01255" inputdirect="False" display="1110111````下腹瘢痕切除术```0" embededId="63" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;" rtf="\par&#xD;&#xA;" nodetype="Text" />
+      <node text="开腹" rtf="\'bf\'aa\'b8\'b9" nodetype="Text" />
+      <node text="：" rtf="\'a3\'ba" nodetype="Text" />
+      <node embededId="76" id="5397bc69-c526-4eb3-a5af-9f29e55f9f3b" nodetype="Object" nodelogiccontent="" name="中转开腹" text="中转开腹" description="顺利，不顺利" otherid="E-5291" display="11```0`1">
+        <node id="76ac966f-c1e3-40b4-888e-40fbe0c0a6e4" nodetype="AtomNode" nodelogiccontent="" name="关联词" text="开腹是否顺利" description="语法连接、修饰词等。" otherid="F-40" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="关联词(修饰词)///GeneralLinkage///代码范围//G-1841,G-1844" inputdirect="False" display="1111111```````0" embededId="77" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="（原：      ）&#xA;探查：子宫：" rtf="\'a3\'a8\'d4\'ad\'a3\'ba      \'a3\'a9\par&#xD;&#xA;\'cc\'bd\'b2\'e9\'a3\'ba\'d7\'d3\'b9\'ac\'a3\'ba" nodetype="Text" />
+      <node embededId="68" id="14fbe654-c8e8-4093-a57a-f3979bc9bf01" nodetype="Object" nodelogiccontent="" name="子宫是否旋转" text="子宫是否旋转" description="选项：不旋，左旋，右旋" otherid="E-2252" display="11```0`1">
+        <node id="f7d7405e-82f7-4435-87f9-34ae567446e1" nodetype="AtomNode" nodelogiccontent="" name="功能" text="子宫是否旋转" description="体征和症状。" otherid="F-4" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="功能///BiologyFunction///代码范围//F-8521%//开始序号//142587//结束序号//142589" inputdirect="False" display="1111111```````0" embededId="69" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;" rtf="\par&#xD;&#xA;" nodetype="Text" />
+      <node text="子宫" rtf="\'d7\'d3\'b9\'ac" nodetype="Text" />
+      <node text="下段" rtf="\'cf\'c2\'b6\'ce" nodetype="Text" />
+      <node text="形成" rtf="\'d0\'ce\'b3\'c9" nodetype="Text" />
+      <node text="：" rtf="\'a3\'ba" nodetype="Text" />
+      <node embededId="148" id="3c5f9eb9-cbb6-40f9-ac7e-da22e7343712" nodetype="Object" nodelogiccontent="" name="子宫下段形成" text="子宫下段形成" description="选项：佳、不佳" otherid="E-2252" display="11```0`1">
+        <node id="f7d7405e-82f7-4435-87f9-34ae567446e1" nodetype="AtomNode" nodelogiccontent="" name="功能" text="子宫下段形成" description="体征和症状。" otherid="F-4" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="功能///BiologyFunction///代码范围//F-90004, F-90005//开始序号//138000" inputdirect="False" display="1111111```````0" embededId="149" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="，" rtf="\'a3\'ac" nodetype="Text" />
+      <node embededId="74" id="332d376a-38bd-4ec8-a40b-00f892cd9ecd" nodetype="Object" nodelogiccontent="" name="与周围组织有无粘连" text="与周围组织有无粘连" otherid="E-3415" display="11```0`1">
+        <node id="f7d7405e-82f7-4435-87f9-34ae567446e1" nodetype="AtomNode" nodelogiccontent="" name="功能" text="有无粘连" description="体征和症状。" otherid="F-4" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="功能///BiologyFunction///代码范围//F-01250,F-01255" inputdirect="False" display="1110111````粘连```0" embededId="75" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;" rtf="\par&#xD;&#xA;" nodetype="Text" />
+      <node text="膀胱" rtf="\'b0\'f2\'eb\'d7" nodetype="Text" />
+      <node text="腹膜" rtf="\'b8\'b9\'c4\'a4" nodetype="Text" />
+      <node text="反折" rtf="\'b7\'b4\'d5\'db" nodetype="Text" />
+      <node text="：打开" rtf="\'a3\'ba\'b4\'f2\'bf\'aa" nodetype="Text" />
+      <node embededId="78" id="9ecf2422-7b8e-4bb2-b365-a5a64920ad54" nodetype="Object" nodelogiccontent="" name="是否顺利" text="是否顺利" description="顺利与不顺利" otherid="E-1601" display="11```0`1">
+        <node id="76ac966f-c1e3-40b4-888e-40fbe0c0a6e4" nodetype="AtomNode" nodelogiccontent="" name="关联词" text="是否顺利" description="语法连接、修饰词等。" otherid="F-4" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="关联词(修饰词)///GeneralLinkage///开始代码//G-AF73//结束代码//G-AF74" inputdirect="False" display="1111111```````0" embededId="79" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;子宫切口：" rtf="\par&#xD;&#xA;\'d7\'d3\'b9\'ac\'c7\'d0\'bf\'da\'a3\'ba" nodetype="Text" />
+      <node text="下段横切" rtf="\'cf\'c2\'b6\'ce\'ba\'e1\'c7\'d0" nodetype="Text" />
+      <node embededId="152" id="55a08316-a71d-4777-a9ce-9ba131b24d1b" nodetype="Object" nodelogiccontent="" name="切口长度" text="切口长度" description="单位：cm" otherid="E-1211" display="11```0`1">
+        <node id="8219e0fd-9463-4071-9e70-3f403321700d" nodetype="AtomNode" nodelogiccontent="" name="小数" text="切口长度(cm)" description="不带单位的浮点型数值。" otherid="F-72" atomtype="Double" value="" display="1110111````cm```0" embededId="153" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="，上、下段纵切" rtf="\'a3\'ac\'c9\'cf\'a1\'a2\'cf\'c2\'b6\'ce\'d7\'dd\'c7\'d0" nodetype="Text" />
+      <node embededId="150" id="55a08316-a71d-4777-a9ce-9ba131b24d1b" nodetype="Object" nodelogiccontent="" name="切口长度" text="切口长度" description="单位：cm" otherid="E-1211" display="11```0`1">
+        <node id="8219e0fd-9463-4071-9e70-3f403321700d" nodetype="AtomNode" nodelogiccontent="" name="小数" text="切口长度(cm)" description="不带单位的浮点型数值。" otherid="F-72" atomtype="Double" value="" display="1110111````cm```0" embededId="151" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="，" rtf="\'a3\'ac" nodetype="Text" />
+      <node text="体纵切" rtf="\'cc\'e5\'d7\'dd\'c7\'d0" nodetype="Text" />
+      <node embededId="84" id="55a08316-a71d-4777-a9ce-9ba131b24d1b" nodetype="Object" nodelogiccontent="" name="切口长度" text="切口长度" description="单位：cm" otherid="E-1211" display="11```0`1">
+        <node id="8219e0fd-9463-4071-9e70-3f403321700d" nodetype="AtomNode" nodelogiccontent="" name="小数" text="切口长度(cm)" description="不带单位的浮点型数值。" otherid="F-72" atomtype="Double" value="" display="1110111````cm```0" embededId="85" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;" rtf="\par&#xD;&#xA;" nodetype="Text" />
+      <node text="羊" rtf="\'d1\'f2" nodetype="Text" />
+      <node text="水" rtf="\'cb\'ae" nodetype="Text" />
+      <node text="性" rtf="\'d0\'d4" nodetype="Text" />
+      <node text="状" rtf="\'d7\'b4" nodetype="Text" />
+      <node text="：" rtf="\'a3\'ba" nodetype="Text" />
+      <node embededId="86" id="f339f70c-c976-4c80-adcf-fa99e1f4160f" nodetype="Object" nodelogiccontent="" name="羊水色" text="羊水色" description="选项：清、草绿、黄绿、胎粪样、混" otherid="E-3455" display="11```0`1">
+        <node id="61dd4a9e-be46-4bd7-afb1-73e2abc3114c" nodetype="AtomNode" nodelogiccontent="" name="羊水色" text="羊水色" description="细胞、组织、器官的改变。" otherid="F-4" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="形态学///Morphology///代码范围//M-36809,M-02921,M-368F8,M-04066,M-04067,M-36658" inputdirect="False" display="1011111``色`````0" embededId="87" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="，" rtf="\'a3\'ac" nodetype="Text" />
+      <node embededId="88" id="ff66b2d4-1a4b-483d-9fb5-07d72d163a99" nodetype="Object" nodelogiccontent="" name="羊水性质" text="羊水性质" description="选项：稀、粘稠" otherid="E-3455" display="11```0`1">
+        <node id="f7d7405e-82f7-4435-87f9-34ae567446e1" nodetype="AtomNode" nodelogiccontent="" name="羊水性质" text="羊水性质" description="体征和症状。" otherid="F-40" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="功能///BiologyFunction///代码范围//F-89232,F-89234" inputdirect="False" display="1011111``性质`````0" embededId="89" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="，" rtf="\'a3\'ac" nodetype="Text" />
+      <node embededId="90" id="fa9fe77d-c3f3-452b-80c5-e931ca8b03fc" nodetype="Object" nodelogiccontent="" name="羊水量" text="羊水量" description="单位：毫升" otherid="E-3455" display="11```0`1">
+        <node id="6fa963d2-ab46-493e-9cf6-ff87addccf52" nodetype="AtomNode" nodelogiccontent="" name="羊水量" text="羊水量(ml)" description="输入自由文本的原子类型。" otherid="F-10" atomtype="Double" value="" display="1010111``量``ml```0" embededId="91" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;" rtf="\par&#xD;&#xA;" nodetype="Text" />
+      <node text="胎儿" rtf="\'cc\'a5\'b6\'f9" nodetype="Text" />
+      <node text="娩出" rtf="\'c3\'e4\'b3\'f6" nodetype="Text" />
+      <node text="：" rtf="\'a3\'ba" nodetype="Text" />
+      <node embededId="92" id="dbcecb96-2962-418d-a6f6-5472fa482418" nodetype="Object" nodelogiccontent="" name="胎儿娩出是否顺利" text="胎儿娩出是否顺利" description="选项：顺利，不顺利" otherid="E-5233" display="11```0`1">
+        <node id="76ac966f-c1e3-40b4-888e-40fbe0c0a6e4" nodetype="AtomNode" nodelogiccontent="" name="胎儿娩出是否顺利" text="是否顺利" description="语法连接、修饰词等。" otherid="F-40" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="关联词(修饰词)///GeneralLinkage///代码范围//G-1841,G-1844" inputdirect="False" display="1111111```````0" embededId="93" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;" rtf="\par&#xD;&#xA;" nodetype="Text" />
+      <node text="娩" rtf="\'c3\'e4" nodetype="Text" />
+      <node text="出" rtf="\'b3\'f6" nodetype="Text" />
+      <node text="方位" rtf="\'b7\'bd\'ce\'bb" nodetype="Text" />
+      <node text="：" rtf="\'a3\'ba" nodetype="Text" />
+      <node embededId="154" id="768bf5b7-6104-45ab-8bf2-42cf6f3a5a11" nodetype="Object" nodelogiccontent="" name="头位/头先露" text="头位/头先露" description="选项：LOA，LOT，LOP，ROA，ROT，ROP" otherid="E-3455" display="11```0`1">
+        <node id="f7d7405e-82f7-4435-87f9-34ae567446e1" nodetype="AtomNode" nodelogiccontent="" name="功能" text="头位" description="体征和症状。" otherid="F-40" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="功能///BiologyFunction///代码范围//F-87041～F-87046" inputdirect="False" display="1111111```````0" embededId="155" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="，" rtf="\'a3\'ac" nodetype="Text" />
+      <node embededId="156" id="1b23025a-f349-4f73-9d7c-3c3d5f997e55" nodetype="Object" nodelogiccontent="" name="臀位/臀先露" text="臀位/臀先露" description="选项：LSA，LST，LSP，RSA，RST，RSP" otherid="E-3455" display="11```0`1">
+        <node id="f7d7405e-82f7-4435-87f9-34ae567446e1" nodetype="AtomNode" nodelogiccontent="" name="功能" text="臀位" description="体征和症状。" otherid="F-40" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="功能///BiologyFunction///代码范围//F-87281～F-87286" inputdirect="False" display="1111111```````0" embededId="157" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;胎盘娩出：" rtf="\par&#xD;&#xA;\pard\'cc\'a5\'c5\'cc\'c3\'e4\'b3\'f6\'a3\'ba" nodetype="Text" />
+      <node embededId="96" id="0397dc87-2658-4be5-bb7f-9d40740c2bdd" nodetype="Object" nodelogiccontent="" name="胎盘娩出是否顺利" text="胎盘娩出是否顺利" description="选项：顺利，不顺利" otherid="E-5233" display="11```0`1">
+        <node id="76ac966f-c1e3-40b4-888e-40fbe0c0a6e4" nodetype="AtomNode" nodelogiccontent="" name="胎儿娩出是否顺利" text="是否顺利" description="语法连接、修饰词等。" otherid="F-40" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="关联词(修饰词)///GeneralLinkage///代码范围//G-1841,G-1844" inputdirect="False" display="1111111```````0" embededId="97" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="，胎盘" rtf="\'a3\'ac\'cc\'a5\'c5\'cc" nodetype="Text" />
+      <node embededId="98" id="33a79349-8c08-4623-abd0-a4b29f965e70" nodetype="Object" nodelogiccontent="" name="胎盘形态" text="胎盘形态" description="选项：正常，异常" otherid="E-2252" display="11```0`1">
+        <node id="f7d7405e-82f7-4435-87f9-34ae567446e1" nodetype="AtomNode" nodelogiccontent="" name="功能" text="胎盘形态" description="体征和症状。" otherid="F-4" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="功能///BiologyFunction///代码范围//F-85367,F-85369" inputdirect="False" display="1111111```````0" embededId="99" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;子宫切口缝合：" rtf="\par&#xD;&#xA;\pard\'d7\'d3\'b9\'ac\'c7\'d0\'bf\'da\'b7\'ec\'ba\'cf\'a3\'ba" nodetype="Text" />
+      <node text="用可吸收线常规缝合，并且缝合膀胱腹膜反折&#xA;" rtf="\'d3\'c3\'bf\'c9\'ce\'fc\'ca\'d5\'cf\'df\'b3\'a3\'b9\'e6\'b7\'ec\'ba\'cf\'a3\'ac\'b2\'a2\'c7\'d2\'b7\'ec\'ba\'cf\'b0\'f2\'eb\'d7\'b8\'b9\'c4\'a4\'b7\'b4\'d5\'db\par&#xD;&#xA;" nodetype="Text" />
+      <node text="探" rtf="\'cc\'bd" nodetype="Text" />
+      <node text="查" rtf="\'b2\'e9" nodetype="Text" />
+      <node text="：" rtf="\'a3\'ba" nodetype="Text" />
+      <node text="子" rtf="\'d7\'d3" nodetype="Text" />
+      <node text="宫" rtf="\'b9\'ac" nodetype="Text" />
+      <node text="：" rtf="\'a3\'ba" nodetype="Text" />
+      <node embededId="160" id="911170b1-d13d-492a-901e-e9236038d318" nodetype="Object" nodelogiccontent="" name="子宫情况" text="子宫情况" description="选项：正常、不规则增大" otherid="E-3471" display="11```0`1">
+        <node id="f7d7405e-82f7-4435-87f9-34ae567446e1" nodetype="AtomNode" nodelogiccontent="" name="功能" text="子宫情况" description="体征和症状。" otherid="F-40" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="功能///BiologyFunction///代码范围//F-85001, F-85365" inputdirect="False" display="1111111```````0" embededId="161" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text=" " rtf=" " nodetype="Text" />
+      <node text=" " rtf=" " nodetype="Text" />
+      <node text=" " rtf=" " nodetype="Text" />
+      <node text=" " rtf=" " nodetype="Text" />
+      <node text=" " rtf=" " nodetype="Text" />
+      <node text=" " rtf=" " nodetype="Text" />
+      <node text=" " rtf=" " nodetype="Text" />
+      <node text="  " rtf="  " nodetype="Text" />
+      <node text=" " rtf=" " nodetype="Text" />
+      <node text="双" rtf="\'cb\'ab" nodetype="Text" />
+      <node text="附" rtf="\'b8\'bd" nodetype="Text" />
+      <node text="件" rtf="\'bc\'fe" nodetype="Text" />
+      <node text="：" rtf="\'a3\'ba" nodetype="Text" />
+      <node embededId="158" id="5b0fd084-5420-4182-8cab-cdda8d9b7a93" nodetype="Object" nodelogiccontent="" name="附件情况" text="附件情况" description="选项：正常/异常" otherid="E-2252" display="11```0`1">
+        <node id="76ac966f-c1e3-40b4-888e-40fbe0c0a6e4" nodetype="AtomNode" nodelogiccontent="" name="关联词" text="附件情况" description="语法连接、修饰词等。" otherid="F-40" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="关联词(修饰词)///GeneralLinkage///代码范围//G-A460,G-A461" inputdirect="False" display="1111111```````0" embededId="159" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="（         ）&#xA;" rtf="\'a3\'a8         \'a3\'a9\par&#xD;&#xA;" nodetype="Text" />
+      <node text="手术" rtf="\'ca\'d6\'ca\'f5" nodetype="Text" />
+      <node text="：" rtf="\'a3\'ba" nodetype="Text" />
+      <node embededId="144" id="0b29d8f8-e71f-4e27-b6de-38d190f1bd41" nodetype="Object" nodelogiccontent="" name="手术是否顺利" text="手术是否顺利" description="选项：顺利、较顺利、不太顺利、不顺利" otherid="E-5233" display="11```0`1">
+        <node id="76ac966f-c1e3-40b4-888e-40fbe0c0a6e4" nodetype="AtomNode" nodelogiccontent="" name="关联词" text="手术是否顺利" description="语法连接、修饰词等。" otherid="F-40" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="关联词(修饰词)///GeneralLinkage///代码范围//G-184%" inputdirect="False" display="1111111```````0" embededId="145" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;术中出血量" rtf="\par&#xD;&#xA;\pard\'ca\'f5\'d6\'d0\'b3\'f6\'d1\'aa\'c1\'bf" nodetype="Text" />
+      <node embededId="138" id="b380f045-4ebf-48bc-8505-982ef4004d49" nodetype="Object" nodelogiccontent="" name="产时出血量" text="产时出血量" otherid="E-2252" display="11```0`1">
+        <node id="4a9c797d-6a49-402c-b79f-4f7646cf26b9" nodetype="AtomNode" nodelogiccontent="" name="整数" text="术中出血量" description="不带单位的整型数值。" otherid="F-7050" atomtype="Double" value="" display="1110111````ml```0" embededId="139" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="，" rtf="\'a3\'ac" nodetype="Text" />
+      <node text="术中" rtf="\'ca\'f5\'d6\'d0" nodetype="Text" />
+      <node text="输血量" rtf="\'ca\'e4\'d1\'aa\'c1\'bf" nodetype="Text" />
+      <node embededId="140" id="b111c3de-3a2f-4e53-b39d-c988b6cf5665" nodetype="Object" nodelogiccontent="" name="输血量" text="输血量" description="后缀：毫升" otherid="E-4111" display="11```0`1">
+        <node id="8219e0fd-9463-4071-9e70-3f403321700d" nodetype="AtomNode" nodelogiccontent="" name="小数" text="输血量(ml)" description="不带单位的浮点型数值。" otherid="F-72" atomtype="Double" value="" display="1110111````ml```0" embededId="141" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="，术中" rtf="\'a3\'ac\'ca\'f5\'d6\'d0" nodetype="Text" />
+      <node text="输液量" rtf="\'ca\'e4\'d2\'ba\'c1\'bf" nodetype="Text" />
+      <node embededId="142" id="4e15defb-abb9-421b-8e01-37814133288c" nodetype="Object" nodelogiccontent="" name="数值" text="数值" otherid="E-2204" display="11```0`1">
+        <node id="4a9c797d-6a49-402c-b79f-4f7646cf26b9" nodetype="AtomNode" nodelogiccontent="" name="整数" text="输液量(ml)" description="不带单位的整型数值。" otherid="F-72" atomtype="Integer" value="" display="1110111````ml```0" embededId="143" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;尿量" rtf="\par&#xD;&#xA;\'c4\'f2\'c1\'bf" nodetype="Text" />
+      <node embededId="162" id="e5da49a7-db93-4e37-9091-6df399da448a" nodetype="Object" nodelogiccontent="" name="尿量" text="尿量" description="单位：ml" otherid="E-2231" display="11```0`1">
+        <node id="8219e0fd-9463-4071-9e70-3f403321700d" nodetype="AtomNode" nodelogiccontent="" name="小数" text="尿量(ml)" description="不带单位的浮点型数值。" otherid="F-72" atomtype="Double" value="" display="1110111````ml```0" embededId="163" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="，" rtf="\'a3\'ac" nodetype="Text" />
+      <node text="色" rtf="\'c9\'ab" nodetype="Text" />
+      <node text="泽" rtf="\'d4\'f3" nodetype="Text" />
+      <node embededId="164" id="bf1f8697-e55d-425f-b274-5bd8c25dfa24" nodetype="Object" nodelogiccontent="" name="尿色" text="尿色" description="F段 选项：清，混浊，暗红，鲜红" otherid="E-2231" display="11```0`1">
+        <node id="f7d7405e-82f7-4435-87f9-34ae567446e1" nodetype="AtomNode" nodelogiccontent="" name="功能" text="尿色" description="体征和症状。" otherid="F-40" atomtype="String" value="``" ischoiceatom="True" ChoiceType="ShowList" sqlstr="功能///BiologyFunction///代码范围//F-7420A～F-7420D" inputdirect="False" display="1111111```````0" embededId="165" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+      <node text="&#xA;" rtf="\par&#xD;&#xA;" nodetype="Text" />
+      <node text="特殊：" rtf="\'cc\'d8\'ca\'e2\'a3\'ba" nodetype="Text" />
+    </node>
+  </Ref>
+  <node id="4dc6cf05-453f-4c66-9e15-edeaa02cfae1" nodetype="DynamicMoleNode" nodelogiccontent="" name="手术经过" text="手术经过" description="5.110" otherid="C-51" display="10``&#xD;&#xA;`0`1" permitobjs="" defaultobjs="" allowUserDefine="False" canNotInputText="False" isnewPage="False" canNull="True" canNullSubmit="True" permittedDoctorGradeRange="" useDiagContinuedPrint="False" nodePrintArea="None" indentLength="0">
+    <node refid="22" nodetype="Embeded" />
+  </node>
+  <node id="581f3027-3a60-4e0b-9a82-c2d2dee31b73" nodetype="DynamicMoleNode" nodelogiccontent="" name="医师签名" text="医师签名" description="3.571" otherid="C-D6" display="20`　　　　　　　　　　　　　　　　　　　　　　手术者：`&#xD;&#xA;`0`1" permitobjs="" defaultobjs="" allowUserDefine="False" canNotInputText="False" isnewPage="False" canNull="True" canNullSubmit="True" permittedDoctorGradeRange="" useDiagContinuedPrint="False" nodePrintArea="None" indentLength="0" />
+  <Ref id="16">
+    <node identity="4" isfixed="False" spaceholder="0" atomvisibleenabled="False" atomvisible="" diagnosistype="-1" illnesstypecode="" hospitalcoderange="" diagnosisInsertstype="-1" FirstCharOfDiagnosisInsertVertical="0" id="34e00ca9-f630-4a0a-bb9a-2400a3d7392f" nodetype="Embeded" nodelogiccontent="" name="日期(记录日期)" text="记录日期" otherid="D-82" display="11```0`1">
+      <node embededId="2" id="fe028248-7533-49c0-8c47-11132c39fbfe" nodetype="Object" nodelogiccontent="" name="记录日期" text="记录日期" description="各项文书的记录日期。" otherid="E-15" display="11```0`1">
+        <node id="c8499f95-5517-4342-bcc4-6822448c911e" nodetype="AtomNode" nodelogiccontent="" name="记录日期" text="记录日期" description="8.001" otherid="F-80010" atomtype="Time" value="" display="1111011`````yyyy年MM月dd日+Day+``0" embededId="3" autoeditnext="True" spaceholder="0" forbidDel="False" isComplexShowlist="False" />
+      </node>
+    </node>
+  </Ref>
+  <node id="0efed995-e0be-4cfe-808e-04d8a4951d8c" nodetype="DynamicMoleNode" nodelogiccontent="" name="日期(签署日期或记录时间)" text="日期(签署日期或记录时间)" description="3.573" otherid="C-B1" display="11`　　　　　　　　　　　　　　　　　　　　　日　　期：``0`1" permitobjs="" defaultobjs="" allowUserDefine="False" canNotInputText="False" isnewPage="False" canNull="True" canNullSubmit="True" permittedDoctorGradeRange="" useDiagContinuedPrint="False" nodePrintArea="None" indentLength="0">
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node text=" " rtf=" " nodetype="Text" />
+    <node refid="16" nodetype="Embeded" />
+  </node>
+</Model>
