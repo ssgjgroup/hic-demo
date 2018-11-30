@@ -45,25 +45,51 @@ public class MbzAutomateSetController extends BaseController {
         return result;
     }
 
-    private String convertDateStringToCronString(String dateString){
+    /**
+     * 将hh:mm:ss转换为到cron字符串
+     * @param dateString
+     * @return
+     */
+    public static String convertDateStringToCronString(String dateString){
         String[] dateArray = dateString.split(":");
         StringBuilder cronString = new StringBuilder();
+        //处理秒
         if("00".equals(dateArray[2])){
-            cronString.append("* ");
+            cronString.append("0 ");
         }else{
-            cronString.append(dateArray[2]+" ");
+            if(dateArray[2].startsWith("0")){
+                cronString.append(dateArray[2].substring(1)+" ");
+            }else{
+                cronString.append(dateArray[2]+" ");
+            }
         }
+        //处理分钟
         if("00".equals(dateArray[1])){
-            cronString.append("* ");
+            cronString.append("0 ");
         }else{
-            cronString.append(dateArray[1]+" ");
+            if(dateArray[1].startsWith("0")){
+                cronString.append(dateArray[1].substring(1)+" ");
+            }else{
+                cronString.append(dateArray[1]+" ");
+            }
         }
+        //处理小时
         if("00".equals(dateArray[0])){
             cronString.append("0 ");
         }else{
-            cronString.append(dateArray[0]+" ");
+            if(dateArray[0].startsWith("0")){
+                cronString.append(dateArray[0].substring(1)+" ");
+            }else{
+                cronString.append(dateArray[0]+" ");
+            }
         }
         cronString.append("* * ?");
         return  cronString.toString();
     }
+
+    public static void main(String[] args){
+       String aa = "02:01:01";
+        System.out.println(convertDateStringToCronString(aa));
+    }
+
 }

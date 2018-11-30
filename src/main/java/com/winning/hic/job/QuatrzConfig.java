@@ -91,8 +91,8 @@ public class QuatrzConfig {
         SchedulerFactoryBean bean = new SchedulerFactoryBean();
         // 用于quartz集群,QuartzScheduler 启动时更新己存在的Job
         bean.setOverwriteExistingJobs(true);
-        // 延时启动，应用启动1秒后
-        bean.setStartupDelay(1);
+        // 延时启动，应用启动60秒后
+        bean.setStartupDelay(60);
         // 注册触发器
         bean.setTriggers(triggers);
         logger.info("调度工厂配置完成,Quartz在应用启动1秒后启动@[{}]",DateUtil.format(new Date(),DateUtil.PATTERN_19));
