@@ -132,6 +132,7 @@ public class HlhtZybcjlZkjlServiceImpl implements HlhtZybcjlZkjlService {
         List<HlhtZybcjlZkjl> hlhtZybcjlZkjls = this.hlhtZybcjlZkjlDao.selectHlhtZybcjlZkjlListByProc(oneZkjl);
 
         if (hlhtZybcjlZkjls != null) {
+            emr_count = emr_count + hlhtZybcjlZkjls.size();
             for (HlhtZybcjlZkjl obj : hlhtZybcjlZkjls) {
                 if (obj.getMxfldm().equals("B-8405")) { //转出记录
                     HlhtZybcjlZkjl zkjl = new HlhtZybcjlZkjl();
@@ -186,7 +187,7 @@ public class HlhtZybcjlZkjlServiceImpl implements HlhtZybcjlZkjlService {
                     HlhtZybcjlZkjl zkjl = new HlhtZybcjlZkjl();
                     zkjl.setYjlxh(yjlxh);
                     List<HlhtZybcjlZkjl> zkjls = this.getHlhtZybcjlZkjlList(zkjl);
-                    System.out.println("奇葩==" + zkjls.size());
+                    //System.out.println("奇葩==" + zkjls.size());
                     if (zkjls.size() > 0) {
                         zkjl = zkjls.get(0);
                         zkjl.setZrrq(null);
