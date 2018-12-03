@@ -183,7 +183,7 @@
         FROM
         MBZ_DICT_INFO t
         WHERE
-        t.DICT_CODE='platformTableName'
+        t.DICT_CODE='platformTableName' and t.STATUS = 1
         <if test="(sourceType != null and sourceType != '')">AND t.DICT_VALUE =#{sourceType}</if>) s
         ORDER BY s.COLUMM_NAME ASC
     </select>
