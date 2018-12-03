@@ -5,6 +5,8 @@ import java.util.*;
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
+import com.winning.hic.model.*;
+import com.winning.hic.service.MbzDictInfoService;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,10 +16,6 @@ import org.springframework.stereotype.Service;
 import com.winning.hic.base.Constants;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.HlhtZybcjlQjjlDao;
-import com.winning.hic.model.HlhtZybcjlQjjl;
-import com.winning.hic.model.MbzDataCheck;
-import com.winning.hic.model.MbzDataSet;
-import com.winning.hic.model.MbzLoadDataInfo;
 import com.winning.hic.service.HlhtZybcjlQjjlService;
 import com.winning.hic.service.MbzDataCheckService;
 import com.winning.hic.service.MbzDataSetService;
@@ -47,6 +45,9 @@ public class HlhtZybcjlQjjlServiceImpl implements HlhtZybcjlQjjlService {
 
     @Autowired
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
+
+    @Autowired
+    private MbzDictInfoService mbzDictInfoService;
 
     public int createHlhtZybcjlQjjl(HlhtZybcjlQjjl hlhtZybcjlQjjl) {
         return this.hlhtZybcjlQjjlDao.insertHlhtZybcjlQjjl(hlhtZybcjlQjjl);
@@ -82,6 +83,15 @@ public class HlhtZybcjlQjjlServiceImpl implements HlhtZybcjlQjjlService {
 
     @Override
     public MbzDataCheck interfaceHlhtZybcjlQjjl(MbzDataCheck t) {
+        //获取数据集字典表中配置，判断是否需要抽取
+        MbzDictInfo mbzDictInfo = new MbzDictInfo();
+        mbzDictInfo.setDictCode("platformTableName");
+        mbzDictInfo.setDictValue(Constants.WN_ZYBCJL_QJJL_SOURCE_TYPE);
+        mbzDictInfo = mbzDictInfoService.getMbzDictInfo(mbzDictInfo);
+        if (mbzDictInfo == null || mbzDictInfo.getStatus() != 1) {
+            //数据集不存在或者未配置需要抽取
+            return new MbzDataCheck();
+        }
 //执行过程信息记录
 
         int emr_count = 0;//病历数量

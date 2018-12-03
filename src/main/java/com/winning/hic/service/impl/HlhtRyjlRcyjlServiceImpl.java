@@ -6,6 +6,8 @@ import java.util.*;
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
+import com.winning.hic.model.*;
+import com.winning.hic.service.*;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,15 +18,6 @@ import com.winning.hic.base.Constants;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.CommonQueryDao;
 import com.winning.hic.dao.hdw.HlhtRyjlRcyjlDao;
-import com.winning.hic.model.HlhtRyjlRcyjl;
-import com.winning.hic.model.MbzDataCheck;
-import com.winning.hic.model.MbzDataSet;
-import com.winning.hic.model.MbzLoadDataInfo;
-import com.winning.hic.service.EmrQtbljlkService;
-import com.winning.hic.service.HlhtRyjlRcyjlService;
-import com.winning.hic.service.MbzDataCheckService;
-import com.winning.hic.service.MbzDataListSetService;
-import com.winning.hic.service.MbzDataSetService;
 
 
 /**
@@ -51,6 +44,8 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
     private MbzDataCheckService mbzDataCheckService;
     @Autowired
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
+    @Autowired
+    private MbzDictInfoService mbzDictInfoService;
 
     public int createHlhtRyjlRcyjl(HlhtRyjlRcyjl hlhtRyjlRcyjl) {
         return this.hlhtRyjlRcyjlDao.insertHlhtRyjlRcyjl(hlhtRyjlRcyjl);
@@ -92,11 +87,20 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
 
     @Override
     public MbzDataCheck interfaceHlhtRyjlRcyjl(MbzDataCheck entity) {
+        //获取数据集字典表中配置，判断是否需要抽取
+        MbzDictInfo mbzDictInfo = new MbzDictInfo();
+        mbzDictInfo.setDictCode("platformTableName");
+        mbzDictInfo.setDictValue(Constants.WN_RYJL_RCYJL_SOURCE_TYPE);
+        mbzDictInfo = mbzDictInfoService.getMbzDictInfo(mbzDictInfo);
+        if (mbzDictInfo == null || mbzDictInfo.getStatus() != 1) {
+            //数据集不存在或者未配置需要抽取
+            return new MbzDataCheck();
+        }
         //执行过程信息记录
         //MbzDataCheck mbzDataCheck = new MbzDataCheck();
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
-       //实际数量
+        //实际数量
         //配置接口表字段配置信息
         MbzDataSet mbzDataSet = new MbzDataSet();
         mbzDataSet.setSourceType(Constants.WN_RYJL_RCYJL_SOURCE_TYPE);
@@ -134,7 +138,7 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
                     // e.printStackTrace();
-                    logger.error("解析病历报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
                     continue;
                 }
                 //System.out.println(Base64Utils.unzipEmrXml(emrQtbljlk.getBlnr()));
@@ -291,7 +295,7 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_RYJL_RCYJL_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_RYJL_RCYJL_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
-                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
                     continue;
                 }
                 real_count++;

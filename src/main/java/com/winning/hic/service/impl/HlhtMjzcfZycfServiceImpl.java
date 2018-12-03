@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.model.*;
+import com.winning.hic.service.MbzDictInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +21,6 @@ import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.CommonQueryDao;
 import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtMjzcfZycfDao;
-import com.winning.hic.model.EmrQtbljlk;
-import com.winning.hic.model.HlhtMjzcfZycf;
-import com.winning.hic.model.MbzDataCheck;
-import com.winning.hic.model.MbzLoadDataInfo;
 import com.winning.hic.service.HlhtMjzcfZycfService;
 import com.winning.hic.service.MbzDataCheckService;
 
@@ -50,6 +48,8 @@ public class HlhtMjzcfZycfServiceImpl implements HlhtMjzcfZycfService {
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
+    @Autowired
+    private MbzDictInfoService mbzDictInfoService;
 
     public int createHlhtMjzcfZycf(HlhtMjzcfZycf hlhtMjzcfZycf) {
         return this.hlhtMjzcfZycfDao.insertHlhtMjzcfZycf(hlhtMjzcfZycf);
@@ -91,6 +91,15 @@ public class HlhtMjzcfZycfServiceImpl implements HlhtMjzcfZycfService {
 
     @Override
     public MbzDataCheck interfaceHlhtMjzcfZycf(MbzDataCheck entity) throws Exception {
+        //获取数据集字典表中配置，判断是否需要抽取
+        MbzDictInfo mbzDictInfo = new MbzDictInfo();
+        mbzDictInfo.setDictCode("platformTableName");
+        mbzDictInfo.setDictValue(Constants.WN_MJZCF_ZYCF_SOURCE_TYPE);
+        mbzDictInfo = mbzDictInfoService.getMbzDictInfo(mbzDictInfo);
+        if (mbzDictInfo == null || mbzDictInfo.getStatus() != 1) {
+            //数据集不存在或者未配置需要抽取
+            return new MbzDataCheck();
+        }
         //执行过程信息记录
 
         int emr_count = 0;//病历数量

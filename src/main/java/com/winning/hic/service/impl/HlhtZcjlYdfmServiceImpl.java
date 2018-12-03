@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.winning.hic.dao.hdw.SplitTableDao;
+import com.winning.hic.model.*;
+import com.winning.hic.service.MbzDictInfoService;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,12 +29,6 @@ import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.CommonQueryDao;
 import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtZcjlYdfmDao;
-import com.winning.hic.model.EmrQtbljlk;
-import com.winning.hic.model.HlhtZcjlYdfm;
-import com.winning.hic.model.HlhtZlczjlSxjl;
-import com.winning.hic.model.MbzDataCheck;
-import com.winning.hic.model.MbzDataSet;
-import com.winning.hic.model.MbzLoadDataInfo;
 import com.winning.hic.service.HlhtZcjlYdfmService;
 import com.winning.hic.service.MbzDataCheckService;
 
@@ -61,6 +57,9 @@ public class HlhtZcjlYdfmServiceImpl implements HlhtZcjlYdfmService {
 
     @Autowired
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
+
+    @Autowired
+    private MbzDictInfoService mbzDictInfoService;
 
     public int createHlhtZcjlYdfm(HlhtZcjlYdfm hlhtZcjlYdfm) {
         return this.hlhtZcjlYdfmDao.insertHlhtZcjlYdfm(hlhtZcjlYdfm);
@@ -102,6 +101,15 @@ public class HlhtZcjlYdfmServiceImpl implements HlhtZcjlYdfmService {
 
     @Override
     public MbzDataCheck interfaceHlhtZcjlYdfm(MbzDataCheck t) {
+        //获取数据集字典表中配置，判断是否需要抽取
+        MbzDictInfo mbzDictInfo = new MbzDictInfo();
+        mbzDictInfo.setDictCode("platformTableName");
+        mbzDictInfo.setDictValue(Constants.WN_ZCJL_YDFM_SOURCE_TYPE);
+        mbzDictInfo = mbzDictInfoService.getMbzDictInfo(mbzDictInfo);
+        if (mbzDictInfo == null || mbzDictInfo.getStatus() != 1) {
+            //数据集不存在或者未配置需要抽取
+            return new MbzDataCheck();
+        }
         //执行过程信息记录
 
         int emr_count = 0;//病历数量

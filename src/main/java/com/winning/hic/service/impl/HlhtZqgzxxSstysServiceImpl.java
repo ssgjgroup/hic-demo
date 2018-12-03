@@ -6,6 +6,7 @@ import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
 import com.winning.hic.model.*;
+import com.winning.hic.service.MbzDictInfoService;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,6 +46,8 @@ public class HlhtZqgzxxSstysServiceImpl implements HlhtZqgzxxSstysService {
     private MbzDataCheckService mbzDataCheckService;
     @Autowired
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
+    @Autowired
+    private MbzDictInfoService mbzDictInfoService;
 
     public int createHlhtZqgzxxSstys(HlhtZqgzxxSstys hlhtZqgzxxSstys) {
         return this.hlhtZqgzxxSstysDao.insertHlhtZqgzxxSstys(hlhtZqgzxxSstys);
@@ -82,6 +85,15 @@ public class HlhtZqgzxxSstysServiceImpl implements HlhtZqgzxxSstysService {
      */
     @Override
     public MbzDataCheck interfaceHlhtZqgzxxSstys(MbzDataCheck entity) throws Exception {
+        //获取数据集字典表中配置，判断是否需要抽取
+        MbzDictInfo mbzDictInfo = new MbzDictInfo();
+        mbzDictInfo.setDictCode("platformTableName");
+        mbzDictInfo.setDictValue(Constants.WN_ZQGZXX_SSTYS_SOURCE_TYPE);
+        mbzDictInfo = mbzDictInfoService.getMbzDictInfo(mbzDictInfo);
+        if (mbzDictInfo == null || mbzDictInfo.getStatus() != 1) {
+            //数据集不存在或者未配置需要抽取
+            return new MbzDataCheck();
+        }
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
         //实际数量

@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.winning.hic.model.MbzDictInfo;
+import com.winning.hic.service.MbzDictInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +51,8 @@ public class HlhtBlgyWssjzyServiceImpl implements HlhtBlgyWssjzyService {
 
     @Autowired
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
+    @Autowired
+    private MbzDictInfoService mbzDictInfoService;
 
     public int createHlhtBlgyWssjzy(HlhtBlgyWssjzy hlhtBlgyWssjzy) {
         return this.hlhtBlgyWssjzyDao.insertHlhtBlgyWssjzy(hlhtBlgyWssjzy);
@@ -80,6 +84,15 @@ public class HlhtBlgyWssjzyServiceImpl implements HlhtBlgyWssjzyService {
 
     @Override
     public MbzDataCheck interfaceHlhtBlgyWssjzy(MbzDataCheck entity) {
+        //获取数据集字典表中配置，判断是否需要抽取
+        MbzDictInfo mbzDictInfo = new MbzDictInfo();
+        mbzDictInfo.setDictCode("platformTableName");
+        mbzDictInfo.setDictValue(Constants.WN_BLGY_WSSJZY_SOURCE_TYPE);
+        mbzDictInfo = mbzDictInfoService.getMbzDictInfo(mbzDictInfo);
+        if (mbzDictInfo == null || mbzDictInfo.getStatus() != 1) {
+            //数据集不存在或者未配置需要抽取
+            return new MbzDataCheck();
+        }
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
 

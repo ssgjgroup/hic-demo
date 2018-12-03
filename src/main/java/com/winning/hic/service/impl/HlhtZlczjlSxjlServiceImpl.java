@@ -6,6 +6,8 @@ import java.util.*;
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
+import com.winning.hic.model.*;
+import com.winning.hic.service.MbzDictInfoService;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,11 +20,6 @@ import com.winning.hic.dao.cmdatacenter.MbzDataSetDao;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.CommonQueryDao;
 import com.winning.hic.dao.hdw.HlhtZlczjlSxjlDao;
-import com.winning.hic.model.EmrQtbljlk;
-import com.winning.hic.model.HlhtZlczjlSxjl;
-import com.winning.hic.model.MbzDataCheck;
-import com.winning.hic.model.MbzDataSet;
-import com.winning.hic.model.MbzLoadDataInfo;
 import com.winning.hic.service.HlhtZlczjlSxjlService;
 import com.winning.hic.service.MbzDataCheckService;
 
@@ -49,6 +46,8 @@ public class HlhtZlczjlSxjlServiceImpl implements HlhtZlczjlSxjlService {
     private HlhtZlczjlSxjlDao hlhtZlczjlSxjlDao;
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
+    @Autowired
+    private MbzDictInfoService mbzDictInfoService;
 
     public int createHlhtZlczjlSxjl(HlhtZlczjlSxjl hlhtZlczjlSxjl) {
         return this.hlhtZlczjlSxjlDao.insertHlhtZlczjlSxjl(hlhtZlczjlSxjl);
@@ -90,6 +89,15 @@ public class HlhtZlczjlSxjlServiceImpl implements HlhtZlczjlSxjlService {
 
     @Override
     public MbzDataCheck interfaceHlhtZlczjlSxjl(MbzDataCheck t) {
+        //获取数据集字典表中配置，判断是否需要抽取
+        MbzDictInfo mbzDictInfo = new MbzDictInfo();
+        mbzDictInfo.setDictCode("platformTableName");
+        mbzDictInfo.setDictValue(Constants.WN_ZLCZJL_SXJL_SOURCE_TYPE);
+        mbzDictInfo = mbzDictInfoService.getMbzDictInfo(mbzDictInfo);
+        if (mbzDictInfo == null || mbzDictInfo.getStatus() != 1) {
+            //数据集不存在或者未配置需要抽取
+            return new MbzDataCheck();
+        }
         //执行过程信息记录
 
         ;
