@@ -58,6 +58,7 @@ public class ModelCheckController extends BaseController {
         //从字典表获取数据集
         MbzDictInfo mbzDictInfo = new MbzDictInfo();
         mbzDictInfo.setDictCode("platformTableName");
+        mbzDictInfo.setStatus(1); //只显示需要使用
         List<MbzDictInfo> mbzDictInfoList = getFacade().getMbzDictInfoService().getMbzDictInfoList(mbzDictInfo);
         List<MbzDataListSet> modelList = getFacade().getMbzDataListSetService().getMbzDataListSetList(new MbzDataListSet());
         resultMap.put("num", emrMbkCount);

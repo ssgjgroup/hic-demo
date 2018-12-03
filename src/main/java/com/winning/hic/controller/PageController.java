@@ -66,6 +66,7 @@ public class PageController extends BaseController {
         //获取数据子集
         MbzDictInfo temp2 = new MbzDictInfo();
         temp2.setDictCode("platformTableName");
+        temp2.setStatus(1); //只显示需要使用
         List<MbzDictInfo> dictList = super.getFacade().getMbzDictInfoService().getMbzDictInfoList(temp2);
         resultMap.put("dataSet", dictList);
         model.addAllAttributes(resultMap);
