@@ -2,7 +2,7 @@ package com.winning.hic.model.xml;
 
 /**
  * @author LENOVO
- * @title
+ * @title <node></node> 对象的属性值
  * @project hic
  * @package com.winning.hic.model.xml
  * @date: 2018-11-30 14:53

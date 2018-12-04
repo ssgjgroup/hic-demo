@@ -1,0 +1,1 @@
+alter table ANMR_ZYBCJL_SQTL alter column  ssyd varchar(max) not null  ;
