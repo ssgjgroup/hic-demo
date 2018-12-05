@@ -67,12 +67,16 @@ public class EmrMxmcmlkServiceImpl implements  EmrMxmcmlkService {
         MbzDictInfo dictInfo = new MbzDictInfo();
         dictInfo.setDictCode(Constants.SYS_ID_DICT);
         dictInfo = mbzDictInfoDao.selectMbzDictInfo(dictInfo);
-        emrMxmcmlk.setSysId(dictInfo.getDictValue());
+        if(dictInfo != null){   //判断参数是否存在
+            emrMxmcmlk.setSysId(dictInfo.getDictValue());
+        }
         //获取yljgdm
         dictInfo = new MbzDictInfo();
         dictInfo.setDictCode(Constants.YLJGDM_DICT);
         dictInfo = mbzDictInfoDao.selectMbzDictInfo(dictInfo);
-        emrMxmcmlk.setYljgdm(dictInfo.getDictValue());
+        if(dictInfo != null){ //判断参数是否存在
+            emrMxmcmlk.setYljgdm(dictInfo.getDictValue());
+        }
         emrMxmcmlk.getMap().put("mbCodeList",mbCodeList);
         List<EmrMxmcmlk> parentList = emrMxmcmlkDao.selectEmrMxmcmlkParentList(emrMxmcmlk);
         List<MBNoteTree> mbNoteTrees = new ArrayList<>();
