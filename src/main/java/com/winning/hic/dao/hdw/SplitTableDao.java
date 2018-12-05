@@ -80,4 +80,6 @@ public interface SplitTableDao {
     public void selectAnmrZybcjlZkjlSplitByProc(HlhtZybcjlZkjl obj);
 
     public void selectAnmrZzyjlZzyjlSplitByProc(HlhtZzyjlZzyjl obj);
+
+    public void updateDcTableData(Object obj);
 }

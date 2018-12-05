@@ -217,6 +217,11 @@ public class HlhtZybcjlZkjlServiceImpl implements HlhtZybcjlZkjlService {
             }
         }
         this.splitTableDao.selectAnmrZybcjlZkjlSplitByProc(oneZkjl);
+
+
+        //更新dc表
+        t.getMap().put("sourceType",Constants.WN_ZYBCJL_ZKJL_SOURCE_TYPE);
+        this.splitTableDao.updateDcTableData(t);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(hlhtZybcjlZkjls.size(), real_count, Integer.parseInt(Constants.WN_ZYBCJL_ZKJL_SOURCE_TYPE), t);
         MbzDataCheck mbzDataCheck = new MbzDataCheck();

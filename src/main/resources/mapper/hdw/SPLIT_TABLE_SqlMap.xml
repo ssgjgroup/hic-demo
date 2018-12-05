@@ -138,4 +138,8 @@
     <select id="selectAnmrZzyjlZzyjlSplitByProc" statementType="CALLABLE">
         exec USP_SPLIT_ZZYJL_ZZYJL #{map.yljgdm}, #{map.regex}
     </select>
+
+    <select id="updateDcTableData" statementType="CALLABLE">
+        exec USP_SPLIT_UPDATE_DATA #{map.sourceType},#{map.startDate},#{map.endDate}
+    </select>
 </mapper>

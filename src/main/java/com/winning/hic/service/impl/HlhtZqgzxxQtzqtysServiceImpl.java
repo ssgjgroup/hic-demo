@@ -159,6 +159,10 @@ public class HlhtZqgzxxQtzqtysServiceImpl implements HlhtZqgzxxQtzqtysService {
             }
         }
         this.splitTableDao.selectAnmrZqgzxxQtzqtysSplitByProc(oneQtzqtys);
+
+        //更新dc表
+        t.getMap().put("sourceType",Constants.WN_ZQGZXX_QTZQTYS_SOURCE_TYPE);
+        this.splitTableDao.updateDcTableData(t);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZQGZXX_QTZQTYS_SOURCE_TYPE), t);
 

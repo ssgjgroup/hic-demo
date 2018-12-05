@@ -206,6 +206,10 @@ public class HlhtZybcjlSjyscfjlServiceImpl implements HlhtZybcjlSjyscfjlService 
             logger.info("接口数据集:{}无相关的病历信息或者未配置结果集，请先书写病历信息或配置结果集", mbzDataSet.getRecordName());
         }
         this.splitTableDao.selectAnmrZybcjlSjyscfjlSplitByProc(hlht);
+
+        //更新dc表
+        entity.getMap().put("sourceType",Constants.WN_ZYBCJL_SJYSCFJL_SOURCE_TYPE);
+        this.splitTableDao.updateDcTableData(entity);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(list.size(), real_count, Integer.parseInt(Constants.WN_ZYBCJL_SJYSCFJL_SOURCE_TYPE), entity);
         MbzDataCheck mbzDataCheck = new MbzDataCheck();

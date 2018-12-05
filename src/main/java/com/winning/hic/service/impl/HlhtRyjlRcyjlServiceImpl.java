@@ -305,6 +305,8 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
             logger.info("接口数据集:{}无相关的病历信息或者未配置结果集，请先书写病历信息或配置结果集", mbzDataSet.getRecordName());
         }
         splitTableDao.selectAnmrRyjlRcyjlSplitByProc(ryjlRcyjl);
+        entity.getMap().put("sourceType",Constants.WN_RYJL_RCYJL_SOURCE_TYPE);
+        this.splitTableDao.updateDcTableData(entity);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_RYJL_RCYJL_SOURCE_TYPE), entity);
         MbzDataCheck mbzDataCheck = new MbzDataCheck();
