@@ -1,5 +1,7 @@
 package com.winning.hic.model.xml;
 
+import org.dom4j.Element;
+
 /**
  * @author LENOVO
  * @title Ref 标签对象
@@ -17,6 +19,16 @@ public class RefNodeInfo {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    private Element element;
+
+    public Element getElement() {
+        return element;
+    }
+
+    public void setElement(Element element) {
+        this.element = element;
     }
 
     @Override

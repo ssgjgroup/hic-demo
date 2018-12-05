@@ -1,5 +1,7 @@
 package com.winning.hic.model.xml;
 
+import org.dom4j.Element;
+
 /**
  * @author chensj
  * @title 病历文件结构子节点NODE
@@ -13,6 +15,16 @@ public class ChildNodeInfo {
     private String nodetype;
     private String text;
     private String rtf;
+
+    private Element element;
+
+    public Element getElement() {
+        return element;
+    }
+
+    public void setElement(Element element) {
+        this.element = element;
+    }
 
     public String getRefid() {
         return refid;

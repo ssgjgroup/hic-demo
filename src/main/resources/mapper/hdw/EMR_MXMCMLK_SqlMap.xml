@@ -168,6 +168,8 @@
                 and (t.mldm) in
                 <foreach item="item" collection="map.mbCodeList" open="(" separator="," close=")"> #{item}</foreach>
             </if>
+            <if test="(sysId != null )"> and t.sys_id = #{sysId , jdbcType= VARCHAR } </if>
+            <if test="(yljgdm != null )"> and t.yljgdm = #{yljgdm , jdbcType= VARCHAR } </if>
         </where>
         ORDER BY t.mldm ASC
     </select>
@@ -176,7 +178,10 @@
         SELECT
                a.mldm,a.mlmc,left(a.mldm,len(a.mldm)-2) sjdm,
                (SELECT COUNT(1) FROM EMR_MBK c
-                 LEFT JOIN EMR_KSMBDY b on c.mbdm = b.mbdm where c.mxfldm =a.mldm and (c.grmbbz = 0 or c.grmbbz is null) and b.ksdm is not null ) NUM
+                 LEFT JOIN EMR_KSMBDY b on c.mbdm = b.mbdm
+                 where c.mxfldm =a.mldm and (c.grmbbz = 0 or c.grmbbz is null) and b.ksdm is not null
+
+               ) NUM
         FROM EMR_MXMCMLK a where left(a.mldm,len(a.mldm)-2) = #{mldm}
         UNION
         SELECT a.mbdm mldm,a.mbmc+'{'+a.mbms+'}',a.mxfldm sjdm, 0 NUM FROM EMR_MBK a

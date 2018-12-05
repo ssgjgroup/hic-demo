@@ -102,4 +102,21 @@ public class Constants {
      * 定时任务关闭
      */
     public static final Integer TIME_TASK_END_STATUS = 0;
+    /**
+     * 医疗机构代码，
+     * 对应HOSPITAL_DW的yljgdm字段
+     */
+    public static final String YLJGDM_DICT = "yljgdm";
+    /**
+     *来源系统ID,
+     * 对应HOSPITAL_DW的sys_id字段 住院ID
+     */
+    public static final String SYS_ID_DICT = "sys_id";
+
+    /**
+     *来源系统ID,
+     * 对应HOSPITAL_DW的sys_id字段 门诊ID
+     */
+    public static final String SZ_SYS_ID_DICT = "sz_sys_id";
+
 }

@@ -1,5 +1,7 @@
 package com.winning.hic.model.xml;
 
+import org.dom4j.Element;
+
 /**
  * @author LENOVO
  * @title <node></node> 对象的属性值
@@ -7,7 +9,7 @@ package com.winning.hic.model.xml;
  * @package com.winning.hic.model.xml
  * @date: 2018-11-30 14:53
  */
-public class XMLNodeInfo {
+public class ModelNodeInfo {
 
     private String id;
     private String name;
@@ -208,9 +210,19 @@ public class XMLNodeInfo {
         RelateInstanceId = relateInstanceId;
     }
 
+    private Element element;
+
+    public Element getElement() {
+        return element;
+    }
+
+    public void setElement(Element element) {
+        this.element = element;
+    }
+
     @Override
     public String toString() {
-        return "XMLNodeInfo{" +
+        return "ModelNodeInfo{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

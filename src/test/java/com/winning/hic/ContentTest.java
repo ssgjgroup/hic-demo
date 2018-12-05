@@ -1,12 +1,9 @@
 package com.winning.hic;
 
-import com.winning.hic.base.utils.HicHelper;
-import com.winning.hic.model.xml.RefNodeInfo;
-import com.winning.hic.model.xml.XMLNodeInfo;
+import com.winning.hic.model.xml.ModelNodeInfo;
 import org.dom4j.*;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +39,9 @@ public class ContentTest {
     private static final String DISPLAY_ATTR_NAME = "display";
     /* visiable 属性*/
     private static final String VISIABLE_ATTR_NAME = "visiable";
+    /* display value */
+    private static final String DISPLAY_ATTR_VALUE_SHOW = "20"; /*显示当前节点的text的value*/
+    private static final String DISPLAY_ATTR_VALUE_HIDE = "11"; /*不显示当前节点的*/
 
     public static void main(String[] args) throws IOException, IllegalAccessException, InstantiationException {
        InputStream in = ContentTest.class.getClassLoader().getResourceAsStream("24ryjl.xml");
@@ -69,18 +69,66 @@ public class ContentTest {
         List<Attribute> attributes = root.attributes();
         //创建map放置属性与属性值的key-value
         Map<String,Object> paramMap = new HashMap<>();
-        //循环获取属性值，封装到map中
+        //循环获取根节点属性值，封装到map中
+        System.out.println("==================================================================");
+        System.out.println("Model:");
         for (Attribute attribute : attributes) {
             paramMap.put(attribute.getName(),attribute.getValue());
+           // System.out.println(attribute.getName()+":"+attribute.getValue());
+            System.out.println(attribute.getName());
         }
         //创建节点对象 model 对象
-        XMLNodeInfo nodeInfo = new XMLNodeInfo();
-        HicHelper.initBean(nodeInfo,paramMap);
-        System.out.println(nodeInfo);
+//        ModelNodeInfo nodeInfo = new ModelNodeInfo();
+//        HicHelper.initBean(nodeInfo,paramMap);
+//        System.out.println(nodeInfo);
 
         //node type=dynamicMoleNode 病历文件结构
-//        List<Element> dynamicMoleNodeList = root.elements("node");
-//        List<XMLNodeInfo> childNode = new ArrayList<>();
+        List<Element> dynamicMoleNodeList = root.elements("node");
+        Element first = dynamicMoleNodeList.get(0);
+        List<Attribute> elementAttributes = first.attributes();
+        System.out.println("==================================================================");
+        System.out.println("Node");
+        for (Attribute attribute : elementAttributes) {
+            //System.out.println(attribute.getName()+":"+attribute.getValue());
+            System.out.println(attribute.getName() );
+        }
+
+        List<Element> refList = root.elements("Ref");
+        first = refList.get(0);
+        elementAttributes = first.attributes();
+        System.out.println("==================================================================");
+        System.out.println("Ref");
+        for (Attribute attribute : elementAttributes) {
+            //System.out.println(attribute.getName()+":"+attribute.getValue());
+            System.out.println(attribute.getName() );
+        }
+
+        List<Element> refChild = first.elements("node");
+        elementAttributes = refChild.get(0).attributes();
+        System.out.println("==================================================================");
+        System.out.println("Emebed");
+        for (Attribute attribute : elementAttributes) {
+            //System.out.println(attribute.getName()+":"+attribute.getValue());
+            System.out.println(attribute.getName() );
+        }
+        refChild = refChild.get(0).elements("node");
+        elementAttributes = refChild.get(0).attributes();
+        System.out.println("==================================================================");
+        System.out.println("Object");
+        for (Attribute attribute : elementAttributes) {
+            //System.out.println(attribute.getName()+":"+attribute.getValue());
+            System.out.println(attribute.getName() );
+        }
+
+        refChild = refChild.get(0).elements("node");
+        elementAttributes = refChild.get(0).attributes();
+        System.out.println("==================================================================");
+        System.out.println("Atom");
+        for (Attribute attribute : elementAttributes) {
+            //System.out.println(attribute.getName()+":"+attribute.getValue());
+            System.out.println(attribute.getName() );
+        }
+//        List<ModelNodeInfo> childNode = new ArrayList<>();
 //
 //        //遍历病历文件结构
 //        for (Element element : dynamicMoleNodeList) {
@@ -90,41 +138,59 @@ public class ContentTest {
 //            for (Attribute attribute : elementAttributes) {
 //                elementMap.put(attribute.getName(),attribute.getValue());
 //            }
-//            XMLNodeInfo childNodeInfo = new XMLNodeInfo();
+//            ModelNodeInfo childNodeInfo = new ModelNodeInfo();
 //            HicHelper.initBean(childNodeInfo,elementMap);
 //            childNode.add(childNodeInfo);
 //        }
-//        for (XMLNodeInfo info : childNode) {
+//        for (ModelNodeInfo info : childNode) {
 //            //System.out.println(info);
 //            System.out.println(info.getText()+":"+info.getDisplay());
 //            showDisplayName(info);
 //        }
         //全部子节点
-        List<Element> dynamicMoleNodeList = root.elements();
-        //全部文件结构子节点
-        List<XMLNodeInfo> childNode = new ArrayList<>();
-        //全部引入Ref节点
-        Map<String,RefNodeInfo> childRefNode = new HashMap<>();
-        for (Element element : dynamicMoleNodeList) {
-            String qName = element.getQName().getName();
-            Map<String,Object> elementMap = new HashMap<>();
-            List<Attribute> elementAttributes = element.attributes();
-            for (Attribute attribute : elementAttributes) {
-                elementMap.put(attribute.getName(),attribute.getValue());
-            }
-            if(REF_TAG.equals(qName)){
-                RefNodeInfo ref = new RefNodeInfo();
-                HicHelper.initBean(ref,elementMap);
-                childRefNode.put(ref.getId(),ref);
-            }else{
-                XMLNodeInfo childNodeInfo = new XMLNodeInfo();
-                HicHelper.initBean(childNodeInfo,elementMap);
-                childNode.add(childNodeInfo);
-            }
-        }
+//        List<Element> dynamicMoleNodeList = root.elements();
+//        //全部文件结构子节点
+//        List<ModelNodeInfo> childNode = new ArrayList<>();
+//        //全部引入Ref节点
+//        Map<String,RefNodeInfo> childRefNode = new HashMap<>();
+//        for (Element element : dynamicMoleNodeList) {
+//            String qName = element.getQName().getName();
+//            Map<String,Object> elementMap = new HashMap<>();
+//            List<Attribute> elementAttributes = element.attributes();
+//            if(REF_TAG.equals(qName)){}else{
+//                for (Attribute attribute : elementAttributes) {
+//                    elementMap.put(attribute.getName(),attribute.getValue());
+//                    System.out.println(attribute.getName()+":"+attribute.getValue());
+//                }
+//            }
+//            for (Attribute attribute : elementAttributes) {
+//                elementMap.put(attribute.getName(),attribute.getValue());
+//            }
+//            if(REF_TAG.equals(qName)){
+//                RefNodeInfo ref = new RefNodeInfo();
+//                HicHelper.initBean(ref,elementMap);
+//                ref.setElement(element);
+//                childRefNode.put(ref.getId(),ref);
+//            }else{
+//                ModelNodeInfo childNodeInfo = new ModelNodeInfo();
+//                HicHelper.initBean(childNodeInfo,elementMap);
+//                childNodeInfo.setElement(element);
+//                childNode.add(childNodeInfo);
+//            }
+//        }
+
+//        StringBuilder content = new StringBuilder();
+//        //循环node子节点
+//        for (ModelNodeInfo info : childNode) {
+//            if(nodeInfo.getDisplay().startsWith(DISPLAY_ATTR_VALUE_SHOW)
+//              ){}
+//        }
+
+
+
     }
 
-    private static void showDisplayName(XMLNodeInfo info){
+    private static void showDisplayName(ModelNodeInfo info){
         //System.out.println(info.getDisplay());
        String[] displays =  info.getDisplay().split("`");
         //System.out.println(displays[1]+displays[2]);

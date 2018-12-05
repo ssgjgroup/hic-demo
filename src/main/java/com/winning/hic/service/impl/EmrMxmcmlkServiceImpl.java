@@ -1,6 +1,8 @@
 package com.winning.hic.service.impl;
 
+import com.winning.hic.base.Constants;
 import com.winning.hic.model.MBNoteTree;
+import com.winning.hic.model.MbzDictInfo;
 import com.winning.hic.service.MbzDictInfoService;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +63,16 @@ public class EmrMxmcmlkServiceImpl implements  EmrMxmcmlkService {
     public List<MBNoteTree> createEmrMxmcmlkTree() {
         List<String> mbCodeList = mbzDictInfoDao.selectMbzDictInfoListForMB();
         EmrMxmcmlk emrMxmcmlk = new EmrMxmcmlk();
+        //获取sys_id
+        MbzDictInfo dictInfo = new MbzDictInfo();
+        dictInfo.setDictCode(Constants.SYS_ID_DICT);
+        dictInfo = mbzDictInfoDao.selectMbzDictInfo(dictInfo);
+        emrMxmcmlk.setSysId(dictInfo.getDictValue());
+        //获取yljgdm
+        dictInfo = new MbzDictInfo();
+        dictInfo.setDictCode(Constants.YLJGDM_DICT);
+        dictInfo = mbzDictInfoDao.selectMbzDictInfo(dictInfo);
+        emrMxmcmlk.setYljgdm(dictInfo.getDictValue());
         emrMxmcmlk.getMap().put("mbCodeList",mbCodeList);
         List<EmrMxmcmlk> parentList = emrMxmcmlkDao.selectEmrMxmcmlkParentList(emrMxmcmlk);
         List<MBNoteTree> mbNoteTrees = new ArrayList<>();
