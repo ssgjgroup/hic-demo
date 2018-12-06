@@ -40,7 +40,7 @@ public class HicHelper {
      * @throws ParseException
      */
     public static Object initModelValue(List<MbzDataSet> mbzDataSets, Document document,
-                                        Object obj, Map<String, String> paramTypeMap) {
+                                        Object obj, Map<String, String> paramTypeMap)  {
 
         String bltd = "";
         String shzdbm = "";
@@ -109,11 +109,11 @@ public class HicHelper {
                         Pattern pattern = Pattern.compile("[^0-9]");
                         Matcher m = pattern.matcher(shortStr);
                         shortStr = m.replaceAll("").trim();
-                        logger.info("shortStr:" + shortStr);
-                        if (!StringUtil.isEmptyOrNull(shortStr)) {
+                        logger.info("shortStr:"+shortStr);
+                        if(!StringUtil.isEmptyOrNull(shortStr)){
                             BigDecimal dec = new BigDecimal(shortStr);
                             value = dec.setScale(0, BigDecimal.ROUND_HALF_UP).shortValue();
-                        } else {
+                        }else{
                             value = (short) 0;
                         }
 
@@ -178,7 +178,7 @@ public class HicHelper {
                         }
                     } catch (ParseException e) {
                         //e.printStackTrace();
-                        logger.error("时间转换失败:{},错误原因:{}", dateStr, e.getMessage());
+                        logger.error("时间转换失败:{},错误原因:{}",dateStr,e.getMessage());
                         try {
                             value = new java.sql.Timestamp(sdf.parse("1990-01-01 00:00:00").getTime());
                         } catch (ParseException e1) {
@@ -222,8 +222,8 @@ public class HicHelper {
                             value = sqlDate;
                         }
                     } catch (ParseException e) {
-                        // e.printStackTrace();
-                        logger.error("时间转换失败:{},错误原因:{}", dateStr, e.getMessage());
+                       // e.printStackTrace();
+                        logger.error("时间转换失败:{},错误原因:{}",dateStr,e.getMessage());
                         try {
                             java.sql.Date sqlDate = new java.sql.Date(sdf.parse("1990-01-01 00:00:00").getTime());
                             value = sqlDate;
@@ -232,21 +232,18 @@ public class HicHelper {
                         }
                     }
                 } else if (paramType.contains("BigDecimal")) {
-
-                    String dateStr = StringUtil.isEmptyOrNull(strValue) ? "0" : strValue.trim();
-                    try {
+                    String dateStr = StringUtil.isEmptyOrNull(strValue.trim()) ? "0" : strValue.trim();
+                    try{
                         value = StringUtil.isEmptyOrNull(dateStr) ? new BigDecimal(0) : new BigDecimal(dateStr);
-                    } catch (NumberFormatException e) {
-                        logger.error("数据转换异常:{},错误原因:{}", dateStr, e.getMessage());
-                        value = new BigDecimal(0);
+                    }catch(NumberFormatException e){
+                        value = new BigDecimal(0) ;
                     }
-
                 } else if (paramType.contains("Integer")) {
                     String dateStr = StringUtil.isEmptyOrNull(strValue.trim()) ? "0" : strValue.trim();
                     try {
                         value = StringUtil.isEmptyOrNull(dateStr) ? new Integer(0) : Integer.parseInt(dateStr);
-                    } catch (NumberFormatException e) {
-                        value = 0;
+                    }catch (NumberFormatException e){
+                        value = 0 ;
                     }
 
                 }
@@ -354,8 +351,7 @@ public class HicHelper {
 
     /**
      * 数据封装 将map中参数封装到obj中
-     *
-     * @param object  待数据封装obj
+     * @param object 待数据封装obj
      * @param dataMap 数据参数map
      * @return
      */
