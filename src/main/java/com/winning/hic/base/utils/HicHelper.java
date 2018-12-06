@@ -233,7 +233,11 @@ public class HicHelper {
                     }
                 } else if (paramType.contains("BigDecimal")) {
                     String dateStr = StringUtil.isEmptyOrNull(strValue.trim()) ? "0" : strValue.trim();
-                    value = StringUtil.isEmptyOrNull(dateStr) ? new BigDecimal(0) : new BigDecimal(dateStr);
+                    try{
+                        value = StringUtil.isEmptyOrNull(dateStr) ? new BigDecimal(0) : new BigDecimal(dateStr);
+                    }catch(NumberFormatException e){
+                        value = new BigDecimal(0) ;
+                    }
                 } else if (paramType.contains("Integer")) {
                     String dateStr = StringUtil.isEmptyOrNull(strValue.trim()) ? "0" : strValue.trim();
                     try {
