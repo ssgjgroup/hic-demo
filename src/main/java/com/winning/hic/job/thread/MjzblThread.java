@@ -30,6 +30,8 @@ public class MjzblThread extends Thread {
             facade.getHlhtMjzblMjzblService().interfaceHlhtMjzblMjzbl(entity);
             //32.急诊留观病历记录表*   --陈世杰
             facade.getHlhtMjzblJzlgblService().interfaceHlhtMjzblJzlgbl(entity);
+            //36.基本健康信息表* --陈世杰
+            facade.getHlhtBlgyJbjkxxService().interfaceHlhtBlgyJbjkxx(entity);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -37,8 +37,6 @@ public class OtherThread extends Thread {
             facade.getHlhtZcjlYdfmService().interfaceHlhtZcjlYdfm(entity);
             //35.剖宫产记录表* --陈蒯
             facade.getHlhtZcjlPgcService().interfaceHlhtZcjlPgc(entity);
-            //36.基本健康信息表* --陈世杰
-            facade.getHlhtBlgyJbjkxxService().interfaceHlhtBlgyJbjkxx(entity);
         } catch (Exception e) {
             e.printStackTrace();
         }
