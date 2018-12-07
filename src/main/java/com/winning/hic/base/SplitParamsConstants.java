@@ -288,6 +288,12 @@ public class SplitParamsConstants {
      * 阶段小结
      */
     public static final String[] ZYBCJL_JDXJ = {
+            "rzxyzdbm",
+            "rzxyzd",
+            "rzzybmdm",
+            "rzzybm",
+            "rzzyzhdm",
+            "rzzyzh",
             "mqzdxyzdbm",
             "mqzdxyzd",
             "mqzdzybmdm",

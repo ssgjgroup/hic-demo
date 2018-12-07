@@ -137,6 +137,51 @@ public class HlhtZybcjlQjjlServiceImpl implements HlhtZybcjlQjjlService {
                     continue;
                 }
                 obj = (HlhtZybcjlQjjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
+                //处理参加抢救人员数据
+                String cjtlmd = obj.getCjqjrymd();
+                String cjtldm = obj.getCjqjrydm();
+                if(cjtldm.equals(cjtlmd)){
+                    cjtlmd = cjtlmd.replace(" ", "");
+                    cjtlmd = cjtlmd.replace("副主任医师", "");
+                    cjtlmd = cjtlmd.replace("副主治医师", "");
+                    cjtlmd = cjtlmd.replace("副住院医师", "");
+                    cjtlmd = cjtlmd.replace("住院医师", "");
+                    cjtlmd = cjtlmd.replace("主任医师", "");
+                    cjtlmd = cjtlmd.replace("主治医师", "");
+                    cjtlmd = cjtlmd.replace("规培医师", "");
+                    cjtlmd = cjtlmd.replace("实习医师", "");
+                    cjtlmd = cjtlmd.replace("基地医师", "");
+                    cjtlmd = cjtlmd.replace("医师", "");
+                    cjtlmd = cjtlmd.replace("护士长", "");
+                    cjtlmd = cjtlmd.replace("护士", "");
+                    cjtlmd = cjtlmd.replace("护师", "");
+                    cjtlmd = cjtlmd.replace("研究生", "");
+                    cjtlmd = cjtlmd.replace("及", "");
+                    cjtlmd = cjtlmd.replace("。", "");
+                    obj.setCjqjrymd(cjtlmd);
+                    obj.setCjqjrydm(cjtlmd);
+                }
+                //参加讨论人员的数据
+                cjtlmd = obj.getCjtlrymd();
+                cjtlmd = cjtlmd.replace(" ", "");
+                cjtlmd = cjtlmd.replace("副主任医师", "");
+                cjtlmd = cjtlmd.replace("副主治医师", "");
+                cjtlmd = cjtlmd.replace("副住院医师", "");
+                cjtlmd = cjtlmd.replace("住院医师", "");
+                cjtlmd = cjtlmd.replace("主任医师", "");
+                cjtlmd = cjtlmd.replace("主治医师", "");
+                cjtlmd = cjtlmd.replace("规培医师", "");
+                cjtlmd = cjtlmd.replace("实习医师", "");
+                cjtlmd = cjtlmd.replace("基地医师", "");
+                cjtlmd = cjtlmd.replace("医师", "");
+                cjtlmd = cjtlmd.replace("护士长", "");
+                cjtlmd = cjtlmd.replace("护士", "");
+                cjtlmd = cjtlmd.replace("护师", "");
+                cjtlmd = cjtlmd.replace("研究生", "");
+                cjtlmd = cjtlmd.replace("及", "");
+                cjtlmd = cjtlmd.replace("。", "");
+                obj.setCjtlrymd(cjtlmd);
+
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_QJJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
                 this.createHlhtZybcjlQjjl(obj);
 
