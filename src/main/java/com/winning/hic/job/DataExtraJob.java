@@ -1,5 +1,6 @@
 package com.winning.hic.job;
 
+import com.winning.hic.base.Constants;
 import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.DateUtil;
 import com.winning.hic.job.thread.*;
@@ -35,6 +36,13 @@ public class DataExtraJob {
     private static final Logger logger = LoggerFactory.getLogger(DataExtraJob.class);
 
     public void extraData() {
+        MbzDictInfo mbzDictInfo = new MbzDictInfo();
+        mbzDictInfo.setDictCode(Constants.TIME_TASK);
+        mbzDictInfo = facade.getMbzDictInfoService().getMbzDictInfo(mbzDictInfo);
+        if(mbzDictInfo == null || Constants.TIME_TASK_END_STATUS == mbzDictInfo.getStatus().intValue() ){
+            logger.info("定时任务开启>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>不抽取数据");
+            return;
+        }
         logger.info("数据抽取开始时间为：[{}]", DateUtil.format(new Date(), DateUtil.PATTERN_19));
         Calendar c = Calendar.getInstance();
         c.set(Calendar.DATE, c.get(Calendar.DATE) - 1); //抽取前一天数据 注释则抽取当前数据
