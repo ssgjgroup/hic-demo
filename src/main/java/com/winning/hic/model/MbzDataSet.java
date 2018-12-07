@@ -342,4 +342,24 @@ public class MbzDataSet extends BaseDomain implements Serializable {
     public void setMustMatch(Integer mustMatch) {
         this.mustMatch = mustMatch;
     }
+
+    @Override
+    public String toString() {
+        return "MbzDataSet{" +
+                "id=" + id +
+                ", pId=" + pId +
+                ", sourceType='" + sourceType + '\'' +
+                ", recordName='" + recordName + '\'' +
+                ", pyCode='" + pyCode + '\'' +
+                ", dictCode='" + dictCode + '\'' +
+                ", dataType=" + dataType +
+                ", dtjddm='" + dtjddm + '\'' +
+                ", qrmbdm='" + qrmbdm + '\'' +
+                ", qrdxdm='" + qrdxdm + '\'' +
+                ", yzjddm='" + yzjddm + '\'' +
+                ", bt=" + bt +
+                ", valueFlag=" + valueFlag +
+                ", mustMatch=" + mustMatch +
+                '}';
+    }
 }

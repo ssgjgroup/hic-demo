@@ -93,6 +93,7 @@ public class QuatrzConfig {
         bean.setOverwriteExistingJobs(true);
         // 延时启动，应用启动60秒后
         bean.setStartupDelay(60);
+        bean.setSchedulerName("HLHT-调度工厂");
         // 注册触发器
         bean.setTriggers(triggers);
         logger.info("调度工厂配置完成,Quartz在应用启动1秒后启动@[{}]",DateUtil.format(new Date(),DateUtil.PATTERN_19));

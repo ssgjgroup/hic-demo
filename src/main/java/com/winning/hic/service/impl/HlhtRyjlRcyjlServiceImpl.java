@@ -161,9 +161,14 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
                 //去除入院诊断中医病名和代码的冗余字符串
                 obj.setRzzybmdm(obj.getRzzybmdm() == null ? "NA" : obj.getRzzybmdm().replace("中医诊断： ", "").trim());
                 obj.setRzzybmmc(obj.getRzzybmmc() == null ? "NA" : obj.getRzzybmmc().replace("中医诊断： ", "").trim());
+                obj.setRzzybmdm(obj.getRzzybmdm() == null ? "NA" : obj.getRzzybmdm().replace("中医诊断：", "").trim());
+                obj.setRzzybmmc(obj.getRzzybmmc() == null ? "NA" : obj.getRzzybmmc().replace("中医诊断：", "").trim());
+                //去除入院诊断中医症候和代码的冗余字符串
                 //去除入院诊断中医症候和代码的冗余字符串
                 obj.setRzzyzhdm(obj.getRzzyzhdm() == null ? "NA" : obj.getRzzyzhdm().replace("中医诊断： ", "").trim());
                 obj.setRzzyzhmc(obj.getRzzyzhmc() == null ? "NA" : obj.getRzzyzhmc().replace("中医诊断： ", "").trim());
+                obj.setRzzyzhdm(obj.getRzzyzhdm() == null ? "NA" : obj.getRzzyzhdm().replace("中医诊断：", "").trim());
+                obj.setRzzyzhmc(obj.getRzzyzhmc() == null ? "NA" : obj.getRzzyzhmc().replace("中医诊断：", "").trim());
 
                 //去除出院诊断西医病名和代码的冗余字符串
                 obj.setCzxyzdbm(obj.getCzxyzdbm() == null ? "NA" : obj.getCzxyzdbm().replace("西医诊断： ", "").trim());
@@ -171,10 +176,13 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
                 //去除出院诊断中医病名和代码的冗余字符串
                 obj.setCzzybmdm(obj.getCzzybmdm() == null ? "NA" : obj.getCzzybmdm().replace("中医诊断： ", "").trim());
                 obj.setCzzybmmc(obj.getCzzybmmc() == null ? "NA" : obj.getCzzybmmc().replace("中医诊断： ", "").trim());
+                obj.setCzzybmdm(obj.getCzzybmdm() == null ? "NA" : obj.getCzzybmdm().replace("中医诊断：", "").trim());
+                obj.setCzzybmmc(obj.getCzzybmmc() == null ? "NA" : obj.getCzzybmmc().replace("中医诊断：", "").trim());
                 //去除出院诊断中医症候和代码的冗余字符串
                 obj.setCzzyzhdm(obj.getCzzyzhdm() == null ? "NA" : obj.getCzzyzhdm().replace("中医诊断： ", "").trim());
                 obj.setCzzyzhmc(obj.getCzzyzhmc() == null ? "NA" : obj.getCzzyzhmc().replace("中医诊断： ", "").trim());
-
+                obj.setCzzyzhdm(obj.getCzzyzhdm() == null ? "NA" : obj.getCzzyzhdm().replace("中医诊断：", "").trim());
+                obj.setCzzyzhmc(obj.getCzzyzhmc() == null ? "NA" : obj.getCzzyzhmc().replace("中医诊断：", "").trim());
                 //入院诊断-中医病名代码、名称处理
                 if (!"NA".equals(obj.getRzzybmdm())) {
                     String bmdm = "";

@@ -54,9 +54,10 @@ public class HicHelper {
             //判断是否可以取值到，不能则提供默认值
             try {
                 strValue = DomUtils.getAttrValueByDataSet(document, dataSet).trim();
-                //logger.info("pyCode:{};methodName:{};strValue:{};", pyCode, methodName, strValue);
+                logger.info("sourctType:{};pyCode:{};methodName:{};strValue:{};", dataSet.getSourceType(),pyCode, methodName, strValue);
             } catch (NullPointerException e) {
-                //logger.info("pyCode:{};methodName:{};strValue:{};using default value", pyCode, methodName, strValue);
+                //e.printStackTrace();
+                logger.info("sourctType:{};pyCode:{};methodName:{};strValue:{};using default value", dataSet.getSourceType(),pyCode, methodName, strValue);
             }
             Object value = null;
             if (strValue == null) {
@@ -178,7 +179,7 @@ public class HicHelper {
                         }
                     } catch (ParseException e) {
                         //e.printStackTrace();
-                        logger.error("时间转换失败:{},错误原因:{}",dateStr,e.getMessage());
+                        logger.error("字段：{}，时间转换失败:{},错误原因:{}",pyCode,dateStr,e.getMessage());
                         try {
                             value = new java.sql.Timestamp(sdf.parse("1990-01-01 00:00:00").getTime());
                         } catch (ParseException e1) {
@@ -223,7 +224,8 @@ public class HicHelper {
                         }
                     } catch (ParseException e) {
                        // e.printStackTrace();
-                        logger.error("时间转换失败:{},错误原因:{}",dateStr,e.getMessage());
+                        //logger.error("时间转换失败:{},错误原因:{}",dateStr,e.getMessage());
+                        logger.error("字段：{}，时间转换失败:{},错误原因:{}",pyCode,dateStr,e.getMessage());
                         try {
                             java.sql.Date sqlDate = new java.sql.Date(sdf.parse("1990-01-01 00:00:00").getTime());
                             value = sqlDate;

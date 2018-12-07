@@ -152,7 +152,7 @@ public class HlhtZybcjlSqtlServiceImpl implements HlhtZybcjlSqtlService {
                 obj.setZcrxm(zcrxm);
                 obj.setZcrbm(zcrxm);
                 String cjtlmd = obj.getCjtlmd();
-                cjtlmd = cjtlmd.replace(" ", "");
+                //cjtlmd = cjtlmd.replace(" ", "");
                 cjtlmd = cjtlmd.replace("副主任医师", "");
                 cjtlmd = cjtlmd.replace("副主治医师", "");
                 cjtlmd = cjtlmd.replace("副住院医师", "");
