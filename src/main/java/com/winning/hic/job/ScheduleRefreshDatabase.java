@@ -79,17 +79,17 @@ public class ScheduleRefreshDatabase {
                 automateSet.setJobName("HLHT-Job");
                 automateSet.setTriggerName("HLHT-Trigger");
                 automateSet.setBatchDate("2:00:00");
-                automateSet.setCron("* * 2 * * ?");
+                automateSet.setCron("0 0 2 * * ?");
                 mbzAutomateSetService.createMbzAutomateSet(automateSet);
                 // 表达式调度构建器
-                CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule("* * 2 * * ?");
+                CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule("0 0 2 * * ?");
                 // 按新的cronExpression表达式重新构建trigger
                 trigger = (CronTrigger) scheduler.getTrigger(cronTrigger.getKey());
                 trigger = trigger.getTriggerBuilder().withIdentity(cronTrigger.getKey())
                         .withSchedule(scheduleBuilder).build();
                 // 按新的trigger重新设置job执行
                 scheduler.rescheduleJob(cronTrigger.getKey(), trigger);
-                logger.info("刷新定时任务信息结束，未配置调度规则，将采用默认规则：[{}]，设置时间是：[{}]","* * 2 * * ?",DateUtil.format(new Date(),DateUtil.PATTERN_19));
+                logger.info("刷新定时任务信息结束，未配置调度规则，将采用默认规则：[{}]，设置时间是：[{}]","0 0 2 * * ?",DateUtil.format(new Date(),DateUtil.PATTERN_19));
                 return;
             }
             String searchCron = automateSet.getCron(); // 从数据库查询出来的
