@@ -271,6 +271,11 @@ public class DataLoadController extends BaseController {
                 //39.中药处方记录表* --陈枫
                 MbzDataCheck mbzDataChecks39 = getFacade().getHlhtMjzcfZycfService().interfaceHlhtMjzcfZycf(entity);
 
+            } else if (data_set == 40) {
+                super.getFacade().getMbzDataCheckService().removeMbzDataCheck(entity);
+                //40.待产记录*
+                MbzDataCheck mbzDataChecks40 = getFacade().getAmerZcjlDcjlService().interfaceAmerZcjlDcjlService(entity);
+
             } else {
                 //删除原来的检验结果
                 super.getFacade().getMbzDataCheckService().removeMbzDataCheckList(entity);
@@ -354,6 +359,8 @@ public class DataLoadController extends BaseController {
                // MbzDataCheck mbzDataCheck38 = super.getFacade().getHlhtMjzcfXycfService().interfaceHlhtMjzcfXycf(entity);
                 //39.中药处方记录表* --陈枫
                // MbzDataCheck mbzDataChecks39 = getFacade().getHlhtMjzcfZycfService().interfaceHlhtMjzcfZycf(entity);
+                //40.待产记录*
+                MbzDataCheck mbzDataChecks40 = getFacade().getAmerZcjlDcjlService().interfaceAmerZcjlDcjlService(entity);
             }
             //执行特殊处理的脚本
             //super.getFacade().getHlhtZybcjlScbcjlService().selectAllHandleQuery();

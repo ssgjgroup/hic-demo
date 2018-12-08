@@ -84,6 +84,7 @@ public class Constants {
     public static final String WN_BLGY_WSSJZY_SOURCE_TYPE = "37";//卫生事件摘要单
     public static final String WN_MJZCF_XYCF_SOURCE_TYPE = "38";//西药处方记录单
     public static final String WN_MJZCF_ZYCF_SOURCE_TYPE = "39";//中药处方记录单
+    public static final String WN_ZCJL_DCJL_SOURCE_TYPE = "40";//待产记录
 
 
 

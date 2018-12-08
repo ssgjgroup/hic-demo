@@ -446,8 +446,12 @@ public class FacadeImpl implements Facade {
         return mbzOperateLogService;
     }
 
-
-
+    @Autowired
+    private AmerZcjlDcjlService amerZcjlDcjlService;
+    @Override
+    public AmerZcjlDcjlService getAmerZcjlDcjlService() {
+        return amerZcjlDcjlService;
+    }
 
 
 }

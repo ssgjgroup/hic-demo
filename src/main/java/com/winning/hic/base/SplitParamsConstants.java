@@ -333,4 +333,6 @@ public class SplitParamsConstants {
             "jzzyzhmc"
     };
 
+    public static final String[] ZCJL_DCJL = {};
+
 }

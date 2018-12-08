@@ -130,4 +130,6 @@ public interface Facade {
     MbzTemplateNodeDetailInfoService getMbzTemplateNodeDetailInfoService();
 
     MbzOperateLogService getMbzOperateLogService();
+
+    AmerZcjlDcjlService getAmerZcjlDcjlService();
 }
