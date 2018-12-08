@@ -12,11 +12,11 @@ import com.winning.hic.model.MbzDataError;
 
 import org.springframework.stereotype.Repository;
 /**
-* @author HLHT
+* @author ISC [Implementation service center]
 * @title DAO接口
 * @email Winning Health
-* @package com.winning.hic.dao
-* @date 2018-34-17 13:34:29
+* @package com.winning.hic.dao.cmdatacenter
+* @date 2018-07-08 16:07:19
 */
 @Repository
 public interface MbzDataErrorDao {

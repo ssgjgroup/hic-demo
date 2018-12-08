@@ -61,4 +61,8 @@ public class CisTableNameConfig {
     public static String getDataListName(String tableName){
         return ((CisTableName)dataMap.get(tableName)).getTableCnName();
     }
+
+    public static int getDataListId(String tableName){
+        return ((CisTableName)dataMap.get(tableName)).getId();
+    }
 }

@@ -1,20 +1,23 @@
 package com.winning.hic.service.impl;
 
-import com.winning.hic.dao.cmdatacenter.MbzDataErrorDao;
-import com.winning.hic.model.MbzDataError;
-import com.winning.hic.service.MbzDataErrorService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
+import java.util.List;  
+
+import com.winning.hic.model.MbzDataError;  
+
+import com.winning.hic.dao.cmdatacenter.MbzDataErrorDao;  
+
+import com.winning.hic.service.MbzDataErrorService;  
 
 
 /**
-* @author HLHT
+* @author ISC [Implementation service center]
 * @title MBZ_DATA_ERROR
 * @email Winning Health
 * @package com.winning.hic.service.impl
-* @date 2018-34-17 13:34:29
+* @date 2018-07-08 16:07:19
 */
 @Service
 public class MbzDataErrorServiceImpl implements  MbzDataErrorService {

@@ -6,11 +6,11 @@ import com.winning.hic.model.MbzDataError;
 
 
 /**
-* @author HLHT
+* @author ISC [Implementation service center]
 * @title MBZ_DATA_ERROR
 * @email Winning Health
 * @package com.winning.hic.service
-* @date 2018-34-17 13:34:29
+* @date 2018-07-08 16:07:19
 */
 public interface MbzDataErrorService {
 

@@ -1,5 +1,6 @@
 package com.winning.hic.model;
 
+import java.util.Date; 
 import java.io.Serializable; 
 
 import org.apache.ibatis.type.Alias; 
@@ -7,13 +8,12 @@ import org.apache.ibatis.type.Alias;
 import com.winning.hic.model.BaseDomain;
 
 
-
 /**
- * @author HLHT
+ * @author ISC [Implementation service center]
  * @title 
  * @email Winning Health
  * @package com.winning.hic.model
- * @date 2018-34-17 13:34:29
+ * @date 2018-07-08 16:07:19
  */
 @Alias("mbzDataError")
 public class MbzDataError extends BaseDomain implements Serializable {
@@ -21,105 +21,73 @@ public class MbzDataError extends BaseDomain implements Serializable {
     private static final long serialVersionUID = -1L;
 
     /**
-     * 字段名：SOURCE_TYPE
+     * 字段名：ID
      * 备注: 
      * 默认值：无
      */
-    private Integer sourceType;
+    private String id;
     /**
-     * 字段名：HZXM
+     * 字段名：CLASS_NAME
      * 备注: 
      * 默认值：无
      */
-    private String hzxm;
+    private String className;
     /**
-     * 字段名：ERROR_COLUMN
+     * 字段名：METHOD_NAME
      * 备注: 
      * 默认值：无
      */
-    private String errorColumn;
+    private String methodName;
     /**
-     * 字段名：ERROR_DESC
+     * 字段名：ERROR_MESSAGE
      * 备注: 
      * 默认值：无
      */
-    private String errorDesc;
+    private String errorMessage;
+    /**
+     * 字段名：ERROR_TIME
+     * 备注: 
+     * 默认值：(getdate())
+     */
+    private Date errorTime;
 
-    public MbzDataError (){
-
+    public String getId() {
+        return id;
     }
 
-   /**
-   * 字段名：SOURCE_TYPE
-   * get方法
-   * 备注: 
-   */
-   public Integer getSourceType(){
+    public void setId(String id) {
+        this.id = id;
+    }
 
-        return sourceType;
-   }
+    public String getClassName() {
+        return className;
+    }
 
-   /**
-   * 字段名：SOURCE_TYPE
-   * set方法
-   * 备注: 
-   */
-   public void setSourceType(Integer sourceType){
-        this.sourceType = sourceType;
-   }
-   /**
-   * 字段名：HZXM
-   * get方法
-   * 备注: 
-   */
-   public String getHzxm(){
+    public void setClassName(String className) {
+        this.className = className;
+    }
 
-        return hzxm;
-   }
+    public String getMethodName() {
+        return methodName;
+    }
 
-   /**
-   * 字段名：HZXM
-   * set方法
-   * 备注: 
-   */
-   public void setHzxm(String hzxm){
-        this.hzxm = hzxm;
-   }
-   /**
-   * 字段名：ERROR_COLUMN
-   * get方法
-   * 备注: 
-   */
-   public String getErrorColumn(){
+    public void setMethodName(String methodName) {
+        this.methodName = methodName;
+    }
 
-        return errorColumn;
-   }
+    public String getErrorMessage() {
+        return errorMessage;
+    }
 
-   /**
-   * 字段名：ERROR_COLUMN
-   * set方法
-   * 备注: 
-   */
-   public void setErrorColumn(String errorColumn){
-        this.errorColumn = errorColumn;
-   }
-   /**
-   * 字段名：ERROR_DESC
-   * get方法
-   * 备注: 
-   */
-   public String getErrorDesc(){
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
 
-        return errorDesc;
-   }
+    public Date getErrorTime() {
+        return errorTime;
+    }
 
-   /**
-   * 字段名：ERROR_DESC
-   * set方法
-   * 备注: 
-   */
-   public void setErrorDesc(String errorDesc){
-        this.errorDesc = errorDesc;
-   }
-
+    public void setErrorTime(Date errorTime) {
+        this.errorTime = errorTime;
+    }
 }

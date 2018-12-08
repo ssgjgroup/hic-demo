@@ -79,6 +79,7 @@ public class DataExtractAscept {
             log.setSumCount(check.getDataCount());
             mbzOperateLogService.modifyMbzOperateLog(log);
         } catch (Throwable throwable) {
+            // TODO 发布版本注释 ，只供测试使用
             throwable.printStackTrace();
             long end = System.currentTimeMillis();
             logger.info("around " + joinPoint + "\tUse time : " + (end - start) + " ms with exception : " + throwable.getMessage());
