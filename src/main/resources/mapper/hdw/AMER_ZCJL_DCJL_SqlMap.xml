@@ -80,6 +80,9 @@
         <result column="gxsj" property="gxsj" jdbcType="TIMESTAMP" />
         <result column="syxh" property="syxh" jdbcType="VARCHAR" />
         <result column="STATUS" property="status" jdbcType="INTEGER" />
+        <result column="blmc" property="blmc" jdbcType="VARCHAR"/>
+        <result column="blnr" property="blnr" jdbcType="VARCHAR"/>
+        <result column="fssj" property="fssj" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <resultMap id="amerZcjlDcjlResult" type="com.winning.hic.model.AmerZcjlDcjl" extends="amerZcjlDcjlResultForList">
