@@ -84,7 +84,7 @@ public class AmerZcjlDcjlServiceImpl implements  AmerZcjlDcjlService {
     }
 
     @Override
-    public MbzDataCheck interfaceAmerZcjlDcjlService(MbzDataCheck entity) {
+    public MbzDataCheck interfaceAmerZcjlDcjl(MbzDataCheck entity) {
         //获取数据集字典表中配置，判断是否需要抽取
         MbzDictInfo mbzDictInfo = new MbzDictInfo();
         mbzDictInfo.setDictCode("platformTableName");

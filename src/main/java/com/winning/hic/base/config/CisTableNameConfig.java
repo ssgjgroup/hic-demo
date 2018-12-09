@@ -56,6 +56,7 @@ public class CisTableNameConfig {
         dataMap.put("HLHT_BLGY_WSSJZY", new CisTableName(37,"HLHT_BLGY_WSSJZY","卫生事件摘要"));
         dataMap.put("HLHT_MJZCF_XYCF", new CisTableName(38,"HLHT_MJZCF_XYCF","西药处方"));
         dataMap.put("HLHT_MJZCF_ZYCF", new CisTableName(39,"HLHT_MJZCF_ZYCF","中药处方"));
+        dataMap.put("AMER_ZCJL_DCJL", new CisTableName(40,"AMER_ZCJL_DCJL","待产记录"));
     }
 
     public static String getDataListName(String tableName){

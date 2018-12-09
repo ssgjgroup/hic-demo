@@ -29,5 +29,5 @@ public interface AmerZcjlDcjlService {
 
     public List<AmerZcjlDcjl> getAmerZcjlDcjlPageList(AmerZcjlDcjl amerZcjlDcjl);
 
-    MbzDataCheck interfaceAmerZcjlDcjlService(MbzDataCheck entity);
+    MbzDataCheck interfaceAmerZcjlDcjl(MbzDataCheck entity);
 }
