@@ -82,4 +82,16 @@ public class NodeTree {
     public void setSourceType(String sourceType) {
         this.sourceType = sourceType;
     }
+
+    @Override
+    public String toString() {
+        return "NodeTree{" +
+                "nodeId=" + nodeId +
+                ", id=" + id +
+                ", text='" + text + '\'' +
+                ", nodePid=" + nodePid +
+                ", pyCode='" + pyCode + '\'' +
+                ", sourceType='" + sourceType + '\'' +
+                '}';
+    }
 }

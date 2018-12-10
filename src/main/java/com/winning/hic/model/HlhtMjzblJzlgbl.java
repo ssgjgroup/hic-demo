@@ -2103,4 +2103,97 @@ public class HlhtMjzblJzlgbl extends BaseDomain implements Serializable {
     public void setSyxh(String syxh) {
         this.syxh = syxh;
     }
+
+    @Override
+    public String toString() {
+        return "HlhtMjzblJzlgbl{" +
+                "yjlxh='" + yjlxh + '\'' +
+                ", jzlsh='" + jzlsh + '\'' +
+                ", patid='" + patid + '\'' +
+                ", hzxm='" + hzxm + '\'' +
+                ", mjzh='" + mjzh + '\'' +
+                ", zyh='" + zyh + '\'' +
+                ", sfzhm='" + sfzhm + '\'' +
+                ", zzjgdm='" + zzjgdm + '\'' +
+                ", zzjgmc='" + zzjgmc + '\'' +
+                ", ksdm='" + ksdm + '\'' +
+                ", ksmc='" + ksmc + '\'' +
+                ", xbdm='" + xbdm + '\'' +
+                ", xbmc='" + xbmc + '\'' +
+                ", csrq=" + csrq +
+                ", nls=" + nls +
+                ", nly='" + nly + '\'' +
+                ", gmsbz='" + gmsbz + '\'' +
+                ", gms='" + gms + '\'' +
+                ", jzrqsj=" + jzrqsj +
+                ", czbzdm='" + czbzdm + '\'' +
+                ", czbzmc='" + czbzmc + '\'' +
+                ", srgcsrq=" + srgcsrq +
+                ", zs='" + zs + '\'' +
+                ", xbs='" + xbs + '\'' +
+                ", jws='" + jws + '\'' +
+                ", tgjc='" + tgjc + '\'' +
+                ", zyszgcjg='" + zyszgcjg + '\'' +
+                ", fzjcxm='" + fzjcxm + '\'' +
+                ", fzjcjg='" + fzjcjg + '\'' +
+                ", xyzdbm='" + xyzdbm + '\'' +
+                ", xyzdmc='" + xyzdmc + '\'' +
+                ", zybmdm='" + zybmdm + '\'' +
+                ", zybmmc='" + zybmmc + '\'' +
+                ", zyzhdm='" + zyzhdm + '\'' +
+                ", zyzhmc='" + zyzhmc + '\'' +
+                ", bzyj='" + bzyj + '\'' +
+                ", zfbm='" + zfbm + '\'' +
+                ", zzzf='" + zzzf + '\'' +
+                ", yzxmlx='" + yzxmlx + '\'' +
+                ", yzxmlxmc='" + yzxmlxmc + '\'' +
+                ", yzxmnr='" + yzxmnr + '\'' +
+                ", yzbzxx='" + yzbzxx + '\'' +
+                ", yzklksdm='" + yzklksdm + '\'' +
+                ", yzklks='" + yzklks + '\'' +
+                ", yzklzdm='" + yzklzdm + '\'' +
+                ", yzklzqm='" + yzklzqm + '\'' +
+                ", yzklrq=" + yzklrq +
+                ", yzshzdm='" + yzshzdm + '\'' +
+                ", yzshzqm='" + yzshzqm + '\'' +
+                ", yzshrq=" + yzshrq +
+                ", yzzxksdm='" + yzzxksdm + '\'' +
+                ", yzzxks='" + yzzxks + '\'' +
+                ", yzzxzdm='" + yzzxzdm + '\'' +
+                ", yzzxzqm='" + yzzxzqm + '\'' +
+                ", yzzxrq=" + yzzxrq +
+                ", yzzxzt='" + yzzxzt + '\'' +
+                ", qxyzzdm='" + qxyzzdm + '\'' +
+                ", qxyzzqm='" + qxyzzqm + '\'' +
+                ", yzqxrq=" + yzqxrq +
+                ", zrysbm='" + zrysbm + '\'' +
+                ", zrysqm='" + zrysqm + '\'' +
+                ", yzjhjsrq=" + yzjhjsrq +
+                ", dzsqdbh='" + dzsqdbh + '\'' +
+                ", jzlgbcjl='" + jzlgbcjl + '\'' +
+                ", qjksrq=" + qjksrq +
+                ", qjjsrq=" + qjjsrq +
+                ", jzqjjl='" + jzqjjl + '\'' +
+                ", ssjczbm='" + ssjczbm + '\'' +
+                ", ssjczmc='" + ssjczmc + '\'' +
+                ", ssmbbwbm='" + ssmbbwbm + '\'' +
+                ", ssmbbw='" + ssmbbw + '\'' +
+                ", jrwdm='" + jrwdm + '\'' +
+                ", jrwmc='" + jrwmc + '\'' +
+                ", ssjczff='" + ssjczff + '\'' +
+                ", ssjczcs='" + ssjczcs + '\'' +
+                ", jlrqsj=" + jlrqsj +
+                ", zysx='" + zysx + '\'' +
+                ", cjqjrydm='" + cjqjrydm + '\'' +
+                ", cjqjrymd='" + cjqjrymd + '\'' +
+                ", zyjszwlb='" + zyjszwlb + '\'' +
+                ", zyjszwlbmc='" + zyjszwlbmc + '\'' +
+                ", hzqxdm='" + hzqxdm + '\'' +
+                ", hzqxmc='" + hzqxmc + '\'' +
+                ", ysbm='" + ysbm + '\'' +
+                ", ysqm='" + ysqm + '\'' +
+                ", gxsj=" + gxsj +
+                ", syxh='" + syxh + '\'' +
+                '}';
+    }
 }

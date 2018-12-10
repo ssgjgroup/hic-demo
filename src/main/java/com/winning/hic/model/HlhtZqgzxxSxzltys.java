@@ -1075,4 +1075,54 @@ public class HlhtZqgzxxSxzltys extends BaseDomain implements Serializable {
     public void setModelCode(String modelCode) {
         this.modelCode = modelCode;
     }
+
+    @Override
+    public String toString() {
+        return "HlhtZqgzxxSxzltys{" +
+                "yjlxh='" + yjlxh + '\'' +
+                ", jzlsh='" + jzlsh + '\'' +
+                ", patid='" + patid + '\'' +
+                ", mjzh='" + mjzh + '\'' +
+                ", zyh='" + zyh + '\'' +
+                ", jzlb='" + jzlb + '\'' +
+                ", tysbh='" + tysbh + '\'' +
+                ", ksdm='" + ksdm + '\'' +
+                ", ksmc='" + ksmc + '\'' +
+                ", bqdm='" + bqdm + '\'' +
+                ", bqmc='" + bqmc + '\'' +
+                ", bfh='" + bfh + '\'' +
+                ", bch='" + bch + '\'' +
+                ", hzxm='" + hzxm + '\'' +
+                ", sfzhm='" + sfzhm + '\'' +
+                ", xbdm='" + xbdm + '\'' +
+                ", xbmc='" + xbmc + '\'' +
+                ", nls=" + nls +
+                ", nly='" + nly + '\'' +
+                ", jbzdbm='" + jbzdbm + '\'' +
+                ", jbzd='" + jbzd + '\'' +
+                ", sxsdm='" + sxsdm + '\'' +
+                ", sxsmc='" + sxsmc + '\'' +
+                ", sxzz='" + sxzz + '\'' +
+                ", sxpzdm='" + sxpzdm + '\'' +
+                ", sxpzmc='" + sxpzmc + '\'' +
+                ", sxqjcjg='" + sxqjcjg + '\'' +
+                ", sxfs='" + sxfs + '\'' +
+                ", nsxrq=" + nsxrq +
+                ", sxblhg='" + sxblhg + '\'' +
+                ", yljgyj='" + yljgyj + '\'' +
+                ", hzdlryj='" + hzdlryj + '\'' +
+                ", hzdlrqm='" + hzdlrqm + '\'' +
+                ", dlrhzgxdm='" + dlrhzgxdm + '\'' +
+                ", dlrhzgxmc='" + dlrhzgxmc + '\'' +
+                ", hzdlrqmrq=" + hzdlrqmrq +
+                ", ysbm='" + ysbm + '\'' +
+                ", ysqm='" + ysqm + '\'' +
+                ", ysqmrq=" + ysqmrq +
+                ", gxsj=" + gxsj +
+                ", syxh='" + syxh + '\'' +
+                ", tjzt='" + tjzt + '\'' +
+                ", yxjl=" + yxjl +
+                ", modelCode='" + modelCode + '\'' +
+                '}';
+    }
 }

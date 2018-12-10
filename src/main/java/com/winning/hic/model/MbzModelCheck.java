@@ -373,4 +373,26 @@ public class MbzModelCheck extends BaseDomain implements Serializable {
     public void setPyCode(String pyCode) {
         this.pyCode = pyCode;
     }
+
+    @Override
+    public String toString() {
+        return "MbzModelCheck{" +
+                "id=" + id +
+                ", pId=" + pId +
+                ", sourceType='" + sourceType + '\'' +
+                ", level=" + level +
+                ", modelCode='" + modelCode + '\'' +
+                ", colummName='" + colummName + '\'' +
+                ", type=" + type +
+                ", dtjddm='" + dtjddm + '\'' +
+                ", qrmbdm='" + qrmbdm + '\'' +
+                ", qrdxdm='" + qrdxdm + '\'' +
+                ", yzjddm='" + yzjddm + '\'' +
+                ", errorDesc='" + errorDesc + '\'' +
+                ", status=" + status +
+                ", bt=" + bt +
+                ", mustMatch=" + mustMatch +
+                ", pyCode='" + pyCode + '\'' +
+                '}';
+    }
 }

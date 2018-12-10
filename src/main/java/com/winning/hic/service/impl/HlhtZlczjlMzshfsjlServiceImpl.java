@@ -162,7 +162,13 @@ public class HlhtZlczjlMzshfsjlServiceImpl implements HlhtZlczjlMzshfsjlService 
                 }
                 Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZlczjlMzshfsjl.class);
                 obj = (HlhtZlczjlMzshfsjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
-                this.hlhtZlczjlMzshfsjlDao.insertHlhtZlczjlMzshfsjl(obj);
+                //this.createHlhtZlczjlMzshfsjl(obj);
+                try {
+                    this.createHlhtZlczjlMzshfsjl(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(), e.getMessage());
+                    continue;
+                }
                 try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZLCZJL_MZSHFSJL_SOURCE_TYPE),

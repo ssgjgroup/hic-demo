@@ -507,4 +507,29 @@ public class EmrMbk extends BaseDomain implements Serializable {
         this.lsnid = lsnid;
    }
 
+    @Override
+    public String toString() {
+        return "EmrMbk{" +
+                "yljgdm='" + yljgdm + '\'' +
+                ", mbdm='" + mbdm + '\'' +
+                ", mbmc='" + mbmc + '\'' +
+                ", mbms='" + mbms + '\'' +
+                ", mbnr='" + mbnr + '\'' +
+                ", version='" + version + '\'' +
+                ", mxfldm='" + mxfldm + '\'' +
+                ", bzdm='" + bzdm + '\'' +
+                ", dymb='" + dymb + '\'' +
+                ", yxjl=" + yxjl +
+                ", xgsj='" + xgsj + '\'' +
+                ", grmbbz=" + grmbbz +
+                ", xsysz='" + xsysz + '\'' +
+                ", xbbz=" + xbbz +
+                ", blbm='" + blbm + '\'' +
+                ", sfhlhtmb=" + sfhlhtmb +
+                ", iscurrent=" + iscurrent +
+                ", gxrq=" + gxrq +
+                ", sysId='" + sysId + '\'' +
+                ", lsnid=" + lsnid +
+                '}';
+    }
 }

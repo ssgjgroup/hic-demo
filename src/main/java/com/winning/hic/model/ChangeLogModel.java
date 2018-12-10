@@ -47,4 +47,13 @@ public class ChangeLogModel {
 
 
     }
+
+    @Override
+    public String toString() {
+        return "ChangeLogModel{" +
+                "field='" + field + '\'' +
+                ", oldValue='" + oldValue + '\'' +
+                ", className='" + className + '\'' +
+                '}';
+    }
 }

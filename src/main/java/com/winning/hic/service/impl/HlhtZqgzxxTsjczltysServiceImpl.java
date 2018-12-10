@@ -144,7 +144,13 @@ public class HlhtZqgzxxTsjczltysServiceImpl implements HlhtZqgzxxTsjczltysServic
                 obj = (HlhtZqgzxxTsjczltys) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                 obj.setJczlxmmc(obj.getBlmc().replace("知情同意书", ""));
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZQGZXX_TSJCZLTYS), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                this.createHlhtZqgzxxTsjczltys(obj);
+                //this.createHlhtZqgzxxTsjczltys(obj);
+                try {
+                    this.createHlhtZqgzxxTsjczltys(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
+                    continue;
+                }
                 //插入日志
                 try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(

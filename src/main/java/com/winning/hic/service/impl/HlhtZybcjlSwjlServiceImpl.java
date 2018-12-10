@@ -168,7 +168,13 @@ public class HlhtZybcjlSwjlServiceImpl implements HlhtZybcjlSwjlService {
                 obj.setSwzdmc(obj.getSwzdmc() == null ? "NA" : obj.getSwzdmc().replace("西医诊断：", "").trim());
                 obj.setSwzdmc(obj.getSwzdmc() == null ? "NA" : obj.getSwzdmc().replace("中医诊断：", "").trim());
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_SWJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                this.hlhtZybcjlSwjlDao.insertHlhtZybcjlSwjl(obj);
+                //this.createHlhtZybcjlSwjl(obj);
+                try {
+                    this.createHlhtZybcjlSwjl(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
+                    continue;
+                }
                 //插入日志
                 try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(

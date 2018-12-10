@@ -161,4 +161,15 @@ public class MbzDataCheck extends BaseDomain implements Serializable {
         this.isAutomate = isAutomate;
     }
 
+    @Override
+    public String toString() {
+        return "MbzDataCheck{" +
+                "id='" + id + '\'' +
+                ", sourceType=" + sourceType +
+                ", dataCount=" + dataCount +
+                ", realCount=" + realCount +
+                ", errorDesc='" + errorDesc + '\'' +
+                ", isAutomate=" + isAutomate +
+                '}';
+    }
 }

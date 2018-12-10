@@ -4,6 +4,7 @@ import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -1970,4 +1971,90 @@ public class OutpOrderitem extends BaseDomain implements Serializable {
         this.timetempstrCdc = timetempstrCdc;
    }
 
+    @Override
+    public String toString() {
+        return "OutpOrderitem{" +
+                "yljgdm='" + yljgdm + '\'' +
+                ", xh=" + xh +
+                ", cfxh=" + cfxh +
+                ", cdIdm=" + cdIdm +
+                ", ggIdm=" + ggIdm +
+                ", ekbz=" + ekbz +
+                ", dxmdm='" + dxmdm + '\'' +
+                ", dxmmc='" + dxmmc + '\'' +
+                ", ypdm='" + ypdm + '\'' +
+                ", lcxmdm='" + lcxmdm + '\'' +
+                ", ypmc='" + ypmc + '\'' +
+                ", ypgg='" + ypgg + '\'' +
+                ", ypdw='" + ypdw + '\'' +
+                ", ypxs=" + ypxs +
+                ", ykxs=" + ykxs +
+                ", mzdw='" + mzdw + '\'' +
+                ", mzxs=" + mzxs +
+                ", ggdw='" + ggdw + '\'' +
+                ", ggxs=" + ggxs +
+                ", zxdw='" + zxdw + '\'' +
+                ", jxdm='" + jxdm + '\'' +
+                ", jxmc='" + jxmc + '\'' +
+                ", ylsj=" + ylsj +
+                ", ypfj=" + ypfj +
+                ", ypyf='" + ypyf + '\'' +
+                ", ypyfmc='" + ypyfmc + '\'' +
+                ", pcdm='" + pcdm + '\'' +
+                ", pcmc='" + pcmc + '\'' +
+                ", ypjl=" + ypjl +
+                ", jldw='" + jldw + '\'' +
+                ", dwlb=" + dwlb +
+                ", ts=" + ts +
+                ", yfldsl=" + yfldsl +
+                ", ldlx='" + ldlx + '\'' +
+                ", ldxh='" + ldxh + '\'' +
+                ", ypsl=" + ypsl +
+                ", cyts=" + cyts +
+                ", shbz=" + shbz +
+                ", zbz=" + zbz +
+                ", mzdm='" + mzdm + '\'' +
+                ", mzmc='" + mzmc + '\'' +
+                ", fzxh=" + fzxh +
+                ", psbz=" + psbz +
+                ", zbbz=" + zbbz +
+                ", jjbz=" + jjbz +
+                ", jlzt=" + jlzt +
+                ", ybspbz=" + ybspbz +
+                ", ybjzbz=" + ybjzbz +
+                ", mzlybz=" + mzlybz +
+                ", memo='" + memo + '\'' +
+                ", ljdyxh=" + ljdyxh +
+                ", xz=" + xz +
+                ", kzggdwxh=" + kzggdwxh +
+                ", tsdybz=" + tsdybz +
+                ", ksskzbz=" + ksskzbz +
+                ", bbzl='" + bbzl + '\'' +
+                ", mrjldwbz=" + mrjldwbz +
+                ", zfbz=" + zfbz +
+                ", jlsm='" + jlsm + '\'' +
+                ", psypdm='" + psypdm + '\'' +
+                ", ybjyb=" + ybjyb +
+                ", lsbz=" + lsbz +
+                ", tzsj=" + tzsj +
+                ", cqcfmxxh=" + cqcfmxxh +
+                ", oldxh=" + oldxh +
+                ", gdzlxmxh=" + gdzlxmxh +
+                ", cjrq='" + cjrq + '\'' +
+                ", ybbz=" + ybbz +
+                ", tfbz=" + tfbz +
+                ", cjlqm=" + cjlqm +
+                ", mbbz=" + mbbz +
+                ", isnew=" + isnew +
+                ", gxrqtimestr='" + gxrqtimestr + '\'' +
+                ", timetempstr=" + Arrays.toString(timetempstr) +
+                ", createtime=" + createtime +
+                ", timetemp=" + Arrays.toString(timetemp) +
+                ", gxrq=" + gxrq +
+                ", sysId='" + sysId + '\'' +
+                ", lsnid=" + lsnid +
+                ", isdelete='" + isdelete + '\'' +
+                ", timetempstrCdc=" + Arrays.toString(timetempstrCdc) +
+                '}';
+    }
 }

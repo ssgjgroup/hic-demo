@@ -45,4 +45,13 @@ public class CisTableName {
     public void setTableCnName(String tableCnName) {
         this.tableCnName = tableCnName;
     }
+
+    @Override
+    public String toString() {
+        return "CisTableName{" +
+                "id=" + id +
+                ", tableName='" + tableName + '\'' +
+                ", tableCnName='" + tableCnName + '\'' +
+                '}';
+    }
 }

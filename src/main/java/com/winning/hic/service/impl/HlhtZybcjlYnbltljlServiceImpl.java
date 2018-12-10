@@ -202,8 +202,13 @@ public class HlhtZybcjlYnbltljlServiceImpl implements HlhtZybcjlYnbltljlService 
                 cjtlmd = cjtlmd.replace(",,", ",");
                 obj.setCjtlrmd(cjtlmd);
                 obj.setTlrybm(cjtlmd);
-                this.hlhtZybcjlYnbltljlDao.insertHlhtZybcjlYnbltljl(obj);
-
+                //this.createHlhtZybcjlYnbltljl(obj);
+                try {
+                    this.createHlhtZybcjlYnbltljl(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
+                    continue;
+                }
                 try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZYBCJL_YNBLTLJL_SOURCE_TYPE),

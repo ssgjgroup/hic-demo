@@ -1323,4 +1323,63 @@ public class HlhtZybcjlHzjl extends BaseDomain implements Serializable {
         this.yxjl = yxjl;
    }
 
+    @Override
+    public String toString() {
+        return "HlhtZybcjlHzjl{" +
+                "yjlxh='" + yjlxh + '\'' +
+                ", jzlsh='" + jzlsh + '\'' +
+                ", patid='" + patid + '\'' +
+                ", zyh='" + zyh + '\'' +
+                ", dzsqdbh='" + dzsqdbh + '\'' +
+                ", ksdm='" + ksdm + '\'' +
+                ", ksmc='" + ksmc + '\'' +
+                ", bqdm='" + bqdm + '\'' +
+                ", bqmc='" + bqmc + '\'' +
+                ", bfh='" + bfh + '\'' +
+                ", bfmc='" + bfmc + '\'' +
+                ", bch='" + bch + '\'' +
+                ", hzxm='" + hzxm + '\'' +
+                ", sfzhm='" + sfzhm + '\'' +
+                ", xbdm='" + xbdm + '\'' +
+                ", xbmc='" + xbmc + '\'' +
+                ", nls=" + nls +
+                ", nly='" + nly + '\'' +
+                ", blgy='" + blgy + '\'' +
+                ", fzjcjg='" + fzjcjg + '\'' +
+                ", zyszgcjg='" + zyszgcjg + '\'' +
+                ", xyzdmc='" + xyzdmc + '\'' +
+                ", xyzdbm='" + xyzdbm + '\'' +
+                ", zybmdm='" + zybmdm + '\'' +
+                ", zybmmc='" + zybmmc + '\'' +
+                ", zyzhmc='" + zyzhmc + '\'' +
+                ", zyzhdm='" + zyzhdm + '\'' +
+                ", zfbm='" + zfbm + '\'' +
+                ", zzzf='" + zzzf + '\'' +
+                ", zlgcmc='" + zlgcmc + '\'' +
+                ", zlgcms='" + zlgcms + '\'' +
+                ", hzlx='" + hzlx + '\'' +
+                ", hzyy='" + hzyy + '\'' +
+                ", hzmd='" + hzmd + '\'' +
+                ", hzsqysdm='" + hzsqysdm + '\'' +
+                ", hzsqysqm='" + hzsqysqm + '\'' +
+                ", hzsqksdm='" + hzsqksdm + '\'' +
+                ", hzsqks='" + hzsqks + '\'' +
+                ", hzsqyljgdm='" + hzsqyljgdm + '\'' +
+                ", hzsqyljgmc='" + hzsqyljgmc + '\'' +
+                ", hzyj='" + hzyj + '\'' +
+                ", hzysbm='" + hzysbm + '\'' +
+                ", hzysqm='" + hzysqm + '\'' +
+                ", hzksdm='" + hzksdm + '\'' +
+                ", hzksmc='" + hzksmc + '\'' +
+                ", hzyljgdm='" + hzyljgdm + '\'' +
+                ", hzysyljgmc='" + hzysyljgmc + '\'' +
+                ", hzszyljgdm='" + hzszyljgdm + '\'' +
+                ", hzszyljgmc='" + hzszyljgmc + '\'' +
+                ", hzrq=" + hzrq +
+                ", gxsj=" + gxsj +
+                ", syxh='" + syxh + '\'' +
+                ", tjzt='" + tjzt + '\'' +
+                ", yxjl=" + yxjl +
+                '}';
+    }
 }

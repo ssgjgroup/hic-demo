@@ -3,6 +3,7 @@ package com.winning.hic.model;
 import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -1945,4 +1946,89 @@ public class OutpOrder extends BaseDomain implements Serializable {
         this.timetempstrCdc = timetempstrCdc;
    }
 
+    @Override
+    public String toString() {
+        return "OutpOrder{" +
+                "yljgdm='" + yljgdm + '\'' +
+                ", xh=" + xh +
+                ", ghxh=" + ghxh +
+                ", patid=" + patid +
+                ", hzxm='" + hzxm + '\'' +
+                ", py='" + py + '\'' +
+                ", wb='" + wb + '\'' +
+                ", ysdm='" + ysdm + '\'' +
+                ", ysmc='" + ysmc + '\'' +
+                ", ksdm='" + ksdm + '\'' +
+                ", ksmc='" + ksmc + '\'' +
+                ", yfdm='" + yfdm + '\'' +
+                ", yfmc='" + yfmc + '\'' +
+                ", cfts=" + cfts +
+                ", cydjs=" + cydjs +
+                ", yzzt=" + yzzt +
+                ", jlzt=" + jlzt +
+                ", cflx=" + cflx +
+                ", cfzddm='" + cfzddm + '\'' +
+                ", cfzdmc='" + cfzdmc + '\'' +
+                ", cyypyf='" + cyypyf + '\'' +
+                ", cyyfmc='" + cyyfmc + '\'' +
+                ", sycfbz=" + sycfbz +
+                ", tscfbz=" + tscfbz +
+                ", ekcfbz=" + ekcfbz +
+                ", ektz='" + ektz + '\'' +
+                ", dmjsbz=" + dmjsbz +
+                ", shbz=" + shbz +
+                ", ybshbz=" + ybshbz +
+                ", zfcfbz=" + zfcfbz +
+                ", jsdjfbz=" + jsdjfbz +
+                ", czyh='" + czyh + '\'' +
+                ", lrrq=" + lrrq +
+                ", xsmc='" + xsmc + '\'' +
+                ", memo='" + memo + '\'' +
+                ", faxh=" + faxh +
+                ", sfbz='" + sfbz + '\'' +
+                ", qyid='" + qyid + '\'' +
+                ", bmbz=" + bmbz +
+                ", tbzddm='" + tbzddm + '\'' +
+                ", tbzdmc='" + tbzdmc + '\'' +
+                ", pydybz=" + pydybz +
+                ", yllb='" + yllb + '\'' +
+                ", ybbfzdm='" + ybbfzdm + '\'' +
+                ", eknlsm='" + eknlsm + '\'' +
+                ", cymrjl=" + cymrjl +
+                ", cycyjx='" + cycyjx + '\'' +
+                ", cyfycs=" + cyfycs +
+                ", cyyyff='" + cyyyff + '\'' +
+                ", cyfyyq='" + cyfyyq + '\'' +
+                ", cycyjxdm='" + cycyjxdm + '\'' +
+                ", cyyyffdm='" + cyyyffdm + '\'' +
+                ", cyfyyqdm='" + cyfyyqdm + '\'' +
+                ", wsbz=" + wsbz +
+                ", lsbz=" + lsbz +
+                ", tzsj=" + tzsj +
+                ", cqcfxh=" + cqcfxh +
+                ", lgbz=" + lgbz +
+                ", oldxh=" + oldxh +
+                ", zfdm='" + zfdm + '\'' +
+                ", zfmc='" + zfmc + '\'' +
+                ", cfyyts=" + cfyyts +
+                ", cyrycs=" + cyrycs +
+                ", cydjts=" + cydjts +
+                ", cyjzzl=" + cyjzzl +
+                ", jldw='" + jldw + '\'' +
+                ", ukbz=" + ukbz +
+                ", xdfxh=" + xdfxh +
+                ", qjbz=" + qjbz +
+                ", shbz8=" + shbz8 +
+                ", isnew=" + isnew +
+                ", gxrqtimestr='" + gxrqtimestr + '\'' +
+                ", timetempstr=" + Arrays.toString(timetempstr) +
+                ", createtime=" + createtime +
+                ", timetemp=" + Arrays.toString(timetemp) +
+                ", gxrq=" + gxrq +
+                ", sysId='" + sysId + '\'' +
+                ", lsnid=" + lsnid +
+                ", isdelete='" + isdelete + '\'' +
+                ", timetempstrCdc=" + Arrays.toString(timetempstrCdc) +
+                '}';
+    }
 }

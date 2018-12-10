@@ -146,7 +146,13 @@ public class HlhtZybcjlSqxjServiceImpl implements HlhtZybcjlSqxjService {
                 }
                 obj = (HlhtZybcjlSqxj) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_SQXJ), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                this.createHlhtZybcjlSqxj(obj);
+               // this.createHlhtZybcjlSqxj(obj);
+                try {
+                    this.createHlhtZybcjlSqxj(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
+                    continue;
+                }
                 //插入日志
                 try {
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(

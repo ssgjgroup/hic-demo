@@ -291,4 +291,20 @@ public class EmrMbmxk extends BaseDomain implements Serializable {
         this.lsnid = lsnid;
    }
 
+    @Override
+    public String toString() {
+        return "EmrMbmxk{" +
+                "yljgdm='" + yljgdm + '\'' +
+                ", mbdm='" + mbdm + '\'' +
+                ", jdrefid=" + jdrefid +
+                ", jddm='" + jddm + '\'' +
+                ", jdlx='" + jdlx + '\'' +
+                ", jdnr='" + jdnr + '\'' +
+                ", memo='" + memo + '\'' +
+                ", iscurrent=" + iscurrent +
+                ", gxrq=" + gxrq +
+                ", sysId='" + sysId + '\'' +
+                ", lsnid=" + lsnid +
+                '}';
+    }
 }

@@ -191,7 +191,13 @@ public class HlhtZybcjlCyjlServiceImpl implements HlhtZybcjlCyjlService {
 
 
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_CYJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                this.hlhtZybcjlCyjlDao.insertHlhtZybcjlCyjl(obj);
+                //this.createHlhtZybcjlCyjl(obj);
+                try {
+                    this.createHlhtZybcjlCyjl(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
+                    continue;
+                }
                 try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZYBCJL_CYJL_SOURCE_TYPE),

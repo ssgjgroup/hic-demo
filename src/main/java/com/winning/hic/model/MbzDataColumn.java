@@ -159,4 +159,16 @@ public class MbzDataColumn extends BaseDomain implements Serializable {
     public void setBt(Integer bt) {
         this.bt = bt;
     }
+
+    @Override
+    public String toString() {
+        return "MbzDataColumn{" +
+                "id=" + id +
+                ", tableName='" + tableName + '\'' +
+                ", sourceType=" + sourceType +
+                ", recordName='" + recordName + '\'' +
+                ", pyCode='" + pyCode + '\'' +
+                ", bt=" + bt +
+                '}';
+    }
 }

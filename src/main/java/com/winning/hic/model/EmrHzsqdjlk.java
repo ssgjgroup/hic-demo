@@ -1,6 +1,7 @@
 package com.winning.hic.model;
 
-import java.util.Date; 
+import java.util.Arrays;
+import java.util.Date;
 import java.io.Serializable; 
 
 import com.winning.hic.model.BaseDomain;
@@ -1107,4 +1108,54 @@ public class EmrHzsqdjlk extends BaseDomain implements Serializable {
         this.isdelete = isdelete;
    }
 
+    @Override
+    public String toString() {
+        return "EmrHzsqdjlk{" +
+                "yljgdm='" + yljgdm + '\'' +
+                ", sqdxh=" + sqdxh +
+                ", syxh=" + syxh +
+                ", qtbljlxh=" + qtbljlxh +
+                ", hzlb='" + hzlb + '\'' +
+                ", hzjb='" + hzjb + '\'' +
+                ", sqks='" + sqks + '\'' +
+                ", sqys='" + sqys + '\'' +
+                ", sqsj=" + sqsj +
+                ", yqhzks='" + yqhzks + '\'' +
+                ", yqhzksMc='" + yqhzksMc + '\'' +
+                ", yqhzys='" + yqhzys + '\'' +
+                ", yqhzysMc='" + yqhzysMc + '\'' +
+                ", shyj='" + shyj + '\'' +
+                ", shys='" + shys + '\'' +
+                ", shsj=" + shsj +
+                ", cxys='" + cxys + '\'' +
+                ", cxsj=" + cxsj +
+                ", jsys='" + jsys + '\'' +
+                ", jssj=" + jssj +
+                ", hzks='" + hzks + '\'' +
+                ", hzksMc='" + hzksMc + '\'' +
+                ", hzys='" + hzys + '\'' +
+                ", hzysMc='" + hzysMc + '\'' +
+                ", hzsj=" + hzsj +
+                ", yqhzyslxdh='" + yqhzyslxdh + '\'' +
+                ", dfqtbljlxh=" + dfqtbljlxh +
+                ", sqdzt=" + sqdzt +
+                ", zdhzsj=" + zdhzsj +
+                ", zdhzdd='" + zdhzdd + '\'' +
+                ", hzzzys='" + hzzzys + '\'' +
+                ", hzzyys='" + hzzyys + '\'' +
+                ", yqhzysjb='" + yqhzysjb + '\'' +
+                ", glyzxh=" + glyzxh +
+                ", spzt='" + spzt + '\'' +
+                ", spsj=" + spsj +
+                ", isnew=" + isnew +
+                ", gxrqtimestr='" + gxrqtimestr + '\'' +
+                ", timetempstr=" + Arrays.toString(timetempstr) +
+                ", createtime=" + createtime +
+                ", timetemp=" + Arrays.toString(timetemp) +
+                ", gxrq=" + gxrq +
+                ", sysId='" + sysId + '\'' +
+                ", lsnid=" + lsnid +
+                ", isdelete='" + isdelete + '\'' +
+                '}';
+    }
 }

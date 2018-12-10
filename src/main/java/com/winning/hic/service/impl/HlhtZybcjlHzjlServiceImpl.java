@@ -152,7 +152,13 @@ public class HlhtZybcjlHzjlServiceImpl implements HlhtZybcjlHzjlService {
                             continue;
                         }
 
-                        this.createHlhtZybcjlHzjl(obj);
+                        //this.createHlhtZybcjlHzjl(obj);
+                        try {
+                            this.createHlhtZybcjlHzjl(obj);
+                        } catch (Exception e) {
+                            logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
+                            continue;
+                        }
                         real_count++;
                     } else { //会诊答复单 update
                         Document document = null;
@@ -170,7 +176,13 @@ public class HlhtZybcjlHzjlServiceImpl implements HlhtZybcjlHzjlService {
                             entity = (HlhtZybcjlHzjl) HicHelper.initModelValue(mbzDataSetList, document, entity, paramTypeMap);
                             ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_HZJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
 
-                            this.modifyHlhtZybcjlHzjl(entity);
+                            //this.modifyHlhtZybcjlHzjl(entity);
+                            try {
+                                this.modifyHlhtZybcjlHzjl(obj);
+                            } catch (Exception e) {
+                                logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
+                                continue;
+                            }
                         }
                         try {
                             mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(

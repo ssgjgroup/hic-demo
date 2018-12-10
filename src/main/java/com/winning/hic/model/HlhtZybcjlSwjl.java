@@ -1049,4 +1049,50 @@ public class HlhtZybcjlSwjl extends BaseDomain implements Serializable {
         this.yxjl = yxjl;
     }
 
+    @Override
+    public String toString() {
+        return "HlhtZybcjlSwjl{" +
+                "yjlxh='" + yjlxh + '\'' +
+                ", jzlsh='" + jzlsh + '\'' +
+                ", patid='" + patid + '\'' +
+                ", zyh='" + zyh + '\'' +
+                ", zzjgdm='" + zzjgdm + '\'' +
+                ", zzjgmc='" + zzjgmc + '\'' +
+                ", ksdm='" + ksdm + '\'' +
+                ", ksmc='" + ksmc + '\'' +
+                ", bqdm='" + bqdm + '\'' +
+                ", bqmc='" + bqmc + '\'' +
+                ", bfh='" + bfh + '\'' +
+                ", bfmc='" + bfmc + '\'' +
+                ", bch='" + bch + '\'' +
+                ", hzxm='" + hzxm + '\'' +
+                ", sfzhm='" + sfzhm + '\'' +
+                ", xbdm='" + xbdm + '\'' +
+                ", xbmc='" + xbmc + '\'' +
+                ", nls=" + nls +
+                ", nly='" + nly + '\'' +
+                ", ryrq=" + ryrq +
+                ", ryzdbm='" + ryzdbm + '\'' +
+                ", ryzdmc='" + ryzdmc + '\'' +
+                ", ryqk='" + ryqk + '\'' +
+                ", zlgcms='" + zlgcms + '\'' +
+                ", swrq=" + swrq +
+                ", zjswyymc='" + zjswyymc + '\'' +
+                ", zjswyybm='" + zjswyybm + '\'' +
+                ", swzdmc='" + swzdmc + '\'' +
+                ", swzdbm='" + swzdbm + '\'' +
+                ", jstysjbz='" + jstysjbz + '\'' +
+                ", zyysbm='" + zyysbm + '\'' +
+                ", zyysqm='" + zyysqm + '\'' +
+                ", zzysbm='" + zzysbm + '\'' +
+                ", zzysqm='" + zzysqm + '\'' +
+                ", zrysbm='" + zrysbm + '\'' +
+                ", zrysqm='" + zrysqm + '\'' +
+                ", qmrq=" + qmrq +
+                ", gxsj=" + gxsj +
+                ", syxh='" + syxh + '\'' +
+                ", tjzt='" + tjzt + '\'' +
+                ", yxjl=" + yxjl +
+                '}';
+    }
 }

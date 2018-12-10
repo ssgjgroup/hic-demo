@@ -1,6 +1,7 @@
 package com.winning.hic.model;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 import java.util.Date;
 import java.io.Serializable; 
 
@@ -940,4 +941,47 @@ public class EmrQtbljlk extends BaseDomain implements Serializable {
         this.gxrqCis = gxrqCis;
    }
 
+    @Override
+    public String toString() {
+        return "EmrQtbljlk{" +
+                "yljgdm='" + yljgdm + '\'' +
+                ", qtbljlxh=" + qtbljlxh +
+                ", syxh=" + syxh +
+                ", bldm='" + bldm + '\'' +
+                ", blmc='" + blmc + '\'' +
+                ", blms='" + blms + '\'' +
+                ", blnr='" + blnr + '\'' +
+                ", mxfldm='" + mxfldm + '\'' +
+                ", cjys='" + cjys + '\'' +
+                ", shys='" + shys + '\'' +
+                ", cjsj=" + cjsj +
+                ", shsj=" + shsj +
+                ", yxjl=" + yxjl +
+                ", tjzt=" + tjzt +
+                ", dyzt=" + dyzt +
+                ", dzqmbz=" + dzqmbz +
+                ", containerid='" + containerid + '\'' +
+                ", fssj=" + fssj +
+                ", instanceversion=" + instanceversion +
+                ", dczt=" + dczt +
+                ", dcczsj=" + dcczsj +
+                ", blxsmc='" + blxsmc + '\'' +
+                ", tjys='" + tjys + '\'' +
+                ", tjsj=" + tjsj +
+                ", yshysdm='" + yshysdm + '\'' +
+                ", yshysxm='" + yshysxm + '\'' +
+                ", sfhlhtmb=" + sfhlhtmb +
+                ", isnew=" + isnew +
+                ", gxrqtimestr='" + gxrqtimestr + '\'' +
+                ", timetempstr=" + Arrays.toString(timetempstr) +
+                ", createtime=" + createtime +
+                ", timetemp=" + Arrays.toString(timetemp) +
+                ", gxrq=" + gxrq +
+                ", sysId='" + sysId + '\'' +
+                ", lsnid=" + lsnid +
+                ", isdelete='" + isdelete + '\'' +
+                ", timetempstrCdc=" + Arrays.toString(timetempstrCdc) +
+                ", gxrqCis=" + gxrqCis +
+                '}';
+    }
 }

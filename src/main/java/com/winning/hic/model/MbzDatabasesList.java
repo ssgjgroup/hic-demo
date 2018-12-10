@@ -195,4 +195,16 @@ public class MbzDatabasesList extends BaseDomain implements Serializable {
         this.createTime = createTime;
    }
 
+    @Override
+    public String toString() {
+        return "MbzDatabasesList{" +
+                "id=" + id +
+                ", dataAlias='" + dataAlias + '\'' +
+                ", ip='" + ip + '\'' +
+                ", userName='" + userName + '\'' +
+                ", pw='" + pw + '\'' +
+                ", databaseName='" + databaseName + '\'' +
+                ", createTime=" + createTime +
+                '}';
+    }
 }

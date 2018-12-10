@@ -899,4 +899,44 @@ public class HlhtZqgzxxBwztzs extends BaseDomain implements Serializable {
         this.yxjl = yxjl;
     }
 
+    @Override
+    public String toString() {
+        return "HlhtZqgzxxBwztzs{" +
+                "yjlxh='" + yjlxh + '\'' +
+                ", jzlsh='" + jzlsh + '\'' +
+                ", patid='" + patid + '\'' +
+                ", mjzh='" + mjzh + '\'' +
+                ", zyh='" + zyh + '\'' +
+                ", jzlb='" + jzlb + '\'' +
+                ", tysbh='" + tysbh + '\'' +
+                ", ksdm='" + ksdm + '\'' +
+                ", ksmc='" + ksmc + '\'' +
+                ", bqdm='" + bqdm + '\'' +
+                ", bqmc='" + bqmc + '\'' +
+                ", bfh='" + bfh + '\'' +
+                ", bch='" + bch + '\'' +
+                ", hzxm='" + hzxm + '\'' +
+                ", sfzhm='" + sfzhm + '\'' +
+                ", xbdm='" + xbdm + '\'' +
+                ", xbmc='" + xbmc + '\'' +
+                ", nls=" + nls +
+                ", nly='" + nly + '\'' +
+                ", jbzdbm='" + jbzdbm + '\'' +
+                ", jbzd='" + jbzd + '\'' +
+                ", bqgkjqjcs='" + bqgkjqjcs + '\'' +
+                ", tznr='" + tznr + '\'' +
+                ", tzrq=" + tzrq +
+                ", dlrqm='" + dlrqm + '\'' +
+                ", dlrhzgxdm='" + dlrhzgxdm + '\'' +
+                ", dlrhzgxmc='" + dlrhzgxmc + '\'' +
+                ", dlrqmrq=" + dlrqmrq +
+                ", ysbm='" + ysbm + '\'' +
+                ", ysqm='" + ysqm + '\'' +
+                ", ysqmrq=" + ysqmrq +
+                ", gxsj=" + gxsj +
+                ", syxh='" + syxh + '\'' +
+                ", tjzt='" + tjzt + '\'' +
+                ", yxjl=" + yxjl +
+                '}';
+    }
 }

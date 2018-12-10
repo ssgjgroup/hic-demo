@@ -218,4 +218,17 @@ public class MbzDataTemplateConfig extends BaseDomain implements Serializable {
         this.bt = bt;
    }
 
+    @Override
+    public String toString() {
+        return "MbzDataTemplateConfig{" +
+                "id=" + id +
+                ", sourceId=" + sourceId +
+                ", dataType=" + dataType +
+                ", dtjddm='" + dtjddm + '\'' +
+                ", qrmbdm='" + qrmbdm + '\'' +
+                ", qrdxdm='" + qrdxdm + '\'' +
+                ", yzjddm='" + yzjddm + '\'' +
+                ", bt=" + bt +
+                '}';
+    }
 }

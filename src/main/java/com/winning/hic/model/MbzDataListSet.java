@@ -146,4 +146,14 @@ public class MbzDataListSet extends BaseDomain implements Serializable {
         this.sourcePcode = sourcePcode;
    }
 
+    @Override
+    public String toString() {
+        return "MbzDataListSet{" +
+                "sourceType='" + sourceType + '\'' +
+                ", modelCode='" + modelCode + '\'' +
+                ", sourceName='" + sourceName + '\'' +
+                ", modelName='" + modelName + '\'' +
+                ", sourcePcode='" + sourcePcode + '\'' +
+                '}';
+    }
 }

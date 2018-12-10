@@ -141,9 +141,12 @@ public class HlhtZcjlPgcServiceImpl implements HlhtZcjlPgcService {
                     logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
                     continue;
                 }
-
-                this.createHlhtZcjlPgc(obj);
-
+                try {
+                    this.createHlhtZcjlPgc(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(), e.getMessage());
+                    continue;
+                }
                 //插入日志
                 try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(

@@ -3,6 +3,7 @@ package com.winning.hic.model;
 import org.apache.ibatis.type.Alias;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -2209,4 +2210,101 @@ public class OutpJzjlk extends BaseDomain implements Serializable {
         this.isdelete = isdelete;
    }
 
+
+    @Override
+    public String toString() {
+        return "OutpJzjlk{" +
+                "yljgdm='" + yljgdm + '\'' +
+                ", xh=" + xh +
+                ", ghxh=" + ghxh +
+                ", patid=" + patid +
+                ", blh='" + blh + '\'' +
+                ", ybdm='" + ybdm + '\'' +
+                ", cardno='" + cardno + '\'' +
+                ", hzxm='" + hzxm + '\'' +
+                ", py='" + py + '\'' +
+                ", wb='" + wb + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birth='" + birth + '\'' +
+                ", dwdm='" + dwdm + '\'' +
+                ", dwmc='" + dwmc + '\'' +
+                ", csdS='" + csdS + '\'' +
+                ", csdX='" + csdX + '\'' +
+                ", sfzh='" + sfzh + '\'' +
+                ", lxdz='" + lxdz + '\'' +
+                ", lxdh='" + lxdh + '\'' +
+                ", yzbm='" + yzbm + '\'' +
+                ", lxr='" + lxr + '\'' +
+                ", ylxm='" + ylxm + '\'' +
+                ", dyid='" + dyid + '\'' +
+                ", dymc='" + dymc + '\'' +
+                ", pzh='" + pzh + '\'' +
+                ", cardtype='" + cardtype + '\'' +
+                ", lrrq=" + lrrq +
+                ", zjrq='" + zjrq + '\'' +
+                ", czyh='" + czyh + '\'' +
+                ", czrq='" + czrq + '\'' +
+                ", ghrq='" + ghrq + '\'' +
+                ", ksdm='" + ksdm + '\'' +
+                ", ksmc='" + ksmc + '\'' +
+                ", ysdm='" + ysdm + '\'' +
+                ", ysmc='" + ysmc + '\'' +
+                ", ghhx=" + ghhx +
+                ", yyxh=" + yyxh +
+                ", cfzbz=" + cfzbz +
+                ", ghlb=" + ghlb +
+                ", kmdm='" + kmdm + '\'' +
+                ", kmmc='" + kmmc + '\'' +
+                ", pzlx=" + pzlx +
+                ", zddm='" + zddm + '\'' +
+                ", zdmc='" + zdmc + '\'' +
+                ", jssjh='" + jssjh + '\'' +
+                ", jsbz=" + jsbz +
+                ", ghysdm='" + ghysdm + '\'' +
+                ", ghysmc='" + ghysmc + '\'' +
+                ", ghksdm='" + ghksdm + '\'' +
+                ", ghksmc='" + ghksmc + '\'' +
+                ", ybsm='" + ybsm + '\'' +
+                ", pzlxsm='" + pzlxsm + '\'' +
+                ", zhbz='" + zhbz + '\'' +
+                ", jzbz=" + jzbz +
+                ", zjdm='" + zjdm + '\'' +
+                ", zjmc='" + zjmc + '\'' +
+                ", sdbz=" + sdbz +
+                ", sdysdm='" + sdysdm + '\'' +
+                ", sdysxm='" + sdysxm + '\'' +
+                ", scjzysdm='" + scjzysdm + '\'' +
+                ", scjzsj='" + scjzsj + '\'' +
+                ", jzysdm='" + jzysdm + '\'' +
+                ", jzysmc='" + jzysmc + '\'' +
+                ", jzsj='" + jzsj + '\'' +
+                ", fzbz=" + fzbz +
+                ", jlzt=" + jlzt +
+                ", mzlgbz=" + mzlgbz +
+                ", memo='" + memo + '\'' +
+                ", zqdm='" + zqdm + '\'' +
+                ", zqmc='" + zqmc + '\'' +
+                ", ylxmmc='" + ylxmmc + '\'' +
+                ", dbzddm='" + dbzddm + '\'' +
+                ", dbzdmc='" + dbzdmc + '\'' +
+                ", shbzh='" + shbzh + '\'' +
+                ", lybz=" + lybz +
+                ", emrxh=" + emrxh +
+                ", tsbzdm='" + tsbzdm + '\'' +
+                ", tsbzmc='" + tsbzmc + '\'' +
+                ", cfjzzt=" + cfjzzt +
+                ", bmjb=" + bmjb +
+                ", yysjd='" + yysjd + '\'' +
+                ", jsyy='" + jsyy + '\'' +
+                ", isnew=" + isnew +
+                ", gxrqtimestr='" + gxrqtimestr + '\'' +
+                ", timetempstr=" + Arrays.toString(timetempstr) +
+                ", createtime=" + createtime +
+                ", timetemp=" + Arrays.toString(timetemp) +
+                ", gxrq=" + gxrq +
+                ", sysId='" + sysId + '\'' +
+                ", lsnid=" + lsnid +
+                ", isdelete='" + isdelete + '\'' +
+                '}';
+    }
 }

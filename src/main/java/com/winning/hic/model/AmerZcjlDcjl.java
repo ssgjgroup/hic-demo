@@ -1852,4 +1852,85 @@ public class AmerZcjlDcjl extends BaseDomain implements Serializable {
         this.status = status;
    }
 
+    @Override
+    public String toString() {
+        return "AmerZcjlDcjl{" +
+                "yjlxh='" + yjlxh + '\'' +
+                ", yljgdm='" + yljgdm + '\'' +
+                ", jzlsh='" + jzlsh + '\'' +
+                ", patid='" + patid + '\'' +
+                ", zyh='" + zyh + '\'' +
+                ", cfxm='" + cfxm + '\'' +
+                ", sfzhm='" + sfzhm + '\'' +
+                ", nls=" + nls +
+                ", lxrxm='" + lxrxm + '\'' +
+                ", lxrdh='" + lxrdh + '\'' +
+                ", lxrhzgxdm='" + lxrhzgxdm + '\'' +
+                ", lxrhzgxmc='" + lxrhzgxmc + '\'' +
+                ", ksdm='" + ksdm + '\'' +
+                ", ksmc='" + ksmc + '\'' +
+                ", bqdm='" + bqdm + '\'' +
+                ", bqmc='" + bqmc + '\'' +
+                ", bfh='" + bfh + '\'' +
+                ", bch='" + bch + '\'' +
+                ", dcrqsj=" + dcrqsj +
+                ", yc=" + yc +
+                ", cc=" + cc +
+                ", mcyjrq=" + mcyjrq +
+                ", syxsdm='" + syxsdm + '\'' +
+                ", syxsmc='" + syxsmc + '\'' +
+                ", ycq=" + ycq +
+                ", cqjcbz='" + cqjcbz + '\'' +
+                ", cqjcycqk='" + cqjcycqk + '\'' +
+                ", yqtzkg=" + yqtzkg +
+                ", sgcm=" + sgcm +
+                ", cqtzkg=" + cqtzkg +
+                ", ccrstsqk='" + ccrstsqk + '\'' +
+                ", ssy=" + ssy +
+                ", szy=" + szy +
+                ", tw=" + tw +
+                ", ml=" + ml +
+                ", hxl=" + hxl +
+                ", gdgdcm=" + gdgdcm +
+                ", fw=" + fw +
+                ", tfwdm='" + tfwdm + '\'' +
+                ", tfwmc='" + tfwmc + '\'' +
+                ", gjtetz=" + gjtetz +
+                ", txlc=" + txlc +
+                ", twncqkdpg='" + twncqkdpg + '\'' +
+                ", ckhjcm=" + ckhjcm +
+                ", dcwjcm=" + dcwjcm +
+                ", zgjjjjcm=" + zgjjjjcm +
+                ", gsqk='" + gsqk + '\'' +
+                ", gjhd='" + gjhd + '\'' +
+                ", gkqk='" + gkqk + '\'' +
+                ", tmqkdm='" + tmqkdm + '\'' +
+                ", tmqkmc='" + tmqkmc + '\'' +
+                ", pmfsdm='" + pmfsdm + '\'' +
+                ", pmfsmc='" + pmfsmc + '\'' +
+                ", xlwz='" + xlwz + '\'' +
+                ", ysqk='" + ysqk + '\'' +
+                ", bgcybz='" + bgcybz + '\'' +
+                ", czqbz='" + czqbz + '\'' +
+                ", jcfsdm='" + jcfsdm + '\'' +
+                ", jcfsmc='" + jcfsmc + '\'' +
+                ", czjh='" + czjh + '\'' +
+                ", jhxqdfmfs='" + jhxqdfmfs + '\'' +
+                ", jhxqdfmfsmc='" + jhxqdfmfsmc + '\'' +
+                ", ccjlrqsj=" + ccjlrqsj +
+                ", ccjg='" + ccjg + '\'' +
+                ", ccjczdm='" + ccjczdm + '\'' +
+                ", ccjczqm='" + ccjczqm + '\'' +
+                ", zzysdm='" + zzysdm + '\'' +
+                ", zzysqm='" + zzysqm + '\'' +
+                ", jlrdm='" + jlrdm + '\'' +
+                ", jlrqm='" + jlrqm + '\'' +
+                ", jws='" + jws + '\'' +
+                ", jwycs='" + jwycs + '\'' +
+                ", sss='" + sss + '\'' +
+                ", gxsj=" + gxsj +
+                ", syxh='" + syxh + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

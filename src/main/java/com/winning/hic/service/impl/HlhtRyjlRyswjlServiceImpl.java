@@ -98,7 +98,7 @@ public class HlhtRyjlRyswjlServiceImpl implements HlhtRyjlRyswjlService {
         //加载模板库 根据模板类型获取对应的病历模板代码
         int emr_count = 0;//病历数量
         int real_count = 0;//实际数量
-       //实际数量
+        //实际数量
 
         //加载模板字段库
         MbzDataSet mbzDataSet = new MbzDataSet();
@@ -135,7 +135,7 @@ public class HlhtRyjlRyswjlServiceImpl implements HlhtRyjlRyswjlService {
                 try {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
-                    logger.error("解析病历报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
                     continue;
                 }
                 //System.out.println(Base64Utils.unzipEmrXml(emrQtbljlk.getBlnr()));
@@ -281,8 +281,12 @@ public class HlhtRyjlRyswjlServiceImpl implements HlhtRyjlRyswjlService {
                 }
 
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.RYJL_RYSWJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                this.createHlhtRyjlRyswjl(obj);
-
+                try {
+                    this.createHlhtRyjlRyswjl(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(), e.getMessage());
+                    continue;
+                }
                 //插入日志
                 try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
@@ -294,7 +298,7 @@ public class HlhtRyjlRyswjlServiceImpl implements HlhtRyjlRyswjlService {
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_RYJL_RYSWJL_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_RYJL_RYSWJL_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
-                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
                     continue;
                 }
                 real_count++;
@@ -303,7 +307,7 @@ public class HlhtRyjlRyswjlServiceImpl implements HlhtRyjlRyswjlService {
             logger.info("接口数据集:{}无相关的病历信息或者未配置结果集，请先书写病历信息或配置结果集", mbzDataSet.getRecordName());
         }
         this.splitTableDao.selectAnmrRyjlRyswjlSplitByProc(hlht);
-        entity.getMap().put("sourceType",Constants.WN_RYJL_RYSWJL_SOURCE_TYPE);
+        entity.getMap().put("sourceType", Constants.WN_RYJL_RYSWJL_SOURCE_TYPE);
         this.splitTableDao.updateDcTableData(entity);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_RYJL_RYSWJL_SOURCE_TYPE), entity);

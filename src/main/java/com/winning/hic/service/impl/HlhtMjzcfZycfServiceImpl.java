@@ -90,7 +90,7 @@ public class HlhtMjzcfZycfServiceImpl implements HlhtMjzcfZycfService {
     }
 
     @Override
-    public MbzDataCheck interfaceHlhtMjzcfZycf(MbzDataCheck entity) throws Exception {
+    public MbzDataCheck interfaceHlhtMjzcfZycf(MbzDataCheck entity) {
         //获取数据集字典表中配置，判断是否需要抽取
         MbzDictInfo mbzDictInfo = new MbzDictInfo();
         mbzDictInfo.setDictCode("platformTableName");
@@ -135,15 +135,25 @@ public class HlhtMjzcfZycfServiceImpl implements HlhtMjzcfZycfService {
                 param.put("SOURCE_TYPE", Constants.WN_MJZCF_ZYCF_SOURCE_TYPE);
                 mbzLoadDataInfoDao.deleteMbzLoadDataInfoBySourceIdAndSourceType(param);
                 logger.info("Model:{}", obj);
-                this.hlhtMjzcfZycfDao.insertHlhtMjzcfZycf(obj);
+                try {
+                    this.createHlhtMjzcfZycf(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
+                    continue;
+                }
                 //插入日志
-                mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
-                        Long.parseLong(Constants.WN_MJZCF_ZYCF_SOURCE_TYPE),
-                        Long.parseLong(obj.getYjlxh()), "中药处方", "NA", new Timestamp(obj.getCfklrq().getTime()),
-                        obj.getPatid(), obj.getMjzh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
-                        "NA", "NA", "NA", "NA", obj.getSfzhm(),
-                        PercentUtil.getPercent(Long.parseLong(Constants.WN_MJZCF_ZYCF_SOURCE_TYPE), obj, 1),
-                        PercentUtil.getPercent(Long.parseLong(Constants.WN_MJZCF_ZYCF_SOURCE_TYPE), obj, 0)));
+                try {
+                    mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
+                            Long.parseLong(Constants.WN_MJZCF_ZYCF_SOURCE_TYPE),
+                            Long.parseLong(obj.getYjlxh()), "中药处方", "NA", new Timestamp(obj.getCfklrq().getTime()),
+                            obj.getPatid(), obj.getMjzh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
+                            "NA", "NA", "NA", "NA", obj.getSfzhm(),
+                            PercentUtil.getPercent(Long.parseLong(Constants.WN_MJZCF_ZYCF_SOURCE_TYPE), obj, 1),
+                            PercentUtil.getPercent(Long.parseLong(Constants.WN_MJZCF_ZYCF_SOURCE_TYPE), obj, 0)));
+                } catch (Exception e) {
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    continue;
+                }
                 real_count++;
             }
         }

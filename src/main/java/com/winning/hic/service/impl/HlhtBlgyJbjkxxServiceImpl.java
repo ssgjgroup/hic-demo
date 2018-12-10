@@ -76,7 +76,7 @@ public class HlhtBlgyJbjkxxServiceImpl implements HlhtBlgyJbjkxxService {
     }
 
     @Override
-    public MbzDataCheck interfaceHlhtBlgyJbjkxx(MbzDataCheck entity) throws Exception {
+    public MbzDataCheck interfaceHlhtBlgyJbjkxx(MbzDataCheck entity) {
         //获取数据集字典表中配置，判断是否需要抽取
         MbzDictInfo mbzDictInfo = new MbzDictInfo();
         mbzDictInfo.setDictCode("platformTableName");
@@ -115,20 +115,30 @@ public class HlhtBlgyJbjkxxServiceImpl implements HlhtBlgyJbjkxxService {
 
             logger.info("Model:{}", obj);
             //创建新的数据
-            this.hlhtBlgyJbjkxxDao.insertHlhtBlgyJbjkxx(obj);
-
+            try {
+                this.createHlhtBlgyJbjkxx(obj);
+            } catch (Exception e) {
+                logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
+                continue;
+            }
             //插入日志
-            mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
-                    Long.parseLong(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE),
-                    Long.parseLong(obj.getYjlxh()), "基本健康信息表", obj.getSyxh() + "", new Timestamp(obj.getGxsj().getTime()),
-                    obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
-                    "NA", "NA", "NA", "NA", obj.getSfzhm(),
-                    PercentUtil.getPercent(Long.parseLong(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE), obj, 1),
-                    PercentUtil.getPercent(Long.parseLong(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE), obj, 0)));
+            try {
+                mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
+                        Long.parseLong(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE),
+                        Long.parseLong(obj.getYjlxh()), "基本健康信息表", obj.getSyxh() + "", new Timestamp(obj.getGxsj().getTime()),
+                        obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
+                        "NA", "NA", "NA", "NA", obj.getSfzhm(),
+                        PercentUtil.getPercent(Long.parseLong(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE), obj, 1),
+                        PercentUtil.getPercent(Long.parseLong(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE), obj, 0)));
+            } catch (Exception e) {
+                //e.printStackTrace();
+                logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                continue;
+            }
             real_count++;
         }
         this.splitTableDao.selectAnmrBlgyJbjkxxSplitByProc(jbjkxx);
-        entity.getMap().put("sourceType",Constants.WN_BLGY_JBJKXX_SOURCE_TYPE);
+        entity.getMap().put("sourceType", Constants.WN_BLGY_JBJKXX_SOURCE_TYPE);
         this.splitTableDao.updateDcTableData(entity);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(jbjkxxList.size(), real_count, Integer.parseInt(Constants.WN_BLGY_JBJKXX_SOURCE_TYPE), entity);

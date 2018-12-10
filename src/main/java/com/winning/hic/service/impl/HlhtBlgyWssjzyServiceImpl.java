@@ -113,13 +113,15 @@ public class HlhtBlgyWssjzyServiceImpl implements HlhtBlgyWssjzyService {
             param.put("SOURCE_ID", obj.getYjlxh());
             param.put("SOURCE_TYPE", Constants.WN_BLGY_WSSJZY_SOURCE_TYPE);
             mbzLoadDataInfoDao.deleteMbzLoadDataInfoBySourceIdAndSourceType(param);
+            logger.info("Model:{}", obj);
+            //创建新的数据
             try {
-
-
-                logger.info("Model:{}", obj);
-                //创建新的数据
-                this.hlhtBlgyWssjzyDao.insertHlhtBlgyWssjzy(obj);
-
+                this.createHlhtBlgyWssjzy(obj);
+            } catch (Exception e) {
+                logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(), e.getMessage());
+                continue;
+            }
+            try {
                 //插入日志
                 mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                         Long.parseLong(Constants.WN_BLGY_WSSJZY_SOURCE_TYPE),
@@ -129,7 +131,9 @@ public class HlhtBlgyWssjzyServiceImpl implements HlhtBlgyWssjzyService {
                         PercentUtil.getPercent(Long.parseLong(Constants.WN_BLGY_WSSJZY_SOURCE_TYPE), obj, 0)));
                 real_count++;
             } catch (Exception e) {
-                e.printStackTrace();
+                //e.printStackTrace();
+                logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                continue;
             }
         }
 

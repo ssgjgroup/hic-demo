@@ -87,7 +87,7 @@ public class HlhtMjzblJzlgblServiceImpl implements HlhtMjzblJzlgblService {
     }
 
     @Override
-    public MbzDataCheck interfaceHlhtMjzblJzlgbl(MbzDataCheck entity){
+    public MbzDataCheck interfaceHlhtMjzblJzlgbl(MbzDataCheck entity) {
         //获取数据集字典表中配置，判断是否需要抽取
         MbzDictInfo mbzDictInfo = new MbzDictInfo();
         mbzDictInfo.setDictCode("platformTableName");
@@ -165,8 +165,8 @@ public class HlhtMjzblJzlgblServiceImpl implements HlhtMjzblJzlgblService {
                 try {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
-                   // e.printStackTrace();
-                    logger.error("解析病历报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                    // e.printStackTrace();
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
                     continue;
                 }
                 Document bcDocument = null;
@@ -197,7 +197,7 @@ public class HlhtMjzblJzlgblServiceImpl implements HlhtMjzblJzlgblService {
                         bcDocument = XmlUtil.getDocument(Base64Utils.unzipEmrXml(bcEmrQtbljlks.get(0).getBlnr()));
                     } catch (IOException e) {
                         //e.printStackTrace();
-                        logger.error("解析病历报错,病历名称：{},源记录序号{}",  bcEmrQtbljlks.get(0).getBlmc(),bcEmrQtbljlks.get(0).getQtbljlxh());
+                        logger.error("解析病历报错,病历名称：{},源记录序号{}", bcEmrQtbljlks.get(0).getBlmc(), bcEmrQtbljlks.get(0).getQtbljlxh());
                     }
                 }
                 if (bcDataSetList != null) {
@@ -213,7 +213,7 @@ public class HlhtMjzblJzlgblServiceImpl implements HlhtMjzblJzlgblService {
                         syDocument = XmlUtil.getDocument(Base64Utils.unzipEmrXml(syEmrQtbljlks.get(0).getBlnr()));
                     } catch (IOException e) {
                         //e.printStackTrace();
-                        logger.error("解析病历报错,病历名称：{},源记录序号{}",  syEmrQtbljlks.get(0).getBlmc(),syEmrQtbljlks.get(0).getQtbljlxh());
+                        logger.error("解析病历报错,病历名称：{},源记录序号{}", syEmrQtbljlks.get(0).getBlmc(), syEmrQtbljlks.get(0).getQtbljlxh());
                     }
                 }
                 if (syDataSetList != null) {
@@ -255,9 +255,13 @@ public class HlhtMjzblJzlgblServiceImpl implements HlhtMjzblJzlgblService {
                         obj.setHzqxdm(code.toString().substring(0, code.length() - 1));
                     }
                 }
-                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.MJZBL_JZLGB),SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                this.createHlhtMjzblJzlgbl(obj);
-
+                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.MJZBL_JZLGB), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                try {
+                    this.createHlhtMjzblJzlgbl(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(), e.getMessage());
+                    continue;
+                }
                 //插入日志
                 try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
@@ -270,7 +274,7 @@ public class HlhtMjzblJzlgblServiceImpl implements HlhtMjzblJzlgblService {
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
                     //e.printStackTrace();
-                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
                     continue;
                 }
                 real_count++;
@@ -279,7 +283,7 @@ public class HlhtMjzblJzlgblServiceImpl implements HlhtMjzblJzlgblService {
             logger.info("接口数据集:{}无相关的病历信息或者未配置结果集，请先书写病历信息或配置结果集", mbzDataSet.getRecordName());
         }
         this.splitTableDao.selectAnmrMjzblJzlgblSplitByProc(hlht);
-        entity.getMap().put("sourceType",Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE);
+        entity.getMap().put("sourceType", Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE);
         this.splitTableDao.updateDcTableData(entity);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE), entity);

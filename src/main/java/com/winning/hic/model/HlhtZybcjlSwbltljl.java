@@ -1010,4 +1010,50 @@ public class HlhtZybcjlSwbltljl extends BaseDomain implements Serializable {
         this.yxjl = yxjl;
    }
 
+    @Override
+    public String toString() {
+        return "HlhtZybcjlSwbltljl{" +
+                "yjlxh='" + yjlxh + '\'' +
+                ", jzlsh='" + jzlsh + '\'' +
+                ", patid='" + patid + '\'' +
+                ", zyh='" + zyh + '\'' +
+                ", ksdm='" + ksdm + '\'' +
+                ", ksmc='" + ksmc + '\'' +
+                ", bqdm='" + bqdm + '\'' +
+                ", bqmc='" + bqmc + '\'' +
+                ", bfh='" + bfh + '\'' +
+                ", bfmc='" + bfmc + '\'' +
+                ", bch='" + bch + '\'' +
+                ", hzxm='" + hzxm + '\'' +
+                ", sfzhm='" + sfzhm + '\'' +
+                ", xbdm='" + xbdm + '\'' +
+                ", xbmc='" + xbmc + '\'' +
+                ", nls=" + nls +
+                ", nly='" + nly + '\'' +
+                ", tlrq=" + tlrq +
+                ", tldddm='" + tldddm + '\'' +
+                ", tldd='" + tldd + '\'' +
+                ", zcrbm='" + zcrbm + '\'' +
+                ", zcrxm='" + zcrxm + '\'' +
+                ", tlrybm='" + tlrybm + '\'' +
+                ", cjtlmd='" + cjtlmd + '\'' +
+                ", zyzwlbdm='" + zyzwlbdm + '\'' +
+                ", zyzwlbmc='" + zyzwlbmc + '\'' +
+                ", zjswyymc='" + zjswyymc + '\'' +
+                ", zjswyybm='" + zjswyybm + '\'' +
+                ", swzdmc='" + swzdmc + '\'' +
+                ", swzdbm='" + swzdbm + '\'' +
+                ", swtljl='" + swtljl + '\'' +
+                ", zcrzjyj='" + zcrzjyj + '\'' +
+                ", zzysbm='" + zzysbm + '\'' +
+                ", zzysqm='" + zzysqm + '\'' +
+                ", zrysbm='" + zrysbm + '\'' +
+                ", zrysqm='" + zrysqm + '\'' +
+                ", qmrq=" + qmrq +
+                ", gxsj=" + gxsj +
+                ", syxh='" + syxh + '\'' +
+                ", tjzt='" + tjzt + '\'' +
+                ", yxjl=" + yxjl +
+                '}';
+    }
 }

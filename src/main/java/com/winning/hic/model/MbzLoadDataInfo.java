@@ -494,4 +494,29 @@ public class MbzLoadDataInfo extends BaseDomain implements Serializable {
     public void setPercentsAll(Integer percentsAll) {
         this.percentsAll = percentsAll;
     }
+
+    @Override
+    public String toString() {
+        return "MbzLoadDataInfo{" +
+                "id=" + id +
+                ", sourceType=" + sourceType +
+                ", sourceId=" + sourceId +
+                ", recordName='" + recordName + '\'' +
+                ", syxh='" + syxh + '\'' +
+                ", patid='" + patid + '\'' +
+                ", zyh='" + zyh + '\'' +
+                ", hzxm='" + hzxm + '\'' +
+                ", xbmc='" + xbmc + '\'' +
+                ", xbdm='" + xbdm + '\'' +
+                ", ksmc='" + ksmc + '\'' +
+                ", ksdm='" + ksdm + '\'' +
+                ", bqmc='" + bqmc + '\'' +
+                ", bqdm='" + bqdm + '\'' +
+                ", sfzhm='" + sfzhm + '\'' +
+                ", fssj=" + fssj +
+                ", cqrq=" + cqrq +
+                ", percentsBt=" + percentsBt +
+                ", percentsAll=" + percentsAll +
+                '}';
+    }
 }

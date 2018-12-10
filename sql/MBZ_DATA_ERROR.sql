@@ -12,7 +12,7 @@
  Target Server Version : 11006020
  File Encoding         : 65001
 
- Date: 08/12/2018 16:14:40
+ Date: 10/12/2018 12:22:00
 */
 
 
@@ -27,11 +27,21 @@ CREATE TABLE [dbo].[MBZ_DATA_ERROR] (
   [ID] varchar(36) COLLATE Chinese_PRC_BIN  NOT NULL,
   [CLASS_NAME] varchar(128) COLLATE Chinese_PRC_BIN  NULL,
   [METHOD_NAME] varchar(128) COLLATE Chinese_PRC_BIN  NULL,
+  [ARGUMENT_STRING] varchar(max) COLLATE Chinese_PRC_BIN  NULL,
   [ERROR_MESSAGE] varchar(max) COLLATE Chinese_PRC_BIN  NULL,
   [ERROR_TIME] datetime DEFAULT (getdate()) NULL
 )
 GO
 
 ALTER TABLE [dbo].[MBZ_DATA_ERROR] SET (LOCK_ESCALATION = TABLE)
+GO
+
+
+-- ----------------------------
+-- Primary Key structure for table MBZ_DATA_ERROR
+-- ----------------------------
+ALTER TABLE [dbo].[MBZ_DATA_ERROR] ADD CONSTRAINT [PK__MBZ_DATA__3214EC27BDF5CE23] PRIMARY KEY CLUSTERED ([ID])
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON)  
+ON [PRIMARY]
 GO
 

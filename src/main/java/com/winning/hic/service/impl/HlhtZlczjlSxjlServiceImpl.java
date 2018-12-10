@@ -142,7 +142,13 @@ public class HlhtZlczjlSxjlServiceImpl implements HlhtZlczjlSxjlService {
                 obj = (HlhtZlczjlSxjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                 logger.info("Model:{}", obj);
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZLCZJL_SXJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                this.hlhtZlczjlSxjlDao.insertHlhtZlczjlSxjl(obj);
+                //this.createHlhtZlczjlSxjl(obj);
+                try {
+                    this.createHlhtZlczjlSxjl(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
+                    continue;
+                }
                 try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZLCZJL_SXJL_SOURCE_TYPE),

@@ -121,4 +121,22 @@ public class MBNoteTree {
     public void setChecked(boolean checked) {
         isChecked = checked;
     }
+
+    @Override
+    public String toString() {
+        return "MBNoteTree{" +
+                "nodeId='" + nodeId + '\'' +
+                ", nodePid='" + nodePid + '\'' +
+                ", nodeName='" + nodeName + '\'' +
+                ", nodeDesc='" + nodeDesc + '\'' +
+                ", isParent=" + isParent +
+                ", isHidden=" + isHidden +
+                ", isChecked=" + isChecked +
+                ", chkDisabled=" + chkDisabled +
+                ", icon='" + icon + '\'' +
+                ", iconClose='" + iconClose + '\'' +
+                ", iconOpen='" + iconOpen + '\'' +
+                ", children=" + children +
+                '}';
+    }
 }

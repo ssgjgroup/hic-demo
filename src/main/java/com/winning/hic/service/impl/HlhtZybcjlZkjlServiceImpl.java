@@ -168,8 +168,13 @@ public class HlhtZybcjlZkjlServiceImpl implements HlhtZybcjlZkjlService {
                     obj.setZkjllx("1");
                     obj.setZkjllxmc("转入记录");
                     ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZYBCJL_ZKJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                    this.createHlhtZybcjlZkjl(obj);
-
+                    //this.createHlhtZybcjlZkjl(obj);
+                    try {
+                        this.createHlhtZybcjlZkjl(obj);
+                    } catch (Exception e) {
+                        logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
+                        continue;
+                    }
                     //插入日志
                     try {
                         mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(

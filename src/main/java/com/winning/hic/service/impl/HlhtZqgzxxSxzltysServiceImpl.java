@@ -138,18 +138,23 @@ public class HlhtZqgzxxSxzltysServiceImpl implements HlhtZqgzxxSxzltysService {
                 try {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
-                    logger.error("解析病历报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                    logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
                     continue;
                 }
                 Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZqgzxxSxzltys.class);
 
-                    obj = (HlhtZqgzxxSxzltys) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
-                    String sxblhg = obj.getSxblhg().replaceAll("\\d+", "0");
-                    obj.setSxblhg(sxblhg);
-                    logger.info("Model:{}", obj);
-                    ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZQGZXX_SXZLTYS), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                    this.hlhtZqgzxxSxzltysDao.insertHlhtZqgzxxSxzltys(obj);
-
+                obj = (HlhtZqgzxxSxzltys) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
+                String sxblhg = obj.getSxblhg().replaceAll("\\d+", "0");
+                obj.setSxblhg(sxblhg);
+                logger.info("Model:{}", obj);
+                ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZQGZXX_SXZLTYS), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
+                //this.createHlhtZqgzxxSxzltys(obj);
+                try {
+                    this.createHlhtZqgzxxSxzltys(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(), e.getMessage());
+                    continue;
+                }
                 try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
                             Long.parseLong(Constants.WN_ZQGZXX_SXZLTYS_SOURCE_TYPE),
@@ -159,8 +164,8 @@ public class HlhtZqgzxxSxzltysServiceImpl implements HlhtZqgzxxSxzltysService {
                             obj.getKsmc(), obj.getKsdm(), obj.getBqmc(), obj.getBqdm(), obj.getSfzhm(),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_SXZLTYS_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_SXZLTYS_SOURCE_TYPE), obj, 0)));
-                }  catch (Exception e) {
-                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                } catch (Exception e) {
+                    logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
                     continue;
                 }
                 real_count++;
@@ -170,7 +175,7 @@ public class HlhtZqgzxxSxzltysServiceImpl implements HlhtZqgzxxSxzltysService {
         this.splitTableDao.selectAnmrZqgzxxSxzltysSplitByProc(hlhtZqgzxxSxzltysTemp);
 
         //更新dc表
-        t.getMap().put("sourceType",Constants.WN_ZQGZXX_SXZLTYS_SOURCE_TYPE);
+        t.getMap().put("sourceType", Constants.WN_ZQGZXX_SXZLTYS_SOURCE_TYPE);
         this.splitTableDao.updateDcTableData(t);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZQGZXX_SXZLTYS_SOURCE_TYPE), t);

@@ -183,4 +183,17 @@ public class MbzDictInfo extends BaseDomain implements Serializable {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "MbzDictInfo{" +
+                "dictCode='" + dictCode + '\'' +
+                ", dictValue='" + dictValue + '\'' +
+                ", dictLabel='" + dictLabel + '\'' +
+                ", dictSort='" + dictSort + '\'' +
+                ", dictDesc='" + dictDesc + '\'' +
+                ", pyCode='" + pyCode + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

@@ -267,4 +267,19 @@ public class MbzOperateLog extends BaseDomain implements Serializable {
         this.sumCount = sumCount;
    }
 
+    @Override
+    public String toString() {
+        return "MbzOperateLog{" +
+                "id=" + id +
+                ", setName='" + setName + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", type=" + type +
+                ", status=" + status +
+                ", operateCount=" + operateCount +
+                ", sumCount=" + sumCount +
+                '}';
+    }
 }

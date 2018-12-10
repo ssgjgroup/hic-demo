@@ -170,4 +170,15 @@ public class MbzAutomateSet extends BaseDomain implements Serializable {
         this.cron = cron;
    }
 
+    @Override
+    public String toString() {
+        return "MbzAutomateSet{" +
+                "id='" + id + '\'' +
+                ", jobName='" + jobName + '\'' +
+                ", groupName='" + groupName + '\'' +
+                ", triggerName='" + triggerName + '\'' +
+                ", batchDate='" + batchDate + '\'' +
+                ", cron='" + cron + '\'' +
+                '}';
+    }
 }

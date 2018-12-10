@@ -140,8 +140,13 @@ public class HlhtZqgzxxQtzqtysServiceImpl implements HlhtZqgzxxQtzqtysService {
 
                 logger.info("Model:{}", obj);
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZQGZXX_QTZQTYS), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
-                this.createHlhtZqgzxxQtzqtys(obj);
-
+                //this.createHlhtZqgzxxQtzqtys(obj);
+                try {
+                    this.createHlhtZqgzxxQtzqtys(obj);
+                } catch (Exception e) {
+                    logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
+                    continue;
+                }
                 //插入日志
                 try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(

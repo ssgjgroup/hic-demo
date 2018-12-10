@@ -427,4 +427,24 @@ public class EmrMxmcmlk extends BaseDomain implements Serializable {
         return tree;
     }
 
+    @Override
+    public String toString() {
+        return "EmrMxmcmlk{" +
+                "yljgdm='" + yljgdm + '\'' +
+                ", mxmcmlkkey=" + mxmcmlkkey +
+                ", mldm='" + mldm + '\'' +
+                ", mlmc='" + mlmc + '\'' +
+                ", py='" + py + '\'' +
+                ", wb='" + wb + '\'' +
+                ", sjdm='" + sjdm + '\'' +
+                ", mlcc=" + mlcc +
+                ", yxjl=" + yxjl +
+                ", memo='" + memo + '\'' +
+                ", iscurrent=" + iscurrent +
+                ", gxrq=" + gxrq +
+                ", sysId='" + sysId + '\'' +
+                ", lsnid=" + lsnid +
+                ", isdelete='" + isdelete + '\'' +
+                '}';
+    }
 }

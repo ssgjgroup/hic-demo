@@ -100,4 +100,12 @@ public class MbzLog extends BaseDomain implements Serializable {
         this.operatorTime = operatorTime;
    }
 
+    @Override
+    public String toString() {
+        return "MbzLog{" +
+                "id='" + id + '\'' +
+                ", content='" + content + '\'' +
+                ", operatorTime=" + operatorTime +
+                '}';
+    }
 }
