@@ -77,6 +77,11 @@
                             数据列表
                         </a>
                     </li>
+                    <li>
+                        <a data-toggle="tab" href="#logger">
+                            抽取错误
+                        </a>
+                    </li>
                 </ul>
 
                 <div class="tab-content">
@@ -130,6 +135,9 @@
                         </div>
                         <!--表格区域  -->
                         <table id="treegrid_table" class="table table-hover table-align table-layout-fixed"></table>
+                    </div>
+                    <div id="logger" class="tab-pane">
+                        <table id="logger_table" class="table table-hover table-align table-layout-fixed"></table>
                     </div>
                 </div>
             </div>
@@ -199,7 +207,7 @@
     var ctx = /*[[@{/}]]*/'';
     // alert(ctx+'modelCheck/modelCheck');
     var $table = $('#treegrid_table');
-    var $simple_table = $('#simple_table');
+    var $loggerTable = $('#logger_table');
     var $dataTable = $('#dataTable'); //详情数据表格
     $(function () {
         toastr.options= {
@@ -232,8 +240,8 @@
             sortOrder: "asc",                   // 排序方式
             sidePagination: "server",           // 分页方式：client客户端分页，server服务端分页（*）
             pageNumber: 1,                      // 初始化加载第一页，默认第一页,并记录
-            pageSize: 10,                     // 每页的记录行数（*）
-            pageList: [10,20,50,100],        // 可供选择的每页的行数（*）
+            pageSize: 15,                     // 每页的记录行数（*）
+            pageList: [15,20,50,100],        // 可供选择的每页的行数（*）
             showPaginationSwitch: false,			//显示 数据条数选择框
             search: false,                      // 是否显示表格搜索
             strictSearch: true,
@@ -321,6 +329,76 @@
                     return add;
                 }
             }]
+        });
+
+
+        $loggerTable.bootstrapTable({
+            url: ctx + 'logger/list',
+            height: $(window).height() - 55,
+            method:'get',
+            striped: false,
+            pagination: true,                   // 是否显示分页（*）
+            sortable: false,                     // 是否启用排序
+            sortOrder: "asc",                   // 排序方式
+            sidePagination: "server",           // 分页方式：client客户端分页，server服务端分页（*）
+            pageNumber: 1,                      // 初始化加载第一页，默认第一页,并记录
+            pageSize: 15,                     // 每页的记录行数（*）
+            pageList: [15,20,50,100],        // 可供选择的每页的行数（*）
+            showPaginationSwitch: false,			//显示 数据条数选择框
+            search: false,                      // 是否显示表格搜索
+            strictSearch: true,
+            minimumCountColumns: 2,             // 最少允许的列数
+            clickToSelect: true,                // 是否启用点击选中行
+            idField: 'id',
+            sortName: 'id',
+            uniqueId: "id",                 // 每一行的唯一标识，一般为主键列
+            cardView: false,                    // 是否显示详细视图
+            detailView: false,                  // 是否显示父子表
+            paginationPreText: '上一页',
+            paginationNextText: '下一页',
+            paginationLoop: false, //分页条无限循环的功能
+            singleSelect: true,
+            toolbarAlign: 'left',
+            queryParams: initErrorParam,
+            columns:[{
+                field: 'argumentString',
+                title: '数据子集',
+                width: '10%',
+                align: 'center',
+                formatter:function(value,row,index){
+                    return value.split('||')[0];
+                }
+            },{
+                field: 'syxh',
+                title: '首页序号',
+                width: '5%',
+                align: 'center',
+                formatter:function(value,row,index){
+                    return JSON.parse(value.split('||')[1]).syxh;
+                }
+            } ,{
+                field: 'hzxm',
+                title: '姓名',
+                width: '5%',
+                align: 'center',
+                formatter:function(value,row,index){
+                    return JSON.parse(value.split('||')[1]).hzxm;
+                }
+            },{
+                field: 'yjlxh',
+                title: '病历序号',
+                width: '5%',
+                align: 'center',
+                formatter:function(value,row,index){
+                    return JSON.parse(value.split('||')[1]).yjlxh;
+                }
+            },{
+                field: 'errorMessage',
+                title: '错误原因',
+                width: '50%',
+                align: 'center'
+            }
+            ]
         });
     });
 
@@ -439,6 +517,15 @@
         };
 
         return queryParam;
+    }
+
+    function initErrorParam(params){
+        var queryJson = {};
+        queryJson['count'] = params.limit;    // 每页显示条数
+        queryJson['first'] = params.offset;   // 显示条数
+        queryJson['sort'] = params.sort;      // 排序列名
+        queryJson['order'] = params.order;     // 排位命令（desc，asc）
+        return queryJson;
     }
     /* 查询数据*/
     $('#loadData').on('click',function(e){

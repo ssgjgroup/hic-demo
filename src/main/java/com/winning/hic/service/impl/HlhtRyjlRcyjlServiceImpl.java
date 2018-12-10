@@ -191,7 +191,7 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
                     String[] str2 = obj.getRzzybmmc().split("  ");
                     Character o = new Character('B');
                     for (int i = 0; str.length > i; i++) {
-                        if (!"".equals(str[i].toString())) {
+                        if (!"".equals(str[i].toString().trim())) {
                             if (o.equals(str[i].trim().charAt(0))) {
                                 bmdm = bmdm + str[i].trim() + "  ";
                                 bm = bm + str2[i].trim() + "  ";
@@ -218,7 +218,7 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
                     String[] str2 = obj.getRzzyzhmc().split("  ");
                     Character o = new Character('B');
                     for (int i = 0; str.length > i; i++) {
-                        if (!"".equals(str[i].toString())) {
+                        if (!"".equals(str[i].toString().trim())) {
                             if (!o.equals(str[i].trim().charAt(0))) {
                                 bmdm = bmdm + str[i].trim() + "  ";
                                 bm = bm + str2[i].trim() + "  ";
@@ -245,7 +245,7 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
                     String[] str2 = obj.getCzzybmmc().split("  ");
                     Character o = new Character('B');
                     for (int i = 0; str.length > i; i++) {
-                        if (!"".equals(str[i].toString())) {
+                        if (!"".equals(str[i].toString().trim())) {
                             if (o.equals(str[i].trim().charAt(0))) {
                                 bmdm = bmdm + str[i].trim() + "  ";
                                 bm = bm + str2[i].trim() + "  ";
@@ -272,7 +272,7 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
                     String[] str2 = obj.getCzzyzhmc().split("  ");
                     Character o = new Character('B');
                     for (int i = 0; str.length > i; i++) {
-                        if (!"".equals(str[i].toString())) {
+                        if (!"".equals(str[i].toString().trim())) {
                             if (!o.equals(str[i].trim().charAt(0))) {
                                 bmdm = bmdm + str[i].trim() + "  ";
                                 bm = bm + str2[i].trim() + "  ";

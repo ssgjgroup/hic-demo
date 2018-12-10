@@ -1,5 +1,6 @@
 package com.winning.hic.base.aspect;
 
+import com.alibaba.fastjson.JSONArray;
 import com.winning.hic.base.config.CisTableNameConfig;
 import com.winning.hic.base.utils.StringUtil;
 import com.winning.hic.model.MbzDataError;
@@ -45,16 +46,26 @@ public class LoggerAscept {
     public void handleThrowing(JoinPoint joinPoint, Exception e) {//controller类抛出的异常在这边捕获
         String methodName = joinPoint.getSignature().getName();
         Object[] args = joinPoint.getArgs();
-        String argString = StringUtils.join(args,"||");
+        //String argString = StringUtils.join(args,"||");
         //切点路径 void com.winning.hic.dao.hdw.SplitTableDao.selectAnmrRyjlRcyjlSplitByProc(HlhtRyjlRcyjl)
         String allName = joinPoint.getSignature().toString();
         allName = allName.split(" ")[1];
         //调用方法类名
         String className = allName.substring(0, allName.lastIndexOf("."));
+        //转换DAO名称到数据子集名称
+        String modelName = className.substring(className.lastIndexOf(".")+1).replace("Dao","");
+        String dataType = StringUtil.HumpToUnderline(modelName).substring(1);
+        StringBuilder msg = new StringBuilder();
+        if(dataType.startsWith("HLHT") || dataType.startsWith("AMER")){
+            msg.append(CisTableNameConfig.getDataListName(dataType)+"||");
+        }else{
+            msg.append(dataType+"||");
+        }
+
         MbzDataError error = new MbzDataError();
         error.setClassName(className);
         error.setMethodName(methodName);
-        error.setArgumentString(argString);
+        error.setArgumentString(msg.toString()+ JSONArray.toJSON(args).toString());
         error.setErrorMessage(e.getMessage());
         error.setErrorTime(new Date());
         mbzDataErrorService.createMbzDataError(error);
