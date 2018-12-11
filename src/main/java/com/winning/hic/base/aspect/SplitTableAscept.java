@@ -74,7 +74,7 @@ public class SplitTableAscept {
         } catch (Throwable throwable) {
             logger.info(throwable.getMessage());
             MbzDataError error = new MbzDataError();
-            error.setClassName(className);
+            error.setClassName(allName);
             error.setMethodName(methodName);
             error.setSourceName(msg.toString());
             error.setArgumentString(JSONArray.toJSON(args).toString());
