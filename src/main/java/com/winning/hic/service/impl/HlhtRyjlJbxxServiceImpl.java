@@ -426,6 +426,12 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
                     szy = szy.substring(0,3);
                    obj.setTjszy(Short.parseShort(szy));
                 }
+                /*收缩压特殊处理*/
+                String ssy = obj.getTjssy().toString();
+                if(ssy.length()>3){
+                    ssy = ssy.substring(0,3);
+                    obj.setTjssy(Short.parseShort(ssy));
+                }
                 try {
                     this.createHlhtRyjlJbxx(obj);
                 } catch (Exception e) {
