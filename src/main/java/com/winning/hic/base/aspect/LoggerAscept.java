@@ -57,15 +57,16 @@ public class LoggerAscept {
         String dataType = StringUtil.HumpToUnderline(modelName).substring(1);
         StringBuilder msg = new StringBuilder();
         if(dataType.startsWith("HLHT") || dataType.startsWith("AMER")){
-            msg.append(CisTableNameConfig.getDataListName(dataType)+"||");
+            msg.append(CisTableNameConfig.getDataListName(dataType));
         }else{
-            msg.append(dataType+"||");
+            msg.append(dataType);
         }
 
         MbzDataError error = new MbzDataError();
         error.setClassName(className);
         error.setMethodName(methodName);
-        error.setArgumentString(msg.toString()+ JSONArray.toJSON(args).toString());
+        error.setSourceName(msg.toString());
+        error.setArgumentString(JSONArray.toJSON(args).toString());
         error.setErrorMessage(e.getMessage());
         error.setErrorTime(new Date());
         mbzDataErrorService.createMbzDataError(error);

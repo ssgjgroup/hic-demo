@@ -29,35 +29,43 @@
         html, body {
             height: 100%;
         }
-        .input-length{
+
+        .input-length {
             width: 150px;
         }
-        .table-align{
-            white-space:nowrap;
-            overflow:hidden;
+
+        .table-align {
+            white-space: nowrap;
+            overflow: hidden;
         }
-        .table.table-hover > tr > td{
+
+        .table.table-hover > tr > td {
             height: 16px;
             max-height: 20px;
         }
 
-        .table-layout-fixed{
-            table-layout:fixed;/* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
-            font-size:12px;
+        .table-layout-fixed {
+            table-layout: fixed; /* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+            font-size: 12px;
         }
-        div.card-views > div.card-view >span.title {
+
+        div.card-views > div.card-view > span.title {
             width: 200px;
         }
+
         div.card-views div.card-view span.value {
             width: 400px;
         }
+
         .main-container {
             padding-top: 10px;
             height: 100%;
         }
+
         .form-group, .btn {
             margin-right: 15px;
         }
+
         #profile .fixed-table-container {
             padding-bottom: 40px !important;
         }
@@ -79,7 +87,7 @@
                     </li>
                     <li>
                         <a data-toggle="tab" href="#logger">
-                            抽取错误
+                            错误日志
                         </a>
                     </li>
                 </ul>
@@ -90,7 +98,8 @@
                             <form class="form-inline">
                                 <div class="form-group">
                                     <label for="exampleInputName2">数据子集:</label>
-                                    <select class="form-control input-sm input-length" name="dataSet" id="dataSet" style="width: 200px;">
+                                    <select class="form-control input-sm input-length" name="dataSet" id="dataSet"
+                                            style="width: 200px;">
                                         <option value="0">-----全部-----</option>
                                         <option th:each="list:${dataSet}" th:value="${list.dictValue}"
                                                 th:text="${list.dictLabel }"></option>
@@ -110,9 +119,11 @@
                                 </div>-->
 
                                 <div class="form-group">
-                                    <label >开始日期</label>
+                                    <label>开始日期</label>
                                     <div class="input-group input-group-sm">
-                                        <input type="text" id="listStartDate" class="form-control hasDatepicker input-sm input-length" data-date-format="yyyy-mm-dd" style="width: 100px;"/>
+                                        <input type="text" id="listStartDate"
+                                               class="form-control hasDatepicker input-sm input-length"
+                                               data-date-format="yyyy-mm-dd" style="width: 100px;"/>
                                         <span class="input-group-addon">
                                                             <i class="fa fa-calendar bigger-110"></i>
                                                         </span>
@@ -121,7 +132,9 @@
                                 <div class="form-group">
                                     <label> 结束日期</label>
                                     <div class="input-group input-group-sm">
-                                        <input type="text" id="listEndDate" class="form-control hasDatepicker input-sm input-length" data-date-format="yyyy-mm-dd" style="width: 100px;">
+                                        <input type="text" id="listEndDate"
+                                               class="form-control hasDatepicker input-sm input-length"
+                                               data-date-format="yyyy-mm-dd" style="width: 100px;">
                                         <span class="input-group-addon">
                                                             <i class="fa fa-calendar bigger-110"></i>
                                                         </span>
@@ -153,12 +166,13 @@
                 </button>
                 <h4 class="modal-title" id="viewModalLabel">数据详细信息</h4>
             </div>
-            <div class="modal-body" style="overflow: auto; height: 500px;" >
+            <div class="modal-body" style="overflow: auto; height: 500px;">
                 <div class="container">
                     <div class="row">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
-                                <form class="form-horizontal col-lg-10 col-md-10 col-sm-10 col-xs-10" role="form" id="viewForm">
+                                <form class="form-horizontal col-lg-10 col-md-10 col-sm-10 col-xs-10" role="form"
+                                      id="viewForm">
                                 </form>
                             </div>
                         </div>
@@ -179,7 +193,7 @@
 <div class="modal fade" id="myModal">
     <div class="modal-dialog modal-sm">
 
-        <img alt="" th:src="@{/bootstrap/img/loading-sm.gif}" />
+        <img alt="" th:src="@{/bootstrap/img/loading-sm.gif}"/>
 
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
@@ -210,18 +224,18 @@
     var $loggerTable = $('#logger_table');
     var $dataTable = $('#dataTable'); //详情数据表格
     $(function () {
-        toastr.options= {
-            "closeButton":false,//显示关闭按钮
-            "debug":false,//启用debug
-            "positionClass":"toast-top-center",//弹出的位置
-            "showDuration":"300",//显示的时间
-            "hideDuration":"1000",//消失的时间
-            "timeOut":"5000",//停留的时间
-            "extendedTimeOut":"1000",//控制时间
-            "showEasing":"swing",//显示时的动画缓冲方式
-            "hideEasing":"linear",//消失时的动画缓冲方式
-            "showMethod":"fadeIn",//显示时的动画方式
-            "hideMethod":"fadeOut"//消失时的动画方式
+        toastr.options = {
+            "closeButton": false,//显示关闭按钮
+            "debug": false,//启用debug
+            "positionClass": "toast-top-center",//弹出的位置
+            "showDuration": "300",//显示的时间
+            "hideDuration": "1000",//消失的时间
+            "timeOut": "5000",//停留的时间
+            "extendedTimeOut": "1000",//控制时间
+            "showEasing": "swing",//显示时的动画缓冲方式
+            "hideEasing": "linear",//消失时的动画缓冲方式
+            "showMethod": "fadeIn",//显示时的动画方式
+            "hideMethod": "fadeOut"//消失时的动画方式
         };
         $('.hasDatepicker').datepicker({
             autoclose: true,
@@ -233,7 +247,7 @@
         $table.bootstrapTable({
             url: ctx + 'dataList/loadList',
             height: $(window).height() - 55,
-            method:'get',
+            method: 'get',
             striped: false,
             pagination: true,                   // 是否显示分页（*）
             sortable: false,                     // 是否启用排序
@@ -241,7 +255,7 @@
             sidePagination: "server",           // 分页方式：client客户端分页，server服务端分页（*）
             pageNumber: 1,                      // 初始化加载第一页，默认第一页,并记录
             pageSize: 15,                     // 每页的记录行数（*）
-            pageList: [15,20,50,100],        // 可供选择的每页的行数（*）
+            pageList: [15, 20, 50, 100],        // 可供选择的每页的行数（*）
             showPaginationSwitch: false,			//显示 数据条数选择框
             search: false,                      // 是否显示表格搜索
             strictSearch: true,
@@ -259,72 +273,72 @@
             toolbar: '#listBar',
             toolbarAlign: 'left',
             queryParams: initQueryParam,
-            columns:[{
+            columns: [{
                 field: 'recordName',
                 title: '病历名称',
                 width: '250px',
                 align: 'center'
-            },{
+            }, {
                 field: 'syxh',
                 title: '首页序号',
                 width: '100px',
                 align: 'center'
-            },{
+            }, {
                 field: 'zyh',
                 title: '住院号',
                 width: '100px',
                 align: 'center'
-            },{
+            }, {
                 field: 'hzxm',
                 title: '姓名',
                 width: '70px',
                 align: 'center'
-            },{
+            }, {
                 field: 'xbmc',
                 title: '性别',
                 width: '100px',
                 align: 'center'
-            },{
+            }, {
                 field: 'ksmc',
                 title: '科室名称',
                 width: '150px',
                 align: 'center'
-            },{
+            }, {
                 field: 'bqmc',
                 title: '病区名称',
                 width: '100px',
                 align: 'center'
-            },{
+            }, {
                 field: 'sfzhm',
                 title: '身份证号码',
                 width: '150px',
                 align: 'center'
-            },{
+            }, {
                 field: 'percentsBt',
                 title: '必填率(%)',
                 width: '80px',
                 align: 'center'
-            },{
+            }, {
                 field: 'percentsAll',
                 title: '覆盖率(%)',
                 width: '80px',
                 align: 'center'
-            },{
+            }, {
                 field: 'cqrq',
                 title: '抽取日期',
                 width: '130px',
                 align: 'center',
-                formatter:function(value,row,index){
+                formatter: function (value, row, index) {
                     return convertUTCToYYYYMMDDHHMMSS(value);
                 }
-            },{
+            }, {
                 field: 'id',
                 title: '操作',
                 width: '80px',
                 align: 'center',
-                formatter:function(value,row,index){
+                formatter: function (value, row, index) {
                     var add = '<span href="#" class="btn btn-default btn-xs" title="查看数据详情" ' +
-                        'onclick="openDetailWindow(\''+row.recordName+'\',\''+row.sourceId+'\',\''+row.sourceType+'\')">' +
+                        'onclick="openDetailWindow(\'' + row.recordName + '\',\'' + row.sourceId + '\',\'' + row.sourceType + '\')">' +
                         '详情</span> ';
                     return add;
                 }
@@ -335,7 +349,7 @@
         $loggerTable.bootstrapTable({
             url: ctx + 'logger/list',
             height: $(window).height() - 55,
-            method:'get',
+            method: 'get',
             striped: false,
             pagination: true,                   // 是否显示分页（*）
             sortable: false,                     // 是否启用排序
@@ -343,7 +357,7 @@
             sidePagination: "server",           // 分页方式：client客户端分页，server服务端分页（*）
             pageNumber: 1,                      // 初始化加载第一页，默认第一页,并记录
             pageSize: 15,                     // 每页的记录行数（*）
-            pageList: [15,20,50,100],        // 可供选择的每页的行数（*）
+            pageList: [15, 20, 50, 100],        // 可供选择的每页的行数（*）
             showPaginationSwitch: false,			//显示 数据条数选择框
             search: false,                      // 是否显示表格搜索
             strictSearch: true,
@@ -360,42 +374,23 @@
             singleSelect: true,
             toolbarAlign: 'left',
             queryParams: initErrorParam,
-            columns:[{
-                field: 'argumentString',
+            columns: [{
+                field: 'sourceName',
                 title: '数据子集',
                 width: '10%',
+                align: 'center'
+            }, {
+                field: 'errorTime',
+                title: '错误时间',
+                width: '10%',
                 align: 'center',
-                formatter:function(value,row,index){
-                    return value.split('||')[0];
+                formatter: function (value, row, index) {
+                    return convertUTCToYYYYMMDDHHMMSS(value);
                 }
-            },{
-                field: 'syxh',
-                title: '首页序号',
-                width: '5%',
-                align: 'center',
-                formatter:function(value,row,index){
-                    return JSON.parse(value.split('||')[1]).syxh;
-                }
-            } ,{
-                field: 'hzxm',
-                title: '姓名',
-                width: '5%',
-                align: 'center',
-                formatter:function(value,row,index){
-                    return JSON.parse(value.split('||')[1]).hzxm;
-                }
-            },{
-                field: 'yjlxh',
-                title: '病历序号',
-                width: '5%',
-                align: 'center',
-                formatter:function(value,row,index){
-                    return JSON.parse(value.split('||')[1]).yjlxh;
-                }
-            },{
+            }, {
                 field: 'errorMessage',
                 title: '错误原因',
-                width: '50%',
+                width: '70%',
                 align: 'center'
             }
             ]
@@ -404,9 +399,9 @@
 
 
     //概率刷新
-    $("#loadResh").click(function(){
+    $("#loadResh").click(function () {
         var dataSet_val = $("#dataSet").val();
-        if(dataSet_val == 0 ){
+        if (dataSet_val == 0) {
             toastr.warning("请选择一个数据子集");
             return false;
         }
@@ -417,21 +412,19 @@
         //提交数据
         $.ajax({
             type: "POST",
-            url:ctx + 'dataList/refreshPercent',
-            data:{sourceType:dataSet_val},
-            cache : false,
-            dataType:"json",
+            url: ctx + 'dataList/refreshPercent',
+            data: {sourceType: dataSet_val},
+            cache: false,
+            dataType: "json",
             async: true,
-            error: function(request) {
+            error: function (request) {
                 layer.close(index);
             },
-            success: function(data) {
+            success: function (data) {
                 $table.bootstrapTable('refresh');
                 layer.close(index);
             }
         });
-
-
 
 
     });
@@ -440,40 +433,41 @@
      * 将UTC时间转换为YYYY-MM-DD HH:mm:SS格式
      * @param value
      */
-    function convertUTCToYYYYMMDDHHMMSS(value){
+    function convertUTCToYYYYMMDDHHMMSS(value) {
         var date = new Date(value);
         var time = '';
         var year = date.getFullYear();
-        time += year+"-";
-        var mouth = date.getMonth()+1;
-        time += addSymbolForDate(mouth,"-");
+        time += year + "-";
+        var mouth = date.getMonth() + 1;
+        time += addSymbolForDate(mouth, "-");
         var day = date.getDate();
-        time += addSymbolForDate(day," ");
+        time += addSymbolForDate(day, " ");
         var hour = date.getHours();
-        time += addSymbolForDate(hour,":");
+        time += addSymbolForDate(hour, ":");
         var minutes = date.getMinutes();
-        time += addSymbolForDate(minutes,":");
+        time += addSymbolForDate(minutes, ":");
         var seconds = date.getSeconds();
-        time += addSymbolForDate(seconds,"");
+        time += addSymbolForDate(seconds, "");
         return time;
     }
+
     /**
      *@param value 时间的值
      *@param symbol 添加的符号
      */
-    function addSymbolForDate(value,symbol){
-        if(value >= 10){
-            return value+symbol;
-        }else{
-            return "0"+value+symbol;
+    function addSymbolForDate(value, symbol) {
+        if (value >= 10) {
+            return value + symbol;
+        } else {
+            return "0" + value + symbol;
         }
     }
 
     //===============================数据查看=============================================
     //初始化参数
-    function initQueryParam(params){
-        var startDate =$("#listStartDate").val();
-        var endDate =$("#listEndDate").val();
+    function initQueryParam(params) {
+        var startDate = $("#listStartDate").val();
+        var endDate = $("#listEndDate").val();
         var sourceType = $("#dataSet").val();
         var date = new Date();
         var seperator1 = "-";
@@ -486,40 +480,40 @@
             strDate = "0" + strDate;
         }
         var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate;
-        if(startDate ==null || startDate ==''){
+        if (startDate == null || startDate == '') {
             $("#listStartDate").val(currentdate)
             startDate = currentdate;
         }
-        if(endDate ==null || endDate ==''){
+        if (endDate == null || endDate == '') {
             $("#listEndDate").val(currentdate);
             endDate = currentdate;
         }
-        startDate =startDate+" 00:00:00";
-        endDate =endDate+" 23:59:59";
-        if(startDate >= endDate ){
+        startDate = startDate + " 00:00:00";
+        endDate = endDate + " 23:59:59";
+        if (startDate >= endDate) {
             toastr.warning("开始时间不能大于结束时间");
             return false;
         }
-        var count,first;
-        if(params){
+        var count, first;
+        if (params) {
             count = params.limit;
             first = params.offset;
-        }else{
+        } else {
             count = 10;
             first = 0;
         }
         var queryParam = {
-            startDate:startDate,
-            endDate:endDate,
-            sourceType:sourceType,
-            count:count,
-            first:first
+            startDate: startDate,
+            endDate: endDate,
+            sourceType: sourceType,
+            count: count,
+            first: first
         };
 
         return queryParam;
     }
 
-    function initErrorParam(params){
+    function initErrorParam(params) {
         var queryJson = {};
         queryJson['count'] = params.limit;    // 每页显示条数
         queryJson['first'] = params.offset;   // 显示条数
@@ -527,14 +521,15 @@
         queryJson['order'] = params.order;     // 排位命令（desc，asc）
         return queryJson;
     }
+
     /* 查询数据*/
-    $('#loadData').on('click',function(e){
+    $('#loadData').on('click', function (e) {
         e.preventDefault();
         $table.bootstrapTable('refresh', {pageNumber: 1});
     });
 
-    $('#dataSet').on('change',function(){
-        $table.bootstrapTable('refresh', {pageNumber: 1,sourceType:$(this).val()});
+    $('#dataSet').on('change', function () {
+        $table.bootstrapTable('refresh', {pageNumber: 1, sourceType: $(this).val()});
     });
 
     /**
@@ -543,17 +538,17 @@
      * @param sourceId
      * @param sourceType
      */
-    function openDetailWindow(recordName,sourceId,sourceType){
-        $('#viewModalLabel').text(recordName+"详细信息");
+    function openDetailWindow(recordName, sourceId, sourceType) {
+        $('#viewModalLabel').text(recordName + "详细信息");
         $dataTable.bootstrapTable('destroy');
         $('#sourceType').val(sourceType);
         $('#sourceId').val(sourceId);
         var param = {
-            sourceId:sourceId,
-            sourceType:sourceType
+            sourceId: sourceId,
+            sourceType: sourceType
         };
         $.ajax({
-            url:  ctx + 'dataList/initColumns',
+            url: ctx + 'dataList/initColumns',
             data: param,
             type: "post",
             dataType: 'json',
@@ -573,30 +568,30 @@
     }
 
 
-    function convertToForm(data){
+    function convertToForm(data) {
         var obj = data.rows[0];
         var content = "";
         $('#viewForm').empty();
-        $.each(data.columns,function(index,value){
-            if(obj[value.field].length >= 30){
-                var rows = obj[value.field].length / 30 +1;
-                content += '<div class="form-group" id="'+value.field+'Label"> '+
-                    '<label class="col-sm-3 control-label" for="yzjddm">'+value.title+'</label> ' +
-                    '<div class="col-sm-6">'+
-                    '<textarea type="text" class="form-control" rows="'+rows+'" id="'+value.field+'" name="'+value.field+'" value="" readonly>'+obj[value.field]+'</textarea></div></div>'
-            }else{
+        $.each(data.columns, function (index, value) {
+            if (obj[value.field].length >= 30) {
+                var rows = obj[value.field].length / 30 + 1;
+                content += '<div class="form-group" id="' + value.field + 'Label"> ' +
+                    '<label class="col-sm-3 control-label" for="yzjddm">' + value.title + '</label> ' +
+                    '<div class="col-sm-6">' +
+                    '<textarea type="text" class="form-control" rows="' + rows + '" id="' + value.field + '" name="' + value.field + '" value="" readonly>' + obj[value.field] + '</textarea></div></div>'
+            } else {
                 var reg = /^[1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T+(20|21|22|23|[0-1]\d):[0-5]\d:[0-5]\d/;
                 var regExp = new RegExp(reg);
-                if(regExp.test(obj[value.field])){
-                    content += '<div class="form-group" id="'+value.field+'Label"> '+
-                        '<label class="col-sm-3 control-label" for="yzjddm">'+value.title+'</label> ' +
-                        '<div class="col-sm-6">'+
-                        '<input type="text" class="form-control" id="'+value.field+'" name="'+value.field+'" value="'+convertUTCToYYYYMMDDHHMMSS(obj[value.field])+'" readonly></div></div>'
-                }else{
-                    content += '<div class="form-group" id="'+value.field+'Label"> '+
-                        '<label class="col-sm-3 control-label" for="yzjddm">'+value.title+'</label> ' +
-                        '<div class="col-sm-6">'+
-                        '<input type="text" class="form-control" id="'+value.field+'" name="'+value.field+'" value="'+obj[value.field]+'" readonly></div></div>'
+                if (regExp.test(obj[value.field])) {
+                    content += '<div class="form-group" id="' + value.field + 'Label"> ' +
+                        '<label class="col-sm-3 control-label" for="yzjddm">' + value.title + '</label> ' +
+                        '<div class="col-sm-6">' +
+                        '<input type="text" class="form-control" id="' + value.field + '" name="' + value.field + '" value="' + convertUTCToYYYYMMDDHHMMSS(obj[value.field]) + '" readonly></div></div>'
+                } else {
+                    content += '<div class="form-group" id="' + value.field + 'Label"> ' +
+                        '<label class="col-sm-3 control-label" for="yzjddm">' + value.title + '</label> ' +
+                        '<div class="col-sm-6">' +
+                        '<input type="text" class="form-control" id="' + value.field + '" name="' + value.field + '" value="' + obj[value.field] + '" readonly></div></div>'
                 }
             }
 

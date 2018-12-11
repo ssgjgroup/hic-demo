@@ -8,6 +8,7 @@
          <result column="CLASS_NAME" property="className" jdbcType="VARCHAR" />
          <result column="METHOD_NAME" property="methodName" jdbcType="VARCHAR" />
         <result jdbcType="VARCHAR" property="argumentString" column="ARGUMENT_STRING"/>
+        <result jdbcType="VARCHAR" property="sourceName" column="SOURCE_NAME"/>
          <result column="ERROR_MESSAGE" property="errorMessage" jdbcType="VARCHAR" />
          <result column="ERROR_TIME" property="errorTime" jdbcType="TIMESTAMP" />
     </resultMap>
@@ -21,6 +22,7 @@
         <if test="(className != null )"> and t.CLASS_NAME = #{className} </if>
         <if test="(methodName != null )"> and t.METHOD_NAME = #{methodName} </if>
         <if test="(argumentString != null )"> and t.ARGUMENT_STRING = #{argumentString} </if>
+        <if test="(sourceName != null )"> and t.SOURCE_NAME = #{sourceName} </if>
         <if test="(errorMessage != null )"> and t.ERROR_MESSAGE = #{errorMessage} </if>
         <if test="(errorTime != null )"> and t.ERROR_TIME = #{errorTime} </if>
     </sql>
@@ -33,6 +35,7 @@
             <if test="(className != null )"> CLASS_NAME , </if>
             <if test="(methodName != null )"> METHOD_NAME , </if>
             <if test="(argumentString != null )"> ARGUMENT_STRING , </if>
+            <if test="(sourceName != null )"> SOURCE_NAME , </if>
             <if test="(errorMessage != null )"> ERROR_MESSAGE , </if>
             <if test="(errorTime != null )"> ERROR_TIME , </if>
         </trim>
@@ -42,6 +45,7 @@
             <if test="(className != null )">#{className , jdbcType= VARCHAR },  </if>
             <if test="(methodName != null )">#{methodName , jdbcType= VARCHAR },  </if>
             <if test="(argumentString != null )">#{argumentString , jdbcType= VARCHAR }, </if>
+            <if test="(sourceName != null )">#{sourceName , jdbcType= VARCHAR }, </if>
             <if test="(errorMessage != null )">#{errorMessage , jdbcType= VARCHAR },  </if>
             <if test="(errorTime != null )">#{errorTime , jdbcType= TIMESTAMP },  </if>
         </trim>
@@ -55,6 +59,7 @@
                 <if test="(className != null )"> CLASS_NAME = #{className , jdbcType= VARCHAR }, </if>
                 <if test="(methodName != null )"> METHOD_NAME = #{methodName , jdbcType= VARCHAR }, </if>
                 <if test="(argumentString != null )"> ARGUMENT_STRING = #{argumentString , jdbcType= VARCHAR }, </if>
+                <if test="(sourceName != null )"> SOURCE_NAME = #{sourceName , jdbcType= VARCHAR }, </if>
                 <if test="(errorMessage != null )"> ERROR_MESSAGE = #{errorMessage , jdbcType= VARCHAR }, </if>
                 <if test="(errorTime != null )"> ERROR_TIME = #{errorTime , jdbcType= TIMESTAMP }, </if>
             </trim>
@@ -107,7 +112,7 @@
     <select id="selectMbzDataErrorPageList" resultMap="mbzDataErrorResult" parameterType="com.winning.hic.model.MbzDataError">
         SELECT * FROM (
         SELECT t.* ,
-        ROW_NUMBER() OVER ( ORDER BY t.ID DESC ) AS _RN
+        ROW_NUMBER() OVER ( ORDER BY t.ERROR_TIME DESC ) AS _RN
         FROM MBZ_DATA_ERROR t
         <where>
             <include refid="sql-mbzDataError" />

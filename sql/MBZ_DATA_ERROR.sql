@@ -12,7 +12,7 @@
  Target Server Version : 11006020
  File Encoding         : 65001
 
- Date: 10/12/2018 12:22:00
+ Date: 11/12/2018 10:46:28
 */
 
 
@@ -29,7 +29,8 @@ CREATE TABLE [dbo].[MBZ_DATA_ERROR] (
   [METHOD_NAME] varchar(128) COLLATE Chinese_PRC_BIN  NULL,
   [ARGUMENT_STRING] varchar(max) COLLATE Chinese_PRC_BIN  NULL,
   [ERROR_MESSAGE] varchar(max) COLLATE Chinese_PRC_BIN  NULL,
-  [ERROR_TIME] datetime DEFAULT (getdate()) NULL
+  [ERROR_TIME] datetime DEFAULT (getdate()) NULL,
+  [SOURCE_NAME] varchar(255) COLLATE Chinese_PRC_BIN  NULL
 )
 GO
 

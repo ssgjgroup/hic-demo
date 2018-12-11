@@ -162,7 +162,17 @@ public class MbzDataError extends BaseDomain implements Serializable {
         return errorTime;
    }
 
-   /**
+   private String sourceName;
+
+    public String getSourceName() {
+        return sourceName;
+    }
+
+    public void setSourceName(String sourceName) {
+        this.sourceName = sourceName;
+    }
+
+    /**
    * 字段名：ERROR_TIME
    * set方法
    * 备注: 
