@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.winning.hic.service.MbzDictInfoService;
+import com.winning.hic.service.MbzLogService;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -63,6 +64,8 @@ public class HlhtZlczjlMzshfsjlServiceImpl implements HlhtZlczjlMzshfsjlService 
 
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
+    @Autowired
+    private MbzLogService mbzLogService;
 
     public int createHlhtZlczjlMzshfsjl(HlhtZlczjlMzshfsjl hlhtZlczjlMzshfsjl) {
         return this.hlhtZlczjlMzshfsjlDao.insertHlhtZlczjlMzshfsjl(hlhtZlczjlMzshfsjl);
@@ -158,6 +161,8 @@ public class HlhtZlczjlMzshfsjlServiceImpl implements HlhtZlczjlMzshfsjlService 
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
                     logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    String log = Constants.WN_ZLCZJL_MZSHFSJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
+                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZlczjlMzshfsjl.class);
@@ -180,6 +185,8 @@ public class HlhtZlczjlMzshfsjlServiceImpl implements HlhtZlczjlMzshfsjlService 
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZLCZJL_MZSHFSJL_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
                     logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    String log = Constants.WN_ZLCZJL_MZSHFSJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"病历百分比计算报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
+                    mbzLogService.createMbzLog(log);
                     continue;
                 }
 

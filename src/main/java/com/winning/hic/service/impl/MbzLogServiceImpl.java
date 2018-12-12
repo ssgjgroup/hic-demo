@@ -3,6 +3,8 @@ package com.winning.hic.service.impl;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import com.winning.hic.dao.cmdatacenter.MbzLogDao;
@@ -49,5 +51,13 @@ public class MbzLogServiceImpl implements  MbzLogService {
 
     public List<MbzLog> getMbzLogPageList(MbzLog mbzLog){
         return this.mbzLogDao.selectMbzLogPageList(mbzLog);
+    }
+
+    @Override
+    public int createMbzLog(String content) {
+        MbzLog log = new MbzLog();
+        log.setOperatorTime(new Timestamp(new Date().getTime()));
+        log.setContent(content);
+        return this.createMbzLog(log);
     }
 }
