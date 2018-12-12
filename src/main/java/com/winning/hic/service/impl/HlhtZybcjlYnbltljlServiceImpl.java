@@ -10,7 +10,6 @@ import java.util.Map;
 import com.winning.hic.dao.hdw.SplitTableDao;
 import com.winning.hic.model.*;
 import com.winning.hic.service.MbzDictInfoService;
-import com.winning.hic.service.MbzLogService;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,8 +58,7 @@ public class HlhtZybcjlYnbltljlServiceImpl implements HlhtZybcjlYnbltljlService 
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
-    @Autowired
-    private MbzLogService mbzLogService;
+
     public int createHlhtZybcjlYnbltljl(HlhtZybcjlYnbltljl hlhtZybcjlYnbltljl) {
         return this.hlhtZybcjlYnbltljlDao.insertHlhtZybcjlYnbltljl(hlhtZybcjlYnbltljl);
     }
@@ -146,8 +144,6 @@ public class HlhtZybcjlYnbltljlServiceImpl implements HlhtZybcjlYnbltljlService 
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
                     logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
-                    String log = Constants.WN_ZYBCJL_YNBLTLJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 Map<String, String> paramTypeMap = ReflectUtil.getParamTypeMap(HlhtZybcjlYnbltljl.class);
@@ -211,8 +207,6 @@ public class HlhtZybcjlYnbltljlServiceImpl implements HlhtZybcjlYnbltljlService 
                     this.createHlhtZybcjlYnbltljl(obj);
                 } catch (Exception e) {
                     logger.error("数据入库报错,病历名称：{},源记录序号{},错误原因：{}", obj.getBlmc(), obj.getYjlxh(),e.getMessage());
-                    String log = Constants.WN_ZYBCJL_YNBLTLJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"病历百分比计算报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 try {

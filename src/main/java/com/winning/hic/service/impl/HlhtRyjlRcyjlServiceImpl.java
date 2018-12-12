@@ -1,7 +1,6 @@
 package com.winning.hic.service.impl;
 
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.*;
 
 import com.winning.hic.base.SplitParamsConstants;
@@ -47,8 +46,6 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
-    @Autowired
-    private MbzLogService mbzLogService;
 
     public int createHlhtRyjlRcyjl(HlhtRyjlRcyjl hlhtRyjlRcyjl) {
         return this.hlhtRyjlRcyjlDao.insertHlhtRyjlRcyjl(hlhtRyjlRcyjl);
@@ -142,8 +139,6 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
                 } catch (IOException e) {
                     // e.printStackTrace();
                     logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
-                    String log = Constants.WN_RYJL_RCYJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 //System.out.println(Base64Utils.unzipEmrXml(emrQtbljlk.getBlnr()));
@@ -314,8 +309,6 @@ public class HlhtRyjlRcyjlServiceImpl implements HlhtRyjlRcyjlService {
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_RYJL_RCYJL_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
                     logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
-                    String log = Constants.WN_RYJL_RCYJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"病历百分比计算报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 real_count++;

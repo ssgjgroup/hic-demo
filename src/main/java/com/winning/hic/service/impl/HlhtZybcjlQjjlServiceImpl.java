@@ -6,7 +6,7 @@ import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
 import com.winning.hic.model.*;
-import com.winning.hic.service.*;
+import com.winning.hic.service.MbzDictInfoService;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +16,9 @@ import org.springframework.stereotype.Service;
 import com.winning.hic.base.Constants;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.HlhtZybcjlQjjlDao;
+import com.winning.hic.service.HlhtZybcjlQjjlService;
+import com.winning.hic.service.MbzDataCheckService;
+import com.winning.hic.service.MbzDataSetService;
 
 
 /**
@@ -45,8 +48,6 @@ public class HlhtZybcjlQjjlServiceImpl implements HlhtZybcjlQjjlService {
 
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
-    @Autowired
-    private MbzLogService mbzLogService;
 
     public int createHlhtZybcjlQjjl(HlhtZybcjlQjjl hlhtZybcjlQjjl) {
         return this.hlhtZybcjlQjjlDao.insertHlhtZybcjlQjjl(hlhtZybcjlQjjl);
@@ -133,8 +134,6 @@ public class HlhtZybcjlQjjlServiceImpl implements HlhtZybcjlQjjlService {
 
                 } catch (Exception e) {
                     logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
-                    String log = Constants.WN_ZYBCJL_QJJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 obj = (HlhtZybcjlQjjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
@@ -203,8 +202,6 @@ public class HlhtZybcjlQjjlServiceImpl implements HlhtZybcjlQjjlService {
                 } catch (Exception e) {
                     //e.printStackTrace();
                     logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
-                    String log = Constants.WN_ZYBCJL_QJJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"病历百分比计算报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 real_count++;

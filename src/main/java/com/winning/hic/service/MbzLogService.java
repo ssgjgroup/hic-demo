@@ -27,6 +27,4 @@ public interface MbzLogService {
     public List<MbzLog> getMbzLogList(MbzLog mbzLog);
 
     public List<MbzLog> getMbzLogPageList(MbzLog mbzLog);
-
-    public int createMbzLog(String content);
 }

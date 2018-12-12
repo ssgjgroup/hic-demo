@@ -8,7 +8,6 @@ import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.*;
 import com.winning.hic.model.*;
 import com.winning.hic.service.MbzDictInfoService;
-import com.winning.hic.service.MbzLogService;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,8 +48,6 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
     private HlhtCommonQueryDao hlhtCommonQueryDao;
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
-    @Autowired
-    private MbzLogService mbzLogService;
 
     public int createHlhtRyjlJbxx(HlhtRyjlJbxx hlhtRyjlJbxx) {
         return this.hlhtRyjlJbxxDao.insertHlhtRyjlJbxx(hlhtRyjlJbxx);
@@ -182,8 +179,6 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
                 } catch (IOException e) {
                     //e.printStackTrace();
                     logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
-                    String log = Constants.WN_RYJL_JBXX_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 if (xzEmrQtbljlks.size() >= 1) {
@@ -194,8 +189,6 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
                     } catch (IOException e) {
                         //e.printStackTrace();
                         logger.error("解析病历报错,病历名称：{},源记录序号{}", xzEmrQtbljlks.get(0).getBlmc(), xzEmrQtbljlks.get(0).getQtbljlxh());
-                        String log = Constants.WN_RYJL_JBXX_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+xzEmrQtbljlks.get(0).getBlmc()+"},源记录序号{"+xzEmrQtbljlks.get(0).getQtbljlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                        mbzLogService.createMbzLog(log);
                         continue;
                     }
                 }
@@ -206,8 +199,6 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
                     } catch (IOException e) {
                         // e.printStackTrace();
                         logger.error("解析病历报错,病历名称：{},源记录序号{}", qzEmrQtbljlks.get(0).getBlmc(), qzEmrQtbljlks.get(0).getQtbljlxh());
-                        String log = Constants.WN_RYJL_JBXX_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+qzEmrQtbljlks.get(0).getBlmc()+"},源记录序号{"+qzEmrQtbljlks.get(0).getQtbljlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                        mbzLogService.createMbzLog(log);
                         continue;
                     }
                 }
@@ -219,8 +210,6 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
                     } catch (IOException e) {
                         //e.printStackTrace();
                         logger.error("解析病历报错,病历名称：{},源记录序号{}", bzEmrQtbljlks.get(0).getBlmc(), bzEmrQtbljlks.get(0).getQtbljlxh());
-                        String log = Constants.WN_RYJL_JBXX_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+bzEmrQtbljlks.get(0).getBlmc()+"},源记录序号{"+bzEmrQtbljlks.get(0).getQtbljlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                        mbzLogService.createMbzLog(log);
                         continue;
                     }
                 }
@@ -461,8 +450,6 @@ public class HlhtRyjlJbxxServiceImpl implements HlhtRyjlJbxxService {
                 } catch (Exception e) {
                     //e.printStackTrace();
                     logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
-                    String log = Constants.WN_RYJL_JBXX_SOURCE_TYPE +"||"+getClass().toString()+"||"+"病历百分比计算报错,病历名称：{"+bzEmrQtbljlks.get(0).getBlmc()+"},源记录序号{"+bzEmrQtbljlks.get(0).getQtbljlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 real_count++;

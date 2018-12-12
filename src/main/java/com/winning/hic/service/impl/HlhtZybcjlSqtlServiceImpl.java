@@ -8,7 +8,6 @@ import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
 import com.winning.hic.model.*;
 import com.winning.hic.service.MbzDictInfoService;
-import com.winning.hic.service.MbzLogService;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,8 +48,6 @@ public class HlhtZybcjlSqtlServiceImpl implements HlhtZybcjlSqtlService {
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
-    @Autowired
-    private MbzLogService mbzLogService;
 
     public int createHlhtZybcjlSqtl(HlhtZybcjlSqtl hlhtZybcjlSqtl) {
         return this.hlhtZybcjlSqtlDao.insertHlhtZybcjlSqtl(hlhtZybcjlSqtl);
@@ -130,8 +127,6 @@ public class HlhtZybcjlSqtlServiceImpl implements HlhtZybcjlSqtlService {
                 } catch (IOException e) {
                     // e.printStackTrace();
                     logger.error("解析病历报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
-                    String log = Constants.WN_ZYBCJL_SQTL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 //判断是否存在重复,存在则删除，重新新增
@@ -214,8 +209,6 @@ public class HlhtZybcjlSqtlServiceImpl implements HlhtZybcjlSqtlService {
                 } catch (Exception e) {
                     //e.printStackTrace();
                     logger.error("病历百分比计算报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
-                    String log = Constants.WN_ZYBCJL_SQTL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"病历百分比计算报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 real_count++;

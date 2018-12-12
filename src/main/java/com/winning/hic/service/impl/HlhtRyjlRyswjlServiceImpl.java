@@ -8,7 +8,6 @@ import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
 import com.winning.hic.model.*;
 import com.winning.hic.service.MbzDictInfoService;
-import com.winning.hic.service.MbzLogService;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,8 +52,6 @@ public class HlhtRyjlRyswjlServiceImpl implements HlhtRyjlRyswjlService {
     private MbzDataCheckService mbzDataCheckService;
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
-    @Autowired
-    private MbzLogService mbzLogService;
 
     public int createHlhtRyjlRyswjl(HlhtRyjlRyswjl hlhtRyjlRyswjl) {
         return this.hlhtRyjlRyswjlDao.insertHlhtRyjlRyswjl(hlhtRyjlRyswjl);
@@ -139,8 +136,6 @@ public class HlhtRyjlRyswjlServiceImpl implements HlhtRyjlRyswjlService {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
                     logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
-                    String log = Constants.WN_RYJL_RYSWJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 //System.out.println(Base64Utils.unzipEmrXml(emrQtbljlk.getBlnr()));
@@ -304,8 +299,6 @@ public class HlhtRyjlRyswjlServiceImpl implements HlhtRyjlRyswjlService {
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_RYJL_RYSWJL_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
                     logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
-                    String log = Constants.WN_RYJL_RYSWJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 real_count++;

@@ -5,6 +5,7 @@ import com.winning.hic.base.config.CisTableNameConfig;
 import com.winning.hic.base.utils.StringUtil;
 import com.winning.hic.model.MbzDataError;
 import com.winning.hic.service.MbzDataErrorService;
+import com.winning.hic.service.MbzOperateLogService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -33,7 +34,6 @@ public class SplitTableAscept {
     @Autowired
     private MbzDataErrorService mbzDataErrorService;
 
-
     @Pointcut("execution(* com.winning.hic.dao.hdw.SplitTableDao.selectAnmr*ByProc(..))")
     public void servicePointcut() {
     }
@@ -59,9 +59,9 @@ public class SplitTableAscept {
                 .replace("SELECT_", "")
                 .replace("_SPLIT_BY_PROC", "");
         StringBuilder msg = new StringBuilder();
-        if (dataType.startsWith("HLHT") || dataType.startsWith("ANMR")) {
+        if (dataType.startsWith("HLHT") || dataType.startsWith("AMER")) {
             if(!"AMER_ZCJL_DCJL".equals(dataType)){
-                dataType = dataType.replace("ANMR","HLHT");
+                dataType = dataType.replace("AMER","HLHT");
             }
             msg.append(CisTableNameConfig.getDataListName(dataType));
         } else {

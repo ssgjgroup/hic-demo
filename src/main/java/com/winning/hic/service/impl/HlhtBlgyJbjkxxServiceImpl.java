@@ -1,12 +1,14 @@
 package com.winning.hic.service.impl;
 
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.winning.hic.dao.hdw.SplitTableDao;
-import com.winning.hic.model.*;
+import com.winning.hic.model.MbzDictInfo;
 import com.winning.hic.service.MbzDictInfoService;
-import com.winning.hic.service.MbzLogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ import com.winning.hic.base.Constants;
 import com.winning.hic.base.utils.PercentUtil;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.HlhtBlgyJbjkxxDao;
+import com.winning.hic.model.HlhtBlgyJbjkxx;
+import com.winning.hic.model.MbzDataCheck;
+import com.winning.hic.model.MbzLoadDataInfo;
 import com.winning.hic.service.HlhtBlgyJbjkxxService;
 import com.winning.hic.service.MbzDataCheckService;
 
@@ -41,8 +46,6 @@ public class HlhtBlgyJbjkxxServiceImpl implements HlhtBlgyJbjkxxService {
     private MbzDataCheckService mbzDataCheckService;
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
-    @Autowired
-    private MbzLogService mbzLogService;
 
     public int createHlhtBlgyJbjkxx(HlhtBlgyJbjkxx hlhtBlgyJbjkxx) {
         return this.hlhtBlgyJbjkxxDao.insertHlhtBlgyJbjkxx(hlhtBlgyJbjkxx);
@@ -130,8 +133,6 @@ public class HlhtBlgyJbjkxxServiceImpl implements HlhtBlgyJbjkxxService {
             } catch (Exception e) {
                 //e.printStackTrace();
                 logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
-                String log = Constants.WN_BLGY_JBJKXX_SOURCE_TYPE +"||"+getClass().toString()+"||"+"病历百分比计算报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                mbzLogService.createMbzLog(log);
                 continue;
             }
             real_count++;

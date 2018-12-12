@@ -8,7 +8,7 @@ import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
 import com.winning.hic.model.*;
-import com.winning.hic.service.*;
+import com.winning.hic.service.MbzDictInfoService;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +21,9 @@ import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.CommonQueryDao;
 import com.winning.hic.dao.hdw.EmrQtbljlkDao;
 import com.winning.hic.dao.hdw.HlhtZzyjlZzyjlDao;
+import com.winning.hic.service.HlhtZzyjlZzyjlService;
+import com.winning.hic.service.MbzDataCheckService;
+import com.winning.hic.service.MbzDataSetService;
 
 
 /**
@@ -36,18 +39,25 @@ public class HlhtZzyjlZzyjlServiceImpl implements HlhtZzyjlZzyjlService {
     private final Logger logger = LoggerFactory.getLogger(HlhtZzyjlZzyjlServiceImpl.class);
     @Autowired
     private HlhtZzyjlZzyjlDao HlhtZzyjlZzyjlDao;
+
     @Autowired
     private MbzDataSetService mbzDataSetService;
+
+    @Autowired
+    private CommonQueryDao commonQueryDao;
+
+    @Autowired
+    private EmrQtbljlkDao emrQtbljlkDao;
+
     @Autowired
     private MbzDataCheckService mbzDataCheckService;
+
     @Autowired
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
     @Autowired
     private SplitTableDao splitTableDao;
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
-    @Autowired
-    private MbzLogService mbzLogService;
 
     public int createHlhtZzyjlZzyjl(HlhtZzyjlZzyjl HlhtZzyjlZzyjl) {
         return this.HlhtZzyjlZzyjlDao.insertHlhtZzyjlZzyjl(HlhtZzyjlZzyjl);
@@ -134,8 +144,6 @@ public class HlhtZzyjlZzyjlServiceImpl implements HlhtZzyjlZzyjlService {
                     obj = (HlhtZzyjlZzyjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
                 } catch (Exception e) {
                     logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
-                    String log = Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 ListUtils.convertValue(obj, Arrays.asList(SplitParamsConstants.ZZYJL_ZZYJL), SplitParamsConstants.SPECIAL_SPLIT_FLAG);
@@ -149,17 +157,15 @@ public class HlhtZzyjlZzyjlServiceImpl implements HlhtZzyjlZzyjlService {
                 //插入日志
                 try {
                     mbzLoadDataInfoDao.insertMbzLoadDataInfo(new MbzLoadDataInfo(
-                            Long.parseLong(Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE),
+                            Long.parseLong(Constants.WN_ZQGZXX_QTZQTYS_SOURCE_TYPE),
                             Long.parseLong(obj.getYjlxh()), obj.getBlmc(), obj.getSyxh() + "",
                             obj.getFssj(),
                             obj.getPatid(), obj.getZyh(), obj.getHzxm(), obj.getXbmc(), obj.getXbdm(),
-                            "NA", "NA", "NA", "NA", obj.getSfzhm(), PercentUtil.getPercent(Long.parseLong(Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE), obj, 1),
+                            "NA", "NA", "NA", "NA", obj.getSfzhm(), PercentUtil.getPercent(Long.parseLong(Constants.WN_ZQGZXX_QTZQTYS_SOURCE_TYPE), obj, 1),
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
                     //e.printStackTrace();
                     logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
-                    String log = Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"病历百分比计算报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
-                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 real_count++;
@@ -168,7 +174,7 @@ public class HlhtZzyjlZzyjlServiceImpl implements HlhtZzyjlZzyjlService {
         this.splitTableDao.selectAnmrZzyjlZzyjlSplitByProc(hlht);
 
         //更新dc表
-        t.getMap().put("sourceType",Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE);
+        t.getMap().put("sourceType",Constants.WN_ZQGZXX_QTZQTYS_SOURCE_TYPE);
         this.splitTableDao.updateDcTableData(t);
         //1.病历总数 2.抽取的病历数量 3.子集类型
         this.mbzDataCheckService.createMbzDataCheckNum(emr_count, real_count, Integer.parseInt(Constants.WN_ZZYJL_ZZYJL_SOURCE_TYPE), t);
