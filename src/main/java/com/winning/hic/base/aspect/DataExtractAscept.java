@@ -21,7 +21,7 @@ import java.util.Date;
 
 /**
  * @author chensj
- * @title
+ * @title 数据抽取日志记录
  * @email chensj@winning.com.cn
  * @package com.winning.hic.base.aspect
  * @date: 2018-11-21 14:11
@@ -47,6 +47,10 @@ public class DataExtractAscept {
         }
     }
 
+    /**
+     * 数据抽取日志记录
+     * @param joinPoint
+     */
     @Around("servicePointcut()")
     public void around(JoinPoint joinPoint) {
         String targetName = joinPoint.getTarget().getClass().getName();

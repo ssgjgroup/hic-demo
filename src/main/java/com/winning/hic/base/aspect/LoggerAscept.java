@@ -5,8 +5,6 @@ import com.winning.hic.base.config.CisTableNameConfig;
 import com.winning.hic.base.utils.StringUtil;
 import com.winning.hic.model.MbzDataError;
 import com.winning.hic.service.MbzDataErrorService;
-import org.aopalliance.intercept.Joinpoint;
-import org.apache.commons.lang.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;

@@ -5,7 +5,6 @@ import com.winning.hic.base.config.CisTableNameConfig;
 import com.winning.hic.base.utils.StringUtil;
 import com.winning.hic.model.MbzDataError;
 import com.winning.hic.service.MbzDataErrorService;
-import com.winning.hic.service.MbzOperateLogService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -21,7 +20,7 @@ import java.util.Date;
 
 /**
  * @author Eovl
- * @title
+ * @title 主从表拆分日志记录
  * @package com.winning.hic.base.aspect
  * @date: 2018-11-21 14:11
  */
