@@ -6,7 +6,7 @@ import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
 import com.winning.hic.model.*;
-import com.winning.hic.service.MbzDictInfoService;
+import com.winning.hic.service.*;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,6 +51,8 @@ public class HlhtCyxjCyxjServiceImpl implements HlhtCyxjCyxjService {
 
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
+    @Autowired
+    private MbzLogService mbzLogService;
 
     public int createHlhtCyxjCyxj(HlhtCyxjCyxj hlhtCyxjCyxj) {
         return this.hlhtCyxjCyxjDao.insertHlhtCyxjCyxj(hlhtCyxjCyxj);
@@ -140,6 +142,8 @@ public class HlhtCyxjCyxjServiceImpl implements HlhtCyxjCyxjService {
                     } catch (Exception e) {
                         //e.printStackTrace();
                         logger.error("解析病历报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                        String log = Constants.WN_CYXJ_CYXJ_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
+                        mbzLogService.createMbzLog(log);
                         continue;
                     }
                     //初步诊断-中医病名代码、名称处理
@@ -267,6 +271,8 @@ public class HlhtCyxjCyxjServiceImpl implements HlhtCyxjCyxjService {
                                 PercentUtil.getPercent(Long.parseLong(Constants.WN_CYXJ_CYXJ_SOURCE_TYPE), obj, 0)));
                     } catch (Exception e) {
                         logger.error("病历百分比计算报错,病历名称：{},源记录序号{}",  obj.getBlmc(),obj.getYjlxh());
+                        String log = Constants.WN_CYXJ_CYXJ_SOURCE_TYPE +"||"+getClass().toString()+"||"+"病历百分比计算报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
+                        mbzLogService.createMbzLog(log);
                         continue;
                     }
                     real_count++;

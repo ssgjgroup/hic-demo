@@ -7,6 +7,7 @@ import com.winning.hic.base.SplitParamsConstants;
 import com.winning.hic.base.utils.*;
 import com.winning.hic.dao.hdw.SplitTableDao;
 import com.winning.hic.service.MbzDictInfoService;
+import com.winning.hic.service.MbzLogService;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,6 +58,8 @@ public class HlhtMjzblJzlgblServiceImpl implements HlhtMjzblJzlgblService {
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
+    @Autowired
+    private MbzLogService mbzLogService;
 
     public int createHlhtMjzblJzlgbl(HlhtMjzblJzlgbl hlhtMjzblJzlgbl) {
         return this.hlhtMjzblJzlgblDao.insertHlhtMjzblJzlgbl(hlhtMjzblJzlgbl);
@@ -198,6 +201,8 @@ public class HlhtMjzblJzlgblServiceImpl implements HlhtMjzblJzlgblService {
                     } catch (IOException e) {
                         //e.printStackTrace();
                         logger.error("解析病历报错,病历名称：{},源记录序号{}", bcEmrQtbljlks.get(0).getBlmc(), bcEmrQtbljlks.get(0).getQtbljlxh());
+                        String log = Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
+                        mbzLogService.createMbzLog(log);
                     }
                 }
                 if (bcDataSetList != null) {
@@ -275,6 +280,8 @@ public class HlhtMjzblJzlgblServiceImpl implements HlhtMjzblJzlgblService {
                 } catch (Exception e) {
                     //e.printStackTrace();
                     logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    String log = Constants.WN_MJZBL_JZLGBL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"病历百分比计算报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
+                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 real_count++;

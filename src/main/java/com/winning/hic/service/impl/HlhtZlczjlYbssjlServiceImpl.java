@@ -8,7 +8,7 @@ import java.util.Map;
 
 import com.winning.hic.dao.hdw.SplitTableDao;
 import com.winning.hic.model.*;
-import com.winning.hic.service.MbzDictInfoService;
+import com.winning.hic.service.*;
 import org.dom4j.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,9 +23,6 @@ import com.winning.hic.base.utils.ReflectUtil;
 import com.winning.hic.base.utils.XmlUtil;
 import com.winning.hic.dao.cmdatacenter.MbzLoadDataInfoDao;
 import com.winning.hic.dao.hdw.HlhtZlczjlYbssjlDao;
-import com.winning.hic.service.HlhtZlczjlYbssjlService;
-import com.winning.hic.service.MbzDataCheckService;
-import com.winning.hic.service.MbzDataSetService;
 
 
 /**
@@ -56,6 +53,8 @@ public class HlhtZlczjlYbssjlServiceImpl implements HlhtZlczjlYbssjlService {
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
+    @Autowired
+    private MbzLogService mbzLogService;
 
     public int createHlhtZlczjlYbssjl(HlhtZlczjlYbssjl hlhtZlczjlYbssjl) {
         return this.hlhtZlczjlYbssjlDao.insertHlhtZlczjlYbssjl(hlhtZlczjlYbssjl);
@@ -142,6 +141,8 @@ public class HlhtZlczjlYbssjlServiceImpl implements HlhtZlczjlYbssjlService {
                     document = XmlUtil.getDocument(Base64Utils.unzipEmrXml(obj.getBlnr()));
                 } catch (IOException e) {
                     logger.error("解析病历报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    String log = Constants.WN_ZLCZJL_YBSSJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"解析病历报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
+                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 obj = (HlhtZlczjlYbssjl) HicHelper.initModelValue(mbzDataSetList, document, obj, paramTypeMap);
@@ -182,6 +183,8 @@ public class HlhtZlczjlYbssjlServiceImpl implements HlhtZlczjlYbssjlService {
                             PercentUtil.getPercent(Long.parseLong(Constants.WN_ZLCZJL_YBSSJL_SOURCE_TYPE), obj, 0)));
                 } catch (Exception e) {
                     logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                    String log = Constants.WN_ZLCZJL_YBSSJL_SOURCE_TYPE +"||"+getClass().toString()+"||"+"病历百分比计算报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
+                    mbzLogService.createMbzLog(log);
                     continue;
                 }
                 real_count++;

@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.winning.hic.model.MbzDictInfo;
 import com.winning.hic.service.MbzDictInfoService;
+import com.winning.hic.service.MbzLogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,8 @@ public class HlhtBlgyWssjzyServiceImpl implements HlhtBlgyWssjzyService {
     private MbzLoadDataInfoDao mbzLoadDataInfoDao;
     @Autowired
     private MbzDictInfoService mbzDictInfoService;
+    @Autowired
+    private MbzLogService mbzLogService;
 
     public int createHlhtBlgyWssjzy(HlhtBlgyWssjzy hlhtBlgyWssjzy) {
         return this.hlhtBlgyWssjzyDao.insertHlhtBlgyWssjzy(hlhtBlgyWssjzy);
@@ -133,6 +136,8 @@ public class HlhtBlgyWssjzyServiceImpl implements HlhtBlgyWssjzyService {
             } catch (Exception e) {
                 //e.printStackTrace();
                 logger.error("病历百分比计算报错,病历名称：{},源记录序号{}", obj.getBlmc(), obj.getYjlxh());
+                String log = Constants.WN_BLGY_WSSJZY_SOURCE_TYPE +"||"+getClass().toString()+"||"+"病历百分比计算报错,病历名称：{"+obj.getBlmc()+"},源记录序号{"+obj.getYjlxh()+"}"+"||错误原因:{"+e.getMessage()+"}";
+                mbzLogService.createMbzLog(log);
                 continue;
             }
         }
